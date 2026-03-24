@@ -5,6 +5,8 @@ export default defineConfig({
   description: 'Bannerlord Modding SDK Documentation - XML反序列化文档和模块架构指南',
 
   base: '/',
+  
+  ignoreDeadLinks: true,
 
   lang: 'en',
 

@@ -80,7 +80,14 @@ export default defineConfig({
           text: 'API 参考',
           items: [
             { text: '概述 Index', link: '/v1.3.15/zh/api/' },
-            { text: 'TaleWorlds.MountAndBlade', link: '/v1.3.15/zh/api/TaleWorlds.MountAndBlade/' }
+            { text: 'Core 核心', link: '/v1.3.15/zh/api/core/' },
+            { text: 'Mission 任务', link: '/v1.3.15/zh/api/mission/' },
+            { text: 'Mission-Ext 任务扩展', link: '/v1.3.15/zh/api/mission-ext/' },
+            { text: 'Items 物品', link: '/v1.3.15/zh/api/items/' },
+            { text: 'Campaign 战役', link: '/v1.3.15/zh/api/campaign/' },
+            { text: 'Campaign-Ext 战役扩展', link: '/v1.3.15/zh/api/campaign-ext/' },
+            { text: 'GUI 界面', link: '/v1.3.15/zh/api/gui/' },
+            { text: 'Save-System 存档', link: '/v1.3.15/zh/api/save-system/' }
           ]
         }
       ],
@@ -141,7 +148,14 @@ export default defineConfig({
           text: 'API Reference',
           items: [
             { text: 'Index', link: '/v1.3.15/en/api/' },
-            { text: 'TaleWorlds.MountAndBlade', link: '/v1.3.15/en/api/TaleWorlds.MountAndBlade/' }
+            { text: 'Core', link: '/v1.3.15/en/api/core/' },
+            { text: 'Mission', link: '/v1.3.15/en/api/mission/' },
+            { text: 'Mission-Ext', link: '/v1.3.15/en/api/mission-ext/' },
+            { text: 'Items', link: '/v1.3.15/en/api/items/' },
+            { text: 'Campaign', link: '/v1.3.15/en/api/campaign/' },
+            { text: 'Campaign-Ext', link: '/v1.3.15/en/api/campaign-ext/' },
+            { text: 'GUI', link: '/v1.3.15/en/api/gui/' },
+            { text: 'Save-System', link: '/v1.3.15/en/api/save-system/' }
           ]
         }
       ],

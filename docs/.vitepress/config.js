@@ -24,32 +24,23 @@ export default defineConfig({
 
     nav: [
       { text: '首页 Home', link: '/' },
+      { text: '指南 Guide', link: '/v1.3.15/zh/guide/' },
+      { text: 'API', link: '/v1.3.15/zh/api/' },
+      { text: 'XML', link: '/v1.3.15/zh/xml-reference/' },
+      { text: '原生 Native', link: '/v1.3.15/zh/native/' },
+      { text: '架构 Architecture', link: '/v1.3.15/zh/architecture/' },
       {
-        text: '📚 v1.3.15',
+        text: '🔽 v1.3.15',
         items: [
-          { text: '版本切换 / Version', items: [
-            { text: '🇨🇳 中文', link: '/v1.3.15/zh/' },
-            { text: '🇬🇧 English', link: '/v1.3.15/en/' }
-          ]},
-          { text: '📖 指南 Guide', link: '/v1.3.15/zh/guide/' },
-          { text: '📡 API 参考', link: '/v1.3.15/zh/api/' },
-          { text: '📋 XML 参考', link: '/v1.3.15/zh/xml-reference/' },
-          { text: '⚙️ 原生接口', link: '/v1.3.15/zh/native/' },
-          { text: '🏛️ 架构文档', link: '/v1.3.15/zh/architecture/' }
+          { text: 'v1.3.15 (当前)', link: '/v1.3.15/zh/' },
+          { text: 'v1.3.0', link: '/v1.3.0/zh/' }
         ]
       },
       {
-        text: '📚 v1.3.0',
+        text: '🌐 中文',
         items: [
-          { text: '版本切换 / Version', items: [
-            { text: '🇨🇳 中文', link: '/v1.3.0/zh/' },
-            { text: '🇬🇧 English', link: '/v1.3.0/en/' }
-          ]},
-          { text: '📖 指南 Guide', link: '/v1.3.0/zh/guide/' },
-          { text: '📡 API 参考', link: '/v1.3.0/zh/api/' },
-          { text: '📋 XML 参考', link: '/v1.3.0/zh/xml-reference/' },
-          { text: '⚙️ 原生接口', link: '/v1.3.0/zh/native/' },
-          { text: '🏛️ 架构文档', link: '/v1.3.0/zh/architecture/' }
+          { text: '🇨🇳 中文', link: '/v1.3.15/zh/' },
+          { text: '🇬🇧 English', link: '/v1.3.15/en/' }
         ]
       }
     ],

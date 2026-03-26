@@ -21,6 +21,18 @@ v1.3.0 is the version before v1.3.15. Some APIs may differ from the newer versio
 
 ---
 
+## Advanced Topics
+
+> Note: v1.3.0 has some API differences from v1.3.15. Refer to [v1.3.15 Guide](../../v1.3.15/en/guide/) for more complete content.
+
+6. [Mission System Basics](./mission-basics.md) - Mission, MissionBehavior introduction
+7. [Campaign System Basics](./campaign-basics.md) - MobileParty, Kingdom introduction
+8. [UI System Basics](./ui-basics.md) - GauntletMovie introduction
+9. [Save System](./save-system.md) - v1.3.0 save implementation
+10. [Common Issues](./common-issues.md) - Common errors and solutions
+
+---
+
 ## Environment Setup
 
 ### System Requirements
@@ -182,6 +194,37 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 ## Next Steps
 
+- View [Mission System Basics](./mission-basics.md) - Learn Mission and MissionBehavior
+- View [Campaign System Basics](./campaign-basics.md) - Learn world map logic
+- View [UI System Basics](./ui-basics.md) - Learn Gauntlet UI
 - View [API Reference](../../api/) to learn available interfaces
 - View [XML Reference](../../xml-reference/) to learn configuration formats
 - View [Architecture](../../architecture/) to understand system design
+- Recommended: Use [v1.3.15 Guide](../../v1.3.15/en/guide/) for more complete content
+
+---
+
+## FAQ
+
+### Q: Module doesn't show in list?
+
+Check:
+1. `SubModule.xml` is in correct location
+2. DLL is compiled
+3. Class name matches XML
+
+### Q: Which is better, v1.3.0 or v1.3.15?
+
+| Feature | v1.3.0 | v1.3.15 |
+|---------|--------|---------|
+| SaveSystem | Inline implementation | Separate TaleWorlds.SaveSystem |
+| Stability | Stable | Newer |
+| Mod compatibility | Depends on mod | Depends on mod |
+
+For new projects, v1.3.15 is recommended.
+
+### Q: How to upgrade to v1.3.15?
+
+1. Check v1.3.15 API changes
+2. If using TaleWorlds.SaveSystem, need to re-implement
+3. Test all functionality

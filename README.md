@@ -126,7 +126,7 @@ BannerlordCode.github.io/
 
 ## 相关链接 / Links
 
-- [游戏源代码 / Source Code](https://github.com/BannerlordCode)
+- [GitHub Organization](https://github.com/BannerlordCode)
 - [Official Modding Forum](https://forums.taleworlds.com/)
 
 ## 许可证 / License

@@ -10,7 +10,4 @@ Complete API reference for v1.3.0.
 ## Modules
 
 - [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/)
-- [TaleWorlds.Core](./TaleWorlds.Core/)
-- [TaleWorlds.CampaignSystem](./TaleWorlds.CampaignSystem/)
-- [TaleWorlds.ObjectSystem](./TaleWorlds.ObjectSystem/)
 

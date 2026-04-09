@@ -55,6 +55,6 @@ VitePress site is under construction, complete documentation will be added gradu
 
 ## 链接 / Links
 
-- **GitHub Wiki (v1.3.15)**: https://github.com/BannerlordCode/bannerlord-1.3.15.wiki
-- **源代码 / Source Code**: `bannerlord-1.3.15/` 和 / and `bannerlord-1.3.0/`
+- **GitHub Organization**: https://github.com/BannerlordCode
+- **Official Modding Forum**: https://forums.taleworlds.com/
 

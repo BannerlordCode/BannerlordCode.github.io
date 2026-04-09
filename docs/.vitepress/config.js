@@ -70,15 +70,15 @@ export default defineConfig({
           text: '指南 Guide',
           items: [
             { text: '概述 Index', link: '/v1.3.15/zh/guide/' },
-            { text: 'Gauntlet UI 系统', link: '/v1.3.15/zh/guide/gauntlet-ui/' },
-            { text: '任务系统 Mission', link: '/v1.3.15/zh/guide/mission-system/' },
-            { text: '战役系统 Campaign', link: '/v1.3.15/zh/guide/campaign-system/' },
-            { text: '存档系统 Save', link: '/v1.3.15/zh/guide/save-system-guide/' },
-            { text: '资源管线 Asset', link: '/v1.3.15/zh/guide/asset-pipeline/' },
-            { text: '本地化 Localization', link: '/v1.3.15/zh/guide/localization/' },
-            { text: '常见模式 Patterns', link: '/v1.3.15/zh/guide/common-patterns/' },
-            { text: '游戏系统概述 Systems', link: '/v1.3.15/zh/guide/game-systems-overview/' },
-            { text: '故障排除 Troubleshooting', link: '/v1.3.15/zh/guide/troubleshooting/' }
+            { text: 'Gauntlet UI 系统', link: '/v1.3.15/zh/guide/gauntlet-ui' },
+            { text: '任务系统 Mission', link: '/v1.3.15/zh/guide/mission-system' },
+            { text: '战役系统 Campaign', link: '/v1.3.15/zh/guide/campaign-system' },
+            { text: '存档系统 Save', link: '/v1.3.15/zh/guide/save-system-guide' },
+            { text: '资源管线 Asset', link: '/v1.3.15/zh/guide/asset-pipeline' },
+            { text: '本地化 Localization', link: '/v1.3.15/zh/guide/localization' },
+            { text: '常见模式 Patterns', link: '/v1.3.15/zh/guide/common-patterns' },
+            { text: '游戏系统概述 Systems', link: '/v1.3.15/zh/guide/game-systems-overview' },
+            { text: '故障排除 Troubleshooting', link: '/v1.3.15/zh/guide/troubleshooting' }
           ]
         }
       ],
@@ -147,15 +147,15 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Index', link: '/v1.3.15/en/guide/' },
-            { text: 'Gauntlet UI System', link: '/v1.3.15/en/guide/gauntlet-ui/' },
-            { text: 'Mission System', link: '/v1.3.15/en/guide/mission-system/' },
-            { text: 'Campaign System', link: '/v1.3.15/en/guide/campaign-system/' },
-            { text: 'Save System', link: '/v1.3.15/en/guide/save-system-guide/' },
-            { text: 'Asset Pipeline', link: '/v1.3.15/en/guide/asset-pipeline/' },
-            { text: 'Localization', link: '/v1.3.15/en/guide/localization/' },
-            { text: 'Common Patterns', link: '/v1.3.15/en/guide/common-patterns/' },
-            { text: 'Game Systems Overview', link: '/v1.3.15/en/guide/game-systems-overview/' },
-            { text: 'Troubleshooting', link: '/v1.3.15/en/guide/troubleshooting/' }
+            { text: 'Gauntlet UI System', link: '/v1.3.15/en/guide/gauntlet-ui' },
+            { text: 'Mission System', link: '/v1.3.15/en/guide/mission-system' },
+            { text: 'Campaign System', link: '/v1.3.15/en/guide/campaign-system' },
+            { text: 'Save System', link: '/v1.3.15/en/guide/save-system-guide' },
+            { text: 'Asset Pipeline', link: '/v1.3.15/en/guide/asset-pipeline' },
+            { text: 'Localization', link: '/v1.3.15/en/guide/localization' },
+            { text: 'Common Patterns', link: '/v1.3.15/en/guide/common-patterns' },
+            { text: 'Game Systems Overview', link: '/v1.3.15/en/guide/game-systems-overview' },
+            { text: 'Troubleshooting', link: '/v1.3.15/en/guide/troubleshooting' }
           ]
         }
       ],
@@ -224,11 +224,11 @@ export default defineConfig({
           text: '指南 Guide',
           items: [
             { text: '概述 Index', link: '/v1.3.0/zh/guide/' },
-            { text: 'Mission 系统基础', link: '/v1.3.0/zh/guide/mission-basics/' },
-            { text: 'Campaign 系统基础', link: '/v1.3.0/zh/guide/campaign-basics/' },
-            { text: 'UI 系统基础', link: '/v1.3.0/zh/guide/ui-basics/' },
-            { text: '存档系统', link: '/v1.3.0/zh/guide/save-system/' },
-            { text: '常见问题', link: '/v1.3.0/zh/guide/common-issues/' }
+            { text: 'Mission 系统基础', link: '/v1.3.0/zh/guide/mission-basics' },
+            { text: 'Campaign 系统基础', link: '/v1.3.0/zh/guide/campaign-basics' },
+            { text: 'UI 系统基础', link: '/v1.3.0/zh/guide/ui-basics' },
+            { text: '存档系统', link: '/v1.3.0/zh/guide/save-system' },
+            { text: '常见问题', link: '/v1.3.0/zh/guide/common-issues' }
           ]
         }
       ],
@@ -280,11 +280,11 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Index', link: '/v1.3.0/en/guide/' },
-            { text: 'Mission Basics', link: '/v1.3.0/en/guide/mission-basics/' },
-            { text: 'Campaign Basics', link: '/v1.3.0/en/guide/campaign-basics/' },
-            { text: 'UI Basics', link: '/v1.3.0/en/guide/ui-basics/' },
-            { text: 'Save System', link: '/v1.3.0/en/guide/save-system/' },
-            { text: 'Common Issues', link: '/v1.3.0/en/guide/common-issues/' }
+            { text: 'Mission Basics', link: '/v1.3.0/en/guide/mission-basics' },
+            { text: 'Campaign Basics', link: '/v1.3.0/en/guide/campaign-basics' },
+            { text: 'UI Basics', link: '/v1.3.0/en/guide/ui-basics' },
+            { text: 'Save System', link: '/v1.3.0/en/guide/save-system' },
+            { text: 'Common Issues', link: '/v1.3.0/en/guide/common-issues' }
           ]
         }
       ],

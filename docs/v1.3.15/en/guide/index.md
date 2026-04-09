@@ -343,6 +343,5 @@ For new projects, v1.3.15 is recommended.
 
 ## Related Links
 
-- [Bannerlord Modding Discord](https://discord.gg/bannerloard)
+- [Bannerlord Modding Discord](https://discord.gg/bannerlord)
 - [Official Modding Forum](https://forums.taleworlds.com/)
-- [Modding Wiki](https://docs.bannerlordmodding.com/)

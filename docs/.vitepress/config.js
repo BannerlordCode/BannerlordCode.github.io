@@ -94,7 +94,10 @@ export default defineConfig({
             { text: 'Campaign 战役', link: '/v1.3.15/zh/api/campaign/' },
             { text: 'Campaign-Ext 战役扩展', link: '/v1.3.15/zh/api/campaign-ext/' },
             { text: 'GUI 界面', link: '/v1.3.15/zh/api/gui/' },
-            { text: 'Save-System 存档', link: '/v1.3.15/zh/api/save-system/' }
+            { text: 'Save-System 存档', link: '/v1.3.15/zh/api/save-system/' },
+            { text: 'ViewModel', link: '/v1.3.15/zh/api/viewmodel/' },
+            { text: 'Localization 本地化', link: '/v1.3.15/zh/api/localization/' },
+            { text: 'Engine 引擎', link: '/v1.3.15/zh/api/engine/' }
           ]
         }
       ],
@@ -188,7 +191,10 @@ export default defineConfig({
             { text: 'Campaign', link: '/v1.3.15/en/api/campaign/' },
             { text: 'Campaign-Ext', link: '/v1.3.15/en/api/campaign-ext/' },
             { text: 'GUI', link: '/v1.3.15/en/api/gui/' },
-            { text: 'Save-System', link: '/v1.3.15/en/api/save-system/' }
+            { text: 'Save-System', link: '/v1.3.15/en/api/save-system/' },
+            { text: 'ViewModel', link: '/v1.3.15/en/api/viewmodel/' },
+            { text: 'Localization', link: '/v1.3.15/en/api/localization/' },
+            { text: 'Engine', link: '/v1.3.15/en/api/engine/' }
           ]
         }
       ],

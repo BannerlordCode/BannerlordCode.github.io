@@ -343,6 +343,5 @@ Bannerlord 原生支持多人。需要：
 
 ## 相关链接
 
-- [Bannerlord Modding Discord](https://discord.gg/bannerloard)
+- [Bannerlord Modding Discord](https://discord.gg/bannerlord)
 - [Official Modding Forum](https://forums.taleworlds.com/)
-- [Modding Wiki](https://docs.bannerlordmodding.com/)

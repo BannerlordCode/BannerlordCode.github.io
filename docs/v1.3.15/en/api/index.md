@@ -9,8 +9,15 @@ Complete API reference for v1.3.15.
 
 ## Modules
 
-- [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/)
-- [TaleWorlds.Core](./TaleWorlds.Core/)
-- [TaleWorlds.CampaignSystem](./TaleWorlds.CampaignSystem/)
-- [TaleWorlds.ObjectSystem](./TaleWorlds.ObjectSystem/)
+- [Core](./core/) - MBSubModuleBase, Module, MBObjectManager
+- [Mission](./mission/) - Agent, Formation, Team, Mission
+- [Mission-Ext](./mission-ext/) - MissionBehavior, AgentComponent
+- [Campaign](./campaign/) - MobileParty, Kingdom, Clan
+- [Campaign-Ext](./campaign-ext/) - Settlement, PartyTemplate
+- [GUI](./gui/) - GauntletMovie, ScreenManager
+- [Items](./items/) - ItemObject, Equipment
+- [Save-System](./save-system/) - SaveManager, SaveAttributes
+- [ViewModel](./viewmodel/) - ViewModel, DataSourceProperty
+- [Localization](./localization/) - MBTextManager
+- [Engine](./engine/) - NativeObject, Scene
 

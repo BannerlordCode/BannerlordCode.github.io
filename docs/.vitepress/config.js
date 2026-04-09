@@ -109,7 +109,7 @@ export default defineConfig({
       ],
       '/v1.3.15/zh/native/': [
         {
-          text: '原生接口',
+          text: '原生接口 P/Invoke',
           items: [
             { text: '概述 Index', link: '/v1.3.15/zh/native/' },
             { text: 'NativeObject', link: '/v1.3.15/zh/native/NativeObject/' },
@@ -119,6 +119,23 @@ export default defineConfig({
             { text: 'IManaged', link: '/v1.3.15/zh/native/IManaged/' },
             { text: 'EngineMethod', link: '/v1.3.15/zh/native/EngineMethod/' },
             { text: 'LibraryApplicationInterface', link: '/v1.3.15/zh/native/LibraryApplicationInterface/' }
+          ]
+        }
+      ],
+      '/v1.3.15/zh/native-1.3.15-src/': [
+        {
+          text: '原生源码 Native Source',
+          items: [
+            { text: '概述 Index', link: '/v1.3.15/zh/native-1.3.15-src/' },
+            { text: 'Engine Core 引擎核心', link: '/v1.3.15/zh/native-1.3.15-src/engine-core' },
+            { text: 'Rendering 渲染', link: '/v1.3.15/zh/native-1.3.15-src/rendering' },
+            { text: 'Animation 动画', link: '/v1.3.15/zh/native-1.3.15-src/animation' },
+            { text: 'Physics 物理', link: '/v1.3.15/zh/native-1.3.15-src/physics' },
+            { text: 'Audio 音频', link: '/v1.3.15/zh/native-1.3.15-src/audio' },
+            { text: 'Network 网络', link: '/v1.3.15/zh/native-1.3.15-src/network' },
+            { text: 'Mission 任务', link: '/v1.3.15/zh/native-1.3.15-src/mission' },
+            { text: 'Scene 场景', link: '/v1.3.15/zh/native-1.3.15-src/scene' },
+            { text: 'Utilities 工具', link: '/v1.3.15/zh/native-1.3.15-src/utilities' }
           ]
         }
       ],
@@ -186,7 +203,7 @@ export default defineConfig({
       ],
       '/v1.3.15/en/native/': [
         {
-          text: 'Native Interface',
+          text: 'Native Interface P/Invoke',
           items: [
             { text: 'Index', link: '/v1.3.15/en/native/' },
             { text: 'NativeObject', link: '/v1.3.15/en/native/NativeObject/' },
@@ -196,6 +213,23 @@ export default defineConfig({
             { text: 'IManaged', link: '/v1.3.15/en/native/IManaged/' },
             { text: 'EngineMethod', link: '/v1.3.15/en/native/EngineMethod/' },
             { text: 'LibraryApplicationInterface', link: '/v1.3.15/en/native/LibraryApplicationInterface/' }
+          ]
+        }
+      ],
+      '/v1.3.15/en/native-1.3.15-src/': [
+        {
+          text: 'Native Source Code',
+          items: [
+            { text: 'Index', link: '/v1.3.15/en/native-1.3.15-src/' },
+            { text: 'Engine Core', link: '/v1.3.15/en/native-1.3.15-src/engine-core' },
+            { text: 'Rendering', link: '/v1.3.15/en/native-1.3.15-src/rendering' },
+            { text: 'Animation', link: '/v1.3.15/en/native-1.3.15-src/animation' },
+            { text: 'Physics', link: '/v1.3.15/en/native-1.3.15-src/physics' },
+            { text: 'Audio', link: '/v1.3.15/en/native-1.3.15-src/audio' },
+            { text: 'Network', link: '/v1.3.15/en/native-1.3.15-src/network' },
+            { text: 'Mission', link: '/v1.3.15/en/native-1.3.15-src/mission' },
+            { text: 'Scene', link: '/v1.3.15/en/native-1.3.15-src/scene' },
+            { text: 'Utilities', link: '/v1.3.15/en/native-1.3.15-src/utilities' }
           ]
         }
       ],

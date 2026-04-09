@@ -52,19 +52,18 @@ Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
 
 ### 前置要求 / Prerequisites
 
-- Node.js >= 20.0.0
-- npm
+- Bun >= 1.0.0
 
 ### 安装依赖 / Install Dependencies
 
 ```bash
-npm install
+bun install
 ```
 
 ### 开发模式 / Development Mode
 
 ```bash
-npm run docs:dev
+bun run docs:dev
 ```
 
 访问 http://localhost:5173 查看文档。
@@ -72,7 +71,7 @@ npm run docs:dev
 ### 构建 / Build
 
 ```bash
-npm run docs:build
+bun run docs:build
 ```
 
 构建产物位于 `docs/.vitepress/dist/`。
@@ -80,7 +79,7 @@ npm run docs:build
 ### 预览 / Preview
 
 ```bash
-npm run docs:preview
+bun run docs:preview
 ```
 
 ## 项目结构 / Project Structure

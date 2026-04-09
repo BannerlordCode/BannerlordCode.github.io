@@ -95,9 +95,6 @@ BannerlordCode.github.io/
 │   └── v1.3.0/              # v1.3.0 文档
 │       ├── zh/
 │       └── en/
-├── tmp/                       # 游戏源代码 (不包含在仓库中)
-│   ├── bannerlord-1.3.15/
-│   └── bannerlord-1.3.0/
 └── docs/.vitepress/          # VitePress 配置
     └── config.js             # 导航、侧边栏配置
 ```
@@ -130,8 +127,6 @@ BannerlordCode.github.io/
 ## 相关链接 / Links
 
 - [游戏源代码 / Source Code](https://github.com/BannerlordCode)
-- [GitHub Wiki](https://github.com/BannerlordCode/bannerlord-1.3.15.wiki)
-- [Bannerlord Modding Discord](https://discord.gg/bannerloard)
 - [Official Modding Forum](https://forums.taleworlds.com/)
 
 ## 许可证 / License

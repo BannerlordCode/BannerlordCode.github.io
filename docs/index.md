@@ -27,6 +27,7 @@ Select your preferred version using the version picker below.
 - SaveSystem 重构 / SaveSystem refactored
 - 更多 [Obsolete] 标记 / More [Obsolete] markers
 - 23 个新模块 / 23 new modules
+- TaleWorlds.Native.dll v1.3.15 源码索引 / TaleWorlds.Native.dll v1.3.15 source index
 
 ### v1.3.0 (早期 / Earlier)
 - 原始版本 / Original version
@@ -44,6 +45,7 @@ Select your preferred version using the version picker below.
 - **XML反序列化 / XML Deserialization** - XML 配置文件的完整参考 / Complete XML configuration reference
 - **SubModule 开发 / SubModule Development** - 如何创建和调试 SubModule / How to create and debug SubModules
 - **原生接口 / Native Interface** - P/Invoke 与原生引擎交互 / Interact with native engine via P/Invoke
+- **Native 1.3.15 源码 / Native 1.3.15 Source** - 导出函数、类型定义和反编译函数索引 / Exports, type definitions, and decompiled function index
 
 ## 状态 / Status
 

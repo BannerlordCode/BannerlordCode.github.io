@@ -15,6 +15,7 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 - [API 参考 / API Reference](./api/)
 - [XML 参考 / XML Reference](./xml-reference/)
 - [原生接口 / Native Reference](./native/)
+- [Native 1.3.15 源码参考 / Native 1.3.15 Source Reference](./native-1.3.15-src/)
 - [架构 / Architecture](./architecture/)
 
 ## 版本信息 / Version Info
@@ -31,3 +32,4 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 | [Mission 任务](./api/mission/) | Mission, Agent, Formation, Team |
 | [Campaign 战役](./api/campaign/) | PartyBase, MobileParty, Kingdom, Clan |
 | [Native 原生](./native/) | NativeObject, INativeArray, EngineMethod |
+| [Native 1.3.15 源码](./native-1.3.15-src/) | TaleWorlds.Native.dll 导出函数、类型表、反编译源码索引 |

@@ -36,6 +36,17 @@ Your mod code
 | [EngineMethod](./EngineMethod.md) | `EngineMethod.cs` | Mark method corresponding to native function |
 | [LibraryApplicationInterface](./LibraryApplicationInterface.md) | `LibraryApplicationInterface.cs` | Interface registry |
 
+## Native 1.3.15 Source Reference
+
+If you need to trace from managed interfaces into `TaleWorlds.Native.dll` v1.3.15 exports, callback registration, vftables, or decompiled function addresses, see the [Native 1.3.15 Source Reference](../native-1.3.15-src/).
+
+| Source page | Use |
+|-------------|-----|
+| [Exports and Managed Bridge](../native-1.3.15-src/exports-and-bridge.md) | Startup bridge for `WotsMainSDLL`, `pass_controller_methods`, and `pass_managed_*` |
+| [Complete Function Catalog](../native-1.3.15-src/COMPLETE-FUNCTIONS.md) | Address index for 11,095 decompiled functions |
+| [Complete Type Reference](../native-1.3.15-src/COMPLETE-TYPES.md) | Type definitions from `TaleWorlds.Native.dll.h` |
+| [Engine Core](../native-1.3.15-src/engine-core.md) | `ftdnNative_array`, `ftdnNative_string`, managed callbacks, and reference counting |
+
 ---
 
 ## Core Concepts

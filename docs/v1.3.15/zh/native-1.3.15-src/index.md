@@ -5,135 +5,136 @@ description: TaleWorlds.Native.dll v1.3.15 反编译源码参考文档
 
 # Native 1.3.15 源码参考 / Native 1.3.15 Source Reference
 
-> TaleWorlds.Native.dll v1.3.15 反编译源码参考文档
-> 
-> Decompiled source reference for TaleWorlds.Native.dll v1.3.15
+本节整理 `TaleWorlds.Native.dll` v1.3.15 的反编译 C 源码和头文件，重点用于查找原生导出、托管桥接、引擎类型名、函数地址以及常见系统模块。
 
-## 概述 / Overview
+> 说明：源码来自反编译输出。`FUN_180...`、`DAT_180...`、`LAB_180...` 等名称是工具生成名，不是 TaleWorlds 原始符号名。函数语义需要结合字符串引用、vftable、导出表、托管接口和调用交叉引用继续确认。
 
-本部分文档是 TaleWorlds.Native.dll v1.3.15 的反编译源码参考。
+## 文档范围 / Scope
 
-**重要说明：** 源码中的函数名使用 Ghidra 自动生成的前缀 `FUN_` + 地址命名。这些名称需要通过 IDA Pro 等工具进一步分析才能确定具体功能。
+| 页面 | 内容 |
+|------|------|
+| [导出与托管桥接](./exports-and-bridge.md) | `WotsMain*`、`pass_controller_methods`、`pass_managed_*`、`ftdnNative_*` 的启动与互操作关系 |
+| [完整函数目录](./COMPLETE-FUNCTIONS.md) | 11,095 个已索引反编译函数的地址分段和查找方式 |
+| [完整类型参考](./COMPLETE-TYPES.md) | `TaleWorlds.Native.dll.h` 中的 typedef、struct、union、enum 和 Win32/RTTI/PhysX 类型 |
+| [引擎核心](./engine-core.md) | Core、托管回调、FTDN 接口、引用计数、线程和任务 |
+| [渲染系统](./rendering.md) | D3D11、场景视图、网格、材质、纹理、后处理、地形、粒子和资源加载 |
+| [动画系统](./animation.md) | 动画树、Agent/Human/Horse 动画、骨骼、动画剪辑和 morph |
+| [物理系统](./physics.md) | PhysX 世界、刚体、碰撞、查询、过滤回调、布料和高度场 |
+| [音频系统](./audio.md) | FMOD 管理器、声音事件、发射器和环境声 |
+| [网络系统](./network.md) | MBNet UDP、服务端/客户端会话、接收任务和看门狗 |
+| [任务系统](./mission.md) | Agent、Missile、导航、城镇实体和世界地图相关对象 |
+| [场景系统](./scene.md) | Game object、脚本组件、编辑器、导航网格、道路、河流和植被 |
+| [工具函数](./utilities.md) | 字符串、数学、异常、正则、类型信息、生产者/消费者和配置 |
 
 ## 源码统计 / Source Statistics
 
 | 指标 | 数值 |
 |------|------|
-| 源码文件 | TaleWorlds.Native.dll.c |
-| 总行数 | 1,905,930 |
-| 头文件 | TaleWorlds.Native.dll.h |
+| 源码文件 | `TaleWorlds.Native.dll.c` |
+| 源码总行数 | 1,905,930 |
+| 头文件 | `TaleWorlds.Native.dll.h` |
 | 头文件行数 | 33,875 |
-| 函数实现 | ~50,000+ |
-| 全局变量/符号 | ~10,000+ |
+| 已索引反编译函数 | 11,095 |
+| 完整函数地址列表 | [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) |
 | Typedef 类型 | 349 |
 | Struct 定义 | 146 |
 | Union 定义 | 12 |
 | Enum 定义 | 6 |
 
-## 源码结构 / Source Structure
+## 目录结构 / Directory Structure
 
-```
+```text
 native-1.3.15-src/
-├── index.md                          # 本文件 / This file
-├── COMPLETE-FUNCTIONS.md             # 完整函数索引 / Complete function index
-├── COMPLETE-TYPES.md                 # 完整类型定义 / Complete type definitions
-├── engine-core.md                    # 引擎核心 / Engine Core
-├── rendering.md                      # 渲染系统 / Rendering System
-├── animation.md                      # 动画系统 / Animation System
-├── physics.md                        # 物理引擎 / Physics Engine
-├── audio.md                          # 音频系统 / Audio System
-├── network.md                        # 网络系统 / Network System
-├── mission.md                        # 任务系统 / Mission System
-├── scene.md                          # 场景系统 / Scene System
-└── utilities.md                      # 工具函数 / Utilities
+├── index.md
+├── exports-and-bridge.md
+├── COMPLETE-FUNCTIONS.md
+├── COMPLETE-TYPES.md
+├── ALL-FUNCTIONS-LIST.txt
+├── engine-core.md
+├── rendering.md
+├── animation.md
+├── physics.md
+├── audio.md
+├── network.md
+├── mission.md
+├── scene.md
+└── utilities.md
 ```
 
-## 源码格式 / Source Format
+## 关键入口 / Key Entry Points
 
-### 函数命名规则
-
-函数使用 Ghidra 自动命名：
-```c
-// 格式: FUN_ + 地址(十六进制)
-void FUN_180001000(undefined *param_1, DWORD param_2, LPVOID param_3)
-void FUN_1805f67f0(longlong param_1, longlong param_2)
-```
-
-### 变量命名规则
-
-全局变量使用 Ghidra 自动命名：
-```c
-undefined8 DAT_180cf74f8;    // 全局数据
-undefined4 DAT_180cf7560;   // 配置数据
-```
-
-标签/跳转目标：
-```c
-LAB_180a1ffb0:              // 代码标签
-```
-
-### 类型前缀
-
-| 前缀 | 类型 | 说明 |
+| 符号 | 位置 | 说明 |
 |------|------|------|
-| `undefined` | 无类型 | 未知数据类型 |
-| `undefined1` | uint8_t | 1字节无符号 |
-| `undefined2` | uint16_t | 2字节无符号 |
-| `undefined4` | uint32_t | 4字节无符号 |
-| `undefined6` | uint48_t | 6字节无符号 |
-| `undefined8` | uint64_t | 8字节无符号 |
+| `WotsMainSDLL` | `TaleWorlds.Native.dll.h:2477` / `TaleWorlds.Native.dll.c:81569` | Starter 侧常用入口，托管层 `MBDotNet.WotsMainDotNet` 通过 DllImport 指向它 |
+| `WotsMainNativeSDLL` | `TaleWorlds.Native.dll.h:2478` / `TaleWorlds.Native.dll.c:81586` | Native SDLL 入口 |
+| `WotsMain` | `TaleWorlds.Native.dll.h:2488` / `TaleWorlds.Native.dll.c:82473` | 主入口变体 |
+| `WotsMainNative` | `TaleWorlds.Native.dll.h:2489` / `TaleWorlds.Native.dll.c:82490` | Native 主入口变体 |
+| `WotsMainNativeCoreCLR` | `TaleWorlds.Native.dll.h:2490` / `TaleWorlds.Native.dll.c:82507` | CoreCLR 入口变体 |
+| `pass_controller_methods` | `TaleWorlds.Native.dll.h:15415` / `TaleWorlds.Native.dll.c:1316414` | 接收托管控制器初始化委托 |
+| `pass_managed_initialize_method_pointer` | `TaleWorlds.Native.dll.h:15416` / `TaleWorlds.Native.dll.c:1316424` | 接收托管初始化委托 |
+| `pass_managed_library_callback_method_pointers` | `TaleWorlds.Native.dll.h:15414` / `TaleWorlds.Native.dll.c:1316402` | 接收托管库回调方法指针 |
+| `DllMain` | `TaleWorlds.Native.dll.h:21264` / `TaleWorlds.Native.dll.c:1787079` | Windows DLL 入口 |
 
-## 函数分类 / Function Categories
+## 托管互操作地图 / Managed Interop Map
 
-### 按地址范围
+```text
+TaleWorlds.Starter.Library/MBDotNet.cs
+    DllImport("TaleWorlds.Native.dll")
+        WotsMainSDLL
+        pass_controller_methods
+        pass_managed_initialize_method_pointer
+        pass_managed_library_callback_method_pointers
+            ↓
+TaleWorlds.Native.dll
+    stores callbacks and exposes engine-side function pointers
+            ↓
+ScriptingInterfaceObjects.SetFunctionPointer(id, pointer)
+            ↓
+LibraryApplicationInterface
+    IManaged, INativeArray, INativeObjectArray, INativeString,
+    INativeStringHelper, ILibrarySizeChecker, ITelemetry
+            ↓
+NativeObject / NativeArray / NativeString / NativeObjectArray
+```
 
-| 地址范围 | 估计数量 | 系统分类 |
-|---------|---------|---------|
-| 0x180001000 - 0x180100000 | ~5,000 | 启动、CRT初始化 |
-| 0x180100000 - 0x180400000 | ~15,000 | 核心引擎、渲染 |
-| 0x180400000 - 0x180600000 | ~20,000 | 游戏逻辑、物理 |
-| 0x180600000 - 0x180800000 | ~15,000 | 任务系统、场景 |
-| 0x180800000+ | ~10,000 | 网络、音频 |
+更多启动和桥接细节见 [导出与托管桥接](./exports-and-bridge.md)。
 
-### 按功能分类
+## 原生类型名线索 / Native Type Name Clues
 
-1. **启动与初始化** - DllMain, CRT初始化
-2. **内存管理** - malloc/free, 堆操作
-3. **线程与同步** - 互斥锁、条件变量、线程
-4. **字符串处理** - str*, wc*, 格式化
-5. **数学运算** - 向量、矩阵、四元数
-6. **渲染系统** - DirectX 11, GPU命令
-7. **物理引擎** - PhysX SDK
-8. **动画系统** - 骨骼、动画播放
-9. **任务系统** - Agent管理、伤害计算
-10. **场景系统** - 场景加载、对象管理
-11. **音频系统** - FMOD
-12. **网络系统** - MBNet UDP
+反编译源码中可以直接通过字符串定位部分引擎类型名。例如：
 
-## 第三方库 / Third-Party Libraries
+| 字符串 | 典型位置 | 对应托管层 |
+|--------|----------|------------|
+| `ftdnNative_array` | `TaleWorlds.Native.dll.c:81262`, `1318173` | `[EngineClass("ftdnNative_array")] NativeArray` |
+| `ftdnNative_object_array` | `TaleWorlds.Native.dll.c:81300`, `1320048` | `[EngineClass("ftdnNative_object_array")] NativeObjectArray` |
+| `ftdnNative_string` | `TaleWorlds.Native.dll.c:81319`, `1320072` | `[EngineClass("ftdnNative_string")] NativeString` |
+| `rglNative_script_component` | `TaleWorlds.Native.dll.c:73039`, `700152` | 原生脚本组件，见 [场景系统](./scene.md) |
 
-| 库 | 用途 |
-|----|------|
-| **PhysX SDK** | 物理模拟、碰撞检测 |
-| **DirectX 11** | GPU渲染、着色器 |
-| **FMOD** | 音效播放 |
-| **C++ Standard Library** | 字符串、内存、线程 |
+## 查找建议 / How To Search
 
-## 使用说明 / Usage Notes
+1. 已知托管接口方法名时，先查 [原生接口文档](../native/) 中的 `[EngineMethod]`，再在反编译源码中搜索该原生方法名或附近注册逻辑。
+2. 已知原生类型名时，搜索字符串，例如 `ftdnNative_string`、`rglScene`、`rglMaterial`，再沿附近 vftable 写入和构造函数向外追踪。
+3. 已知函数地址时，先在 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) 确认函数是否已索引，再到源码中搜索 `FUN_` 名称。
+4. 已知崩溃日志或字符串时，优先搜索错误文本。例如 `Unable to find native module`、`/nativeTest`、`Modules/Native/get_tileset.bat`。
+5. 做版本对比时，不要复用地址作为稳定 API。地址只对当前 v1.3.15 反编译样本有效。
 
-1. **函数查找**: 使用地址前缀缩小范围
-2. **IDA Pro 分析**: 建议使用 IDA Pro 进行进一步分析
-3. **交叉引用**: 使用 `_refs` 命令查看函数调用关系
-4. **结构体重建**: 使用 `T` 命令尝试识别结构体
+## 第三方和平台依赖 / Third-Party And Platform Dependencies
+
+| 依赖 | 在文档中的位置 | 用途 |
+|------|----------------|------|
+| DirectX 11 / D3D11 | [渲染系统](./rendering.md) | GPU 设备、命令列表、纹理和后处理 |
+| PhysX | [物理系统](./physics.md) | 刚体、碰撞、查询、布料和高度场 |
+| FMOD | [音频系统](./audio.md) | 声音管理器、事件和空间音频 |
+| Win32 / COM / CRT | [完整类型参考](./COMPLETE-TYPES.md), [工具函数](./utilities.md) | DLL 入口、窗口、异常、RTTI 和运行库支撑 |
 
 ## 注意事项 / Important Notes
 
-- 函数名为 Ghidra 自动生成，不代表原始命名
-- 地址可能因版本更新而变化
-- 偏移量基于当前版本分析
-- 本文档仅供参考学习，请尊重 TaleWorlds 知识产权
+- 本节是反编译源码参考，不等同于官方 SDK API。
+- 反编译类型中的 `undefined*` 表示工具尚未恢复出准确类型。
+- `COMPLETE-FUNCTIONS.md` 中的功能分类是按地址段和局部线索整理的索引，不应视为最终命名。
+- 修改 Mod 时应优先使用托管 API；Native 源码参考主要用于理解崩溃、互操作边界和引擎行为。
 
 ---
 
-**最后更新:** 2026-04-09
+**最后更新:** 2026-05-14  
 **源码版本:** TaleWorlds.Native.dll v1.3.15

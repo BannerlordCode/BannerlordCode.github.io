@@ -28,6 +28,7 @@ export default defineConfig({
       { text: 'API', link: '/v1.3.15/zh/api/' },
       { text: 'XML', link: '/v1.3.15/zh/xml-reference/' },
       { text: '原生 Native', link: '/v1.3.15/zh/native/' },
+      { text: 'Native 源码', link: '/v1.3.15/zh/native-1.3.15-src/' },
       { text: '架构 Architecture', link: '/v1.3.15/zh/architecture/' },
       {
         text: '🔽 v1.3.15',
@@ -130,6 +131,9 @@ export default defineConfig({
           text: '原生源码 Native Source',
           items: [
             { text: '概述 Index', link: '/v1.3.15/zh/native-1.3.15-src/' },
+            { text: '导出与托管桥接', link: '/v1.3.15/zh/native-1.3.15-src/exports-and-bridge' },
+            { text: '完整函数目录', link: '/v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS' },
+            { text: '完整类型参考', link: '/v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES' },
             { text: 'Engine Core 引擎核心', link: '/v1.3.15/zh/native-1.3.15-src/engine-core' },
             { text: 'Rendering 渲染', link: '/v1.3.15/zh/native-1.3.15-src/rendering' },
             { text: 'Animation 动画', link: '/v1.3.15/zh/native-1.3.15-src/animation' },
@@ -138,7 +142,8 @@ export default defineConfig({
             { text: 'Network 网络', link: '/v1.3.15/zh/native-1.3.15-src/network' },
             { text: 'Mission 任务', link: '/v1.3.15/zh/native-1.3.15-src/mission' },
             { text: 'Scene 场景', link: '/v1.3.15/zh/native-1.3.15-src/scene' },
-            { text: 'Utilities 工具', link: '/v1.3.15/zh/native-1.3.15-src/utilities' }
+            { text: 'Utilities 工具', link: '/v1.3.15/zh/native-1.3.15-src/utilities' },
+            { text: '全部函数地址 TXT', link: '/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt' }
           ]
         }
       ],
@@ -227,6 +232,9 @@ export default defineConfig({
           text: 'Native Source Code',
           items: [
             { text: 'Index', link: '/v1.3.15/en/native-1.3.15-src/' },
+            { text: 'Exports and Managed Bridge', link: '/v1.3.15/en/native-1.3.15-src/exports-and-bridge' },
+            { text: 'Complete Function Catalog', link: '/v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS' },
+            { text: 'Complete Type Reference', link: '/v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES' },
             { text: 'Engine Core', link: '/v1.3.15/en/native-1.3.15-src/engine-core' },
             { text: 'Rendering', link: '/v1.3.15/en/native-1.3.15-src/rendering' },
             { text: 'Animation', link: '/v1.3.15/en/native-1.3.15-src/animation' },
@@ -235,7 +243,8 @@ export default defineConfig({
             { text: 'Network', link: '/v1.3.15/en/native-1.3.15-src/network' },
             { text: 'Mission', link: '/v1.3.15/en/native-1.3.15-src/mission' },
             { text: 'Scene', link: '/v1.3.15/en/native-1.3.15-src/scene' },
-            { text: 'Utilities', link: '/v1.3.15/en/native-1.3.15-src/utilities' }
+            { text: 'Utilities', link: '/v1.3.15/en/native-1.3.15-src/utilities' },
+            { text: 'All Function Addresses TXT', link: '/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt' }
           ]
         }
       ],

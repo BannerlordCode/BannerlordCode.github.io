@@ -1,240 +1,133 @@
 ---
 title: 完整函数目录 / Complete Function Catalog
-description: TaleWorlds.Native.dll 完整函数列表
+description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 ---
 
 # 完整函数目录 / Complete Function Catalog
 
-> TaleWorlds.Native.dll v1.3.15 完整函数列表
->
-> Complete function list for TaleWorlds.Native.dll v1.3.15
+本页整理 `TaleWorlds.Native.dll.c` 中已索引的 11,095 个反编译函数。完整地址列表保存在 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt)，每行一个 `FUN_` 符号，按地址升序排列。
 
-## 概述
+> 重要：`FUN_180...` 是反编译工具生成的函数名，并不代表原始函数名。下方分类主要用于缩小搜索范围；具体语义必须结合字符串引用、调用关系、vftable、导出表和托管 `[EngineMethod]` 映射确认。
 
-本文档包含 TaleWorlds.Native.dll 源码中的**所有函数**的完整列表。
+## 总览 / Overview
 
-**重要说明：** 函数名使用 Ghidra 自动生成的前缀 `FUN_` + 地址命名。
+| 项目 | 数值 |
+|------|------|
+| 已索引函数 | 11,095 |
+| 首个函数 | `FUN_180001000` |
+| 最后函数 | `FUN_180a21db0` |
+| 完整列表 | [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) |
+| 源码文件 | `TaleWorlds.Native.dll.c` |
+| 头文件声明 | `TaleWorlds.Native.dll.h` |
 
-## 完整函数列表文件
+## 导出函数 / Named Exports
 
-**重要：** 完整的 11,095 个函数地址列表已保存到：
-- [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt)
+这些符号保留了可读名称，是启动和互操作分析的首选入口。
 
-该文件包含 TaleWorlds.Native.dll.c 源码中所有函数的完整列表，按地址排序。
+| 符号 | 头文件位置 | 源码位置 | 用途 |
+|------|------------|----------|------|
+| `WotsMainSDLL` | `TaleWorlds.Native.dll.h:2477` | `TaleWorlds.Native.dll.c:81569` | 托管 Starter 入口 |
+| `WotsMainNativeSDLL` | `TaleWorlds.Native.dll.h:2478` | `TaleWorlds.Native.dll.c:81586` | Native SDLL 入口 |
+| `WotsMain` | `TaleWorlds.Native.dll.h:2488` | `TaleWorlds.Native.dll.c:82473` | 主入口变体 |
+| `WotsMainNative` | `TaleWorlds.Native.dll.h:2489` | `TaleWorlds.Native.dll.c:82490` | Native 主入口变体 |
+| `WotsMainNativeCoreCLR` | `TaleWorlds.Native.dll.h:2490` | `TaleWorlds.Native.dll.c:82507` | CoreCLR Native 入口 |
+| `pass_managed_library_callback_method_pointers` | `TaleWorlds.Native.dll.h:15414` | `TaleWorlds.Native.dll.c:1316402` | 托管库回调指针注册 |
+| `pass_controller_methods` | `TaleWorlds.Native.dll.h:15415` | `TaleWorlds.Native.dll.c:1316414` | 托管 controller 初始化委托注册 |
+| `pass_managed_initialize_method_pointer` | `TaleWorlds.Native.dll.h:15416` | `TaleWorlds.Native.dll.c:1316424` | 托管初始化委托注册 |
+| `DllMain` | `TaleWorlds.Native.dll.h:21264` | `TaleWorlds.Native.dll.c:1787079` | Windows DLL 入口 |
 
-## 函数统计
+详见 [导出与托管桥接](./exports-and-bridge.md)。
 
-| 系统分类 | 函数数量 | 地址范围 |
-|---------|---------|---------|
-| CRT/启动 | 1,564 | 0x180001000-0x180100000 |
-| 核心/渲染 | 1,175 | 0x180100000-0x180200000 |
-| 物理引擎 | 1,135 | 0x180200000-0x180300000 |
-| 动画系统 | 1,120 | 0x180300000-0x180400000 |
-| 任务系统 | 1,129 | 0x180400000-0x180500000 |
-| 场景系统 | 1,113 | 0x180500000-0x180600000 |
-| 音频系统 | 955 | 0x180600000-0x180700000 |
-| 网络系统 | 1,163 | 0x180700000-0x180800000 |
-| 其他 | 1,741 | 0x180800000+ |
+## 地址段索引 / Address Range Index
+
+| 地址范围 | 已索引数量 | 主要用途 |
+|----------|------------|----------|
+| `0x180001000-0x180100000` | 1,564 | 启动、CRT、异常、基础运行库和早期引擎初始化 |
+| `0x180100000-0x180200000` | 1,175 | 核心引擎、渲染和资源相关函数的密集区域 |
+| `0x180200000-0x180300000` | 1,135 | 物理、查询、碰撞和部分运行时系统 |
+| `0x180300000-0x180400000` | 1,120 | 动画、骨骼、Agent 视觉和资源处理 |
+| `0x180400000-0x180500000` | 1,129 | Mission、Agent、装备、战斗逻辑和世界对象 |
+| `0x180500000-0x180600000` | 1,113 | 场景、实体、编辑器、导航和地形相关逻辑 |
+| `0x180600000-0x180700000` | 955 | 音频、FMOD、任务和部分引擎服务 |
+| `0x180700000-0x180800000` | 1,163 | 网络、资源、场景组件和较大系统函数 |
+| `0x180800000+` | 1,741 | 高地址段系统、运行库、尾部工具函数和异常支撑 |
 | **总计** | **11,095** | |
 
-## CRT/启动函数 (1,564 个)
+## 地址段示例 / Range Samples
 
-地址范围: 0x180001000 - 0x180100000
+### 启动与早期初始化
 
-### 入口点
-- FUN_180001000 - DllMain 入口点
-- FUN_180001030 - TLS 回调
-- FUN_18000113a - 初始化
-- FUN_1800012e2 - 初始化
-- FUN_1800014e1 - 初始化
-
-### CRT 初始化
-- FUN_1800015e7, FUN_180001787, FUN_18000186c - CRT 初始化
-- FUN_180001d30 - 内存初始化
-- FUN_180001ea9 - 线程初始化
-- FUN_180001fda - 异常处理
-- FUN_18000214a - 字符串初始化
-- FUN_18000236b - 数学初始化
-
-### 完整地址列表 (CRT)
-
-```
-FUN_180001000, FUN_180001030, FUN_18000113a, FUN_1800012e2, FUN_1800014e1,
-FUN_1800015e7, FUN_180001787, FUN_18000186c, FUN_180001d30, FUN_180001ea9,
-FUN_180001fda, FUN_18000214a, FUN_18000236b, FUN_1800024d9, FUN_180004300,
-FUN_1800049d0, FUN_18001a59e, FUN_18001a630, FUN_18001a682, FUN_18001a840,
-... 共 1564 个函数
+```text
+FUN_180001000
+FUN_180001030
+FUN_18000113a
+FUN_1800012e2
+FUN_1800014e1
+...
+FUN_180045730
+WotsMainSDLL
+WotsMainNativeSDLL
+...
+WotsMain
+WotsMainNative
+WotsMainNativeCoreCLR
 ```
 
-## 核心/渲染函数 (1,175 个)
+### 托管桥接和 FTDN 区域
 
-地址范围: 0x180100000 - 0x180200000
+```text
+pass_managed_library_callback_method_pointers
+pass_controller_methods
+pass_managed_initialize_method_pointer
 
-### 渲染系统
-- FUN_180100700 - 材质设置
-- FUN_180100800 - 光照计算
-- FUN_180100900 - 相机控制
-
-### GPU 命令
-- FUN_180101720 - DirectX 命令
-- FUN_180101eb0 - 着色器加载
-- FUN_180102580 - 纹理管理
-
-### 完整地址列表 (Core)
-
-```
-FUN_180100700, FUN_180100cb0, FUN_180101720, FUN_180101eb0, FUN_180102580,
-... 共 1175 个函数
+ftdnNative_array
+ftdnNative_object_array
+ftdnNative_string
 ```
 
-## 物理引擎函数 (1,135 个)
+这些不是全部位于同一地址段，但它们构成 Native 与 C# `TaleWorlds.DotNet` 之间最重要的桥接线索。
 
-地址范围: 0x180200000 - 0x180300000
+### 高地址段尾部
 
-### PhysX 核心
-- FUN_180200830 - PhysX 初始化
-- FUN_180200af0 - 物理世界
-- FUN_180200b30 - 刚体创建
-- FUN_180200c10 - 碰撞检测
-- FUN_180200cd0 - 形状创建
-
-### 射线投射
-- FUN_180200f50 - 射线投射
-- FUN_1802010a0 - 查询执行
-
-### 完整地址列表 (Physics)
-
-```
-FUN_180200830, FUN_180200af0, FUN_180200b30, FUN_180200c10, FUN_180200cd0,
-... 共 1135 个函数
+```text
+FUN_180a216d0
+FUN_180a21730
+FUN_180a21760
+FUN_180a217b0
+...
+FUN_180a21d70
+FUN_180a21d80
+FUN_180a21db0
 ```
 
-## 动画系统函数 (1,120 个)
+## 如何使用完整地址列表 / How To Use The Address List
 
-地址范围: 0x180300000 - 0x180400000
+1. 打开 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt)。
+2. 用地址前缀缩小范围，例如搜索 `FUN_180746` 或 `FUN_180a21`。
+3. 回到 `TaleWorlds.Native.dll.c` 中搜索同名函数。
+4. 查看函数附近的字符串、全局变量、vftable 写入和被调用函数。
+5. 回到托管文档中查对应的 `[EngineMethod]` 或 `[EngineClass]` 名称。
 
-### 骨骼动画
-- FUN_1803016b0 - 骨骼创建
-- FUN_180302ca0 - 骨骼更新
-- FUN_180304250 - 动画加载
+## 推荐交叉引用路径 / Recommended Cross-Reference Paths
 
-### 动画播放
-- FUN_180304280 - 动画播放
-- FUN_180304420 - 混合控制
+| 起点 | 下一步 |
+|------|--------|
+| 托管接口方法 | 查 [EngineMethod](../native/EngineMethod.md)，再搜索原生方法名或回调注册表 |
+| `NativeObject` 崩溃 | 查 [NativeObject](../native/NativeObject.md)、`IManaged`、`increase_reference_count`、`decrease_reference_count` |
+| 数组/字符串互操作 | 查 `ftdnNative_array`、`ftdnNative_string`、[INativeArray](../native/INativeArray.md)、[INativeString](../native/INativeString.md) |
+| DLL 启动问题 | 查 `WotsMainSDLL`、`pass_controller_methods`、[导出与托管桥接](./exports-and-bridge.md) |
+| 资源或 Native 模块问题 | 搜索 `Modules/Native`、`Unable to find native module`、`get_tileset.bat` |
+| 场景脚本问题 | 搜索 `rglNative_script_component`，再看 [场景系统](./scene.md) |
 
-### 完整地址列表 (Animation)
+## 注意事项 / Notes
 
-```
-FUN_1803016b0, FUN_180302ca0, FUN_180304250, FUN_180304280, FUN_180304420,
-... 共 1120 个函数
-```
-
-## 任务系统函数 (1,129 个)
-
-地址范围: 0x180400000 - 0x180500000
-
-### Agent 管理
-- FUN_180400080 - Agent 创建
-- FUN_1804001c0 - Agent 移动
-- FUN_180400210 - Agent 攻击
-- FUN_180401c70 - 伤害计算
-- FUN_180401e90 - 武器管理
-
-### 完整地址列表 (Mission)
-
-```
-FUN_180400080, FUN_1804001c0, FUN_180400210, FUN_180401c70, FUN_180401e90,
-... 共 1129 个函数
-```
-
-## 场景系统函数 (1,113 个)
-
-地址范围: 0x180500000 - 0x180600000
-
-### 场景管理
-- FUN_180506e60 - 场景加载
-- FUN_180506ec0 - 场景卸载
-- FUN_180507030 - 对象创建
-- FUN_180507110 - 对象销毁
-- FUN_1805074e0 - 地形生成
-
-### 完整地址列表 (Scene)
-
-```
-FUN_180506e60, FUN_180506ec0, FUN_180507030, FUN_180507110, FUN_1805074e0,
-... 共 1113 个函数
-```
-
-## 音频系统函数 (955 个)
-
-地址范围: 0x180600000 - 0x180700000
-
-### FMOD 核心
-- FUN_1806005f0 - FMOD 初始化
-- FUN_180600a00 - 音效加载
-- FUN_180600a90 - 音效播放
-- FUN_180601040 - 音效停止
-- FUN_1806010b0 - 音量控制
-
-### 完整地址列表 (Audio)
-
-```
-FUN_1806005f0, FUN_180600a00, FUN_180600a90, FUN_180601040, FUN_1806010b0,
-... 共 955 个函数
-```
-
-## 网络系统函数 (1,163 个)
-
-地址范围: 0x180700000 - 0x180800000
-
-### MBNet 核心
-- FUN_180700110 - MBNet 初始化
-- FUN_180700440 - Socket 创建
-- FUN_180700460 - 连接管理
-- FUN_1807007c0 - 数据发送
-- FUN_180700850 - 数据接收
-
-### 完整地址列表 (Network)
-
-```
-FUN_180700110, FUN_180700440, FUN_180700460, FUN_1807007c0, FUN_180700850,
-... 共 1163 个函数
-```
-
-## 其他函数 (1,741 个)
-
-地址范围: 0x180800000+
-
-### 文件IO
-- FUN_1808002c0 - 文件打开
-- FUN_180800520 - 文件读取
-- FUN_180800810 - 文件写入
-- FUN_180800870 - 文件关闭
-- FUN_180800a70 - 资源加载
-
-### 完整地址列表 (Other)
-
-```
-FUN_1808002c0, FUN_180800520, FUN_180800810, FUN_180800870, FUN_180800a70,
-... 共 1741 个函数
-```
-
-## 使用说明
-
-1. **函数查找**: 使用地址范围缩小目标
-2. **IDA Pro 分析**: 建议使用 IDA Pro 进行进一步分析
-3. **交叉引用**: 使用 `_refs` 命令查看函数调用关系
-4. **结构体重建**: 使用 `T` 命令尝试识别结构体
-
-## 注意事项
-
-- 函数名为 Ghidra 自动生成，不代表原始命名
-- 地址可能因版本更新而变化
-- 偏移量基于当前版本分析
-- 本文档仅供参考学习
+- 本目录不提供函数体全文，避免在文档中复制大段反编译源码。
+- 地址只适用于当前 v1.3.15 样本；不同补丁版本可能移动。
+- 部分地址段标签是索引用语，不表示该段内每个函数都属于同一系统。
+- 若需要确认导出序号和名称，建议使用 PE 导出表工具复核。
 
 ---
 
-**最后更新:** 2026-04-09
-**源码版本:** TaleWorlds.Native.dll v1.3.15
+**最后更新:** 2026-05-14  
+**源码版本:** TaleWorlds.Native.dll v1.3.15  
 **总函数数:** 11,095

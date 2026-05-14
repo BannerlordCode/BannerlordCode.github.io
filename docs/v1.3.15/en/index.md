@@ -13,6 +13,7 @@ Welcome to the Bannerlord v1.3.15 modding documentation (English).
 - [API Reference](./api/)
 - [XML Reference](./xml-reference/)
 - [Native Reference](./native/)
+- [Native 1.3.15 Source Reference](./native-1.3.15-src/)
 - [Architecture](./architecture/)
 
 ## Version Info
@@ -29,3 +30,4 @@ Welcome to the Bannerlord v1.3.15 modding documentation (English).
 | [Mission](./api/mission/) | Mission, Agent, Formation, Team |
 | [Campaign](./api/campaign/) | PartyBase, MobileParty, Kingdom, Clan |
 | [Native](./native/) | NativeObject, INativeArray, EngineMethod |
+| [Native 1.3.15 Source](./native-1.3.15-src/) | TaleWorlds.Native.dll exports, type tables, decompiled source index |

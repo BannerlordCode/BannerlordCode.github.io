@@ -15,6 +15,7 @@ Welcome to the Bannerlord v1.3.15 modding documentation.
 - [API 参考 / API Reference](./zh/api/)
 - [XML 参考 / XML Reference](./zh/xml-reference/)
 - [原生接口 / Native Reference](./zh/native/)
+- [Native 1.3.15 源码参考 / Native 1.3.15 Source Reference](./zh/native-1.3.15-src/)
 - [架构 / Architecture](./zh/architecture/)
 
 ## 版本信息 / Version Info

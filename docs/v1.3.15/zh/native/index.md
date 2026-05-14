@@ -38,6 +38,17 @@ Your mod code
 | [EngineMethod](./EngineMethod.md) | `EngineMethod.cs` | 标记方法对应原生函数 |
 | [LibraryApplicationInterface](./LibraryApplicationInterface.md) | `LibraryApplicationInterface.cs` | 接口注册表 |
 
+## Native 1.3.15 源码参考 / Native 1.3.15 Source Reference
+
+如果需要从托管接口继续追到 `TaleWorlds.Native.dll` v1.3.15 的导出函数、回调注册、vftable 或反编译函数地址，请看 [Native 1.3.15 源码参考](../native-1.3.15-src/)。
+
+| 源码页 | 用途 |
+|--------|------|
+| [导出与托管桥接](../native-1.3.15-src/exports-and-bridge.md) | `WotsMainSDLL`、`pass_controller_methods`、`pass_managed_*` 启动桥接 |
+| [完整函数目录](../native-1.3.15-src/COMPLETE-FUNCTIONS.md) | 11,095 个反编译函数地址索引 |
+| [完整类型参考](../native-1.3.15-src/COMPLETE-TYPES.md) | `TaleWorlds.Native.dll.h` 类型定义 |
+| [引擎核心](../native-1.3.15-src/engine-core.md) | `ftdnNative_array`、`ftdnNative_string`、托管回调和引用计数 |
+
 ---
 
 ## 核心概念 / Core Concepts

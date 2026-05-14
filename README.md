@@ -41,6 +41,12 @@ Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
 - Native 原生 (NativeObject, INativeArray)
 - Save-System 存档 (SaveManager, SaveAttributes)
 
+### Native 1.3.15 源码参考 / Native 1.3.15 Source Reference
+- TaleWorlds.Native.dll 导出函数与托管桥接 (Exports and managed bridge)
+- 完整函数目录与地址列表 (Complete function catalog and address list)
+- 完整类型定义参考 (Complete type reference)
+- 引擎核心、渲染、动画、物理、音频、网络、任务和场景分类索引
+
 ### 架构文档 / Architecture
 - 模块系统 (Module System)
 - 存档系统 (Save System)
@@ -88,14 +94,17 @@ bun run docs:preview
 BannerlordCode.github.io/
 ├── docs/                      # 文档源文件
 │   ├── index.md              # 首页
+│   ├── public/               # VitePress 静态资源
 │   ├── v1.3.15/             # v1.3.15 文档
 │   │   ├── zh/              # 中文
+│   │   │   └── native-1.3.15-src/  # Native DLL 反编译源码参考
 │   │   └── en/              # 英文
-│   └── v1.3.0/              # v1.3.0 文档
+│   │       └── native-1.3.15-src/  # Native DLL decompiled source reference
+│   ├── v1.3.0/              # v1.3.0 文档
 │       ├── zh/
 │       └── en/
-└── docs/.vitepress/          # VitePress 配置
-    └── config.js             # 导航、侧边栏配置
+│   └── .vitepress/          # VitePress 配置
+│       └── config.js        # 导航、侧边栏配置
 ```
 
 ## 部署 / Deployment

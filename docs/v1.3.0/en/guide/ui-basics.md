@@ -7,7 +7,7 @@ description: v1.3.0 GauntletMovie introduction
 
 **v1.3.0 Version**
 
-> Note: This page covers v1.3.0 UI system basics. v1.3.15 has enhanced Gauntlet UI. For complete content, see [v1.3.15 Gauntlet UI](../../v1.3.15/en/guide/gauntlet-ui.md).
+> Note: This page covers v1.3.0 UI system basics. v1.3.15 has enhanced Gauntlet UI. For complete content, see [v1.3.15 Gauntlet UI](../../../v1.3.15/en/guide/gauntlet-ui.md).
 
 ## Overview
 
@@ -51,5 +51,5 @@ namespace MyModule.UI
 
 ## Related Documentation
 
-- [v1.3.15 Gauntlet UI](../../v1.3.15/en/guide/gauntlet-ui.md)
-- [API Reference](../../api/gui/)
+- [v1.3.15 Gauntlet UI](../../../v1.3.15/en/guide/gauntlet-ui.md)
+- [API Reference](../api/)

@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Agent`
+- [← Area / Back to mission](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Agent](/versions/Agent)
+<!-- END BREADCRUMB -->
 # Agent Class
 
 **Namespace**: TaleWorlds.MountAndBlade  
@@ -18,6 +25,67 @@ Agent contains rich data:
 - Health and state
 - Animations and actions
 - Team and formation information
+
+## Developer Use Cases
+
+### Use Case 1: Get the player Agent and read state
+
+**Scenario**: Check whether the player is alive, get position, current team.
+
+```csharp
+Agent main = Agent.Main; // equivalent to Mission.Current.MainAgent
+if (main == null) return;
+Vec3 pos = main.Position;
+Team team = main.Team;
+bool dead = main.State == AgentState.Dead;
+```
+
+**Key points**: `Agent.Main` is the static accessor; null in spectator mode or before the player spawns; `State` is a property, `IsActive()` is a method — semantics differ.
+
+### Use Case 2: Change an Agent's team
+
+**Scenario**: Defection, transferring to ally or enemy side.
+
+```csharp
+agent.SetTeam(newTeam, sync: true);
+```
+
+**Key points**: The second `sync` parameter controls network sync; pass `true` in multiplayer. After changing teams the `Formation` reference becomes stale and must be reassigned.
+
+### Use Case 3: Extend an Agent with AgentComponent
+
+**Scenario**: Attach per-frame logic or a damage callback to every Agent.
+
+```csharp
+public class MyComp : AgentComponent
+{
+    public MyComp(Agent a) : base(a) { }
+    public override void OnHit(Agent affector, int dmg,
+        in MissionWeapon w, in Blow b, in AttackCollisionData c) { }
+}
+
+public class MyBehavior : MissionLogic
+{
+    public override void OnAgentCreated(Agent a) =>
+        a.AddComponent(new MyComp(a));
+}
+```
+
+**Key points**: Do not inherit `Agent` directly; attach components at spawn via `MissionBehavior.OnAgentCreated`; components are disposed together with the Agent.
+
+### Use Case 4: Handle damage via MissionBehavior
+
+**Scenario**: Custom damage rules or kill tracking.
+
+```csharp
+public override void OnAgentHit(Agent affected, Agent affector,
+    in MissionWeapon weapon, in Blow blow, in AttackCollisionData data)
+{
+    if (affected == Agent.Main) { /* player damage handling */ }
+}
+```
+
+**Key points**: `OnAgentHit` fires after damage is resolved; to intercept or rewrite damage use `OnMeleeHit` / `OnMissileHit`; read final damage via `blow.BaseDamage`.
 
 ## Key Properties
 

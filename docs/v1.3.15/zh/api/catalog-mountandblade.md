@@ -1,0 +1,2379 @@
+---
+title: 战斗与引擎绑定 Mount & Blade 类目录 / Class Catalog
+sidebar: auto
+---
+
+# 战斗与引擎绑定 Mount & Blade 类目录
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **1644** 个类型，其中 **1644** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+
+> 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
+
+## TaleWorlds.MountAndBlade (752)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [ActionCodeType](./mission-ext/ActionCodeType.md) | 🔗 |
+| E | [ActionStage](./mission-ext/ActionStage.md) | 🔗 |
+| S | [AddPlayersResult](./mission-ext/AddPlayersResult.md) | 🔗 |
+| C | [Agent](./mission/Agent.md) | 🔗 |
+| C | [AgentBuildData](./mission-ext/AgentBuildData.md) | 🔗 |
+| S | [AgentCapsuleData](./mission-ext/AgentCapsuleData.md) | 🔗 |
+| C | [AgentCommonAILogic](./mission-ext/AgentCommonAILogic.md) | 🔗 |
+| C | [AgentComponent](./mission-ext/AgentComponent.md) | 🔗 |
+| C | [AgentComponentExtensions](./mission-ext/AgentComponentExtensions.md) | 🔗 |
+| C | [AgentController](./mission-ext/AgentController.md) | 🔗 |
+| C | [AgentDrivenProperties](./mission-ext/AgentDrivenProperties.md) | 🔗 |
+| C | [AgentHumanAILogic](./mission-ext/AgentHumanAILogic.md) | 🔗 |
+| S | [AgentLastHitInfo](./mission-ext/AgentLastHitInfo.md) | 🔗 |
+| E | [AgentMovementLockedState](./mission-ext/AgentMovementLockedState.md) | 🔗 |
+| S | [AgentPropertiesModifiers](./mission-ext/AgentPropertiesModifiers.md) | 🔗 |
+| C | [AgentProximityMap](./mission-ext/AgentProximityMap.md) | 🔗 |
+| S | [AgentSpawnData](./mission-ext/AgentSpawnData.md) | 🔗 |
+| C | [AgentStatCalculateModel](./mission-ext/AgentStatCalculateModel.md) | 🔗 |
+| C | [AgentVictoryLogic](./mission-ext/AgentVictoryLogic.md) | 🔗 |
+| C | [AgentVisualHolder](./mission-ext/AgentVisualHolder.md) | 🔗 |
+| C | [AgentVisualsData](./mission-ext/AgentVisualsData.md) | 🔗 |
+| E | [AIScriptedFrameFlags](./mission-ext/AIScriptedFrameFlags.md) | 🔗 |
+| E | [AISimpleBehaviorKind](./mission-ext/AISimpleBehaviorKind.md) | 🔗 |
+| E | [AISpecialCombatModeFlags](./mission-ext/AISpecialCombatModeFlags.md) | 🔗 |
+| E | [AIStateFlag](./mission-ext/AIStateFlag.md) | 🔗 |
+| E | [AITargetVisibilityState](./mission-ext/AITargetVisibilityState.md) | 🔗 |
+| C | [AnimatedFlag](./mission-ext/AnimatedFlag.md) | 🔗 |
+| S | [AnimationSystemBoneData](./mission-ext/AnimationSystemBoneData.md) | 🔗 |
+| S | [AnimationSystemBoneDataBiped](./mission-ext/AnimationSystemBoneDataBiped.md) | 🔗 |
+| S | [AnimationSystemBoneDataQuadruped](./mission-ext/AnimationSystemBoneDataQuadruped.md) | 🔗 |
+| S | [AnimationSystemData](./mission-ext/AnimationSystemData.md) | 🔗 |
+| S | [AnimationSystemDataQuadruped](./mission-ext/AnimationSystemDataQuadruped.md) | 🔗 |
+| E | [AnimFlags](./mission-ext/AnimFlags.md) | 🔗 |
+| C | [ArcherPosition](./mission-ext/ArcherPosition.md) | 🔗 |
+| C | [ArmyManagementHotkeyCategory](./mission-ext/ArmyManagementHotkeyCategory.md) | 🔗 |
+| S | [ArrangementOrder](./mission-ext/ArrangementOrder.md) | 🔗 |
+| E | [ArrangementOrderEnum](./mission-ext/ArrangementOrderEnum.md) | 🔗 |
+| C | [AssignPlayerRoleInTeamMissionController](./mission-ext/AssignPlayerRoleInTeamMissionController.md) | 🔗 |
+| S | [AttackCollisionData](./mission-ext/AttackCollisionData.md) | 🔗 |
+| C | [AttackEntityOrderSecondaryDetachment](./mission-ext/AttackEntityOrderSecondaryDetachment.md) | 🔗 |
+| S | [AttackInformation](./mission-ext/AttackInformation.md) | 🔗 |
+| E | [Axis](./mission-ext/Axis.md) | 🔗 |
+| C | [Ballista](./mission-ext/Ballista.md) | 🔗 |
+| C | [BallistaAI](./mission-ext/BallistaAI.md) | 🔗 |
+| C | [BannerBearerLogic](./mission-ext/BannerBearerLogic.md) | 🔗 |
+| C | [BannerBuilderState](./mission-ext/BannerBuilderState.md) | 🔗 |
+| S | [BannerInstance](./mission-ext/BannerInstance.md) | 🔗 |
+| C | [BannerlordConfig](./mission-ext/BannerlordConfig.md) | 🔗 |
+| C | [BannerlordFriendListService](./mission-ext/BannerlordFriendListService.md) | 🔗 |
+| C | [BannerlordMissions](./mission-ext/BannerlordMissions.md) | 🔗 |
+| C | [BannerlordNetwork](./mission-ext/BannerlordNetwork.md) | 🔗 |
+| C | [BannerlordTableauManager](./mission-ext/BannerlordTableauManager.md) | 🔗 |
+| E | [BannerState](./mission-ext/BannerState.md) | 🔗 |
+| C | [BaseNetworkComponentData](./mission-ext/BaseNetworkComponentData.md) | 🔗 |
+| S | [BaseSynchedMissionObjectReadableRecord](./mission-ext/BaseSynchedMissionObjectReadableRecord.md) | 🔗 |
+| C | [BasicBattleAgentOrigin](./mission-ext/BasicBattleAgentOrigin.md) | 🔗 |
+| C | [BasicGameStarter](./mission-ext/BasicGameStarter.md) | 🔗 |
+| C | [BasicLeaveMissionLogic](./mission-ext/BasicLeaveMissionLogic.md) | 🔗 |
+| C | [BasicMissionTimer](./mission-ext/BasicMissionTimer.md) | 🔗 |
+| C | [BatteringRam](./mission-ext/BatteringRam.md) | 🔗 |
+| C | [BatteringRamAI](./mission-ext/BatteringRamAI.md) | 🔗 |
+| S | [BatteringRamRecord](./mission-ext/BatteringRamRecord.md) | 🔗 |
+| C | [BattleDeploymentMissionController](./mission-ext/BattleDeploymentMissionController.md) | 🔗 |
+| C | [BattleEndLogic](./mission-ext/BattleEndLogic.md) | 🔗 |
+| C | [BattleHighlightsController](./mission-ext/BattleHighlightsController.md) | 🔗 |
+| C | [BattleMissionStarterLogic](./mission-ext/BattleMissionStarterLogic.md) | 🔗 |
+| C | [BattleObserverMissionLogic](./mission-ext/BattleObserverMissionLogic.md) | 🔗 |
+| C | [BattlePowerCalculationLogic](./mission-ext/BattlePowerCalculationLogic.md) | 🔗 |
+| C | [BattleReinforcementsSpawnController](./mission-ext/BattleReinforcementsSpawnController.md) | 🔗 |
+| C | [BattleSideSpawnPathSelector](./mission-ext/BattleSideSpawnPathSelector.md) | 🔗 |
+| E | [BattleSizeQualifier](./mission-ext/BattleSizeQualifier.md) | 🔗 |
+| E | [BattleSizeType](./mission-ext/BattleSizeType.md) | 🔗 |
+| C | [BattleSpawnPathSelector](./mission-ext/BattleSpawnPathSelector.md) | 🔗 |
+| C | [BattleViewModel](./mission-ext/BattleViewModel.md) | 🔗 |
+| C | [BehaviorAdvance](./mission-ext/BehaviorAdvance.md) | 🔗 |
+| C | [BehaviorAssaultWalls](./mission-ext/BehaviorAssaultWalls.md) | 🔗 |
+| C | [BehaviorCautiousAdvance](./mission-ext/BehaviorCautiousAdvance.md) | 🔗 |
+| C | [BehaviorCavalryScreen](./mission-ext/BehaviorCavalryScreen.md) | 🔗 |
+| C | [BehaviorCharge](./mission-ext/BehaviorCharge.md) | 🔗 |
+| C | [BehaviorComponent](./mission-ext/BehaviorComponent.md) | 🔗 |
+| C | [BehaviorData](./mission-ext/BehaviorData.md) | 🔗 |
+| C | [BehaviorDefend](./mission-ext/BehaviorDefend.md) | 🔗 |
+| C | [BehaviorDefendCastleKeyPosition](./mission-ext/BehaviorDefendCastleKeyPosition.md) | 🔗 |
+| C | [BehaviorDefendKeyPosition](./mission-ext/BehaviorDefendKeyPosition.md) | 🔗 |
+| C | [BehaviorDefendSiegeWeapon](./mission-ext/BehaviorDefendSiegeWeapon.md) | 🔗 |
+| C | [BehaviorDefensiveRing](./mission-ext/BehaviorDefensiveRing.md) | 🔗 |
+| C | [BehaviorDestroySiegeWeapons](./mission-ext/BehaviorDestroySiegeWeapons.md) | 🔗 |
+| C | [BehaviorEliminateEnemyInsideCastle](./mission-ext/BehaviorEliminateEnemyInsideCastle.md) | 🔗 |
+| C | [BehaviorFireFromInfantryCover](./mission-ext/BehaviorFireFromInfantryCover.md) | 🔗 |
+| C | [BehaviorFlank](./mission-ext/BehaviorFlank.md) | 🔗 |
+| C | [BehaviorGeneral](./mission-ext/BehaviorGeneral.md) | 🔗 |
+| C | [BehaviorHoldHighGround](./mission-ext/BehaviorHoldHighGround.md) | 🔗 |
+| C | [BehaviorHorseArcherSkirmish](./mission-ext/BehaviorHorseArcherSkirmish.md) | 🔗 |
+| C | [BehaviorMountedSkirmish](./mission-ext/BehaviorMountedSkirmish.md) | 🔗 |
+| C | [BehaviorProtectFlank](./mission-ext/BehaviorProtectFlank.md) | 🔗 |
+| C | [BehaviorProtectGeneral](./mission-ext/BehaviorProtectGeneral.md) | 🔗 |
+| C | [BehaviorPullBack](./mission-ext/BehaviorPullBack.md) | 🔗 |
+| C | [BehaviorRegroup](./mission-ext/BehaviorRegroup.md) | 🔗 |
+| C | [BehaviorReserve](./mission-ext/BehaviorReserve.md) | 🔗 |
+| C | [BehaviorRetakeCastleKeyPosition](./mission-ext/BehaviorRetakeCastleKeyPosition.md) | 🔗 |
+| C | [BehaviorRetreat](./mission-ext/BehaviorRetreat.md) | 🔗 |
+| C | [BehaviorRetreatToCastle](./mission-ext/BehaviorRetreatToCastle.md) | 🔗 |
+| C | [BehaviorRetreatToKeep](./mission-ext/BehaviorRetreatToKeep.md) | 🔗 |
+| C | [BehaviorSallyOut](./mission-ext/BehaviorSallyOut.md) | 🔗 |
+| C | [BehaviorScreenedSkirmish](./mission-ext/BehaviorScreenedSkirmish.md) | 🔗 |
+| C | [BehaviorSergeantMPInfantry](./mission-ext/BehaviorSergeantMPInfantry.md) | 🔗 |
+| C | [BehaviorSergeantMPLastFlagLastStand](./mission-ext/BehaviorSergeantMPLastFlagLastStand.md) | 🔗 |
+| C | [BehaviorSergeantMPMounted](./mission-ext/BehaviorSergeantMPMounted.md) | 🔗 |
+| C | [BehaviorSergeantMPMountedRanged](./mission-ext/BehaviorSergeantMPMountedRanged.md) | 🔗 |
+| C | [BehaviorSergeantMPRanged](./mission-ext/BehaviorSergeantMPRanged.md) | 🔗 |
+| C | [BehaviorShootFromCastleWalls](./mission-ext/BehaviorShootFromCastleWalls.md) | 🔗 |
+| C | [BehaviorShootFromCliff](./mission-ext/BehaviorShootFromCliff.md) | 🔗 |
+| C | [BehaviorShootFromSiegeTower](./mission-ext/BehaviorShootFromSiegeTower.md) | 🔗 |
+| E | [BehaviorSide](./mission-ext/BehaviorSide.md) | 🔗 |
+| C | [BehaviorSkirmish](./mission-ext/BehaviorSkirmish.md) | 🔗 |
+| C | [BehaviorSkirmishBehindFormation](./mission-ext/BehaviorSkirmishBehindFormation.md) | 🔗 |
+| C | [BehaviorSkirmishLine](./mission-ext/BehaviorSkirmishLine.md) | 🔗 |
+| C | [BehaviorSparseSkirmish](./mission-ext/BehaviorSparseSkirmish.md) | 🔗 |
+| C | [BehaviorStop](./mission-ext/BehaviorStop.md) | 🔗 |
+| C | [BehaviorTacticalCharge](./mission-ext/BehaviorTacticalCharge.md) | 🔗 |
+| C | [BehaviorUseMurderHole](./mission-ext/BehaviorUseMurderHole.md) | 🔗 |
+| C | [BehaviorUseSiegeMachines](./mission-ext/BehaviorUseSiegeMachines.md) | 🔗 |
+| S | [BehaviorValues](./mission-ext/BehaviorValues.md) | 🔗 |
+| E | [BehaviorValueSet](./mission-ext/BehaviorValueSet.md) | 🔗 |
+| C | [BehaviorVanguard](./mission-ext/BehaviorVanguard.md) | 🔗 |
+| C | [BehaviorWaitForLadders](./mission-ext/BehaviorWaitForLadders.md) | 🔗 |
+| C | [Bird](./mission-ext/Bird.md) | 🔗 |
+| S | [Blow](./mission-ext/Blow.md) | 🔗 |
+| E | [BlowFlags](./mission-ext/BlowFlags.md) | 🔗 |
+| S | [BlowWeaponRecord](./mission-ext/BlowWeaponRecord.md) | 🔗 |
+| C | [BoardGameHotkeyCategory](./mission-ext/BoardGameHotkeyCategory.md) | 🔗 |
+| C | [BodyGenerator](./mission-ext/BodyGenerator.md) | 🔗 |
+| E | [BodyMeshTypes](./mission-ext/BodyMeshTypes.md) | 🔗 |
+| E | [BoneBodyPartType](./mission-ext/BoneBodyPartType.md) | 🔗 |
+| S | [BoneBodyTypeData](./mission-ext/BoneBodyTypeData.md) | 🔗 |
+| C | [BotData](./mission-ext/BotData.md) | 🔗 |
+| C | [BoundaryWallView](./mission-ext/BoundaryWallView.md) | 🔗 |
+| E | [CachedBool](./mission-ext/CachedBool.md) | 🔗 |
+| E | [CachedFloat](./mission-ext/CachedFloat.md) | 🔗 |
+| C | [CameraDisplay](./mission-ext/CameraDisplay.md) | 🔗 |
+| E | [CameraState](./mission-ext/CameraState.md) | 🔗 |
+| C | [CaptureTheFlagCapturePoint](./mission-ext/CaptureTheFlagCapturePoint.md) | 🔗 |
+| E | [CaptureTheFlagCaptureResultEnum](./mission-ext/CaptureTheFlagCaptureResultEnum.md) | 🔗 |
+| E | [CaptureTheFlagFlagDirection](./mission-ext/CaptureTheFlagFlagDirection.md) | 🔗 |
+| C | [CastleGate](./mission-ext/CastleGate.md) | 🔗 |
+| C | [CastleGateAI](./mission-ext/CastleGateAI.md) | 🔗 |
+| C | [CasualtyHandler](./mission-ext/CasualtyHandler.md) | 🔗 |
+| C | [ChatBox](./mission-ext/ChatBox.md) | 🔗 |
+| C | [ChatLogHotKeyCategory](./mission-ext/ChatLogHotKeyCategory.md) | 🔗 |
+| E | [ChatType](./mission-ext/ChatType.md) | 🔗 |
+| E | [CheerActionGroupEnum](./mission-ext/CheerActionGroupEnum.md) | 🔗 |
+| S | [CheerReactionTimeSettings](./mission-ext/CheerReactionTimeSettings.md) | 🔗 |
+| C | [CircularFormation](./mission-ext/CircularFormation.md) | 🔗 |
+| C | [CircularSchiltronFormation](./mission-ext/CircularSchiltronFormation.md) | 🔗 |
+| C | [ClanFriendListService](./mission-ext/ClanFriendListService.md) | 🔗 |
+| C | [ClearHandInverseKinematicsOnStopUsageComponent](./mission-ext/ClearHandInverseKinematicsOnStopUsageComponent.md) | 🔗 |
+| C | [ClimbingMachineDetachment](./mission-ext/ClimbingMachineDetachment.md) | 🔗 |
+| C | [ColorAssigner](./mission-ext/ColorAssigner.md) | 🔗 |
+| C | [ColumnFormation](./mission-ext/ColumnFormation.md) | 🔗 |
+| E | [CombatCollisionResult](./mission-ext/CombatCollisionResult.md) | 🔗 |
+| E | [CombatHitResultFlags](./mission-ext/CombatHitResultFlags.md) | 🔗 |
+| C | [CombatHotKeyCategory](./mission-ext/CombatHotKeyCategory.md) | 🔗 |
+| E | [CombatLogColor](./mission-ext/CombatLogColor.md) | 🔗 |
+| S | [CombatLogData](./mission-ext/CombatLogData.md) | 🔗 |
+| C | [CombatLogManager](./mission-ext/CombatLogManager.md) | 🔗 |
+| C | [CombatSoundContainer](./mission-ext/CombatSoundContainer.md) | 🔗 |
+| E | [CombatVoiceNetworkPredictionType](./mission-ext/CombatVoiceNetworkPredictionType.md) | 🔗 |
+| C | [CommonAIComponent](./mission-ext/CommonAIComponent.md) | 🔗 |
+| C | [CommunityClient](./mission-ext/CommunityClient.md) | 🔗 |
+| C | [CommunityGameJoinData](./mission-ext/CommunityGameJoinData.md) | 🔗 |
+| S | [CompassItemUpdateParams](./mission-ext/CompassItemUpdateParams.md) | 🔗 |
+| C | [CompassMarker](./mission-ext/CompassMarker.md) | 🔗 |
+| C | [CompressionBasic](./mission-ext/CompressionBasic.md) | 🔗 |
+| C | [CompressionInfo](./mission-ext/CompressionInfo.md) | 🔗 |
+| C | [CompressionMatchmaker](./mission-ext/CompressionMatchmaker.md) | 🔗 |
+| C | [CompressionMission](./mission-ext/CompressionMission.md) | 🔗 |
+| C | [ConditionalEffectContainer](./mission-ext/ConditionalEffectContainer.md) | 🔗 |
+| C | [ConsoleCommandMethod](./mission-ext/ConsoleCommandMethod.md) | 🔗 |
+| C | [ConsolesModuleExtension](./mission-ext/ConsolesModuleExtension.md) | 🔗 |
+| C | [ConversationHotKeyCategory](./mission-ext/ConversationHotKeyCategory.md) | 🔗 |
+| C | [CoreManaged](./mission-ext/CoreManaged.md) | 🔗 |
+| C | [CosmeticsManagerHelper](./mission-ext/CosmeticsManagerHelper.md) | 🔗 |
+| C | [CraftingHotkeyCategory](./mission-ext/CraftingHotkeyCategory.md) | 🔗 |
+| E | [CreationType](./mission-ext/CreationType.md) | 🔗 |
+| E | [CrushThroughState](./mission-ext/CrushThroughState.md) | 🔗 |
+| E | [CultureVoteTypes](./mission-ext/CultureVoteTypes.md) | 🔗 |
+| C | [CustomAgentApplyDamageModel](./mission-ext/CustomAgentApplyDamageModel.md) | 🔗 |
+| C | [CustomBattleAgentLogic](./mission-ext/CustomBattleAgentLogic.md) | 🔗 |
+| C | [CustomBattleAgentOrigin](./mission-ext/CustomBattleAgentOrigin.md) | 🔗 |
+| C | [CustomBattleAgentStatCalculateModel](./mission-ext/CustomBattleAgentStatCalculateModel.md) | 🔗 |
+| C | [CustomBattleApplyWeatherEffectsModel](./mission-ext/CustomBattleApplyWeatherEffectsModel.md) | 🔗 |
+| C | [CustomBattleAutoBlockModel](./mission-ext/CustomBattleAutoBlockModel.md) | 🔗 |
+| C | [CustomBattleBannerBearersModel](./mission-ext/CustomBattleBannerBearersModel.md) | 🔗 |
+| C | [CustomBattleCombatant](./mission-ext/CustomBattleCombatant.md) | 🔗 |
+| C | [CustomBattleInitializationModel](./mission-ext/CustomBattleInitializationModel.md) | 🔗 |
+| C | [CustomBattleMoraleModel](./mission-ext/CustomBattleMoraleModel.md) | 🔗 |
+| C | [CustomBattleSpawnModel](./mission-ext/CustomBattleSpawnModel.md) | 🔗 |
+| C | [CustomBattleTroopSupplier](./mission-ext/CustomBattleTroopSupplier.md) | 🔗 |
+| C | [CustomGameBannedPlayerManager](./mission-ext/CustomGameBannedPlayerManager.md) | 🔗 |
+| C | [CustomGameUsableMap](./mission-ext/CustomGameUsableMap.md) | 🔗 |
+| C | [DamageParticleModel](./mission-ext/DamageParticleModel.md) | 🔗 |
+| C | [DebugExtensions](./mission-ext/DebugExtensions.md) | 🔗 |
+| S | [DebugNetworkPacketStatisticsStruct](./mission-ext/DebugNetworkPacketStatisticsStruct.md) | 🔗 |
+| S | [DebugNetworkPositionCompressionStatisticsStruct](./mission-ext/DebugNetworkPositionCompressionStatisticsStruct.md) | 🔗 |
+| C | [DebugSiegeBehavior](./mission-ext/DebugSiegeBehavior.md) | 🔗 |
+| E | [DebugStateAttacker](./mission-ext/DebugStateAttacker.md) | 🔗 |
+| E | [DebugStateDefender](./mission-ext/DebugStateDefender.md) | 🔗 |
+| E | [DedicatedServerType](./mission-ext/DedicatedServerType.md) | 🔗 |
+| C | [DefaultAgentDecideKilledOrUnconsciousModel](./mission-ext/DefaultAgentDecideKilledOrUnconsciousModel.md) | 🔗 |
+| C | [DefaultDamageParticleModel](./mission-ext/DefaultDamageParticleModel.md) | 🔗 |
+| C | [DefaultDeploymentPlan](./mission-ext/DefaultDeploymentPlan.md) | 🔗 |
+| C | [DefaultFormationArrangementModel](./mission-ext/DefaultFormationArrangementModel.md) | 🔗 |
+| C | [DefaultFormationDeploymentPlan](./mission-ext/DefaultFormationDeploymentPlan.md) | 🔗 |
+| C | [DefaultItemPickupModel](./mission-ext/DefaultItemPickupModel.md) | 🔗 |
+| C | [DefaultMissionDeploymentPlan](./mission-ext/DefaultMissionDeploymentPlan.md) | 🔗 |
+| C | [DefaultMissionDifficultyModel](./mission-ext/DefaultMissionDifficultyModel.md) | 🔗 |
+| C | [DefaultStrikeMagnitudeModel](./mission-ext/DefaultStrikeMagnitudeModel.md) | 🔗 |
+| C | [DefaultTacticalDecisionCodes](./mission-ext/DefaultTacticalDecisionCodes.md) | 🔗 |
+| C | [DefaultTeamDeploymentPlan](./mission-ext/DefaultTeamDeploymentPlan.md) | 🔗 |
+| C | [DefencePoint](./mission-ext/DefencePoint.md) | 🔗 |
+| C | [DefineGameNetworkMessageTypeForMod](./mission-ext/DefineGameNetworkMessageTypeForMod.md) | 🔗 |
+| C | [DefineSynchedMissionObjectTypeForMod](./mission-ext/DefineSynchedMissionObjectTypeForMod.md) | 🔗 |
+| S | [DeformKeyData](./mission-ext/DeformKeyData.md) | 🔗 |
+| C | [DeploymentHandler](./mission-ext/DeploymentHandler.md) | 🔗 |
+| C | [DeploymentMissionController](./mission-ext/DeploymentMissionController.md) | 🔗 |
+| C | [DeploymentOrderComparer](./mission-ext/DeploymentOrderComparer.md) | 🔗 |
+| C | [DeploymentPoint](./mission-ext/DeploymentPoint.md) | 🔗 |
+| E | [DeploymentPointState](./mission-ext/DeploymentPointState.md) | 🔗 |
+| E | [DeploymentPointType](./mission-ext/DeploymentPointType.md) | 🔗 |
+| C | [DestructableComponent](./mission-ext/DestructableComponent.md) | 🔗 |
+| S | [DestructableComponentRecord](./mission-ext/DestructableComponentRecord.md) | 🔗 |
+| C | [DestructableMissionObject](./mission-ext/DestructableMissionObject.md) | 🔗 |
+| C | [DestructedPrefabInfoMissionObject](./mission-ext/DestructedPrefabInfoMissionObject.md) | 🔗 |
+| C | [DetachmentData](./mission-ext/DetachmentData.md) | 🔗 |
+| C | [DetachmentManager](./mission-ext/DetachmentManager.md) | 🔗 |
+| C | [DividableTask](./mission-ext/DividableTask.md) | 🔗 |
+| E | [DoorOwnership](./mission-ext/DoorOwnership.md) | 🔗 |
+| C | [DuelZoneLandmark](./mission-ext/DuelZoneLandmark.md) | 🔗 |
+| C | [DynamicallyCreatedEntity](./mission-ext/DynamicallyCreatedEntity.md) | 🔗 |
+| C | [EditorGame](./mission-ext/EditorGame.md) | 🔗 |
+| C | [EditorGameManager](./mission-ext/EditorGameManager.md) | 🔗 |
+| C | [EditorState](./mission-ext/EditorState.md) | 🔗 |
+| C | [EquipmentControllerLeaveLogic](./mission-ext/EquipmentControllerLeaveLogic.md) | 🔗 |
+| E | [EventBroadcastFlags](./mission-ext/EventBroadcastFlags.md) | 🔗 |
+| E | [EventControlFlag](./mission-ext/EventControlFlag.md) | 🔗 |
+| C | [ExitDoor](./mission-ext/ExitDoor.md) | 🔗 |
+| E | [ExitResult](./mission-ext/ExitResult.md) | 🔗 |
+| C | [FaceGen](./mission-ext/FaceGen.md) | 🔗 |
+| S | [FaceGenerationParams](./mission-ext/FaceGenerationParams.md) | 🔗 |
+| C | [FaceGenHotkeyCategory](./mission-ext/FaceGenHotkeyCategory.md) | 🔗 |
+| E | [FacialAnimChannel](./mission-ext/FacialAnimChannel.md) | 🔗 |
+| S | [FacingOrder](./mission-ext/FacingOrder.md) | 🔗 |
+| E | [FacingOrderEnum](./mission-ext/FacingOrderEnum.md) | 🔗 |
+| S | [FactoredNumber](./mission-ext/FactoredNumber.md) | 🔗 |
+| C | [FFASpawnFrameBehavior](./mission-ext/FFASpawnFrameBehavior.md) | 🔗 |
+| C | [FireBallista](./mission-ext/FireBallista.md) | 🔗 |
+| C | [FireMangonel](./mission-ext/FireMangonel.md) | 🔗 |
+| E | [FiringFocus](./mission-ext/FiringFocus.md) | 🔗 |
+| S | [FiringOrder](./mission-ext/FiringOrder.md) | 🔗 |
+| C | [FlagDominationSpawnFrameBehavior](./mission-ext/FlagDominationSpawnFrameBehavior.md) | 🔗 |
+| C | [FlagDominationSpawningBehavior](./mission-ext/FlagDominationSpawningBehavior.md) | 🔗 |
+| C | [FleePosition](./mission-ext/FleePosition.md) | 🔗 |
+| S | [Float](./mission-ext/Float.md) | 🔗 |
+| S | [FocusableObjectInformation](./mission-ext/FocusableObjectInformation.md) | 🔗 |
+| E | [FocusableObjectType](./mission-ext/FocusableObjectType.md) | 🔗 |
+| E | [ForceUseState](./mission-ext/ForceUseState.md) | 🔗 |
+| C | [Formation](./mission/Formation.md) | 🔗 |
+| C | [FormationAI](./mission-ext/FormationAI.md) | 🔗 |
+| E | [FormationDeploymentFlank](./mission-ext/FormationDeploymentFlank.md) | 🔗 |
+| S | [FormationDeploymentOrder](./mission-ext/FormationDeploymentOrder.md) | 🔗 |
+| C | [FormationExtensions](./mission-ext/FormationExtensions.md) | 🔗 |
+| S | [FormationIntegrityDataGroup](./mission-ext/FormationIntegrityDataGroup.md) | 🔗 |
+| C | [FormationPocket](./mission-ext/FormationPocket.md) | 🔗 |
+| C | [FormationQuerySystem](./mission-ext/FormationQuerySystem.md) | 🔗 |
+| S | [FormationSceneSpawnEntry](./mission-ext/FormationSceneSpawnEntry.md) | 🔗 |
+| S | [FormOrder](./mission-ext/FormOrder.md) | 🔗 |
+| E | [FormOrderEnum](./mission-ext/FormOrderEnum.md) | 🔗 |
+| C | [GameEntityExtensions](./mission-ext/GameEntityExtensions.md) | 🔗 |
+| E | [GameKeyDefinition](./mission-ext/GameKeyDefinition.md) | 🔗 |
+| C | [GameKeyMainCategories](./mission-ext/GameKeyMainCategories.md) | 🔗 |
+| C | [GameKeyTextExtensions](./mission-ext/GameKeyTextExtensions.md) | 🔗 |
+| C | [GameLoadingState](./mission-ext/GameLoadingState.md) | 🔗 |
+| C | [GameNetwork](./mission-ext/GameNetwork.md) | 🔗 |
+| E | [GameNetworkMessageSendType](./mission-ext/GameNetworkMessageSendType.md) | 🔗 |
+| C | [GameStartupInfo](./mission-ext/GameStartupInfo.md) | 🔗 |
+| E | [GameStartupType](./mission-ext/GameStartupType.md) | 🔗 |
+| E | [GameType](./mission-ext/GameType.md) | 🔗 |
+| E | [GateState](./mission-ext/GateState.md) | 🔗 |
+| C | [GeneralsAndCaptainsAssignmentLogic](./mission-ext/GeneralsAndCaptainsAssignmentLogic.md) | 🔗 |
+| E | [GenerationType](./mission-ext/GenerationType.md) | 🔗 |
+| C | [GenericCampaignPanelsGameKeyCategory](./mission-ext/GenericCampaignPanelsGameKeyCategory.md) | 🔗 |
+| C | [GenericGameKeyContext](./mission-ext/GenericGameKeyContext.md) | 🔗 |
+| C | [GenericPanelGameKeyCategory](./mission-ext/GenericPanelGameKeyCategory.md) | 🔗 |
+| E | [GoldGainFlags](./mission-ext/GoldGainFlags.md) | 🔗 |
+| E | [GuardMode](./mission-ext/GuardMode.md) | 🔗 |
+| E | [HandIndex](./mission-ext/HandIndex.md) | 🔗 |
+| C | [HideoutSpawnPointGroup](./mission-ext/HideoutSpawnPointGroup.md) | 🔗 |
+| S | [Highlight](./mission-ext/Highlight.md) | 🔗 |
+| C | [HighlightsController](./mission-ext/HighlightsController.md) | 🔗 |
+| S | [HighlightType](./mission-ext/HighlightType.md) | 🔗 |
+| S | [HitParticleResultData](./mission-ext/HitParticleResultData.md) | 🔗 |
+| C | [Hitter](./mission-ext/Hitter.md) | 🔗 |
+| C | [HumanAIComponent](./mission-ext/HumanAIComponent.md) | 🔗 |
+| E | [HumanWalkingMovementMode](./mission-ext/HumanWalkingMovementMode.md) | 🔗 |
+| I | [IAgentStateDecider](./mission-ext/IAgentStateDecider.md) | 🔗 |
+| I | [IAgentVisual](./mission-ext/IAgentVisual.md) | 🔗 |
+| I | [IAgentVisualCreator](./mission-ext/IAgentVisualCreator.md) | 🔗 |
+| I | [IAnalyticsFlagInfo](./mission-ext/IAnalyticsFlagInfo.md) | 🔗 |
+| I | [IBattleEndLogic](./mission-ext/IBattleEndLogic.md) | 🔗 |
+| I | [IBattlePowerCalculationLogic](./mission-ext/IBattlePowerCalculationLogic.md) | 🔗 |
+| I | [ICastleKeyPosition](./mission-ext/ICastleKeyPosition.md) | 🔗 |
+| I | [ICommanderInfo](./mission-ext/ICommanderInfo.md) | 🔗 |
+| I | [ICommunityClientHandler](./mission-ext/ICommunityClientHandler.md) | 🔗 |
+| I | [ICustomReinforcementSpawnTimer](./mission-ext/ICustomReinforcementSpawnTimer.md) | 🔗 |
+| I | [IDetachment](./mission-ext/IDetachment.md) | 🔗 |
+| I | [IEditorMissionTester](./mission-ext/IEditorMissionTester.md) | 🔗 |
+| I | [IFaceGeneratorHandler](./mission-ext/IFaceGeneratorHandler.md) | 🔗 |
+| I | [IFlagRemoved](./mission-ext/IFlagRemoved.md) | 🔗 |
+| I | [IFocusable](./mission-ext/IFocusable.md) | 🔗 |
+| I | [IFormation](./mission-ext/IFormation.md) | 🔗 |
+| I | [IFormationArrangement](./mission-ext/IFormationArrangement.md) | 🔗 |
+| I | [IFormationDeploymentPlan](./mission-ext/IFormationDeploymentPlan.md) | 🔗 |
+| I | [IFormationUnit](./mission-ext/IFormationUnit.md) | 🔗 |
+| I | [IGameNetworkHandler](./mission-ext/IGameNetworkHandler.md) | 🔗 |
+| I | [IMissionAgentSpawnLogic](./mission-ext/IMissionAgentSpawnLogic.md) | 🔗 |
+| I | [IMissionBehavior](./mission-ext/IMissionBehavior.md) | 🔗 |
+| I | [IMissionDeploymentPlan](./mission-ext/IMissionDeploymentPlan.md) | 🔗 |
+| I | [IMissionListener](./mission-ext/IMissionListener.md) | 🔗 |
+| I | [IMissionSystemHandler](./mission-ext/IMissionSystemHandler.md) | 🔗 |
+| I | [IMoveableSiegeWeapon](./mission-ext/IMoveableSiegeWeapon.md) | 🔗 |
+| S | [ImpactSoundModifier](./mission-ext/ImpactSoundModifier.md) | 🔗 |
+| I | [IMusicHandler](./mission-ext/IMusicHandler.md) | 🔗 |
+| C | [IncrementalTimer](./mission-ext/IncrementalTimer.md) | 🔗 |
+| E | [InitialSpawnMethod](./mission-ext/InitialSpawnMethod.md) | 🔗 |
+| C | [InitialState](./mission-ext/InitialState.md) | 🔗 |
+| C | [InitialStateOption](./mission-ext/InitialStateOption.md) | 🔗 |
+| S | [Integer](./mission-ext/Integer.md) | 🔗 |
+| C | [IntermissionVoteItem](./mission-ext/IntermissionVoteItem.md) | 🔗 |
+| C | [IntermissionVoteItemListExtensions](./mission-ext/IntermissionVoteItemListExtensions.md) | 🔗 |
+| C | [InventoryHotKeyCategory](./mission-ext/InventoryHotKeyCategory.md) | 🔗 |
+| I | [IOnSpawnPerkEffect](./mission-ext/IOnSpawnPerkEffect.md) | 🔗 |
+| I | [IOrderable](./mission-ext/IOrderable.md) | 🔗 |
+| I | [IOrderableWithInteractionArea](./mission-ext/IOrderableWithInteractionArea.md) | 🔗 |
+| I | [IPathHolder](./mission-ext/IPathHolder.md) | 🔗 |
+| I | [IPlayerInputEffector](./mission-ext/IPlayerInputEffector.md) | 🔗 |
+| I | [IPointDefendable](./mission-ext/IPointDefendable.md) | 🔗 |
+| I | [IPrimarySiegeWeapon](./mission-ext/IPrimarySiegeWeapon.md) | 🔗 |
+| I | [IQueryData](./mission-ext/IQueryData.md) | 🔗 |
+| I | [IReadOnlyPerkObject](./mission-ext/IReadOnlyPerkObject.md) | 🔗 |
+| I | [IRoundComponent](./mission-ext/IRoundComponent.md) | 🔗 |
+| I | [IScoreboardData](./mission-ext/IScoreboardData.md) | 🔗 |
+| I | [ISynchedMissionObjectReadableRecord](./mission-ext/ISynchedMissionObjectReadableRecord.md) | 🔗 |
+| I | [ITargetable](./mission-ext/ITargetable.md) | 🔗 |
+| C | [ItemCollectionElementMissionExtensions](./mission-ext/ItemCollectionElementMissionExtensions.md) | 🔗 |
+| C | [ItemPhysicsSoundContainer](./mission-ext/ItemPhysicsSoundContainer.md) | 🔗 |
+| I | [IUdpNetworkHandler](./mission-ext/IUdpNetworkHandler.md) | 🔗 |
+| I | [IUsable](./mission-ext/IUsable.md) | 🔗 |
+| I | [IVehicleHandler](./mission-ext/IVehicleHandler.md) | 🔗 |
+| I | [IVisible](./mission-ext/IVisible.md) | 🔗 |
+| E | [KillInfo](./mission-ext/KillInfo.md) | 🔗 |
+| S | [KillingBlow](./mission-ext/KillingBlow.md) | 🔗 |
+| E | [LadderAnimationState](./mission-ext/LadderAnimationState.md) | 🔗 |
+| C | [LadderQueueManager](./mission-ext/LadderQueueManager.md) | 🔗 |
+| E | [LadderState](./mission-ext/LadderState.md) | 🔗 |
+| E | [LaneDefenseStates](./mission-ext/LaneDefenseStates.md) | 🔗 |
+| E | [LaneStateEnum](./mission-ext/LaneStateEnum.md) | 🔗 |
+| C | [LightCycle](./mission-ext/LightCycle.md) | 🔗 |
+| C | [Lightning](./mission-ext/Lightning.md) | 🔗 |
+| C | [LineFormation](./mission-ext/LineFormation.md) | 🔗 |
+| E | [LobbyMissionType](./mission-ext/LobbyMissionType.md) | 🔗 |
+| C | [LobbyNetworkComponent](./mission-ext/LobbyNetworkComponent.md) | 🔗 |
+| S | [LongInteger](./mission-ext/LongInteger.md) | 🔗 |
+| C | [ManagedOptions](./mission-ext/ManagedOptions.md) | 🔗 |
+| E | [ManagedOptionsType](./mission-ext/ManagedOptionsType.md) | 🔗 |
+| C | [Mangonel](./mission-ext/Mangonel.md) | 🔗 |
+| C | [MangonelAI](./mission-ext/MangonelAI.md) | 🔗 |
+| C | [MapAtmosphereProbe](./mission-ext/MapAtmosphereProbe.md) | 🔗 |
+| C | [MapHotKeyCategory](./mission-ext/MapHotKeyCategory.md) | 🔗 |
+| C | [MapNotificationHotKeyCategory](./mission-ext/MapNotificationHotKeyCategory.md) | 🔗 |
+| C | [Markable](./mission-ext/Markable.md) | 🔗 |
+| S | [MBActionSet](./mission-ext/MBActionSet.md) | 🔗 |
+| C | [MBAgentRendererSceneController](./mission-ext/MBAgentRendererSceneController.md) | 🔗 |
+| C | [MBAgentVisuals](./mission-ext/MBAgentVisuals.md) | 🔗 |
+| S | [MBAnimation](./mission-ext/MBAnimation.md) | 🔗 |
+| C | [MBAPI](./mission-ext/MBAPI.md) | 🔗 |
+| C | [MBBodyProperties](./mission-ext/MBBodyProperties.md) | 🔗 |
+| C | [MBBoundaryCollection](./mission-ext/MBBoundaryCollection.md) | 🔗 |
+| C | [MBCallback](./mission-ext/MBCallback.md) | 🔗 |
+| C | [MBCommon](./core-extra/MBCommon.md) | 🔗 |
+| C | [MBDebugManager](./mission-ext/MBDebugManager.md) | 🔗 |
+| C | [MBEditor](./mission-ext/MBEditor.md) | 🔗 |
+| C | [MBEquipmentMissionExtensions](./mission-ext/MBEquipmentMissionExtensions.md) | 🔗 |
+| C | [MBExtensions](./mission-ext/MBExtensions.md) | 🔗 |
+| C | [MBGameManager](./mission-ext/MBGameManager.md) | 🔗 |
+| C | [MBGlobals](./mission-ext/MBGlobals.md) | 🔗 |
+| C | [MBInitialScreenBase](./mission-ext/MBInitialScreenBase.md) | 🔗 |
+| C | [MBItem](./mission-ext/MBItem.md) | 🔗 |
+| C | [MBMapScene](./mission-ext/MBMapScene.md) | 🔗 |
+| C | [MBMissile](./mission-ext/MBMissile.md) | 🔗 |
+| C | [MBMultiplayerData](./mission-ext/MBMultiplayerData.md) | 🔗 |
+| C | [MBMusicManager](./mission-ext/MBMusicManager.md) | 🔗 |
+| S | [MBMusicTrack](./mission-ext/MBMusicTrack.md) | 🔗 |
+| S | [MBParticleSystem](./mission-ext/MBParticleSystem.md) | 🔗 |
+| C | [MBProfileSelectionScreenBase](./mission-ext/MBProfileSelectionScreenBase.md) | 🔗 |
+| C | [MBSceneUtilities](./mission-ext/MBSceneUtilities.md) | 🔗 |
+| C | [MBSkeletonExtensions](./mission-ext/MBSkeletonExtensions.md) | 🔗 |
+| C | [MBSoundEvent](./mission-ext/MBSoundEvent.md) | 🔗 |
+| S | [MBSoundTrack](./mission-ext/MBSoundTrack.md) | 🔗 |
+| C | [MBSubModuleBase](./core/MBSubModuleBase.md) | 🔗 |
+| S | [MBTeam](./mission-ext/MBTeam.md) | 🔗 |
+| C | [MBTestRun](./mission-ext/MBTestRun.md) | 🔗 |
+| C | [MBUnusedResourceManager](./mission-ext/MBUnusedResourceManager.md) | 🔗 |
+| C | [MBWindowManager](./mission-ext/MBWindowManager.md) | 🔗 |
+| E | [MeleeCollisionReaction](./mission-ext/MeleeCollisionReaction.md) | 🔗 |
+| C | [MessageManager](./mission-ext/MessageManager.md) | 🔗 |
+| C | [MiscSoundContainer](./mission-ext/MiscSoundContainer.md) | 🔗 |
+| C | [Missile](./mission-ext/Missile.md) | 🔗 |
+| E | [MissileCollisionReaction](./mission-ext/MissileCollisionReaction.md) | 🔗 |
+| C | [Mission](./mission/Mission.md) | 🔗 |
+| C | [MissionAgentPanicHandler](./mission-ext/MissionAgentPanicHandler.md) | 🔗 |
+| C | [MissionAgentSpawnLogic](./mission-ext/MissionAgentSpawnLogic.md) | 🔗 |
+| C | [MissionBattleSchedulerClientComponent](./mission-ext/MissionBattleSchedulerClientComponent.md) | 🔗 |
+| C | [MissionBehavior](./mission-ext/MissionBehavior.md) | 🔗 |
+| E | [MissionBehaviorType](./mission-ext/MissionBehaviorType.md) | 🔗 |
+| C | [MissionBoundaryCrossingHandler](./mission-ext/MissionBoundaryCrossingHandler.md) | 🔗 |
+| C | [MissionBoundaryPlacer](./mission-ext/MissionBoundaryPlacer.md) | 🔗 |
+| C | [MissionCombatantsLogic](./mission-ext/MissionCombatantsLogic.md) | 🔗 |
+| C | [MissionCombatMechanicsHelper](./mission-ext/MissionCombatMechanicsHelper.md) | 🔗 |
+| E | [MissionCombatType](./mission-ext/MissionCombatType.md) | 🔗 |
+| C | [MissionCommunityClientComponent](./mission-ext/MissionCommunityClientComponent.md) | 🔗 |
+| C | [MissionCustomGameClientComponent](./mission-ext/MissionCustomGameClientComponent.md) | 🔗 |
+| C | [MissionDeploymentPlanningLogic](./mission-ext/MissionDeploymentPlanningLogic.md) | 🔗 |
+| C | [MissionEquipment](./mission-ext/MissionEquipment.md) | 🔗 |
+| C | [MissionFocusableObjectInformationProvider](./mission-ext/MissionFocusableObjectInformationProvider.md) | 🔗 |
+| C | [MissionGameModels](./mission-ext/MissionGameModels.md) | 🔗 |
+| C | [MissionHardBorderPlacer](./mission-ext/MissionHardBorderPlacer.md) | 🔗 |
+| C | [MissionInfo](./mission-ext/MissionInfo.md) | 🔗 |
+| C | [MissionLobbyComponent](./mission-ext/MissionLobbyComponent.md) | 🔗 |
+| C | [MissionLobbyEquipmentNetworkComponent](./mission-ext/MissionLobbyEquipmentNetworkComponent.md) | 🔗 |
+| C | [MissionLogic](./mission-ext/MissionLogic.md) | 🔗 |
+| C | [MissionManager](./mission-ext/MissionManager.md) | 🔗 |
+| C | [MissionMethod](./mission-ext/MissionMethod.md) | 🔗 |
+| C | [MissionMultiplayerDuel](./mission-ext/MissionMultiplayerDuel.md) | 🔗 |
+| C | [MissionMultiplayerFlagDomination](./mission-ext/MissionMultiplayerFlagDomination.md) | 🔗 |
+| C | [MissionMultiplayerGameModeBase](./mission-ext/MissionMultiplayerGameModeBase.md) | 🔗 |
+| C | [MissionMultiplayerGameModeBaseClient](./mission-ext/MissionMultiplayerGameModeBaseClient.md) | 🔗 |
+| C | [MissionMultiplayerGameModeDuelClient](./mission-ext/MissionMultiplayerGameModeDuelClient.md) | 🔗 |
+| C | [MissionMultiplayerGameModeFlagDominationClient](./mission-ext/MissionMultiplayerGameModeFlagDominationClient.md) | 🔗 |
+| C | [MissionMultiplayerSiege](./mission-ext/MissionMultiplayerSiege.md) | 🔗 |
+| C | [MissionMultiplayerSiegeClient](./mission-ext/MissionMultiplayerSiegeClient.md) | 🔗 |
+| C | [MissionMultiplayerTeamDeathmatch](./mission-ext/MissionMultiplayerTeamDeathmatch.md) | 🔗 |
+| C | [MissionMultiplayerTeamDeathmatchClient](./mission-ext/MissionMultiplayerTeamDeathmatchClient.md) | 🔗 |
+| C | [MissionNetwork](./mission-ext/MissionNetwork.md) | 🔗 |
+| C | [MissionNetworkComponent](./mission-ext/MissionNetworkComponent.md) | 🔗 |
+| C | [MissionNetworkHelper](./mission-ext/MissionNetworkHelper.md) | 🔗 |
+| C | [MissionObject](./mission-ext/MissionObject.md) | 🔗 |
+| S | [MissionObjectId](./mission-ext/MissionObjectId.md) | 🔗 |
+| C | [MissionOrderHotkeyCategory](./mission-ext/MissionOrderHotkeyCategory.md) | 🔗 |
+| C | [MissionPeer](./mission-ext/MissionPeer.md) | 🔗 |
+| C | [MissionQuestConversationHandler](./mission-ext/MissionQuestConversationHandler.md) | 🔗 |
+| C | [MissionRecorder](./mission-ext/MissionRecorder.md) | 🔗 |
+| C | [MissionReinforcementsHelper](./mission-ext/MissionReinforcementsHelper.md) | 🔗 |
+| C | [MissionRepresentativeBase](./mission-ext/MissionRepresentativeBase.md) | 🔗 |
+| C | [MissionScoreboardComponent](./mission-ext/MissionScoreboardComponent.md) | 🔗 |
+| C | [MissionScoreboardSide](./mission-ext/MissionScoreboardSide.md) | 🔗 |
+| C | [MissionSiegeEnginesLogic](./mission-ext/MissionSiegeEnginesLogic.md) | 🔗 |
+| S | [MissionSpawnSettings](./mission-ext/MissionSpawnSettings.md) | 🔗 |
+| C | [MissionState](./mission-ext/MissionState.md) | 🔗 |
+| E | [MissionTeamAITypeEnum](./mission-ext/MissionTeamAITypeEnum.md) | 🔗 |
+| E | [MissionTickAction](./mission-ext/MissionTickAction.md) | 🔗 |
+| S | [MissionTime](./mission-ext/MissionTime.md) | 🔗 |
+| C | [MissionTimer](./mission-ext/MissionTimer.md) | 🔗 |
+| C | [MissionTimeTracker](./mission-ext/MissionTimeTracker.md) | 🔗 |
+| S | [MissionWeapon](./mission-ext/MissionWeapon.md) | 🔗 |
+| C | [Module](./core/Module.md) | 🔗 |
+| C | [ModuleExtensions](./mission-ext/ModuleExtensions.md) | 🔗 |
+| C | [ModuleNetworkData](./mission-ext/ModuleNetworkData.md) | 🔗 |
+| C | [MonsterExtensions](./mission-ext/MonsterExtensions.md) | 🔗 |
+| C | [MonsterMissionData](./mission-ext/MonsterMissionData.md) | 🔗 |
+| C | [MonsterMissionDataCreator](./mission-ext/MonsterMissionDataCreator.md) | 🔗 |
+| E | [MortalityState](./mission-ext/MortalityState.md) | 🔗 |
+| E | [MovementBehaviorType](./mission-ext/MovementBehaviorType.md) | 🔗 |
+| E | [MovementControlFlag](./mission-ext/MovementControlFlag.md) | 🔗 |
+| S | [MovementOrder](./mission-ext/MovementOrder.md) | 🔗 |
+| E | [MovementOrderEnum](./mission-ext/MovementOrderEnum.md) | 🔗 |
+| C | [MovementPath](./mission-ext/MovementPath.md) | 🔗 |
+| E | [MovementStateEnum](./mission-ext/MovementStateEnum.md) | 🔗 |
+| C | [Mover](./mission-ext/Mover.md) | 🔗 |
+| C | [MPCombatPerkHandler](./mission-ext/MPCombatPerkHandler.md) | 🔗 |
+| C | [MPConditionalEffect](./mission-ext/MPConditionalEffect.md) | 🔗 |
+| C | [MPHeroClass](./mission-ext/MPHeroClass.md) | 🔗 |
+| C | [MPHeroClassGroup](./mission-ext/MPHeroClassGroup.md) | 🔗 |
+| C | [MPOnSpawnPerkEffect](./mission-ext/MPOnSpawnPerkEffect.md) | 🔗 |
+| C | [MPOnSpawnPerkEffectBase](./mission-ext/MPOnSpawnPerkEffectBase.md) | 🔗 |
+| C | [MPOnSpawnPerkHandler](./mission-ext/MPOnSpawnPerkHandler.md) | 🔗 |
+| C | [MPPerkCondition](./mission-ext/MPPerkCondition.md) | 🔗 |
+| C | [MPPerkEffect](./mission-ext/MPPerkEffect.md) | 🔗 |
+| C | [MPPerkEffectBase](./mission-ext/MPPerkEffectBase.md) | 🔗 |
+| C | [MPPerkHandler](./mission-ext/MPPerkHandler.md) | 🔗 |
+| C | [MPPerkObject](./mission-ext/MPPerkObject.md) | 🔗 |
+| C | [MPPerksAgentComponent](./mission-ext/MPPerksAgentComponent.md) | 🔗 |
+| S | [MPPerkSelection](./mission-ext/MPPerkSelection.md) | 🔗 |
+| C | [MPPerkSelectionManager](./mission-ext/MPPerkSelectionManager.md) | 🔗 |
+| C | [MPRandomOnSpawnPerkEffect](./mission-ext/MPRandomOnSpawnPerkEffect.md) | 🔗 |
+| C | [MultiplayerAgentApplyDamageModel](./mission-ext/MultiplayerAgentApplyDamageModel.md) | 🔗 |
+| C | [MultiplayerAgentStatCalculateModel](./mission-ext/MultiplayerAgentStatCalculateModel.md) | 🔗 |
+| C | [MultiplayerBattleBannerBearersModel](./mission-ext/MultiplayerBattleBannerBearersModel.md) | 🔗 |
+| C | [MultiplayerBattleInitializationModel](./mission-ext/MultiplayerBattleInitializationModel.md) | 🔗 |
+| C | [MultiplayerBattleMoraleModel](./mission-ext/MultiplayerBattleMoraleModel.md) | 🔗 |
+| C | [MultiplayerBattleSpawnModel](./mission-ext/MultiplayerBattleSpawnModel.md) | 🔗 |
+| C | [MultiplayerClassDivisions](./mission-ext/MultiplayerClassDivisions.md) | 🔗 |
+| C | [MultiplayerGameMode](./mission-ext/MultiplayerGameMode.md) | 🔗 |
+| C | [MultiplayerGameNotificationsComponent](./mission-ext/MultiplayerGameNotificationsComponent.md) | 🔗 |
+| E | [MultiplayerGameState](./mission-ext/MultiplayerGameState.md) | 🔗 |
+| E | [MultiplayerGameType](./mission-ext/MultiplayerGameType.md) | 🔗 |
+| C | [MultiplayerGameTypeInfo](./mission-ext/MultiplayerGameTypeInfo.md) | 🔗 |
+| C | [MultiplayerGameTypes](./mission-ext/MultiplayerGameTypes.md) | 🔗 |
+| C | [MultiplayerGlobalMutedPlayersManager](./mission-ext/MultiplayerGlobalMutedPlayersManager.md) | 🔗 |
+| C | [MultiplayerHotkeyCategory](./mission-ext/MultiplayerHotkeyCategory.md) | 🔗 |
+| E | [MultiplayerIntermissionState](./mission-ext/MultiplayerIntermissionState.md) | 🔗 |
+| C | [MultiplayerIntermissionVotingManager](./mission-ext/MultiplayerIntermissionVotingManager.md) | 🔗 |
+| E | [MultiplayerMessageFilter](./mission-ext/MultiplayerMessageFilter.md) | 🔗 |
+| C | [MultiplayerMissionAgentVisualSpawnComponent](./mission-ext/MultiplayerMissionAgentVisualSpawnComponent.md) | 🔗 |
+| C | [MultiplayerOption](./mission-ext/MultiplayerOption.md) | 🔗 |
+| C | [MultiplayerOptions](./mission-ext/MultiplayerOptions.md) | 🔗 |
+| E | [MultiplayerOptionsAccessMode](./mission-ext/MultiplayerOptionsAccessMode.md) | 🔗 |
+| C | [MultiplayerOptionsExtensions](./mission-ext/MultiplayerOptionsExtensions.md) | 🔗 |
+| C | [MultiplayerOptionsProperty](./mission-ext/MultiplayerOptionsProperty.md) | 🔗 |
+| C | [MultiplayerPollComponent](./mission-ext/MultiplayerPollComponent.md) | 🔗 |
+| E | [MultiplayerPollRejectReason](./mission-ext/MultiplayerPollRejectReason.md) | 🔗 |
+| C | [MultiplayerRoundComponent](./mission-ext/MultiplayerRoundComponent.md) | 🔗 |
+| C | [MultiplayerRoundController](./mission-ext/MultiplayerRoundController.md) | 🔗 |
+| E | [MultiplayerRoundState](./mission-ext/MultiplayerRoundState.md) | 🔗 |
+| C | [MultiplayerSceneValidator](./mission-ext/MultiplayerSceneValidator.md) | 🔗 |
+| C | [MultiplayerTeamSelectComponent](./mission-ext/MultiplayerTeamSelectComponent.md) | 🔗 |
+| C | [MultiplayerTimerComponent](./mission-ext/MultiplayerTimerComponent.md) | 🔗 |
+| C | [MultiplayerWarmupComponent](./mission-ext/MultiplayerWarmupComponent.md) | 🔗 |
+| E | [MusicMode](./mission-ext/MusicMode.md) | 🔗 |
+| C | [MusicParameters](./mission-ext/MusicParameters.md) | 🔗 |
+| E | [MusicTheme](./mission-ext/MusicTheme.md) | 🔗 |
+| S | [NavigationData](./mission-ext/NavigationData.md) | 🔗 |
+| C | [NetworkCommunication](./mission-ext/NetworkCommunication.md) | 🔗 |
+| C | [NetworkCommunicator](./mission-ext/NetworkCommunicator.md) | 🔗 |
+| C | [NetworkMain](./mission-ext/NetworkMain.md) | 🔗 |
+| C | [NetworkMessageHandlerRegisterer](./mission-ext/NetworkMessageHandlerRegisterer.md) | 🔗 |
+| C | [NetworkMessageHandlerRegistererContainer](./mission-ext/NetworkMessageHandlerRegistererContainer.md) | 🔗 |
+| C | [NotificationProperty](./mission-ext/NotificationProperty.md) | 🔗 |
+| E | [OptionsCategory](./mission-ext/OptionsCategory.md) | 🔗 |
+| E | [OptionType](./mission-ext/OptionType.md) | 🔗 |
+| E | [OptionValueType](./mission-ext/OptionValueType.md) | 🔗 |
+| C | [OrderComponent](./mission-ext/OrderComponent.md) | 🔗 |
+| C | [OrderController](./mission-ext/OrderController.md) | 🔗 |
+| C | [OrderOfBattleFormationExtensions](./mission-ext/OrderOfBattleFormationExtensions.md) | 🔗 |
+| E | [OrderType](./mission-ext/OrderType.md) | 🔗 |
+| C | [OverrideStrikeAndDeathActionDuringUsageComponent](./mission-ext/OverrideStrikeAndDeathActionDuringUsageComponent.md) | 🔗 |
+| C | [PartyHotKeyCategory](./mission-ext/PartyHotKeyCategory.md) | 🔗 |
+| C | [PathLastNodeFixer](./mission-ext/PathLastNodeFixer.md) | 🔗 |
+| C | [PathTracker](./mission-ext/PathTracker.md) | 🔗 |
+| C | [PeerExtensions](./mission-ext/PeerExtensions.md) | 🔗 |
+| C | [PeerVisualsHolder](./mission-ext/PeerVisualsHolder.md) | 🔗 |
+| E | [PerkEventFlags](./mission-ext/PerkEventFlags.md) | 🔗 |
+| S | [Permission](./mission-ext/Permission.md) | 🔗 |
+| E | [PermissionType](./mission-ext/PermissionType.md) | 🔗 |
+| C | [PlayerConnectionInfo](./mission-ext/PlayerConnectionInfo.md) | 🔗 |
+| C | [PollHotkeyCategory](./mission-ext/PollHotkeyCategory.md) | 🔗 |
+| C | [ProfileSelectionState](./mission-ext/ProfileSelectionState.md) | 🔗 |
+| S | [ProximityMapSearchStruct](./mission-ext/ProximityMapSearchStruct.md) | 🔗 |
+| C | [QueryData](./mission-ext/QueryData.md) | 🔗 |
+| C | [QueryLibrary](./mission-ext/QueryLibrary.md) | 🔗 |
+| E | [RamState](./mission-ext/RamState.md) | 🔗 |
+| C | [RandomParticleSpawner](./mission-ext/RandomParticleSpawner.md) | 🔗 |
+| C | [RandomTimer](./mission-ext/RandomTimer.md) | 🔗 |
+| C | [RangedSiegeWeapon](./mission-ext/RangedSiegeWeapon.md) | 🔗 |
+| C | [RangedSiegeWeaponAi](./mission-ext/RangedSiegeWeaponAi.md) | 🔗 |
+| S | [RangedSiegeWeaponRecord](./mission-ext/RangedSiegeWeaponRecord.md) | 🔗 |
+| E | [RangedWeaponUsageOrderEnum](./mission-ext/RangedWeaponUsageOrderEnum.md) | 🔗 |
+| C | [RecentPlayersFriendListService](./mission-ext/RecentPlayersFriendListService.md) | 🔗 |
+| C | [RecordMissionLogic](./mission-ext/RecordMissionLogic.md) | 🔗 |
+| C | [RectilinearSchiltronFormation](./mission-ext/RectilinearSchiltronFormation.md) | 🔗 |
+| E | [RegisterMode](./mission-ext/RegisterMode.md) | 🔗 |
+| C | [ReinforcementFormationData](./mission-ext/ReinforcementFormationData.md) | 🔗 |
+| C | [ReinforcementFormationPreferenceComparer](./mission-ext/ReinforcementFormationPreferenceComparer.md) | 🔗 |
+| E | [ReinforcementFormationPriority](./mission-ext/ReinforcementFormationPriority.md) | 🔗 |
+| E | [ReinforcementSpawnMethod](./mission-ext/ReinforcementSpawnMethod.md) | 🔗 |
+| E | [ReinforcementTimingMethod](./mission-ext/ReinforcementTimingMethod.md) | 🔗 |
+| C | [ReplayMissionLogic](./mission-ext/ReplayMissionLogic.md) | 🔗 |
+| E | [ReplicationOccurrence](./mission-ext/ReplicationOccurrence.md) | 🔗 |
+| C | [ResetAnimationOnStopUsageComponent](./mission-ext/ResetAnimationOnStopUsageComponent.md) | 🔗 |
+| C | [ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent](./mission-ext/ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent.md) | 🔗 |
+| C | [RestrictedAccess](./mission-ext/RestrictedAccess.md) | 🔗 |
+| C | [RetreatPositionCacheSystem](./mission-ext/RetreatPositionCacheSystem.md) | 🔗 |
+| S | [RidingOrder](./mission-ext/RidingOrder.md) | 🔗 |
+| E | [RidingOrderEnum](./mission-ext/RidingOrderEnum.md) | 🔗 |
+| C | [RoadPoint](./mission-ext/RoadPoint.md) | 🔗 |
+| C | [RoadStart](./mission-ext/RoadStart.md) | 🔗 |
+| E | [RoundEndReason](./mission-ext/RoundEndReason.md) | 🔗 |
+| C | [RoundStateExtensions](./mission-ext/RoundStateExtensions.md) | 🔗 |
+| C | [SallyOutEndLogic](./mission-ext/SallyOutEndLogic.md) | 🔗 |
+| C | [SallyOutMissionController](./mission-ext/SallyOutMissionController.md) | 🔗 |
+| C | [SallyOutMissionNotificationsHandler](./mission-ext/SallyOutMissionNotificationsHandler.md) | 🔗 |
+| C | [SallyOutReinforcementSpawnTimer](./mission-ext/SallyOutReinforcementSpawnTimer.md) | 🔗 |
+| C | [ScenePropDecal](./mission-ext/ScenePropDecal.md) | 🔗 |
+| C | [ScenePropNegativeLight](./mission-ext/ScenePropNegativeLight.md) | 🔗 |
+| C | [ScenePropPositiveLight](./mission-ext/ScenePropPositiveLight.md) | 🔗 |
+| S | [ScoreboardHeader](./mission-ext/ScoreboardHeader.md) | 🔗 |
+| C | [ScoreboardHotKeyCategory](./mission-ext/ScoreboardHotKeyCategory.md) | 🔗 |
+| E | [Side](./mission-ext/Side.md) | 🔗 |
+| C | [SiegeDeploymentMissionController](./mission-ext/SiegeDeploymentMissionController.md) | 🔗 |
+| C | [SiegeLadder](./mission-ext/SiegeLadder.md) | 🔗 |
+| C | [SiegeLadderAI](./mission-ext/SiegeLadderAI.md) | 🔗 |
+| S | [SiegeLadderRecord](./mission-ext/SiegeLadderRecord.md) | 🔗 |
+| C | [SiegeLane](./mission-ext/SiegeLane.md) | 🔗 |
+| C | [SiegeMissionPreparationHandler](./mission-ext/SiegeMissionPreparationHandler.md) | 🔗 |
+| C | [SiegeQuerySystem](./mission-ext/SiegeQuerySystem.md) | 🔗 |
+| C | [SiegeSpawnFrameBehavior](./mission-ext/SiegeSpawnFrameBehavior.md) | 🔗 |
+| C | [SiegeSpawningBehavior](./mission-ext/SiegeSpawningBehavior.md) | 🔗 |
+| C | [SiegeTower](./mission-ext/SiegeTower.md) | 🔗 |
+| C | [SiegeTowerAI](./mission-ext/SiegeTowerAI.md) | 🔗 |
+| S | [SiegeTowerRecord](./mission-ext/SiegeTowerRecord.md) | 🔗 |
+| C | [SiegeWeapon](./mission-ext/SiegeWeapon.md) | 🔗 |
+| C | [SiegeWeaponController](./mission-ext/SiegeWeaponController.md) | 🔗 |
+| C | [SiegeWeaponMovementComponent](./mission-ext/SiegeWeaponMovementComponent.md) | 🔗 |
+| E | [SiegeWeaponOrderType](./mission-ext/SiegeWeaponOrderType.md) | 🔗 |
+| C | [SkeinFormation](./mission-ext/SkeinFormation.md) | 🔗 |
+| E | [SkeletonModelBoundsRecFlags](./mission-ext/SkeletonModelBoundsRecFlags.md) | 🔗 |
+| E | [SkeletonType](./mission-ext/SkeletonType.md) | 🔗 |
+| S | [SkinGenerationParams](./mission-ext/SkinGenerationParams.md) | 🔗 |
+| C | [SkinVoiceManager](./mission-ext/SkinVoiceManager.md) | 🔗 |
+| S | [SkinVoiceType](./mission-ext/SkinVoiceType.md) | 🔗 |
+| E | [SnapMethod](./mission-ext/SnapMethod.md) | 🔗 |
+| C | [SoundPlayer](./mission-ext/SoundPlayer.md) | 🔗 |
+| C | [SpawnComponent](./mission-ext/SpawnComponent.md) | 🔗 |
+| C | [SpawnedItemEntity](./mission-ext/SpawnedItemEntity.md) | 🔗 |
+| C | [SpawnerEntityEditorHelper](./mission-ext/SpawnerEntityEditorHelper.md) | 🔗 |
+| C | [SpawnerEntityMissionHelper](./mission-ext/SpawnerEntityMissionHelper.md) | 🔗 |
+| C | [SpawnFrameBehaviorBase](./mission-ext/SpawnFrameBehaviorBase.md) | 🔗 |
+| C | [SpawningBehaviorBase](./mission-ext/SpawningBehaviorBase.md) | 🔗 |
+| S | [SpawnPathData](./mission-ext/SpawnPathData.md) | 🔗 |
+| S | [SpectatorData](./mission-ext/SpectatorData.md) | 🔗 |
+| C | [SquareFormation](./mission-ext/SquareFormation.md) | 🔗 |
+| S | [StackArray8Agent](./mission-ext/StackArray8Agent.md) | 🔗 |
+| S | [StackArray8StandingPoint](./mission-ext/StackArray8StandingPoint.md) | 🔗 |
+| S | [StackArray8ThrowingPoint](./mission-ext/StackArray8ThrowingPoint.md) | 🔗 |
+| C | [StandingPoint](./mission-ext/StandingPoint.md) | 🔗 |
+| C | [StandingPointForRangedArea](./mission-ext/StandingPointForRangedArea.md) | 🔗 |
+| C | [StandingPointWithAgentLimit](./mission-ext/StandingPointWithAgentLimit.md) | 🔗 |
+| C | [StandingPointWithTeamLimit](./mission-ext/StandingPointWithTeamLimit.md) | 🔗 |
+| C | [StandingPointWithVolumeBox](./mission-ext/StandingPointWithVolumeBox.md) | 🔗 |
+| C | [StandingPointWithWeaponRequirement](./mission-ext/StandingPointWithWeaponRequirement.md) | 🔗 |
+| E | [State](./mission-ext/State.md) | 🔗 |
+| C | [StonePile](./mission-ext/StonePile.md) | 🔗 |
+| C | [StonePileAI](./mission-ext/StonePileAI.md) | 🔗 |
+| S | [StonePileRecord](./mission-ext/StonePileRecord.md) | 🔗 |
+| E | [StopUsingGameObjectFlags](./mission-ext/StopUsingGameObjectFlags.md) | 🔗 |
+| C | [StrategicArea](./mission-ext/StrategicArea.md) | 🔗 |
+| C | [SynchedMissionObject](./mission-ext/SynchedMissionObject.md) | 🔗 |
+| E | [SynchFlags](./mission-ext/SynchFlags.md) | 🔗 |
+| S | [TacticalDecision](./mission-ext/TacticalDecision.md) | 🔗 |
+| C | [TacticalPosition](./mission-ext/TacticalPosition.md) | 🔗 |
+| E | [TacticalPositionTypeEnum](./mission-ext/TacticalPositionTypeEnum.md) | 🔗 |
+| C | [TacticalRegion](./mission-ext/TacticalRegion.md) | 🔗 |
+| E | [TacticalRegionTypeEnum](./mission-ext/TacticalRegionTypeEnum.md) | 🔗 |
+| C | [TacticBreachWalls](./mission-ext/TacticBreachWalls.md) | 🔗 |
+| C | [TacticCharge](./mission-ext/TacticCharge.md) | 🔗 |
+| C | [TacticComponent](./mission-ext/TacticComponent.md) | 🔗 |
+| C | [TacticCoordinatedRetreat](./mission-ext/TacticCoordinatedRetreat.md) | 🔗 |
+| C | [TacticDefendCastle](./mission-ext/TacticDefendCastle.md) | 🔗 |
+| C | [TacticDefensiveEngagement](./mission-ext/TacticDefensiveEngagement.md) | 🔗 |
+| C | [TacticDefensiveLine](./mission-ext/TacticDefensiveLine.md) | 🔗 |
+| C | [TacticDefensiveRing](./mission-ext/TacticDefensiveRing.md) | 🔗 |
+| C | [TacticFrontalCavalryCharge](./mission-ext/TacticFrontalCavalryCharge.md) | 🔗 |
+| C | [TacticFullScaleAttack](./mission-ext/TacticFullScaleAttack.md) | 🔗 |
+| C | [TacticHoldChokePoint](./mission-ext/TacticHoldChokePoint.md) | 🔗 |
+| C | [TacticPerimeterDefense](./mission-ext/TacticPerimeterDefense.md) | 🔗 |
+| C | [TacticRangedHarrassmentOffensive](./mission-ext/TacticRangedHarrassmentOffensive.md) | 🔗 |
+| C | [TacticSallyOutDefense](./mission-ext/TacticSallyOutDefense.md) | 🔗 |
+| C | [TacticSallyOutHitAndRun](./mission-ext/TacticSallyOutHitAndRun.md) | 🔗 |
+| C | [TacticSergeantMPBotTactic](./mission-ext/TacticSergeantMPBotTactic.md) | 🔗 |
+| E | [TacticState](./mission-ext/TacticState.md) | 🔗 |
+| C | [TacticStop](./mission-ext/TacticStop.md) | 🔗 |
+| E | [TargetFlags](./mission-ext/TargetFlags.md) | 🔗 |
+| E | [TargetIconType](./mission-ext/TargetIconType.md) | 🔗 |
+| C | [Team](./mission/Team.md) | 🔗 |
+| C | [TeamAIComponent](./mission-ext/TeamAIComponent.md) | 🔗 |
+| C | [TeamAIGeneral](./mission-ext/TeamAIGeneral.md) | 🔗 |
+| C | [TeamAiMultiplayerSiegeAttacker](./mission-ext/TeamAiMultiplayerSiegeAttacker.md) | 🔗 |
+| C | [TeamAiMultiplayerSiegeDefender](./mission-ext/TeamAiMultiplayerSiegeDefender.md) | 🔗 |
+| C | [TeamAISallyOutAttacker](./mission-ext/TeamAISallyOutAttacker.md) | 🔗 |
+| C | [TeamAISallyOutDefender](./mission-ext/TeamAISallyOutDefender.md) | 🔗 |
+| C | [TeamAISiegeAttacker](./mission-ext/TeamAISiegeAttacker.md) | 🔗 |
+| C | [TeamAISiegeComponent](./mission-ext/TeamAISiegeComponent.md) | 🔗 |
+| C | [TeamAISiegeDefender](./mission-ext/TeamAISiegeDefender.md) | 🔗 |
+| C | [TeamCollection](./mission-ext/TeamCollection.md) | 🔗 |
+| C | [TeammateColorsExtensions](./mission-ext/TeammateColorsExtensions.md) | 🔗 |
+| C | [TeamQuerySystem](./mission-ext/TeamQuerySystem.md) | 🔗 |
+| E | [TerrainTypeSoundSlot](./mission-ext/TerrainTypeSoundSlot.md) | 🔗 |
+| C | [TestScript](./mission-ext/TestScript.md) | 🔗 |
+| C | [Threat](./mission-ext/Threat.md) | 🔗 |
+| C | [ThreatSeeker](./mission-ext/ThreatSeeker.md) | 🔗 |
+| S | [TimeSpeedRequest](./mission-ext/TimeSpeedRequest.md) | 🔗 |
+| E | [TimeType](./mission-ext/TimeType.md) | 🔗 |
+| C | [TrainingIcon](./mission-ext/TrainingIcon.md) | 🔗 |
+| E | [TrainingType](./mission-ext/TrainingType.md) | 🔗 |
+| C | [TrajectoryVisualizer](./mission-ext/TrajectoryVisualizer.md) | 🔗 |
+| C | [TransposedLineFormation](./mission-ext/TransposedLineFormation.md) | 🔗 |
+| C | [Trebuchet](./mission-ext/Trebuchet.md) | 🔗 |
+| C | [TrebuchetAI](./mission-ext/TrebuchetAI.md) | 🔗 |
+| C | [TrebuchetSpawner](./mission-ext/TrebuchetSpawner.md) | 🔗 |
+| C | [TroopFilteringUtilities](./mission-ext/TroopFilteringUtilities.md) | 🔗 |
+| C | [TroopMissionInfo](./mission-ext/TroopMissionInfo.md) | 🔗 |
+| C | [TutorialArea](./mission-ext/TutorialArea.md) | 🔗 |
+| E | [Type](./mission-ext/Type.md) | 🔗 |
+| C | [UdpNetworkComponent](./mission-ext/UdpNetworkComponent.md) | 🔗 |
+| E | [UnderAttackType](./mission-ext/UnderAttackType.md) | 🔗 |
+| S | [UnsignedInteger](./mission-ext/UnsignedInteger.md) | 🔗 |
+| S | [UnsignedLongInteger](./mission-ext/UnsignedLongInteger.md) | 🔗 |
+| C | [UnspecifiedDedicatedServerState](./mission-ext/UnspecifiedDedicatedServerState.md) | 🔗 |
+| C | [UsableGameObjectGroup](./mission-ext/UsableGameObjectGroup.md) | 🔗 |
+| C | [UsableMachine](./mission-ext/UsableMachine.md) | 🔗 |
+| C | [UsableMachineAIBase](./mission-ext/UsableMachineAIBase.md) | 🔗 |
+| C | [UsableMissionObject](./mission-ext/UsableMissionObject.md) | 🔗 |
+| C | [UsableMissionObjectComponent](./mission-ext/UsableMissionObjectComponent.md) | 🔗 |
+| S | [UsableMissionObjectRecord](./mission-ext/UsableMissionObjectRecord.md) | 🔗 |
+| E | [UsableObjectInterestKind](./mission-ext/UsableObjectInterestKind.md) | 🔗 |
+| E | [UsageDirection](./mission-ext/UsageDirection.md) | 🔗 |
+| C | [VertexAnimator](./mission-ext/VertexAnimator.md) | 🔗 |
+| S | [VertexAnimatorRecord](./mission-ext/VertexAnimatorRecord.md) | 🔗 |
+| C | [VictoryComponent](./mission-ext/VictoryComponent.md) | 🔗 |
+| C | [VideoPlaybackState](./mission-ext/VideoPlaybackState.md) | 🔗 |
+| C | [ViewCreatorModule](./mission-ext/ViewCreatorModule.md) | 🔗 |
+| C | [ViewMethod](./mission-ext/ViewMethod.md) | 🔗 |
+| C | [VisualShipFactory](./mission-ext/VisualShipFactory.md) | 🔗 |
+| C | [VoiceChatHandler](./mission-ext/VoiceChatHandler.md) | 🔗 |
+| C | [VoiceType](./mission-ext/VoiceType.md) | 🔗 |
+| C | [VolumeBox](./mission-ext/VolumeBox.md) | 🔗 |
+| C | [WallSegment](./mission-ext/WallSegment.md) | 🔗 |
+| C | [WarmupSpawningBehavior](./mission-ext/WarmupSpawningBehavior.md) | 🔗 |
+| E | [WarmupStates](./mission-ext/WarmupStates.md) | 🔗 |
+| E | [WatchState](./mission-ext/WatchState.md) | 🔗 |
+| C | [WaterPathPoint](./mission-ext/WaterPathPoint.md) | 🔗 |
+| C | [WaveFloater](./mission-ext/WaveFloater.md) | 🔗 |
+| C | [WeaponComponentMissionExtensions](./mission-ext/WeaponComponentMissionExtensions.md) | 🔗 |
+| S | [WeaponData](./mission-ext/WeaponData.md) | 🔗 |
+| S | [WeaponInfo](./mission-ext/WeaponInfo.md) | 🔗 |
+| C | [WeaponSpawner](./mission-ext/WeaponSpawner.md) | 🔗 |
+| E | [WeaponSpawnFlags](./mission-ext/WeaponSpawnFlags.md) | 🔗 |
+| E | [WeaponState](./mission-ext/WeaponState.md) | 🔗 |
+| S | [WeaponStatsData](./mission-ext/WeaponStatsData.md) | 🔗 |
+| E | [WeaponWieldActionType](./mission-ext/WeaponWieldActionType.md) | 🔗 |
+| C | [WedgeFormation](./mission-ext/WedgeFormation.md) | 🔗 |
+| C | [WindMill](./mission-ext/WindMill.md) | 🔗 |
+| E | [XmlInformationType](./mission-ext/XmlInformationType.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.AI (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SiegeWeaponAutoDeployer](./mission-ext/SiegeWeaponAutoDeployer.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.AI.AgentComponents (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ScriptedMovementComponent](./mission-ext/ScriptedMovementComponent.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ComponentInterfaces (16)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentApplyDamageModel](./mission-ext/AgentApplyDamageModel.md) | 🔗 |
+| C | [AgentDecideKilledOrUnconsciousModel](./mission-ext/AgentDecideKilledOrUnconsciousModel.md) | 🔗 |
+| C | [ApplyWeatherEffectsModel](./mission-ext/ApplyWeatherEffectsModel.md) | 🔗 |
+| S | [ArrangementPosition](./mission-ext/ArrangementPosition.md) | 🔗 |
+| C | [AutoBlockModel](./mission-ext/AutoBlockModel.md) | 🔗 |
+| C | [BattleBannerBearersModel](./mission-ext/BattleBannerBearersModel.md) | 🔗 |
+| C | [BattleInitializationModel](./mission-ext/BattleInitializationModel.md) | 🔗 |
+| C | [BattleMoraleModel](./mission-ext/BattleMoraleModel.md) | 🔗 |
+| C | [BattleSpawnModel](./mission-ext/BattleSpawnModel.md) | 🔗 |
+| C | [DefaultSiegeEngineCalculationModel](./mission-ext/DefaultSiegeEngineCalculationModel.md) | 🔗 |
+| C | [FormationArrangementModel](./mission-ext/FormationArrangementModel.md) | 🔗 |
+| C | [ItemPickupModel](./mission-ext/ItemPickupModel.md) | 🔗 |
+| C | [MissionDifficultyModel](./mission-ext/MissionDifficultyModel.md) | 🔗 |
+| C | [MissionShipParametersModel](./mission-ext/MissionShipParametersModel.md) | 🔗 |
+| C | [MissionSiegeEngineCalculationModel](./mission-ext/MissionSiegeEngineCalculationModel.md) | 🔗 |
+| C | [StrikeMagnitudeCalculationModel](./mission-ext/StrikeMagnitudeCalculationModel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond (117)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Announcement](./mission-ext/Announcement.md) | 🔗 |
+| E | [AnnouncementType](./mission-ext/AnnouncementType.md) | 🔗 |
+| C | [AnotherPlayerData](./mission-ext/AnotherPlayerData.md) | 🔗 |
+| E | [AnotherPlayerState](./mission-ext/AnotherPlayerState.md) | 🔗 |
+| C | [AvailableCustomGames](./mission-ext/AvailableCustomGames.md) | 🔗 |
+| C | [AvailableScenes](./mission-ext/AvailableScenes.md) | 🔗 |
+| C | [BadgeDataEntry](./mission-ext/BadgeDataEntry.md) | 🔗 |
+| E | [BattleCancelReason](./mission-ext/BattleCancelReason.md) | 🔗 |
+| E | [BattleJoinType](./mission-ext/BattleJoinType.md) | 🔗 |
+| C | [BattlePeer](./mission-ext/BattlePeer.md) | 🔗 |
+| E | [BattlePeerQuitType](./mission-ext/BattlePeerQuitType.md) | 🔗 |
+| C | [BattlePlayerEntry](./mission-ext/BattlePlayerEntry.md) | 🔗 |
+| C | [BattlePlayerStatsBase](./mission-ext/BattlePlayerStatsBase.md) | 🔗 |
+| C | [BattlePlayerStatsBaseJsonConverter](./mission-ext/BattlePlayerStatsBaseJsonConverter.md) | 🔗 |
+| C | [BattlePlayerStatsBattle](./mission-ext/BattlePlayerStatsBattle.md) | 🔗 |
+| C | [BattlePlayerStatsCaptain](./mission-ext/BattlePlayerStatsCaptain.md) | 🔗 |
+| C | [BattlePlayerStatsDuel](./mission-ext/BattlePlayerStatsDuel.md) | 🔗 |
+| C | [BattlePlayerStatsSiege](./mission-ext/BattlePlayerStatsSiege.md) | 🔗 |
+| C | [BattlePlayerStatsSkirmish](./mission-ext/BattlePlayerStatsSkirmish.md) | 🔗 |
+| C | [BattlePlayerStatsTeamDeathmatch](./mission-ext/BattlePlayerStatsTeamDeathmatch.md) | 🔗 |
+| C | [BattleResult](./mission-ext/BattleResult.md) | 🔗 |
+| C | [BattleServer](./mission-ext/BattleServer.md) | 🔗 |
+| S | [BattleServerInformationForClient](./mission-ext/BattleServerInformationForClient.md) | 🔗 |
+| E | [ChatChannelType](./mission-ext/ChatChannelType.md) | 🔗 |
+| C | [ChatRoomInformationForClient](./mission-ext/ChatRoomInformationForClient.md) | 🔗 |
+| C | [ClanAnnouncement](./mission-ext/ClanAnnouncement.md) | 🔗 |
+| E | [ClanCreationAnswer](./mission-ext/ClanCreationAnswer.md) | 🔗 |
+| C | [ClanCreationPlayerData](./mission-ext/ClanCreationPlayerData.md) | 🔗 |
+| C | [ClanCreationProgress](./mission-ext/ClanCreationProgress.md) | 🔗 |
+| C | [ClanHomeInfo](./mission-ext/ClanHomeInfo.md) | 🔗 |
+| C | [ClanInfo](./mission-ext/ClanInfo.md) | 🔗 |
+| C | [ClanLeaderboardEntry](./mission-ext/ClanLeaderboardEntry.md) | 🔗 |
+| C | [ClanLeaderboardInfo](./mission-ext/ClanLeaderboardInfo.md) | 🔗 |
+| C | [ClanPlayer](./mission-ext/ClanPlayer.md) | 🔗 |
+| C | [ClanPlayerInfo](./mission-ext/ClanPlayerInfo.md) | 🔗 |
+| E | [ClanPlayerRole](./mission-ext/ClanPlayerRole.md) | 🔗 |
+| C | [ClanStats](./mission-ext/ClanStats.md) | 🔗 |
+| C | [CosmeticItemInfo](./mission-ext/CosmeticItemInfo.md) | 🔗 |
+| S | [CustomBattleId](./mission-ext/CustomBattleId.md) | 🔗 |
+| C | [CustomBattleServer](./mission-ext/CustomBattleServer.md) | 🔗 |
+| E | [CustomGameJoinResponse](./mission-ext/CustomGameJoinResponse.md) | 🔗 |
+| C | [DisconnectInfo](./mission-ext/DisconnectInfo.md) | 🔗 |
+| E | [DisconnectType](./mission-ext/DisconnectType.md) | 🔗 |
+| C | [Feature](./mission-ext/Feature.md) | 🔗 |
+| E | [Features](./mission-ext/Features.md) | 🔗 |
+| C | [FriendInfo](./mission-ext/FriendInfo.md) | 🔗 |
+| E | [FriendStatus](./mission-ext/FriendStatus.md) | 🔗 |
+| C | [GameLog](./mission-ext/GameLog.md) | 🔗 |
+| E | [GameLogType](./mission-ext/GameLogType.md) | 🔗 |
+| C | [GameServerEntry](./mission-ext/GameServerEntry.md) | 🔗 |
+| C | [GameServerProperties](./mission-ext/GameServerProperties.md) | 🔗 |
+| C | [Gatekeeper](./mission-ext/Gatekeeper.md) | 🔗 |
+| I | [IBadgeComponent](./mission-ext/IBadgeComponent.md) | 🔗 |
+| I | [IBattleServerSessionHandler](./mission-ext/IBattleServerSessionHandler.md) | 🔗 |
+| I | [ICustomBattleServerSessionHandler](./mission-ext/ICustomBattleServerSessionHandler.md) | 🔗 |
+| I | [ILobbyClientSessionHandler](./mission-ext/ILobbyClientSessionHandler.md) | 🔗 |
+| E | [InteractionProcessType](./mission-ext/InteractionProcessType.md) | 🔗 |
+| E | [InteractionType](./mission-ext/InteractionType.md) | 🔗 |
+| C | [InventoryData](./mission-ext/InventoryData.md) | 🔗 |
+| C | [ItemData](./campaign-ext/ItemData.md) | 🔗 |
+| C | [JoinGameData](./mission-ext/JoinGameData.md) | 🔗 |
+| C | [LobbyClient](./mission-ext/LobbyClient.md) | 🔗 |
+| C | [LobbyClientConnectResult](./mission-ext/LobbyClientConnectResult.md) | 🔗 |
+| C | [LobbyNotification](./mission-ext/LobbyNotification.md) | 🔗 |
+| C | [MatchmakingQueueGameTypeStats](./mission-ext/MatchmakingQueueGameTypeStats.md) | 🔗 |
+| C | [MatchmakingQueueRegionStats](./mission-ext/MatchmakingQueueRegionStats.md) | 🔗 |
+| C | [MatchmakingQueueStats](./mission-ext/MatchmakingQueueStats.md) | 🔗 |
+| C | [MatchmakingWaitTimeRegionStats](./mission-ext/MatchmakingWaitTimeRegionStats.md) | 🔗 |
+| C | [MatchmakingWaitTimeStats](./mission-ext/MatchmakingWaitTimeStats.md) | 🔗 |
+| E | [MBLoginErrorCode](./mission-ext/MBLoginErrorCode.md) | 🔗 |
+| C | [ModuleInfoModel](./mission-ext/ModuleInfoModel.md) | 🔗 |
+| C | [ModuleInfoModelExtensions](./mission-ext/ModuleInfoModelExtensions.md) | 🔗 |
+| C | [MultipleBattleResult](./mission-ext/MultipleBattleResult.md) | 🔗 |
+| C | [NotEnoughPlayersInfo](./mission-ext/NotEnoughPlayersInfo.md) | 🔗 |
+| E | [NotificationType](./mission-ext/NotificationType.md) | 🔗 |
+| C | [Parameters](./mission-ext/Parameters.md) | 🔗 |
+| E | [PartyJoinDeclineReason](./mission-ext/PartyJoinDeclineReason.md) | 🔗 |
+| C | [PartyPlayerInLobbyClient](./mission-ext/PartyPlayerInLobbyClient.md) | 🔗 |
+| E | [PartyRemoveReason](./mission-ext/PartyRemoveReason.md) | 🔗 |
+| C | [PeerTypes](./mission-ext/PeerTypes.md) | 🔗 |
+| C | [PermaMuteList](./mission-ext/PermaMuteList.md) | 🔗 |
+| C | [PlayerBattleInfo](./mission-ext/PlayerBattleInfo.md) | 🔗 |
+| C | [PlayerBattleServerInformation](./mission-ext/PlayerBattleServerInformation.md) | 🔗 |
+| C | [PlayerData](./mission-ext/PlayerData.md) | 🔗 |
+| S | [PlayerDataExperience](./mission-ext/PlayerDataExperience.md) | 🔗 |
+| C | [PlayerJoinGameData](./mission-ext/PlayerJoinGameData.md) | 🔗 |
+| C | [PlayerJoinGameResponseDataFromHost](./mission-ext/PlayerJoinGameResponseDataFromHost.md) | 🔗 |
+| C | [PlayerLeaderboardData](./mission-ext/PlayerLeaderboardData.md) | 🔗 |
+| E | [PlayerNotEligibleError](./mission-ext/PlayerNotEligibleError.md) | 🔗 |
+| C | [PlayerNotEligibleInfo](./mission-ext/PlayerNotEligibleInfo.md) | 🔗 |
+| E | [PlayerReportType](./mission-ext/PlayerReportType.md) | 🔗 |
+| S | [PlayerSessionId](./mission-ext/PlayerSessionId.md) | 🔗 |
+| C | [PlayerStatsBase](./mission-ext/PlayerStatsBase.md) | 🔗 |
+| C | [PlayerStatsBaseJsonConverter](./mission-ext/PlayerStatsBaseJsonConverter.md) | 🔗 |
+| C | [PlayerStatsBattle](./mission-ext/PlayerStatsBattle.md) | 🔗 |
+| C | [PlayerStatsCaptain](./mission-ext/PlayerStatsCaptain.md) | 🔗 |
+| C | [PlayerStatsDuel](./mission-ext/PlayerStatsDuel.md) | 🔗 |
+| C | [PlayerStatsRanked](./mission-ext/PlayerStatsRanked.md) | 🔗 |
+| C | [PlayerStatsSiege](./mission-ext/PlayerStatsSiege.md) | 🔗 |
+| C | [PlayerStatsSkirmish](./mission-ext/PlayerStatsSkirmish.md) | 🔗 |
+| C | [PlayerStatsTeamDeathmatch](./mission-ext/PlayerStatsTeamDeathmatch.md) | 🔗 |
+| C | [PremadeGameEntry](./mission-ext/PremadeGameEntry.md) | 🔗 |
+| C | [PremadeGameList](./mission-ext/PremadeGameList.md) | 🔗 |
+| E | [PremadeGameType](./mission-ext/PremadeGameType.md) | 🔗 |
+| E | [Progress](./mission-ext/Progress.md) | 🔗 |
+| C | [PublishedLobbyNewsArticle](./mission-ext/PublishedLobbyNewsArticle.md) | 🔗 |
+| C | [RecentPlayerInfo](./mission-ext/RecentPlayerInfo.md) | 🔗 |
+| C | [RecentPlayersManager](./mission-ext/RecentPlayersManager.md) | 🔗 |
+| E | [ServerInfoMessage](./mission-ext/ServerInfoMessage.md) | 🔗 |
+| C | [ServerInfoMessageExtensions](./mission-ext/ServerInfoMessageExtensions.md) | 🔗 |
+| C | [ServerNotification](./mission-ext/ServerNotification.md) | 🔗 |
+| E | [ServerNotificationType](./mission-ext/ServerNotificationType.md) | 🔗 |
+| C | [ServerStatus](./mission-ext/ServerStatus.md) | 🔗 |
+| E | [State](./mission-ext/State.md) | 🔗 |
+| E | [StringValidationError](./mission-ext/StringValidationError.md) | 🔗 |
+| C | [SupportedFeatures](./mission-ext/SupportedFeatures.md) | 🔗 |
+| E | [WaitTimeStatType](./mission-ext/WaitTimeStatType.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Cosmetics (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CosmeticElement](./mission-ext/CosmeticElement.md) | 🔗 |
+| E | [CosmeticRarity](./mission-ext/CosmeticRarity.md) | 🔗 |
+| C | [CosmeticsManager](./mission-ext/CosmeticsManager.md) | 🔗 |
+| E | [CosmeticType](./mission-ext/CosmeticType.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ClothingCosmeticElement](./mission-ext/ClothingCosmeticElement.md) | 🔗 |
+| C | [SigilCosmeticElement](./mission-ext/SigilCosmeticElement.md) | 🔗 |
+| C | [TauntCosmeticElement](./mission-ext/TauntCosmeticElement.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Lobby (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLocalData](./mission-ext/MultiplayerLocalData.md) | 🔗 |
+| C | [MultiplayerLocalDataContainer](./mission-ext/MultiplayerLocalDataContainer.md) | 🔗 |
+| C | [MultiplayerLocalDataManager](./mission-ext/MultiplayerLocalDataManager.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [FavoriteServerData](./mission-ext/FavoriteServerData.md) | 🔗 |
+| C | [FavoriteServerDataContainer](./mission-ext/FavoriteServerDataContainer.md) | 🔗 |
+| C | [MatchHistoryData](./mission-ext/MatchHistoryData.md) | 🔗 |
+| C | [MatchHistoryDataContainer](./mission-ext/MatchHistoryDataContainer.md) | 🔗 |
+| C | [PlayerInfo](./mission-ext/PlayerInfo.md) | 🔗 |
+| S | [TauntIndexData](./mission-ext/TauntIndexData.md) | 🔗 |
+| C | [TauntSlotData](./mission-ext/TauntSlotData.md) | 🔗 |
+| C | [TauntSlotDataContainer](./mission-ext/TauntSlotDataContainer.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.ToClient (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DisconnectedFromChatRoomMessage](./mission-ext/DisconnectedFromChatRoomMessage.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges (12)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Badge](./mission-ext/Badge.md) | 🔗 |
+| C | [BadgeCondition](./mission-ext/BadgeCondition.md) | 🔗 |
+| C | [BadgeManager](./mission-ext/BadgeManager.md) | 🔗 |
+| C | [BadgeOwnerKillTracker](./mission-ext/BadgeOwnerKillTracker.md) | 🔗 |
+| E | [BadgeType](./mission-ext/BadgeType.md) | 🔗 |
+| C | [ConditionalBadge](./mission-ext/ConditionalBadge.md) | 🔗 |
+| E | [ConditionGroupType](./mission-ext/ConditionGroupType.md) | 🔗 |
+| E | [ConditionType](./mission-ext/ConditionType.md) | 🔗 |
+| E | [ConditionValueType](./mission-ext/ConditionValueType.md) | 🔗 |
+| C | [GameBadgeTracker](./mission-ext/GameBadgeTracker.md) | 🔗 |
+| S | [KillData](./mission-ext/KillData.md) | 🔗 |
+| C | [KillTracker](./mission-ext/KillTracker.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Diamond.Ranked (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GameTypeRankInfo](./mission-ext/GameTypeRankInfo.md) | 🔗 |
+| C | [RankBarInfo](./mission-ext/RankBarInfo.md) | 🔗 |
+| C | [Ranks](./mission-ext/Ranks.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.DividableTasks (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [FindMostDangerousThreat](./mission-ext/FindMostDangerousThreat.md) | 🔗 |
+| C | [FormationSearchThreatTask](./mission-ext/FormationSearchThreatTask.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GameKeyCategory (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OrderOfBattleHotKeyCategory](./mission-ext/OrderOfBattleHotKeyCategory.md) | 🔗 |
+| C | [PhotoModeHotKeyCategory](./mission-ext/PhotoModeHotKeyCategory.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets (80)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AutoHideRichTextWidget](./mission-ext/AutoHideRichTextWidget.md) | 🔗 |
+| C | [AutoHideTextWidget](./mission-ext/AutoHideTextWidget.md) | 🔗 |
+| C | [AutoHideZeroTextWidget](./mission-ext/AutoHideZeroTextWidget.md) | 🔗 |
+| C | [BannerlordCustomWidgetManager](./mission-ext/BannerlordCustomWidgetManager.md) | 🔗 |
+| C | [BannerTableauWidget](./mission-ext/BannerTableauWidget.md) | 🔗 |
+| C | [BoolBrushChangerBrushWidget](./mission-ext/BoolBrushChangerBrushWidget.md) | 🔗 |
+| C | [BoolStateChangerWidget](./mission-ext/BoolStateChangerWidget.md) | 🔗 |
+| C | [BrightnessDemoWidget](./mission-ext/BrightnessDemoWidget.md) | 🔗 |
+| C | [ChangeAmountTextWidget](./mission-ext/ChangeAmountTextWidget.md) | 🔗 |
+| C | [CharacterTableauWidget](./mission-ext/CharacterTableauWidget.md) | 🔗 |
+| C | [CircleLoadingAnimWidget](./mission-ext/CircleLoadingAnimWidget.md) | 🔗 |
+| C | [CircularAutoScrollablePanelWidget](./mission-ext/CircularAutoScrollablePanelWidget.md) | 🔗 |
+| C | [ClickableCharacterTableauWidget](./mission-ext/ClickableCharacterTableauWidget.md) | 🔗 |
+| C | [ColorButtonWidget](./mission-ext/ColorButtonWidget.md) | 🔗 |
+| E | [ComparisonTypes](./mission-ext/ComparisonTypes.md) | 🔗 |
+| E | [ContainerDirections](./mission-ext/ContainerDirections.md) | 🔗 |
+| C | [ContainerPageControlButtonListWidget](./mission-ext/ContainerPageControlButtonListWidget.md) | 🔗 |
+| C | [ContainerPageControlWidget](./mission-ext/ContainerPageControlWidget.md) | 🔗 |
+| C | [ContextMenuBrushWidget](./mission-ext/ContextMenuBrushWidget.md) | 🔗 |
+| C | [ContextMenuItemWidget](./mission-ext/ContextMenuItemWidget.md) | 🔗 |
+| C | [CounterTextBrushWidget](./mission-ext/CounterTextBrushWidget.md) | 🔗 |
+| C | [DebugValueUpdateSlider](./mission-ext/DebugValueUpdateSlider.md) | 🔗 |
+| C | [DefaultLayerSpriteChangerBrushWidget](./mission-ext/DefaultLayerSpriteChangerBrushWidget.md) | 🔗 |
+| E | [DemoTypes](./mission-ext/DemoTypes.md) | 🔗 |
+| E | [Dimensions](./mission-ext/Dimensions.md) | 🔗 |
+| C | [DimensionSyncWidget](./mission-ext/DimensionSyncWidget.md) | 🔗 |
+| C | [DiscreteScrollablePanel](./mission-ext/DiscreteScrollablePanel.md) | 🔗 |
+| C | [DoubleTabControlListPanel](./mission-ext/DoubleTabControlListPanel.md) | 🔗 |
+| C | [DropdownButtonWidget](./mission-ext/DropdownButtonWidget.md) | 🔗 |
+| C | [EncyclopediaTroopScrollablePanel](./mission-ext/EncyclopediaTroopScrollablePanel.md) | 🔗 |
+| C | [EquipmentTypeVisualBrushWidget](./mission-ext/EquipmentTypeVisualBrushWidget.md) | 🔗 |
+| C | [FiefProfitTypeVisualBrushWidget](./mission-ext/FiefProfitTypeVisualBrushWidget.md) | 🔗 |
+| C | [FiefStatTypeVisualBrushWidget](./mission-ext/FiefStatTypeVisualBrushWidget.md) | 🔗 |
+| C | [FloatComparedStateChangerTextWidget](./mission-ext/FloatComparedStateChangerTextWidget.md) | 🔗 |
+| C | [GameMenuItemWidget](./mission-ext/GameMenuItemWidget.md) | 🔗 |
+| C | [GamepadCursorMarkerWidget](./mission-ext/GamepadCursorMarkerWidget.md) | 🔗 |
+| C | [GamepadCursorParentWidget](./mission-ext/GamepadCursorParentWidget.md) | 🔗 |
+| C | [GamepadCursorWidget](./mission-ext/GamepadCursorWidget.md) | 🔗 |
+| C | [HintWidget](./mission-ext/HintWidget.md) | 🔗 |
+| C | [HoverToggleWidget](./mission-ext/HoverToggleWidget.md) | 🔗 |
+| C | [IconBrushWidget](./mission-ext/IconBrushWidget.md) | 🔗 |
+| C | [IconOffsetButtonWidget](./mission-ext/IconOffsetButtonWidget.md) | 🔗 |
+| C | [ImageIdentifierWidget](./mission-ext/ImageIdentifierWidget.md) | 🔗 |
+| C | [InitialMenuAnimControllerWidget](./mission-ext/InitialMenuAnimControllerWidget.md) | 🔗 |
+| C | [IntComparedStateChangerTextWidget](./mission-ext/IntComparedStateChangerTextWidget.md) | 🔗 |
+| C | [ItemTableauWidget](./mission-ext/ItemTableauWidget.md) | 🔗 |
+| C | [ItemTypeVisualBrushWidget](./mission-ext/ItemTypeVisualBrushWidget.md) | 🔗 |
+| C | [ListPanelDropdownWidget](./mission-ext/ListPanelDropdownWidget.md) | 🔗 |
+| C | [NavigatableGridWidget](./mission-ext/NavigatableGridWidget.md) | 🔗 |
+| C | [NavigatableListPanel](./mission-ext/NavigatableListPanel.md) | 🔗 |
+| C | [NavigationAutoScrollWidget](./mission-ext/NavigationAutoScrollWidget.md) | 🔗 |
+| C | [NavigationForcedScopeCollectionTargeter](./mission-ext/NavigationForcedScopeCollectionTargeter.md) | 🔗 |
+| C | [NavigationScopeTargeter](./mission-ext/NavigationScopeTargeter.md) | 🔗 |
+| C | [NavigationTargetSwitcher](./mission-ext/NavigationTargetSwitcher.md) | 🔗 |
+| C | [NumericUpDownWidget](./mission-ext/NumericUpDownWidget.md) | 🔗 |
+| C | [PaginatedScrollablePanel](./mission-ext/PaginatedScrollablePanel.md) | 🔗 |
+| C | [ParallaxContainerWidget](./mission-ext/ParallaxContainerWidget.md) | 🔗 |
+| C | [ParallaxItemBrushWidget](./mission-ext/ParallaxItemBrushWidget.md) | 🔗 |
+| E | [ParallaxMovementDirection](./mission-ext/ParallaxMovementDirection.md) | 🔗 |
+| C | [RadioContainerWidget](./mission-ext/RadioContainerWidget.md) | 🔗 |
+| C | [RainbowRichTextWidget](./mission-ext/RainbowRichTextWidget.md) | 🔗 |
+| C | [RelationTextWidget](./mission-ext/RelationTextWidget.md) | 🔗 |
+| C | [SceneNotificationDescriptionTextWidget](./mission-ext/SceneNotificationDescriptionTextWidget.md) | 🔗 |
+| C | [SceneWidget](./mission-ext/SceneWidget.md) | 🔗 |
+| C | [ScoreboardAnimatedTextWidget](./mission-ext/ScoreboardAnimatedTextWidget.md) | 🔗 |
+| C | [ScreenBackgroundBrushWidget](./mission-ext/ScreenBackgroundBrushWidget.md) | 🔗 |
+| E | [ScrollMovementType](./mission-ext/ScrollMovementType.md) | 🔗 |
+| C | [SelectorWidget](./mission-ext/SelectorWidget.md) | 🔗 |
+| C | [SettlementStatTextWidget](./mission-ext/SettlementStatTextWidget.md) | 🔗 |
+| C | [ShipThumbnailWidget](./mission-ext/ShipThumbnailWidget.md) | 🔗 |
+| C | [SkillIconVisualWidget](./mission-ext/SkillIconVisualWidget.md) | 🔗 |
+| C | [SortButtonWidget](./mission-ext/SortButtonWidget.md) | 🔗 |
+| E | [State](./mission-ext/State.md) | 🔗 |
+| C | [TabControlWidget](./mission-ext/TabControlWidget.md) | 🔗 |
+| C | [ToggleButtonWidget](./mission-ext/ToggleButtonWidget.md) | 🔗 |
+| C | [ToggleStateButtonWidget](./mission-ext/ToggleStateButtonWidget.md) | 🔗 |
+| C | [ValueComparisonStateChangerWidget](./mission-ext/ValueComparisonStateChangerWidget.md) | 🔗 |
+| E | [VisualState](./mission-ext/VisualState.md) | 🔗 |
+| C | [WarningTextWidget](./mission-ext/WarningTextWidget.md) | 🔗 |
+| E | [WatchTypes](./mission-ext/WatchTypes.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.BannerBuilder (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerBuilderEditableAreaWidget](./mission-ext/BannerBuilderEditableAreaWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BarterItemCountControlButtonWidget](./mission-ext/BarterItemCountControlButtonWidget.md) | 🔗 |
+| C | [BarterItemCountTextWidget](./mission-ext/BarterItemCountTextWidget.md) | 🔗 |
+| C | [BarterItemVisualBrushWidget](./mission-ext/BarterItemVisualBrushWidget.md) | 🔗 |
+| C | [BarterTupleItemButtonWidget](./mission-ext/BarterTupleItemButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BoardGameInstructionVisualWidget](./mission-ext/BoardGameInstructionVisualWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CharacterCreationNarrativeStageScreenWidget](./mission-ext/CharacterCreationNarrativeStageScreenWidget.md) | 🔗 |
+| C | [CharacterCreationStageSelectionBarListPanel](./mission-ext/CharacterCreationStageSelectionBarListPanel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CharacterCreationBackgroundGradientBrushWidget](./mission-ext/CharacterCreationBackgroundGradientBrushWidget.md) | 🔗 |
+| C | [CharacterCreationCultureVisualBrushWidget](./mission-ext/CharacterCreationCultureVisualBrushWidget.md) | 🔗 |
+| C | [CharacterCreationFirstStageFadeOutWidget](./mission-ext/CharacterCreationFirstStageFadeOutWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CharacterCreationOptionsItemWidget](./mission-ext/CharacterCreationOptionsItemWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper (11)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [AnimState](./mission-ext/AnimState.md) | 🔗 |
+| C | [CharacterDeveloperAttributeInspectionPopupWidget](./mission-ext/CharacterDeveloperAttributeInspectionPopupWidget.md) | 🔗 |
+| C | [CharacterDeveloperPerksContainerWidget](./mission-ext/CharacterDeveloperPerksContainerWidget.md) | 🔗 |
+| C | [CharacterDeveloperPerkSelectionItemButtonWidget](./mission-ext/CharacterDeveloperPerkSelectionItemButtonWidget.md) | 🔗 |
+| C | [CharacterDeveloperPerkSelectionWidget](./mission-ext/CharacterDeveloperPerkSelectionWidget.md) | 🔗 |
+| C | [CharacterDeveloperSkillVerticalSeperatorWidget](./mission-ext/CharacterDeveloperSkillVerticalSeperatorWidget.md) | 🔗 |
+| C | [PerkItemButtonWidget](./mission-ext/PerkItemButtonWidget.md) | 🔗 |
+| C | [PerkSelectionBarWidget](./mission-ext/PerkSelectionBarWidget.md) | 🔗 |
+| C | [SkillGridItemButtonWidget](./mission-ext/SkillGridItemButtonWidget.md) | 🔗 |
+| C | [SkillPointsContainerListPanel](./mission-ext/SkillPointsContainerListPanel.md) | 🔗 |
+| C | [SkillProgressFillBarWidget](./mission-ext/SkillProgressFillBarWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ChatCollapsableListPanel](./mission-ext/ChatCollapsableListPanel.md) | 🔗 |
+| C | [ChatLogItemWidget](./mission-ext/ChatLogItemWidget.md) | 🔗 |
+| C | [ChatLogWidget](./mission-ext/ChatLogWidget.md) | 🔗 |
+| S | [ChatMultiLineElement](./mission-ext/ChatMultiLineElement.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ClanFinancePaymentSliderWidget](./mission-ext/ClanFinancePaymentSliderWidget.md) | 🔗 |
+| C | [ClanFinanceTextWidget](./mission-ext/ClanFinanceTextWidget.md) | 🔗 |
+| C | [ClanLordStatusWidget](./mission-ext/ClanLordStatusWidget.md) | 🔗 |
+| C | [ClanPartyRoleSelectionPopupWidget](./mission-ext/ClanPartyRoleSelectionPopupWidget.md) | 🔗 |
+| C | [ClanPartyRoleSelectionToggleWidget](./mission-ext/ClanPartyRoleSelectionToggleWidget.md) | 🔗 |
+| C | [ClanScreenWidget](./mission-ext/ClanScreenWidget.md) | 🔗 |
+| C | [ClanWorkshopTypeVisualBrushWidget](./mission-ext/ClanWorkshopTypeVisualBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ConversationItemImageWidget](./mission-ext/ConversationItemImageWidget.md) | 🔗 |
+| C | [ConversationNameButtonWidget](./mission-ext/ConversationNameButtonWidget.md) | 🔗 |
+| C | [ConversationOptionListPanel](./mission-ext/ConversationOptionListPanel.md) | 🔗 |
+| C | [ConversationPersuasionProgressRichTextWidget](./mission-ext/ConversationPersuasionProgressRichTextWidget.md) | 🔗 |
+| C | [ConversationScreenButtonWidget](./mission-ext/ConversationScreenButtonWidget.md) | 🔗 |
+| C | [PersuasionResultChanceContainerListPanel](./mission-ext/PersuasionResultChanceContainerListPanel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting (11)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CardSelectionPopupButtonWidget](./mission-ext/CardSelectionPopupButtonWidget.md) | 🔗 |
+| C | [CraftedWeaponDesignResultListPanel](./mission-ext/CraftedWeaponDesignResultListPanel.md) | 🔗 |
+| C | [CraftingCardHighlightBrushWidget](./mission-ext/CraftingCardHighlightBrushWidget.md) | 🔗 |
+| C | [CraftingDifficultyBarParentWidget](./mission-ext/CraftingDifficultyBarParentWidget.md) | 🔗 |
+| C | [CraftingItemStatSliderWidget](./mission-ext/CraftingItemStatSliderWidget.md) | 🔗 |
+| C | [CraftingMaterialVisualBrushWidget](./mission-ext/CraftingMaterialVisualBrushWidget.md) | 🔗 |
+| C | [CraftingPieceItemButtonWidget](./mission-ext/CraftingPieceItemButtonWidget.md) | 🔗 |
+| C | [CraftingPieceItemImageWidget](./mission-ext/CraftingPieceItemImageWidget.md) | 🔗 |
+| C | [CraftingPieceTypeSelectorButtonWidget](./mission-ext/CraftingPieceTypeSelectorButtonWidget.md) | 🔗 |
+| C | [CraftingScreenWidget](./mission-ext/CraftingScreenWidget.md) | 🔗 |
+| C | [CraftingWeaponTypeIconWidget](./mission-ext/CraftingWeaponTypeIconWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CreditsItemWidget](./mission-ext/CreditsItemWidget.md) | 🔗 |
+| C | [CreditsTextWidget](./mission-ext/CreditsTextWidget.md) | 🔗 |
+| C | [CreditsWidget](./mission-ext/CreditsWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.CustomBattle (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CustomBattleSliderLockButtonWidget](./mission-ext/CustomBattleSliderLockButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [EncyclopediaCharacterTableauWidget](./mission-ext/EncyclopediaCharacterTableauWidget.md) | 🔗 |
+| C | [EncyclopediaDividerButtonWidget](./mission-ext/EncyclopediaDividerButtonWidget.md) | 🔗 |
+| C | [EncyclopediaFilterListItemButtonWidget](./mission-ext/EncyclopediaFilterListItemButtonWidget.md) | 🔗 |
+| C | [EncyclopediaHeroTraitVisualWidget](./mission-ext/EncyclopediaHeroTraitVisualWidget.md) | 🔗 |
+| C | [EncyclopediaListItemButtonWidget](./mission-ext/EncyclopediaListItemButtonWidget.md) | 🔗 |
+| C | [EncyclopediaListWidget](./mission-ext/EncyclopediaListWidget.md) | 🔗 |
+| C | [EncyclopediaSearchBarBrushWidget](./mission-ext/EncyclopediaSearchBarBrushWidget.md) | 🔗 |
+| C | [EncyclopediaUnitTreeNodeItemBrushWidget](./mission-ext/EncyclopediaUnitTreeNodeItemBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.EscapeMenu (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [EscapeMenuButtonWidget](./mission-ext/EscapeMenuButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GameMenuTroopSelectionItemButtonWidget](./mission-ext/GameMenuTroopSelectionItemButtonWidget.md) | 🔗 |
+| C | [GameMenuWidget](./mission-ext/GameMenuWidget.md) | 🔗 |
+| C | [SettlementMenuPartyCharacterListsButtonWidget](./mission-ext/SettlementMenuPartyCharacterListsButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GameOverCategoryButtonWidget](./mission-ext/GameOverCategoryButtonWidget.md) | 🔗 |
+| C | [GameOverCategoryIconBrushWidget](./mission-ext/GameOverCategoryIconBrushWidget.md) | 🔗 |
+| C | [GameOverScreenWidget](./mission-ext/GameOverScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BoostCohesionPopupWidget](./mission-ext/BoostCohesionPopupWidget.md) | 🔗 |
+| C | [BoostItemButtonWidget](./mission-ext/BoostItemButtonWidget.md) | 🔗 |
+| C | [GatherArmyTupleButtonWidget](./mission-ext/GatherArmyTupleButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information (5)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GameNotificationWidget](./mission-ext/GameNotificationWidget.md) | 🔗 |
+| C | [MultiSelectionElementsWidget](./mission-ext/MultiSelectionElementsWidget.md) | 🔗 |
+| C | [PropertyBasedTooltipWidget](./mission-ext/PropertyBasedTooltipWidget.md) | 🔗 |
+| E | [TooltipPropertyFlags](./mission-ext/TooltipPropertyFlags.md) | 🔗 |
+| C | [TooltipPropertyWidget](./mission-ext/TooltipPropertyWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [RundownColumnDividerCollectionWidget](./mission-ext/RundownColumnDividerCollectionWidget.md) | 🔗 |
+| C | [RundownLineWidget](./mission-ext/RundownLineWidget.md) | 🔗 |
+| C | [RundownTooltipWidget](./mission-ext/RundownTooltipWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory (14)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [InventoryAlternativeUsageContainer](./mission-ext/InventoryAlternativeUsageContainer.md) | 🔗 |
+| C | [InventoryArmorAnimationTextWidget](./mission-ext/InventoryArmorAnimationTextWidget.md) | 🔗 |
+| C | [InventoryCenterPanelWidget](./mission-ext/InventoryCenterPanelWidget.md) | 🔗 |
+| C | [InventoryEquippedItemControlsBrushWidget](./mission-ext/InventoryEquippedItemControlsBrushWidget.md) | 🔗 |
+| C | [InventoryEquippedItemSlotWidget](./mission-ext/InventoryEquippedItemSlotWidget.md) | 🔗 |
+| C | [InventoryImageIdentifierWidget](./mission-ext/InventoryImageIdentifierWidget.md) | 🔗 |
+| C | [InventoryItemButtonWidget](./mission-ext/InventoryItemButtonWidget.md) | 🔗 |
+| C | [InventoryItemPreviewWidget](./mission-ext/InventoryItemPreviewWidget.md) | 🔗 |
+| C | [InventoryItemTupleWidget](./mission-ext/InventoryItemTupleWidget.md) | 🔗 |
+| C | [InventoryItemValueTextWidget](./mission-ext/InventoryItemValueTextWidget.md) | 🔗 |
+| C | [InventoryListPanel](./mission-ext/InventoryListPanel.md) | 🔗 |
+| C | [InventoryScreenWidget](./mission-ext/InventoryScreenWidget.md) | 🔗 |
+| C | [InventoryTupleExtensionControlsWidget](./mission-ext/InventoryTupleExtensionControlsWidget.md) | 🔗 |
+| C | [InventoryTwoWaySliderWidget](./mission-ext/InventoryTwoWaySliderWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DecisionSupporterGridWidget](./mission-ext/DecisionSupporterGridWidget.md) | 🔗 |
+| C | [DecisionSupportStrengthListPanel](./mission-ext/DecisionSupportStrengthListPanel.md) | 🔗 |
+| C | [KingdomCardItemContainerWidget](./mission-ext/KingdomCardItemContainerWidget.md) | 🔗 |
+| C | [KingdomClanTypeVisualBrushWidget](./mission-ext/KingdomClanTypeVisualBrushWidget.md) | 🔗 |
+| C | [KingdomDecisionFactionTypeVisualBrushWidget](./mission-ext/KingdomDecisionFactionTypeVisualBrushWidget.md) | 🔗 |
+| C | [KingdomDecisionOptionWidget](./mission-ext/KingdomDecisionOptionWidget.md) | 🔗 |
+| C | [KingdomDecisionPopupWidget](./mission-ext/KingdomDecisionPopupWidget.md) | 🔗 |
+| C | [KingdomTabControlListPanel](./mission-ext/KingdomTabControlListPanel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Loading (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [LoadingWindowWidget](./mission-ext/LoadingWindowWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapAnchorTrackerWidget](./mission-ext/MapAnchorTrackerWidget.md) | 🔗 |
+| C | [MapEventVisualBrushWidget](./mission-ext/MapEventVisualBrushWidget.md) | 🔗 |
+| C | [MobilePartyTrackerItemWidget](./mission-ext/MobilePartyTrackerItemWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [AnimState](./mission-ext/AnimState.md) | 🔗 |
+| C | [MapBarCustomValueTextWidget](./mission-ext/MapBarCustomValueTextWidget.md) | 🔗 |
+| C | [MapBarGatherArmyBrushWidget](./mission-ext/MapBarGatherArmyBrushWidget.md) | 🔗 |
+| C | [MapBarTextWidget](./mission-ext/MapBarTextWidget.md) | 🔗 |
+| C | [MapBarUnreadBrushWidget](./mission-ext/MapBarUnreadBrushWidget.md) | 🔗 |
+| C | [MapCurrentTimeVisualWidget](./mission-ext/MapCurrentTimeVisualWidget.md) | 🔗 |
+| C | [MapInfoBarWidget](./mission-ext/MapInfoBarWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapConversation (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapConversationScreenButtonWidget](./mission-ext/MapConversationScreenButtonWidget.md) | 🔗 |
+| C | [MapConversationTableauWidget](./mission-ext/MapConversationTableauWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapEvents (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapEventVisualItemWidget](./mission-ext/MapEventVisualItemWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ArmyOverlayCohesionFillBarWidget](./mission-ext/ArmyOverlayCohesionFillBarWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ShopVisualIconBrushWidget](./mission-ext/ShopVisualIconBrushWidget.md) | 🔗 |
+| C | [VillageTypeVisualIconBrushWidget](./mission-ext/VillageTypeVisualIconBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapNotificationContainerWidget](./mission-ext/MapNotificationContainerWidget.md) | 🔗 |
+| C | [MapNotificationItemWidget](./mission-ext/MapNotificationItemWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapParleyAnimationParentBrushWidget](./mission-ext/MapParleyAnimationParentBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [AnimState](./mission-ext/AnimState.md) | 🔗 |
+| C | [MapSiegeConstructionControllerWidget](./mission-ext/MapSiegeConstructionControllerWidget.md) | 🔗 |
+| C | [MapSiegeMachineButtonWidget](./mission-ext/MapSiegeMachineButtonWidget.md) | 🔗 |
+| C | [MapSiegePOIBrushWidget](./mission-ext/MapSiegePOIBrushWidget.md) | 🔗 |
+| C | [MapSiegeQueueIndexTextWidget](./mission-ext/MapSiegeQueueIndexTextWidget.md) | 🔗 |
+| C | [MapSiegeScreenWidget](./mission-ext/MapSiegeScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.MapBar (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MapTimeImageBrushWidget](./mission-ext/MapTimeImageBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ArmyOverlayWidget](./mission-ext/ArmyOverlayWidget.md) | 🔗 |
+| C | [GameMenuPartyItemButtonWidget](./mission-ext/GameMenuPartyItemButtonWidget.md) | 🔗 |
+| C | [OverlayBaseWidget](./mission-ext/OverlayBaseWidget.md) | 🔗 |
+| C | [OverlayPopupWidget](./mission-ext/OverlayPopupWidget.md) | 🔗 |
+| C | [PowerLevelComparerWidget](./mission-ext/PowerLevelComparerWidget.md) | 🔗 |
+| C | [SettlementOverlayWallIconBrushWidget](./mission-ext/SettlementOverlayWallIconBrushWidget.md) | 🔗 |
+| C | [SettlementOverlayWidget](./mission-ext/SettlementOverlayWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Recruitment (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [RecruitTroopPanelButtonWidget](./mission-ext/RecruitTroopPanelButtonWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [AnimState](./mission-ext/AnimState.md) | 🔗 |
+| C | [AutoClosePopupClosingWidget](./mission-ext/AutoClosePopupClosingWidget.md) | 🔗 |
+| C | [AutoClosePopupWidget](./mission-ext/AutoClosePopupWidget.md) | 🔗 |
+| C | [DescriptionItemVisualBrushWidget](./mission-ext/DescriptionItemVisualBrushWidget.md) | 🔗 |
+| C | [DevelopmentItemButtonWidget](./mission-ext/DevelopmentItemButtonWidget.md) | 🔗 |
+| C | [DevelopmentItemVisualButtonWidget](./mission-ext/DevelopmentItemVisualButtonWidget.md) | 🔗 |
+| C | [DevelopmentNameTextWidget](./mission-ext/DevelopmentNameTextWidget.md) | 🔗 |
+| C | [DevelopmentQueueVisualIconWidget](./mission-ext/DevelopmentQueueVisualIconWidget.md) | 🔗 |
+| C | [DevelopmentRingVisualButtonWidget](./mission-ext/DevelopmentRingVisualButtonWidget.md) | 🔗 |
+| C | [SliderPopupWidget](./mission-ext/SliderPopupWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission (19)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentAlarmStateWidget](./mission-ext/AgentAlarmStateWidget.md) | 🔗 |
+| C | [AgentAmmoTextWidget](./mission-ext/AgentAmmoTextWidget.md) | 🔗 |
+| C | [AgentHealthWidget](./mission-ext/AgentHealthWidget.md) | 🔗 |
+| C | [AgentLockVisualBrushWidget](./mission-ext/AgentLockVisualBrushWidget.md) | 🔗 |
+| C | [AgentWeaponPassiveUsageVisualBrushWidget](./mission-ext/AgentWeaponPassiveUsageVisualBrushWidget.md) | 🔗 |
+| C | [CompassElementWidget](./mission-ext/CompassElementWidget.md) | 🔗 |
+| C | [CompassMarkerTextWidget](./mission-ext/CompassMarkerTextWidget.md) | 🔗 |
+| C | [CompassWidget](./mission-ext/CompassWidget.md) | 🔗 |
+| C | [CrosshairWidget](./mission-ext/CrosshairWidget.md) | 🔗 |
+| C | [DisguiseMarkerAlternativeBrushWidget](./mission-ext/DisguiseMarkerAlternativeBrushWidget.md) | 🔗 |
+| C | [DisguiseMarkerBrushWidget](./mission-ext/DisguiseMarkerBrushWidget.md) | 🔗 |
+| C | [FormationFocusedMarkerWidget](./mission-ext/FormationFocusedMarkerWidget.md) | 🔗 |
+| C | [FormationMarkerListPanel](./mission-ext/FormationMarkerListPanel.md) | 🔗 |
+| C | [FormationMarkerTeamTypeBrushWidget](./mission-ext/FormationMarkerTeamTypeBrushWidget.md) | 🔗 |
+| C | [HealthDropData](./mission-ext/HealthDropData.md) | 🔗 |
+| C | [MissionLeaveBarSliderWidget](./mission-ext/MissionLeaveBarSliderWidget.md) | 🔗 |
+| C | [MissionSiegeEngineMarkerWidget](./mission-ext/MissionSiegeEngineMarkerWidget.md) | 🔗 |
+| C | [ReloadBarHeightAdjustmentWidget](./mission-ext/ReloadBarHeightAdjustmentWidget.md) | 🔗 |
+| C | [TakenDamageItemBrushWidget](./mission-ext/TakenDamageItemBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [PersuasionChanceVisualListPanel](./mission-ext/PersuasionChanceVisualListPanel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionAgentDamageFeedItemWidget](./mission-ext/MissionAgentDamageFeedItemWidget.md) | 🔗 |
+| C | [MissionAgentDamageFeedWidget](./mission-ext/MissionAgentDamageFeedWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Disguise (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionSuspicionFillerBrushWidget](./mission-ext/MissionSuspicionFillerBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [MissionMarkerType](./mission-ext/MissionMarkerType.md) | 🔗 |
+| C | [MultiplayerMissionMarkerListPanel](./mission-ext/MultiplayerMissionMarkerListPanel.md) | 🔗 |
+| C | [SiegeEngineVisualWidget](./mission-ext/SiegeEngineVisualWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.General (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SingleplayerGeneralKillFeedItemWidget](./mission-ext/SingleplayerGeneralKillFeedItemWidget.md) | 🔗 |
+| C | [SingleplayerGeneralKillFeedWidget](./mission-ext/SingleplayerGeneralKillFeedWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.Personal (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SingleplayerPersonalKillFeedItemWidget](./mission-ext/SingleplayerPersonalKillFeedItemWidget.md) | 🔗 |
+| C | [SingleplayerPersonalKillFeedWidget](./mission-ext/SingleplayerPersonalKillFeedWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.MainAgentControlMode (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MainAgentControlModeParentWidget](./mission-ext/MainAgentControlModeParentWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AlwaysVisibleNameMarkerListPanel](./mission-ext/AlwaysVisibleNameMarkerListPanel.md) | 🔗 |
+| C | [DuelTargetMarkerListPanel](./mission-ext/DuelTargetMarkerListPanel.md) | 🔗 |
+| C | [MarkerRect](./mission-ext/MarkerRect.md) | 🔗 |
+| C | [NameMarkerListPanel](./mission-ext/NameMarkerListPanel.md) | 🔗 |
+| C | [NameMarkerScreenWidget](./mission-ext/NameMarkerScreenWidget.md) | 🔗 |
+| C | [ObjectiveMarkersParentWidget](./mission-ext/ObjectiveMarkersParentWidget.md) | 🔗 |
+| C | [ObjectiveMarkerWidget](./mission-ext/ObjectiveMarkerWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OrderFormationClassVisualBrushWidget](./mission-ext/OrderFormationClassVisualBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OrderOfBattleFormationClassBrushWidget](./mission-ext/OrderOfBattleFormationClassBrushWidget.md) | 🔗 |
+| C | [OrderOfBattleFormationClassContainerWidget](./mission-ext/OrderOfBattleFormationClassContainerWidget.md) | 🔗 |
+| C | [OrderOfBattleFormationClassLockBrushWidget](./mission-ext/OrderOfBattleFormationClassLockBrushWidget.md) | 🔗 |
+| C | [OrderOfBattleFormationFilterVisualBrushWidget](./mission-ext/OrderOfBattleFormationFilterVisualBrushWidget.md) | 🔗 |
+| C | [OrderOfBattleFormationItemListPanel](./mission-ext/OrderOfBattleFormationItemListPanel.md) | 🔗 |
+| C | [OrderOfBattleFormationMarkerBrushWidget](./mission-ext/OrderOfBattleFormationMarkerBrushWidget.md) | 🔗 |
+| C | [OrderOfBattleHeroButtonWidget](./mission-ext/OrderOfBattleHeroButtonWidget.md) | 🔗 |
+| C | [OrderOfBattleHeroDragWidget](./mission-ext/OrderOfBattleHeroDragWidget.md) | 🔗 |
+| C | [OrderOfBattleHeroDropWidget](./mission-ext/OrderOfBattleHeroDropWidget.md) | 🔗 |
+| C | [OrderOfBattleScreenWidget](./mission-ext/OrderOfBattleScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionRadialButtonWidget](./mission-ext/MissionRadialButtonWidget.md) | 🔗 |
+| C | [MissionRadialCircleActionSelectorWidget](./mission-ext/MissionRadialCircleActionSelectorWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer (12)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MaterialValueOffsetImageWidget](./mission-ext/MaterialValueOffsetImageWidget.md) | 🔗 |
+| C | [MaterialValueOffsetTextWidget](./mission-ext/MaterialValueOffsetTextWidget.md) | 🔗 |
+| C | [MultiplayerBattleResultColorizedWidget](./mission-ext/MultiplayerBattleResultColorizedWidget.md) | 🔗 |
+| C | [MultiplayerEndOfBattleScreenWidget](./mission-ext/MultiplayerEndOfBattleScreenWidget.md) | 🔗 |
+| C | [MultiplayerEndOfRoundPanelBrushWidget](./mission-ext/MultiplayerEndOfRoundPanelBrushWidget.md) | 🔗 |
+| C | [MultiplayerFactionBannerWidget](./mission-ext/MultiplayerFactionBannerWidget.md) | 🔗 |
+| C | [MultiplayerIntermissionNextMapImageWidget](./mission-ext/MultiplayerIntermissionNextMapImageWidget.md) | 🔗 |
+| C | [MultiplayerItemTabButtonWidget](./mission-ext/MultiplayerItemTabButtonWidget.md) | 🔗 |
+| C | [MultiplayerPlayerBadgeVisualWidget](./mission-ext/MultiplayerPlayerBadgeVisualWidget.md) | 🔗 |
+| C | [MultiplayerPollProgressionWidget](./mission-ext/MultiplayerPollProgressionWidget.md) | 🔗 |
+| C | [MultiplayerTeamPlayerAvatarButtonWidget](./mission-ext/MultiplayerTeamPlayerAvatarButtonWidget.md) | 🔗 |
+| C | [MultiplayerTroopTypeIconWidget](./mission-ext/MultiplayerTroopTypeIconWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerAdminMessageItemWidget](./mission-ext/MultiplayerAdminMessageItemWidget.md) | 🔗 |
+| C | [MultiplayerAdminMessageWidget](./mission-ext/MultiplayerAdminMessageWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ClassLoadoutAlternativeUsageItemTabButtonWidget](./mission-ext/ClassLoadoutAlternativeUsageItemTabButtonWidget.md) | 🔗 |
+| C | [ClassLoadoutTroopTupleCultureColorBrushWidget](./mission-ext/ClassLoadoutTroopTupleCultureColorBrushWidget.md) | 🔗 |
+| C | [MultiplayerClassLoadoutItemTabControllerButtonWidget](./mission-ext/MultiplayerClassLoadoutItemTabControllerButtonWidget.md) | 🔗 |
+| C | [MultiplayerClassLoadoutItemTabListPanel](./mission-ext/MultiplayerClassLoadoutItemTabListPanel.md) | 🔗 |
+| C | [MultiplayerClassLoadoutTroopCardBrushWidget](./mission-ext/MultiplayerClassLoadoutTroopCardBrushWidget.md) | 🔗 |
+| C | [MultiplayerClassLoadoutTroopInfoBrushWidget](./mission-ext/MultiplayerClassLoadoutTroopInfoBrushWidget.md) | 🔗 |
+| C | [MultiplayerClassLoadoutTroopSubclassButtonWidget](./mission-ext/MultiplayerClassLoadoutTroopSubclassButtonWidget.md) | 🔗 |
+| C | [MultiplayerClassLoadoutTroopTupleVisualWidget](./mission-ext/MultiplayerClassLoadoutTroopTupleVisualWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DuelArenaFlagVisualBrushWidget](./mission-ext/DuelArenaFlagVisualBrushWidget.md) | 🔗 |
+| C | [HUDExtensionBrushWidget](./mission-ext/HUDExtensionBrushWidget.md) | 🔗 |
+| C | [MoraleArrowBrushWidget](./mission-ext/MoraleArrowBrushWidget.md) | 🔗 |
+| C | [MoraleWidget](./mission-ext/MoraleWidget.md) | 🔗 |
+| C | [MultiplayerDeathCardWidget](./mission-ext/MultiplayerDeathCardWidget.md) | 🔗 |
+| C | [ServerStatusItemBrushWidget](./mission-ext/ServerStatusItemBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed (5)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerDuelKillFeedItemWidget](./mission-ext/MultiplayerDuelKillFeedItemWidget.md) | 🔗 |
+| C | [MultiplayerGeneralKillFeedItemWidget](./mission-ext/MultiplayerGeneralKillFeedItemWidget.md) | 🔗 |
+| C | [MultiplayerGeneralKillFeedWidget](./mission-ext/MultiplayerGeneralKillFeedWidget.md) | 🔗 |
+| C | [MultiplayerPersonalKillFeedItemWidget](./mission-ext/MultiplayerPersonalKillFeedItemWidget.md) | 🔗 |
+| C | [MultiplayerPersonalKillFeedWidget](./mission-ext/MultiplayerPersonalKillFeedWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby (18)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLobbyAfterBattleExperiencePanelWidget](./mission-ext/MultiplayerLobbyAfterBattleExperiencePanelWidget.md) | 🔗 |
+| C | [MultiplayerLobbyAfterBattlePopupWidget](./mission-ext/MultiplayerLobbyAfterBattlePopupWidget.md) | 🔗 |
+| C | [MultiplayerLobbyAnimatedRankChangeWidget](./mission-ext/MultiplayerLobbyAnimatedRankChangeWidget.md) | 🔗 |
+| C | [MultiplayerLobbyBadgeButtonWidget](./mission-ext/MultiplayerLobbyBadgeButtonWidget.md) | 🔗 |
+| C | [MultiplayerLobbyBadgeProgressInformationWidget](./mission-ext/MultiplayerLobbyBadgeProgressInformationWidget.md) | 🔗 |
+| C | [MultiplayerLobbyBattleRewardWidget](./mission-ext/MultiplayerLobbyBattleRewardWidget.md) | 🔗 |
+| C | [MultiplayerLobbyCosmeticAnimationControllerWidget](./mission-ext/MultiplayerLobbyCosmeticAnimationControllerWidget.md) | 🔗 |
+| C | [MultiplayerLobbyCosmeticAnimationPartWidget](./mission-ext/MultiplayerLobbyCosmeticAnimationPartWidget.md) | 🔗 |
+| C | [MultiplayerLobbyCustomServerScreenWidget](./mission-ext/MultiplayerLobbyCustomServerScreenWidget.md) | 🔗 |
+| C | [MultiplayerLobbyGameTypeCardButtonWidget](./mission-ext/MultiplayerLobbyGameTypeCardButtonWidget.md) | 🔗 |
+| C | [MultiplayerLobbyGameTypeCardListPanel](./mission-ext/MultiplayerLobbyGameTypeCardListPanel.md) | 🔗 |
+| C | [MultiplayerLobbyGameTypeItemButtonWidget](./mission-ext/MultiplayerLobbyGameTypeItemButtonWidget.md) | 🔗 |
+| C | [MultiplayerLobbyHomeScreenWidget](./mission-ext/MultiplayerLobbyHomeScreenWidget.md) | 🔗 |
+| C | [MultiplayerLobbyMaskedIntTextWidget](./mission-ext/MultiplayerLobbyMaskedIntTextWidget.md) | 🔗 |
+| C | [MultiplayerLobbyMenuWidget](./mission-ext/MultiplayerLobbyMenuWidget.md) | 🔗 |
+| C | [MultiplayerLobbyProfileScreenWidget](./mission-ext/MultiplayerLobbyProfileScreenWidget.md) | 🔗 |
+| C | [MultiplayerLobbyRankItemButtonWidget](./mission-ext/MultiplayerLobbyRankItemButtonWidget.md) | 🔗 |
+| C | [MultiplayerLobbyScreenWidget](./mission-ext/MultiplayerLobbyScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerArmoryCosmeticCategoryButtonWidget](./mission-ext/MultiplayerArmoryCosmeticCategoryButtonWidget.md) | 🔗 |
+| C | [MultiplayerArmoryCosmeticsSectionWidget](./mission-ext/MultiplayerArmoryCosmeticsSectionWidget.md) | 🔗 |
+| C | [MultiplayerArmoryPageWidget](./mission-ext/MultiplayerArmoryPageWidget.md) | 🔗 |
+| C | [MultiplayerLobbyArmoryCosmeticItemBrushWidget](./mission-ext/MultiplayerLobbyArmoryCosmeticItemBrushWidget.md) | 🔗 |
+| C | [MultiplayerLobbyArmoryCosmeticItemButtonWidget](./mission-ext/MultiplayerLobbyArmoryCosmeticItemButtonWidget.md) | 🔗 |
+| C | [MultiplayerLobbyArmoryCosmeticObtainPopupWidget](./mission-ext/MultiplayerLobbyArmoryCosmeticObtainPopupWidget.md) | 🔗 |
+| C | [MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget](./mission-ext/MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget.md) | 🔗 |
+| C | [MultiplayerLobbyClassFilterClassItemWidget](./mission-ext/MultiplayerLobbyClassFilterClassItemWidget.md) | 🔗 |
+| C | [MultiplayerLobbyClassFilterFactionItemButtonWidget](./mission-ext/MultiplayerLobbyClassFilterFactionItemButtonWidget.md) | 🔗 |
+| C | [TauntCircleActionSelectorWidget](./mission-ext/TauntCircleActionSelectorWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLobbyClanMemberRankVisualBrushWidget](./mission-ext/MultiplayerLobbyClanMemberRankVisualBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLobbyFriendGroupToggleWidget](./mission-ext/MultiplayerLobbyFriendGroupToggleWidget.md) | 🔗 |
+| C | [MultiplayerLobbyFriendGroupWidget](./mission-ext/MultiplayerLobbyFriendGroupWidget.md) | 🔗 |
+| C | [MultiplayerLobbyFriendsPanelWidget](./mission-ext/MultiplayerLobbyFriendsPanelWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLobbyAnnouncementIconBrushWidget](./mission-ext/MultiplayerLobbyAnnouncementIconBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget](./mission-ext/MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget.md) | 🔗 |
+| C | [MultiplayerLobbyMatchmakingScreenWidget](./mission-ext/MultiplayerLobbyMatchmakingScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerPerkContainerPanelWidget](./mission-ext/MultiplayerPerkContainerPanelWidget.md) | 🔗 |
+| C | [MultiplayerPerkItemToggleWidget](./mission-ext/MultiplayerPerkItemToggleWidget.md) | 🔗 |
+| C | [MultiplayerPerkPopupWidget](./mission-ext/MultiplayerPerkPopupWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerScoreboardAnimatedFillBarWidget](./mission-ext/MultiplayerScoreboardAnimatedFillBarWidget.md) | 🔗 |
+| C | [MultiplayerScoreboardEndOfBattlePanelWidget](./mission-ext/MultiplayerScoreboardEndOfBattlePanelWidget.md) | 🔗 |
+| C | [MultiplayerScoreboardScreenWidget](./mission-ext/MultiplayerScoreboardScreenWidget.md) | 🔗 |
+| C | [MultiplayerScoreboardSideWidget](./mission-ext/MultiplayerScoreboardSideWidget.md) | 🔗 |
+| C | [MultiplayerScoreboardStatsListPanel](./mission-ext/MultiplayerScoreboardStatsListPanel.md) | 🔗 |
+| C | [MultiplayerScoreboardStatsParentWidget](./mission-ext/MultiplayerScoreboardStatsParentWidget.md) | 🔗 |
+| C | [MultiplayerScoreboardStripedBackgroundWidget](./mission-ext/MultiplayerScoreboardStripedBackgroundWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [PartyNameplateWidget](./mission-ext/PartyNameplateWidget.md) | 🔗 |
+| C | [PartyPlayerNameplateWidget](./mission-ext/PartyPlayerNameplateWidget.md) | 🔗 |
+| C | [SettlementNameplateEventVisualBrushWidget](./mission-ext/SettlementNameplateEventVisualBrushWidget.md) | 🔗 |
+| C | [SettlementNameplateItemWidget](./mission-ext/SettlementNameplateItemWidget.md) | 🔗 |
+| C | [SettlementNameplateManagerWidget](./mission-ext/SettlementNameplateManagerWidget.md) | 🔗 |
+| C | [SettlementNameplateWidget](./mission-ext/SettlementNameplateWidget.md) | 🔗 |
+| E | [TutorialAnimState](./mission-ext/TutorialAnimState.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [NameplateNotificationListPanel](./mission-ext/NameplateNotificationListPanel.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OptionsBrightnessImageSliderWidget](./mission-ext/OptionsBrightnessImageSliderWidget.md) | 🔗 |
+| C | [OptionsItemWidget](./mission-ext/OptionsItemWidget.md) | 🔗 |
+| C | [OptionsKeyItemListPanel](./mission-ext/OptionsKeyItemListPanel.md) | 🔗 |
+| C | [OptionsScreenWidget](./mission-ext/OptionsScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OptionsGamepadCategoryWidget](./mission-ext/OptionsGamepadCategoryWidget.md) | 🔗 |
+| C | [OptionsGamepadKeyLocationWidget](./mission-ext/OptionsGamepadKeyLocationWidget.md) | 🔗 |
+| C | [OptionsGamepadOptionItemListPanel](./mission-ext/OptionsGamepadOptionItemListPanel.md) | 🔗 |
+| C | [OptionsGamepadVisualWidget](./mission-ext/OptionsGamepadVisualWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OrderCircleActionSelectorParentWidget](./mission-ext/OrderCircleActionSelectorParentWidget.md) | 🔗 |
+| C | [OrderItemButtonWidget](./mission-ext/OrderItemButtonWidget.md) | 🔗 |
+| C | [OrderReturnButtonWidget](./mission-ext/OrderReturnButtonWidget.md) | 🔗 |
+| C | [OrderSiegeDeploymentItemButtonWidget](./mission-ext/OrderSiegeDeploymentItemButtonWidget.md) | 🔗 |
+| C | [OrderSiegeDeploymentScreenWidget](./mission-ext/OrderSiegeDeploymentScreenWidget.md) | 🔗 |
+| C | [OrderSiegeMachineItemButtonWidget](./mission-ext/OrderSiegeMachineItemButtonWidget.md) | 🔗 |
+| C | [OrderTroopItemBrushWidget](./mission-ext/OrderTroopItemBrushWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party (13)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [PartyFormationDropdownWidget](./mission-ext/PartyFormationDropdownWidget.md) | 🔗 |
+| C | [PartyHeaderToggleWidget](./mission-ext/PartyHeaderToggleWidget.md) | 🔗 |
+| C | [PartyHealthFillBarWidget](./mission-ext/PartyHealthFillBarWidget.md) | 🔗 |
+| C | [PartyListPanel](./mission-ext/PartyListPanel.md) | 🔗 |
+| C | [PartyManageTroopPopupWidget](./mission-ext/PartyManageTroopPopupWidget.md) | 🔗 |
+| C | [PartyQuestProgressWidget](./mission-ext/PartyQuestProgressWidget.md) | 🔗 |
+| C | [PartyScreenWidget](./mission-ext/PartyScreenWidget.md) | 🔗 |
+| C | [PartyTroopManagementItemButtonWidget](./mission-ext/PartyTroopManagementItemButtonWidget.md) | 🔗 |
+| C | [PartyTroopTupleButtonWidget](./mission-ext/PartyTroopTupleButtonWidget.md) | 🔗 |
+| C | [PartyUpgradeButtonWidget](./mission-ext/PartyUpgradeButtonWidget.md) | 🔗 |
+| C | [PartyUpgradeCostRichTextWidget](./mission-ext/PartyUpgradeCostRichTextWidget.md) | 🔗 |
+| C | [PartyUpgradeRequirementWidget](./mission-ext/PartyUpgradeRequirementWidget.md) | 🔗 |
+| C | [PartyUpgradesContainerWidget](./mission-ext/PartyUpgradesContainerWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Popup (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SingleQueryParentWidget](./mission-ext/SingleQueryParentWidget.md) | 🔗 |
+| C | [TextQueryParentWidget](./mission-ext/TextQueryParentWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [QuestItemButtonWidget](./mission-ext/QuestItemButtonWidget.md) | 🔗 |
+| C | [QuestMarkerBrushWidget](./mission-ext/QuestMarkerBrushWidget.md) | 🔗 |
+| C | [QuestProgressVisualWidget](./mission-ext/QuestProgressVisualWidget.md) | 🔗 |
+| C | [QuestStageItemWidget](./mission-ext/QuestStageItemWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.SaveLoad (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SaveLoadHeroTableauWidget](./mission-ext/SaveLoadHeroTableauWidget.md) | 🔗 |
+| C | [SaveLoadMainHeroVisualWidget](./mission-ext/SaveLoadMainHeroVisualWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ScoreboardBattleResultTitleBackgroundWidget](./mission-ext/ScoreboardBattleResultTitleBackgroundWidget.md) | 🔗 |
+| C | [ScoreboardBattleRewardsWidget](./mission-ext/ScoreboardBattleRewardsWidget.md) | 🔗 |
+| C | [ScoreboardGainedSkillsListPanel](./mission-ext/ScoreboardGainedSkillsListPanel.md) | 🔗 |
+| C | [ScoreboardScreenWidget](./mission-ext/ScoreboardScreenWidget.md) | 🔗 |
+| C | [ScoreboardShipsNavigatableGridWidget](./mission-ext/ScoreboardShipsNavigatableGridWidget.md) | 🔗 |
+| C | [ScoreboardSideMoraleListPanel](./mission-ext/ScoreboardSideMoraleListPanel.md) | 🔗 |
+| C | [ScoreboardSkillItemHoverToggleWidget](./mission-ext/ScoreboardSkillItemHoverToggleWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [TournamentMatchWidget](./mission-ext/TournamentMatchWidget.md) | 🔗 |
+| C | [TournamentParticipantBrushWidget](./mission-ext/TournamentParticipantBrushWidget.md) | 🔗 |
+| C | [TournamentScreenWidget](./mission-ext/TournamentScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial (15)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [AnimState](./mission-ext/AnimState.md) | 🔗 |
+| E | [AnimTypes](./mission-ext/AnimTypes.md) | 🔗 |
+| C | [ElementNotificationWidget](./mission-ext/ElementNotificationWidget.md) | 🔗 |
+| C | [HighlightElementToggledEvent](./mission-ext/HighlightElementToggledEvent.md) | 🔗 |
+| E | [InputTypes](./mission-ext/InputTypes.md) | 🔗 |
+| E | [MovementTypes](./mission-ext/MovementTypes.md) | 🔗 |
+| C | [StickAnimStage](./mission-ext/StickAnimStage.md) | 🔗 |
+| C | [TutorialArrowWidget](./mission-ext/TutorialArrowWidget.md) | 🔗 |
+| C | [TutorialDirectionArrowWidget](./mission-ext/TutorialDirectionArrowWidget.md) | 🔗 |
+| C | [TutorialHighlightItemBrushWidget](./mission-ext/TutorialHighlightItemBrushWidget.md) | 🔗 |
+| C | [TutorialObjectiveItemWidget](./mission-ext/TutorialObjectiveItemWidget.md) | 🔗 |
+| C | [TutorialObjectiveMouseParentWidget](./mission-ext/TutorialObjectiveMouseParentWidget.md) | 🔗 |
+| C | [TutorialObjectiveStickParentWidget](./mission-ext/TutorialObjectiveStickParentWidget.md) | 🔗 |
+| C | [TutorialPanelImageWidget](./mission-ext/TutorialPanelImageWidget.md) | 🔗 |
+| C | [TutorialScreenWidget](./mission-ext/TutorialScreenWidget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Launcher (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Program](./mission-ext/Program.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Launcher.Library (25)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [Buttons](./mission-ext/Buttons.md) | 🔗 |
+| S | [DependentVersionMissmatchItem](./mission-ext/DependentVersionMissmatchItem.md) | 🔗 |
+| C | [DLLResult](./mission-ext/DLLResult.md) | 🔗 |
+| E | [Icon](./mission-ext/Icon.md) | 🔗 |
+| C | [LauncherConfirmStartVM](./mission-ext/LauncherConfirmStartVM.md) | 🔗 |
+| C | [LauncherDebugManager](./mission-ext/LauncherDebugManager.md) | 🔗 |
+| C | [LauncherDLLData](./mission-ext/LauncherDLLData.md) | 🔗 |
+| C | [LauncherHintVM](./mission-ext/LauncherHintVM.md) | 🔗 |
+| C | [LauncherInformationVM](./mission-ext/LauncherInformationVM.md) | 🔗 |
+| C | [LauncherModsDLLManager](./mission-ext/LauncherModsDLLManager.md) | 🔗 |
+| C | [LauncherModsVM](./mission-ext/LauncherModsVM.md) | 🔗 |
+| C | [LauncherModuleVM](./mission-ext/LauncherModuleVM.md) | 🔗 |
+| C | [LauncherNewsItemVM](./mission-ext/LauncherNewsItemVM.md) | 🔗 |
+| C | [LauncherNewsVM](./mission-ext/LauncherNewsVM.md) | 🔗 |
+| C | [LauncherOnlineImageTextureProvider](./mission-ext/LauncherOnlineImageTextureProvider.md) | 🔗 |
+| C | [LauncherPlatform](./mission-ext/LauncherPlatform.md) | 🔗 |
+| E | [LauncherPlatformType](./mission-ext/LauncherPlatformType.md) | 🔗 |
+| C | [LauncherSubModule](./mission-ext/LauncherSubModule.md) | 🔗 |
+| C | [LauncherUI](./mission-ext/LauncherUI.md) | 🔗 |
+| C | [LauncherVM](./mission-ext/LauncherVM.md) | 🔗 |
+| C | [NativeMessageBox](./mission-ext/NativeMessageBox.md) | 🔗 |
+| C | [Program](./mission-ext/Program.md) | 🔗 |
+| E | [Result](./mission-ext/Result.md) | 🔗 |
+| C | [ResultData](./mission-ext/ResultData.md) | 🔗 |
+| C | [StandaloneUIDomain](./mission-ext/StandaloneUIDomain.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [ImageSizePolicies](./mission-ext/ImageSizePolicies.md) | 🔗 |
+| C | [LauncherBoolBrushWidget](./mission-ext/LauncherBoolBrushWidget.md) | 🔗 |
+| C | [LauncherCircleLoadingAnimWidget](./mission-ext/LauncherCircleLoadingAnimWidget.md) | 🔗 |
+| C | [LauncherDragWindowAreaWidget](./mission-ext/LauncherDragWindowAreaWidget.md) | 🔗 |
+| C | [LauncherHintTriggerWidget](./mission-ext/LauncherHintTriggerWidget.md) | 🔗 |
+| C | [LauncherHintWidget](./mission-ext/LauncherHintWidget.md) | 🔗 |
+| C | [LauncherNewsWidget](./mission-ext/LauncherNewsWidget.md) | 🔗 |
+| C | [LauncherOnlineImageTextureWidget](./mission-ext/LauncherOnlineImageTextureWidget.md) | 🔗 |
+| C | [LauncherRandomImageWidget](./mission-ext/LauncherRandomImageWidget.md) | 🔗 |
+| E | [VisualState](./mission-ext/VisualState.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Launcher.Library.UserDatas (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DLLCheckData](./mission-ext/DLLCheckData.md) | 🔗 |
+| C | [DLLCheckDataCollection](./mission-ext/DLLCheckDataCollection.md) | 🔗 |
+| E | [GameType](./mission-ext/GameType.md) | 🔗 |
+| C | [UserData](./mission-ext/UserData.md) | 🔗 |
+| C | [UserDataManager](./mission-ext/UserDataManager.md) | 🔗 |
+| C | [UserGameTypeData](./mission-ext/UserGameTypeData.md) | 🔗 |
+| C | [UserModData](./mission-ext/UserModData.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Launcher.Steam (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SteamLauncherModuleExtension](./mission-ext/SteamLauncherModuleExtension.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.MissionRepresentatives (5)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DuelMissionRepresentative](./mission-ext/DuelMissionRepresentative.md) | 🔗 |
+| C | [FFAMissionRepresentative](./mission-ext/FFAMissionRepresentative.md) | 🔗 |
+| C | [FlagDominationMissionRepresentative](./mission-ext/FlagDominationMissionRepresentative.md) | 🔗 |
+| C | [SiegeMissionRepresentative](./mission-ext/SiegeMissionRepresentative.md) | 🔗 |
+| C | [TeamDeathmatchMissionRepresentative](./mission-ext/TeamDeathmatchMissionRepresentative.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.MissionSpawnHandlers (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CustomBattleMissionSpawnHandler](./mission-ext/CustomBattleMissionSpawnHandler.md) | 🔗 |
+| C | [CustomMissionSpawnHandler](./mission-ext/CustomMissionSpawnHandler.md) | 🔗 |
+| C | [CustomSallyOutMissionController](./mission-ext/CustomSallyOutMissionController.md) | 🔗 |
+| C | [CustomSiegeMissionSpawnHandler](./mission-ext/CustomSiegeMissionSpawnHandler.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Missions (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentList](./mission-ext/AgentList.md) | 🔗 |
+| C | [AgentReadOnlyList](./mission-ext/AgentReadOnlyList.md) | 🔗 |
+| I | [IMissionSiegeWeaponsController](./mission-ext/IMissionSiegeWeaponsController.md) | 🔗 |
+| C | [MissionSiegeWeaponsController](./mission-ext/MissionSiegeWeaponsController.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Missions.Handlers (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BattleDeploymentHandler](./mission-ext/BattleDeploymentHandler.md) | 🔗 |
+| C | [SiegeDeploymentHandler](./mission-ext/SiegeDeploymentHandler.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Missions.Hints (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionHint](./mission-ext/MissionHint.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Missions.MissionLogics (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionHintLogic](./mission-ext/MissionHintLogic.md) | 🔗 |
+| C | [MissionObjectiveLogic](./mission-ext/MissionObjectiveLogic.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Missions.Objectives (5)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| S | [GenericMissionObjectiveBuilder](./mission-ext/GenericMissionObjectiveBuilder.md) | 🔗 |
+| S | [GenericMissionObjectiveTargetBuilder](./mission-ext/GenericMissionObjectiveTargetBuilder.md) | 🔗 |
+| C | [MissionObjective](./mission-ext/MissionObjective.md) | 🔗 |
+| S | [MissionObjectiveProgressInfo](./mission-ext/MissionObjectiveProgressInfo.md) | 🔗 |
+| C | [MissionObjectiveTarget](./mission-ext/MissionObjectiveTarget.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Multiplayer.Test (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiplayerTestSubModule](./mission-ext/MultiplayerTestSubModule.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Network (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [DebugNetworkEventStatistics](./mission-ext/DebugNetworkEventStatistics.md) | 🔗 |
+| C | [PerSecondEventData](./mission-ext/PerSecondEventData.md) | 🔗 |
+| C | [TotalEventData](./mission-ext/TotalEventData.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerBearerCondition](./mission-ext/BannerBearerCondition.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Network.Messages (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CreatePlayer](./mission-ext/CreatePlayer.md) | 🔗 |
+| C | [DeletePlayer](./mission-ext/DeletePlayer.md) | 🔗 |
+| C | [GameNetworkMessage](./mission-ext/GameNetworkMessage.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Objects (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AnimalSpawnSettings](./mission-ext/AnimalSpawnSettings.md) | 🔗 |
+| C | [AreaMarker](./mission-ext/AreaMarker.md) | 🔗 |
+| C | [FightAreaMarker](./mission-ext/FightAreaMarker.md) | 🔗 |
+| C | [FlagCapturePoint](./mission-ext/FlagCapturePoint.md) | 🔗 |
+| C | [GenericMissionEvent](./mission-ext/GenericMissionEvent.md) | 🔗 |
+| C | [GenericMissionEventScript](./mission-ext/GenericMissionEventScript.md) | 🔗 |
+| C | [ShipVisual](./mission-ext/ShipVisual.md) | 🔗 |
+| C | [StealthBox](./mission-ext/StealthBox.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Objects.Siege (17)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BallistaSpawner](./mission-ext/BallistaSpawner.md) | 🔗 |
+| C | [BatteringRamSpawner](./mission-ext/BatteringRamSpawner.md) | 🔗 |
+| C | [FireTrebuchet](./mission-ext/FireTrebuchet.md) | 🔗 |
+| I | [ISpawnable](./mission-ext/ISpawnable.md) | 🔗 |
+| C | [MangonelSpawner](./mission-ext/MangonelSpawner.md) | 🔗 |
+| C | [MultiplayerBallistaSpawner](./mission-ext/MultiplayerBallistaSpawner.md) | 🔗 |
+| C | [MultiplayerBatteringRamSpawner](./mission-ext/MultiplayerBatteringRamSpawner.md) | 🔗 |
+| C | [MultiplayerFireBallistaSpawner](./mission-ext/MultiplayerFireBallistaSpawner.md) | 🔗 |
+| C | [MultiplayerFireMangonelSpawner](./mission-ext/MultiplayerFireMangonelSpawner.md) | 🔗 |
+| C | [MultiplayerFireTrebuchetSpawner](./mission-ext/MultiplayerFireTrebuchetSpawner.md) | 🔗 |
+| C | [MultiplayerMangonelSpawner](./mission-ext/MultiplayerMangonelSpawner.md) | 🔗 |
+| C | [MultiplayerSiegeTowerSpawner](./mission-ext/MultiplayerSiegeTowerSpawner.md) | 🔗 |
+| C | [MultiplayerTrebuchetSpawner](./mission-ext/MultiplayerTrebuchetSpawner.md) | 🔗 |
+| C | [SiegeLadderSpawner](./mission-ext/SiegeLadderSpawner.md) | 🔗 |
+| C | [SiegeTowerSpawner](./mission-ext/SiegeTowerSpawner.md) | 🔗 |
+| C | [SpawnerBase](./mission-ext/SpawnerBase.md) | 🔗 |
+| C | [SpawnerPermissionField](./mission-ext/SpawnerPermissionField.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Objects.Usables (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AmmoBarrelBase](./mission-ext/AmmoBarrelBase.md) | 🔗 |
+| C | [ArrowBarrel](./mission-ext/ArrowBarrel.md) | 🔗 |
+| C | [ClimbingMachine](./mission-ext/ClimbingMachine.md) | 🔗 |
+| C | [EventTriggeringUsableMachine](./mission-ext/EventTriggeringUsableMachine.md) | 🔗 |
+| C | [JavelinBarrel](./mission-ext/JavelinBarrel.md) | 🔗 |
+| C | [RemoveExtraWeaponOnStopUsageComponent](./mission-ext/RemoveExtraWeaponOnStopUsageComponent.md) | 🔗 |
+| C | [SiegeMachineStonePile](./mission-ext/SiegeMachineStonePile.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Options (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ActionOptionData](./mission-ext/ActionOptionData.md) | 🔗 |
+| C | [OptionCategory](./mission-ext/OptionCategory.md) | 🔗 |
+| C | [OptionGroup](./mission-ext/OptionGroup.md) | 🔗 |
+| C | [OptionsProvider](./mission-ext/OptionsProvider.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Options.ManagedOptions (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ManagedBooleanOptionData](./mission-ext/ManagedBooleanOptionData.md) | 🔗 |
+| C | [ManagedNumericOptionData](./mission-ext/ManagedNumericOptionData.md) | 🔗 |
+| C | [ManagedOptionData](./mission-ext/ManagedOptionData.md) | 🔗 |
+| C | [ManagedSelectionOptionData](./mission-ext/ManagedSelectionOptionData.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Source.Missions (9)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BaseBattleMissionController](./mission-ext/BaseBattleMissionController.md) | 🔗 |
+| C | [BattleSpawnLogic](./mission-ext/BattleSpawnLogic.md) | 🔗 |
+| C | [CaravanBattleMissionHandler](./mission-ext/CaravanBattleMissionHandler.md) | 🔗 |
+| C | [DebugAgentTeleporterMissionController](./mission-ext/DebugAgentTeleporterMissionController.md) | 🔗 |
+| C | [DebugObjectDestroyerMissionController](./mission-ext/DebugObjectDestroyerMissionController.md) | 🔗 |
+| C | [EquipmentTestMissionController](./mission-ext/EquipmentTestMissionController.md) | 🔗 |
+| C | [HideoutPhasedMissionController](./mission-ext/HideoutPhasedMissionController.md) | 🔗 |
+| C | [MissionOptionsComponent](./mission-ext/MissionOptionsComponent.md) | 🔗 |
+| C | [SimpleMountedPlayerMissionController](./mission-ext/SimpleMountedPlayerMissionController.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Source.Missions.Handlers (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BasicMissionHandler](./mission-ext/BasicMissionHandler.md) | 🔗 |
+| I | [IBoardGameHandler](./mission-ext/IBoardGameHandler.md) | 🔗 |
+| C | [LordsHallFightMissionController](./mission-ext/LordsHallFightMissionController.md) | 🔗 |
+| C | [MissionFacialAnimationHandler](./mission-ext/MissionFacialAnimationHandler.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentMoraleInteractionLogic](./mission-ext/AgentMoraleInteractionLogic.md) | 🔗 |
+| C | [AmmoSupplyLogic](./mission-ext/AmmoSupplyLogic.md) | 🔗 |
+| C | [BattleMissionAgentInteractionLogic](./mission-ext/BattleMissionAgentInteractionLogic.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Source.Objects (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [NavigationMeshDeactivator](./mission-ext/NavigationMeshDeactivator.md) | 🔗 |
+| C | [SceneLeveler](./mission-ext/SceneLeveler.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.Source.Objects.Siege (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentPathNavMeshChecker](./mission-ext/AgentPathNavMeshChecker.md) | 🔗 |
+| E | [Direction](./mission-ext/Direction.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.SteamWorkshop (5)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CreateItemTask](./mission-ext/CreateItemTask.md) | 🔗 |
+| C | [GetItemTask](./mission-ext/GetItemTask.md) | 🔗 |
+| E | [ItemVisibility](./mission-ext/ItemVisibility.md) | 🔗 |
+| C | [ToolTask](./mission-ext/ToolTask.md) | 🔗 |
+| C | [UpdateItemTask](./mission-ext/UpdateItemTask.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BoundaryCrossingVM](./mission-ext/BoundaryCrossingVM.md) | 🔗 |
+| C | [FullScreenNoticeVM](./mission-ext/FullScreenNoticeVM.md) | 🔗 |
+| C | [GameVersionVM](./mission-ext/GameVersionVM.md) | 🔗 |
+| I | [IMissionScreen](./mission-ext/IMissionScreen.md) | 🔗 |
+| C | [MissionAgentStatusVM](./mission-ext/MissionAgentStatusVM.md) | 🔗 |
+| C | [MissionLeaveVM](./mission-ext/MissionLeaveVM.md) | 🔗 |
+| C | [PhotoModeValueOptionVM](./mission-ext/PhotoModeValueOptionVM.md) | 🔗 |
+| C | [PhotoModeVM](./mission-ext/PhotoModeVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerBuilderCategoryVM](./mission-ext/BannerBuilderCategoryVM.md) | 🔗 |
+| C | [BannerBuilderColorItemVM](./mission-ext/BannerBuilderColorItemVM.md) | 🔗 |
+| C | [BannerBuilderColorSelectionVM](./mission-ext/BannerBuilderColorSelectionVM.md) | 🔗 |
+| C | [BannerBuilderItemVM](./mission-ext/BannerBuilderItemVM.md) | 🔗 |
+| C | [BannerBuilderLayerVM](./mission-ext/BannerBuilderLayerVM.md) | 🔗 |
+| C | [BannerBuilderVM](./mission-ext/BannerBuilderVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Credits (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CreditsItemVM](./mission-ext/CreditsItemVM.md) | 🔗 |
+| C | [CreditsVM](./mission-ext/CreditsVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [EscapeMenuItemVM](./mission-ext/EscapeMenuItemVM.md) | 🔗 |
+| C | [EscapeMenuVM](./mission-ext/EscapeMenuVM.md) | 🔗 |
+| C | [GameTipsVM](./mission-ext/GameTipsVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [FacegenListItemVM](./mission-ext/FacegenListItemVM.md) | 🔗 |
+| C | [FaceGenPropertyVM](./mission-ext/FaceGenPropertyVM.md) | 🔗 |
+| E | [FaceGenTabs](./mission-ext/FaceGenTabs.md) | 🔗 |
+| C | [FaceGenVM](./mission-ext/FaceGenVM.md) | 🔗 |
+| S | [GenderBasedSelectedValue](./mission-ext/GenderBasedSelectedValue.md) | 🔗 |
+| E | [Presets](./mission-ext/Presets.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions (14)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ActionOptionDataVM](./mission-ext/ActionOptionDataVM.md) | 🔗 |
+| C | [BooleanOptionDataVM](./mission-ext/BooleanOptionDataVM.md) | 🔗 |
+| C | [BrightnessOptionVM](./mission-ext/BrightnessOptionVM.md) | 🔗 |
+| C | [ExposureOptionVM](./mission-ext/ExposureOptionVM.md) | 🔗 |
+| C | [GenericOptionDataVM](./mission-ext/GenericOptionDataVM.md) | 🔗 |
+| C | [GroupedOptionCategoryVM](./mission-ext/GroupedOptionCategoryVM.md) | 🔗 |
+| C | [KeyOptionVM](./mission-ext/KeyOptionVM.md) | 🔗 |
+| C | [MPOptionsVM](./mission-ext/MPOptionsVM.md) | 🔗 |
+| C | [NumericOptionDataVM](./mission-ext/NumericOptionDataVM.md) | 🔗 |
+| C | [OptionGroupVM](./mission-ext/OptionGroupVM.md) | 🔗 |
+| E | [OptionsDataType](./mission-ext/OptionsDataType.md) | 🔗 |
+| E | [OptionsMode](./mission-ext/OptionsMode.md) | 🔗 |
+| C | [OptionsVM](./mission-ext/OptionsVM.md) | 🔗 |
+| C | [StringOptionDataVM](./mission-ext/StringOptionDataVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AuxiliaryKeyGroupVM](./mission-ext/AuxiliaryKeyGroupVM.md) | 🔗 |
+| C | [AuxiliaryKeyOptionVM](./mission-ext/AuxiliaryKeyOptionVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GameKeyGroupVM](./mission-ext/GameKeyGroupVM.md) | 🔗 |
+| C | [GameKeyOptionCategoryVM](./mission-ext/GameKeyOptionCategoryVM.md) | 🔗 |
+| C | [GameKeyOptionVM](./mission-ext/GameKeyOptionVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [GamepadOptionCategoryVM](./mission-ext/GamepadOptionCategoryVM.md) | 🔗 |
+| C | [GamepadOptionKeyItemVM](./mission-ext/GamepadOptionKeyItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD (15)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CheerBarkNodeItemVM](./mission-ext/CheerBarkNodeItemVM.md) | 🔗 |
+| C | [ControllerEquippedItemVM](./mission-ext/ControllerEquippedItemVM.md) | 🔗 |
+| C | [CrosshairVM](./mission-ext/CrosshairVM.md) | 🔗 |
+| C | [EquipmentActionItemVM](./mission-ext/EquipmentActionItemVM.md) | 🔗 |
+| E | [ItemGroup](./mission-ext/ItemGroup.md) | 🔗 |
+| E | [LockStates](./mission-ext/LockStates.md) | 🔗 |
+| C | [MissionAgentLockItemVM](./mission-ext/MissionAgentLockItemVM.md) | 🔗 |
+| C | [MissionAgentLockVisualizerVM](./mission-ext/MissionAgentLockVisualizerVM.md) | 🔗 |
+| C | [MissionAgentTakenDamageItemVM](./mission-ext/MissionAgentTakenDamageItemVM.md) | 🔗 |
+| C | [MissionAgentTakenDamageVM](./mission-ext/MissionAgentTakenDamageVM.md) | 🔗 |
+| C | [MissionMainAgentCheerBarkControllerVM](./mission-ext/MissionMainAgentCheerBarkControllerVM.md) | 🔗 |
+| C | [MissionMainAgentControllerEquipDropVM](./mission-ext/MissionMainAgentControllerEquipDropVM.md) | 🔗 |
+| C | [MissionMainAgentEquipmentControllerVM](./mission-ext/MissionMainAgentEquipmentControllerVM.md) | 🔗 |
+| C | [MissionSpectatorControlVM](./mission-ext/MissionSpectatorControlVM.md) | 🔗 |
+| C | [ReloadPhaseItemVM](./mission-ext/ReloadPhaseItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CompassMarkerVM](./mission-ext/CompassMarkerVM.md) | 🔗 |
+| C | [CompassTargetVM](./mission-ext/CompassTargetVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionAgentDamageFeedItemVM](./mission-ext/MissionAgentDamageFeedItemVM.md) | 🔗 |
+| C | [MissionAgentDamageFeedVM](./mission-ext/MissionAgentDamageFeedVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [FormationMarkerDistanceComparer](./mission-ext/FormationMarkerDistanceComparer.md) | 🔗 |
+| C | [MissionFormationMarkerTargetVM](./mission-ext/MissionFormationMarkerTargetVM.md) | 🔗 |
+| C | [MissionFormationMarkerVM](./mission-ext/MissionFormationMarkerVM.md) | 🔗 |
+| C | [MissionSiegeEngineMarkerTargetVM](./mission-ext/MissionSiegeEngineMarkerTargetVM.md) | 🔗 |
+| C | [MissionSiegeEngineMarkerVM](./mission-ext/MissionSiegeEngineMarkerVM.md) | 🔗 |
+| C | [SiegeEngineMarkerDistanceComparer](./mission-ext/SiegeEngineMarkerDistanceComparer.md) | 🔗 |
+| E | [TeamTypes](./mission-ext/TeamTypes.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SPKillFeedVM](./mission-ext/SPKillFeedVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SPGeneralKillNotificationItemVM](./mission-ext/SPGeneralKillNotificationItemVM.md) | 🔗 |
+| C | [SPGeneralKillNotificationVM](./mission-ext/SPGeneralKillNotificationVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SPPersonalKillNotificationItemVM](./mission-ext/SPPersonalKillNotificationItemVM.md) | 🔗 |
+| C | [SPPersonalKillNotificationVM](./mission-ext/SPPersonalKillNotificationVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionMainAgentWalkModeControllerVM](./mission-ext/MissionMainAgentWalkModeControllerVM.md) | 🔗 |
+| C | [WalkModeItemVM](./mission-ext/WalkModeItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [InitialMenuOptionVM](./mission-ext/InitialMenuOptionVM.md) | 🔗 |
+| C | [InitialMenuVM](./mission-ext/InitialMenuVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Input (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [InputKeyItemVM](./mission-ext/InputKeyItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MultiSelectionQueryPopUpVM](./mission-ext/MultiSelectionQueryPopUpVM.md) | 🔗 |
+| C | [PopUpBaseVM](./mission-ext/PopUpBaseVM.md) | 🔗 |
+| C | [SingleQueryPopUpVM](./mission-ext/SingleQueryPopUpVM.md) | 🔗 |
+| C | [TextQueryPopUpVM](./mission-ext/TextQueryPopUpVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AgentInteractionInterfaceVM](./mission-ext/AgentInteractionInterfaceVM.md) | 🔗 |
+| I | [IInteractionInterfaceHandler](./mission-ext/IInteractionInterfaceHandler.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionGenericInteractionItemVM](./mission-ext/MissionGenericInteractionItemVM.md) | 🔗 |
+| C | [MissionInteractionItemBaseVM](./mission-ext/MissionInteractionItemBaseVM.md) | 🔗 |
+| C | [MissionPrimaryInteractionItemVM](./mission-ext/MissionPrimaryInteractionItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MissionObjectiveMarkersVM](./mission-ext/MissionObjectiveMarkersVM.md) | 🔗 |
+| C | [MissionObjectiveMarkerVM](./mission-ext/MissionObjectiveMarkerVM.md) | 🔗 |
+| C | [MissionObjectiveVM](./mission-ext/MissionObjectiveVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [MPChatLineVM](./mission-ext/MPChatLineVM.md) | 🔗 |
+| C | [MPChatVM](./mission-ext/MPChatVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Order (17)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| S | [ClassConfiguration](./mission-ext/ClassConfiguration.md) | 🔗 |
+| E | [CursorStates](./mission-ext/CursorStates.md) | 🔗 |
+| C | [DeploymentSiegeMachineVM](./mission-ext/DeploymentSiegeMachineVM.md) | 🔗 |
+| S | [FormationConfiguration](./mission-ext/FormationConfiguration.md) | 🔗 |
+| S | [MissionOrderCallbacks](./mission-ext/MissionOrderCallbacks.md) | 🔗 |
+| C | [MissionOrderDeploymentControllerVM](./mission-ext/MissionOrderDeploymentControllerVM.md) | 🔗 |
+| C | [MissionOrderTroopControllerVM](./mission-ext/MissionOrderTroopControllerVM.md) | 🔗 |
+| C | [MissionOrderVM](./mission-ext/MissionOrderVM.md) | 🔗 |
+| C | [OrderItemBaseVM](./mission-ext/OrderItemBaseVM.md) | 🔗 |
+| C | [OrderItemVM](./mission-ext/OrderItemVM.md) | 🔗 |
+| C | [OrderSetVM](./mission-ext/OrderSetVM.md) | 🔗 |
+| C | [OrderSiegeMachineVM](./mission-ext/OrderSiegeMachineVM.md) | 🔗 |
+| C | [OrderSubjectVM](./mission-ext/OrderSubjectVM.md) | 🔗 |
+| E | [OrderTargets](./mission-ext/OrderTargets.md) | 🔗 |
+| C | [OrderTroopItemFilterVM](./mission-ext/OrderTroopItemFilterVM.md) | 🔗 |
+| C | [OrderTroopItemFormationClassVM](./mission-ext/OrderTroopItemFormationClassVM.md) | 🔗 |
+| C | [OrderTroopItemVM](./mission-ext/OrderTroopItemVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual (9)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ActionVisualOrder](./mission-ext/ActionVisualOrder.md) | 🔗 |
+| E | [OrderState](./mission-ext/OrderState.md) | 🔗 |
+| C | [ReturnVisualOrder](./mission-ext/ReturnVisualOrder.md) | 🔗 |
+| C | [TransferTroopsVisualOrder](./mission-ext/TransferTroopsVisualOrder.md) | 🔗 |
+| C | [VisualOrder](./mission-ext/VisualOrder.md) | 🔗 |
+| C | [VisualOrderFactory](./mission-ext/VisualOrderFactory.md) | 🔗 |
+| C | [VisualOrderHelper](./mission-ext/VisualOrderHelper.md) | 🔗 |
+| C | [VisualOrderProvider](./mission-ext/VisualOrderProvider.md) | 🔗 |
+| C | [VisualOrderSet](./mission-ext/VisualOrderSet.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [OrderOfBattleFormationClassChangedEvent](./mission-ext/OrderOfBattleFormationClassChangedEvent.md) | 🔗 |
+| C | [OrderOfBattleFormationClassSelectorItemVM](./mission-ext/OrderOfBattleFormationClassSelectorItemVM.md) | 🔗 |
+| C | [OrderOfBattleFormationClassVM](./mission-ext/OrderOfBattleFormationClassVM.md) | 🔗 |
+| C | [OrderOfBattleFormationFilterSelectorItemComparer](./mission-ext/OrderOfBattleFormationFilterSelectorItemComparer.md) | 🔗 |
+| C | [OrderOfBattleFormationFilterSelectorItemVM](./mission-ext/OrderOfBattleFormationFilterSelectorItemVM.md) | 🔗 |
+| C | [OrderOfBattleFormationItemVM](./mission-ext/OrderOfBattleFormationItemVM.md) | 🔗 |
+| C | [OrderOfBattleFormationWeightChangedEvent](./mission-ext/OrderOfBattleFormationWeightChangedEvent.md) | 🔗 |
+| C | [OrderOfBattleHeroAssignedToFormationEvent](./mission-ext/OrderOfBattleHeroAssignedToFormationEvent.md) | 🔗 |
+| C | [OrderOfBattleHeroItemVM](./mission-ext/OrderOfBattleHeroItemVM.md) | 🔗 |
+| C | [OrderOfBattleVM](./mission-ext/OrderOfBattleVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.ProfileSelection (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ProfileSelectionVM](./mission-ext/ProfileSelectionVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard (19)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [Categories](./mission-ext/Categories.md) | 🔗 |
+| C | [CustomBattleScoreboardVM](./mission-ext/CustomBattleScoreboardVM.md) | 🔗 |
+| C | [ItemDeadComparer](./mission-ext/ItemDeadComparer.md) | 🔗 |
+| C | [ItemKillComparer](./mission-ext/ItemKillComparer.md) | 🔗 |
+| C | [ItemMemberComparer](./mission-ext/ItemMemberComparer.md) | 🔗 |
+| C | [ItemRemainingComparer](./mission-ext/ItemRemainingComparer.md) | 🔗 |
+| C | [ItemRoutedComparer](./mission-ext/ItemRoutedComparer.md) | 🔗 |
+| C | [ItemUpgradeComparer](./mission-ext/ItemUpgradeComparer.md) | 🔗 |
+| C | [ItemWoundedComparer](./mission-ext/ItemWoundedComparer.md) | 🔗 |
+| C | [ScoreboardBaseVM](./mission-ext/ScoreboardBaseVM.md) | 🔗 |
+| S | [ScoreboardHotkeys](./mission-ext/ScoreboardHotkeys.md) | 🔗 |
+| C | [ScoreboardUnitItemComparerBase](./mission-ext/ScoreboardUnitItemComparerBase.md) | 🔗 |
+| C | [SPScoreboardPartyVM](./mission-ext/SPScoreboardPartyVM.md) | 🔗 |
+| C | [SPScoreboardShipVM](./mission-ext/SPScoreboardShipVM.md) | 🔗 |
+| C | [SPScoreboardSideVM](./mission-ext/SPScoreboardSideVM.md) | 🔗 |
+| C | [SPScoreboardSkillItemVM](./mission-ext/SPScoreboardSkillItemVM.md) | 🔗 |
+| C | [SPScoreboardSortControllerVM](./mission-ext/SPScoreboardSortControllerVM.md) | 🔗 |
+| C | [SPScoreboardStatsVM](./mission-ext/SPScoreboardStatsVM.md) | 🔗 |
+| C | [SPScoreboardUnitVM](./mission-ext/SPScoreboardUnitVM.md) | 🔗 |
+
+## TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [VideoPlaybackVM](./mission-ext/VideoPlaybackVM.md) | 🔗 |

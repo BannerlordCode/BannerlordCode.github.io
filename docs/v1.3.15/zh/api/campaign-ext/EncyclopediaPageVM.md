@@ -1,0 +1,68 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `EncyclopediaPageVM`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# EncyclopediaPageVM
+
+**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
+**模块:** TaleWorlds.CampaignSystem
+**类型:** 类 class class
+**领域:** 战役系统 Campaign
+
+## 概述
+
+> 本页为自动生成的存根。`EncyclopediaPageVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages` 命名空间下的一个类 class。
+> 如需了解其属性、方法和开发者用例，请参考源码或贡
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Obj` | `public object Obj { get; }` |
+| `IsLoadingOver` | `public bool IsLoadingOver { get; set; }` |
+| `IsBookmarked` | `public bool IsBookmarked { get; set; }` |
+| `BookmarkHint` | `public HintViewModel BookmarkHint { get; set; }` |
+| `Items` | `public virtual MBBindingList<EncyclopediaListItemVM> Items { get; set; }` |
+| `FilterGroups` | `public virtual MBBindingList<EncyclopediaFilterGroupVM> FilterGroups { get; set; }` |
+| `SortController` | `public virtual EncyclopediaListSortControllerVM SortController { get; set; }` |
+
+
+## 主要方法
+
+### GetName
+
+```csharp
+public virtual string GetName()
+```
+
+### GetNavigationBarURL
+
+```csharp
+public virtual string GetNavigationBarURL()
+```
+
+### Refresh
+
+```csharp
+public virtual void Refresh()
+```
+
+### OnTick
+
+```csharp
+public virtual void OnTick()
+```
+
+### ExecuteSwitchBookmarkedState
+
+```csharp
+public virtual void ExecuteSwitchBookmarkedState()
+```
+
+献文档。
+
+## 参见
+
+- [完整类目录](../catalog)
+- [本领域目录](../catalog-campaign)

@@ -1,0 +1,16 @@
+# DefeatTheConspiracyQuest
+
+**Namespace:** StoryMode.Quests.ThirdPhase
+**Module:** StoryMode.Quests
+**Type:** class
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `DefeatTheConspiracyQuest` is a class in the `StoryMode.Quests.ThirdPhase` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

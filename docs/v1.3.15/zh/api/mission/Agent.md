@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Agent`
+- [← 本领域 / 返回 mission](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Agent](/versions/Agent)
+<!-- END BREADCRUMB -->
 # Agent 类
 
 **命名空间**: TaleWorlds.MountAndBlade  
@@ -18,6 +25,67 @@ Agent 包含丰富的数据:
 - 生命值和状态
 - 动画和动作
 - 队伍和阵型信息
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取玩家 Agent 并读取状态
+
+**场景**: 战斗逻辑中判断玩家存活、位置、当前队伍。
+
+```csharp
+Agent main = Agent.Main; // 等价 Mission.Current.MainAgent
+if (main == null) return;
+Vec3 pos = main.Position;
+Team team = main.Team;
+bool dead = main.State == AgentState.Dead;
+```
+
+**要点**: `Agent.Main` 是静态访问点；观战或玩家未生成时为 `null`；`State` 是属性、`IsActive()` 是方法，语义不同。
+
+### 用例 2: 改变 Agent 队伍
+
+**场景**: 叛变、转入友军或敌方阵营。
+
+```csharp
+agent.SetTeam(newTeam, sync: true);
+```
+
+**要点**: `SetTeam` 第二参数 `sync` 控制是否网络同步；多人模式必须传 `true`。改队后 `Formation` 引用会失效，需重新分配。
+
+### 用例 3: 用 AgentComponent 扩展 Agent
+
+**场景**: 给每个 Agent 挂载自定义每帧逻辑或受伤回调。
+
+```csharp
+public class MyComp : AgentComponent
+{
+    public MyComp(Agent a) : base(a) { }
+    public override void OnHit(Agent affector, int dmg,
+        in MissionWeapon w, in Blow b, in AttackCollisionData c) { }
+}
+
+public class MyBehavior : MissionLogic
+{
+    public override void OnAgentCreated(Agent a) =>
+        a.AddComponent(new MyComp(a));
+}
+```
+
+**要点**: 不要直接继承 `Agent`；通过 `MissionBehavior.OnAgentCreated` 在生成时挂组件；组件随 Agent 一起回收。
+
+### 用例 4: 通过 MissionBehavior 处理伤害
+
+**场景**: 自定义伤害规则或记录击杀。
+
+```csharp
+public override void OnAgentHit(Agent affected, Agent affector,
+    in MissionWeapon weapon, in Blow blow, in AttackCollisionData data)
+{
+    if (affected == Agent.Main) { /* 玩家受伤处理 */ }
+}
+```
+
+**要点**: `OnAgentHit` 在伤害结算后触发；要拦截或改写伤害用 `OnMeleeHit` / `OnMissileHit`；读取最终伤害用 `blow.BaseDamage`。
 
 ## 关键属性
 

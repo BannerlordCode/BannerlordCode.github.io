@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Campaign`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Campaign / 战役主类
 
 **Namespace**: TaleWorlds.CampaignSystem  

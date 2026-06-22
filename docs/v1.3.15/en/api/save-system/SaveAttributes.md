@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `SaveAttributes`
+- [← Area / Back to save-system](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Save Attributes
 
 **Namespace:** TaleWorlds.SaveSystem  

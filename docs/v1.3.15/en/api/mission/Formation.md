@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Formation`
+- [← Area / Back to mission](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Formation](/versions/Formation)
+<!-- END BREADCRUMB -->
 # Formation Class
 
 **Namespace**: TaleWorlds.MountAndBlade  
@@ -11,6 +18,54 @@
 - Each Formation contains specific unit types (infantry, archers, cavalry, etc.)
 - Formation controls collective movement and arrangement
 - AI uses Formations to coordinate group behavior
+
+## Developer Use Cases
+
+### Use Case 1: Get a specific formation type from a team
+
+**Scenario**: Read infantry/archer formations during tactical logic.
+
+```csharp
+Team team = Mission.Current.PlayerTeam;
+Formation infantry = team.GetFormation(FormationClass.Infantry);
+if (infantry != null && infantry.CountOfUnits > 0) { /* process */ }
+```
+
+**Key points**: `GetFormation` returns a non-null instance with `CountOfUnits == 0` for unused formation types; iterate all via `FormationsIncludingSpecialAndEmpty`.
+
+### Use Case 2: Transfer units to another formation
+
+**Scenario**: Move infantry into the cavalry formation or reorganize troops.
+
+```csharp
+Formation src = team.GetFormation(FormationClass.Infantry);
+Formation dst = team.GetFormation(FormationClass.Cavalry);
+src.TransferUnits(dst, 10);
+```
+
+**Key points**: `TransferUnits` moves by count; selective transfer uses `TransferUnitsAux(dst, n, isPlayerOrder: true, useSelectivePop: true)`; layout auto-recomputes after transfer.
+
+### Use Case 3: Query average position and combat power
+
+**Scenario**: AI or HUD reads formation center, distance to enemies, total power.
+
+```csharp
+Vec2 avg = formation.GetAveragePositionOfUnits(excludeDetachedUnits: false, excludePlayer: false);
+float power = formation.GetFormationPower();
+Formation closestEnemy = formation.CachedClosestEnemyFormation;
+```
+
+**Key points**: `CachedClosestEnemyFormation` is a cached value — cheap to read repeatedly within the same frame; for detailed ratios use `formation.QuerySystem.InfantryUnitPercentage` etc.
+
+### Use Case 4: Toggle formation AI control
+
+**Scenario**: Hand a formation back to AI or take player control.
+
+```csharp
+formation.SetControlledByAI(isControlledByAI: true);
+```
+
+**Key points**: `SetControlledByAI(true)` lets TeamAI take over; set `false` for manual player command; switching clears the current movement order.
 
 ## Key Properties
 

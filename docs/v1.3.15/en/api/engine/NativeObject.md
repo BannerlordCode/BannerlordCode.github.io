@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `NativeObject`
+- [← Area / Back to engine](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # NativeObject
 
 **Namespace**: TaleWorlds.DotNet

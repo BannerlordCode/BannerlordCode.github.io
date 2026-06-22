@@ -1,0 +1,50 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MissionAgentDamageFeedItemWidget`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# MissionAgentDamageFeedItemWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionAgentDamageFeedItemWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/DamageFeed/MissionAgentDamageFeedItemWidget.cs`
+
+## Overview
+
+`MissionAgentDamageFeedItemWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `FadeInTime` | `public float FadeInTime { get; }` |
+| `StayTime` | `public float StayTime { get; }` |
+| `FadeOutTime` | `public float FadeOutTime { get; }` |
+| `TimeSinceCreation` | `public float TimeSinceCreation { get; }` |
+
+## Key Methods
+
+### ShowFeed
+```csharp
+public void ShowFeed()
+```
+
+### SetSpeedModifier
+```csharp
+public void SetSpeedModifier(float newSpeed)
+```
+
+## Usage Example
+
+```csharp
+// Typical usage of MissionAgentDamageFeedItemWidget (Widget)
+// 声明/访问一个 MissionAgentDamageFeedItemWidget
+var widget = root.GetChild("missionAgentDamageFeedItemWidget");;
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

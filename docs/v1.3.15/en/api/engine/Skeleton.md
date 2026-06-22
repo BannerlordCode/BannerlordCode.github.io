@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Skeleton`
+- [← Area / Back to engine](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Skeleton / Skeleton
 
 **Namespace**: TaleWorlds.Engine

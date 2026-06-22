@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `PartyTemplate`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # PartyTemplateObject
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  

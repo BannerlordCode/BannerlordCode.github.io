@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `WeaponComponent`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # WeaponComponent
 
 ## 类概述

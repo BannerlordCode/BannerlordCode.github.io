@@ -7,7 +7,7 @@ description: v1.3.0 GauntletMovie 入门 / v1.3.0 GauntletMovie introduction
 
 **v1.3.0 版本**
 
-> 注意：本页面介绍 v1.3.0 的 UI 系统基础。v1.3.15 有增强的 Gauntlet UI。如需完整内容，请查看 [v1.3.15 Gauntlet UI](../../v1.3.15/zh/guide/gauntlet-ui.md)。
+> 注意：本页面介绍 v1.3.0 的 UI 系统基础。v1.3.15 有增强的 Gauntlet UI。如需完整内容，请查看 [v1.3.15 Gauntlet UI](../../../v1.3.15/zh/guide/gauntlet-ui.md)。
 
 ## 概述 / Overview
 
@@ -53,5 +53,5 @@ namespace MyModule.UI
 
 ## 相关文档 / Related Documentation
 
-- [v1.3.15 Gauntlet UI](../../v1.3.15/zh/guide/gauntlet-ui.md)
-- [API 参考](../../api/gui/)
+- [v1.3.15 Gauntlet UI](../../../v1.3.15/zh/guide/gauntlet-ui.md)
+- [API 参考](../api/)

@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Team`
+- [← Area / Back to mission](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Team Class
 
 **Namespace**: TaleWorlds.MountAndBlade  
@@ -16,6 +22,58 @@ Each Team contains:
 - Team AI controller
 - OrderController for commands
 - Banner and color information
+
+## Developer Use Cases
+
+### Use Case 1: Get attacker/defender/player teams
+
+**Scenario**: Locate each side's team at battle start for tactics or HUD.
+
+```csharp
+Team attackers = Mission.Current.AttackerTeam;
+Team defenders = Mission.Current.DefenderTeam;
+Team playerTeam = Mission.Current.PlayerTeam;
+```
+
+**Key points**: `AttackerTeam` / `DefenderTeam` are direct properties; for the generic query use `Mission.Current.GetTeam(TeamSideEnum.Attacker)`; distinguish enemy/ally via `IsPlayerTeam` / `IsPlayerAlly`.
+
+### Use Case 2: Iterate all Agents in a team
+
+**Scenario**: Apply a buff to each unit, count survivors, etc.
+
+```csharp
+foreach (Agent a in team.TeamAgents)
+{
+    if (a.IsActive()) { /* process */ }
+}
+// Active units only
+foreach (Agent a in team.ActiveAgents) { /* process */ }
+```
+
+**Key points**: `TeamAgents` includes all units (dead/fled), `ActiveAgents` only active ones; both are live-updated read-only snapshots — do not cache references long-term.
+
+### Use Case 3: Add an Agent to a team
+
+**Scenario**: After spawning a custom unit, register it on a team.
+
+```csharp
+team.AddAgentToTeam(spawnedAgent);
+// Remove
+team.RemoveAgentFromTeam(agent);
+```
+
+**Key points**: `AddAgentToTeam` only updates team registration — it does not create the Agent; spawn via `Mission.SpawnAgent` first, then `AddAgentToTeam`; to deactivate rather than remove use `DeactivateAgent`.
+
+### Use Case 4: Set enemy relationship between teams
+
+**Scenario**: Dynamically adjust faction relations in a custom battle mode.
+
+```csharp
+teamA.SetIsEnemyOf(teamB, isEnemyOf: true);
+bool hostile = teamA.IsEnemyOf(teamB);
+```
+
+**Key points**: `SetIsEnemyOf` is one-directional but usually called in pairs; `IsEnemyOf` reads cached state; after changing relations `HasAnyEnemyTeamsWithAgents(bool)` quickly checks whether any enemies remain.
 
 ## Key Properties
 

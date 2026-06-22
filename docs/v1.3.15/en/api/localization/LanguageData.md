@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `LanguageData`
+- [← Area / Back to localization](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # LanguageData / LanguageData
 
 **Namespace**: TaleWorlds.Localization

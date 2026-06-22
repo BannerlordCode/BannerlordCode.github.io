@@ -1,8 +1,62 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Game`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Game / 游戏主类
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/Game.cs`  
 **Purpose**: Main game class managing game state, models, and object systems
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取当前游戏实例并访问对象管理器
+
+**场景**: 模组运行中需要读取 XML 注册的对象（物品、角色等）。
+
+```csharp
+Game game = Game.Current;
+if (game == null) return; // 未在游戏内
+MBObjectManager om = game.ObjectManager;
+ItemObject item = om.GetObject<ItemObject>("short_sword_vlandia_1");
+```
+
+**要点**: `Game.Current` 在主菜单或编辑器中可能为 `null`，使用前必须判空；`ObjectManager` 是读写 XML 对象的唯一入口。
+
+### 用例 2: 访问战役模型并计算派生值
+
+**场景**: 需要复用游戏内置模型计算队伍速度等派生值。
+
+```csharp
+float speed = Campaign.Current.Models.PartySpeedCalculatingModel
+    .CalculateBaseSpeed(mainParty, true, 0, 0).ResultNumber;
+```
+
+**要点**: 模型聚合在 `Campaign.Current.Models` 上；`ExplainedNumber.ResultNumber` 是最终值，`GetCauses()` 可读归因。
+
+### 用例 3: 添加并获取 GameHandler
+
+**场景**: 注册一个跨状态存活的游戏处理器（如自定义事件总线）。
+
+```csharp
+MyHandler handler = game.AddGameHandler<MyHandler>();
+MyHandler again = game.GetGameHandler<MyHandler>();
+```
+
+**要点**: `AddGameHandler<T>() where T : GameHandler, new()` 会 new 一个实例并注册；用 `GetGameHandler<T>` 取回；不需要时调 `RemoveGameHandler<T>()`。
+
+### 用例 4: 读取游戏状态管理器
+
+**场景**: 需要切换或查询当前游戏状态（如战役、战斗、菜单）。
+
+```csharp
+GameStateManager sm = game.GameStateManager;
+GameState active = sm.ActiveState;
+```
+
+**要点**: `GameStateManager` 管理状态栈；切换状态应通过 `sm.HandleStateChange(...)`，不要直接改字段。
 
 ## 关键属性 / Key Properties
 

@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Mission`
+- [← Area / Back to mission](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Mission](/versions/Mission)
+<!-- END BREADCRUMB -->
 # Mission Class
 
 **Namespace**: TaleWorlds.MountAndBlade  
@@ -12,6 +19,65 @@
 - Formation control
 - Physics simulation and collision
 - MissionLogic and MissionBehavior execution
+
+## Developer Use Cases
+
+### Use Case 1: Add a custom MissionBehavior
+
+**Scenario**: Inject per-frame logic or respond to events like Agent damage during battle.
+
+```csharp
+public class MyBehavior : MissionLogic
+{
+    public override void OnMissionTick(float dt) { /* per-frame logic */ }
+    public override void OnAgentHit(Agent affected, Agent affector,
+        in MissionWeapon weapon, in Blow blow, in AttackCollisionData c) { }
+}
+
+Mission.Current.AddMissionBehavior(new MyBehavior());
+```
+
+**Key points**: Inherit `MissionLogic` (which derives from `MissionBehavior`); mount with `AddMissionBehavior` after the mission is created; remove with `RemoveMissionBehavior`.
+
+### Use Case 2: Get the player Agent and iterate all Agents
+
+**Scenario**: Locate the player or scan all units during battle logic.
+
+```csharp
+Agent main = Mission.Current.MainAgent;
+foreach (Agent a in Mission.Current.Agents)
+{
+    if (a.IsActive()) { /* process */ }
+}
+```
+
+**Key points**: `MainAgent` may be `null` in spectator mode or after death; `Agents` is a read-only list; `IsActive()` is a method, not a property.
+
+### Use Case 3: Spawn a custom Agent
+
+**Scenario**: Build and spawn a new combat unit using `AgentBuildData`.
+
+```csharp
+var data = new AgentBuildData(characterObject);
+data.InitFrame(initialPosition, initialDirection);
+data.Team(team);
+data.Controller(Agent.ControllerType.Create);
+Agent spawned = Mission.Current.SpawnAgent(data);
+```
+
+**Key points**: `SpawnAgent` takes an `AgentBuildData`; `Controller(Agent.ControllerType.Create)` is the recommended value for non-player units; use the `OnAgentCreated` callback to attach custom components after spawn.
+
+### Use Case 4: Get a team by side
+
+**Scenario**: Read attacker/defender teams for tactical decisions.
+
+```csharp
+Team attackers = Mission.Current.AttackerTeam;
+Team defenders = Mission.Current.DefenderTeam;
+Team playerTeam = Mission.Current.PlayerTeam;
+```
+
+**Key points**: `AttackerTeam` / `DefenderTeam` / `PlayerTeam` / `PlayerAllyTeam` / `PlayerEnemyTeam` are direct properties; for the generic query use `Mission.Current.GetTeam(TeamSideEnum.Attacker)`.
 
 ## Key Properties
 

@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Vec2`
+- [← 本领域 / 返回 core-extra](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Vec2 / 二维向量
 
 **Namespace**: TaleWorlds.Library

@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Vec2`
+- [← Area / Back to core-extra](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Vec2 / 2D Vector
 
 **Namespace**: TaleWorlds.Library

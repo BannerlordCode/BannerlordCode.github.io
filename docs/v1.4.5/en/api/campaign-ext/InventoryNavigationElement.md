@@ -1,0 +1,16 @@
+# InventoryNavigationElement
+
+**Namespace:** SandBox.View.Map.Navigation.NavigationElements
+**Module:** SandBox.View
+**Type:** class
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `InventoryNavigationElement` is a class in the `SandBox.View.Map.Navigation.NavigationElements` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

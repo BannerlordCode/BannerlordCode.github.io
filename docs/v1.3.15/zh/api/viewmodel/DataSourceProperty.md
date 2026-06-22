@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `DataSourceProperty`
+- [← 本领域 / 返回 viewmodel](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # DataSourceProperty / DataSourceProperty
 
 **Namespace**: TaleWorlds.Library

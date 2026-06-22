@@ -1,0 +1,51 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `InputState`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# InputState
+
+**命名空间:** TaleWorlds.InputSystem
+**模块:** TaleWorlds.InputSystem
+**类型:** 类 class class
+**领域:** 战役系统 Campaign
+
+## 概述
+
+> 本页为自动生成的存根。`InputState` 是 `TaleWorlds.InputSystem` 命名空间下的一个类 class。
+> 如需了解其属性、方法和开发者用例，请参考源码或贡
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `NativeResolution` | `public Vec2 NativeResolution { get; set; }` |
+| `MousePositionRanged` | `public Vec2 MousePositionRanged { get; set; }` |
+| `OldMousePositionRanged` | `public Vec2 OldMousePositionRanged { get; }` |
+| `MousePositionChanged` | `public bool MousePositionChanged { get; }` |
+| `MousePositionPixel` | `public Vec2 MousePositionPixel { get; set; }` |
+| `OldMousePositionPixel` | `public Vec2 OldMousePositionPixel { get; }` |
+| `MouseScrollValue` | `public float MouseScrollValue { get; }` |
+| `MouseScrollChanged` | `public bool MouseScrollChanged { get; }` |
+
+
+## 主要方法
+
+### UpdateMousePosition
+
+```csharp
+public bool UpdateMousePosition(float mousePositionX, float mousePositionY)
+```
+
+### UpdateMouseScroll
+
+```csharp
+public bool UpdateMouseScroll(float mouseScrollValue)
+```
+
+献文档。
+
+## 参见
+
+- [完整类目录](../catalog)
+- [本领域目录](../catalog-campaign)

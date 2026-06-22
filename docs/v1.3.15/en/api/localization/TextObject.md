@@ -1,8 +1,72 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `TextObject`
+- [← Area / Back to localization](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # TextObject / TextObject
 
 **Namespace**: TaleWorlds.Localization
 **File**: `bannerlord-1.3.15/TaleWorlds.Localization/TextObject.cs`
 **Purpose**: Core text container with variables and attributes / 核心文本容器，支持变量替换和属性管理
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Create localized text
+
+**Scenario**: Display a message that supports multiple languages.
+
+```csharp
+TextObject msg = new TextObject("{=MyMod_Greeting}Hello, {NAME}!");
+msg.SetTextVariable("NAME", Hero.MainHero.Name);
+InformationManager.DisplayMessage(new InformationMessage(msg.ToString()));
+```
+
+**Key points**: The `{=key}` prefix is a translation key — the game looks it up in `module_strings.xml`; `SetTextVariable` replaces the `{NAME}` placeholder.
+
+### Use Case 2: Use numeric variables
+
+**Scenario**: Display text with numbers (e.g., gold changes).
+
+```csharp
+TextObject goldMsg = new TextObject("Gained {GOLD} gold.");
+goldMsg.SetTextVariable("GOLD", 500);
+// or use the int overload directly
+goldMsg.SetTextVariable("GOLD", 500);
+```
+
+**Key points**: `SetTextVariable` has `int`, `float`, `string`, and `TextObject` overloads; the `float` overload accepts decimal digits.
+
+### Use Case 3: Check if text is empty
+
+**Scenario**: Validate a text object before displaying.
+
+```csharp
+if (!TextObject.IsNullOrEmpty(myText))
+{
+    // safe to display
+}
+```
+
+**Key points**: `IsNullOrEmpty` is a static method; `GetEmpty()` returns a shared empty instance (avoids repeated `new`).
+
+### Use Case 4: Nested text variables
+
+**Scenario**: Reference another text object inside text (e.g., a linked hero name).
+
+```csharp
+TextObject heroName = Hero.MainHero.Name; // already a TextObject
+TextObject msg = new TextObject("{HERO} joined your party.");
+msg.SetTextVariable("HERO", heroName);
+```
+
+**Key points**: `SetTextVariable(string, TextObject)` supports nesting; the translation key of `heroName` is resolved as well.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Overview / 概述
 

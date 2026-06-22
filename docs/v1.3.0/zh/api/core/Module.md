@@ -1,73 +1,33 @@
-# Module / Module
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Module`
+- [← 本领域 / 返回 core](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览（规范版）](../../../../v1.3.15/zh/architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# Module (v1.3.0)
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.0/TaleWorlds.MountAndBlade/Module.cs`
-**Version**: v1.3.0
+**命名空间**: TaleWorlds.MountAndBlade
+**模块**: TaleWorlds.MountAndBlade
+**版本**: v1.3.0
+**类型**: 密封类（`public sealed class Module : DotNetObject, IGameStateManagerOwner`）
 
-## 概述 / Overview
+> v1.3.0 版本的 `Module` 文档。完整 API 参考（含属性、方法、用例）请见规范版：
+> [v1.3.15 `Module`](../../../../v1.3.15/zh/api/core/Module)
 
-`Module` 是游戏的主模块类，负责管理所有子模组、游戏状态和平台服务。它是一个单例类，通过 `Module.Current` 访问。
+## 概述
 
-`Module` is the main module class of the game, responsible for managing all submodules, game states, and platform services. It is a singleton class accessed via `Module.Current`.
+`Module` 是游戏的核心单例类，负责管理所有子模组（SubModule）的加载、初始化以及全局游戏状态与平台服务。它在游戏启动时创建，是访问当前模组信息的主要入口。在 v1.3.0 中该类为 `public sealed class`，继承自 `DotNetObject` 并实现 `IGameStateManagerOwner`，通过静态属性 `Module.CurrentModule` 访问单例实例。
 
-## 与 v1.3.15 的差异 / Differences from v1.3.15
+## v1.3.0 要点
 
-- v1.3.0 的 Module 类结构相对简洁
-- v1.3.0 Module class is relatively simpler in structure
-- 没有 TaleWorlds.SaveSystem 的独立模块，保存功能通过 TaleWorlds.SaveSystem 命名空间内联实现
-- No separate TaleWorlds.SaveSystem module, save functionality is inline within TaleWorlds.SaveSystem namespace
-- 没有 TaleWorlds.DotNet 独立模块，DotNet 类型直接在 TaleWorlds.DotNet 命名空间
-- No separate TaleWorlds.DotNet module, DotNet types are directly in TaleWorlds.DotNet namespace
-- 更少的平台服务集成（缺少一些 v1.3.15 中新增的服务）
-- Fewer platform service integrations (missing some services added in v1.3.15)
-- 文件大小较小（约 1600 行 vs v1.3.15 的更多行数）
-- Smaller file size (about 1600 lines vs more in v1.3.15)
+- 密封类，位于 `TaleWorlds.MountAndBlade` 命名空间，源文件 `TaleWorlds.MountAndBlade/Module.cs`（约 1600 行）。
+- 单例访问：`public static Module CurrentModule { get; private set; }`，不应直接实例化。
+- 关键属性（均为 v1.3.0 实有）：`GlobalGameStateManager`（`GameStateManager`）、`GlobalTextManager`（`GameTextManager`）、`MultiplayerRequested`（`bool`）、`LoadingFinished`（`bool`）、`JobManager`（`JobManager`）。
+- 关键方法（均为 v1.3.0 实有）：`public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`、`public Type GetSubModuleType(string name)`、`public void SetInitialModuleScreenAsRootScreen()`、`internal void Initialize()`、`internal string GetMissionControllerClassNames()`。
+- 相比 v1.3.15，结构更精简：无独立的 `TaleWorlds.SaveSystem` 模块（保存功能内联于 `TaleWorlds.SaveSystem` 命名空间），无独立 `TaleWorlds.DotNet` 模块，平台服务集成更少。
 
-## 关键属性 / Key Properties
+## 参见
 
-| Property | Type | Description |
-|----------|------|-------------|
-| CurrentModule | static Module | 获取当前模块实例 / Gets current module instance |
-| GlobalGameStateManager | GameStateManager | 全局游戏状态管理器 / Global game state manager |
-| GlobalTextManager | GameTextManager | 全局文本管理器 / Global text manager |
-| MultiplayerRequested | bool | 是否请求多人游戏 / Whether multiplayer is requested |
-| LoadingFinished | bool | 加载是否完成 / Whether loading is finished |
-| JobManager | JobManager | 作业管理器 / Job manager |
-
-## 关键方法 / Key Methods
-
-| Method | Description |
-|--------|-------------|
-| CollectSubModules | 收集所有子模组 / Collects all submodules |
-| GetSubModuleType | 获取指定名称的子模组类型 / Gets submodule type by name |
-| SetInitialModuleScreenAsRootScreen | 设置初始界面为根界面 / Sets initial screen as root |
-| OnApplicationTick | 应用层每帧Tick / Application tick every frame |
-| GetMissionControllerClassNames | 获取任务控制器类名 / Gets mission controller class names |
-
-## 代码示例 / Code Example
-
-```csharp
-// Access the current module
-Module module = Module.CurrentModule;
-
-// Get all loaded submodules
-MBReadOnlyList<MBSubModuleBase> subModules = module.CollectSubModules();
-
-// Check if multiplayer is requested
-if (module.MultiplayerRequested)
-{
-    // Handle multiplayer mode
-}
-
-// Access global game state manager
-GameStateManager gameStateManager = module.GlobalGameStateManager;
-```
-
-## 注意事项 / Notes
-
-- Module 是单例，通过 Module.CurrentModule 访问
-- Module is a singleton, accessed via Module.CurrentModule
-- 不要直接实例化 Module，应该使用现有实例
-- Do not instantiate Module directly, use the existing instance
-- 平台服务初始化在 Initialize() 方法中进行
-- Platform services initialization happens in Initialize() method
+- [v1.3.15 完整文档](../../../../v1.3.15/zh/api/core/Module)
+- [本领域 API 索引](./)
+- [v1.3.0 API 总览](../)

@@ -9,6 +9,10 @@ Welcome to the Bannerlord v1.3.15 modding documentation (English).
 
 ## Navigation
 
+::: tip Recommended starting point
+New here? Start with the [SDK Overview — module map & layered architecture](./architecture/sdk-overview) to build the big picture.
+:::
+
 - [Guide](./guide/)
 - [API Reference](./api/)
 - [XML Reference](./xml-reference/)

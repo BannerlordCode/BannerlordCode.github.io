@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MBCommon`
+- [← 本领域 / 返回 core-extra](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBCommon / 通用工具
 
 **Namespace**: TaleWorlds.MountAndBlade

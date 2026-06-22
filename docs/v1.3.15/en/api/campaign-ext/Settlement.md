@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Settlement`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Settlement](/versions/Settlement)
+<!-- END BREADCRUMB -->
 # Settlement
 
 **Namespace**: TaleWorlds.CampaignSystem.Settlements  

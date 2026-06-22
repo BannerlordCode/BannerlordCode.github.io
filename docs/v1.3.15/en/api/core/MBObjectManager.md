@@ -1,8 +1,68 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MBObjectManager`
+- [← Area / Back to core](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBObjectManager / MBObjectManager
 
 **Namespace**: TaleWorlds.ObjectSystem
 **File**: `bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs`
 **Purpose**: Core class for XML loading and game object registration management / XML 加载和游戏对象注册管理的核心类
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Register a custom type and load from XML
+
+**Scenario**: Your mod defines a new `MBObjectBase` subclass and wants it loaded from XML.
+
+```csharp
+// Inside a RegisterSubModuleObjects callback
+objectManager.RegisterType<MyCustomObject>(
+    "MyCustomObject", "MyCustomObjects", 1500, autoCreateInstance: true);
+```
+
+**Key points**: `classPrefix` and `classListPrefix` must match the XML root element names; `typeId` must be globally unique (use > 1000 to avoid official slots); `autoCreateInstance: true` makes the manager instantiate objects automatically.
+
+### Use Case 2: Retrieve an object by StringId
+
+**Scenario**: Look up a concrete object instance using the `id` string from XML.
+
+```csharp
+ItemObject sword = objectManager.GetObject<ItemObject>("northern_sword");
+CultureObject empire = objectManager.GetObject<CultureObject>("empire");
+```
+
+**Key points**: Returns `null` if not found — always null-check. Generic `GetObject<T>` is preferred over the non-generic `GetObject(string, string)`.
+
+### Use Case 3: Iterate all objects of a type
+
+**Scenario**: Enumerate every registered instance of a type (e.g., all items, all cultures).
+
+```csharp
+foreach (ItemObject item in objectManager.GetObjectTypeList<ItemObject>())
+{
+    if (item.IsFood) { /* process food items */ }
+}
+```
+
+**Key points**: `GetObjectTypeList<T>` returns all registered instances of type `T`. The list is the live registry — do not modify it during iteration.
+
+### Use Case 4: Load XML at runtime
+
+**Scenario**: Load an additional XML definition file after game start (e.g., dynamic content).
+
+```csharp
+objectManager.LoadXML("MyModItems", isDevelopment: false, gameType: null, skipXmlFilterForEditor: false);
+```
+
+**Key points**: The `id` must match the XML root `<MyModItems>` element. Objects are registered immediately; call `UnregisterNonReadyObjects()` afterward to clean up incomplete entries.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Overview / 概述
 

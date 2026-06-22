@@ -1,8 +1,66 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `PartyBase`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # PartyBase / 派对基类
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/PartyBase.cs`  
 **Purpose**: Base class for all parties (both mobile and static settlements)
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 区分移动队伍与定居点
+
+**场景**: 处理同一接口下既可能是 `MobileParty` 也可能是 `Settlement` 的对象。
+
+```csharp
+PartyBase p = someParty;
+if (p.IsMobile)
+{
+    MobileParty mobile = p.MobileParty;
+}
+else if (p.IsSettlement)
+{
+    Settlement set = p.Settlement;
+}
+```
+
+**要点**: `IsMobile` / `IsSettlement` 互斥但都不保证非空，必须配对检查 `MobileParty` 或 `Settlement` 属性。
+
+### 用例 2: 获取队伍在地图上的位置
+
+**场景**: 在地图行为中读取队伍坐标用于距离判断。
+
+```csharp
+CampaignVec2 pos = party.Position;
+```
+
+**要点**: `Position` 是 `CampaignVec2`（地图坐标，非 3D 世界坐标）；定居点也有此属性返回其地图位置。
+
+### 用例 3: 添加成员或囚犯
+
+**场景**: 招募、俘获后修改队伍名册。
+
+```csharp
+CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
+party.AddMember(troop, 10);
+party.AddPrisoner(capturedTroop, 5);
+```
+
+**要点**: `AddMember` / `AddPrisoner` 直接修改 `MemberRoster` / `PrisonRoster`；批量操作用 `AddMembers(TroopRoster)` 减少重算。
+
+### 用例 4: 设置自定义队伍名
+
+**场景**: 给玩家队伍或自定义队伍显示一个临时名称。
+
+```csharp
+party.SetCustomName(new TextObject("{=my_party}My Raiders"));
+```
+
+**要点**: `SetCustomName` 覆盖默认名称；传 `null` 可清除自定义名恢复默认。`TextObject` 支持 `{=id}` 本地化格式。
 
 ## 关键属性 / Key Properties
 

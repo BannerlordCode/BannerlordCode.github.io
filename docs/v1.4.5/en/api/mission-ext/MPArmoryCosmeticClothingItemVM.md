@@ -1,0 +1,16 @@
+# MPArmoryCosmeticClothingItemVM
+
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
+**Module:** TaleWorlds.MountAndBlade
+**Type:** class
+**Area:** Mount & Blade
+
+## Overview
+
+> This is an auto-generated stub. `MPArmoryCosmeticClothingItemVM` is a class in the `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-mountandblade)

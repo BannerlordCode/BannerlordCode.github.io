@@ -1,82 +1,37 @@
-# Agent / Agent
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Agent`
+- [← 本领域 / 返回 mission](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览（规范版）](../../../../v1.3.15/zh/architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Agent](/versions/Agent)
+<!-- END BREADCRUMB -->
+# Agent (v1.3.0)
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.0/TaleWorlds.MountAndBlade/Agent.cs`
-**Version**: v1.3.0
+**命名空间**: TaleWorlds.MountAndBlade
+**模块**: TaleWorlds.MountAndBlade
+**版本**: v1.3.0
+**类型**: 密封类（`public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase`）
 
-## 概述 / Overview
+> v1.3.0 版本的 `Agent` 文档。完整 API 参考（含属性、方法、用例）请见规范版：
+> [v1.3.15 `Agent`](../../../../v1.3.15/zh/api/mission/Agent)
+> 如需查看该类在 1.3.0 / 1.3.15 / 1.4.5 三个版本间的 API 变化，见 [跨版本对比](/versions/Agent)
 
-`Agent` 是游戏中的代理实体，代表战场上的士兵、骑兵、弓箭手等。每个 Agent 都有位置、动画、装备和 AI 控制。Agent 是 DotNetObject 的包装器，实际渲染和物理由原生引擎处理。
+## 概述
 
-`Agent` is the agent entity in the game, representing soldiers, cavalry, archers, etc. on the battlefield. Each Agent has position, animation, equipment, and AI control. Agent is a wrapper around DotNetObject, with actual rendering and physics handled by the native engine.
+`Agent` 是游戏中的代理实体，代表战场上的士兵、骑兵、弓箭手、坐骑等。每个 `Agent` 都有位置、动画、装备和 AI 控制。在 v1.3.0 中该类为 `public sealed class`，继承自 `DotNetObject` 并实现 `IAgent`、`IFocusable`、`IUsable`、`IFormationUnit`、`ITrackableBase`，是原生引擎对象的托管包装器，实际渲染与物理由原生引擎处理；通过静态属性 `Agent.Main` 获取玩家主代理。
 
-## 与 v1.3.15 的差异 / Differences from v1.3.15
+## v1.3.0 要点
 
-- v1.3.0 的 Agent 类比 v1.3.15 小很多（约 7000 行 vs v1.3.15 的 23000+ 行）
-- v1.3.0 Agent class is much smaller than v1.3.15 (about 7000 lines vs 23000+ lines in v1.3.15)
-- 没有 AgentComponent 系统（v1.3.15 新增）
-- No AgentComponent system (added in v1.3.15)
-- 更少的属性和方法
-- Fewer properties and methods
-- 缺少一些高级 AI 和行为功能
-- Missing some advanced AI and behavior features
-- 没有 Formation 深度集成
-- No deep Formation integration
-- 简化的事件系统
-- Simplified event system
+- 密封类，位于 `TaleWorlds.MountAndBlade` 命名空间，源文件 `TaleWorlds.MountAndBlade/Agent.cs`（约 7000 行，远小于 v1.3.15 的 23000+ 行）。
+- 静态访问：`public static Agent Main`（内部读取 `Mission.Current.MainAgent`）。
+- 身份与状态属性（均为 v1.3.0 实有）：`public bool IsPlayerControlled`、`public bool IsMine`、`public bool IsMainAgent`、`public bool IsHuman`、`public bool IsMount`、`public bool IsAIControlled`。
+- 位置与移动属性（均为 v1.3.0 实有）：`public Vec3 Position`、`public Vec3 VisualPosition`、`public Vec2 MovementVelocity`。
+- 事件（v1.3.0 实有）：`public event Agent.OnAgentHealthChangedDelegate OnAgentHealthChanged`、`public event Agent.OnMountHealthChangedDelegate OnMountHealthChanged`。
+- 相比 v1.3.15：无 `AgentComponent` 组件系统（v1.3.15 新增），属性与方法更少，缺少部分高级 AI/行为功能与 `Formation` 深度集成，事件系统更简化。
 
-## 关键属性 / Key Properties
+## 参见
 
-| Property | Type | Description |
-|----------|------|-------------|
-| Main | static Agent | 获取主代理（玩家控制的代理） / Gets main agent (player controlled) |
-| Position | Vec3 | 获取代理位置 / Gets agent position |
-| VisualPosition | Vec3 | 获取视觉位置 / Gets visual position |
-| IsHuman | bool | 是否是人类 / Whether is human |
-| IsMount | bool | 是否是坐骑 / Whether is mount |
-| IsPlayerControlled | bool | 是否是玩家控制 / Whether is player controlled |
-| IsMainAgent | bool | 是否是主代理 / Whether is main agent |
-| IsAIControlled | bool | 是否是 AI 控制 / Whether is AI controlled |
-| MovementVelocity | Vec2 | 获取移动速度 / Gets movement velocity |
-
-## 关键方法 / Key Methods
-
-| Method | Description |
-|--------|-------------|
-| GetAgentFlags | 获取代理标志 / Get agent flags |
-| Getptr | 获取原生指针 / Get native pointer |
-
-## 代码示例 / Code Example
-
-```csharp
-// Get main agent (player)
-Agent mainAgent = Agent.Main;
-if (mainAgent == null)
-    return;
-
-// Check if human or mount
-if (mainAgent.IsHuman)
-{
-    // Human agent logic
-}
-
-// Get position
-Vec3 position = mainAgent.Position;
-
-// Check if player controlled
-if (mainAgent.IsPlayerControlled)
-{
-    // Player logic
-}
-```
-
-## 注意事项 / Notes
-
-- Agent 是原生对象的包装器，不要尝试直接修改其内部状态
-- Agent is a wrapper around native object, do not try to modify internal state directly
-- 使用 Agent.Main 获取玩家代理
-- Use Agent.Main to get player agent
-- Agent 的生命周期由任务系统管理
-- Agent lifecycle is managed by mission system
-- 坐骑（Mount）也是一种 Agent
-- Mounts are also Agents
+- [v1.3.15 完整文档](../../../../v1.3.15/zh/api/mission/Agent)
+- [跨版本 API 对比](/versions/Agent)
+- [本领域 API 索引](./)
+- [v1.3.0 API 总览](../)

@@ -14,6 +14,7 @@ v1.3.15 Engine module documentation.
 | File / 文件 | Description / 描述 |
 |------------|-------------------|
 | [EngineClass.md](./EngineClass.md) | Engine class base |
+| [GameEntity.md](./GameEntity.md) | Scene entity class |
 | [NativeObject.md](./NativeObject.md) | Native object class |
 | [Scene.md](./Scene.md) | Scene class |
 | [Skeleton.md](./Skeleton.md) | Skeleton class |

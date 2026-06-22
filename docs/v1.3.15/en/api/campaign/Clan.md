@@ -1,8 +1,65 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Clan`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Clan](/versions/Clan)
+<!-- END BREADCRUMB -->
 # Clan
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Clan.cs`  
 **Purpose**: Represents a clan within a kingdom or as an independent faction
+
+## Developer Use Cases
+
+### Use Case 1: Get the player's clan and basic info
+
+**Scenario**: The mod needs to read the player clan's gold, renown, and influence.
+
+```csharp
+Clan playerClan = Clan.PlayerClan;
+int gold = playerClan.Gold;
+float renown = playerClan.Renown;
+float influence = playerClan.Influence;
+```
+
+**Key points**: `PlayerClan` is the static shortcut; `Gold` actually comes from the leader; `Influence` is only meaningful for noble clans inside a kingdom.
+
+### Use Case 2: Change clan leader
+
+**Scenario**: On leader death or for story reasons, hand the clan to another hero.
+
+```csharp
+playerClan.SetLeader(newLeaderHero);
+```
+
+**Key points**: The new leader must already be a member of the clan; `SetLeader` triggers internal relation recalculation.
+
+### Use Case 3: Create a new clan and join a kingdom
+
+**Scenario**: Spawn a new clan for a custom faction.
+
+```csharp
+Clan newClan = Clan.CreateClan("my_clan");
+newClan.ChangeClanName(new TextObject("My Clan"), new TextObject("MyClan"));
+newClan.Culture = culture;
+newClan.SetLeader(leaderHero);
+newClan.Kingdom = targetKingdom; // null for independent
+```
+
+**Key points**: `CreateClan` takes a unique stringID; `SetInitialHomeSettlement` is optional but recommended — it affects the clan's computed center.
+
+### Use Case 4: Query inter-clan relations and war state
+
+**Scenario**: Determine whether two clans are hostile or read the relation value.
+
+```csharp
+int rel = playerClan.GetRelationWithClan(otherClan);
+bool atWar = playerClan.IsAtWarWith(otherClan);
+```
+
+**Key points**: `IsAtWarWith` accepts `IFaction` (clan or kingdom); war state is derived from `StanceLink`, call `UpdateFactionsAtWarWith()` to force-refresh the cache.
 
 ## Key Properties
 

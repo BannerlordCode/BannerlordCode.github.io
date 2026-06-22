@@ -1,8 +1,94 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ViewModel`
+- [← Area / Back to viewmodel](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # ViewModel / ViewModel
 
 **Namespace**: TaleWorlds.Library
 **File**: `bannerlord-1.3.15/TaleWorlds.Library/ViewModel.cs`
 **Purpose**: MVVM data binding base class with property change notification support for Gauntlet UI / MVVM 模式的数据绑定基类，支持 Gauntlet UI 的属性变更通知
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Create a custom ViewModel
+
+**Scenario**: Provide a data-binding source for a Gauntlet UI screen.
+
+```csharp
+public class MyModVM : ViewModel
+{
+    private string _title;
+    [DataSourceProperty]
+    public string Title
+    {
+        get => _title;
+        set
+        {
+            if (_title != value)
+            {
+                _title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+    }
+}
+```
+
+**Key points**: Inherit from `ViewModel`; mark properties with `[DataSourceProperty]`; the setter MUST call `OnPropertyChanged`, or the UI won't update.
+
+### Use Case 2: Handle UI commands
+
+**Scenario**: Execute mod logic when a UI button is clicked.
+
+```csharp
+public class MyModVM : ViewModel
+{
+    [DataSourceMethod]
+    public void OnConfirmButton()
+    {
+        // handle confirm button click
+    }
+}
+```
+
+**Key points**: UI command methods are marked with `[DataSourceMethod]`; the method name must match the binding in XML.
+
+### Use Case 3: Notify UI of value changes
+
+**Scenario**: Update the UI when a value changes without writing a setter template.
+
+```csharp
+public void UpdateGold(int newGold)
+{
+    OnPropertyChangedWithValue(newGold, nameof(CurrentGold));
+}
+```
+
+**Key points**: `OnPropertyChangedWithValue<T>` sets the value and raises notification in one call; overloads exist for `int`, `float`, `bool`, `string`, `Color`, `Vec2`, etc.
+
+### Use Case 4: Bind a collection to a list UI
+
+**Scenario**: Display dynamic data in a Gauntlet list.
+
+```csharp
+private readonly MBBindingList<ItemVM> _items = new MBBindingList<ItemVM>();
+[DataSourceProperty]
+public MBBindingList<ItemVM> Items => _items;
+
+// when adding items
+_items.Add(new ItemVM(someData));
+OnPropertyChanged(nameof(Items)); // notify UI to refresh the list
+```
+
+**Key points**: Gauntlet list binding requires `MBBindingList<T>` (in `TaleWorlds.Library`); after add/remove you MUST trigger `OnPropertyChanged`.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Overview / 概述
 

@@ -23,7 +23,7 @@ v1.3.0 is the version before v1.3.15. Some APIs may differ from the newer versio
 
 ## Advanced Topics
 
-> Note: v1.3.0 has some API differences from v1.3.15. Refer to [v1.3.15 Guide](../../v1.3.15/en/guide/) for more complete content.
+> Note: v1.3.0 has some API differences from v1.3.15. Refer to [v1.3.15 Guide](../../../v1.3.15/en/guide/) for more complete content.
 
 6. [Mission System Basics](./mission-basics.md) - Mission, MissionBehavior introduction
 7. [Campaign System Basics](./campaign-basics.md) - MobileParty, Kingdom introduction
@@ -188,7 +188,7 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 - For new projects, use v1.3.15
 - Existing v1.3.0 projects can continue maintenance
-- Check [API Reference](../../api/) before upgrading
+- Check [API Reference](../api/) before upgrading
 
 ---
 
@@ -197,10 +197,10 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 - View [Mission System Basics](./mission-basics.md) - Learn Mission and MissionBehavior
 - View [Campaign System Basics](./campaign-basics.md) - Learn world map logic
 - View [UI System Basics](./ui-basics.md) - Learn Gauntlet UI
-- View [API Reference](../../api/) to learn available interfaces
-- View [XML Reference](../../xml-reference/) to learn configuration formats
-- View [Architecture](../../architecture/) to understand system design
-- Recommended: Use [v1.3.15 Guide](../../v1.3.15/en/guide/) for more complete content
+- View [API Reference](../api/) to learn available interfaces
+- View [XML Reference](../xml-reference/) to learn configuration formats
+- View [Architecture](../architecture/) to understand system design
+- Recommended: Use [v1.3.15 Guide](../../../v1.3.15/en/guide/) for more complete content
 
 ---
 

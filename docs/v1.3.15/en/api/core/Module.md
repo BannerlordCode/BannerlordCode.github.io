@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Module`
+- [← Area / Back to core](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Module / Module
 
 **Namespace**: TaleWorlds.MountAndBlade
@@ -9,6 +15,51 @@
 `Module` is the core singleton class responsible for managing all module loading, initialization, and game state. It is created at game startup and is the main entry point for accessing current module information.
 
 `Module` 是游戏的核心单例类，负责管理所有模组的加载、初始化和游戏状态。它在游戏启动时创建，是访问当前模组信息的主要入口。
+
+## Developer Use Cases
+
+### Use Case 1: Get current module and list loaded SubModules
+
+**Scenario**: At runtime enumerate all loaded SubModules for dependency detection or conflict reporting.
+
+```csharp
+Module module = Module.CurrentModule;
+MBReadOnlyList<MBSubModuleBase> subs = module.CollectSubModules();
+foreach (var sub in subs) { /* check */ }
+```
+
+**Key points**: `CurrentModule` is the singleton access point; `CollectSubModules` returns a read-only snapshot — do not assume ordering matches SubModule.xml exactly (it is affected by dependency sorting).
+
+### Use Case 2: Look up a SubModule type by name
+
+**Scenario**: Reflectively locate a SubModule to invoke its methods.
+
+```csharp
+Type t = module.GetSubModuleType("MyMod");
+```
+
+**Key points**: The name corresponds to `AssemblyName` in `SubModule.xml`; returns `null` if not found.
+
+### Use Case 3: Access global text and state managers
+
+**Scenario**: Register custom localization strings or read the current game state.
+
+```csharp
+GameTextManager text = module.GlobalTextManager;
+GameStateManager states = module.GlobalGameStateManager;
+```
+
+**Key points**: `GlobalTextManager` is the entry point for registering `GameText`; `GlobalGameStateManager` is accessible even when the game is not running (for main-menu state).
+
+### Use Case 4: Detect multiplayer vs single-player mode
+
+**Scenario**: Branch behavior by multiplayer/single-player.
+
+```csharp
+if (module.MultiplayerRequested) { /* multiplayer logic */ }
+```
+
+**Key points**: `MultiplayerRequested` is set after the player picks multiplayer; to check whether a mission is actually running use `Mission.Current != null`.
 
 ## Important Properties / 重要属性
 

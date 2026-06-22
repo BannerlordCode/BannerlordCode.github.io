@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `EngineClass`
+- [← Area / Back to engine](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # EngineClass / EngineClass
 
 **Namespace**: TaleWorlds.DotNet

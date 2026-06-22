@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Mat3`
+- [← Area / Back to core-extra](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Mat3 / 3D Matrix
 
 **Namespace**: TaleWorlds.Library

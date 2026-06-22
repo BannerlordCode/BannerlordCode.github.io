@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `GauntletSystem`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # GauntletSystem / Gauntlet系统事件管理
 
 **Namespace**: TaleWorlds.GauntletUI

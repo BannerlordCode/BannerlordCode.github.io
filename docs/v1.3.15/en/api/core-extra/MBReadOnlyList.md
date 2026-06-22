@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MBReadOnlyList`
+- [← Area / Back to core-extra](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBReadOnlyList / MBReadOnlyList
 
 **Namespace**: TaleWorlds.Library

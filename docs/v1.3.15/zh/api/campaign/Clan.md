@@ -1,8 +1,65 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Clan`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Clan](/versions/Clan)
+<!-- END BREADCRUMB -->
 # Clan / 氏族
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Clan.cs`  
 **Purpose**: Represents a clan within a kingdom or as an independent faction
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取玩家所属家族及基本信息
+
+**场景**: 模组需要读取玩家家族的金币、声望、影响力。
+
+```csharp
+Clan playerClan = Clan.PlayerClan;
+int gold = playerClan.Gold;
+float renown = playerClan.Renown;
+float influence = playerClan.Influence;
+```
+
+**要点**: `PlayerClan` 是静态快捷访问；`Gold` 实际取自领袖；`Influence` 仅对王国中的贵族家族有意义。
+
+### 用例 2: 更换家族领袖
+
+**场景**: 领袖死亡或剧情需要时让另一名英雄接管家族。
+
+```csharp
+playerClan.SetLeader(newLeaderHero);
+```
+
+**要点**: 新领袖必须已经是该家族成员；`SetLeader` 会触发派系内部关系重算。
+
+### 用例 3: 创建新家族并加入王国
+
+**场景**: 为自定义阵营生成一个新家族。
+
+```csharp
+Clan newClan = Clan.CreateClan("my_clan");
+newClan.ChangeClanName(new TextObject("My Clan"), new TextObject("MyClan"));
+newClan.Culture = culture;
+newClan.SetLeader(leaderHero);
+newClan.Kingdom = targetKingdom; // 可为 null 表示独立
+```
+
+**要点**: `CreateClan` 接收唯一 stringID；`SetInitialHomeSettlement` 可选但推荐设置，影响家族计算的中心点。
+
+### 用例 4: 查询家族间关系与战争状态
+
+**场景**: 判断两家族是否敌对或读取关系值。
+
+```csharp
+int rel = playerClan.GetRelationWithClan(otherClan);
+bool atWar = playerClan.IsAtWarWith(otherClan);
+```
+
+**要点**: `IsAtWarWith` 接受 `IFaction`（家族或王国都行）；战争状态由 `StanceLink` 派生，调用 `UpdateFactionsAtWarWith()` 可强制刷新缓存。
 
 ## 关键属性 / Key Properties
 

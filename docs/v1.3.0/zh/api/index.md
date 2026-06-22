@@ -11,5 +11,8 @@ Complete API reference for v1.3.0.
 
 ## 模块 / Modules
 
-- [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/)
+- [Core 核心](./core/) — MBSubModuleBase, Module
+- [Mission 任务](./mission/) — Mission, Agent
+- [Campaign 战役](./campaign/) — MobileParty, PartyBase
+- [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/) — 核心游戏类
 

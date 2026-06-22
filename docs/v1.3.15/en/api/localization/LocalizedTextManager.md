@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `LocalizedTextManager`
+- [← Area / Back to localization](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # LocalizedTextManager / LocalizedTextManager
 
 **Namespace**: TaleWorlds.Localization

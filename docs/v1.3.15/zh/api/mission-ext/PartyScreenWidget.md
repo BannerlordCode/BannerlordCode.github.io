@@ -1,0 +1,55 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `PartyScreenWidget`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# PartyScreenWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class PartyScreenWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Party/PartyScreenWidget.cs`
+
+## 概述
+
+`PartyScreenWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `MainScrollPanel` | `public ScrollablePanel MainScrollPanel { get; set; }` |
+| `OtherScrollPanel` | `public ScrollablePanel OtherScrollPanel { get; set; }` |
+| `TransferInputKeyVisual` | `public InputKeyVisualWidget TransferInputKeyVisual { get; set; }` |
+| `UpgradePopupParent` | `public Widget UpgradePopupParent { get; set; }` |
+| `RecruitPopupParent` | `public Widget RecruitPopupParent { get; set; }` |
+| `TakeAllPrisonersInputKeyVisualParent` | `public Widget TakeAllPrisonersInputKeyVisualParent { get; set; }` |
+| `DismissAllPrisonersInputKeyVisualParent` | `public Widget DismissAllPrisonersInputKeyVisualParent { get; set; }` |
+| `MainPartyTroopSize` | `public int MainPartyTroopSize { get; set; }` |
+| `IsPrisonerWarningEnabled` | `public bool IsPrisonerWarningEnabled { get; set; }` |
+| `IsOtherTroopWarningEnabled` | `public bool IsOtherTroopWarningEnabled { get; set; }` |
+| `IsTroopWarningEnabled` | `public bool IsTroopWarningEnabled { get; set; }` |
+| `TroopLabel` | `public TextWidget TroopLabel { get; set; }` |
+| `PrisonerLabel` | `public TextWidget PrisonerLabel { get; set; }` |
+| `OtherTroopLabel` | `public TextWidget OtherTroopLabel { get; set; }` |
+| `OtherMemberList` | `public ListPanel OtherMemberList { get; set; }` |
+| `OtherPrisonerList` | `public ListPanel OtherPrisonerList { get; set; }` |
+| `MainMemberList` | `public ListPanel MainMemberList { get; set; }` |
+| `MainPrisonerList` | `public ListPanel MainPrisonerList { get; set; }` |
+| `ScrollToCharacter` | `public bool ScrollToCharacter { get; set; }` |
+| `ScrollCharacterId` | `public string ScrollCharacterId { get; set; }` |
+| `IsScrollTargetPrisoner` | `public bool IsScrollTargetPrisoner { get; set; }` |
+
+## 使用示例
+
+```csharp
+// PartyScreenWidget (Widget) 的典型用法
+// 声明/访问一个 PartyScreenWidget
+var widget = root.GetChild("partyScreenWidget");;
+```
+
+## 参见
+
+- [完整类目录](../catalog)

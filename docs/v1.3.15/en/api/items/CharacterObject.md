@@ -1,9 +1,74 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CharacterObject`
+- [← Area / Back to items](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # CharacterObject
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/CharacterObject.cs`  
 **Base Class**: BasicCharacterObject (TaleWorlds.Core)  
 **Purpose**: Character definition in campaign mode, including NPCs, soldiers, heroes, etc.
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Get the player character template
+
+**Scenario**: Reference the player character object for battle scene spawning or UI display.
+
+```csharp
+CharacterObject player = CharacterObject.PlayerCharacter;
+// player.HeroObject is the corresponding Hero instance
+Hero playerHero = player.HeroObject;
+```
+
+**Key points**: `PlayerCharacter` is a static property; for non-hero characters (regular troops), `HeroObject` is `null`.
+
+### Use Case 2: Create a copy from an existing character
+
+**Scenario**: Dynamically spawn a character based on a template (e.g., mercenaries, special NPCs).
+
+```csharp
+CharacterObject template = MBObjectManager.Instance.GetObject<CharacterObject>("bandit_bandit");
+CharacterObject clone = CharacterObject.CreateFrom(template);
+// clone has independent equipment and stats but shares visual resources
+```
+
+**Key points**: `CreateFrom` is a static factory; pass `staticBodyProperties` to override face generation.
+
+### Use Case 3: Read a character's battle equipment
+
+**Scenario**: Inspect or modify a character's equipment when entering battle.
+
+```csharp
+Equipment battleEquipment = character.FirstBattleEquipment;
+if (battleEquipment != null && battleEquipment.HasWeapon())
+{
+    // character has a weapon
+}
+```
+
+**Key points**: `FirstBattleEquipment` is a read-only copy; to modify equipment use `RandomBattleEquipment` or set it at spawn time.
+
+### Use Case 4: Iterate conversation characters
+
+**Scenario**: Process participants in the dialogue system.
+
+```csharp
+foreach (CharacterObject c in CharacterObject.ConversationCharacters)
+{
+    // process each character in the conversation scene
+}
+```
+
+**Key points**: `ConversationCharacters` is only valid while a conversation is active; the collection is empty after the conversation ends.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Overview
 

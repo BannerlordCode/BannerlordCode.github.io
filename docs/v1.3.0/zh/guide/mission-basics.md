@@ -7,7 +7,7 @@ description: v1.3.0 Mission 和 MissionBehavior 入门 / v1.3.0 Mission and Miss
 
 **v1.3.0 版本**
 
-> 注意：本页面介绍 v1.3.0 的 Mission 系统基础。v1.3.15 有更多功能和 API。如需完整内容，请查看 [v1.3.15 Mission 系统](../../v1.3.15/zh/guide/mission-system.md)。
+> 注意：本页面介绍 v1.3.0 的 Mission 系统基础。v1.3.15 有更多功能和 API。如需完整内容，请查看 [v1.3.15 Mission 系统](../../../v1.3.15/zh/guide/mission-system.md)。
 
 ## 概述 / Overview
 
@@ -77,5 +77,5 @@ float health = agent.Health;
 
 ## 相关文档 / Related Documentation
 
-- [v1.3.15 Mission 系统](../../v1.3.15/zh/guide/mission-system.md)
-- [API 参考](../../api/mission/)
+- [v1.3.15 Mission 系统](../../../v1.3.15/zh/guide/mission-system.md)
+- [API 参考](../api/mission/)

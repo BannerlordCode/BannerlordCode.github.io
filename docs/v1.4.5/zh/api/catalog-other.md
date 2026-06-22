@@ -1,0 +1,293 @@
+---
+title: 其它 Other 类目录 / Class Catalog
+sidebar: auto
+---
+
+# 其它 Other 类目录
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **183** 个类型，其中 **64** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+
+> 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
+
+## (global) (9)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BuildInfo](/v1.3.15/zh/api/campaign-ext/BuildInfo.md) | 🔗 |
+| C | [EmptyGamepadNavigationContext](/v1.3.15/zh/api/campaign-ext/EmptyGamepadNavigationContext.md) | 🔗 |
+| C | [GauntletGamepadNavigationContext](/v1.3.15/zh/api/campaign-ext/GauntletGamepadNavigationContext.md) | 🔗 |
+| I | [IChatHandler](/v1.3.15/zh/api/campaign-ext/IChatHandler.md) | 🔗 |
+| I | [IGamepadNavigationContext](/v1.3.15/zh/api/campaign-ext/IGamepadNavigationContext.md) | 🔗 |
+| C | [MonoNativeFunctionWrapperAttribute](/v1.3.15/zh/api/campaign-ext/MonoNativeFunctionWrapperAttribute.md) | 🔗 |
+| C | [MonoPInvokeCallbackAttribute](/v1.3.15/zh/api/campaign-ext/MonoPInvokeCallbackAttribute.md) | 🔗 |
+| C | SceneProblemsLogger | — |
+| E | [WindingOrder](/v1.3.15/zh/api/campaign-ext/WindingOrder.md) | 🔗 |
+
+## Jose (44)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | AesCbcHmacEncryption | — |
+| C | AesGcm | — |
+| C | AesGcmEncryption | — |
+| C | AesGcmKeyWrapManagement | — |
+| C | AesKeyWrap | — |
+| C | AesKeyWrapManagement | — |
+| C | Arrays | — |
+| C | Base64Url | — |
+| C | Collections | — |
+| C | Compact | — |
+| C | ConcatKDF | — |
+| C | DeflateCompression | — |
+| C | Dictionaries | — |
+| C | DirectKeyManagement | — |
+| C | EcdhKeyManagement | — |
+| C | EcdhKeyManagementWithAesKeyWrap | — |
+| C | EncryptionException | — |
+| C | Ensure | — |
+| C | HmacUsingSha | — |
+| I | ICompression | — |
+| I | IJsonMapper | — |
+| I | IJwsAlgorithm | — |
+| I | IKeyManagement | — |
+| C | IntegrityException | — |
+| C | InvalidAlgorithmException | — |
+| C | Iterator | — |
+| C | JoseException | — |
+| E | JweAlgorithm | — |
+| E | JweCompression | — |
+| E | JweEncryption | — |
+| E | JwsAlgorithm | — |
+| C | JWT | — |
+| C | JwtOptions | — |
+| C | JwtSettings | — |
+| C | NewtonsoftMapper | — |
+| C | PBKDF2 | — |
+| C | Pbse2HmacShaKeyManagementWithAesKeyWrap | — |
+| C | Plaintext | — |
+| C | RsaKeyManagement | — |
+| C | RsaOaep | — |
+| C | RsaOaep256KeyManagement | — |
+| C | RsaPss | — |
+| C | RsaPssUsingSha | — |
+| C | RsaUsingSha | — |
+
+## Jose.jwe (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| I | IJweAlgorithm | — |
+
+## Jose.native (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | BCrypt | — |
+| S | BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO | — |
+| S | BCRYPT_KEY_LENGTHS_STRUCT | — |
+| S | BCRYPT_OAEP_PADDING_INFO | — |
+| S | BCRYPT_PSS_PADDING_INFO | — |
+| C | NCrypt | — |
+| C | NCryptBuffer | — |
+| C | NCryptBufferDesc | — |
+
+## Jose.netstandard1_4 (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | EcdsaUsingSha | — |
+
+## MBHelpers (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerHelper](/v1.3.15/zh/api/campaign-ext/BannerHelper.md) | 🔗 |
+
+## Sandbox.View.GameStates (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [PreloadState](/v1.3.15/zh/api/campaign-ext/PreloadState.md) | 🔗 |
+
+## Sandobx.GauntletUI.Missions (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | GauntletMainAgentDetectionView | — |
+
+## Security.Cryptography (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | EccKey | — |
+| C | RsaKey | — |
+
+## Storymode.Missions (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | [MissionState](/v1.3.15/zh/api/mission-ext/MissionState.md) | 🔗 |
+| C | SneakIntoTheVillaMissionController | — |
+
+## System.Management (53)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| E | AuthenticationLevel | — |
+| E | CimType | — |
+| E | CodeLanguage | — |
+| E | ComparisonSettings | — |
+| C | CompletedEventArgs | — |
+| C | ConnectionOptions | — |
+| C | DeleteOptions | — |
+| C | EnumerationOptions | — |
+| C | EventArrivedEventArgs | — |
+| C | EventQuery | — |
+| C | EventWatcherOptions | — |
+| E | ImpersonationLevel | — |
+| C | InvokeMethodOptions | — |
+| C | ManagementBaseObject | — |
+| C | ManagementClass | — |
+| C | ManagementDateTimeConverter | — |
+| C | ManagementEventArgs | — |
+| C | ManagementEventWatcher | — |
+| C | ManagementException | — |
+| C | ManagementNamedValueCollection | — |
+| C | ManagementObject | — |
+| C | ManagementObjectCollection | — |
+| C | ManagementObjectEnumerator | — |
+| C | ManagementObjectSearcher | — |
+| C | ManagementOperationObserver | — |
+| C | ManagementOptions | — |
+| C | ManagementPath | — |
+| C | ManagementQuery | — |
+| C | ManagementScope | — |
+| E | ManagementStatus | — |
+| C | MethodData | — |
+| C | MethodDataCollection | — |
+| C | MethodDataEnumerator | — |
+| C | ObjectGetOptions | — |
+| C | ObjectPutEventArgs | — |
+| C | ObjectQuery | — |
+| C | ObjectReadyEventArgs | — |
+| C | ProgressEventArgs | — |
+| C | PropertyData | — |
+| C | PropertyDataCollection | — |
+| C | PropertyDataEnumerator | — |
+| C | PutOptions | — |
+| E | PutType | — |
+| C | QualifierData | — |
+| C | QualifierDataCollection | — |
+| C | QualifierDataEnumerator | — |
+| C | RelatedObjectQuery | — |
+| C | RelationshipQuery | — |
+| C | SelectQuery | — |
+| C | StoppedEventArgs | — |
+| E | TextFormat | — |
+| C | WqlEventQuery | — |
+| C | WqlObjectQuery | — |
+
+## System.Numerics (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| S | Matrix3x2 | — |
+| S | Matrix4x4 | — |
+| S | Plane | — |
+| S | [Quaternion](/v1.3.15/zh/api/core-extra/Quaternion.md) | 🔗 |
+| S | Vector | — |
+| S | Vector2 | — |
+| S | Vector3 | — |
+| S | Vector4 | — |
+
+## TaleWorlds.AchievementSystem (4)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Achievement](/v1.3.15/zh/api/campaign-ext/Achievement.md) | 🔗 |
+| C | [AchievementManager](/v1.3.15/zh/api/campaign-ext/AchievementManager.md) | 🔗 |
+| I | [IAchievementService](/v1.3.15/zh/api/campaign-ext/IAchievementService.md) | 🔗 |
+| C | [TestAchievementService](/v1.3.15/zh/api/campaign-ext/TestAchievementService.md) | 🔗 |
+
+## TaleWorlds.ActivitySystem (6)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Activity](/v1.3.15/zh/api/campaign-ext/Activity.md) | 🔗 |
+| C | [ActivityManager](/v1.3.15/zh/api/campaign-ext/ActivityManager.md) | 🔗 |
+| E | [ActivityOutcome](/v1.3.15/zh/api/campaign-ext/ActivityOutcome.md) | 🔗 |
+| E | [ActivityTransition](/v1.3.15/zh/api/campaign-ext/ActivityTransition.md) | 🔗 |
+| I | [IActivityService](/v1.3.15/zh/api/campaign-ext/IActivityService.md) | 🔗 |
+| C | [TestActivityService](/v1.3.15/zh/api/campaign-ext/TestActivityService.md) | 🔗 |
+
+## TaleWorlds.Avatar.PlayerServices (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AvatarServices](/v1.3.15/zh/api/campaign-ext/AvatarServices.md) | 🔗 |
+
+## TaleWorlds.LinQuick (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [LinQuick](/v1.3.15/zh/api/campaign-ext/LinQuick.md) | 🔗 |
+| C | [Min](/v1.3.15/zh/api/campaign-ext/Min.md) | 🔗 |
+
+## TaleWorlds.ModuleManager (9)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| S | [DependedModule](/v1.3.15/zh/api/campaign-ext/DependedModule.md) | 🔗 |
+| C | [Extensions](/v1.3.15/zh/api/engine/Extensions.md) | 🔗 |
+| I | [IPlatformModuleExtension](/v1.3.15/zh/api/campaign-ext/IPlatformModuleExtension.md) | 🔗 |
+| E | [ModuleCategory](/v1.3.15/zh/api/campaign-ext/ModuleCategory.md) | 🔗 |
+| C | [ModuleHelper](/v1.3.15/zh/api/campaign-ext/ModuleHelper.md) | 🔗 |
+| C | [ModuleInfo](/v1.3.15/zh/api/campaign-ext/ModuleInfo.md) | 🔗 |
+| E | [ModuleType](/v1.3.15/zh/api/campaign-ext/ModuleType.md) | 🔗 |
+| C | [SubModuleInfo](/v1.3.15/zh/api/campaign-ext/SubModuleInfo.md) | 🔗 |
+| E | [SubModuleTags](/v1.3.15/zh/api/campaign-ext/SubModuleTags.md) | 🔗 |
+
+## TaleWorlds.Starter.Library (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [Program](/v1.3.15/zh/api/mission-ext/Program.md) | 🔗 |
+
+## psai.Editor (10)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AudioData](/v1.3.15/zh/api/campaign-ext/AudioData.md) | 🔗 |
+| E | [CompatibilityReason](/v1.3.15/zh/api/campaign-ext/CompatibilityReason.md) | 🔗 |
+| E | [CompatibilitySetting](/v1.3.15/zh/api/campaign-ext/CompatibilitySetting.md) | 🔗 |
+| E | [CompatibilityType](/v1.3.15/zh/api/campaign-ext/CompatibilityType.md) | 🔗 |
+| C | [Group](/v1.3.15/zh/api/campaign-ext/Group.md) | 🔗 |
+| C | [ProjectProperties](/v1.3.15/zh/api/campaign-ext/ProjectProperties.md) | 🔗 |
+| C | [PsaiMusicEntity](/v1.3.15/zh/api/campaign-ext/PsaiMusicEntity.md) | 🔗 |
+| C | [PsaiProject](/v1.3.15/zh/api/campaign-ext/PsaiProject.md) | 🔗 |
+| C | [Segment](/v1.3.15/zh/api/campaign-ext/Segment.md) | 🔗 |
+| C | [Theme](/v1.3.15/zh/api/campaign-ext/Theme.md) | 🔗 |
+
+## psai.net (19)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [AudioData](/v1.3.15/zh/api/campaign-ext/AudioData.md) | 🔗 |
+| C | [AudioPlaybackLayerChannelStandalone](/v1.3.15/zh/api/campaign-ext/AudioPlaybackLayerChannelStandalone.md) | 🔗 |
+| S | [Follower](/v1.3.15/zh/api/campaign-ext/Follower.md) | 🔗 |
+| C | [PlaybackChannel](/v1.3.15/zh/api/campaign-ext/PlaybackChannel.md) | 🔗 |
+| C | [PsaiCore](/v1.3.15/zh/api/campaign-ext/PsaiCore.md) | 🔗 |
+| S | [PsaiInfo](/v1.3.15/zh/api/campaign-ext/PsaiInfo.md) | 🔗 |
+| E | [PsaiPlayMode](/v1.3.15/zh/api/campaign-ext/PsaiPlayMode.md) | 🔗 |
+| E | [PsaiResult](/v1.3.15/zh/api/campaign-ext/PsaiResult.md) | 🔗 |
+| E | [PsaiState](/v1.3.15/zh/api/campaign-ext/PsaiState.md) | 🔗 |
+| C | [Segment](/v1.3.15/zh/api/campaign-ext/Segment.md) | 🔗 |
+| C | [SegmentInfo](/v1.3.15/zh/api/campaign-ext/SegmentInfo.md) | 🔗 |
+| E | [SegmentSuitability](/v1.3.15/zh/api/campaign-ext/SegmentSuitability.md) | 🔗 |
+| C | [Soundtrack](/v1.3.15/zh/api/campaign-ext/Soundtrack.md) | 🔗 |
+| C | [SoundtrackInfo](/v1.3.15/zh/api/campaign-ext/SoundtrackInfo.md) | 🔗 |
+| C | [Theme](/v1.3.15/zh/api/campaign-ext/Theme.md) | 🔗 |
+| C | [ThemeInfo](/v1.3.15/zh/api/campaign-ext/ThemeInfo.md) | 🔗 |
+| E | [ThemeInterruptionBehavior](/v1.3.15/zh/api/campaign-ext/ThemeInterruptionBehavior.md) | 🔗 |
+| E | [ThemeType](/v1.3.15/zh/api/campaign-ext/ThemeType.md) | 🔗 |
+| C | [Weighting](/v1.3.15/zh/api/campaign-ext/Weighting.md) | 🔗 |

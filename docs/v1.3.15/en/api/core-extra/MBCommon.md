@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MBCommon`
+- [← Area / Back to core-extra](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBCommon / Common Utilities
 
 **Namespace**: TaleWorlds.MountAndBlade

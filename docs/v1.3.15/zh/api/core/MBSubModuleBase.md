@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MBSubModuleBase`
+- [← 本领域 / 返回 core](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBSubModuleBase / MBSubModuleBase
 
 **Namespace**: TaleWorlds.MountAndBlade
@@ -33,6 +39,68 @@ Game startup call order:
 6. `OnCampaignStart(Game, object)` - When campaign begins
 7. `OnMissionBehaviorInitialize(Mission)` - When mission behaviors initialize
 8. `OnApplicationTick(float)` - Called every frame (in game loop)
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 实现 OnSubModuleLoad 注册初始化逻辑
+
+**场景**: 模组 DLL 加载后立刻执行一次性初始化（注册 Harmony 补丁、读取配置）。
+
+```csharp
+protected override void OnSubModuleLoad()
+{
+    base.OnSubModuleLoad();
+    // Harmony 补丁、配置读取等一次性初始化
+}
+```
+
+**要点**: `OnSubModuleLoad` 在所有 SubModule 加载阶段调用，此时 `Game.Current` 尚未创建；不要在此访问战役/任务对象；Harmony 补丁应在此挂载。
+
+### 用例 2: 在 OnGameStart 注册 CampaignBehavior
+
+**场景**: 游戏开始时把自定义战役行为注入 `Campaign`。
+
+```csharp
+protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    base.OnGameStart(game, starter);
+    if (game.GameType is CampaignGameType)
+    {
+        starter.AddModel(new MyCampaignBehavior());
+    }
+}
+```
+
+**要点**: 必须判断 `game.GameType` 是 `CampaignGameType`，否则自定义战役行为会注入到错误的游戏类型（如自定义战斗）；`IGameStarter.AddModel` 是注册行为/模型的标准入口。
+
+### 用例 3: 在 OnMissionBehaviorInitialize 添加 MissionBehavior
+
+**场景**: 任务初始化时挂载自定义战斗行为。
+
+```csharp
+public override void OnMissionBehaviorInitialize(Mission mission)
+{
+    base.OnMissionBehaviorInitialize(mission);
+    mission.AddMissionBehavior(new MyMissionBehavior());
+}
+```
+
+**要点**: 此回调在每个任务创建时触发；用 `mission.MissionName` 过滤特定任务类型；此时 Agent 尚未生成，仅适合注册行为。
+
+### 用例 4: 用 RegisterSubModuleObjects 注册可保存对象
+
+**场景**: 自定义 `MBObjectBase` 子类需要从 XML 加载并存档。
+
+```csharp
+public override void RegisterSubModuleObjects(bool isSavedCampaign)
+{
+    base.RegisterSubModuleObjects(isSavedCampaign);
+    Game.Current.ObjectManager.RegisterType<MyCustomObject>(
+        "MyCustomObject", "MyCustomObjects", 500, autoCreateInstance: true);
+}
+```
+
+**要点**: `RegisterType` 在对象管理器中登记类型，使其能从 XML 加载；`typeId` 必须在全局唯一（建议 > 1000 避免与官方冲突）。
 
 ## 重要方法 / Important Methods
 

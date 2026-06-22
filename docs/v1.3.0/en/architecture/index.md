@@ -1,13 +1,18 @@
 ---
-title: Architecture
-description: Bannerlord module system architecture overview
+title: Architecture (v1.3.0)
+description: v1.3.0 architecture documentation
 ---
 
-# Architecture
+# Architecture (v1.3.0)
 
-Bannerlord architecture documentation.
+Architecture docs for v1.3.0 are brief. For the full SDK module map, module system, save system, and version delta see v1.3.15:
 
-## Contents
+- [⭐ SDK Overview (module map)](../../../v1.3.15/en/architecture/sdk-overview)
+- [Module System](../../../v1.3.15/en/architecture/module-system)
+- [Save System](../../../v1.3.15/en/architecture/save-system)
+- [Version Delta](../../../v1.3.15/en/architecture/version-delta)
 
-- [Module System](./module-system.md) (TBD)
+## Navigation
 
+- [v1.3.0 Home](../)
+- [v1.3.15 docs (recommended)](../../../v1.3.15/en/)

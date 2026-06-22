@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `GauntletMovie`
+- [← 本领域 / 返回 gui](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # GauntletMovie / Gauntlet影片
 
 **Namespace**: TaleWorlds.GauntletUI.Data

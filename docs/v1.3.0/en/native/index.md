@@ -1,13 +1,16 @@
 ---
-title: Native Reference
-description: Interfaces for interacting with native C++ engine
+title: Native Interface (v1.3.0)
+description: v1.3.0 native P/Invoke interface
 ---
 
-# Native Reference
+# Native Interface (v1.3.0)
 
-Documentation for interacting with native engine via P/Invoke.
+Native interface docs for v1.3.0 are brief. For the full P/Invoke interface and type references (`NativeObject`, `INativeArray`, etc.) see v1.3.15:
 
-## Contents
+- [v1.3.15 Native P/Invoke](../../../v1.3.15/en/native/)
+- [v1.3.15 Native Source](../../../v1.3.15/en/native-1.3.15-src/)
 
-- [NativeObject](./NativeObject.md) (TBD)
+## Navigation
 
+- [v1.3.0 Home](../)
+- [v1.3.15 docs (recommended)](../../../v1.3.15/en/)

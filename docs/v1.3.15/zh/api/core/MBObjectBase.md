@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MBObjectBase`
+- [← 本领域 / 返回 core](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBObjectBase / MBObjectBase
 
 **Namespace**: TaleWorlds.ObjectSystem
@@ -9,6 +15,63 @@
 `MBObjectBase` 是游戏中所有可注册对象的基础类。从 XML 加载的物品、角色、文化等都是 `MBObjectBase` 的子类。它定义了对象的核心属性，如 `StringId` 和 `Id`，以及反序列化模式。
 
 `MBObjectBase` is the base class for all registerable objects in the game. Items, characters, cultures loaded from XML are all subclasses of `MBObjectBase`. It defines core properties like `StringId` and `Id`, as well as the deserialization pattern.
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 通过 StringId 查询已注册对象
+
+**场景**: 在运行时用 XML 中的 `id` 字符串取回物品、角色等定义。
+
+```csharp
+ItemObject item = Game.Current.ObjectManager.GetObject<ItemObject>("northern_sword");
+Hero template = Game.Current.ObjectManager.GetObject<Hero>("main_hero_template");
+```
+
+**要点**: `GetObject<T>` 是类型安全的查询入口；找不到返回 `null`，使用前应判空；泛型 `T` 必须是已通过 `RegisterType` 登记的类型。
+
+### 用例 2: 重写 Deserialize 解析自定义 XML 属性
+
+**场景**: 自定义 `MBObjectBase` 子类需要从 XML 读取自己的字段。
+
+```csharp
+public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+{
+    base.Deserialize(objectManager, node);  // 必须先调用，设置 StringId
+    if (node.Attributes["my_property"] != null)
+        MyProperty = Convert.ToInt32(node.Attributes["my_property"].Value);
+}
+```
+
+**要点**: 必须先调用 `base.Deserialize()`，否则 `StringId` 不会被设置；`XmlNode` 直接对应 XML 节点，复杂数据用 `node.SelectSingleNode`。
+
+### 用例 3: 用 AfterRegister 做对象间引用解析
+
+**场景**: 加载阶段对象可能尚未注册，需要等所有对象就绪后再解析引用。
+
+```csharp
+public override void AfterRegister()
+{
+    base.AfterRegister();
+    // 此时所有对象都已注册，可安全查询引用
+    _referencedItem = Game.Current.ObjectManager.GetObject<ItemObject>(_itemId);
+}
+```
+
+**要点**: `AfterRegister` 在对象注册到管理器后调用，所有同类型对象的 `Deserialize` 已完成；跨类型引用解析（如 ItemObject 引用 CultureObject）建议放到 `AfterInitialized`。
+
+### 用例 4: 用 Initialize 重置运行时状态
+
+**场景**: 重新初始化对象（如重置缓存、重算派生字段）。
+
+```csharp
+public override void Initialize()
+{
+    base.Initialize();  // 设置 IsInitialized = true
+    _cachedValue = ComputeDerived();
+}
+```
+
+**要点**: `Initialize` 设置 `IsInitialized = true`；派生字段计算放这里而非构造函数，因为此时 `Deserialize` 已完成、属性已就位；重写后必须调用 `base.Initialize()`。
 
 ## 重要属性 / Important Properties
 

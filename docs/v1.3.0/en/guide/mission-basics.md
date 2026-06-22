@@ -7,7 +7,7 @@ description: v1.3.0 Mission and MissionBehavior introduction
 
 **v1.3.0 Version**
 
-> Note: This page covers v1.3.0 Mission system basics. v1.3.15 has more features and APIs. For complete content, see [v1.3.15 Mission System](../../v1.3.15/en/guide/mission-system.md).
+> Note: This page covers v1.3.0 Mission system basics. v1.3.15 has more features and APIs. For complete content, see [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system.md).
 
 ## Overview
 
@@ -75,5 +75,5 @@ float health = agent.Health;
 
 ## Related Documentation
 
-- [v1.3.15 Mission System](../../v1.3.15/en/guide/mission-system.md)
-- [API Reference](../../api/mission/)
+- [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system.md)
+- [API Reference](../api/mission/)

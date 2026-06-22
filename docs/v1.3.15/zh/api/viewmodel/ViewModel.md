@@ -1,8 +1,94 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ViewModel`
+- [← 本领域 / 返回 viewmodel](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # ViewModel / ViewModel
 
 **Namespace**: TaleWorlds.Library
 **File**: `bannerlord-1.3.15/TaleWorlds.Library/ViewModel.cs`
 **Purpose**: MVVM 模式的数据绑定基类，支持 Gauntlet UI 的属性变更通知 / MVVM data binding base class with property change notification support for Gauntlet UI
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 创建自定义 ViewModel
+
+**场景**: 为 Gauntlet UI 界面提供数据绑定源。
+
+```csharp
+public class MyModVM : ViewModel
+{
+    private string _title;
+    [DataSourceProperty]
+    public string Title
+    {
+        get => _title;
+        set
+        {
+            if (_title != value)
+            {
+                _title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+    }
+}
+```
+
+**要点**: 继承 `ViewModel`；属性用 `[DataSourceProperty]` 标记；setter 中必须调 `OnPropertyChanged`，否则 UI 不更新。
+
+### 用例 2: 触发 UI 命令
+
+**场景**: UI 按钮点击时执行 mod 逻辑。
+
+```csharp
+public class MyModVM : ViewModel
+{
+    [DataSourceMethod]
+    public void OnConfirmButton()
+    {
+        // 处理确认按钮点击
+    }
+}
+```
+
+**要点**: UI 命令方法用 `[DataSourceMethod]` 标记；方法名需与 XML 中的绑定一致。
+
+### 用例 3: 通知 UI 值变化
+
+**场景**: 数值变化时同步更新 UI（无需手写 setter 模板）。
+
+```csharp
+public void UpdateGold(int newGold)
+{
+    OnPropertyChangedWithValue(newGold, nameof(CurrentGold));
+}
+```
+
+**要点**: `OnPropertyChangedWithValue<T>` 一次性完成设值与通知；有 `int`、`float`、`bool`、`string`、`Color`、`Vec2` 等重载。
+
+### 用例 4: 绑定集合到列表 UI
+
+**场景**: 在 Gauntlet 列表中显示动态数据。
+
+```csharp
+private readonly MBBindingList<ItemVM> _items = new MBBindingList<ItemVM>();
+[DataSourceProperty]
+public MBBindingList<ItemVM> Items => _items;
+
+// 添加项时
+_items.Add(new ItemVM(someData));
+OnPropertyChanged(nameof(Items)); // 通知 UI 刷新列表
+```
+
+**要点**: Gauntlet 列表绑定需用 `MBBindingList<T>`（位于 `TaleWorlds.Library`）；增删后必须触发 `OnPropertyChanged`。
+
+<!-- END DEV-USE-CASES -->
+
 
 ## 概述 / Overview
 

@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Module`
+- [← 本领域 / 返回 core](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Module / Module
 
 **Namespace**: TaleWorlds.MountAndBlade
@@ -9,6 +15,51 @@
 `Module` 是游戏的核心单例类，负责管理所有模组的加载、初始化和游戏状态。它在游戏启动时创建，是访问当前模组信息的主要入口。
 
 `Module` is the core singleton class responsible for managing all module loading, initialization, and game state. It is created at game startup and is the main entry point for accessing current module information.
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取当前模组并读取已加载 SubModule
+
+**场景**: 在运行时枚举所有已加载的 SubModule，用于依赖检测或冲突报告。
+
+```csharp
+Module module = Module.CurrentModule;
+MBReadOnlyList<MBSubModuleBase> subs = module.CollectSubModules();
+foreach (var sub in subs) { /* 检查 */ }
+```
+
+**要点**: `CurrentModule` 是单例访问点；`CollectSubModules` 返回只读快照，不要假设顺序与 SubModule.xml 完全一致（受依赖排序影响）。
+
+### 用例 2: 通过名称查找 SubModule 类型
+
+**场景**: 反射式定位某个 SubModule 以调用其方法。
+
+```csharp
+Type t = module.GetSubModuleType("MyMod");
+```
+
+**要点**: 名称对应 `SubModule.xml` 中 `AssemblyName`；未找到返回 `null`。
+
+### 用例 3: 访问全局文本与状态管理器
+
+**场景**: 注册自定义本地化字符串或读取当前游戏状态。
+
+```csharp
+GameTextManager text = module.GlobalTextManager;
+GameStateManager states = module.GlobalGameStateManager;
+```
+
+**要点**: `GlobalTextManager` 是注册 `GameText` 的入口；`GlobalGameStateManager` 在游戏未运行时也可访问（用于主菜单状态）。
+
+### 用例 4: 判断多人/单人模式
+
+**场景**: 行为分支需要按多人/单人走不同逻辑。
+
+```csharp
+if (module.MultiplayerRequested) { /* 多人逻辑 */ }
+```
+
+**要点**: `MultiplayerRequested` 在玩家选择多人模式后置位；判断当前是否真的在战斗中用 `Mission.Current != null`。
 
 ## 重要属性 / Important Properties
 

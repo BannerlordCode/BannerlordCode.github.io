@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `HintViewModel`
+- [← Area / Back to viewmodel](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # HintViewModel / HintViewModel
 
 **Namespace**: TaleWorlds.Core.ViewModelCollection.Information

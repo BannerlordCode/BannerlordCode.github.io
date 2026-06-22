@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `SaveManager`
+- [← Area / Back to save-system](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # SaveManager
 
 **Namespace:** TaleWorlds.SaveSystem  
@@ -5,6 +11,71 @@
 **Type:** static class
 
 The main entry point for all save and load operations in Bannerlord's save system. This static class provides methods to initialize the save system, check saveable types, and perform save and load operations.
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Mark a class as saveable
+
+**Scenario**: Your mod's custom class needs to persist in saves.
+
+```csharp
+[SaveableClass]
+public class MyModData
+{
+    [SaveableProperty(1)] public int Gold { get; set; }
+    [SaveableField(2)] private string _name;
+}
+```
+
+**Key points**: Use `[SaveableClass]` on the class; `[SaveableProperty(id)]` on properties, `[SaveableField(id)]` on fields; `id` must be unique within the class and stable (never reuse a deleted id in version updates).
+
+### Use Case 2: Save game state
+
+**Scenario**: Your mod triggers a manual save (e.g., after a key event).
+
+```csharp
+MetaData meta = new MetaData();
+meta["ModVersion"] = "1.0.0";
+SaveOutput result = SaveManager.Save(
+    Campaign.Current, meta, "mysave", SaveGameDriver);
+if (result.Success) { /* save succeeded */ }
+```
+
+**Key points**: `target` is typically `Campaign.Current`; `saveName` has no extension; errors are caught, not thrown — check `result.Success`.
+
+### Use Case 3: Read save metadata only
+
+**Scenario**: Check version compatibility before loading a full save.
+
+```csharp
+MetaData meta = SaveManager.LoadMetaData("mysave", SaveGameDriver);
+if (meta != null && meta.TryGetValue("ModVersion", out string ver))
+{
+    // check version compatibility
+}
+```
+
+**Key points**: `LoadMetaData` is much faster than `Load` — reads only the file header; returns `null` if the file doesn't exist.
+
+### Use Case 4: Load a save
+
+**Scenario**: Restore a previously saved game state.
+
+```csharp
+LoadResult result = SaveManager.Load("mysave", SaveGameDriver);
+if (result.Success)
+{
+    // result.LoadData() completes deserialization
+}
+```
+
+**Key points**: `Load` returns a `LoadResult`; `loadAsLateInitialize: true` spreads loading across frames for large saves.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Overview
 

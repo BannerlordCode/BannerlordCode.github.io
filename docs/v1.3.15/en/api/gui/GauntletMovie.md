@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `GauntletMovie`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # GauntletMovie / Gauntlet影片
 
 **Namespace**: TaleWorlds.GauntletUI.Data

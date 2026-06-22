@@ -1,8 +1,82 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Kingdom`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/Kingdom](/versions/Kingdom)
+<!-- END BREADCRUMB -->
 # Kingdom
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Kingdom.cs`  
 **Purpose**: Represents a kingdom faction in the game
+
+## Developer Use Cases
+
+### Use Case 1: Get the kingdom of a clan
+
+**Scenario**: Determine which kingdom a player or clan currently serves.
+
+```csharp
+Clan playerClan = Clan.PlayerClan;
+Kingdom kingdom = playerClan.Kingdom; // null for independent clans
+if (kingdom != null)
+{
+    Hero ruler = kingdom.Leader;
+}
+```
+
+**Key points**: Independent clans (including bandits) have `Kingdom == null`; `Leader` is the current ruler, `RulingClan` is the ruling clan.
+
+### Use Case 2: Create a new kingdom and initialize it
+
+**Scenario**: Player founds their own kingdom, or story requires a new one.
+
+```csharp
+Kingdom newKingdom = Kingdom.CreateKingdom("my_kingdom");
+newKingdom.InitializeKingdom(
+    new TextObject("My Kingdom"),
+    new TextObject("MyKingdom"),
+    culture,
+    banner,
+    0xFF0000FF, 0xFFFFFFFF,
+    homeSettlement,
+    new TextObject("Description"),
+    new TextObject("My Kingdom"),
+    new TextObject("King"));
+newKingdom.RulingClan = myClan;
+```
+
+**Key points**: `CreateKingdom` only creates a shell; you must call `InitializeKingdom` to populate metadata; skipping `RulingClan` breaks later political calculations.
+
+### Use Case 3: List all kingdoms and diplomacy
+
+**Scenario**: Iterate all kingdoms, find those at war with the player.
+
+```csharp
+foreach (Kingdom k in Kingdom.All)
+{
+    if (k.IsAtWarWith(Clan.PlayerClan))
+    {
+        float strength = k.CurrentTotalStrength;
+    }
+}
+```
+
+**Key points**: `Kingdom.All` is a static read-only list; `IsAtWarWith` accepts `IFaction` so you can compare a `Clan` directly; war state is maintained via `StanceLink`, call `UpdateFactionsAtWarWith()` if you need to refresh.
+
+### Use Case 4: Manage kingdom policies
+
+**Scenario**: Enable or disable a kingdom policy.
+
+```csharp
+if (!kingdom.HasPolicy(somePolicy))
+{
+    kingdom.AddPolicy(somePolicy);
+}
+```
+
+**Key points**: `AddPolicy` / `RemovePolicy` immediately affect derived calculations like influence; use `HasPolicy` to avoid double-adding.
 
 ## Key Properties
 

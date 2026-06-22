@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CharacterViewModel`
+- [← Area / Back to viewmodel](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # CharacterViewModel / CharacterViewModel
 
 **Namespace**: TaleWorlds.Core.ViewModelCollection

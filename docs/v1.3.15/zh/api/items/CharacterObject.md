@@ -1,9 +1,74 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `CharacterObject`
+- [← 本领域 / 返回 items](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # CharacterObject / 角色对象
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/CharacterObject.cs`  
 **Base Class**: BasicCharacterObject (TaleWorlds.Core)  
 **Purpose**: 战役模式中的角色定义,包括NPC、士兵、英雄等
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取玩家角色模板
+
+**场景**: 引用玩家角色对象，用于战斗场景生成或 UI 显示。
+
+```csharp
+CharacterObject player = CharacterObject.PlayerCharacter;
+// player.HeroObject 即对应的 Hero 实例
+Hero playerHero = player.HeroObject;
+```
+
+**要点**: `PlayerCharacter` 是静态属性；非英雄角色（普通兵种）的 `HeroObject` 为 `null`。
+
+### 用例 2: 从现有角色创建副本
+
+**场景**: 动态生成一个基于模板的角色（如雇佣兵、特殊 NPC）。
+
+```csharp
+CharacterObject template = MBObjectManager.Instance.GetObject<CharacterObject>("bandit_bandit");
+CharacterObject clone = CharacterObject.CreateFrom(template);
+// clone 有独立的装备与属性，但共享视觉资源
+```
+
+**要点**: `CreateFrom` 是静态工厂；传入 `staticBodyProperties` 可覆盖面部生成。
+
+### 用例 3: 读取角色的战斗装备
+
+**场景**: 检查或修改角色进入战斗时的装备。
+
+```csharp
+Equipment battleEquipment = character.FirstBattleEquipment;
+if (battleEquipment != null && battleEquipment.HasWeapon())
+{
+    // 角色有武器
+}
+```
+
+**要点**: `FirstBattleEquipment` 是只读副本；要修改装备需通过 `RandomBattleEquipment` 或在生成时设置。
+
+### 用例 4: 遍历对话中的角色
+
+**场景**: 在对话系统中处理参与者。
+
+```csharp
+foreach (CharacterObject c in CharacterObject.ConversationCharacters)
+{
+    // 处理对话场景中的每个角色
+}
+```
+
+**要点**: `ConversationCharacters` 仅在对话活跃期间有效；对话结束后集合为空。
+
+<!-- END DEV-USE-CASES -->
+
 
 ## 关键属性 / Key Properties
 

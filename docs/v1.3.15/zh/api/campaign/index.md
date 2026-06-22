@@ -15,6 +15,7 @@ Campaign system module documentation for v1.3.15.
 |------------|-------------------|
 | [Clan.md](./Clan.md) | 家族类 |
 | [Game.md](./Game.md) | 游戏主类 |
+| [Hero.md](./Hero.md) | 英雄/角色类 |
 | [Kingdom.md](./Kingdom.md) | 王国类 |
 | [MobileParty.md](./MobileParty.md) | 移动队伍类 |
 | [PartyBase.md](./PartyBase.md) | 队伍基类 |

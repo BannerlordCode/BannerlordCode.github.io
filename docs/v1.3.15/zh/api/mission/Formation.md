@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Formation`
+- [← 本领域 / 返回 mission](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Formation](/versions/Formation)
+<!-- END BREADCRUMB -->
 # Formation 类
 
 **命名空间**: TaleWorlds.MountAndBlade  
@@ -11,6 +18,54 @@
 - 每个 Formation 包含特定类型的单位(步兵、弓箭手、骑兵等)
 - Formation 控制单位的集体移动和排列
 - AI 使用 Formation 来协调群体行为
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取队伍的指定类型阵型
+
+**场景**: 战术判断中读取步兵/弓箭手阵型。
+
+```csharp
+Team team = Mission.Current.PlayerTeam;
+Formation infantry = team.GetFormation(FormationClass.Infantry);
+if (infantry != null && infantry.CountOfUnits > 0) { /* 处理 */ }
+```
+
+**要点**: `GetFormation` 对未使用的阵型类型返回非 null 但 `CountOfUnits == 0` 的实例；遍历所有阵型用 `FormationsIncludingSpecialAndEmpty`。
+
+### 用例 2: 转移单位到另一阵型
+
+**场景**: 把步兵调到骑兵阵型或重组部队。
+
+```csharp
+Formation src = team.GetFormation(FormationClass.Infantry);
+Formation dst = team.GetFormation(FormationClass.Cavalry);
+src.TransferUnits(dst, 10);
+```
+
+**要点**: `TransferUnits` 按数量转移；选择性转移用 `TransferUnitsAux(dst, n, isPlayerOrder: true, useSelectivePop: true)`；转移后阵型布局自动重算。
+
+### 用例 3: 查询阵型平均位置与战斗力
+
+**场景**: AI 或 HUD 读取阵型中心、距离敌人远近、总战力。
+
+```csharp
+Vec2 avg = formation.GetAveragePositionOfUnits(excludeDetachedUnits: false, excludePlayer: false);
+float power = formation.GetFormationPower();
+Formation closestEnemy = formation.CachedClosestEnemyFormation;
+```
+
+**要点**: `CachedClosestEnemyFormation` 是缓存值，同一帧内重复读取消耗低；需要详细比例数据用 `formation.QuerySystem.InfantryUnitPercentage` 等。
+
+### 用例 4: 设置阵型 AI 控制
+
+**场景**: 把阵型切回 AI 控制或夺取玩家控制权。
+
+```csharp
+formation.SetControlledByAI(isControlledByAI: true);
+```
+
+**要点**: `SetControlledByAI(true)` 让 TeamAI 接管；玩家手动指挥时设 `false`；切换会清空当前移动命令。
 
 ## 关键属性
 

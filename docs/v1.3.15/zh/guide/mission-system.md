@@ -267,7 +267,7 @@ myTeam.SetIsEnemyOf(enemyTeam, true);  // 设为敌人
 
 ### Formation
 
-``` 类
+```csharp
 // 创建阵型
 Formation formation = myTeam.CreateFormation("MyFormation");
 

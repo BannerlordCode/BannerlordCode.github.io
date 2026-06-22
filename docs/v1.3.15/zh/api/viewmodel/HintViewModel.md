@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `HintViewModel`
+- [← 本领域 / 返回 viewmodel](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # HintViewModel / HintViewModel
 
 **Namespace**: TaleWorlds.Core.ViewModelCollection.Information

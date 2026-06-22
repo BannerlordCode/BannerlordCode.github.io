@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MBObjectBase`
+- [← Area / Back to core](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBObjectBase / MBObjectBase
 
 **Namespace**: TaleWorlds.ObjectSystem
@@ -9,6 +15,63 @@
 `MBObjectBase` is the base class for all registerable objects in the game. Items, characters, cultures loaded from XML are all subclasses of `MBObjectBase`. It defines core properties like `StringId` and `Id`, as well as the deserialization pattern.
 
 `MBObjectBase` 是游戏中所有可注册对象的基础类。从 XML 加载的物品、角色、文化等都是 `MBObjectBase` 的子类。它定义了对象的核心属性，如 `StringId` 和 `Id`，以及反序列化模式。
+
+## Developer Use Cases
+
+### Use Case 1: Look up a registered object by StringId
+
+**Scenario**: At runtime retrieve an item, character, etc. definition by its XML `id` string.
+
+```csharp
+ItemObject item = Game.Current.ObjectManager.GetObject<ItemObject>("northern_sword");
+Hero template = Game.Current.ObjectManager.GetObject<Hero>("main_hero_template");
+```
+
+**Key points**: `GetObject<T>` is the type-safe lookup entry; returns `null` if not found — null-check before use; the generic `T` must be a type registered via `RegisterType`.
+
+### Use Case 2: Override Deserialize to parse custom XML attributes
+
+**Scenario**: A custom `MBObjectBase` subclass needs to read its own fields from XML.
+
+```csharp
+public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+{
+    base.Deserialize(objectManager, node);  // must call first, sets StringId
+    if (node.Attributes["my_property"] != null)
+        MyProperty = Convert.ToInt32(node.Attributes["my_property"].Value);
+}
+```
+
+**Key points**: Always call `base.Deserialize()` first — otherwise `StringId` is not set; `XmlNode` maps directly to the XML element; use `node.SelectSingleNode` for nested data.
+
+### Use Case 3: Resolve cross-object references in AfterRegister
+
+**Scenario**: During load, referenced objects may not yet be registered — defer reference resolution until all objects are ready.
+
+```csharp
+public override void AfterRegister()
+{
+    base.AfterRegister();
+    // All objects are registered here — safe to look up references
+    _referencedItem = Game.Current.ObjectManager.GetObject<ItemObject>(_itemId);
+}
+```
+
+**Key points**: `AfterRegister` is called after the object is registered to the manager; all objects of the same type have finished `Deserialize` by then; cross-type reference resolution (e.g., an ItemObject referencing a CultureObject) belongs in `AfterInitialized`.
+
+### Use Case 4: Reset runtime state in Initialize
+
+**Scenario**: Re-initialize an object (reset caches, recompute derived fields).
+
+```csharp
+public override void Initialize()
+{
+    base.Initialize();  // sets IsInitialized = true
+    _cachedValue = ComputeDerived();
+}
+```
+
+**Key points**: `Initialize` sets `IsInitialized = true`; put derived-field computation here rather than the constructor, because `Deserialize` has finished and properties are populated by then; always call `base.Initialize()` when overriding.
 
 ## Important Properties / 重要属性
 

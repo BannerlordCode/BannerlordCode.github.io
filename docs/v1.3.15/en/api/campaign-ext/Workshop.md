@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Workshop`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Workshop
 
 **Namespace**: TaleWorlds.CampaignSystem.Settlements.Workshops  

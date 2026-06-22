@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MBObjectManager`
+- [← 本领域 / 返回 core](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBObjectManager / MBObjectManager
 
 **Namespace**: TaleWorlds.ObjectSystem
@@ -9,6 +15,56 @@
 `MBObjectManager` 是游戏对象系统的核心，负责从 XML 文件加载数据、注册游戏对象、以及提供对象查询接口。它是一个单例类，通过 `MBObjectManager.Instance` 访问。
 
 `MBObjectManager` is the core of the game object system, responsible for loading data from XML files, registering game objects, and providing object query interfaces. It is a singleton class accessed via `MBObjectManager.Instance`.
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 注册自定义类型并从 XML 加载
+
+**场景**: 模组定义新的 `MBObjectBase` 子类，需要让它能从 XML 读取。
+
+```csharp
+// 在 RegisterSubModuleObjects 回调中
+objectManager.RegisterType<MyCustomObject>(
+    "MyCustomObject", "MyCustomObjects", 1500, autoCreateInstance: true);
+```
+
+**要点**: `classPrefix` 与 `classListPrefix` 必须与 XML 根元素名一致；`typeId` 必须全局唯一（建议 > 1000 避开官方占位）；`autoCreateInstance: true` 让管理器自动 new 对象。
+
+### 用例 2: 通过 StringId 取回对象
+
+**场景**: 用 XML 中的 `id` 字符串查询具体对象实例。
+
+```csharp
+ItemObject sword = objectManager.GetObject<ItemObject>("northern_sword");
+CultureObject empire = objectManager.GetObject<CultureObject>("empire");
+```
+
+**要点**: `GetObject<T>(string)` 找不到返回 `null`，调用前应判空；泛型 `T` 必须是已注册类型；避免在热路径上重复查询，建议缓存引用。
+
+### 用例 3: 用谓词批量查询对象
+
+**场景**: 筛选满足条件的对象集合（如某文化下的所有物品）。
+
+```csharp
+MBReadOnlyList<ItemObject> empireItems = objectManager.GetObjects<ItemObject>(
+    item => item.Culture != null && item.Culture.StringId == "empire");
+// 取全部
+MBReadOnlyList<CharacterObject> allChars = objectManager.GetObjectTypeList<CharacterObject>();
+```
+
+**要点**: `GetObjects` 返回新分配的只读列表，避免每帧调用；只取一次的批量查询用 `GetObjectTypeList`（更高效，直接返回内部列表的只读视图）。
+
+### 用例 4: 创建运行时对象并注册
+
+**场景**: 程序化生成新对象（如动态物品、临时角色）。
+
+```csharp
+MyCustomObject newObj = objectManager.CreateObject<MyCustomObject>("dynamic_obj_1");
+newObj.SomeProperty = 42;
+// 已自动注册到管理器，可被 GetObject 查询到
+```
+
+**要点**: `CreateObject` 自动分配 `StringId` 并完成注册；若 `stringId` 已存在会抛异常；运行时创建的对象不会自动进存档，需配合 `SaveManager` 自行处理。
 
 ## 重要属性 / Important Properties
 

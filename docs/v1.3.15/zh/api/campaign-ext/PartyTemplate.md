@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `PartyTemplate`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # PartyTemplateObject / 队伍模板
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  

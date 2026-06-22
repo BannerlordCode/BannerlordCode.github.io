@@ -1,8 +1,72 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `TextObject`
+- [← 本领域 / 返回 localization](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # TextObject / TextObject
 
 **Namespace**: TaleWorlds.Localization
 **File**: `bannerlord-1.3.15/TaleWorlds.Localization/TextObject.cs`
 **Purpose**: 核心文本容器，支持变量替换和属性管理 / Core text container with variables and attributes
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 创建本地化文本
+
+**场景**: 显示一条支持多语言的提示信息。
+
+```csharp
+TextObject msg = new TextObject("{=MyMod_Greeting}Hello, {NAME}!");
+msg.SetTextVariable("NAME", Hero.MainHero.Name);
+InformationManager.DisplayMessage(new InformationMessage(msg.ToString()));
+```
+
+**要点**: `{=key}` 前缀是翻译键，游戏会从 `module_strings.xml` 查找对应翻译；`SetTextVariable` 替换 `{NAME}` 占位符。
+
+### 用例 2: 使用数值变量
+
+**场景**: 显示带数字的文本（如金币变化）。
+
+```csharp
+TextObject goldMsg = new TextObject("获得 {GOLD} 金币。");
+goldMsg.SetTextVariable("GOLD", 500);
+// 或直接用 int 重载
+goldMsg.SetTextVariable("GOLD", 500);
+```
+
+**要点**: `SetTextVariable` 有 `int`、`float`、`string`、`TextObject` 重载；`float` 重载可选小数位数。
+
+### 用例 3: 检查文本是否为空
+
+**场景**: 在显示前验证文本对象有效性。
+
+```csharp
+if (!TextObject.IsNullOrEmpty(myText))
+{
+    // 安全显示
+}
+```
+
+**要点**: `IsNullOrEmpty` 是静态方法；`GetEmpty()` 返回一个共享的空实例（避免重复 new）。
+
+### 用例 4: 嵌套文本变量
+
+**场景**: 文本中引用另一个文本对象（如带链接的角色名）。
+
+```csharp
+TextObject heroName = Hero.MainHero.Name; // 已是 TextObject
+TextObject msg = new TextObject("{HERO} 加入了你的队伍。");
+msg.SetTextVariable("HERO", heroName);
+```
+
+**要点**: `SetTextVariable(string, TextObject)` 支持嵌套；`heroName` 的翻译键会被一并解析。
+
+<!-- END DEV-USE-CASES -->
+
 
 ## 概述 / Overview
 

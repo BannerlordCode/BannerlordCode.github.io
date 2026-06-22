@@ -1,0 +1,72 @@
+---
+title: DiplomacyModel 跨版本对比 / Cross-Version Comparison
+sidebar: auto
+---
+
+# DiplomacyModel
+
+本页比较 `DiplomacyModel` 在 **1.3.0 / 1.3.15 / 1.4.5** 三个版本的可访问 API 变化（public/protected/internal，不含 private），数据由 [`tools/class-version-diff.mjs`](https://github.com/BannerlordCode/BannerlordCode.github.io/tree/main/tools/class-version-diff.mjs) 从源码自动提取。
+
+This page compares the accessible API of `DiplomacyModel` across **1.3.0 / 1.3.15 / 1.4.5** (public/protected/internal, excluding private), extracted from source by `tools/class-version-diff.mjs`.
+
+::: tip 重新生成 / Regenerate
+源码更新后，在仓库根目录运行：`node BannerlordCode.github.io/tools/gen-version-pages.mjs`
+After source updates, run from repo root: `node BannerlordCode.github.io/tools/gen-version-pages.mjs`
+:::
+
+## 对 modder 的影响 / Impact for modders
+
+**中文：** 1.4.5 新增 `WarDeclarationScorePenaltyAgainstTradePartners`；移除 `WarDeclarationScorePenaltyAgainstAllies`、`WarDeclarationScoreBonusAgainstEnemiesOfAllies`。宣战评分重平衡——以贸易伙伴关系为核心，替代旧的盟友/敌人关系权重。
+
+**English:** 1.4.5 adds `WarDeclarationScorePenaltyAgainstTradePartners`; removes `WarDeclarationScorePenaltyAgainstAllies`, `WarDeclarationScoreBonusAgainstEnemiesOfAllies`. War-declaration scoring was rebalanced around trade-partner relations, replacing the old ally/enemy weights.
+
+---
+
+
+> 自动生成自源码 API 提取（`tools/class-version-diff.mjs`）。比较 1.3.0 / 1.3.15 / 1.4.5 的可访问成员签名（public/protected/internal，不含 private）。
+
+## 源文件与声明 / Source files & declaration
+
+| 版本 Version | 文件 File | 行数 Lines |
+|------|------|------|
+| 1.3.0 | `bannerlord-1.3.0/TaleWorlds.CampaignSystem/ComponentInterfaces/DiplomacyModel.cs` | 221 |
+| 1.3.15 | `bannerlord-1.3.15/TaleWorlds.CampaignSystem/ComponentInterfaces/DiplomacyModel.cs` | 224 |
+| 1.4.5 | `bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DiplomacyModel.cs` | 144 |
+
+**类声明 / Class declaration:**
+- **1.3.0:** `public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>`
+- **1.3.15:** `public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>`
+- **1.4.5:** `public abstract class DiplomacyModel : MBGameModel<DiplomacyModel>`
+
+## 成员数量 / Member counts
+
+| 版本 Version | 成员数 Members (excl. private) |
+|------|------|
+| 1.3.0 | 62 |
+| 1.3.15 | 63 |
+| 1.4.5 | 62 |
+
+## 1.3.0 → 1.3.15 变化 / Changes
+
+**新增 Added (1):** `GetWarProgressScore`
+
+**移除 Removed (0):** 无 none
+
+## 1.3.15 → 1.4.5 变化 / Changes
+
+**新增 Added (1):** `WarDeclarationScorePenaltyAgainstTradePartners`
+
+**移除 Removed (2):** `WarDeclarationScorePenaltyAgainstAllies`, `WarDeclarationScoreBonusAgainstEnemiesOfAllies`
+
+### 1.4.5 新增成员签名 / Added in 1.4.5
+
+| 成员 Member | 类型 Kind | 签名 Signature |
+|------|------|------|
+| `WarDeclarationScorePenaltyAgainstTradePartners` | property | `public abstract float WarDeclarationScorePenaltyAgainstTradePartners { get` |
+
+### 1.4.5 移除成员签名 / Removed in 1.4.5 (存在于 1.3.15)
+
+| 成员 Member | 类型 Kind | 签名 Signature |
+|------|------|------|
+| `WarDeclarationScorePenaltyAgainstAllies` | property | `public abstract float WarDeclarationScorePenaltyAgainstAllies { get` |
+| `WarDeclarationScoreBonusAgainstEnemiesOfAllies` | property | `public abstract float WarDeclarationScoreBonusAgainstEnemiesOfAllies { get` |

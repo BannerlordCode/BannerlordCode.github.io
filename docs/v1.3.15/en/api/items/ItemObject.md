@@ -1,8 +1,84 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ItemObject`
+- [← Area / Back to items](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/ItemObject](/versions/ItemObject)
+<!-- END BREADCRUMB -->
 # ItemObject
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/ItemObject.cs`  
 **Purpose**: Base class for all items in the game, including weapons, armor, horses, shields, and more
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Get an item by StringId
+
+**Scenario**: Look up an item defined in XML for mod startup initialization or runtime reference.
+
+```csharp
+ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("northern_sword");
+if (sword != null && sword.IsFood)
+{
+    // process food item
+}
+```
+
+**Key points**: `GetObject<T>` returns `null` if not found — always null-check. `StringId` is the `id` attribute in XML.
+
+### Use Case 2: Iterate all items of a category
+
+**Scenario**: Enumerate or modify all weapon-type items.
+
+```csharp
+foreach (ItemObject item in MBObjectManager.Instance.GetObjectTypeList<ItemObject>())
+{
+    if (item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
+    {
+        // modify one-handed weapons
+    }
+}
+```
+
+**Key points**: `GetObjectTypeList<T>` returns the live registry — do not modify during iteration.
+
+### Use Case 3: Read weapon component data
+
+**Scenario**: Query a weapon's damage values, swing speed, etc.
+
+```csharp
+ItemObject weapon = MBObjectManager.Instance.GetObject<ItemObject>("empire_sword_1_t2");
+if (weapon?.WeaponComponent != null)
+{
+    foreach (WeaponComponentData wcd in weapon.WeaponComponent.Weapons)
+    {
+        int swingDamage = wcd.SwingDamageType; // DamageTypes enum
+        int thrustDamage = wcd.ThrustDamage;
+    }
+}
+```
+
+**Key points**: `WeaponComponent` is `null` for non-weapon items; `WeaponComponentData` is in the `TaleWorlds.Core` namespace.
+
+### Use Case 4: Check if an item is civilian
+
+**Scenario**: Distinguish civilian vs battle equipment when entering town scenes.
+
+```csharp
+if (item.IsCivilian)
+{
+    // this item can be equipped in civilian scenes
+}
+```
+
+**Key points**: `IsCivilian` is controlled by the XML `is_civilian` attribute; mod-added items must set it explicitly.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Key Properties
 

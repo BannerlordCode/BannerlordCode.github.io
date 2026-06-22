@@ -1,0 +1,37 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `OrderOfBattleFormationClassLockBrushWidget`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# OrderOfBattleFormationClassLockBrushWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class OrderOfBattleFormationClassLockBrushWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/OrderOfBattle/OrderOfBattleFormationClassLockBrushWidget.cs`
+
+## 概述
+
+`OrderOfBattleFormationClassLockBrushWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsLocked` | `public bool IsLocked { get; set; }` |
+| `LockedBrush` | `public Brush LockedBrush { get; set; }` |
+| `UnlockedBrush` | `public Brush UnlockedBrush { get; set; }` |
+
+## 使用示例
+
+```csharp
+// OrderOfBattleFormationClassLockBrushWidget (Widget) 的典型用法
+// 声明/访问一个 OrderOfBattleFormationClassLockBrushWidget
+var widget = root.GetChild("orderOfBattleFormationClassLockBrushWidget");;
+```
+
+## 参见
+
+- [完整类目录](../catalog)

@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Mission`
+- [← 本领域 / 返回 mission](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Mission](/versions/Mission)
+<!-- END BREADCRUMB -->
 # Mission 类
 
 **命名空间**: TaleWorlds.MountAndBlade  
@@ -12,6 +19,65 @@
 - Formation(阵型)的控制
 - 物理模拟和碰撞检测
 - 任务逻辑(MissionLogic)和行为(MissionBehavior)的执行
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 添加自定义 MissionBehavior
+
+**场景**: 在战斗中插入每帧逻辑或响应 Agent 受伤等事件。
+
+```csharp
+public class MyBehavior : MissionLogic
+{
+    public override void OnMissionTick(float dt) { /* 每帧逻辑 */ }
+    public override void OnAgentHit(Agent affected, Agent affector,
+        in MissionWeapon weapon, in Blow blow, in AttackCollisionData c) { }
+}
+
+Mission.Current.AddMissionBehavior(new MyBehavior());
+```
+
+**要点**: 继承 `MissionLogic`（它派生自 `MissionBehavior`）；用 `AddMissionBehavior` 在任务创建后挂载；移除用 `RemoveMissionBehavior`。
+
+### 用例 2: 获取玩家 Agent 与遍历所有 Agent
+
+**场景**: 在战斗逻辑中定位玩家或扫描所有单位。
+
+```csharp
+Agent main = Mission.Current.MainAgent;
+foreach (Agent a in Mission.Current.Agents)
+{
+    if (a.IsActive()) { /* 处理 */ }
+}
+```
+
+**要点**: `MainAgent` 在观战或死亡后可能为 `null`；`Agents` 是只读列表；`IsActive()` 是方法不是属性。
+
+### 用例 3: 生成自定义 Agent
+
+**场景**: 用 `AgentBuildData` 构造并生成一个新战斗单位。
+
+```csharp
+var data = new AgentBuildData(characterObject);
+data.InitFrame(initialPosition, initialDirection);
+data.Team(team);
+data.Controller(Agent.ControllerType.Create);
+Agent spawned = Mission.Current.SpawnAgent(data);
+```
+
+**要点**: `SpawnAgent` 接受 `AgentBuildData`；`Controller(Agent.ControllerType.Create)` 是生成非玩家单位的推荐值；生成后用 `OnAgentCreated` 回调挂载自定义组件。
+
+### 用例 4: 获取某一阵营的队伍
+
+**场景**: 读取攻击方/防守方队伍用于战术判断。
+
+```csharp
+Team attackers = Mission.Current.AttackerTeam;
+Team defenders = Mission.Current.DefenderTeam;
+Team playerTeam = Mission.Current.PlayerTeam;
+```
+
+**要点**: `AttackerTeam` / `DefenderTeam` / `PlayerTeam` / `PlayerAllyTeam` / `PlayerEnemyTeam` 是直接属性；通用查询用 `Mission.Current.GetTeam(TeamSideEnum.Attacker)`。
 
 ## 关键属性
 

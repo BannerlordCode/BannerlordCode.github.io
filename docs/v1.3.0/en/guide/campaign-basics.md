@@ -7,7 +7,7 @@ description: v1.3.0 MobileParty, Kingdom introduction
 
 **v1.3.0 Version**
 
-> Note: This page covers v1.3.0 Campaign system basics. v1.3.15 has more features. For complete content, see [v1.3.15 Campaign System](../../v1.3.15/en/guide/campaign-system.md).
+> Note: This page covers v1.3.0 Campaign system basics. v1.3.15 has more features. For complete content, see [v1.3.15 Campaign System](../../../v1.3.15/en/guide/campaign-system.md).
 
 ## Overview
 
@@ -86,5 +86,5 @@ Town nearestTown = Settlement.FindNearestTown(position);
 
 ## Related Documentation
 
-- [v1.3.15 Campaign System](../../v1.3.15/en/guide/campaign-system.md)
-- [API Reference](../../api/campaign/)
+- [v1.3.15 Campaign System](../../../v1.3.15/en/guide/campaign-system.md)
+- [API Reference](../api/campaign/)

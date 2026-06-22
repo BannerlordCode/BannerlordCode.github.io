@@ -1,8 +1,66 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `PartyBase`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # PartyBase
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/PartyBase.cs`  
 **Purpose**: Base class for all parties (both mobile and static settlements)
+
+## Developer Use Cases
+
+### Use Case 1: Distinguish MobileParty vs Settlement
+
+**Scenario**: Handle an object that may be either a `MobileParty` or a `Settlement` behind the same interface.
+
+```csharp
+PartyBase p = someParty;
+if (p.IsMobile)
+{
+    MobileParty mobile = p.MobileParty;
+}
+else if (p.IsSettlement)
+{
+    Settlement set = p.Settlement;
+}
+```
+
+**Key points**: `IsMobile` / `IsSettlement` are mutually exclusive but neither guarantees non-null; always pair the check with the `MobileParty` or `Settlement` property.
+
+### Use Case 2: Get the party position on the map
+
+**Scenario**: Read party coordinates inside a campaign behavior for distance checks.
+
+```csharp
+CampaignVec2 pos = party.Position;
+```
+
+**Key points**: `Position` is `CampaignVec2` (map coordinates, not 3D world coordinates); settlements also expose this property with their map location.
+
+### Use Case 3: Add members or prisoners
+
+**Scenario**: After recruiting or capturing, modify the party rosters.
+
+```csharp
+CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
+party.AddMember(troop, 10);
+party.AddPrisoner(capturedTroop, 5);
+```
+
+**Key points**: `AddMember` / `AddPrisoner` directly mutate `MemberRoster` / `PrisonRoster`; for bulk operations use `AddMembers(TroopRoster)` to reduce recalculation.
+
+### Use Case 4: Set a custom party name
+
+**Scenario**: Show a temporary name on the player or a custom party.
+
+```csharp
+party.SetCustomName(new TextObject("{=my_party}My Raiders"));
+```
+
+**Key points**: `SetCustomName` overrides the default name; pass `null` to clear and revert to default. `TextObject` supports the `{=id}` localization format.
 
 ## Key Properties
 

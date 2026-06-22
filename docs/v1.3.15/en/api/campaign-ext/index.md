@@ -16,4 +16,11 @@ v1.3.15 Campaign extended module documentation.
 | [Campaign.md](./Campaign.md) | Campaign main class |
 | [PartyTemplate.md](./PartyTemplate.md) | Party template class |
 | [Settlement.md](./Settlement.md) | Settlement class |
+| [Town.md](./Town.md) | Town / castle class |
 | [Workshop.md](./Workshop.md) | Workshop class |
+| [CultureObject.md](./CultureObject.md) | Culture / faction template class |
+| [Village.md](./Village.md) | Village class |
+| [CampaignBehaviorBase.md](./CampaignBehaviorBase.md) | Campaign behavior base class |
+| [HeroDeveloper.md](./HeroDeveloper.md) | Character progression developer |
+| [PerkObject.md](./PerkObject.md) | Perk class |
+| [TraitObject.md](./TraitObject.md) | Trait class |

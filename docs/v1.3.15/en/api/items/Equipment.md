@@ -1,8 +1,75 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Equipment`
+- [← Area / Back to items](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Equipment
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/Equipment.cs`  
 **Purpose**: Manages character equipment slots, including weapon and armor equipment positions
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## Developer Use Cases
+
+### Use Case 1: Read equipment from a slot
+
+**Scenario**: Query the item in a specific slot (e.g., primary weapon, helmet).
+
+```csharp
+Equipment eq = character.FirstBattleEquipment;
+EquipmentElement weapon = eq.GetEquipmentFromSlot(EquipmentIndex.Weapon0);
+if (!weapon.IsEmpty)
+{
+    ItemObject item = weapon.Item;
+    // process weapon item
+}
+```
+
+**Key points**: `GetEquipmentFromSlot` returns an `EquipmentElement` (includes item and modifier); empty slots return an `EquipmentElement` whose `IsEmpty` is `true`.
+
+### Use Case 2: Check for a specific weapon class
+
+**Scenario**: Determine if a character has a polearm or bow equipped.
+
+```csharp
+if (equipment.HasWeaponOfClass(WeaponClass.Polearm))
+{
+    // character has a polearm equipped
+}
+```
+
+**Key points**: `WeaponClass` is an enum in `TaleWorlds.Core`; `HasWeapon()` only checks for any weapon.
+
+### Use Case 3: Copy from another Equipment
+
+**Scenario**: Clone a character's equipment to a new object.
+
+```csharp
+var newEquipment = new Equipment();
+newEquipment.FillFrom(sourceEquipment, useSourceEquipmentType: true);
+```
+
+**Key points**: `FillFrom` is a deep copy; `useSourceEquipmentType` controls whether to copy civilian/battle flags.
+
+### Use Case 4: Check if equipment is empty
+
+**Scenario**: Validate that a newly spawned character has been properly equipped.
+
+```csharp
+if (equipment.IsEmpty())
+{
+    // equipment is empty, needs initialization
+}
+```
+
+**Key points**: `IsEmpty()` checks all slots; to check a single slot, use `GetEquipmentFromSlot` then check `IsEmpty`.
+
+<!-- END DEV-USE-CASES -->
+
 
 ## Equipment Slots
 

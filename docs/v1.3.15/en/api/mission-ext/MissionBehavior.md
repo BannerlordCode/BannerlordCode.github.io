@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MissionBehavior`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/MissionBehavior](/versions/MissionBehavior)
+<!-- END BREADCRUMB -->
 # MissionBehavior
 
 ## Class Overview

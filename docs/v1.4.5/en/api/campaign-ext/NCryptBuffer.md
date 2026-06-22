@@ -1,0 +1,16 @@
+# NCryptBuffer
+
+**Namespace:** Jose.native
+**Module:** Jose.native
+**Type:** class
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `NCryptBuffer` is a class in the `Jose.native` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

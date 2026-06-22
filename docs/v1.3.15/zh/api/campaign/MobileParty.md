@@ -1,8 +1,62 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MobileParty`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/MobileParty](/versions/MobileParty)
+<!-- END BREADCRUMB -->
 # MobileParty / 移动派对
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/MobileParty.cs`  
 **Purpose**: Moving parties on the map (armies, caravans, villagers, etc.)
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取玩家主队伍并读取位置/速度
+
+**场景**: 在地图事件或大地图行为中读取玩家队伍的当前状态。
+
+```csharp
+MobileParty main = MobileParty.MainParty;
+CampaignVec2 pos = main.Position;
+float speed = main.Speed;
+```
+
+**要点**: `MainParty` 是静态快捷访问；位置用 `CampaignVec2`，速度读 `Speed`、需要归因分析时用 `SpeedExplained`。
+
+### 用例 2: 设置 AI 行为目标并指向定居点
+
+**场景**: 让一支队伍去袭击或前往某定居点。
+
+```csharp
+main.DefaultBehavior = AiBehavior.RaidSettlement;
+main.SetTargetSettlement(targetTown, isTargetingPort: false);
+```
+
+**要点**: `DefaultBehavior` 与 `SetTargetSettlement` 必须配合使用，单独设置行为而没有目标会导致 AI 原地不动。
+
+### 用例 3: 给队伍添加部队
+
+**场景**: 招募士兵后把 `CharacterObject` 加到队伍 `MemberRoster`。
+
+```csharp
+CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
+mainParty.Party.AddMember(troop, 10);
+```
+
+**要点**: `MobileParty.Party` 是 `PartyBase`，`AddMember` 直接修改 `MemberRoster`；`MobileParty` 本身没有 `AddMember`。
+
+### 用例 4: 指派队伍角色（医生/斥候等）
+
+**场景**: 让某个同伴担任队伍外科医生。
+
+```csharp
+mainParty.SetPartySurgeon(companionHero);
+Hero effective = mainParty.EffectiveSurgeon; // 无指定时回退到领袖
+```
+
+**要点**: `SetPartyScout/Engineer/Quartermaster/Surgeon` 会覆盖自动派任；读取实际生效者用 `Effective*` 属性。
 
 ## 关键属性 / Key Properties
 

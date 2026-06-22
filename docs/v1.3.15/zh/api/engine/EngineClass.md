@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `EngineClass`
+- [← 本领域 / 返回 engine](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # EngineClass / EngineClass
 
 **Namespace**: TaleWorlds.DotNet

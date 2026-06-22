@@ -11,6 +11,10 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 
 ## 内容导航 / Navigation
 
+::: tip 推荐起点
+第一次接触？先读 [SDK 总览 — 模块地图与分层架构](./architecture/sdk-overview) 建立大局观。
+:::
+
 - [指南 / Guide](./guide/)
 - [API 参考 / API Reference](./api/)
 - [XML 参考 / XML Reference](./xml-reference/)

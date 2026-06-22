@@ -17,8 +17,9 @@ Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
 
 | 版本 | 状态 | 说明 |
 |------|------|------|
-| **v1.3.15** | 最新 / Latest | SaveSystem 重构，47 个 TaleWorlds 模块 |
-| **v1.3.0** | 早期 / Earlier | 基础文档，23 个 TaleWorlds 模块 |
+| **v1.3.15** | 最新 / Latest | SaveSystem 重构，54 个 TaleWorlds 模块，完整文档 |
+| **v1.4.5** | 整理中 / In prep | 65 个 DLL，多人/自定义战斗拆分（源码反编译中）|
+| **v1.3.0** | 早期 / Earlier | 基础文档，31 个模块，含 SandBox/StoryMode |
 
 ## 文档内容 / Documentation Contents
 
@@ -48,8 +49,11 @@ Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
 - 引擎核心、渲染、动画、物理、音频、网络、任务和场景分类索引
 
 ### 架构文档 / Architecture
+- ⭐ SDK 总览（模块地图）/ SDK Overview (module map) — 分层架构与 mod 入口
 - 模块系统 (Module System)
 - 存档系统 (Save System)
+- 版本差异 (Version Delta) — v1.3.0 / v1.3.15 / v1.4.5 模块级对照
+- 🔀 跨版本类对比 (Cross-Version Class Compare) — 同一类在三个版本的 API 变化，源码自动提取 + modder 影响标注
 
 ### XML 参考 / XML Reference
 - Bug 分析 (Bug Analysis)
@@ -101,10 +105,16 @@ BannerlordCode.github.io/
 │   │   └── en/              # 英文
 │   │       └── native-1.3.15-src/  # Native DLL decompiled source reference
 │   ├── v1.3.0/              # v1.3.0 文档
-│       ├── zh/
-│       └── en/
+│   │   ├── zh/
+│   │   └── en/
+│   ├── v1.4.5/              # v1.4.5 文档（模块清单 + 源码布局）
+│   ├── versions/            # 🔀 跨版本类对比（源码自动生成）
 │   └── .vitepress/          # VitePress 配置
 │       └── config.js        # 导航、侧边栏配置
+└── tools/                    # 审计/构建辅助
+    ├── audit-links.mjs             # 断链检查
+    ├── class-version-diff.mjs      # 跨版本类 API 差异提取
+    └── gen-version-pages.mjs       # 重新生成 versions/ 页面
 ```
 
 ## 部署 / Deployment

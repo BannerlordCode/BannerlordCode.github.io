@@ -1,15 +1,16 @@
 ---
-title: 原生接口 / Native Reference
-description: 与原生 C++ 引擎交互的接口 / Interfaces for interacting with native C++ engine
+title: 原生接口 / Native Interface (v1.3.0)
+description: v1.3.0 原生 P/Invoke 接口
 ---
 
-# 原生接口 / Native Reference
+# 原生接口 / Native Interface (v1.3.0)
 
-通过 P/Invoke 与原生引擎交互的文档。
+v1.3.0 的原生接口文档较为简略。完整的 P/Invoke 接口与 `NativeObject`、`INativeArray` 等类型参考请见 v1.3.15：
 
-Documentation for interacting with native engine via P/Invoke.
+- [v1.3.15 原生接口 P/Invoke](../../../v1.3.15/zh/native/)
+- [v1.3.15 Native 源码](../../../v1.3.15/zh/native-1.3.15-src/)
 
-## 目录 / Contents
+## 导航
 
-- [NativeObject](./NativeObject.md) (待添加 / TBD)
-
+- [v1.3.0 首页](../)
+- [v1.3.15 文档（推荐）](../../../v1.3.15/zh/)

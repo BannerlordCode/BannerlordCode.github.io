@@ -1,3 +1,10 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MissionBehavior`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/MissionBehavior](/versions/MissionBehavior)
+<!-- END BREADCRUMB -->
 # MissionBehavior
 
 ## 类概述

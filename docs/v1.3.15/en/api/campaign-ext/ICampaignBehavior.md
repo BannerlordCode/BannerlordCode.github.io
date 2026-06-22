@@ -1,0 +1,22 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ICampaignBehavior`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# ICampaignBehavior
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** interface
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `ICampaignBehavior` is a interface in the `TaleWorlds.CampaignSystem` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

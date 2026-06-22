@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MBSubModuleBase`
+- [← Area / Back to core](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBSubModuleBase / MBSubModuleBase
 
 **Namespace**: TaleWorlds.MountAndBlade
@@ -33,6 +39,68 @@ Game startup call order:
 6. `OnCampaignStart(Game, object)` - 战役开始时调用
 7. `OnMissionBehaviorInitialize(Mission)` - 任务行为初始化时调用
 8. `OnApplicationTick(float)` - 每帧调用（游戏循环中）
+
+## Developer Use Cases
+
+### Use Case 1: Implement OnSubModuleLoad for one-time initialization
+
+**Scenario**: Run one-time initialization right after the mod DLL loads (register Harmony patches, read config).
+
+```csharp
+protected override void OnSubModuleLoad()
+{
+    base.OnSubModuleLoad();
+    // Harmony patches, config reads, one-time initialization
+}
+```
+
+**Key points**: `OnSubModuleLoad` is called during the SubModule load phase — `Game.Current` is not yet created; do not access campaign/mission objects here; mount Harmony patches here.
+
+### Use Case 2: Register CampaignBehavior in OnGameStart
+
+**Scenario**: Inject a custom campaign behavior into `Campaign` when the game starts.
+
+```csharp
+protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    base.OnGameStart(game, starter);
+    if (game.GameType is CampaignGameType)
+    {
+        starter.AddModel(new MyCampaignBehavior());
+    }
+}
+```
+
+**Key points**: Always check `game.GameType is CampaignGameType` — otherwise the behavior gets injected into the wrong game type (e.g., custom battle); `IGameStarter.AddModel` is the standard entry for registering behaviors/models.
+
+### Use Case 3: Add a MissionBehavior in OnMissionBehaviorInitialize
+
+**Scenario**: Attach a custom battle behavior when a mission initializes.
+
+```csharp
+public override void OnMissionBehaviorInitialize(Mission mission)
+{
+    base.OnMissionBehaviorInitialize(mission);
+    mission.AddMissionBehavior(new MyMissionBehavior());
+}
+```
+
+**Key points**: This callback fires for every mission created; filter by `mission.MissionName` for specific mission types; Agents are not yet spawned here — only register behaviors.
+
+### Use Case 4: Register saveable objects via RegisterSubModuleObjects
+
+**Scenario**: A custom `MBObjectBase` subclass needs to load from XML and persist in saves.
+
+```csharp
+public override void RegisterSubModuleObjects(bool isSavedCampaign)
+{
+    base.RegisterSubModuleObjects(isSavedCampaign);
+    Game.Current.ObjectManager.RegisterType<MyCustomObject>(
+        "MyCustomObject", "MyCustomObjects", 500, autoCreateInstance: true);
+}
+```
+
+**Key points**: `RegisterType` registers the type with the object manager so it can load from XML; the `typeId` must be globally unique (recommend > 1000 to avoid clashing with the official types).
 
 ## Important Methods / 重要方法
 

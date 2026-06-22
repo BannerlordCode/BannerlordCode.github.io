@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ItemModifier`
+- [← 本领域 / 返回 items](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # ItemModifier / 物品修改器
 
 **Namespace**: TaleWorlds.Core  

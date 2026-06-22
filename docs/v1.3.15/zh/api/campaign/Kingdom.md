@@ -1,8 +1,82 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Kingdom`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/Kingdom](/versions/Kingdom)
+<!-- END BREADCRUMB -->
 # Kingdom / 王国
 
 **Namespace**: TaleWorlds.CampaignSystem  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Kingdom.cs`  
 **Purpose**: Represents a kingdom faction in the game
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取某家族所属王国
+
+**场景**: 判断玩家或某家族当前效忠哪个王国。
+
+```csharp
+Clan playerClan = Clan.PlayerClan;
+Kingdom kingdom = playerClan.Kingdom; // 独立家族为 null
+if (kingdom != null)
+{
+    Hero ruler = kingdom.Leader;
+}
+```
+
+**要点**: 独立家族（包括匪盗）`Kingdom` 为 `null`；`Leader` 是当前统治者，`RulingClan` 是统治家族。
+
+### 用例 2: 创建新王国并初始化
+
+**场景**: 玩家自立或剧情需要新建王国。
+
+```csharp
+Kingdom newKingdom = Kingdom.CreateKingdom("my_kingdom");
+newKingdom.InitializeKingdom(
+    new TextObject("My Kingdom"),
+    new TextObject("MyKingdom"),
+    culture,
+    banner,
+    0xFF0000FF, 0xFFFFFFFF,
+    homeSettlement,
+    new TextObject("Description"),
+    new TextObject("My Kingdom"),
+    new TextObject("King"));
+newKingdom.RulingClan = myClan;
+```
+
+**要点**: `CreateKingdom` 只创建空壳，必须紧跟 `InitializeKingdom` 填充元数据；不设置 `RulingClan` 会导致后续政治计算异常。
+
+### 用例 3: 列出所有王国与外交状态
+
+**场景**: 遍历全部王国，找出与玩家处于战争状态的势力。
+
+```csharp
+foreach (Kingdom k in Kingdom.All)
+{
+    if (k.IsAtWarWith(Clan.PlayerClan))
+    {
+        float strength = k.CurrentTotalStrength;
+    }
+}
+```
+
+**要点**: `Kingdom.All` 是静态只读列表；`IsAtWarWith` 接受 `IFaction`，可与 `Clan` 直接比较；战争状态由 `StanceLink` 维护，必要时调用 `UpdateFactionsAtWarWith()` 刷新。
+
+### 用例 4: 管理王国政策
+
+**场景**: 启用或停用某项王国政策。
+
+```csharp
+if (!kingdom.HasPolicy(somePolicy))
+{
+    kingdom.AddPolicy(somePolicy);
+}
+```
+
+**要点**: `AddPolicy` / `RemovePolicy` 会立即影响影响力等派生计算；用 `HasPolicy` 避免重复添加。
 
 ## 关键属性 / Key Properties
 

@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MBList`
+- [← 本领域 / 返回 core-extra](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # MBList / 列表
 
 **Namespace**: TaleWorlds.MountAndBlade

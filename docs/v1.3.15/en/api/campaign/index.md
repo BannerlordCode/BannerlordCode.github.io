@@ -15,6 +15,7 @@ v1.3.15 Campaign system module documentation.
 |------------|-------------------|
 | [Clan.md](./Clan.md) | Clan class |
 | [Game.md](./Game.md) | Game main class |
+| [Hero.md](./Hero.md) | Hero (character) class |
 | [Kingdom.md](./Kingdom.md) | Kingdom class |
 | [MobileParty.md](./MobileParty.md) | Mobile party class |
 | [PartyBase.md](./PartyBase.md) | Party base class |

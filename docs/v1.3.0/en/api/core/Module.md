@@ -1,65 +1,33 @@
-# Module / Module
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Module`
+- [← Area / Back to core](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview (canonical)](../../../../v1.3.15/en/architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# Module (v1.3.0)
 
 **Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.0/TaleWorlds.MountAndBlade/Module.cs`
+**Module**: TaleWorlds.MountAndBlade
 **Version**: v1.3.0
+**Type**: Sealed class (`public sealed class Module : DotNetObject, IGameStateManagerOwner`)
+
+> v1.3.0 documentation for `Module`. For the full API reference (properties, methods, examples) see the canonical version:
+> [v1.3.15 `Module`](../../../../v1.3.15/en/api/core/Module)
 
 ## Overview
 
-`Module` is the main module class of the game, responsible for managing all submodules, game states, and platform services. It is a singleton class accessed via `Module.Current`.
+`Module` is the core singleton class of the game, responsible for managing all submodule loading, initialization, and global game state plus platform services. It is created at game startup and is the main entry point for accessing current module information. In v1.3.0 the class is declared `public sealed class`, inherits from `DotNetObject`, implements `IGameStateManagerOwner`, and is accessed via the static property `Module.CurrentModule`.
 
-## Differences from v1.3.15
+## v1.3.0 Notes
 
-- v1.3.0 has a relatively simpler Module class structure
-- No separate TaleWorlds.SaveSystem module, save functionality is inline within TaleWorlds.SaveSystem namespace
-- No separate TaleWorlds.DotNet module, DotNet types are directly in TaleWorlds.DotNet namespace
-- Fewer platform service integrations (missing some services added in v1.3.15)
-- Smaller file size (about 1600 lines vs more in v1.3.15)
-- Less comprehensive mission detection system
+- Sealed class in the `TaleWorlds.MountAndBlade` namespace, source file `TaleWorlds.MountAndBlade/Module.cs` (about 1600 lines).
+- Singleton access: `public static Module CurrentModule { get; private set; }`; do not instantiate directly.
+- Key properties (all present in v1.3.0): `GlobalGameStateManager` (`GameStateManager`), `GlobalTextManager` (`GameTextManager`), `MultiplayerRequested` (`bool`), `LoadingFinished` (`bool`), `JobManager` (`JobManager`).
+- Key methods (all present in v1.3.0): `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`, `public Type GetSubModuleType(string name)`, `public void SetInitialModuleScreenAsRootScreen()`, `internal void Initialize()`, `internal string GetMissionControllerClassNames()`.
+- Compared to v1.3.15: simpler structure — no standalone `TaleWorlds.SaveSystem` module (save functionality is inline within the `TaleWorlds.SaveSystem` namespace), no standalone `TaleWorlds.DotNet` module, and fewer platform service integrations.
 
-## Key Properties
+## See Also
 
-| Property | Type | Description |
-|----------|------|-------------|
-| CurrentModule | static Module | Gets current module instance |
-| GlobalGameStateManager | GameStateManager | Global game state manager |
-| GlobalTextManager | GameTextManager | Global text manager |
-| MultiplayerRequested | bool | Whether multiplayer is requested |
-| LoadingFinished | bool | Whether loading is finished |
-| JobManager | JobManager | Job manager |
-
-## Key Methods
-
-| Method | Description |
-|--------|-------------|
-| CollectSubModules | Collects all submodules |
-| GetSubModuleType | Gets submodule type by name |
-| SetInitialModuleScreenAsRootScreen | Sets initial screen as root |
-| OnApplicationTick | Application tick every frame |
-| GetMissionControllerClassNames | Gets mission controller class names |
-
-## Code Example
-
-```csharp
-// Access the current module
-Module module = Module.CurrentModule;
-
-// Get all loaded submodules
-MBReadOnlyList<MBSubModuleBase> subModules = module.CollectSubModules();
-
-// Check if multiplayer is requested
-if (module.MultiplayerRequested)
-{
-    // Handle multiplayer mode
-}
-
-// Access global game state manager
-GameStateManager gameStateManager = module.GlobalGameStateManager;
-```
-
-## Notes
-
-- Module is a singleton, accessed via Module.CurrentModule
-- Do not instantiate Module directly, use the existing instance
-- Platform services initialization happens in Initialize() method
-- JobManager handles async operations within the module
+- [v1.3.15 full documentation](../../../../v1.3.15/en/api/core/Module)
+- [Area API index](./)
+- [v1.3.0 API overview](../)

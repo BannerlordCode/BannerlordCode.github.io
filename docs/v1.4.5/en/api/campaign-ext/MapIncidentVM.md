@@ -1,0 +1,16 @@
+# MapIncidentVM
+
+**Namespace:** SandBox.ViewModelCollection.Map.Incidents
+**Module:** SandBox.ViewModelCollection
+**Type:** class
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `MapIncidentVM` is a class in the `SandBox.ViewModelCollection.Map.Incidents` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

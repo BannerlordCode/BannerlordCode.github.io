@@ -1,0 +1,22 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `IInputContext`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# IInputContext
+
+**Namespace:** TaleWorlds.InputSystem
+**Module:** TaleWorlds.InputSystem
+**Type:** interface
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `IInputContext` is a interface in the `TaleWorlds.InputSystem` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

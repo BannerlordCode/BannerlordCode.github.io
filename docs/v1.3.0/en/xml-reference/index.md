@@ -1,13 +1,16 @@
 ---
-title: XML Reference
-description: Complete XML configuration reference
+title: XML Reference (v1.3.0)
+description: v1.3.0 XML configuration reference
 ---
 
-# XML Reference
+# XML Reference (v1.3.0)
 
-Bannerlord uses XML for configuration and data storage.
+For v1.3.0 XML configuration reference and bug analysis see v1.3.15:
 
-## Contents
+- [v1.3.15 XML Reference](../../../v1.3.15/en/xml-reference/)
+- [v1.3.15 XML Bug Analysis](../../../v1.3.15/en/xml-reference/bugs)
 
-- [Known Bugs](./bugs.md) (TBD)
+## Navigation
 
+- [v1.3.0 Home](../)
+- [v1.3.15 docs (recommended)](../../../v1.3.15/en/)

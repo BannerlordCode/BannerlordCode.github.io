@@ -1,0 +1,16 @@
+# SingleVisualOrder
+
+**Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.Orders
+**Module:** TaleWorlds.MountAndBlade
+**Type:** class
+**Area:** Mount & Blade
+
+## Overview
+
+> This is an auto-generated stub. `SingleVisualOrder` is a class in the `TaleWorlds.MountAndBlade.View.VisualOrders.Orders` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-mountandblade)

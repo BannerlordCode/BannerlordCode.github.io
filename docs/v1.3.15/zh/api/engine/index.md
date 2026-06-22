@@ -14,6 +14,7 @@ Engine module documentation for v1.3.15.
 | 文件 / File | 描述 / Description |
 |------------|-------------------|
 | [EngineClass.md](./EngineClass.md) | 引擎类基类 |
+| [GameEntity.md](./GameEntity.md) | 场景实体类 |
 | [NativeObject.md](./NativeObject.md) | 原生对象类 |
 | [Scene.md](./Scene.md) | 场景类 |
 | [Skeleton.md](./Skeleton.md) | 骨骼类 |

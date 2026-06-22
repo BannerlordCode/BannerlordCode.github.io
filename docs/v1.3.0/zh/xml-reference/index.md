@@ -1,15 +1,16 @@
 ---
-title: XML 参考 / XML Reference
-description: Bannerlord XML 配置文件完整参考 / Complete XML configuration reference
+title: XML 参考 / XML Reference (v1.3.0)
+description: v1.3.0 XML 配置参考
 ---
 
-# XML 参考 / XML Reference
+# XML 参考 / XML Reference (v1.3.0)
 
-Bannerlord 使用 XML 进行配置和数据存储。
+v1.3.0 的 XML 配置参考与 Bug 分析请见 v1.3.15：
 
-Bannerlord uses XML for configuration and data storage.
+- [v1.3.15 XML 参考](../../../v1.3.15/zh/xml-reference/)
+- [v1.3.15 XML Bug 分析](../../../v1.3.15/zh/xml-reference/bugs)
 
-## 目录 / Contents
+## 导航
 
-- [已知问题 / Bugs](./bugs.md) (待添加 / TBD)
-
+- [v1.3.0 首页](../)
+- [v1.3.15 文档（推荐）](../../../v1.3.15/zh/)

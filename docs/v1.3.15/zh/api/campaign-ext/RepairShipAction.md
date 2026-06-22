@@ -1,0 +1,52 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `RepairShipAction`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# RepairShipAction
+
+**Namespace:** TaleWorlds.CampaignSystem.Actions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** static class
+**File:** `TaleWorlds.CampaignSystem/Actions/RepairShipAction.cs`
+
+RepairShipAction 是一组静态方法，用于在战役中以特定原因触发"RepairShip"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
+
+## 方法
+
+### Apply
+
+```csharp
+public static void Apply(Ship ship, Settlement repairPort)
+```
+
+**用途 / Purpose:** 。
+
+### ApplyForFree
+
+```csharp
+public static void ApplyForFree(Ship ship)
+```
+
+**用途 / Purpose:** for free。
+
+### ApplyForBanditShip
+
+```csharp
+public static void ApplyForBanditShip(Ship ship)
+```
+
+**用途 / Purpose:** for bandit ship。
+
+## 使用示例
+
+```csharp
+// 在 mod 中触发一次该动作
+RepairShipAction.Apply(ship, repairPort);
+```
+
+## 参见
+
+- [完整类目录](../catalog)
+- [战役系统目录](../catalog-campaign)

@@ -7,11 +7,9 @@ titleTemplate: false
 
 # Bannerlord Modding Wiki / 骑砍2模组编辑维基
 
-::: tip Bilingual Documentation / 双语文档
-This wiki supports **Chinese (中文)** and **English** documentation.
-Select your preferred version using the version picker below.
-本维基支持**中文**和**英文**文档。
-请使用下方的版本选择器选择您需要的版本。
+::: tip 推荐起点 / Recommended starting point
+首次访问？先读 [SDK 总览（模块地图）](./v1.3.15/zh/architecture/sdk-overview) / [SDK Overview](./v1.3.15/en/architecture/sdk-overview) 建立大局观。
+New here? Start with the [SDK Overview (module map)](./v1.3.15/en/architecture/sdk-overview) / [SDK 总览](./v1.3.15/zh/architecture/sdk-overview) to build the big picture.
 :::
 
 ## 选择版本 / Select Version
@@ -19,15 +17,27 @@ Select your preferred version using the version picker below.
 | 版本 Version | 描述 Description | 文档 Documentation |
 |-------------|-----------------|-------------------|
 | **v1.3.15** | 最新稳定版 / Latest stable | [查看文档 / View Docs](./v1.3.15/) |
+| **v1.4.5**  | 源码整理中 / Source pending | [查看文档 / View Docs](./v1.4.5/) |
 | **v1.3.0**  | 早期版本 / Earlier version | [查看文档 / View Docs](./v1.3.0/) |
 
 ## 版本对比 / Version Comparison
+
+::: tip 跨版本迁移 / Cross-version migration
+- [🔀 跨版本类对比（逐类 API 差异）](./versions/) — 同一类在 1.3.0/1.3.15/1.4.5 的 API 变化
+- [版本差异（模块 + 类级速览）](./v1.3.15/zh/architecture/version-delta) — 破坏性移除/新功能/稳定类总表
+- [🔀 Cross-Version Class Comparison](./versions/) — per-class API deltas across 1.3.0/1.3.15/1.4.5
+:::
 
 ### v1.3.15 (最新 / Latest)
 - SaveSystem 重构 / SaveSystem refactored
 - 更多 [Obsolete] 标记 / More [Obsolete] markers
 - 23 个新模块 / 23 new modules
 - TaleWorlds.Native.dll v1.3.15 源码索引 / TaleWorlds.Native.dll v1.3.15 source index
+
+### v1.4.5 (整理中 / In preparation)
+- 65 个 TaleWorlds DLL；多人/自定义战斗拆分 / 65 TaleWorlds DLLs; multiplayer/custom battle split
+- 14 新模块、4 移除 / 14 new, 4 removed modules
+- 源码反编译进行中 / Source decompilation in progress
 
 ### v1.3.0 (早期 / Earlier)
 - 原始版本 / Original version

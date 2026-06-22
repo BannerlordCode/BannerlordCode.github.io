@@ -1,0 +1,51 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `KingdomWarSortControllerVM`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# KingdomWarSortControllerVM
+
+**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
+**模块:** TaleWorlds.CampaignSystem
+**类型:** 类 class class
+**领域:** 战役系统 Campaign
+
+## 概述
+
+> 本页为自动生成的存根。`KingdomWarSortControllerVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy` 命名空间下的一个类 class。
+> 如需了解其属性、方法和开发者用例，请参考源码或贡
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ScoreState` | `public int ScoreState { get; set; }` |
+| `IsScoreSelected` | `public bool IsScoreSelected { get; set; }` |
+
+
+## 主要方法
+
+### SetSortMode
+
+```csharp
+public void SetSortMode(bool isAscending)
+```
+
+### Compare
+
+```csharp
+public abstract int Compare(KingdomWarItemVM x, KingdomWarItemVM y)
+```
+
+### Compare
+
+```csharp
+public override int Compare(KingdomWarItemVM x, KingdomWarItemVM y)
+```
+
+献文档。
+
+## 参见
+
+- [完整类目录](../catalog)
+- [本领域目录](../catalog-campaign)

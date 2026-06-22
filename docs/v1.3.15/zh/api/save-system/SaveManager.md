@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SaveManager`
+- [← 本领域 / 返回 save-system](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # SaveManager
 
 **命名空间:** TaleWorlds.SaveSystem  
@@ -5,6 +11,71 @@
 **类型:** static class
 
 Bannerlord 存档系统的主要入口点。这个静态类提供初始化存档系统、检查可存档类型以及执行存档和读取操作的方法。
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 标记类为可存档
+
+**场景**: mod 自定义类需要在存档中持久化。
+
+```csharp
+[SaveableClass]
+public class MyModData
+{
+    [SaveableProperty(1)] public int Gold { get; set; }
+    [SaveableField(2)] private string _name;
+}
+```
+
+**要点**: 类用 `[SaveableClass]`；属性用 `[SaveableProperty(id)]`，字段用 `[SaveableField(id)]`；`id` 在同类内必须唯一且稳定（不要在版本更新中复用已删除的 id）。
+
+### 用例 2: 保存游戏状态
+
+**场景**: mod 触发手动存档（如关键事件后）。
+
+```csharp
+MetaData meta = new MetaData();
+meta["ModVersion"] = "1.0.0";
+SaveOutput result = SaveManager.Save(
+    Campaign.Current, meta, "mysave", SaveGameDriver);
+if (result.Success) { /* 存档成功 */ }
+```
+
+**要点**: `target` 通常是 `Campaign.Current`；`saveName` 不带扩展名；错误不抛异常，检查 `result.Success`。
+
+### 用例 3: 仅读取存档元数据
+
+**场景**: 在加载完整存档前，先检查版本兼容性。
+
+```csharp
+MetaData meta = SaveManager.LoadMetaData("mysave", SaveGameDriver);
+if (meta != null && meta.TryGetValue("ModVersion", out string ver))
+{
+    // 检查版本兼容
+}
+```
+
+**要点**: `LoadMetaData` 比 `Load` 快得多，只读文件头；返回 `null` 表示文件不存在。
+
+### 用例 4: 加载存档
+
+**场景**: 恢复之前保存的游戏状态。
+
+```csharp
+LoadResult result = SaveManager.Load("mysave", SaveGameDriver);
+if (result.Success)
+{
+    // result.LoadData() 完成反序列化
+}
+```
+
+**要点**: `Load` 返回 `LoadResult`；`loadAsLateInitialize: true` 用于分帧加载大存档。
+
+<!-- END DEV-USE-CASES -->
+
 
 ## 概述
 

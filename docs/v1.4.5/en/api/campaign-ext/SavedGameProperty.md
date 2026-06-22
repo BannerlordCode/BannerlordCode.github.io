@@ -1,0 +1,16 @@
+# SavedGameProperty
+
+**Namespace:** SandBox.ViewModelCollection.SaveLoad
+**Module:** SandBox.ViewModelCollection
+**Type:** enum
+**Area:** Campaign System
+
+## Overview
+
+> This is an auto-generated stub. `SavedGameProperty` is a enum in the `SandBox.ViewModelCollection.SaveLoad` namespace.
+> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

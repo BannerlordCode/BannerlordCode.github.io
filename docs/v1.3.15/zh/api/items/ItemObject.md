@@ -1,8 +1,84 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ItemObject`
+- [← 本领域 / 返回 items](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [🔀 跨版本对比 /versions/ItemObject](/versions/ItemObject)
+<!-- END BREADCRUMB -->
 # ItemObject / 物品对象
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/ItemObject.cs`  
 **Purpose**: 游戏中所有物品的基础类,包括武器、盔甲、马匹、盾牌等
+
+
+<!-- BEGIN DEV-USE-CASES -->
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 按 StringId 获取物品
+
+**场景**: 查询 XML 中定义的物品，用于 mod 启动时的初始化或运行时引用。
+
+```csharp
+ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("northern_sword");
+if (sword != null && sword.IsFood)
+{
+    // 处理食物物品
+}
+```
+
+**要点**: `GetObject<T>` 未找到返回 `null`，务必判空；`StringId` 即 XML 中的 `id` 属性。
+
+### 用例 2: 遍历某类别下所有物品
+
+**场景**: 统计或修改所有武器类物品。
+
+```csharp
+foreach (ItemObject item in MBObjectManager.Instance.GetObjectTypeList<ItemObject>())
+{
+    if (item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
+    {
+        // 修改单手武器
+    }
+}
+```
+
+**要点**: `GetObjectTypeList<T>` 返回的是活动注册表，迭代期间不要修改。
+
+### 用例 3: 读取武器组件数据
+
+**场景**: 查询武器的伤害值、挥砍速度等。
+
+```csharp
+ItemObject weapon = MBObjectManager.Instance.GetObject<ItemObject>("empire_sword_1_t2");
+if (weapon?.WeaponComponent != null)
+{
+    foreach (WeaponComponentData wcd in weapon.WeaponComponent.Weapons)
+    {
+        int swingDamage = wcd.SwingDamageType; // DamageTypes enum
+        int thrustDamage = wcd.ThrustDamage;
+    }
+}
+```
+
+**要点**: 非武器物品的 `WeaponComponent` 为 `null`；`WeaponComponentData` 在 `TaleWorlds.Core` 命名空间。
+
+### 用例 4: 判断物品是否为民用
+
+**场景**: 进入城镇场景时区分民用与战斗装备。
+
+```csharp
+if (item.IsCivilian)
+{
+    // 该物品可在民用场景装备
+}
+```
+
+**要点**: `IsCivilian` 由 XML 的 `is_civilian` 属性控制；mod 添加的物品需显式设置。
+
+<!-- END DEV-USE-CASES -->
+
 
 ## 关键属性 / Key Properties
 

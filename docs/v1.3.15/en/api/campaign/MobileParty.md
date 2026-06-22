@@ -1,8 +1,62 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MobileParty`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+- [🔀 Cross-Version Compare /versions/MobileParty](/versions/MobileParty)
+<!-- END BREADCRUMB -->
 # MobileParty
 
 **Namespace**: TaleWorlds.CampaignSystem.Party  
 **File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/MobileParty.cs`  
 **Purpose**: Moving parties on the map (armies, caravans, villagers, etc.)
+
+## Developer Use Cases
+
+### Use Case 1: Get the player main party and read position/speed
+
+**Scenario**: Read the player party's current state inside a map event or campaign behavior.
+
+```csharp
+MobileParty main = MobileParty.MainParty;
+CampaignVec2 pos = main.Position;
+float speed = main.Speed;
+```
+
+**Key points**: `MainParty` is the static shortcut; position is `CampaignVec2`; use `Speed` for raw value, `SpeedExplained` when you need an attribution breakdown.
+
+### Use Case 2: Set an AI behavior target on a settlement
+
+**Scenario**: Send a party to raid or travel to a settlement.
+
+```csharp
+main.DefaultBehavior = AiBehavior.RaidSettlement;
+main.SetTargetSettlement(targetTown, isTargetingPort: false);
+```
+
+**Key points**: `DefaultBehavior` and `SetTargetSettlement` must be used together; setting behavior alone without a target leaves the AI idle.
+
+### Use Case 3: Add troops to a party
+
+**Scenario**: After recruiting, add a `CharacterObject` to the party's `MemberRoster`.
+
+```csharp
+CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
+mainParty.Party.AddMember(troop, 10);
+```
+
+**Key points**: `MobileParty.Party` is the `PartyBase`; `AddMember` mutates `MemberRoster` directly; `MobileParty` itself has no `AddMember`.
+
+### Use Case 4: Assign a party role (surgeon/scout/etc.)
+
+**Scenario**: Make a companion the party surgeon.
+
+```csharp
+mainParty.SetPartySurgeon(companionHero);
+Hero effective = mainParty.EffectiveSurgeon; // falls back to leader if unassigned
+```
+
+**Key points**: `SetPartyScout/Engineer/Quartermaster/Surgeon` override auto-assignment; read the actually effective member via the `Effective*` properties.
 
 ## Key Properties
 

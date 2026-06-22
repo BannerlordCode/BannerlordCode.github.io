@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ScreenManager`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # ScreenManager / 屏幕管理器
 
 **Namespace**: TaleWorlds.ScreenSystem

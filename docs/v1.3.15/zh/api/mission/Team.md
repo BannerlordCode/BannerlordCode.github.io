@@ -1,3 +1,9 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Team`
+- [← 本领域 / 返回 mission](./)
+- [↑ API 目录](../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Team 类
 
 **命名空间**: TaleWorlds.MountAndBlade  
@@ -16,6 +22,58 @@
 - Team AI 控制器
 - 命令控制器 (OrderController)
 - 旗帜和颜色信息
+
+## 开发用例 / Developer Use Cases
+
+### 用例 1: 获取攻击方/防守方/玩家队伍
+
+**场景**: 战斗开始时定位各方队伍用于战术或 HUD。
+
+```csharp
+Team attackers = Mission.Current.AttackerTeam;
+Team defenders = Mission.Current.DefenderTeam;
+Team playerTeam = Mission.Current.PlayerTeam;
+```
+
+**要点**: `AttackerTeam` / `DefenderTeam` 是直接属性；通用查询用 `Mission.Current.GetTeam(TeamSideEnum.Attacker)`；判断敌我用 `IsPlayerTeam` / `IsPlayerAlly`。
+
+### 用例 2: 遍历队伍中所有 Agent
+
+**场景**: 给每个单位加 buff、统计存活数等。
+
+```csharp
+foreach (Agent a in team.TeamAgents)
+{
+    if (a.IsActive()) { /* 处理 */ }
+}
+// 仅活跃单位
+foreach (Agent a in team.ActiveAgents) { /* 处理 */ }
+```
+
+**要点**: `TeamAgents` 含所有单位（含死亡/逃跑），`ActiveAgents` 只含活跃单位；两个列表都是实时更新的只读快照，不要长期缓存引用。
+
+### 用例 3: 添加 Agent 到队伍
+
+**场景**: 自定义生成单位后把它登记到某队伍。
+
+```csharp
+team.AddAgentToTeam(spawnedAgent);
+// 移除
+team.RemoveAgentFromTeam(agent);
+```
+
+**要点**: `AddAgentToTeam` 只更新队伍登记，不会创建 Agent；生成用 `Mission.SpawnAgent`，之后再 `AddAgentToTeam`。停用而非移除用 `DeactivateAgent`。
+
+### 用例 4: 设置队伍间敌对关系
+
+**场景**: 自定义战斗模式中动态调整阵营关系。
+
+```csharp
+teamA.SetIsEnemyOf(teamB, isEnemyOf: true);
+bool hostile = teamA.IsEnemyOf(teamB);
+```
+
+**要点**: `SetIsEnemyOf` 是单向设置但通常成对调用；`IsEnemyOf` 读取缓存关系；改完关系后 `HasAnyEnemyTeamsWithAgents(bool)` 可快速判断是否还有敌人。
 
 ## 关键属性
 

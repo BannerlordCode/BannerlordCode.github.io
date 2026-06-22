@@ -1,8 +1,62 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Game`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 # Game
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/Game.cs`  
 **Purpose**: Main game class managing game state, models, and object systems
+
+## Developer Use Cases
+
+### Use Case 1: Get the current game instance and access the object manager
+
+**Scenario**: At runtime the mod needs to read XML-registered objects (items, characters, etc.).
+
+```csharp
+Game game = Game.Current;
+if (game == null) return; // not in-game
+MBObjectManager om = game.ObjectManager;
+ItemObject item = om.GetObject<ItemObject>("short_sword_vlandia_1");
+```
+
+**Key points**: `Game.Current` may be `null` on the main menu or in the editor — null-check first; `ObjectManager` is the single entry point for reading XML objects.
+
+### Use Case 2: Access campaign models and compute derived values
+
+**Scenario**: Reuse built-in models to compute party speed or other derived values.
+
+```csharp
+float speed = Campaign.Current.Models.PartySpeedCalculatingModel
+    .CalculateBaseSpeed(mainParty, true, 0, 0).ResultNumber;
+```
+
+**Key points**: Models are aggregated on `Campaign.Current.Models`; `ExplainedNumber.ResultNumber` is the final value, `GetCauses()` reads the attribution.
+
+### Use Case 3: Add and retrieve a GameHandler
+
+**Scenario**: Register a game handler that survives state changes (e.g. a custom event bus).
+
+```csharp
+MyHandler handler = game.AddGameHandler<MyHandler>();
+MyHandler again = game.GetGameHandler<MyHandler>();
+```
+
+**Key points**: `AddGameHandler<T>() where T : GameHandler, new()` instantiates and registers; `GetGameHandler<T>` retrieves it; call `RemoveGameHandler<T>()` when done.
+
+### Use Case 4: Read the game state manager
+
+**Scenario**: Query or switch the active game state (campaign, battle, menu).
+
+```csharp
+GameStateManager sm = game.GameStateManager;
+GameState active = sm.ActiveState;
+```
+
+**Key points**: `GameStateManager` manages the state stack; switch states via `sm.HandleStateChange(...)`, never mutate fields directly.
 
 ## Key Properties
 

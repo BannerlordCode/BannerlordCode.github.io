@@ -5,9 +5,13 @@ sidebar: auto
 
 # 跨版本类对比 / Cross-Version Class Comparison
 
-本模块逐类比较同一类型在 **1.3.0 → 1.3.15 → 1.4.5** 的可访问 API 变化（public/protected/internal），从源码自动提取，并标注对 modder 的实际影响。这是版本迁移与兼容性判断的权威参考。
+## Mental Model
 
-This module compares, class by class, how the same type's accessible API (public/protected/internal) changes across **1.3.0 → 1.3.15 → 1.4.5**, extracted from source and annotated with real modder impact. It is the authoritative reference for version migration and compatibility.
+Treat `跨版本类对比` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
+本模块当前提供 **精选类** 的跨版本对比：它聚焦于迁移影响最大、最常见、最值得模组作者优先检查的类型，并展示这些类型在 **1.3.0 → 1.3.15 → 1.4.5** 之间的可访问 API 变化（public/protected/internal）。
+
+This module currently provides a **curated set of class comparisons**. It focuses on the types most likely to matter during migration work, and shows how their accessible API (public/protected/internal) changes across **1.3.0 → 1.3.15 → 1.4.5**.
 
 ## 类索引 / Class index
 
@@ -49,3 +53,9 @@ This module compares, class by class, how the same type's accessible API (public
 node BannerlordCode.github.io/tools/class-version-diff.mjs ClassName   # 单类打印 / print one class
 node BannerlordCode.github.io/tools/gen-version-pages.mjs             # 重新生成全部页面 / regenerate all pages
 ```
+
+## 使用方式 / How to Use
+
+1. 先从这里选择一个高影响类。
+2. 阅读变更摘要，再跳回该类在各版本的实际文档页。
+3. 如果某个类型尚未出现在本列表中，就把它视为“未进入精选对比”，而不是“无变化”。

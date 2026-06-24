@@ -37,6 +37,8 @@ export default defineConfig({
       {
         text: 'API',
         items: [
+          { text: 'v1.4.5 中文', link: '/v1.4.5/zh/api/' },
+          { text: 'v1.4.5 English', link: '/v1.4.5/en/api/' },
           { text: 'v1.3.15 中文', link: '/v1.3.15/zh/api/' },
           { text: 'v1.3.15 English', link: '/v1.3.15/en/api/' },
           { text: 'v1.3.0 中文', link: '/v1.3.0/zh/api/' },
@@ -46,6 +48,8 @@ export default defineConfig({
       {
         text: '架构 Architecture',
         items: [
+          { text: 'v1.4.5 架构总览', link: '/v1.4.5/zh/architecture/' },
+          { text: 'v1.4.5 Architecture Overview', link: '/v1.4.5/en/architecture/' },
           { text: 'SDK 总览 (中文)', link: '/v1.3.15/zh/architecture/sdk-overview' },
           { text: 'SDK Overview (EN)', link: '/v1.3.15/en/architecture/sdk-overview' },
           { text: '版本差异 / Version Delta (中文)', link: '/v1.3.15/zh/architecture/version-delta' },
@@ -58,8 +62,8 @@ export default defineConfig({
       {
         text: '🔽 版本 Version',
         items: [
-          { text: 'v1.4.5 (源码整理中) 中文', link: '/v1.4.5/zh/' },
-          { text: 'v1.4.5 (source pending) English', link: '/v1.4.5/en/' },
+          { text: 'v1.4.5 (源码可用) 中文', link: '/v1.4.5/zh/' },
+          { text: 'v1.4.5 (source available) English', link: '/v1.4.5/en/' },
           { text: 'v1.3.15 (最新 / Latest) 中文', link: '/v1.3.15/zh/' },
           { text: 'v1.3.15 (Latest) English', link: '/v1.3.15/en/' },
           { text: 'v1.3.0 中文', link: '/v1.3.0/zh/' },
@@ -405,7 +409,15 @@ export default defineConfig({
           items: [{ text: '概述 Index', link: '/v1.4.5/zh/' }]
         },
         {
-          text: 'API 目录 (源码整理)',
+          text: '架构 Architecture',
+          collapsed: false,
+          items: [
+            { text: 'v1.4.5 架构总览', link: '/v1.4.5/zh/architecture/' },
+            { text: 'v1.3.15 规范版总览', link: '/v1.3.15/zh/architecture/sdk-overview' }
+          ]
+        },
+        {
+          text: 'API 目录',
           collapsed: false,
           items: [
             { text: '🗂️ 完整类目录', link: '/v1.4.5/zh/api/catalog' },
@@ -439,7 +451,15 @@ export default defineConfig({
           items: [{ text: 'Index', link: '/v1.4.5/en/' }]
         },
         {
-          text: 'API Catalog (source pending)',
+          text: 'Architecture',
+          collapsed: false,
+          items: [
+            { text: 'v1.4.5 Architecture', link: '/v1.4.5/en/architecture/' },
+            { text: 'Canonical v1.3.15 Overview', link: '/v1.3.15/en/architecture/sdk-overview' }
+          ]
+        },
+        {
+          text: 'API Catalog',
           collapsed: false,
           items: [
             { text: '🗂️ Complete Class Catalog', link: '/v1.4.5/en/api/catalog' },
@@ -523,11 +543,6 @@ export default defineConfig({
       ]
     },
 
-    search: {
-      provider: 'local',
-      lang: 'en'
-    },
-
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024 BannerlordCode'
@@ -536,10 +551,6 @@ export default defineConfig({
     notFound: [
       { text: 'Page Not Found', link: '/' }
     ]
-  },
-
-  markdown: {
-    lineNumbers: true
   },
 
   vue: {

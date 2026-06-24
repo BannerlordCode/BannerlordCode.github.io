@@ -7,9 +7,13 @@ titleTemplate: false
 
 # Bannerlord Modding Wiki / 骑砍2模组编辑维基
 
+## Mental Model
+
+Treat `Bannerlord Modding Wiki` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ::: tip 推荐起点 / Recommended starting point
-首次访问？先读 [SDK 总览（模块地图）](./v1.3.15/zh/architecture/sdk-overview) / [SDK Overview](./v1.3.15/en/architecture/sdk-overview) 建立大局观。
-New here? Start with the [SDK Overview (module map)](./v1.3.15/en/architecture/sdk-overview) / [SDK 总览](./v1.3.15/zh/architecture/sdk-overview) to build the big picture.
+先从 **版本首页** 进入，再走 **架构总览 → API 目录 → 类页** 这条树；需要迁移时再回到 **跨版本对比**。
+Start from a **version home**, then follow **architecture → API catalog → class page**; use **cross-version compare** when migrating.
 :::
 
 ## 选择版本 / Select Version
@@ -17,7 +21,7 @@ New here? Start with the [SDK Overview (module map)](./v1.3.15/en/architecture/s
 | 版本 Version | 描述 Description | 文档 Documentation |
 |-------------|-----------------|-------------------|
 | **v1.3.15** | 最新稳定版 / Latest stable | [查看文档 / View Docs](./v1.3.15/) |
-| **v1.4.5**  | 源码整理中 / Source pending | [查看文档 / View Docs](./v1.4.5/) |
+| **v1.4.5**  | 源码可用 / Source available | [查看文档 / View Docs](./v1.4.5/) |
 | **v1.3.0**  | 早期版本 / Earlier version | [查看文档 / View Docs](./v1.3.0/) |
 
 ## 版本对比 / Version Comparison
@@ -51,11 +55,11 @@ New here? Start with the [SDK Overview (module map)](./v1.3.15/en/architecture/s
 
 ## 内容 / Contents
 
-- **模块架构 / Module Architecture** - 了解 Bannerlord 的模块系统 / Learn about Bannerlord's module system
-- **XML反序列化 / XML Deserialization** - XML 配置文件的完整参考 / Complete XML configuration reference
-- **SubModule 开发 / SubModule Development** - 如何创建和调试 SubModule / How to create and debug SubModules
-- **原生接口 / Native Interface** - P/Invoke 与原生引擎交互 / Interact with native engine via P/Invoke
-- **Native 1.3.15 源码 / Native 1.3.15 Source** - 导出函数、类型定义和反编译函数索引 / Exports, type definitions, and decompiled function index
+- **架构总览 / Architecture hub** - 先看模块地图，再进入 API 目录和版本差异
+- **API 目录 / API catalog** - 按领域找到类，再沿面包屑回到领域入口
+- **跨版本对比 / Cross-version compare** - 逐类看 1.3.0 / 1.3.15 / 1.4.5 的 API 演化
+- **原生接口 / Native interface** - P/Invoke 与原生引擎交互 / Interact with native engine via P/Invoke
+- **源码索引 / Source index** - 导出函数、类型定义和反编译函数索引 / Exports, type definitions, and decompiled function index
 
 ## 状态 / Status
 
@@ -70,3 +74,15 @@ VitePress site is under construction, complete documentation will be added gradu
 - **GitHub Organization**: https://github.com/BannerlordCode
 - **Official Modding Forum**: https://forums.taleworlds.com/
 
+
+## 使用方式 / How to Use
+
+1. 先选择版本。
+2. 再从架构总览或 API 目录进入具体子系统。
+3. 进入类页后，使用 breadcrumb 返回版本页、领域页或跨版本对比页。
+
+## Usage Example
+
+```csharp
+var example = new Bannerlord Modding Wiki();
+```

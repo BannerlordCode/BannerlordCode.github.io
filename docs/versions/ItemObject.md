@@ -5,9 +5,13 @@ sidebar: auto
 
 # ItemObject
 
-本页比较 `ItemObject` 在 **1.3.0 / 1.3.15 / 1.4.5** 三个版本的可访问 API 变化（public/protected/internal，不含 private），数据由 [`tools/class-version-diff.mjs`](https://github.com/BannerlordCode/BannerlordCode.github.io/tree/main/tools/class-version-diff.mjs) 从源码自动提取。
+## Mental Model
 
-This page compares the accessible API of `ItemObject` across **1.3.0 / 1.3.15 / 1.4.5** (public/protected/internal, excluding private), extracted from source by `tools/class-version-diff.mjs`.
+Treat `ItemObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
+本页比较 `ItemObject` 在 **1.3.0 / 1.3.15 / 1.4.5** 三个版本的可访问 API 变化（public/protected/internal，不含 private），数据由 [`tools/class-version-diff.mjs`](https://github.com/BannerlordCode/BannerlordCode.github.io/tree/main/tools/class-version-diff.mjs) 从源码自动提取。该模块属于“精选跨版本对比”集合，而不是全站所有类型的全量对比表。
+
+This page compares the accessible API of `ItemObject` across **1.3.0 / 1.3.15 / 1.4.5** (public/protected/internal, excluding private), extracted from source by `tools/class-version-diff.mjs`. It is part of a selected cross-version set, not a full matrix of every type in the site.
 
 ::: tip 重新生成 / Regenerate
 源码更新后，在仓库根目录运行：`node BannerlordCode.github.io/tools/gen-version-pages.mjs`
@@ -57,3 +61,24 @@ After source updates, run from repo root: `node BannerlordCode.github.io/tools/g
 **新增 Added (0):** 无 none
 
 **移除 Removed (0):** 无 none
+
+<!-- BEGIN CROSSVERSION-BACKLINK -->
+
+## 返回类参考 / Back to Class Reference
+
+| 版本 Version | 语言 Lang | 链接 |
+|------|------|------|
+| v1.3.0 | 🇨🇳 中文 | [v1.3.0 ItemObject](/v1.3.0/zh/api/core-extra/ItemObject) |
+| v1.3.0 | 🇬🇧 English | [v1.3.0 ItemObject](/v1.3.0/en/api/core-extra/ItemObject) |
+| v1.3.15 | 🇨🇳 中文 | [v1.3.15 ItemObject](/v1.3.15/zh/api/items/ItemObject) |
+| v1.3.15 | 🇬🇧 English | [v1.3.15 ItemObject](/v1.3.15/en/api/items/ItemObject) |
+| v1.4.5 | 🇨🇳 中文 | [v1.4.5 ItemObject](/v1.4.5/zh/api/core-extra/ItemObject) |
+| v1.4.5 | 🇬🇧 English | [v1.4.5 ItemObject](/v1.4.5/en/api/core-extra/ItemObject) |
+
+<!-- END CROSSVERSION-BACKLINK -->
+
+## Usage Example
+
+```csharp
+var example = new ItemObject();
+```

@@ -5,6 +5,10 @@ description: Bannerlord v1.3.0 / v1.3.15 / v1.4.5 module comparison
 
 # Version Delta — Module Comparison
 
+## Mental Model
+
+Treat `Version Delta — Module Comparison` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Compare the `TaleWorlds.*` module sets across three versions to migrate mods between game versions.
 
 ## Module counts

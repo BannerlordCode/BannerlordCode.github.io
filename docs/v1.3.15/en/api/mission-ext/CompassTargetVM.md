@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CompassTargetVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompassTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class CompassTargetVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/Compass/CompassTargetVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CompassTargetVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CompassTargetVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -34,22 +38,25 @@
 | `IsAttacker` | `public bool IsAttacker { get; set; }` |
 | `IsEnemy` | `public bool IsEnemy { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshColor
+`public void RefreshColor(uint color, uint color2)`
 
-```csharp
-public void RefreshColor(uint color, uint color2)
-```
+**Purpose:** Refreshes the display or cache of `color`.
 
 ### Refresh
+`public virtual void Refresh(float circleX, float x, float distance)`
+
+**Purpose:** Refreshes the display or cache of `refresh`.
+
+## Usage Example
 
 ```csharp
-public virtual void Refresh(float circleX, float x, float distance)
+var value = new CompassTargetVM();
+value.RefreshColor(0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `RenderTargetComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RenderTargetComponent
@@ -14,27 +15,30 @@
 
 ## Overview
 
-`RenderTargetComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<RenderTargetComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`RenderTargetComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `RenderTargetComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `RenderTarget` | `public Texture RenderTarget { get { return (Texture)this._renderTargetWeakReference.GetNativeObject(); }` |
-| `UserData` | `public object UserData { get; internal set; }` |
+| `RenderTarget` | `public Texture RenderTarget { get; set; }` |
+| `UserData` | `public object UserData { get; set; }` |
 
 ## Key Methods
 
 ### TextureUpdateEventHandler
-```csharp
-public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)
-```
+`public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)`
+
+**Purpose:** Handles logic related to `texture update event handler`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of RenderTargetComponent (Component)
-agent.GetComponent<RenderTargetComponent>();
+var component = agent.GetComponent<RenderTargetComponent>();
 ```
 
 ## See Also

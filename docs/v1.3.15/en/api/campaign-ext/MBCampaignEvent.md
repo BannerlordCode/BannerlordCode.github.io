@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MBCampaignEvent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBCampaignEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MBCampaignEvent`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/MBCampaignEvent.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MBCampaignEvent` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBCampaignEvent` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,46 +29,45 @@
 | `InitialWait` | `public CampaignTime InitialWait { get; }` |
 | `isEventDeleted` | `public bool isEventDeleted { get; set; }` |
 
-
 ## Key Methods
 
 ### AddHandler
+`public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)`
 
-```csharp
-public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)
-```
+**Purpose:** Adds `handler` to the current collection or state.
 
 ### RunHandlers
+`public void RunHandlers(params object delegateParams)`
 
-```csharp
-public void RunHandlers(params object delegateParams)
-```
+**Purpose:** Handles logic related to `run handlers`.
 
 ### Unregister
+`public void Unregister(object instance)`
 
-```csharp
-public void Unregister(object instance)
-```
+**Purpose:** Handles logic related to `unregister`.
 
 ### CheckUpdate
+`public void CheckUpdate()`
 
-```csharp
-public void CheckUpdate()
-```
+**Purpose:** Handles logic related to `check update`.
 
 ### DeletePeriodicEvent
+`public void DeletePeriodicEvent()`
 
-```csharp
-public void DeletePeriodicEvent()
-```
+**Purpose:** Handles logic related to `delete periodic event`.
 
 ### CampaignEventDelegate
+`public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
+
+**Purpose:** Handles logic related to `campaign event delegate`.
+
+## Usage Example
 
 ```csharp
-public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)
+var value = new MBCampaignEvent();
+value.AddHandler(gameEventDelegate);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

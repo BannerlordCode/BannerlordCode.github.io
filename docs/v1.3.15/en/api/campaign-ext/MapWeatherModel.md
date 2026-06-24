@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MapWeatherModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapWeatherModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MapWeatherModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MapWeatherModel>(new MyMapWeatherModel())` to change how it computes.
+`MapWeatherModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MapWeatherModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,55 +31,54 @@
 ## Key Methods
 
 ### GetInterpolatedAtmosphereState
-```csharp
-public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)
-```
+`public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
+
+**Purpose:** Gets the current value of `interpolated atmosphere state`.
 
 ### GetAtmosphereModel
-```csharp
-public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)
-```
+`public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
+
+**Purpose:** Gets the current value of `atmosphere model`.
 
 ### GetSeasonTimeFactorOfCampaignTime
-```csharp
-public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)
-```
+`public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
+
+**Purpose:** Gets the current value of `season time factor of campaign time`.
 
 ### UpdateWeatherForPosition
-```csharp
-public abstract MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)
-```
+`public abstract MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
+
+**Purpose:** Updates the state or data of `weather for position`.
 
 ### InitializeCaches
-```csharp
-public abstract void InitializeCaches()
-```
+`public abstract void InitializeCaches()`
+
+**Purpose:** Initializes the state, resources, or bindings for `caches`.
 
 ### GetWeatherEventInPosition
-```csharp
-public abstract MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)
-```
+`public abstract MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
+
+**Purpose:** Gets the current value of `weather event in position`.
 
 ### GetSnowAndRainDataForPosition
-```csharp
-public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)
-```
+`public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
+
+**Purpose:** Gets the current value of `snow and rain data for position`.
 
 ### GetWeatherEffectOnTerrainForPosition
-```csharp
-public abstract MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)
-```
+`public abstract MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
+
+**Purpose:** Gets the current value of `weather effect on terrain for position`.
 
 ### GetWindForPosition
-```csharp
-public abstract Vec2 GetWindForPosition(CampaignVec2 position)
-```
+`public abstract Vec2 GetWindForPosition(CampaignVec2 position)`
+
+**Purpose:** Gets the current value of `wind for position`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MapWeatherModel (Model)
-Game.Current.ReplaceModel<MapWeatherModel>(new MyMapWeatherModel());
+var implementation = new CustomMapWeatherModel();
 ```
 
 ## See Also

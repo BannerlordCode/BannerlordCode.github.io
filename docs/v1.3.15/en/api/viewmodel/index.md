@@ -5,6 +5,10 @@ description: TaleWorlds.Gauntlet view models / View models
 
 # ViewModel / ViewModel 视图模型
 
+## Mental Model
+
+Treat `ViewModel` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 ViewModel module documentation.
 
 视图模型模块文档。

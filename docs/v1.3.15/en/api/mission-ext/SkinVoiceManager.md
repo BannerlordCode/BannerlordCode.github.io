@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SkinVoiceManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkinVoiceManager
@@ -14,30 +15,40 @@
 
 ## Overview
 
-`SkinVoiceManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`SkinVoiceManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `SkinVoiceManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `TypeID` | `public string TypeID { get; }` |
+| `Index` | `public int Index { get; }` |
 
 ## Key Methods
 
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
-```csharp
-public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)
-```
+`public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
+
+**Purpose:** Gets the current value of `voice definition count with monster sound and collision info class name`.
 
 ### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
-```csharp
-public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)
-```
+`public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
+
+**Purpose:** Gets the current value of `voice definition list with monster sound and collision info class name`.
 
 ### GetName
-```csharp
-public TextObject GetName()
-```
+`public TextObject GetName()`
+
+**Purpose:** Gets the current value of `name`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SkinVoiceManager (Manager)
-SkinVoiceManager.Current;
+var manager = SkinVoiceManager.Current;
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLobbyAfterBattlePopupWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLobbyAfterBattlePopupWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `MultiplayerLobbyAfterBattlePopupWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `MultiplayerLobbyAfterBattlePopupWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,16 +36,14 @@
 ## Key Methods
 
 ### StartAnimation
-```csharp
-public void StartAnimation()
-```
+`public void StartAnimation()`
+
+**Purpose:** Handles logic related to `start animation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLobbyAfterBattlePopupWidget (Widget)
-// 声明/访问一个 MultiplayerLobbyAfterBattlePopupWidget
-var widget = root.GetChild("multiplayerLobbyAfterBattlePopupWidget");;
+var widget = new MultiplayerLobbyAfterBattlePopupWidget(context);
 ```
 
 ## See Also

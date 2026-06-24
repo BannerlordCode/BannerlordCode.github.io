@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `LauncherModsDLLManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherModsDLLManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`LauncherModsDLLManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`LauncherModsDLLManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `LauncherModsDLLManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### GetSubModuleVerifyData
-```csharp
-public LauncherDLLData GetSubModuleVerifyData(SubModuleInfo subModuleInfo)
-```
+`public LauncherDLLData GetSubModuleVerifyData(SubModuleInfo subModuleInfo)`
+
+**Purpose:** Gets the current value of `sub module verify data`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of LauncherModsDLLManager (Manager)
-LauncherModsDLLManager.Current;
+var manager = LauncherModsDLLManager.Current;
 ```
 
 ## See Also

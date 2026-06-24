@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner : SaveableTypeDefiner`
+**Base:** `SaveableTypeDefiner`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner` is a class in the `TaleWorlds.CampaignSystem.Issues` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner` lives in `TaleWorlds.CampaignSystem.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,73 +46,69 @@
 | `IssueLordSolutionCounterOfferDeclineResponseByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferDeclineResponseByOtherNpc { get; }` |
 | `IssueQuestSolutionAcceptByPlayer` | `public override TextObject IssueQuestSolutionAcceptByPlayer { get; }` |
 
-
 ## Key Methods
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**Purpose:** Handles logic related to `register events`.
 
 ### OnCheckForIssue
+`public void OnCheckForIssue(Hero hero)`
 
-```csharp
-public void OnCheckForIssue(Hero hero)
-```
+**Purpose:** Called when the `check for issue` event is raised.
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**Purpose:** Handles logic related to `sync data`.
 
 ### GetAlternativeSolutionSkill
+`public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-```csharp
-public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)
-```
+**Purpose:** Gets the current value of `alternative solution skill`.
 
 ### LordSolutionCondition
+`public override bool LordSolutionCondition(out TextObject explanation)`
 
-```csharp
-public override bool LordSolutionCondition(out TextObject explanation)
-```
+**Purpose:** Handles logic related to `lord solution condition`.
 
 ### AlternativeSolutionCondition
+`public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-```csharp
-public override bool AlternativeSolutionCondition(out TextObject explanation)
-```
+**Purpose:** Handles logic related to `alternative solution condition`.
 
 ### DoTroopsSatisfyAlternativeSolution
+`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-```csharp
-public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)
-```
+**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
 
 ### GetFrequency
+`public override IssueBase.IssueFrequency GetFrequency()`
 
-```csharp
-public override IssueBase.IssueFrequency GetFrequency()
-```
+**Purpose:** Gets the current value of `frequency`.
 
 ### IssueStayAliveConditions
+`public override bool IssueStayAliveConditions()`
 
-```csharp
-public override bool IssueStayAliveConditions()
-```
+**Purpose:** Handles logic related to `issue stay alive conditions`.
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
+`public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-```csharp
-public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)
-```
+**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
 
 ### OnFailed
+`public override void OnFailed()`
+
+**Purpose:** Called when the `failed` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFailed()
+// First obtain a ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner instance from game state, then call one of its public methods
+var value = new ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner();
+value.RegisterEvents();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `AnimatedDropdownWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AnimatedDropdownWidget
@@ -16,53 +17,55 @@
 
 `AnimatedDropdownWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `AnimatedDropdownWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `TextWidget` | `public Widget TextWidget { get; set; }` |
 | `ScrollbarWidget` | `public ScrollbarWidget ScrollbarWidget { get; set; }` |
-| `Button` | `public ButtonWidget Button { get { return this._button; }` |
-| `DropdownContainerWidget` | `public Widget DropdownContainerWidget { get { return this._dropdownContainerWidget; }` |
-| `DropdownClipWidget` | `public Widget DropdownClipWidget { get { return this._dropdownClipWidget; }` |
-| `ListPanel` | `public ListPanel ListPanel { get { return this._listPanel; }` |
-| `ListPanelValue` | `public int ListPanelValue { get { if (this.ListPanel != null) { return this.ListPanel.IntValue; }` |
-| `CurrentSelectedIndex` | `public int CurrentSelectedIndex { get { return this._currentSelectedIndex; }` |
-| `UpdateSelectedItem` | `public bool UpdateSelectedItem { get { return this._updateSelectedItem; }` |
+| `Button` | `public ButtonWidget Button { get; set; }` |
+| `DropdownContainerWidget` | `public Widget DropdownContainerWidget { get; set; }` |
+| `DropdownClipWidget` | `public Widget DropdownClipWidget { get; set; }` |
+| `ListPanel` | `public ListPanel ListPanel { get; set; }` |
+| `ListPanelValue` | `public int ListPanelValue { get; set; }` |
+| `CurrentSelectedIndex` | `public int CurrentSelectedIndex { get; set; }` |
+| `UpdateSelectedItem` | `public bool UpdateSelectedItem { get; set; }` |
 
 ## 主要方法
 
 ### OnButtonClick
-```csharp
-public void OnButtonClick(Widget widget)
-```
+`public void OnButtonClick(Widget widget)`
+
+**用途 / Purpose:** 当 `button click` 事件触发时调用此方法。
 
 ### UpdateButtonText
-```csharp
-public void UpdateButtonText(string text)
-```
+`public void UpdateButtonText(string text)`
+
+**用途 / Purpose:** 更新 `button text` 的状态或数据。
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget widget)
-```
+`public void OnListChanged(Widget widget)`
+
+**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget parentWidget, Widget addedWidget)
-```
+`public void OnListChanged(Widget parentWidget, Widget addedWidget)`
+
+**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
 
 ### OnSelectionChanged
-```csharp
-public void OnSelectionChanged(Widget widget)
-```
+`public void OnSelectionChanged(Widget widget)`
+
+**用途 / Purpose:** 当 `selection changed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// AnimatedDropdownWidget (Widget) 的典型用法
-// 声明/访问一个 AnimatedDropdownWidget
-var widget = root.GetChild("animatedDropdownWidget");;
+var widget = new AnimatedDropdownWidget(context);
 ```
 
 ## 参见

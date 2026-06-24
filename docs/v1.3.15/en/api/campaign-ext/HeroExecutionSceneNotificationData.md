@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HeroExecutionSceneNotificationData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroExecutionSceneNotificationData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HeroExecutionSceneNotificationData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`HeroExecutionSceneNotificationData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `HeroExecutionSceneNotificationData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -37,35 +42,34 @@
 ## Key Methods
 
 ### GetSceneNotificationCharacters
-```csharp
-public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()
-```
+`public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
+
+**Purpose:** Gets the current value of `scene notification characters`.
 
 ### OnCloseAction
-```csharp
-public override void OnCloseAction()
-```
+`public override void OnCloseAction()`
+
+**Purpose:** Called when the `close action` event is raised.
 
 ### OnAffirmativeAction
-```csharp
-public override void OnAffirmativeAction()
-```
+`public override void OnAffirmativeAction()`
+
+**Purpose:** Called when the `affirmative action` event is raised.
 
 ### CreateForPlayerExecutingHero
-```csharp
-public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any, bool showNegativeOption = true)
-```
+`public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any, bool showNegativeOption = true)`
+
+**Purpose:** Creates a new `for player executing hero` instance or object.
 
 ### CreateForInformingPlayer
-```csharp
-public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any)
-```
+`public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any)`
+
+**Purpose:** Creates a new `for informing player` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HeroExecutionSceneNotificationData (Data)
-new HeroExecutionSceneNotificationData { /* fill fields */ };;
+var value = new HeroExecutionSceneNotificationData();
 ```
 
 ## See Also

@@ -2,99 +2,96 @@
 **Home** → **API Index** → **Area** → `OptionsProvider`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OptionsProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public static class OptionsProvider`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `OptionsProvider` is a class in the `TaleWorlds.MountAndBlade.Options` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OptionsProvider` lives in `TaleWorlds.MountAndBlade.Options`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Options` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### GetVideoOptionCategory
+`public static OptionCategory GetVideoOptionCategory(bool isMainMenu, Action onBrightnessClick, Action onExposureClick, Action onBenchmarkClick)`
 
-```csharp
-public static OptionCategory GetVideoOptionCategory(bool isMainMenu, Action onBrightnessClick, Action onExposureClick, Action onBenchmarkClick)
-```
+**Purpose:** Gets the current value of `video option category`.
 
 ### GetPerformanceOptionCategory
+`public static OptionCategory GetPerformanceOptionCategory(bool isMultiplayer)`
 
-```csharp
-public static OptionCategory GetPerformanceOptionCategory(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `performance option category`.
 
 ### GetPerformanceGraphicsOptions
+`public static IEnumerable<IOptionData> GetPerformanceGraphicsOptions(bool isMultiplayer)`
 
-```csharp
-public static IEnumerable<IOptionData> GetPerformanceGraphicsOptions(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `performance graphics options`.
 
 ### GetPerformanceResolutionScalingOptions
+`public static IEnumerable<IOptionData> GetPerformanceResolutionScalingOptions(bool isMultiplayer)`
 
-```csharp
-public static IEnumerable<IOptionData> GetPerformanceResolutionScalingOptions(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `performance resolution scaling options`.
 
 ### GetPerformanceGameplayOptions
+`public static IEnumerable<IOptionData> GetPerformanceGameplayOptions(bool isMultiplayer)`
 
-```csharp
-public static IEnumerable<IOptionData> GetPerformanceGameplayOptions(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `performance gameplay options`.
 
 ### GetPerformanceAudioOptions
+`public static IEnumerable<IOptionData> GetPerformanceAudioOptions()`
 
-```csharp
-public static IEnumerable<IOptionData> GetPerformanceAudioOptions()
-```
+**Purpose:** Gets the current value of `performance audio options`.
 
 ### GetAudioOptionCategory
+`public static OptionCategory GetAudioOptionCategory(bool isMultiplayer)`
 
-```csharp
-public static OptionCategory GetAudioOptionCategory(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `audio option category`.
 
 ### GetGameplayOptionCategory
+`public static OptionCategory GetGameplayOptionCategory(bool isMainMenu, bool isMultiplayer)`
 
-```csharp
-public static OptionCategory GetGameplayOptionCategory(bool isMainMenu, bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `gameplay option category`.
 
 ### GetGameKeyCategoriesList
+`public static IEnumerable<string> GetGameKeyCategoriesList(bool isMultiplayer)`
 
-```csharp
-public static IEnumerable<string> GetGameKeyCategoriesList(bool isMultiplayer)
-```
+**Purpose:** Gets the current value of `game key categories list`.
 
 ### GetHiddenGameKeys
+`public static IEnumerable<int> GetHiddenGameKeys(bool isNavalModuleActive)`
 
-```csharp
-public static IEnumerable<int> GetHiddenGameKeys(bool isNavalModuleActive)
-```
+**Purpose:** Gets the current value of `hidden game keys`.
 
 ### GetControllerOptionCategory
+`public static OptionCategory GetControllerOptionCategory()`
 
-```csharp
-public static OptionCategory GetControllerOptionCategory()
-```
+**Purpose:** Gets the current value of `controller option category`.
 
 ### GetDefaultNativeOptions
+`public static Dictionary<NativeOptions.NativeOptionsType, float > GetDefaultNativeOptions()`
 
-```csharp
-public static Dictionary<NativeOptions.NativeOptionsType, float > GetDefaultNativeOptions()
-```
+**Purpose:** Gets the current value of `default native options`.
 
 ### GetDefaultManagedOptions
+`public static Dictionary<ManagedOptions.ManagedOptionsType, float > GetDefaultManagedOptions()`
+
+**Purpose:** Gets the current value of `default managed options`.
+
+## Usage Example
 
 ```csharp
-public static Dictionary<ManagedOptions.ManagedOptionsType, float > GetDefaultManagedOptions()
+// Prepare the required context, then call the static entry point directly
+OptionsProvider.GetVideoOptionCategory(false, onBrightnessClick, onExposureClick, onBenchmarkClick);
 ```
 
 ## See Also

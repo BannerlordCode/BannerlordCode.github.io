@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TeamAIComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TeamAIComponent
@@ -14,118 +15,125 @@
 
 ## 概述
 
-`TeamAIComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<TeamAIComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`TeamAIComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `TeamAIComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `StrategicAreas` | `public MBReadOnlyList<StrategicArea> StrategicAreas { get { return this._strategicAreas; }` |
-| `HasStrategicAreas` | `public bool HasStrategicAreas { get { return !this._strategicAreas.IsEmpty<StrategicArea>(); }` |
+| `StrategicAreas` | `public MBReadOnlyList<StrategicArea> StrategicAreas { get; }` |
+| `HasStrategicAreas` | `public bool HasStrategicAreas { get; }` |
+| `IsDefenseApplicable` | `public bool IsDefenseApplicable { get; }` |
+| `GetIsFirstTacticChosen` | `public bool GetIsFirstTacticChosen { get; }` |
+| `Id` | `public string Id { get; }` |
+| `Tactic` | `public Lazy<TacticComponent> Tactic { get; }` |
 | `Weight` | `public float Weight { get; set; }` |
 
 ## 主要方法
 
 ### AddStrategicArea
-```csharp
-public void AddStrategicArea(StrategicArea strategicArea)
-```
+`public void AddStrategicArea(StrategicArea strategicArea)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `strategic area`。
 
 ### RemoveStrategicArea
-```csharp
-public void RemoveStrategicArea(StrategicArea strategicArea)
-```
+`public void RemoveStrategicArea(StrategicArea strategicArea)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `strategic area`。
 
 ### RemoveAllStrategicAreas
-```csharp
-public void RemoveAllStrategicAreas()
-```
+`public void RemoveAllStrategicAreas()`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `all strategic areas`。
 
 ### AddTacticOption
-```csharp
-public void AddTacticOption(TacticComponent tacticOption)
-```
+`public void AddTacticOption(TacticComponent tacticOption)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `tactic option`。
 
 ### RemoveTacticOption
-```csharp
-public void RemoveTacticOption(Type tacticType)
-```
+`public void RemoveTacticOption(Type tacticType)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `tactic option`。
 
 ### ClearTacticOptions
-```csharp
-public void ClearTacticOptions()
-```
+`public void ClearTacticOptions()`
+
+**用途 / Purpose:** 处理 `clear tactic options` 相关逻辑。
 
 ### AssertTeam
-```csharp
-public void AssertTeam(Team team)
-```
+`public void AssertTeam(Team team)`
+
+**用途 / Purpose:** 处理 `assert team` 相关逻辑。
 
 ### NotifyTacticalDecision
-```csharp
-public void NotifyTacticalDecision(in TacticalDecision decision)
-```
+`public void NotifyTacticalDecision(in TacticalDecision decision)`
+
+**用途 / Purpose:** 处理 `notify tactical decision` 相关逻辑。
 
 ### OnDeploymentFinished
-```csharp
-public virtual void OnDeploymentFinished()
-```
+`public virtual void OnDeploymentFinished()`
+
+**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
 
 ### OnFormationFrameChanged
-```csharp
-public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)
-```
+`public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
+
+**用途 / Purpose:** 当 `formation frame changed` 事件触发时调用此方法。
 
 ### OnMissionEnded
-```csharp
-public virtual void OnMissionEnded()
-```
+`public virtual void OnMissionEnded()`
+
+**用途 / Purpose:** 当 `mission ended` 事件触发时调用此方法。
 
 ### ResetTacticalPositions
-```csharp
-public void ResetTacticalPositions()
-```
+`public void ResetTacticalPositions()`
+
+**用途 / Purpose:** 将 `tactical positions` 重置为初始状态。
 
 ### ResetTactic
-```csharp
-public void ResetTactic(bool keepCurrentTactic = true)
-```
+`public void ResetTactic(bool keepCurrentTactic = true)`
+
+**用途 / Purpose:** 将 `tactic` 重置为初始状态。
 
 ### CheckIsDefenseApplicable
-```csharp
-public void CheckIsDefenseApplicable()
-```
+`public void CheckIsDefenseApplicable()`
+
+**用途 / Purpose:** 处理 `check is defense applicable` 相关逻辑。
 
 ### OnTacticAppliedForFirstTime
-```csharp
-public void OnTacticAppliedForFirstTime()
-```
+`public void OnTacticAppliedForFirstTime()`
+
+**用途 / Purpose:** 当 `tactic applied for first time` 事件触发时调用此方法。
 
 ### TickOccasionally
-```csharp
-public void TickOccasionally()
-```
+`public void TickOccasionally()`
+
+**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
 
 ### IsCurrentTactic
-```csharp
-public bool IsCurrentTactic(TacticComponent tactic)
-```
+`public bool IsCurrentTactic(TacticComponent tactic)`
+
+**用途 / Purpose:** 处理 `is current tactic` 相关逻辑。
 
 ### OnUnitAddedToFormationForTheFirstTime
-```csharp
-public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)
-```
+`public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
+
+**用途 / Purpose:** 当 `unit added to formation for the first time` 事件触发时调用此方法。
 
 ### TacticalDecisionDelegate
-```csharp
-public delegate void TacticalDecisionDelegate(in TacticalDecision decision)
-```
+`public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
+
+**用途 / Purpose:** 处理 `tactical decision delegate` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// TeamAIComponent (Component) 的典型用法
-agent.GetComponent<TeamAIComponent>();
+var implementation = new CustomTeamAIComponent();
 ```
 
 ## 参见

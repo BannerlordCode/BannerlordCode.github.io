@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `FriendInfo`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FriendInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class FriendInfo`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/FriendInfo.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `FriendInfo` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FriendInfo` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,7 +30,12 @@
 | `Name` | `public string Name { get; set; }` |
 | `IsOnline` | `public bool IsOnline { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new FriendInfo();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

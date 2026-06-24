@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `MetaData`
 - [← 本领域 / 返回 save-system](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MetaData
 
 **命名空间:** TaleWorlds.SaveSystem
 **模块:** TaleWorlds.SaveSystem
-**类型:** 类 class class
-**领域:** 存档系统 SaveSystem
+**类型:** `public class MetaData`
+**领域:** save-system
 
 ## 概述
 
-> 本页为自动生成的存根。`MetaData` 是 `TaleWorlds.SaveSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MetaData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `MetaData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,34 +28,33 @@
 | `this` | `public string this { get; set; }` |
 | `Keys` | `public Dictionary<string, string>.KeyCollection Keys { get; }` |
 
-
 ## 主要方法
 
 ### Add
+`public void Add(string key, string value)`
 
-```csharp
-public void Add(string key, string value)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `add`。
 
 ### TryGetValue
+`public bool TryGetValue(string key, out string value)`
 
-```csharp
-public bool TryGetValue(string key, out string value)
-```
+**用途 / Purpose:** 尝试获取 `get value`，通常以 out 参数返回结果。
 
 ### Serialize
+`public void Serialize(Stream stream)`
 
-```csharp
-public void Serialize(Stream stream)
-```
+**用途 / Purpose:** 处理 `serialize` 相关逻辑。
 
 ### Deserialize
+`public static MetaData Deserialize(Stream stream)`
+
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public static MetaData Deserialize(Stream stream)
+var value = new MetaData();
 ```
-
-献文档。
 
 ## 参见
 

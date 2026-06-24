@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `UsableMissionObjectComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UsableMissionObjectComponent
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`UsableMissionObjectComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<UsableMissionObjectComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`UsableMissionObjectComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `UsableMissionObjectComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsOnTickRequired
-```csharp
-public virtual bool IsOnTickRequired()
-```
+`public virtual bool IsOnTickRequired()`
+
+**Purpose:** Handles logic related to `is on tick required`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of UsableMissionObjectComponent (Component)
-agent.GetComponent<UsableMissionObjectComponent>();
+var implementation = new CustomUsableMissionObjectComponent();
 ```
 
 ## See Also

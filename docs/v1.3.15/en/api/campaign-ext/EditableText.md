@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EditableText`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EditableText
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EditableText : RichText`
+**Base:** `RichText`
+**File:** `TaleWorlds.TwoDimension/EditableText.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EditableText` is a class in the `TaleWorlds.TwoDimension` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EditableText` lives in `TaleWorlds.TwoDimension` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,76 +33,70 @@
 | `BlinkTimer` | `public float BlinkTimer { get; set; }` |
 | `VisibleText` | `public string VisibleText { get; set; }` |
 
-
 ## Key Methods
 
 ### SetCursorPosition
+`public void SetCursorPosition(int position, bool visible)`
 
-```csharp
-public void SetCursorPosition(int position, bool visible)
-```
+**Purpose:** Sets the value or state of `cursor position`.
 
 ### BlinkCursor
+`public void BlinkCursor()`
 
-```csharp
-public void BlinkCursor()
-```
+**Purpose:** Handles logic related to `blink cursor`.
 
 ### IsCursorVisible
+`public bool IsCursorVisible()`
 
-```csharp
-public bool IsCursorVisible()
-```
+**Purpose:** Handles logic related to `is cursor visible`.
 
 ### ResetSelected
+`public void ResetSelected()`
 
-```csharp
-public void ResetSelected()
-```
+**Purpose:** Resets `selected` to its initial state.
 
 ### BeginSelection
+`public void BeginSelection()`
 
-```csharp
-public void BeginSelection()
-```
+**Purpose:** Handles logic related to `begin selection`.
 
 ### IsAnySelected
+`public bool IsAnySelected()`
 
-```csharp
-public bool IsAnySelected()
-```
+**Purpose:** Handles logic related to `is any selected`.
 
 ### GetCursorPosition
+`public Vector2 GetCursorPosition()`
 
-```csharp
-public Vector2 GetCursorPosition()
-```
+**Purpose:** Gets the current value of `cursor position`.
 
 ### Update
+`public override void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)`
 
-```csharp
-public override void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### SelectAll
+`public void SelectAll()`
 
-```csharp
-public void SelectAll()
-```
+**Purpose:** Handles logic related to `select all`.
 
 ### FindNextWordPosition
+`public int FindNextWordPosition(int direction)`
 
-```csharp
-public int FindNextWordPosition(int direction)
-```
+**Purpose:** Handles logic related to `find next word position`.
 
 ### SetCursor
+`public void SetCursor(int position, bool visible = true, bool withSelection = false)`
+
+**Purpose:** Sets the value or state of `cursor`.
+
+## Usage Example
 
 ```csharp
-public void SetCursor(int position, bool visible = true, bool withSelection = false)
+var value = new EditableText();
+value.SetCursorPosition(0, false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

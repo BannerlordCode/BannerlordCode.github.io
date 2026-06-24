@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PartyTroopManagerItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTroopManagerItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PartyTroopManagerItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Party/PartyTroopManagerPopUp/PartyTroopManagerItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PartyTroopManagerItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PartyTroopManagerItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,28 +31,30 @@
 | `IsTroopUpgradable` | `public bool IsTroopUpgradable { get; set; }` |
 | `IsTroopRecruitable` | `public bool IsTroopRecruitable { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteSetFocused
+`public void ExecuteSetFocused()`
 
-```csharp
-public void ExecuteSetFocused()
-```
+**Purpose:** Executes the `set focused` operation or workflow.
 
 ### ExecuteSetUnfocused
+`public void ExecuteSetUnfocused()`
 
-```csharp
-public void ExecuteSetUnfocused()
-```
+**Purpose:** Executes the `set unfocused` operation or workflow.
 
 ### ExecuteOpenTroopEncyclopedia
+`public void ExecuteOpenTroopEncyclopedia()`
+
+**Purpose:** Executes the `open troop encyclopedia` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteOpenTroopEncyclopedia()
+var value = new PartyTroopManagerItemVM();
+value.ExecuteSetFocused();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

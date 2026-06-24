@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultVillageTradeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultVillageTradeModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultVillageTradeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultVillageTradeModel>(new MyDefaultVillageTradeModel())` to change how it computes.
+`DefaultVillageTradeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultVillageTradeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### TradeBoundDistanceLimitAsDays
-```csharp
-public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)
-```
+`public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
+
+**Purpose:** Handles logic related to `trade bound distance limit as days`.
 
 ### GetTradeBoundToAssignForVillage
-```csharp
-public override Settlement GetTradeBoundToAssignForVillage(Village village)
-```
+`public override Settlement GetTradeBoundToAssignForVillage(Village village)`
+
+**Purpose:** Gets the current value of `trade bound to assign for village`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultVillageTradeModel (Model)
 Game.Current.ReplaceModel<DefaultVillageTradeModel>(new MyDefaultVillageTradeModel());
 ```
 

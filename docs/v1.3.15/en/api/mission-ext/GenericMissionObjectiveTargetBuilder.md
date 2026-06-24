@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `GenericMissionObjectiveTargetBuilder`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GenericMissionObjectiveTargetBuilder
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct GenericMissionObjectiveTargetBuilder<T>`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `GenericMissionObjectiveTargetBuilder` is a struct in the `TaleWorlds.MountAndBlade.Missions.Objectives` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GenericMissionObjectiveTargetBuilder` lives in `TaleWorlds.MountAndBlade.Missions.Objectives`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,127 +33,114 @@
 | `Mission` | `public Mission Mission { get; }` |
 | `ObjectiveGiver` | `public BasicCharacterObject ObjectiveGiver { get; }` |
 
-
 ## Key Methods
 
 ### GetCurrentProgress
+`public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-```csharp
-public virtual MissionObjectiveProgressInfo GetCurrentProgress()
-```
+**Purpose:** Gets the current value of `current progress`.
 
 ### SetObjectiveGiver
+`public void SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-```csharp
-public void SetObjectiveGiver(BasicCharacterObject objectiveGiver)
-```
+**Purpose:** Sets the value or state of `objective giver`.
 
 ### AddTarget
+`public void AddTarget(MissionObjectiveTarget target)`
 
-```csharp
-public void AddTarget(MissionObjectiveTarget target)
-```
+**Purpose:** Adds `target` to the current collection or state.
 
 ### RemoveTarget
+`public void RemoveTarget(MissionObjectiveTarget target)`
 
-```csharp
-public void RemoveTarget(MissionObjectiveTarget target)
-```
+**Purpose:** Removes `target` from the current collection or state.
 
 ### ClearTargets
+`public void ClearTargets()`
 
-```csharp
-public void ClearTargets()
-```
+**Purpose:** Handles logic related to `clear targets`.
 
 ### GetTargetsCopy
+`public MBReadOnlyList<MissionObjectiveTarget> GetTargetsCopy()`
 
-```csharp
-public MBReadOnlyList<MissionObjectiveTarget> GetTargetsCopy()
-```
+**Purpose:** Gets the current value of `targets copy`.
 
 ### CreateGenericObjectiveBuilder
+`public static MissionObjective.GenericMissionObjectiveBuilder CreateGenericObjectiveBuilder(Mission mission, string id, TextObject name = null, TextObject description = null)`
 
-```csharp
-public static MissionObjective.GenericMissionObjectiveBuilder CreateGenericObjectiveBuilder(Mission mission, string id, TextObject name = null, TextObject description = null)
-```
+**Purpose:** Creates a new `generic objective builder` instance or object.
 
 ### SetName
+`public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)
-```
+**Purpose:** Sets the value or state of `name`.
 
 ### SetDescription
+`public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)
-```
+**Purpose:** Sets the value or state of `description`.
 
 ### SetObjectiveGiver
+`public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)
-```
+**Purpose:** Sets the value or state of `objective giver`.
 
 ### SetInitialTargets
+`public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)
-```
+**Purpose:** Sets the value or state of `initial targets`.
 
 ### SetIsActivationRequirementsMetCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)
-```
+**Purpose:** Sets the value or state of `is activation requirements met callback`.
 
 ### SetIsCompletionRequirementsMetCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)
-```
+**Purpose:** Sets the value or state of `is completion requirements met callback`.
 
 ### SetOnStartCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)
-```
+**Purpose:** Sets the value or state of `on start callback`.
 
 ### SetOnCompleteCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)
-```
+**Purpose:** Sets the value or state of `on complete callback`.
 
 ### SetOnTickCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)
-```
+**Purpose:** Sets the value or state of `on tick callback`.
 
 ### SetProgressCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)
-```
+**Purpose:** Sets the value or state of `progress callback`.
 
 ### Build
+`public MissionObjective Build()`
 
-```csharp
-public MissionObjective Build()
-```
+**Purpose:** Handles logic related to `build`.
 
 ### SetIsActiveCallback
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)
-```
+**Purpose:** Sets the value or state of `is active callback`.
 
 ### SetGetGlobalPositionCallback
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
+
+**Purpose:** Sets the value or state of `get global position callback`.
+
+## Usage Example
 
 ```csharp
-public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)
+// First obtain a GenericMissionObjectiveTargetBuilder instance from game state, then call one of its public methods
+var value = new GenericMissionObjectiveTargetBuilder();
+value.GetCurrentProgress();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `NetworkCommunicator`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NetworkCommunicator
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public sealed class NetworkCommunicator : ICommunicator`
+**Base:** `ICommunicator`
+**File:** `TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `NetworkCommunicator` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`NetworkCommunicator` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,52 +45,50 @@
 | `IsServerPeer` | `public bool IsServerPeer { get; }` |
 | `ServerPerformanceProblemState` | `public ServerPerformanceState ServerPerformanceProblemState { get; }` |
 
-
 ## Key Methods
 
 ### SetRelevantGameOptions
+`public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)`
 
-```csharp
-public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)
-```
+**Purpose:** Sets the value or state of `relevant game options`.
 
 ### GetHost
+`public uint GetHost()`
 
-```csharp
-public uint GetHost()
-```
+**Purpose:** Gets the current value of `host`.
 
 ### GetReversedHost
+`public uint GetReversedHost()`
 
-```csharp
-public uint GetReversedHost()
-```
+**Purpose:** Gets the current value of `reversed host`.
 
 ### GetPort
+`public ushort GetPort()`
 
-```csharp
-public ushort GetPort()
-```
+**Purpose:** Gets the current value of `port`.
 
 ### UpdateConnectionInfoForReconnect
+`public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-```csharp
-public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)
-```
+**Purpose:** Updates the state or data of `connection info for reconnect`.
 
 ### UpdateIndexForReconnectingPlayer
+`public void UpdateIndexForReconnectingPlayer(int newIndex)`
 
-```csharp
-public void UpdateIndexForReconnectingPlayer(int newIndex)
-```
+**Purpose:** Updates the state or data of `index for reconnecting player`.
 
 ### UpdateForJoiningCustomGame
+`public void UpdateForJoiningCustomGame(bool isAdmin)`
+
+**Purpose:** Updates the state or data of `for joining custom game`.
+
+## Usage Example
 
 ```csharp
-public void UpdateForJoiningCustomGame(bool isAdmin)
+var value = new NetworkCommunicator();
+value.SetRelevantGameOptions(false, false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

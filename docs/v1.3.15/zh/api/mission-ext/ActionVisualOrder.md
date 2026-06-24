@@ -2,48 +2,54 @@
 **首页** → **API 目录** → **本领域** → `ActionVisualOrder`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ActionVisualOrder
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public sealed class ActionVisualOrder : VisualOrder`
+**Base:** `VisualOrder`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/ActionVisualOrder.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ActionVisualOrder` 是 `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ActionVisualOrder` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### GetName
+`public override TextObject GetName(OrderController orderController)`
 
-```csharp
-public override TextObject GetName(OrderController orderController)
-```
+**用途 / Purpose:** 获取 `name` 的当前值。
 
 ### IsTargeted
+`public override bool IsTargeted()`
 
-```csharp
-public override bool IsTargeted()
-```
+**用途 / Purpose:** 处理 `is targeted` 相关逻辑。
 
 ### ExecuteOrder
+`public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-```csharp
-public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)
-```
+**用途 / Purpose:** 执行 `order` 操作或流程。
 
 ### OrderActionDelegate
+`public delegate void OrderActionDelegate(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
+
+**用途 / Purpose:** 处理 `order action delegate` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public delegate void OrderActionDelegate(OrderController orderController, VisualOrderExecutionParameters executionParameters)
+var value = new ActionVisualOrder();
+value.GetName(orderController);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

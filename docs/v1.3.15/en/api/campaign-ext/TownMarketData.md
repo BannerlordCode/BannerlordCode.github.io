@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TownMarketData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TownMarketData
@@ -14,85 +15,88 @@
 
 ## Overview
 
-`TownMarketData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`TownMarketData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `TownMarketData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetCategoryData
-```csharp
-public ItemData GetCategoryData(ItemCategory itemCategory)
-```
+`public ItemData GetCategoryData(ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `category data`.
 
 ### GetItemCountOfCategory
-```csharp
-public int GetItemCountOfCategory(ItemCategory itemCategory)
-```
+`public int GetItemCountOfCategory(ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `item count of category`.
 
 ### OnTownInventoryUpdated
-```csharp
-public void OnTownInventoryUpdated(ItemRosterElement item, int count)
-```
+`public void OnTownInventoryUpdated(ItemRosterElement item, int count)`
+
+**Purpose:** Called when the `town inventory updated` event is raised.
 
 ### AddDemand
-```csharp
-public void AddDemand(ItemCategory itemCategory, float demandAmount)
-```
+`public void AddDemand(ItemCategory itemCategory, float demandAmount)`
+
+**Purpose:** Adds `demand` to the current collection or state.
 
 ### AddSupply
-```csharp
-public void AddSupply(ItemCategory itemCategory, float supplyAmount)
-```
+`public void AddSupply(ItemCategory itemCategory, float supplyAmount)`
+
+**Purpose:** Adds `supply` to the current collection or state.
 
 ### AddNumberInStore
-```csharp
-public void AddNumberInStore(ItemCategory itemCategory, int number, int value)
-```
+`public void AddNumberInStore(ItemCategory itemCategory, int number, int value)`
+
+**Purpose:** Adds `number in store` to the current collection or state.
 
 ### SetSupplyDemand
-```csharp
-public void SetSupplyDemand(ItemCategory itemCategory, float supply, float demand)
-```
+`public void SetSupplyDemand(ItemCategory itemCategory, float supply, float demand)`
+
+**Purpose:** Sets the value or state of `supply demand`.
 
 ### SetDemand
-```csharp
-public void SetDemand(ItemCategory itemCategory, float demand)
-```
+`public void SetDemand(ItemCategory itemCategory, float demand)`
+
+**Purpose:** Sets the value or state of `demand`.
 
 ### GetDemand
-```csharp
-public float GetDemand(ItemCategory itemCategory)
-```
+`public float GetDemand(ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `demand`.
 
 ### GetSupply
-```csharp
-public float GetSupply(ItemCategory itemCategory)
-```
+`public float GetSupply(ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `supply`.
 
 ### GetPriceFactor
-```csharp
-public float GetPriceFactor(ItemCategory itemCategory)
-```
+`public float GetPriceFactor(ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `price factor`.
 
 ### GetPrice
-```csharp
-public int GetPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)
-```
+`public int GetPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)`
+
+**Purpose:** Gets the current value of `price`.
 
 ### GetPrice
-```csharp
-public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)
-```
+`public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)`
+
+**Purpose:** Gets the current value of `price`.
 
 ### UpdateStores
-```csharp
-public void UpdateStores()
-```
+`public void UpdateStores()`
+
+**Purpose:** Updates the state or data of `stores`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TownMarketData (Data)
-new TownMarketData { /* fill fields */ };;
+var value = new TownMarketData();
 ```
 
 ## See Also

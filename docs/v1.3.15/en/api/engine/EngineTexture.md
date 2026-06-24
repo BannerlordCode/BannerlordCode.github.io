@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EngineTexture`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EngineTexture
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
-**Type:** class
-**Area:** Engine
+**Type:** `public class EngineTexture : ITexture`
+**Base:** `ITexture`
+**File:** `TaleWorlds.Engine.GauntletUI/EngineTexture.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EngineTexture` is a class in the `TaleWorlds.Engine.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EngineTexture` lives in `TaleWorlds.Engine.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,16 +27,20 @@
 |------|-----------|
 | `Texture` | `public Texture Texture { get; }` |
 
-
 ## Key Methods
 
 ### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
+
+## Usage Example
 
 ```csharp
-public override int GetHashCode()
+var value = new EngineTexture();
+value.GetHashCode();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)

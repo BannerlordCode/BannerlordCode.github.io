@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `VillageEventOptionData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VillageEventOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
-**Type:** struct
-**Area:** Campaign System
+**Type:** `public struct VillageEventOptionData`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `VillageEventOptionData` is a struct in the `TaleWorlds.CampaignSystem.Issues` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`VillageEventOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `VillageEventOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -35,79 +38,72 @@
 | `TargetSettlement` | `public Settlement TargetSettlement { get; }` |
 | `CollectProgress` | `public float CollectProgress { get; }` |
 
-
 ## Key Methods
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**Purpose:** Handles logic related to `register events`.
 
 ### OnVillageEventWithIdSpawned
+`public void OnVillageEventWithIdSpawned(string Id)`
 
-```csharp
-public void OnVillageEventWithIdSpawned(string Id)
-```
+**Purpose:** Called when the `village event with id spawned` event is raised.
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**Purpose:** Handles logic related to `sync data`.
 
 ### OnCheckForIssue
+`public void OnCheckForIssue(Hero hero)`
 
-```csharp
-public void OnCheckForIssue(Hero hero)
-```
+**Purpose:** Called when the `check for issue` event is raised.
 
 ### GetFrequency
+`public override IssueBase.IssueFrequency GetFrequency()`
 
-```csharp
-public override IssueBase.IssueFrequency GetFrequency()
-```
+**Purpose:** Gets the current value of `frequency`.
 
 ### IssueStayAliveConditions
+`public override bool IssueStayAliveConditions()`
 
-```csharp
-public override bool IssueStayAliveConditions()
-```
+**Purpose:** Handles logic related to `issue stay alive conditions`.
 
 ### RevenuesAreDeliveredToSteward
+`public void RevenuesAreDeliveredToSteward()`
 
-```csharp
-public void RevenuesAreDeliveredToSteward()
-```
+**Purpose:** Handles logic related to `revenues are delivered to steward`.
 
 ### FindCurrentRevenueVillage
+`public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()`
 
-```csharp
-public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()
-```
+**Purpose:** Handles logic related to `find current revenue village`.
 
 ### SetVillageAsCompleted
+`public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)`
 
-```csharp
-public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)
-```
+**Purpose:** Sets the value or state of `village as completed`.
 
 ### SetDone
+`public void SetDone()`
 
-```csharp
-public void SetDone()
-```
+**Purpose:** Sets the value or state of `done`.
 
 ### SetAdditionalProgress
+`public void SetAdditionalProgress(float progress)`
 
-```csharp
-public void SetAdditionalProgress(float progress)
-```
+**Purpose:** Sets the value or state of `additional progress`.
 
 ### GetIsCompleted
+`public bool GetIsCompleted()`
+
+**Purpose:** Gets the current value of `is completed`.
+
+## Usage Example
 
 ```csharp
-public bool GetIsCompleted()
+var value = new VillageEventOptionData();
 ```
 
 ## See Also

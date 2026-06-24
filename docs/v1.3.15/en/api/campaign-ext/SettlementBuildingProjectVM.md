@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SettlementBuildingProjectVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementBuildingProjectVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SettlementBuildingProjectVM : SettlementProjectVM`
+**Base:** `SettlementProjectVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TownManagement/SettlementBuildingProjectVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SettlementBuildingProjectVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SettlementBuildingProjectVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,52 +36,50 @@
 | `AddRemoveHint` | `public HintViewModel AddRemoveHint { get; set; }` |
 | `SetAsActiveHint` | `public HintViewModel SetAsActiveHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshProductionText
+`public override void RefreshProductionText()`
 
-```csharp
-public override void RefreshProductionText()
-```
+**Purpose:** Refreshes the display or cache of `production text`.
 
 ### ExecuteAddToQueue
+`public override void ExecuteAddToQueue()`
 
-```csharp
-public override void ExecuteAddToQueue()
-```
+**Purpose:** Executes the `add to queue` operation or workflow.
 
 ### ExecuteSetAsActiveDevelopment
+`public override void ExecuteSetAsActiveDevelopment()`
 
-```csharp
-public override void ExecuteSetAsActiveDevelopment()
-```
+**Purpose:** Executes the `set as active development` operation or workflow.
 
 ### ExecuteSetAsCurrent
+`public override void ExecuteSetAsCurrent()`
 
-```csharp
-public override void ExecuteSetAsCurrent()
-```
+**Purpose:** Executes the `set as current` operation or workflow.
 
 ### ExecuteResetCurrent
+`public override void ExecuteResetCurrent()`
 
-```csharp
-public override void ExecuteResetCurrent()
-```
+**Purpose:** Executes the `reset current` operation or workflow.
 
 ### ExecuteToggleSelected
+`public override void ExecuteToggleSelected()`
+
+**Purpose:** Executes the `toggle selected` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public override void ExecuteToggleSelected()
+var value = new SettlementBuildingProjectVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleHighlightsController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleHighlightsController
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`BattleHighlightsController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`BattleHighlightsController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `BattleHighlightsController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleHighlightsController (Controller)
-Mission.Current.GetMissionBehavior<BattleHighlightsController>();
+var controller = Mission.Current.GetMissionBehavior<BattleHighlightsController>();
 ```
 
 ## See Also

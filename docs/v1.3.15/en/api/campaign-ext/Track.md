@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Track`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Track
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public sealed class Track : ILocatable<Track>, IInteractablePoint`
+**Base:** `ILocatable<Track>`
+**File:** `TaleWorlds.CampaignSystem/Track.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Track` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Track` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,28 +34,30 @@
 | `IsAlive` | `public bool IsAlive { get; }` |
 | `Scale` | `public float Scale { get; }` |
 
-
 ## Key Methods
 
 ### CanPartyInteract
+`public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-```csharp
-public bool CanPartyInteract(MobileParty mobileParty, float dt)
-```
+**Purpose:** Checks whether the current object can `party interact`.
 
 ### GetPartyTypeEnum
+`public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)`
 
-```csharp
-public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)
-```
+**Purpose:** Gets the current value of `party type enum`.
 
 ### Reset
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
+
+## Usage Example
 
 ```csharp
-public void Reset()
+var value = new Track();
+value.CanPartyInteract(mobileParty, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SallyOutMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SallyOutMissionController
@@ -14,51 +15,54 @@
 
 ## Overview
 
-`SallyOutMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`SallyOutMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `SallyOutMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `BesiegerSiegeEngines` | `public MBReadOnlyList<SiegeWeapon> BesiegerSiegeEngines { get { return this._besiegerSiegeEngines; }` |
+| `BesiegerSiegeEngines` | `public MBReadOnlyList<SiegeWeapon> BesiegerSiegeEngines { get; }` |
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### OnDeploymentFinished
-```csharp
-public override void OnDeploymentFinished()
-```
+`public override void OnDeploymentFinished()`
+
+**Purpose:** Called when the `deployment finished` event is raised.
 
 ### GetBesiegerSiegeEngines
-```csharp
-public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()
-```
+`public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()`
+
+**Purpose:** Gets the current value of `besieger siege engines`.
 
 ### DisableSiegeEngines
-```csharp
-public static void DisableSiegeEngines()
-```
+`public static void DisableSiegeEngines()`
+
+**Purpose:** Handles logic related to `disable siege engines`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SallyOutMissionController (Controller)
-Mission.Current.GetMissionBehavior<SallyOutMissionController>();
+var implementation = new CustomSallyOutMissionController();
 ```
 
 ## See Also

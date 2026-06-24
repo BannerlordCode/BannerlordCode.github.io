@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `TraitObject`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TraitObject
@@ -16,6 +18,10 @@
 ## Overview
 
 Mods usually reference existing traits via the `DefaultTraits` static fields, or enumerate all with `TraitObject.All`. Read/write a hero's trait level with `Hero.GetTraitLevel(trait)` / `Hero.SetTraitLevel(trait, value)`.
+
+## Mental Model
+
+Treat `TraitObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -55,3 +61,9 @@ foreach (TraitObject t in TraitObject.All)
 - [Hero](../campaign/Hero.md)
 - [PerkObject](./PerkObject.md)
 - [Campaign](./Campaign.md)
+
+## Usage Example
+
+```csharp
+var example = new TraitObject();
+```

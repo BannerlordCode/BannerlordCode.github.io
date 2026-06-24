@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SettlementMenuOverlayVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementMenuOverlayVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SettlementMenuOverlayVM : GameMenuOverlay`
+**Base:** `GameMenuOverlay`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/SettlementMenuOverlayVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SettlementMenuOverlayVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SettlementMenuOverlayVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,59 +45,78 @@
 | `WallsHint` | `public BasicTooltipViewModel WallsHint { get; set; }` |
 | `CrimeHint` | `public BasicTooltipViewModel CrimeHint { get; set; }` |
 | `LeaveMembersHint` | `public HintViewModel LeaveMembersHint { get; set; }` |
-
+| `SettlementOwnerBanner` | `public BannerImageIdentifierVM SettlementOwnerBanner { get; set; }` |
+| `CharacterList` | `public MBBindingList<GameMenuPartyItemVM> CharacterList { get; set; }` |
+| `PartyList` | `public MBBindingList<GameMenuPartyItemVM> PartyList { get; set; }` |
+| `IssueList` | `public MBBindingList<StringItemWithHintVM> IssueList { get; set; }` |
+| `MilitasLbl` | `public string MilitasLbl { get; set; }` |
+| `GarrisonLbl` | `public string GarrisonLbl { get; set; }` |
+| `CrimeLbl` | `public string CrimeLbl { get; set; }` |
+| `CanLeaveMembers` | `public bool CanLeaveMembers { get; set; }` |
+| `ProsperityLbl` | `public string ProsperityLbl { get; set; }` |
+| `LoyaltyLbl` | `public string LoyaltyLbl { get; set; }` |
+| `SecurityLbl` | `public string SecurityLbl { get; set; }` |
+| `WallsLbl` | `public string WallsLbl { get; set; }` |
+| `WallsLevel` | `public int WallsLevel { get; set; }` |
+| `SettlementNameLbl` | `public string SettlementNameLbl { get; set; }` |
+| `IsFortification` | `public bool IsFortification { get; set; }` |
+| `IsCrimeEnabled` | `public bool IsCrimeEnabled { get; set; }` |
+| `IsNoGarrisonWarning` | `public bool IsNoGarrisonWarning { get; set; }` |
+| `IsCrimeLabelHighlightEnabled` | `public bool IsCrimeLabelHighlightEnabled { get; set; }` |
+| `IsLoyaltyRebellionWarning` | `public bool IsLoyaltyRebellionWarning { get; set; }` |
+| `IsShipyardEnabled` | `public bool IsShipyardEnabled { get; set; }` |
+| `ShipyardLbl` | `public string ShipyardLbl { get; set; }` |
+| `ShipyardHint` | `public BasicTooltipViewModel ShipyardHint { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteOnOverlayClosed
+`public override void ExecuteOnOverlayClosed()`
 
-```csharp
-public override void ExecuteOnOverlayClosed()
-```
+**Purpose:** Executes the `on overlay closed` operation or workflow.
 
 ### UpdateOverlayType
+`public override void UpdateOverlayType(GameMenu.MenuOverlayType newType)`
 
-```csharp
-public override void UpdateOverlayType(GameMenu.MenuOverlayType newType)
-```
+**Purpose:** Updates the state or data of `overlay type`.
 
 ### Refresh
+`public override void Refresh()`
 
-```csharp
-public override void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### ExecuteAddCompanion
+`public void ExecuteAddCompanion()`
 
-```csharp
-public void ExecuteAddCompanion()
-```
+**Purpose:** Executes the `add companion` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
-
-### Compare
-
-```csharp
-public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Compare
+`public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)
+var value = new SettlementMenuOverlayVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

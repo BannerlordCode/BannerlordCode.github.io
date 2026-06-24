@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionLobbyComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionLobbyComponent
@@ -14,138 +15,141 @@
 
 ## Overview
 
-`MissionLobbyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MissionLobbyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MissionLobbyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MissionLobbyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `IsInWarmup` | `public bool IsInWarmup { get { return this._warmupComponent != null && this._warmupComponent.IsInWarmup; }` |
-| `MissionType` | `public MultiplayerGameType MissionType { get; set; }` |
-| `CurrentMultiplayerState` | `public MissionLobbyComponent.MultiplayerGameState CurrentMultiplayerState { get { return this._currentMultiplayerState; }` |
+| `IsInWarmup` | `public bool IsInWarmup { get; }` |
+| `MissionType` | `public MultiplayerGameType MissionType { get; }` |
+| `CurrentMultiplayerState` | `public MissionLobbyComponent.MultiplayerGameState CurrentMultiplayerState { get; }` |
 
 ## Key Methods
 
 ### AddLobbyComponentType
-```csharp
-public static void AddLobbyComponentType(Type type, LobbyMissionType missionType, bool isSeverComponent)
-```
+`public static void AddLobbyComponentType(Type type, LobbyMissionType missionType, bool isSeverComponent)`
+
+**Purpose:** Adds `lobby component type` to the current collection or state.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### CreateBehavior
-```csharp
-public static MissionLobbyComponent CreateBehavior()
-```
+`public static MissionLobbyComponent CreateBehavior()`
+
+**Purpose:** Creates a new `behavior` instance or object.
 
 ### QuitMission
-```csharp
-public virtual void QuitMission()
-```
+`public virtual void QuitMission()`
+
+**Purpose:** Handles logic related to `quit mission`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### IsClassAvailable
-```csharp
-public bool IsClassAvailable(FormationClass formationClass)
-```
+`public bool IsClassAvailable(FormationClass formationClass)`
+
+**Purpose:** Handles logic related to `is class available`.
 
 ### ChangeClassRestriction
-```csharp
-public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool value)
-```
+`public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool value)`
+
+**Purpose:** Handles logic related to `change class restriction`.
 
 ### DespawnPlayer
-```csharp
-public void DespawnPlayer(MissionPeer missionPeer)
-```
+`public void DespawnPlayer(MissionPeer missionPeer)`
+
+**Purpose:** Handles logic related to `despawn player`.
 
 ### OnScoreHit
-```csharp
-public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)
-```
+`public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
+
+**Purpose:** Called when the `score hit` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnAgentBuild
-```csharp
-public override void OnAgentBuild(Agent agent, Banner banner)
-```
+`public override void OnAgentBuild(Agent agent, Banner banner)`
+
+**Purpose:** Called when the `agent build` event is raised.
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
 
 ### GetSpawnPeriodDurationForPeer
-```csharp
-public static int GetSpawnPeriodDurationForPeer(MissionPeer peer)
-```
+`public static int GetSpawnPeriodDurationForPeer(MissionPeer peer)`
+
+**Purpose:** Gets the current value of `spawn period duration for peer`.
 
 ### SetStateEndingAsServer
-```csharp
-public virtual void SetStateEndingAsServer()
-```
+`public virtual void SetStateEndingAsServer()`
+
+**Purpose:** Sets the value or state of `state ending as server`.
 
 ### RequestCultureSelection
-```csharp
-public void RequestCultureSelection()
-```
+`public void RequestCultureSelection()`
+
+**Purpose:** Handles logic related to `request culture selection`.
 
 ### RequestAdminMessage
-```csharp
-public void RequestAdminMessage(string message, bool isBroadcast)
-```
+`public void RequestAdminMessage(string message, bool isBroadcast)`
+
+**Purpose:** Handles logic related to `request admin message`.
 
 ### RequestTroopSelection
-```csharp
-public void RequestTroopSelection()
-```
+`public void RequestTroopSelection()`
+
+**Purpose:** Handles logic related to `request troop selection`.
 
 ### OnCultureSelected
-```csharp
-public void OnCultureSelected(BasicCultureObject culture)
-```
+`public void OnCultureSelected(BasicCultureObject culture)`
+
+**Purpose:** Called when the `culture selected` event is raised.
 
 ### GetRandomFaceSeedForCharacter
-```csharp
-public int GetRandomFaceSeedForCharacter(BasicCharacterObject character, int addition = 0)
-```
+`public int GetRandomFaceSeedForCharacter(BasicCharacterObject character, int addition = 0)`
+
+**Purpose:** Gets the current value of `random face seed for character`.
 
 ### MPHostChangeParam
-```csharp
-public static string MPHostChangeParam(List<string> strings)
-```
+`public static string MPHostChangeParam(List<string> strings)`
+
+**Purpose:** Handles logic related to `m p host change param`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionLobbyComponent (Component)
-agent.GetComponent<MissionLobbyComponent>();
+var implementation = new CustomMissionLobbyComponent();
 ```
 
 ## See Also

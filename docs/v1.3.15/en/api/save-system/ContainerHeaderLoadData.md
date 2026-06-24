@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `ContainerHeaderLoadData`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ContainerHeaderLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
-**Type:** class
-**Area:** Save System
+**Type:** `public class ContainerHeaderLoadData`
+**Area:** save-system
 
 ## Overview
 
-> This is an auto-generated stub. `ContainerHeaderLoadData` is a class in the `TaleWorlds.SaveSystem.Load` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ContainerHeaderLoadData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `ContainerHeaderLoadData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,25 +32,27 @@
 | `ElementCount` | `public int ElementCount { get; }` |
 | `ContainerType` | `public ContainerType ContainerType { get; }` |
 
-
 ## Key Methods
 
 ### GetObjectTypeDefinition
+`public bool GetObjectTypeDefinition()`
 
-```csharp
-public bool GetObjectTypeDefinition()
-```
+**Purpose:** Gets the current value of `object type definition`.
 
 ### CreateObject
+`public void CreateObject()`
 
-```csharp
-public void CreateObject()
-```
+**Purpose:** Creates a new `object` instance or object.
 
 ### InitialieReaders
+`public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
+
+**Purpose:** Initializes the state, resources, or bindings for `ialie readers`.
+
+## Usage Example
 
 ```csharp
-public void InitialieReaders(SaveEntryFolder saveEntryFolder)
+var value = new ContainerHeaderLoadData();
 ```
 
 ## See Also

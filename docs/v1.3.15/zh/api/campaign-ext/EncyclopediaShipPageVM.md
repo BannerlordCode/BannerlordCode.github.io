@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `EncyclopediaShipPageVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaShipPageVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class EncyclopediaShipPageVM : EncyclopediaContentPageVM`
+**Base:** `EncyclopediaContentPageVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Pages/EncyclopediaShipPageVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`EncyclopediaShipPageVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`EncyclopediaShipPageVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -29,42 +35,40 @@
 | `StatList` | `public MBBindingList<EncyclopediaShipStatVM> StatList { get; set; }` |
 | `AllShipSlots` | `public MBBindingList<EncyclopediaShipSlotVM> AllShipSlots { get; set; }` |
 
-
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### GetName
+`public override string GetName()`
 
-```csharp
-public override string GetName()
-```
+**用途 / Purpose:** 获取 `name` 的当前值。
 
 ### GetNavigationBarURL
+`public override string GetNavigationBarURL()`
 
-```csharp
-public override string GetNavigationBarURL()
-```
+**用途 / Purpose:** 获取 `navigation bar u r l` 的当前值。
 
 ### ExecuteLink
+`public void ExecuteLink(string link)`
 
-```csharp
-public void ExecuteLink(string link)
-```
+**用途 / Purpose:** 执行 `link` 操作或流程。
 
 ### ExecuteSwitchBookmarkedState
+`public override void ExecuteSwitchBookmarkedState()`
+
+**用途 / Purpose:** 执行 `switch bookmarked state` 操作或流程。
+
+## 使用示例
 
 ```csharp
-public override void ExecuteSwitchBookmarkedState()
+var value = new EncyclopediaShipPageVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

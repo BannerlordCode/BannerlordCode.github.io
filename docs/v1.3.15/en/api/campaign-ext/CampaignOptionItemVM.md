@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CampaignOptionItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignOptionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class CampaignOptionItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CampaignOptionItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CampaignOptionItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CampaignOptionItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,46 +39,45 @@
 | `ValueAsString` | `public string ValueAsString { get; set; }` |
 | `SelectionSelector` | `public CampaignOptionSelectorVM SelectionSelector { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshDisabledStatus
+`public void RefreshDisabledStatus()`
 
-```csharp
-public void RefreshDisabledStatus()
-```
+**Purpose:** Refreshes the display or cache of `disabled status`.
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### OnSelectionOptionValueChanged
+`public void OnSelectionOptionValueChanged(SelectorVM<SelectorItemVM> selector)`
 
-```csharp
-public void OnSelectionOptionValueChanged(SelectorVM<SelectorItemVM> selector)
-```
+**Purpose:** Called when the `selection option value changed` event is raised.
 
 ### SetValue
+`public void SetValue(float value)`
 
-```csharp
-public void SetValue(float value)
-```
+**Purpose:** Sets the value or state of `value`.
 
 ### SetOnValueChangedCallback
+`public void SetOnValueChangedCallback(Action<CampaignOptionItemVM> onValueChanged)`
+
+**Purpose:** Sets the value or state of `on value changed callback`.
+
+## Usage Example
 
 ```csharp
-public void SetOnValueChangedCallback(Action<CampaignOptionItemVM> onValueChanged)
+var value = new CampaignOptionItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

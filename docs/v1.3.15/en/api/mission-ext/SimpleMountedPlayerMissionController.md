@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SimpleMountedPlayerMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SimpleMountedPlayerMissionController
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`SimpleMountedPlayerMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`SimpleMountedPlayerMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `SimpleMountedPlayerMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**Purpose:** Handles logic related to `mission ended`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SimpleMountedPlayerMissionController (Controller)
-Mission.Current.GetMissionBehavior<SimpleMountedPlayerMissionController>();
+var controller = Mission.Current.GetMissionBehavior<SimpleMountedPlayerMissionController>();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBAgentRendererSceneController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBAgentRendererSceneController
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`MBAgentRendererSceneController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`MBAgentRendererSceneController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `MBAgentRendererSceneController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetEnforcedVisibilityForAllAgents
-```csharp
-public void SetEnforcedVisibilityForAllAgents(Scene scene)
-```
+`public void SetEnforcedVisibilityForAllAgents(Scene scene)`
+
+**Purpose:** Sets the value or state of `enforced visibility for all agents`.
 
 ### CreateNewAgentRendererSceneController
-```csharp
-public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)
-```
+`public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)`
+
+**Purpose:** Creates a new `new agent renderer scene controller` instance or object.
 
 ### SetDoTimerBasedForcedSkeletonUpdates
-```csharp
-public void SetDoTimerBasedForcedSkeletonUpdates(bool value)
-```
+`public void SetDoTimerBasedForcedSkeletonUpdates(bool value)`
+
+**Purpose:** Sets the value or state of `do timer based forced skeleton updates`.
 
 ### DestructAgentRendererSceneController
-```csharp
-public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)
-```
+`public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)`
+
+**Purpose:** Handles logic related to `destruct agent renderer scene controller`.
 
 ### ValidateAgentVisualsReseted
-```csharp
-public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)
-```
+`public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)`
+
+**Purpose:** Handles logic related to `validate agent visuals reseted`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBAgentRendererSceneController (Controller)
-Mission.Current.GetMissionBehavior<MBAgentRendererSceneController>();
+var controller = Mission.Current.GetMissionBehavior<MBAgentRendererSceneController>();
 ```
 
 ## See Also

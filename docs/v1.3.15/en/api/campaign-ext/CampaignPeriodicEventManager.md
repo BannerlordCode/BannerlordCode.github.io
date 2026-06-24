@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignPeriodicEventManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignPeriodicEventManager
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`CampaignPeriodicEventManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CampaignPeriodicEventManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CampaignPeriodicEventManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreatePeriodicEvent
-```csharp
-public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)
-```
+`public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
+
+**Purpose:** Creates a new `periodic event` instance or object.
 
 ### ToString
-```csharp
-public override string ToString()
-```
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignPeriodicEventManager (Manager)
-CampaignPeriodicEventManager.Current;
+var manager = CampaignPeriodicEventManager.Current;
 ```
 
 ## See Also

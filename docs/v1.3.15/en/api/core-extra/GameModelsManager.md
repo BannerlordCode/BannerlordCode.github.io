@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameModelsManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameModelsManager
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`GameModelsManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`GameModelsManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `GameModelsManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetGameModels
-```csharp
-public MBReadOnlyList<GameModel> GetGameModels()
-```
+`public MBReadOnlyList<GameModel> GetGameModels()`
+
+**Purpose:** Gets the current value of `game models`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameModelsManager (Manager)
-GameModelsManager.Current;
+var implementation = new CustomGameModelsManager();
 ```
 
 ## See Also

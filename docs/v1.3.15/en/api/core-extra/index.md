@@ -5,6 +5,10 @@ description: TaleWorlds.Core extended data types / Core extended data types
 
 # Core-Extra / Core-Extra 核心扩展
 
+## Mental Model
+
+Treat `Core-Extra` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 Core extra module documentation.
 
 核心扩展模块文档。

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DamageParticleModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DamageParticleModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`DamageParticleModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DamageParticleModel>(new MyDamageParticleModel())` to change how it computes.
+`DamageParticleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DamageParticleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMeleeAttackBloodParticles
-```csharp
-public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)
-```
+`public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
+
+**Purpose:** Gets the current value of `melee attack blood particles`.
 
 ### GetMeleeAttackSweatParticles
-```csharp
-public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)
-```
+`public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
+
+**Purpose:** Gets the current value of `melee attack sweat particles`.
 
 ### GetMissileAttackParticle
-```csharp
-public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)
-```
+`public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Gets the current value of `missile attack particle`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DamageParticleModel (Model)
-Game.Current.ReplaceModel<DamageParticleModel>(new MyDamageParticleModel());
+var implementation = new CustomDamageParticleModel();
 ```
 
 ## See Also

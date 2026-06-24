@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ScrollablePanelFixedHeaderWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScrollablePanelFixedHeaderWidget
@@ -16,6 +17,10 @@
 
 `ScrollablePanelFixedHeaderWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ScrollablePanelFixedHeaderWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -23,17 +28,15 @@
 | `FixedHeader` | `public Widget FixedHeader { get; set; }` |
 | `TopOffset` | `public float TopOffset { get; set; }` |
 | `BottomOffset` | `public float BottomOffset { get; set; }` |
-| `HeaderHeight` | `public float HeaderHeight { get { return this._headerHeight; }` |
-| `AdditionalTopOffset` | `public float AdditionalTopOffset { get { return this._additionalTopOffset; }` |
-| `AdditionalBottomOffset` | `public float AdditionalBottomOffset { get { return this._additionalBottomOffset; }` |
-| `IsRelevant` | `public bool IsRelevant { get { return this._isRelevant; }` |
+| `HeaderHeight` | `public float HeaderHeight { get; set; }` |
+| `AdditionalTopOffset` | `public float AdditionalTopOffset { get; set; }` |
+| `AdditionalBottomOffset` | `public float AdditionalBottomOffset { get; set; }` |
+| `IsRelevant` | `public bool IsRelevant { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ScrollablePanelFixedHeaderWidget (Widget)
-// 声明/访问一个 ScrollablePanelFixedHeaderWidget
-var widget = root.GetChild("scrollablePanelFixedHeaderWidget");;
+var widget = new ScrollablePanelFixedHeaderWidget(context);
 ```
 
 ## See Also

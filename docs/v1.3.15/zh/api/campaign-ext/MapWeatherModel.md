@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MapWeatherModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapWeatherModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`MapWeatherModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<MapWeatherModel>(new MyMapWeatherModel())` 注册，以改变其计算逻辑。
+`MapWeatherModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MapWeatherModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,55 +31,54 @@
 ## 主要方法
 
 ### GetInterpolatedAtmosphereState
-```csharp
-public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)
-```
+`public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
+
+**用途 / Purpose:** 获取 `interpolated atmosphere state` 的当前值。
 
 ### GetAtmosphereModel
-```csharp
-public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)
-```
+`public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
+
+**用途 / Purpose:** 获取 `atmosphere model` 的当前值。
 
 ### GetSeasonTimeFactorOfCampaignTime
-```csharp
-public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)
-```
+`public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
+
+**用途 / Purpose:** 获取 `season time factor of campaign time` 的当前值。
 
 ### UpdateWeatherForPosition
-```csharp
-public abstract MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)
-```
+`public abstract MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
+
+**用途 / Purpose:** 更新 `weather for position` 的状态或数据。
 
 ### InitializeCaches
-```csharp
-public abstract void InitializeCaches()
-```
+`public abstract void InitializeCaches()`
+
+**用途 / Purpose:** 初始化 `caches` 的状态、资源或绑定。
 
 ### GetWeatherEventInPosition
-```csharp
-public abstract MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)
-```
+`public abstract MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
+
+**用途 / Purpose:** 获取 `weather event in position` 的当前值。
 
 ### GetSnowAndRainDataForPosition
-```csharp
-public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)
-```
+`public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
+
+**用途 / Purpose:** 获取 `snow and rain data for position` 的当前值。
 
 ### GetWeatherEffectOnTerrainForPosition
-```csharp
-public abstract MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)
-```
+`public abstract MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
+
+**用途 / Purpose:** 获取 `weather effect on terrain for position` 的当前值。
 
 ### GetWindForPosition
-```csharp
-public abstract Vec2 GetWindForPosition(CampaignVec2 position)
-```
+`public abstract Vec2 GetWindForPosition(CampaignVec2 position)`
+
+**用途 / Purpose:** 获取 `wind for position` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MapWeatherModel (Model) 的典型用法
-Game.Current.ReplaceModel<MapWeatherModel>(new MyMapWeatherModel());
+var implementation = new CustomMapWeatherModel();
 ```
 
 ## 参见

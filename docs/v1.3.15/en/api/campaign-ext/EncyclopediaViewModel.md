@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncyclopediaViewModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaViewModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`EncyclopediaViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and a Gauntlet UI. Bind properties with `[DataSourceProperty]`, override OnPropertyChanged to react.
+`EncyclopediaViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and UI. Mods typically use it to expose state, commands, and list items to the screen.
+
+## Mental Model
+
+Treat `EncyclopediaViewModel` as a ViewModel-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,10 +30,8 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of EncyclopediaViewModel (ViewModel)
-// 绑定一个 EncyclopediaViewModel 到 Gauntlet UI
 var vm = new EncyclopediaViewModel();
-movie.SetViewModel(vm);;
+movie.SetViewModel(vm);
 ```
 
 ## See Also

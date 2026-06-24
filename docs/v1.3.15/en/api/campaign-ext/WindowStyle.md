@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `WindowStyle`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WindowStyle
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/WindowStyle.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WindowStyle` is a enum in the `TaleWorlds.TwoDimension.Standalone.Native.Windows` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WindowStyle` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `Overlapped` |
-| `0U` |
-| `OverlappedWindow` |
-| `13565952U` |
-| `WS_POPUP` |
-| `2147483648U` |
-| `WS_CHILD` |
-| `1073741824U` |
-| `WS_MINIMIZE` |
-| `536870912U` |
-| `WS_VISIBLE` |
-| `268435456U` |
-| `WS_DISABLED` |
-| `134217728U` |
-| `WS_CLIPSIBLINGS` |
-| `67108864U` |
-| `WS_CLIPCHILDREN` |
-| `33554432U` |
-| `WS_MAXIMIZE` |
-| `16777216U` |
-| `WS_CAPTION` |
-| `12582912U` |
-| `WS_BORDER` |
-| `8388608U` |
-| `WS_DLGFRAME` |
-| `4194304U` |
-| `WS_VSCROLL` |
-| `2097152U` |
-| `WS_HSCROLL` |
-| `1048576U` |
+## Usage Example
+
+```csharp
+var value = new WindowStyle();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

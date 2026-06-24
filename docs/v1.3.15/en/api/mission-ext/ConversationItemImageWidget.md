@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ConversationItemImageWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationItemImageWidget
@@ -16,6 +17,10 @@
 
 `ConversationItemImageWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ConversationItemImageWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -27,9 +32,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of ConversationItemImageWidget (Widget)
-// 声明/访问一个 ConversationItemImageWidget
-var widget = root.GetChild("conversationItemImageWidget");;
+var widget = new ConversationItemImageWidget(context);
 ```
 
 ## See Also

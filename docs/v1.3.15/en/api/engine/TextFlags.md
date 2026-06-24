@@ -2,54 +2,31 @@
 **Home** → **API Index** → **Area** → `TextFlags`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** enum
-**Area:** Engine
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.Engine/TextFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TextFlags` is a enum in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TextFlags` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `RglTfNone` |
-| `0` |
-| `RglTfHAlignLeft` |
-| `1` |
-| `RglTfHAlignRight` |
-| `2` |
-| `RglTfHAlignCenter` |
-| `3` |
-| `RglTfVAlignTop` |
-| `4` |
-| `RglTfVAlignDown` |
-| `8` |
-| `RglTfVAlignCenter` |
-| `12` |
-| `RglTfSingleLine` |
-| `16` |
-| `RglTfMultiline` |
-| `32` |
-| `RglTfItalic` |
-| `64` |
-| `RglTfCutTextFromLeft` |
-| `128` |
-| `RglTfDoubleSpace` |
-| `256` |
-| `RglTfWithOutline` |
-| `512` |
-| `RglTfHalfSpace` |
+## Usage Example
+
+```csharp
+var value = new TextFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)

@@ -5,6 +5,10 @@ description: 原生对象数组操作接口文档 / Documentation for native obj
 
 # INativeObjectArray
 
+## 心智模型
+
+先把 `INativeObjectArray` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **文件**: `TaleWorlds.DotNet/INativeObjectArray.cs`  
 **命名空间**: `TaleWorlds.DotNet`  
 **特性**: `[LibraryInterfaceBase]`

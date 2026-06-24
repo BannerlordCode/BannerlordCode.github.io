@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EditorGameManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EditorGameManager
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`EditorGameManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`EditorGameManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `EditorGameManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAfterCampaignStart
-```csharp
-public override void OnAfterCampaignStart(Game game)
-```
+`public override void OnAfterCampaignStart(Game game)`
+
+**Purpose:** Called when the `after campaign start` event is raised.
 
 ### OnLoadFinished
-```csharp
-public override void OnLoadFinished()
-```
+`public override void OnLoadFinished()`
+
+**Purpose:** Called when the `load finished` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EditorGameManager (Manager)
-EditorGameManager.Current;
+var manager = EditorGameManager.Current;
 ```
 
 ## See Also

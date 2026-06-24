@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MBNotNullParameterException`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBNotNullParameterException
@@ -14,13 +15,16 @@
 
 ## 概述
 
-`MBNotNullParameterException` 是一个异常类型（继承自 Exception），在特定错误条件发生时抛出。捕获它以处理该错误。
+`MBNotNullParameterException` 是一个异常类型，用来表达某种明确的错误条件；调用方需要决定是捕获、转换还是让它继续向上抛出。
+
+## 心智模型
+
+把 `MBNotNullParameterException` 当作一个 Exception 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 使用示例
 
 ```csharp
-// MBNotNullParameterException (Exception) 的典型用法
-try { /* call */ } catch (MBNotNullParameterException e) { /* handle */ };
+try { CallMBNotNullParameterException(); } catch (MBNotNullParameterException exception) { Handle(exception); }
 ```
 
 ## 参见

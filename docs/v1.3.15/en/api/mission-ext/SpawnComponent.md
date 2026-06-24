@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SpawnComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpawnComponent
@@ -14,100 +15,110 @@
 
 ## Overview
 
-`SpawnComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<SpawnComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`SpawnComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `SpawnComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `SpawnFrameBehavior` | `public SpawnFrameBehaviorBase SpawnFrameBehavior { get; }` |
+| `SpawningBehavior` | `public SpawningBehaviorBase SpawningBehavior { get; }` |
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### AreAgentsSpawning
-```csharp
-public bool AreAgentsSpawning()
-```
+`public bool AreAgentsSpawning()`
+
+**Purpose:** Handles logic related to `are agents spawning`.
 
 ### SetNewSpawnFrameBehavior
-```csharp
-public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)
-```
+`public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)`
+
+**Purpose:** Sets the value or state of `new spawn frame behavior`.
 
 ### SetNewSpawningBehavior
-```csharp
-public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)
-```
+`public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)`
+
+**Purpose:** Sets the value or state of `new spawning behavior`.
 
 ### SetSiegeSpawningBehavior
-```csharp
-public static void SetSiegeSpawningBehavior()
-```
+`public static void SetSiegeSpawningBehavior()`
+
+**Purpose:** Sets the value or state of `siege spawning behavior`.
 
 ### SetFlagDominationSpawningBehavior
-```csharp
-public static void SetFlagDominationSpawningBehavior()
-```
+`public static void SetFlagDominationSpawningBehavior()`
+
+**Purpose:** Sets the value or state of `flag domination spawning behavior`.
 
 ### SetWarmupSpawningBehavior
-```csharp
-public static void SetWarmupSpawningBehavior()
-```
+`public static void SetWarmupSpawningBehavior()`
+
+**Purpose:** Sets the value or state of `warmup spawning behavior`.
 
 ### SetSpawningBehaviorForCurrentGameType
-```csharp
-public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)
-```
+`public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)`
+
+**Purpose:** Sets the value or state of `spawning behavior for current game type`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### GetSpawnFrame
-```csharp
-public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)
-```
+`public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)`
+
+**Purpose:** Gets the current value of `spawn frame`.
 
 ### SetEarlyAgentVisualsDespawning
-```csharp
-public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)
-```
+`public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)`
+
+**Purpose:** Sets the value or state of `early agent visuals despawning`.
 
 ### ToggleUpdatingSpawnEquipment
-```csharp
-public void ToggleUpdatingSpawnEquipment(bool canUpdate)
-```
+`public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
+
+**Purpose:** Handles logic related to `toggle updating spawn equipment`.
 
 ### AllowEarlyAgentVisualsDespawning
-```csharp
-public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)
-```
+`public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
+
+**Purpose:** Handles logic related to `allow early agent visuals despawning`.
 
 ### GetMaximumReSpawnPeriodForPeer
-```csharp
-public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)
-```
+`public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)`
+
+**Purpose:** Gets the current value of `maximum re spawn period for peer`.
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SpawnComponent (Component)
-agent.GetComponent<SpawnComponent>();
+var component = agent.GetComponent<SpawnComponent>();
 ```
 
 ## See Also

@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Style`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Style
 
-**命名空间:** TaleWorlds.GauntletUI
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class Style : IDataSource`
+**Base:** `IDataSource`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Style.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Style` 是 `TaleWorlds.GauntletUI` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Style` 位于 `TaleWorlds.GauntletUI`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.GauntletUI` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,79 +45,74 @@
 | `TextHueFactor` | `public float TextHueFactor { get; set; }` |
 | `TextSaturationFactor` | `public float TextSaturationFactor { get; set; }` |
 | `TextValueFactor` | `public float TextValueFactor { get; set; }` |
-
+| `Font` | `public Font Font { get; set; }` |
+| `FontStyle` | `public FontStyle FontStyle { get; set; }` |
+| `FontSize` | `public int FontSize { get; set; }` |
 
 ## 主要方法
 
 ### FillFrom
+`public void FillFrom(Style style)`
 
-```csharp
-public void FillFrom(Style style)
-```
+**用途 / Purpose:** 处理 `fill from` 相关逻辑。
 
 ### AddLayer
+`public void AddLayer(StyleLayer layer)`
 
-```csharp
-public void AddLayer(StyleLayer layer)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `layer`。
 
 ### RemoveLayer
+`public void RemoveLayer(string layerName)`
 
-```csharp
-public void RemoveLayer(string layerName)
-```
-
-### GetLayer
-
-```csharp
-public StyleLayer GetLayer(int index)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `layer`。
 
 ### GetLayer
+`public StyleLayer GetLayer(int index)`
 
-```csharp
-public StyleLayer GetLayer(string name)
-```
+**用途 / Purpose:** 获取 `layer` 的当前值。
+
+### GetLayer
+`public StyleLayer GetLayer(string name)`
+
+**用途 / Purpose:** 获取 `layer` 的当前值。
 
 ### GetLayers
+`public StyleLayer GetLayers()`
 
-```csharp
-public StyleLayer GetLayers()
-```
+**用途 / Purpose:** 获取 `layers` 的当前值。
 
 ### CreateTextMaterial
+`public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-```csharp
-public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)
-```
+**用途 / Purpose:** 创建一个 `text material` 实例或对象。
 
 ### GetValueAsFloat
+`public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**用途 / Purpose:** 获取 `value as float` 的当前值。
 
 ### GetValueAsColor
+`public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**用途 / Purpose:** 获取 `value as color` 的当前值。
 
 ### GetValueAsSprite
+`public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**用途 / Purpose:** 获取 `value as sprite` 的当前值。
 
 ### SetAsDefaultStyle
+`public void SetAsDefaultStyle()`
+
+**用途 / Purpose:** 设置 `as default style` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetAsDefaultStyle()
+var value = new Style();
+value.FillFrom(style);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

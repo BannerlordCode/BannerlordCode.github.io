@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerScoreboardAnimatedFillBarWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerScoreboardAnimatedFillBarWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerScoreboardAnimatedFillBarWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerScoreboardAnimatedFillBarWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -29,26 +34,24 @@
 ## Key Methods
 
 ### StartAnimation
-```csharp
-public void StartAnimation()
-```
+`public void StartAnimation()`
+
+**Purpose:** Handles logic related to `start animation`.
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ### FullFillFinishedHandler
-```csharp
-public delegate void FullFillFinishedHandler()
-```
+`public delegate void FullFillFinishedHandler()`
+
+**Purpose:** Handles logic related to `full fill finished handler`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerScoreboardAnimatedFillBarWidget (Widget)
-// 声明/访问一个 MultiplayerScoreboardAnimatedFillBarWidget
-var widget = root.GetChild("multiplayerScoreboardAnimatedFillBarWidget");;
+var widget = new MultiplayerScoreboardAnimatedFillBarWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `LordsHallFightMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LordsHallFightMissionController
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`LordsHallFightMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`LordsHallFightMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `LordsHallFightMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,120 +36,119 @@
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnMissionStateFinalized
-```csharp
-public override void OnMissionStateFinalized()
-```
+`public override void OnMissionStateFinalized()`
+
+**Purpose:** Called when the `mission state finalized` event is raised.
 
 ### OnCreated
-```csharp
-public override void OnCreated()
-```
+`public override void OnCreated()`
+
+**Purpose:** Called when the `created` event is raised.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### StartSpawner
-```csharp
-public void StartSpawner(BattleSideEnum side)
-```
+`public void StartSpawner(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `start spawner`.
 
 ### StopSpawner
-```csharp
-public void StopSpawner(BattleSideEnum side)
-```
+`public void StopSpawner(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `stop spawner`.
 
 ### IsSideSpawnEnabled
-```csharp
-public bool IsSideSpawnEnabled(BattleSideEnum side)
-```
+`public bool IsSideSpawnEnabled(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `is side spawn enabled`.
 
 ### GetReinforcementInterval
-```csharp
-public float GetReinforcementInterval()
-```
+`public float GetReinforcementInterval()`
+
+**Purpose:** Gets the current value of `reinforcement interval`.
 
 ### IsSideDepleted
-```csharp
-public bool IsSideDepleted(BattleSideEnum side)
-```
+`public bool IsSideDepleted(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `is side depleted`.
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**Purpose:** Gets the current value of `number of player controllable troops`.
 
 ### GetAllTroopsForSide
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `all troops for side`.
 
 ### GetSpawnHorses
-```csharp
-public bool GetSpawnHorses(BattleSideEnum side)
-```
+`public bool GetSpawnHorses(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `spawn horses`.
 
 ### SpawnTroops
-```csharp
-public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)
-```
+`public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
+
+**Purpose:** Handles logic related to `spawn troops`.
 
 ### SpawnTroops
-```csharp
-public void SpawnTroops(int spawnCount, bool isReinforcement)
-```
+`public void SpawnTroops(int spawnCount, bool isReinforcement)`
+
+**Purpose:** Handles logic related to `spawn troops`.
 
 ### SetSpawnTroops
-```csharp
-public void SetSpawnTroops(bool spawnTroops)
-```
+`public void SetSpawnTroops(bool spawnTroops)`
+
+**Purpose:** Sets the value or state of `spawn troops`.
 
 ### GetAllTroops
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroops()
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
+
+**Purpose:** Gets the current value of `all troops`.
 
 ### GetAvailableMachines
-```csharp
-public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)
-```
+`public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)`
+
+**Purpose:** Gets the current value of `available machines`.
 
 ### AddAreaMarker
-```csharp
-public void AddAreaMarker(FightAreaMarker marker)
-```
+`public void AddAreaMarker(FightAreaMarker marker)`
+
+**Purpose:** Adds `area marker` to the current collection or state.
 
 ### FindAgentMachine
-```csharp
-public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)
-```
+`public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)`
+
+**Purpose:** Handles logic related to `find agent machine`.
 
 ### AssignAgent
-```csharp
-public void AssignAgent(Agent agent)
-```
+`public void AssignAgent(Agent agent)`
+
+**Purpose:** Handles logic related to `assign agent`.
 
 ### StopUse
-```csharp
-public void StopUse()
-```
+`public void StopUse()`
+
+**Purpose:** Handles logic related to `stop use`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of LordsHallFightMissionController (Controller)
-Mission.Current.GetMissionBehavior<LordsHallFightMissionController>();
+var controller = Mission.Current.GetMissionBehavior<LordsHallFightMissionController>();
 ```
 
 ## See Also

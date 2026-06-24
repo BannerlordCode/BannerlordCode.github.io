@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerWarmupComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerWarmupComponent
@@ -14,62 +15,65 @@
 
 ## 概述
 
-`MultiplayerWarmupComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MultiplayerWarmupComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MultiplayerWarmupComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MultiplayerWarmupComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `TotalWarmupDuration` | `public static float TotalWarmupDuration { get { return (float)MultiplayerOptions.OptionType.WarmupTimeLimitInSeconds.GetIntValue(MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions); }` |
-| `IsInWarmup` | `public bool IsInWarmup { get { return this.WarmupState != MultiplayerWarmupComponent.WarmupStates.Ended; }` |
+| `TotalWarmupDuration` | `public static float TotalWarmupDuration { get; }` |
+| `IsInWarmup` | `public bool IsInWarmup { get; }` |
 
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### CheckForWarmupProgressEnd
-```csharp
-public bool CheckForWarmupProgressEnd()
-```
+`public bool CheckForWarmupProgressEnd()`
+
+**用途 / Purpose:** 处理 `check for warmup progress end` 相关逻辑。
 
 ### OnPreDisplayMissionTick
-```csharp
-public override void OnPreDisplayMissionTick(float dt)
-```
+`public override void OnPreDisplayMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
 
 ### EndWarmupProgress
-```csharp
-public void EndWarmupProgress()
-```
+`public void EndWarmupProgress()`
+
+**用途 / Purpose:** 处理 `end warmup progress` 相关逻辑。
 
 ### CanMatchStartAfterWarmup
-```csharp
-public bool CanMatchStartAfterWarmup()
-```
+`public bool CanMatchStartAfterWarmup()`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `match start after warmup`。
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
 
 ### CommandEndWarmup
-```csharp
-public static string CommandEndWarmup(List<string> strings)
-```
+`public static string CommandEndWarmup(List<string> strings)`
+
+**用途 / Purpose:** 处理 `command end warmup` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerWarmupComponent (Component) 的典型用法
-agent.GetComponent<MultiplayerWarmupComponent>();
+var component = agent.GetComponent<MultiplayerWarmupComponent>();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultKingdomCreationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultKingdomCreationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultKingdomCreationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreationModel())` to change how it computes.
+`DefaultKingdomCreationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultKingdomCreationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,24 +33,23 @@
 ## Key Methods
 
 ### IsPlayerKingdomCreationPossible
-```csharp
-public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)
-```
+`public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
+
+**Purpose:** Handles logic related to `is player kingdom creation possible`.
 
 ### IsPlayerKingdomAbdicationPossible
-```csharp
-public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)
-```
+`public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
+
+**Purpose:** Handles logic related to `is player kingdom abdication possible`.
 
 ### GetAvailablePlayerKingdomCultures
-```csharp
-public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()
-```
+`public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
+
+**Purpose:** Gets the current value of `available player kingdom cultures`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultKingdomCreationModel (Model)
 Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreationModel());
 ```
 

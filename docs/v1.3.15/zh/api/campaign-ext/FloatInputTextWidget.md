@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `FloatInputTextWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FloatInputTextWidget
@@ -16,33 +17,35 @@
 
 `FloatInputTextWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `FloatInputTextWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `EnableClamp` | `public bool EnableClamp { get; set; }` |
-| `FloatText` | `public float FloatText { get { return this._floatText; }` |
-| `MaxFloat` | `public float MaxFloat { get { return this._maxFloat; }` |
-| `MinFloat` | `public float MinFloat { get { return this._minFloat; }` |
+| `FloatText` | `public float FloatText { get; set; }` |
+| `MaxFloat` | `public float MaxFloat { get; set; }` |
+| `MinFloat` | `public float MinFloat { get; set; }` |
 
 ## 主要方法
 
 ### HandleInput
-```csharp
-public override void HandleInput(IReadOnlyList<int> lastKeysPressed)
-```
+`public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
+
+**用途 / Purpose:** 处理 `input` 事件或回调。
 
 ### SetAllText
-```csharp
-public override void SetAllText(string text)
-```
+`public override void SetAllText(string text)`
+
+**用途 / Purpose:** 设置 `all text` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// FloatInputTextWidget (Widget) 的典型用法
-// 声明/访问一个 FloatInputTextWidget
-var widget = root.GetChild("floatInputTextWidget");;
+var widget = new FloatInputTextWidget(context);
 ```
 
 ## 参见

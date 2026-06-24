@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BaseNetworkComponentData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BaseNetworkComponentData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`BaseNetworkComponentData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`BaseNetworkComponentData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `BaseNetworkComponentData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,15 +30,14 @@
 ## 主要方法
 
 ### UpdateCurrentBattleIndex
-```csharp
-public void UpdateCurrentBattleIndex(int currentBattleIndex)
-```
+`public void UpdateCurrentBattleIndex(int currentBattleIndex)`
+
+**用途 / Purpose:** 更新 `current battle index` 的状态或数据。
 
 ## 使用示例
 
 ```csharp
-// BaseNetworkComponentData (Data) 的典型用法
-new BaseNetworkComponentData { /* fill fields */ };;
+var value = new BaseNetworkComponentData();
 ```
 
 ## 参见

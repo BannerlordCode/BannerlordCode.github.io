@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DataSourceProperty`
+**Home** → **API Index** → **Area** → `DataSourceProperty / DataSourceProperty`
 - [← Area / Back to viewmodel](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DataSourceProperty / DataSourceProperty
+
+## Mental Model
+
+Treat `DataSourceProperty` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.Library
 **File**: `bannerlord-1.3.15/TaleWorlds.Library/DataSourceProperty.cs`
@@ -82,3 +88,9 @@ public class MyViewModel : ViewModel
 - 不存在 `BoolViewModel` 或 `TextViewModel` 这样的单独类
 - Property change notifications are handled through typed `OnPropertyChangedWithValue` methods
 - 属性变更通知通过类型化的 `OnPropertyChangedWithValue` 方法处理
+
+## Usage Example
+
+```csharp
+var example = new DataSourceProperty();
+```

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SaveHandler`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveHandler
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`SaveHandler` 是一个任务处理器（反应逻辑）。经 AddMissionBehavior 添加，对特定任务事件作出响应。
+`SaveHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `SaveHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,39 +33,38 @@
 ## 主要方法
 
 ### QuickSaveCurrentGame
-```csharp
-public void QuickSaveCurrentGame()
-```
+`public void QuickSaveCurrentGame()`
+
+**用途 / Purpose:** 处理 `quick save current game` 相关逻辑。
 
 ### SaveAs
-```csharp
-public void SaveAs(string saveName)
-```
+`public void SaveAs(string saveName)`
+
+**用途 / Purpose:** 保存 `as` 数据。
 
 ### CampaignTick
-```csharp
-public void CampaignTick()
-```
+`public void CampaignTick()`
+
+**用途 / Purpose:** 处理 `campaign tick` 相关逻辑。
 
 ### SignalAutoSave
-```csharp
-public void SignalAutoSave()
-```
+`public void SignalAutoSave()`
+
+**用途 / Purpose:** 处理 `signal auto save` 相关逻辑。
 
 ### ForceAutoSave
-```csharp
-public void ForceAutoSave()
-```
+`public void ForceAutoSave()`
+
+**用途 / Purpose:** 处理 `force auto save` 相关逻辑。
 
 ### GetSaveMetaData
-```csharp
-public CampaignSaveMetaDataArgs GetSaveMetaData()
-```
+`public CampaignSaveMetaDataArgs GetSaveMetaData()`
+
+**用途 / Purpose:** 获取 `save meta data` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// SaveHandler (Handler) 的典型用法
 Mission.Current.AddMissionBehavior(new SaveHandler());
 ```
 

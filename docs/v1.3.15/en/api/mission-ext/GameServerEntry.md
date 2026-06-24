@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `GameServerEntry`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameServerEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GameServerEntry`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `GameServerEntry` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameServerEntry` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,13 +45,18 @@
 | `HostName` | `public string HostName { get; }` |
 | `LoadedModules` | `public List<ModuleInfoModel> LoadedModules { get; }` |
 
-
 ## Key Methods
 
 ### FilterGameServerEntriesBasedOnCrossplay
+`public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)`
+
+**Purpose:** Handles logic related to `filter game server entries based on crossplay`.
+
+## Usage Example
 
 ```csharp
-public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)
+// Prepare the required context, then call the static entry point directly
+GameServerEntry.FilterGameServerEntriesBasedOnCrossplay(serverList, false);
 ```
 
 ## See Also

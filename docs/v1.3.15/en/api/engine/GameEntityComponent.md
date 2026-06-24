@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameEntityComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameEntityComponent
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`GameEntityComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<GameEntityComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`GameEntityComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `GameEntityComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetEntity
-```csharp
-public WeakGameEntity GetEntity()
-```
+`public WeakGameEntity GetEntity()`
+
+**Purpose:** Gets the current value of `entity`.
 
 ### GetFirstMetaMesh
-```csharp
-public virtual MetaMesh GetFirstMetaMesh()
-```
+`public virtual MetaMesh GetFirstMetaMesh()`
+
+**Purpose:** Gets the current value of `first meta mesh`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameEntityComponent (Component)
-agent.GetComponent<GameEntityComponent>();
+var implementation = new CustomGameEntityComponent();
 ```
 
 ## See Also

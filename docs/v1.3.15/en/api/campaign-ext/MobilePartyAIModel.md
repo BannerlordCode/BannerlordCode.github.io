@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MobilePartyAIModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MobilePartyAIModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MobilePartyAIModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MobilePartyAIModel>(new MyMobilePartyAIModel())` to change how it computes.
+`MobilePartyAIModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MobilePartyAIModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -34,35 +39,34 @@
 ## Key Methods
 
 ### ShouldConsiderAvoiding
-```csharp
-public abstract bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)
-```
+`public abstract bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
+
+**Purpose:** Handles logic related to `should consider avoiding`.
 
 ### ShouldConsiderAttacking
-```csharp
-public abstract bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)
-```
+`public abstract bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
+
+**Purpose:** Handles logic related to `should consider attacking`.
 
 ### GetPatrolRadius
-```csharp
-public abstract float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)
-```
+`public abstract float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
+
+**Purpose:** Gets the current value of `patrol radius`.
 
 ### ShouldPartyCheckInitiativeBehavior
-```csharp
-public abstract bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)
-```
+`public abstract bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `should party check initiative behavior`.
 
 ### GetBestInitiativeBehavior
-```csharp
-public abstract void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)
-```
+`public abstract void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
+
+**Purpose:** Gets the current value of `best initiative behavior`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MobilePartyAIModel (Model)
-Game.Current.ReplaceModel<MobilePartyAIModel>(new MyMobilePartyAIModel());
+var implementation = new CustomMobilePartyAIModel();
 ```
 
 ## See Also

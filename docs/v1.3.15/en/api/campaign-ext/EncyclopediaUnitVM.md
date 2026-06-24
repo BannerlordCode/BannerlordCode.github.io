@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EncyclopediaUnitVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaUnitVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EncyclopediaUnitVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/Items/EncyclopediaUnitVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EncyclopediaUnitVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EncyclopediaUnitVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,34 +31,35 @@
 | `TierIconData` | `public StringItemWithHintVM TierIconData { get; set; }` |
 | `TypeIconData` | `public StringItemWithHintVM TypeIconData { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteLink
+`public void ExecuteLink()`
 
-```csharp
-public void ExecuteLink()
-```
+**Purpose:** Executes the `link` operation or workflow.
 
 ### ExecuteBeginHint
+`public virtual void ExecuteBeginHint()`
 
-```csharp
-public virtual void ExecuteBeginHint()
-```
+**Purpose:** Executes the `begin hint` operation or workflow.
 
 ### ExecuteEndHint
+`public virtual void ExecuteEndHint()`
+
+**Purpose:** Executes the `end hint` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public virtual void ExecuteEndHint()
+var value = new EncyclopediaUnitVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

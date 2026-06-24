@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VirtualFileAttribute`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VirtualFileAttribute
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`VirtualFileAttribute` is a .NET attribute applied to members/types to mark them for a purpose (serialization, caching, validation). Annotate with `[VirtualFileAttribute]`.
+`VirtualFileAttribute` is a .NET attribute used to tag a type or member so runtime code or tooling can recognize it by convention.
+
+## Mental Model
+
+Treat `VirtualFileAttribute` as a Attribute-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,8 +31,8 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of VirtualFileAttribute (Attribute)
-[VirtualFileAttribute] /* applied to a member/type */;
+[VirtualFileAttribute]
+public class Example { }
 ```
 
 ## See Also

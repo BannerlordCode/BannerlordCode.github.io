@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultSiegeEventModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSiegeEventModel
@@ -14,129 +15,132 @@
 
 ## 概述
 
-`DefaultSiegeEventModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultSiegeEventModel>(new MyDefaultSiegeEventModel())` 注册，以改变其计算逻辑。
+`DefaultSiegeEventModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultSiegeEventModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetSiegeEngineMapPrefabName
-```csharp
-public override string GetSiegeEngineMapPrefabName(SiegeEngineType type, int wallLevel, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapPrefabName(SiegeEngineType type, int wallLevel, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `siege engine map prefab name` 的当前值。
 
 ### GetSiegeEngineMapProjectilePrefabName
-```csharp
-public override string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType type)
-```
+`public override string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType type)`
+
+**用途 / Purpose:** 获取 `siege engine map projectile prefab name` 的当前值。
 
 ### GetSiegeEngineMapReloadAnimationName
-```csharp
-public override string GetSiegeEngineMapReloadAnimationName(SiegeEngineType type, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapReloadAnimationName(SiegeEngineType type, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `siege engine map reload animation name` 的当前值。
 
 ### GetSiegeEngineMapFireAnimationName
-```csharp
-public override string GetSiegeEngineMapFireAnimationName(SiegeEngineType type, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapFireAnimationName(SiegeEngineType type, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `siege engine map fire animation name` 的当前值。
 
 ### GetSiegeEngineMapProjectileBoneIndex
-```csharp
-public override sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType type, BattleSideEnum side)
-```
+`public override sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType type, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `siege engine map projectile bone index` 的当前值。
 
 ### GetEffectiveSiegePartyForSide
-```csharp
-public override MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum battleSide)
-```
+`public override MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 获取 `effective siege party for side` 的当前值。
 
 ### GetCasualtyChance
-```csharp
-public override float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)
-```
+`public override float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `casualty chance` 的当前值。
 
 ### GetSiegeEngineDestructionCasualties
-```csharp
-public override int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)
-```
+`public override int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)`
+
+**用途 / Purpose:** 获取 `siege engine destruction casualties` 的当前值。
 
 ### GetColleteralDamageCasualties
-```csharp
-public override int GetColleteralDamageCasualties(SiegeEngineType siegeEngineType, MobileParty party)
-```
+`public override int GetColleteralDamageCasualties(SiegeEngineType siegeEngineType, MobileParty party)`
+
+**用途 / Purpose:** 获取 `colleteral damage casualties` 的当前值。
 
 ### GetSiegeEngineHitChance
-```csharp
-public override float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)
-```
+`public override float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)`
+
+**用途 / Purpose:** 获取 `siege engine hit chance` 的当前值。
 
 ### GetSiegeStrategyScore
-```csharp
-public override float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)
-```
+`public override float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)`
+
+**用途 / Purpose:** 获取 `siege strategy score` 的当前值。
 
 ### GetConstructionProgressPerHour
-```csharp
-public override float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)
-```
+`public override float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)`
+
+**用途 / Purpose:** 获取 `construction progress per hour` 的当前值。
 
 ### GetAvailableManDayPower
-```csharp
-public override float GetAvailableManDayPower(ISiegeEventSide side)
-```
+`public override float GetAvailableManDayPower(ISiegeEventSide side)`
+
+**用途 / Purpose:** 获取 `available man day power` 的当前值。
 
 ### GetPrebuiltSiegeEnginesOfSettlement
-```csharp
-public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)
-```
+`public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `prebuilt siege engines of settlement` 的当前值。
 
 ### GetPrebuiltSiegeEnginesOfSiegeCamp
-```csharp
-public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp besiegerCamp)
-```
+`public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp besiegerCamp)`
+
+**用途 / Purpose:** 获取 `prebuilt siege engines of siege camp` 的当前值。
 
 ### GetSiegeEngineHitPoints
-```csharp
-public override float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)
-```
+`public override float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 获取 `siege engine hit points` 的当前值。
 
 ### GetSiegeEngineDamage
-```csharp
-public override float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)
-```
+`public override float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)`
+
+**用途 / Purpose:** 获取 `siege engine damage` 的当前值。
 
 ### GetRangedSiegeEngineReloadTime
-```csharp
-public override int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)
-```
+`public override int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)`
+
+**用途 / Purpose:** 获取 `ranged siege engine reload time` 的当前值。
 
 ### GetAvailableAttackerRangedSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)`
+
+**用途 / Purpose:** 获取 `available attacker ranged siege engines` 的当前值。
 
 ### GetAvailableDefenderSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)`
+
+**用途 / Purpose:** 获取 `available defender siege engines` 的当前值。
 
 ### GetAvailableAttackerRamSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)`
+
+**用途 / Purpose:** 获取 `available attacker ram siege engines` 的当前值。
 
 ### GetAvailableAttackerTowerSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)`
+
+**用途 / Purpose:** 获取 `available attacker tower siege engines` 的当前值。
 
 ### GetPriorityTroopsForSallyOutAmbush
-```csharp
-public override FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()
-```
+`public override FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()`
+
+**用途 / Purpose:** 获取 `priority troops for sally out ambush` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultSiegeEventModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultSiegeEventModel>(new MyDefaultSiegeEventModel());
 ```
 

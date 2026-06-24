@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BaseBattleMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BaseBattleMissionController
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`BaseBattleMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`BaseBattleMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `BaseBattleMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### GetTeamAI
-```csharp
-public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)
-```
+`public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)`
+
+**Purpose:** Gets the current value of `team a i`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**Purpose:** Handles logic related to `mission ended`.
 
 ### OnEndMissionRequest
-```csharp
-public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)
-```
+`public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
+
+**Purpose:** Called when the `end mission request` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BaseBattleMissionController (Controller)
-Mission.Current.GetMissionBehavior<BaseBattleMissionController>();
+var implementation = new CustomBaseBattleMissionController();
 ```
 
 ## See Also

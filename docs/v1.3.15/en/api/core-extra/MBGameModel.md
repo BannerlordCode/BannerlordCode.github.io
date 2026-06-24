@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBGameModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBGameModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`MBGameModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MBGameModel>(new MyMBGameModel())` to change how it computes.
+`MBGameModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MBGameModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public void Initialize(T baseModel)
-```
+`public void Initialize(T baseModel)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBGameModel (Model)
-Game.Current.ReplaceModel<MBGameModel>(new MyMBGameModel());
+var implementation = new CustomMBGameModel();
 ```
 
 ## See Also

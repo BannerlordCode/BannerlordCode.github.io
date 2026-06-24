@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BoneBodyTypeData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BoneBodyTypeData
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`BoneBodyTypeData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BoneBodyTypeData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BoneBodyTypeData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BoneBodyTypeData (Data)
-new BoneBodyTypeData { /* fill fields */ };;
+var value = new BoneBodyTypeData();
 ```
 
 ## See Also

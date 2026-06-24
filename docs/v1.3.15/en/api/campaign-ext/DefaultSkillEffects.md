@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DefaultSkillEffects`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSkillEffects
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class DefaultSkillEffects`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/DefaultSkillEffects.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DefaultSkillEffects` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefaultSkillEffects` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,8 +45,36 @@
 | `DismountResistance` | `public static SkillEffect DismountResistance { get; }` |
 | `AthleticsSpeedFactor` | `public static SkillEffect AthleticsSpeedFactor { get; }` |
 | `AthleticsWeightFactor` | `public static SkillEffect AthleticsWeightFactor { get; }` |
+| `KnockBackResistance` | `public static SkillEffect KnockBackResistance { get; }` |
+| `KnockDownResistance` | `public static SkillEffect KnockDownResistance { get; }` |
+| `SmithingLevel` | `public static SkillEffect SmithingLevel { get; }` |
+| `TacticsAdvantage` | `public static SkillEffect TacticsAdvantage { get; }` |
+| `TacticsTroopSacrificeReduction` | `public static SkillEffect TacticsTroopSacrificeReduction { get; }` |
+| `TrackingRadius` | `public static SkillEffect TrackingRadius { get; }` |
+| `TrackingSpottingDistance` | `public static SkillEffect TrackingSpottingDistance { get; }` |
+| `TrackingTrackInformation` | `public static SkillEffect TrackingTrackInformation { get; }` |
+| `RogueryLootBonus` | `public static SkillEffect RogueryLootBonus { get; }` |
+| `CharmRelationBonus` | `public static SkillEffect CharmRelationBonus { get; }` |
+| `TradePenaltyReduction` | `public static SkillEffect TradePenaltyReduction { get; }` |
+| `SurgeonSurvivalBonus` | `public static SkillEffect SurgeonSurvivalBonus { get; }` |
+| `SiegeEngineProductionBonus` | `public static SkillEffect SiegeEngineProductionBonus { get; }` |
+| `TownProjectBuildingBonus` | `public static SkillEffect TownProjectBuildingBonus { get; }` |
+| `HealingRateBonusForHeroes` | `public static SkillEffect HealingRateBonusForHeroes { get; }` |
+| `HealingRateBonusForRegulars` | `public static SkillEffect HealingRateBonusForRegulars { get; }` |
+| `GovernorHealingRateBonus` | `public static SkillEffect GovernorHealingRateBonus { get; }` |
+| `LeadershipMoraleBonus` | `public static SkillEffect LeadershipMoraleBonus { get; }` |
+| `LeadershipGarrisonSizeBonus` | `public static SkillEffect LeadershipGarrisonSizeBonus { get; }` |
+| `StewardPartySizeBonus` | `public static SkillEffect StewardPartySizeBonus { get; }` |
+| `SneakDamage` | `public static SkillEffect SneakDamage { get; }` |
+| `CrouchedSpeed` | `public static SkillEffect CrouchedSpeed { get; }` |
+| `NoiseSuppression` | `public static SkillEffect NoiseSuppression { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new DefaultSkillEffects();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

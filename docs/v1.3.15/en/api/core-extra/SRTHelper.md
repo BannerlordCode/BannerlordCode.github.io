@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SRTHelper`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SRTHelper
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SRTHelper` is a static utility class providing helper methods.
+`SRTHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `SRTHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,25 +32,24 @@
 ## Key Methods
 
 ### ParseStream
-```csharp
-public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)
-```
+`public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
+
+**Purpose:** Handles logic related to `parse stream`.
 
 ### CopyStream
-```csharp
-public static Stream CopyStream(Stream inputStream)
-```
+`public static Stream CopyStream(Stream inputStream)`
+
+**Purpose:** Handles logic related to `copy stream`.
 
 ### ToString
-```csharp
-public override string ToString()
-```
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SRTHelper (Helper)
-SRTHelper./* static helper method */();;
+SRTHelper.Initialize();
 ```
 
 ## See Also

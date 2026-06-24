@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PhotoModeVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PhotoModeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class PhotoModeVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/PhotoModeVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PhotoModeVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PhotoModeVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,76 +34,70 @@
 | `ExposureOption` | `public PhotoModeValueOptionVM ExposureOption { get; set; }` |
 | `VerticalFovOption` | `public PhotoModeValueOptionVM VerticalFovOption { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### AddTakePictureKey
+`public void AddTakePictureKey(GameKey key)`
 
-```csharp
-public void AddTakePictureKey(GameKey key)
-```
+**Purpose:** Adds `take picture key` to the current collection or state.
 
 ### AddFasterCameraKey
+`public void AddFasterCameraKey(HotKey hotkey)`
 
-```csharp
-public void AddFasterCameraKey(HotKey hotkey)
-```
+**Purpose:** Adds `faster camera key` to the current collection or state.
 
 ### AddKey
+`public void AddKey(GameKey key)`
 
-```csharp
-public void AddKey(GameKey key)
-```
+**Purpose:** Adds `key` to the current collection or state.
 
 ### AddHotkey
+`public void AddHotkey(HotKey hotkey)`
 
-```csharp
-public void AddHotkey(HotKey hotkey)
-```
+**Purpose:** Adds `hotkey` to the current collection or state.
 
 ### AddHotkeyWithForcedName
+`public void AddHotkeyWithForcedName(HotKey hotkey, TextObject forcedName)`
 
-```csharp
-public void AddHotkeyWithForcedName(HotKey hotkey, TextObject forcedName)
-```
+**Purpose:** Adds `hotkey with forced name` to the current collection or state.
 
 ### AddCustomKey
+`public void AddCustomKey(string keyID, TextObject forcedName)`
 
-```csharp
-public void AddCustomKey(string keyID, TextObject forcedName)
-```
+**Purpose:** Adds `custom key` to the current collection or state.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Reset
+`public void Reset()`
 
-```csharp
-public void Reset()
-```
+**Purpose:** Resets `reset` to its initial state.
 
 ### UpdateTakePictureKeyVisibility
+`public void UpdateTakePictureKeyVisibility(bool canTakePicture)`
 
-```csharp
-public void UpdateTakePictureKeyVisibility(bool canTakePicture)
-```
+**Purpose:** Updates the state or data of `take picture key visibility`.
 
 ### UpdateFasterCameraKeyVisibility
+`public void UpdateFasterCameraKeyVisibility(bool canMoveCamera)`
+
+**Purpose:** Updates the state or data of `faster camera key visibility`.
+
+## Usage Example
 
 ```csharp
-public void UpdateFasterCameraKeyVisibility(bool canMoveCamera)
+var value = new PhotoModeVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

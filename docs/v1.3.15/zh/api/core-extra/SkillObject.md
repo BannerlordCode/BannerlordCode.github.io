@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `SkillObject`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkillObject
@@ -17,12 +19,16 @@
 
 mod 通常通过 `DefaultSkills` 静态字段引用既有技能（如 `DefaultSkills.OneHanded`）。读写角色的技能值用 `Hero.GetSkillValue(skill)` / `Hero.SetSkillValue(skill, value)`，加经验用 `Hero.AddSkillXp(skill, xp)` 或 `HeroDeveloper.AddSkillXp`。
 
+## 心智模型
+
+先把 `SkillObject` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 主要属性
 
-| 名称 | 类型 | 描述 |
-|------|------|------|
-| Attributes | `CharacterAttribute[]` | 该技能关联的属性（仅 get） |
-| HowToLearnSkillText | TextObject | "如何学习该技能"的说明文本（取自 `str_how_to_learn_skill`） |
+\| 名称 \| 类型 \| 描述 \|
+\|------\|------\|------\|
+\| Attributes \| `CharacterAttribute[]` \| 该技能关联的属性（仅 get） \|
+\| HowToLearnSkillText \| TextObject \| "如何学习该技能"的说明文本（取自 `str_how_to_learn_skill`） \|
 
 ## Initialize
 

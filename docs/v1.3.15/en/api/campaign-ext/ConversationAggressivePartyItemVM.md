@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ConversationAggressivePartyItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationAggressivePartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ConversationAggressivePartyItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Conversation/ConversationAggressivePartyItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ConversationAggressivePartyItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ConversationAggressivePartyItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,22 +29,25 @@
 | `HealthyAmount` | `public int HealthyAmount { get; set; }` |
 | `Quests` | `public MBBindingList<QuestMarkerVM> Quests { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteShowPartyTooltip
+`public void ExecuteShowPartyTooltip()`
 
-```csharp
-public void ExecuteShowPartyTooltip()
-```
+**Purpose:** Executes the `show party tooltip` operation or workflow.
 
 ### ExecuteHideTooltip
+`public void ExecuteHideTooltip()`
+
+**Purpose:** Executes the `hide tooltip` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteHideTooltip()
+var value = new ConversationAggressivePartyItemVM();
+value.ExecuteShowPartyTooltip();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

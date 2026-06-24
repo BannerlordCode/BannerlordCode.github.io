@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerTeamSelectComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerTeamSelectComponent
@@ -14,80 +15,89 @@
 
 ## 概述
 
-`MultiplayerTeamSelectComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MultiplayerTeamSelectComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MultiplayerTeamSelectComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MultiplayerTeamSelectComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `TeamSelectionEnabled` | `public bool TeamSelectionEnabled { get; }` |
 
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
 
 ### SelectTeam
-```csharp
-public void SelectTeam()
-```
+`public void SelectTeam()`
+
+**用途 / Purpose:** 处理 `select team` 相关逻辑。
 
 ### UpdateTeams
-```csharp
-public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)
-```
+`public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
+
+**用途 / Purpose:** 更新 `teams` 的状态或数据。
 
 ### GetDisabledTeams
-```csharp
-public List<Team> GetDisabledTeams()
-```
+`public List<Team> GetDisabledTeams()`
+
+**用途 / Purpose:** 获取 `disabled teams` 的当前值。
 
 ### ChangeTeamServer
-```csharp
-public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)
-```
+`public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
+
+**用途 / Purpose:** 处理 `change team server` 相关逻辑。
 
 ### ChangeTeam
-```csharp
-public void ChangeTeam(Team team)
-```
+`public void ChangeTeam(Team team)`
+
+**用途 / Purpose:** 处理 `change team` 相关逻辑。
 
 ### GetPlayerCountForTeam
-```csharp
-public int GetPlayerCountForTeam(Team team)
-```
+`public int GetPlayerCountForTeam(Team team)`
+
+**用途 / Purpose:** 获取 `player count for team` 的当前值。
 
 ### GetFriendsForTeam
-```csharp
-public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)
-```
+`public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)`
+
+**用途 / Purpose:** 获取 `friends for team` 的当前值。
 
 ### BalanceTeams
-```csharp
-public void BalanceTeams()
-```
+`public void BalanceTeams()`
+
+**用途 / Purpose:** 处理 `balance teams` 相关逻辑。
 
 ### AutoAssignTeam
-```csharp
-public void AutoAssignTeam(NetworkCommunicator peer)
-```
+`public void AutoAssignTeam(NetworkCommunicator peer)`
+
+**用途 / Purpose:** 处理 `auto assign team` 相关逻辑。
 
 ### OnSelectingTeamDelegate
-```csharp
-public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)
-```
+`public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
+
+**用途 / Purpose:** 当 `selecting team delegate` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerTeamSelectComponent (Component) 的典型用法
-agent.GetComponent<MultiplayerTeamSelectComponent>();
+var component = agent.GetComponent<MultiplayerTeamSelectComponent>();
 ```
 
 ## 参见

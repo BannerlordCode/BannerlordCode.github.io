@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementAccessModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementAccessModel
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`SettlementAccessModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementAccessModel>(new MySettlementAccessModel())` to change how it computes.
+`SettlementAccessModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementAccessModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CanMainHeroEnterSettlement
-```csharp
-public abstract void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public abstract void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter settlement`.
 
 ### CanMainHeroEnterLordsHall
-```csharp
-public abstract void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public abstract void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter lords hall`.
 
 ### CanMainHeroEnterDungeon
-```csharp
-public abstract void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public abstract void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter dungeon`.
 
 ### CanMainHeroAccessLocation
-```csharp
-public abstract bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)
-```
+`public abstract bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Checks whether the current object can `main hero access location`.
 
 ### CanMainHeroDoSettlementAction
-```csharp
-public abstract bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)
-```
+`public abstract bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Checks whether the current object can `main hero do settlement action`.
 
 ### IsRequestMeetingOptionAvailable
-```csharp
-public abstract bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)
-```
+`public abstract bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Handles logic related to `is request meeting option available`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementAccessModel (Model)
-Game.Current.ReplaceModel<SettlementAccessModel>(new MySettlementAccessModel());
+var implementation = new CustomSettlementAccessModel();
 ```
 
 ## See Also

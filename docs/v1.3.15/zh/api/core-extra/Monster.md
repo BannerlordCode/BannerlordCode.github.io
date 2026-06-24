@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Monster`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Monster
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public sealed class Monster : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.Core/Monster.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Monster` 是 `TaleWorlds.Core` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Monster` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,25 +45,91 @@
 | `AbsorbedDamageRatio` | `public float AbsorbedDamageRatio { get; }` |
 | `SoundAndCollisionInfoClassName` | `public string SoundAndCollisionInfoClassName { get; }` |
 | `RiderCameraHeightAdder` | `public float RiderCameraHeightAdder { get; }` |
-
+| `RiderBodyCapsuleHeightAdder` | `public float RiderBodyCapsuleHeightAdder { get; }` |
+| `RiderBodyCapsuleForwardAdder` | `public float RiderBodyCapsuleForwardAdder { get; }` |
+| `StandingChestHeight` | `public float StandingChestHeight { get; }` |
+| `StandingPelvisHeight` | `public float StandingPelvisHeight { get; }` |
+| `StandingEyeHeight` | `public float StandingEyeHeight { get; }` |
+| `CrouchEyeHeight` | `public float CrouchEyeHeight { get; }` |
+| `MountedEyeHeight` | `public float MountedEyeHeight { get; }` |
+| `RiderEyeHeightAdder` | `public float RiderEyeHeightAdder { get; }` |
+| `EyeOffsetWrtHead` | `public Vec3 EyeOffsetWrtHead { get; }` |
+| `FirstPersonCameraOffsetWrtHead` | `public Vec3 FirstPersonCameraOffsetWrtHead { get; }` |
+| `ArmLength` | `public float ArmLength { get; }` |
+| `ArmWeight` | `public float ArmWeight { get; }` |
+| `JumpSpeedLimit` | `public float JumpSpeedLimit { get; }` |
+| `RelativeSpeedLimitForCharge` | `public float RelativeSpeedLimitForCharge { get; }` |
+| `FamilyType` | `public int FamilyType { get; }` |
+| `IndicesOfRagdollBonesToCheckForCorpses` | `public sbyte IndicesOfRagdollBonesToCheckForCorpses { get; }` |
+| `RagdollFallSoundBoneIndices` | `public sbyte RagdollFallSoundBoneIndices { get; }` |
+| `HeadLookDirectionBoneIndex` | `public sbyte HeadLookDirectionBoneIndex { get; }` |
+| `SpineLowerBoneIndex` | `public sbyte SpineLowerBoneIndex { get; }` |
+| `SpineUpperBoneIndex` | `public sbyte SpineUpperBoneIndex { get; }` |
+| `ThoraxLookDirectionBoneIndex` | `public sbyte ThoraxLookDirectionBoneIndex { get; }` |
+| `NeckRootBoneIndex` | `public sbyte NeckRootBoneIndex { get; }` |
+| `PelvisBoneIndex` | `public sbyte PelvisBoneIndex { get; }` |
+| `RightUpperArmBoneIndex` | `public sbyte RightUpperArmBoneIndex { get; }` |
+| `LeftUpperArmBoneIndex` | `public sbyte LeftUpperArmBoneIndex { get; }` |
+| `FallBlowDamageBoneIndex` | `public sbyte FallBlowDamageBoneIndex { get; }` |
+| `TerrainDecalBone0Index` | `public sbyte TerrainDecalBone0Index { get; }` |
+| `TerrainDecalBone1Index` | `public sbyte TerrainDecalBone1Index { get; }` |
+| `RagdollStationaryCheckBoneIndices` | `public sbyte RagdollStationaryCheckBoneIndices { get; }` |
+| `MoveAdderBoneIndices` | `public sbyte MoveAdderBoneIndices { get; }` |
+| `SplashDecalBoneIndices` | `public sbyte SplashDecalBoneIndices { get; }` |
+| `BloodBurstBoneIndices` | `public sbyte BloodBurstBoneIndices { get; }` |
+| `MainHandBoneIndex` | `public sbyte MainHandBoneIndex { get; }` |
+| `OffHandBoneIndex` | `public sbyte OffHandBoneIndex { get; }` |
+| `MainHandItemBoneIndex` | `public sbyte MainHandItemBoneIndex { get; }` |
+| `OffHandItemBoneIndex` | `public sbyte OffHandItemBoneIndex { get; }` |
+| `MainHandItemSecondaryBoneIndex` | `public sbyte MainHandItemSecondaryBoneIndex { get; }` |
+| `OffHandItemSecondaryBoneIndex` | `public sbyte OffHandItemSecondaryBoneIndex { get; }` |
+| `OffHandShoulderBoneIndex` | `public sbyte OffHandShoulderBoneIndex { get; }` |
+| `HandNumBonesForIk` | `public sbyte HandNumBonesForIk { get; }` |
+| `PrimaryFootBoneIndex` | `public sbyte PrimaryFootBoneIndex { get; }` |
+| `SecondaryFootBoneIndex` | `public sbyte SecondaryFootBoneIndex { get; }` |
+| `RightFootIkEndEffectorBoneIndex` | `public sbyte RightFootIkEndEffectorBoneIndex { get; }` |
+| `LeftFootIkEndEffectorBoneIndex` | `public sbyte LeftFootIkEndEffectorBoneIndex { get; }` |
+| `RightFootIkTipBoneIndex` | `public sbyte RightFootIkTipBoneIndex { get; }` |
+| `LeftFootIkTipBoneIndex` | `public sbyte LeftFootIkTipBoneIndex { get; }` |
+| `FootNumBonesForIk` | `public sbyte FootNumBonesForIk { get; }` |
+| `ReinHandleLeftLocalPosition` | `public Vec3 ReinHandleLeftLocalPosition { get; }` |
+| `ReinHandleRightLocalPosition` | `public Vec3 ReinHandleRightLocalPosition { get; }` |
+| `ReinSkeleton` | `public string ReinSkeleton { get; }` |
+| `ReinCollisionBody` | `public string ReinCollisionBody { get; }` |
+| `FrontBoneToDetectGroundSlopeIndex` | `public sbyte FrontBoneToDetectGroundSlopeIndex { get; }` |
+| `BackBoneToDetectGroundSlopeIndex` | `public sbyte BackBoneToDetectGroundSlopeIndex { get; }` |
+| `BoneIndicesToModifyOnSlopingGround` | `public sbyte BoneIndicesToModifyOnSlopingGround { get; }` |
+| `BodyRotationReferenceBoneIndex` | `public sbyte BodyRotationReferenceBoneIndex { get; }` |
+| `RiderSitBoneIndex` | `public sbyte RiderSitBoneIndex { get; }` |
+| `ReinHandleBoneIndex` | `public sbyte ReinHandleBoneIndex { get; }` |
+| `ReinCollision1BoneIndex` | `public sbyte ReinCollision1BoneIndex { get; }` |
+| `ReinCollision2BoneIndex` | `public sbyte ReinCollision2BoneIndex { get; }` |
+| `ReinHeadBoneIndex` | `public sbyte ReinHeadBoneIndex { get; }` |
+| `ReinHeadRightAttachmentBoneIndex` | `public sbyte ReinHeadRightAttachmentBoneIndex { get; }` |
+| `ReinHeadLeftAttachmentBoneIndex` | `public sbyte ReinHeadLeftAttachmentBoneIndex { get; }` |
+| `ReinRightHandBoneIndex` | `public sbyte ReinRightHandBoneIndex { get; }` |
+| `ReinLeftHandBoneIndex` | `public sbyte ReinLeftHandBoneIndex { get; }` |
+| `MonsterMissionData` | `public IMonsterMissionData MonsterMissionData { get; }` |
 
 ## 主要方法
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
 
 ### GetBoneToAttachForItemFlags
+`public sbyte GetBoneToAttachForItemFlags(ItemFlags itemFlags)`
+
+**用途 / Purpose:** 获取 `bone to attach for item flags` 的当前值。
+
+## 使用示例
 
 ```csharp
-public sbyte GetBoneToAttachForItemFlags(ItemFlags itemFlags)
+var value = new Monster();
+value.Deserialize(objectManager, node);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

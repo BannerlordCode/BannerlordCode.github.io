@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ManagedDelegate`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedDelegate
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ManagedDelegate : DotNetObject`
+**Base:** `DotNetObject`
+**File:** `TaleWorlds.DotNet/ManagedDelegate.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ManagedDelegate` is a class in the `TaleWorlds.DotNet` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ManagedDelegate` lives in `TaleWorlds.DotNet` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,22 +27,25 @@
 |------|-----------|
 | `Instance` | `public ManagedDelegate.DelegateDefinition Instance { get; set; }` |
 
-
 ## Key Methods
 
 ### InvokeAux
+`public void InvokeAux()`
 
-```csharp
-public void InvokeAux()
-```
+**Purpose:** Handles logic related to `invoke aux`.
 
 ### DelegateDefinition
+`public delegate void DelegateDefinition()`
+
+**Purpose:** Handles logic related to `delegate definition`.
+
+## Usage Example
 
 ```csharp
-public delegate void DelegateDefinition()
+var value = new ManagedDelegate();
+value.InvokeAux();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

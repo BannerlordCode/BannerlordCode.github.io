@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArmyManagementItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArmyManagementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ArmyManagementItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ArmyManagement/ArmyManagementItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ArmyManagementItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArmyManagementItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,71 +45,68 @@
 | `NameText` | `public string NameText { get; set; }` |
 | `IsAlreadyWithPlayer` | `public bool IsAlreadyWithPlayer { get; set; }` |
 | `IsTransferDisabled` | `public bool IsTransferDisabled { get; set; }` |
-
+| `LeaderNameText` | `public string LeaderNameText { get; set; }` |
+| `IsFocused` | `public bool IsFocused { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### ExecuteSetFocused
+`public void ExecuteSetFocused()`
 
-```csharp
-public void ExecuteSetFocused()
-```
+**Purpose:** Executes the `set focused` operation or workflow.
 
 ### ExecuteSetUnfocused
+`public void ExecuteSetUnfocused()`
 
-```csharp
-public void ExecuteSetUnfocused()
-```
+**Purpose:** Executes the `set unfocused` operation or workflow.
 
 ### UpdateEligibility
+`public void UpdateEligibility()`
 
-```csharp
-public void UpdateEligibility()
-```
+**Purpose:** Updates the state or data of `eligibility`.
 
 ### ExecuteBeginHint
+`public void ExecuteBeginHint()`
 
-```csharp
-public void ExecuteBeginHint()
-```
+**Purpose:** Executes the `begin hint` operation or workflow.
 
 ### ExecuteBeginClanHint
+`public void ExecuteBeginClanHint()`
 
-```csharp
-public void ExecuteBeginClanHint()
-```
+**Purpose:** Executes the `begin clan hint` operation or workflow.
 
 ### ExecuteEndHint
+`public void ExecuteEndHint()`
 
-```csharp
-public void ExecuteEndHint()
-```
+**Purpose:** Executes the `end hint` operation or workflow.
 
 ### ExecuteOpenEncyclopedia
+`public void ExecuteOpenEncyclopedia()`
 
-```csharp
-public void ExecuteOpenEncyclopedia()
-```
+**Purpose:** Executes the `open encyclopedia` operation or workflow.
 
 ### ExecuteOpenClanEncyclopedia
+`public void ExecuteOpenClanEncyclopedia()`
+
+**Purpose:** Executes the `open clan encyclopedia` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteOpenClanEncyclopedia()
+var value = new ArmyManagementItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

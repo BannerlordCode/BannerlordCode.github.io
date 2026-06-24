@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `CosmeticRarity`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CosmeticRarity
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `public enum CosmeticRarity`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `CosmeticRarity` is a enum in the `TaleWorlds.MountAndBlade.Diamond.Cosmetics` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CosmeticRarity` lives in `TaleWorlds.MountAndBlade.Diamond.Cosmetics`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond.Cosmetics` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -24,6 +27,12 @@
 | `Default` |
 | `Common` |
 | `Rare` |
+
+## Usage Example
+
+```csharp
+CosmeticRarity example = CosmeticRarity.Default;
+```
 
 ## See Also
 

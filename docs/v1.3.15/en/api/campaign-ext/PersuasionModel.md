@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PersuasionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PersuasionModel
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`PersuasionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PersuasionModel>(new MyPersuasionModel())` to change how it computes.
+`PersuasionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PersuasionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSkillXpFromPersuasion
-```csharp
-public abstract int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)
-```
+`public abstract int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
+
+**Purpose:** Gets the current value of `skill xp from persuasion`.
 
 ### GetChances
-```csharp
-public abstract void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)
-```
+`public abstract void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
+
+**Purpose:** Gets the current value of `chances`.
 
 ### GetEffectChances
-```csharp
-public abstract void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)
-```
+`public abstract void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
+
+**Purpose:** Gets the current value of `effect chances`.
 
 ### GetArgumentStrengthBasedOnTargetTraits
-```csharp
-public abstract PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelation)
-```
+`public abstract PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelation)`
+
+**Purpose:** Gets the current value of `argument strength based on target traits`.
 
 ### GetDifficulty
-```csharp
-public abstract float GetDifficulty(PersuasionDifficulty difficulty)
-```
+`public abstract float GetDifficulty(PersuasionDifficulty difficulty)`
+
+**Purpose:** Gets the current value of `difficulty`.
 
 ### CalculateInitialPersuasionProgress
-```csharp
-public abstract float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)
-```
+`public abstract float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
+
+**Purpose:** Handles logic related to `calculate initial persuasion progress`.
 
 ### CalculatePersuasionGoalValue
-```csharp
-public abstract float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)
-```
+`public abstract float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
+
+**Purpose:** Handles logic related to `calculate persuasion goal value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PersuasionModel (Model)
-Game.Current.ReplaceModel<PersuasionModel>(new MyPersuasionModel());
+var implementation = new CustomPersuasionModel();
 ```
 
 ## See Also

@@ -2,30 +2,39 @@
 **Home** → **API Index** → **Area** → `SupportedFeatures`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SupportedFeatures
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SupportedFeatures`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/SupportedFeatures.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SupportedFeatures` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SupportedFeatures` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### SupportsFeatures
+`public bool SupportsFeatures(Features feature)`
+
+**Purpose:** Handles logic related to `supports features`.
+
+## Usage Example
 
 ```csharp
-public bool SupportsFeatures(Features feature)
+var value = new SupportedFeatures();
+value.SupportsFeatures(feature);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HeirSelectionCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeirSelectionCalculationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HeirSelectionCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<HeirSelectionCalculationModel>(new MyHeirSelectionCalculationModel())` to change how it computes.
+`HeirSelectionCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `HeirSelectionCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### CalculateHeirSelectionPoint
-```csharp
-public abstract int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)
-```
+`public abstract int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
+
+**Purpose:** Handles logic related to `calculate heir selection point`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HeirSelectionCalculationModel (Model)
-Game.Current.ReplaceModel<HeirSelectionCalculationModel>(new MyHeirSelectionCalculationModel());
+var implementation = new CustomHeirSelectionCalculationModel();
 ```
 
 ## See Also

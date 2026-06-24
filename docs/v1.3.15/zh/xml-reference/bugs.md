@@ -1,5 +1,9 @@
 # XML 解析 Bug 分析报告 / XML Parsing Bug Analysis Report
 
+## 心智模型
+
+先把 `XML 解析 Bug 分析报告` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 > 版本: Bannerlord v1.3.15  
 > 分析范围: TaleWorlds.ObjectSystem
 
@@ -413,3 +417,9 @@ string value = node.Attributes.get_ItemOf("id").Value;
 2. **静默的 `catch (Exception)` 块应该至少记录日志**
 3. **ValidationEventHandler 应该考虑抛出异常以阻止无效 XML 加载**
 4. **添加更详细的错误上下文信息**（文件路径、行号、节点名称等）
+
+## 使用示例
+
+```csharp
+var example = new XML 解析 Bug 分析报告();
+```

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `HeroDeveloper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/HeroDeveloper](/versions/HeroDeveloper)
 <!-- END BREADCRUMB -->
@@ -17,6 +19,10 @@
 ## Overview
 
 Mods obtain the developer via `hero.HeroDeveloper`, then add xp, change skills, spend focus/attribute points, or check perks. `AddSkillXp` applies the focus factor and may trigger a level-up (`CheckLevel`). `UnspentFocusPoints` / `UnspentAttributePoints` are the spendable remaining points.
+
+## Mental Model
+
+Treat `HeroDeveloper` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -101,3 +107,9 @@ if (!dev.GetPerkValue(DefaultPerks.OneHanded.Pugilist))
 - [CharacterAttribute](../core-extra/CharacterAttribute.md)
 - [PerkObject](./PerkObject.md)
 - [Campaign](./Campaign.md)
+
+## Usage Example
+
+```csharp
+var example = new HeroDeveloper();
+```

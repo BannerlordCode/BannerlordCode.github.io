@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BattleHighlightsController`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleHighlightsController
@@ -14,25 +15,28 @@
 
 ## 概述
 
-`BattleHighlightsController` 是一个任务控制器，驱动某个任务子系统（部署、高光、援兵等）。经 Mission.Current 或作为任务行为访问。
+`BattleHighlightsController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `BattleHighlightsController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// BattleHighlightsController (Controller) 的典型用法
-Mission.Current.GetMissionBehavior<BattleHighlightsController>();
+var controller = Mission.Current.GetMissionBehavior<BattleHighlightsController>();
 ```
 
 ## 参见

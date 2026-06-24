@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `ClientApplicationConfiguration`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClientApplicationConfiguration
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ClientApplicationConfiguration`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ClientApplicationConfiguration` is a class in the `TaleWorlds.Diamond.ClientApplication` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ClientApplicationConfiguration` lives in `TaleWorlds.Diamond.ClientApplication`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,31 +30,33 @@
 | `SessionProviderType` | `public SessionProviderType SessionProviderType { get; set; }` |
 | `Parameters` | `public ParameterContainer Parameters { get; set; }` |
 
-
 ## Key Methods
 
 ### GetDefaultConfigurationFromFile
+`public static string GetDefaultConfigurationFromFile()`
 
-```csharp
-public static string GetDefaultConfigurationFromFile()
-```
+**Purpose:** Gets the current value of `default configuration from file`.
 
 ### SetDefaultConfigurationCategory
+`public static void SetDefaultConfigurationCategory(string category)`
 
-```csharp
-public static void SetDefaultConfigurationCategory(string category)
-```
-
-### FillFrom
-
-```csharp
-public void FillFrom(string configurationName)
-```
+**Purpose:** Sets the value or state of `default configuration category`.
 
 ### FillFrom
+`public void FillFrom(string configurationName)`
+
+**Purpose:** Handles logic related to `fill from`.
+
+### FillFrom
+`public void FillFrom(string configurationCategory, string configurationName)`
+
+**Purpose:** Handles logic related to `fill from`.
+
+## Usage Example
 
 ```csharp
-public void FillFrom(string configurationCategory, string configurationName)
+// Prepare the required context, then call the static entry point directly
+ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 ```
 
 ## See Also

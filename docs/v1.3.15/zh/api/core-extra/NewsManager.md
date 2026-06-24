@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `NewsManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NewsManager
 
-**命名空间:** TaleWorlds.Library.NewsManager
-**模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library.NewsManager
+**Module:** TaleWorlds.Library
+**Type:** `public class NewsManager`
+**Base:** 无
+**File:** `TaleWorlds.Library/NewsManager/NewsManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`NewsManager` 是 `TaleWorlds.Library.NewsManager` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`NewsManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `NewsManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,42 +29,39 @@
 | `IsInPreviewMode` | `public bool IsInPreviewMode { get; }` |
 | `LocalizationID` | `public string LocalizationID { get; }` |
 
-
 ## 主要方法
 
 ### GetNewsItems
+`public Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
-```csharp
-public Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)
-```
+**用途 / Purpose:** 获取 `news items` 的当前值。
 
 ### SetNewsSourceURL
+`public void SetNewsSourceURL(string url)`
 
-```csharp
-public void SetNewsSourceURL(string url)
-```
+**用途 / Purpose:** 设置 `news source u r l` 的值或状态。
 
 ### UpdateNewsItems
+`public Task UpdateNewsItems(bool forceRefresh)`
 
-```csharp
-public Task UpdateNewsItems(bool forceRefresh)
-```
+**用途 / Purpose:** 更新 `news items` 的状态或数据。
 
 ### UpdateLocalizationID
+`public void UpdateLocalizationID(string localizationID)`
 
-```csharp
-public void UpdateLocalizationID(string localizationID)
-```
+**用途 / Purpose:** 更新 `localization i d` 的状态或数据。
 
 ### OnFinalize
+`public void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public void OnFinalize()
+var manager = NewsManager.Current;
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

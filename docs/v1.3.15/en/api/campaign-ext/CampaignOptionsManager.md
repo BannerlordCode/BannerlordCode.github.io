@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignOptionsManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignOptionsManager
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`CampaignOptionsManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CampaignOptionsManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CampaignOptionsManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetOptionWithIdExists
-```csharp
-public static bool GetOptionWithIdExists(string identifier)
-```
+`public static bool GetOptionWithIdExists(string identifier)`
+
+**Purpose:** Gets the current value of `option with id exists`.
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### ClearCachedOptions
-```csharp
-public static void ClearCachedOptions()
-```
+`public static void ClearCachedOptions()`
+
+**Purpose:** Handles logic related to `clear cached options`.
 
 ### GetGameplayCampaignOptions
-```csharp
-public static List<ICampaignOptionData> GetGameplayCampaignOptions()
-```
+`public static List<ICampaignOptionData> GetGameplayCampaignOptions()`
+
+**Purpose:** Gets the current value of `gameplay campaign options`.
 
 ### GetCharacterCreationCampaignOptions
-```csharp
-public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()
-```
+`public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
+
+**Purpose:** Gets the current value of `character creation campaign options`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignOptionsManager (Manager)
-CampaignOptionsManager.Current;
+var manager = CampaignOptionsManager.Current;
 ```
 
 ## See Also

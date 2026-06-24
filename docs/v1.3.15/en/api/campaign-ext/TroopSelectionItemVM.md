@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `TroopSelectionItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TroopSelectionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class TroopSelectionItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TroopSelection/TroopSelectionItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TroopSelectionItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TroopSelectionItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,28 +39,30 @@
 | `TierIconData` | `public StringItemWithHintVM TierIconData { get; set; }` |
 | `TypeIconData` | `public StringItemWithHintVM TypeIconData { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteAdd
+`public void ExecuteAdd()`
 
-```csharp
-public void ExecuteAdd()
-```
+**Purpose:** Executes the `add` operation or workflow.
 
 ### ExecuteRemove
+`public void ExecuteRemove()`
 
-```csharp
-public void ExecuteRemove()
-```
+**Purpose:** Executes the `remove` operation or workflow.
 
 ### ExecuteLink
+`public void ExecuteLink()`
+
+**Purpose:** Executes the `link` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteLink()
+var value = new TroopSelectionItemVM();
+value.ExecuteAdd();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DisguiseDetectionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DisguiseDetectionModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`DisguiseDetectionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DisguiseDetectionModel>(new MyDisguiseDetectionModel())` to change how it computes.
+`DisguiseDetectionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DisguiseDetectionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateDisguiseDetectionProbability
-```csharp
-public abstract float CalculateDisguiseDetectionProbability(Settlement settlement)
-```
+`public abstract float CalculateDisguiseDetectionProbability(Settlement settlement)`
+
+**Purpose:** Handles logic related to `calculate disguise detection probability`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DisguiseDetectionModel (Model)
-Game.Current.ReplaceModel<DisguiseDetectionModel>(new MyDisguiseDetectionModel());
+var implementation = new CustomDisguiseDetectionModel();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BrushAnimationKeyFrame`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushAnimationKeyFrame
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BrushAnimationKeyFrame`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushAnimationKeyFrame.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BrushAnimationKeyFrame` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BrushAnimationKeyFrame` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,64 +28,60 @@
 | `Time` | `public float Time { get; }` |
 | `Index` | `public int Index { get; }` |
 
-
 ## Key Methods
 
 ### InitializeAsFloat
+`public void InitializeAsFloat(float time, float value)`
 
-```csharp
-public void InitializeAsFloat(float time, float value)
-```
+**Purpose:** Initializes the state, resources, or bindings for `as float`.
 
 ### InitializeAsColor
+`public void InitializeAsColor(float time, Color value)`
 
-```csharp
-public void InitializeAsColor(float time, Color value)
-```
+**Purpose:** Initializes the state, resources, or bindings for `as color`.
 
 ### InitializeAsSprite
+`public void InitializeAsSprite(float time, Sprite value)`
 
-```csharp
-public void InitializeAsSprite(float time, Sprite value)
-```
+**Purpose:** Initializes the state, resources, or bindings for `as sprite`.
 
 ### InitializeIndex
+`public void InitializeIndex(int index)`
 
-```csharp
-public void InitializeIndex(int index)
-```
+**Purpose:** Initializes the state, resources, or bindings for `index`.
 
 ### GetValueAsFloat
+`public float GetValueAsFloat()`
 
-```csharp
-public float GetValueAsFloat()
-```
+**Purpose:** Gets the current value of `value as float`.
 
 ### GetValueAsColor
+`public Color GetValueAsColor()`
 
-```csharp
-public Color GetValueAsColor()
-```
+**Purpose:** Gets the current value of `value as color`.
 
 ### GetValueAsSprite
+`public Sprite GetValueAsSprite()`
 
-```csharp
-public Sprite GetValueAsSprite()
-```
+**Purpose:** Gets the current value of `value as sprite`.
 
 ### GetValueAsObject
+`public object GetValueAsObject()`
 
-```csharp
-public object GetValueAsObject()
-```
+**Purpose:** Gets the current value of `value as object`.
 
 ### Clone
+`public BrushAnimationKeyFrame Clone()`
+
+**Purpose:** Handles logic related to `clone`.
+
+## Usage Example
 
 ```csharp
-public BrushAnimationKeyFrame Clone()
+var value = new BrushAnimationKeyFrame();
+value.InitializeAsFloat(0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

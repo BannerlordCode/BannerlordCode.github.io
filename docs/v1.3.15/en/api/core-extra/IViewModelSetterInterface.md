@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `IViewModelSetterInterface`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IViewModelSetterInterface
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** interface
-**Area:** Core
+**Type:** `public interface IViewModelSetterInterface`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `IViewModelSetterInterface` is a interface in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IViewModelSetterInterface` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,115 +36,102 @@
 | `Properties` | `public Dictionary<string, PropertyInfo> Properties { get; set; }` |
 | `Methods` | `public Dictionary<string, MethodInfo> Methods { get; set; }` |
 
-
 ## Key Methods
 
 ### OnPropertyChanged
+`public void OnPropertyChanged( string propertyName = null)`
 
-```csharp
-public void OnPropertyChanged( string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(bool value, string propertyName = null)
-```
+**Purpose:** Called when the `property changed` event is raised.
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(int value, string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(float value, string propertyName = null)
-```
+**Purpose:** Called when the `property changed with value` event is raised.
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(int value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(uint value, string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(Color value, string propertyName = null)
-```
+**Purpose:** Called when the `property changed with value` event is raised.
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(float value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(double value, string propertyName = null)
-```
+**Purpose:** Called when the `property changed with value` event is raised.
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)
-```
+**Purpose:** Called when the `property changed with value` event is raised.
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
+
+**Purpose:** Called when the `property changed with value` event is raised.
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(double value, string propertyName = null)`
+
+**Purpose:** Called when the `property changed with value` event is raised.
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
+
+**Purpose:** Called when the `property changed with value` event is raised.
 
 ### GetViewModelAtPath
+`public object GetViewModelAtPath(BindingPath path, bool isList)`
 
-```csharp
-public object GetViewModelAtPath(BindingPath path, bool isList)
-```
+**Purpose:** Gets the current value of `view model at path`.
 
 ### GetViewModelAtPath
+`public object GetViewModelAtPath(BindingPath path)`
 
-```csharp
-public object GetViewModelAtPath(BindingPath path)
-```
-
-### GetPropertyValue
-
-```csharp
-public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)
-```
+**Purpose:** Gets the current value of `view model at path`.
 
 ### GetPropertyValue
+`public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
 
-```csharp
-public object GetPropertyValue(string name)
-```
+**Purpose:** Gets the current value of `property value`.
+
+### GetPropertyValue
+`public object GetPropertyValue(string name)`
+
+**Purpose:** Gets the current value of `property value`.
 
 ### GetPropertyType
+`public Type GetPropertyType(string name)`
 
-```csharp
-public Type GetPropertyType(string name)
-```
+**Purpose:** Gets the current value of `property type`.
 
 ### SetPropertyValue
+`public void SetPropertyValue(string name, object value)`
 
-```csharp
-public void SetPropertyValue(string name, object value)
-```
+**Purpose:** Sets the value or state of `property value`.
 
 ### OnFinalize
+`public virtual void OnFinalize()`
 
-```csharp
-public virtual void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### ExecuteCommand
+`public void ExecuteCommand(string commandName, object parameters)`
 
-```csharp
-public void ExecuteCommand(string commandName, object parameters)
-```
+**Purpose:** Executes the `command` operation or workflow.
 
 ### RefreshValues
+`public virtual void RefreshValues()`
 
-```csharp
-public virtual void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshPropertyAndMethodInfos
+`public static void RefreshPropertyAndMethodInfos()`
+
+**Purpose:** Refreshes the display or cache of `property and method infos`.
+
+## Usage Example
 
 ```csharp
-public static void RefreshPropertyAndMethodInfos()
+IViewModelSetterInterface implementation = GetViewModelSetterInterfaceImplementation();
 ```
 
 ## See Also

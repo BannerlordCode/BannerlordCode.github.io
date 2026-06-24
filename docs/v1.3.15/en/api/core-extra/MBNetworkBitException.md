@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBNetworkBitException`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBNetworkBitException
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`MBNetworkBitException` is an exception type (derived from Exception) thrown when a specific error condition occurs. Catch it to handle that error.
+`MBNetworkBitException` is an exception type used to signal a specific error condition; callers decide whether to catch it, translate it, or let it bubble up.
+
+## Mental Model
+
+Treat `MBNetworkBitException` as a Exception-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBNetworkBitException (Exception)
-try { /* call */ } catch (MBNetworkBitException e) { /* handle */ };
+try { CallMBNetworkBitException(); } catch (MBNetworkBitException exception) { Handle(exception); }
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `JobManager`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # JobManager
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`JobManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`JobManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `JobManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AddJob
-```csharp
-public void AddJob(Job job)
-```
+`public void AddJob(Job job)`
+
+**Purpose:** Adds `job` to the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of JobManager (Manager)
-JobManager.Current;
+var manager = JobManager.Current;
 ```
 
 ## See Also

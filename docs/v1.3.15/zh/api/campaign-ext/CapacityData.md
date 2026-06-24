@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `CapacityData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CapacityData
 
 **命名空间:** TaleWorlds.CampaignSystem.Inventory
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public class CapacityData`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`CapacityData` 是 `TaleWorlds.CampaignSystem.Inventory` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`CapacityData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `CapacityData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -40,130 +45,113 @@
 | `TotalAmount` | `public int TotalAmount { get; }` |
 | `OppositePartyFromListener` | `public PartyBase OppositePartyFromListener { get; }` |
 
-
 ## 主要方法
 
 ### Initialize
+`public void Initialize(ItemRoster leftItemRoster, MobileParty party, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)`
 
-```csharp
-public void Initialize(ItemRoster leftItemRoster, MobileParty party, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### Initialize
+`public void Initialize(ItemRoster leftItemRoster, ItemRoster rightItemRoster, TroopRoster rightMemberRoster, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)`
 
-```csharp
-public void Initialize(ItemRoster leftItemRoster, ItemRoster rightItemRoster, TroopRoster rightMemberRoster, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### GetItemTotalPrice
+`public int GetItemTotalPrice(ItemRosterElement itemRosterElement, int absStockChange, out int lastPrice, bool isBuying)`
 
-```csharp
-public int GetItemTotalPrice(ItemRosterElement itemRosterElement, int absStockChange, out int lastPrice, bool isBuying)
-```
+**用途 / Purpose:** 获取 `item total price` 的当前值。
 
 ### SetPlayerAcceptTraderOffer
+`public void SetPlayerAcceptTraderOffer()`
 
-```csharp
-public void SetPlayerAcceptTraderOffer()
-```
+**用途 / Purpose:** 设置 `player accept trader offer` 的值或状态。
 
 ### DoneLogic
+`public bool DoneLogic()`
 
-```csharp
-public bool DoneLogic()
-```
+**用途 / Purpose:** 处理 `done logic` 相关逻辑。
 
 ### GetBoughtItems
+`public List<ValueTuple<ItemRosterElement, int>> GetBoughtItems()`
 
-```csharp
-public List<ValueTuple<ItemRosterElement, int>> GetBoughtItems()
-```
+**用途 / Purpose:** 获取 `bought items` 的当前值。
 
 ### GetSoldItems
+`public List<ValueTuple<ItemRosterElement, int>> GetSoldItems()`
 
-```csharp
-public List<ValueTuple<ItemRosterElement, int>> GetSoldItems()
-```
+**用途 / Purpose:** 获取 `sold items` 的当前值。
 
 ### CanInventoryCapacityIncrease
+`public bool CanInventoryCapacityIncrease(InventoryLogic.InventorySide side)`
 
-```csharp
-public bool CanInventoryCapacityIncrease(InventoryLogic.InventorySide side)
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `inventory capacity increase`。
 
 ### GetCanItemIncreaseInventoryCapacity
+`public bool GetCanItemIncreaseInventoryCapacity(ItemObject item)`
 
-```csharp
-public bool GetCanItemIncreaseInventoryCapacity(ItemObject item)
-```
+**用途 / Purpose:** 获取 `can item increase inventory capacity` 的当前值。
 
 ### GetAveragePriceFactorItemCategory
+`public float GetAveragePriceFactorItemCategory(ItemCategory category)`
 
-```csharp
-public float GetAveragePriceFactorItemCategory(ItemCategory category)
-```
+**用途 / Purpose:** 获取 `average price factor item category` 的当前值。
 
 ### IsThereAnyChanges
+`public bool IsThereAnyChanges()`
 
-```csharp
-public bool IsThereAnyChanges()
-```
+**用途 / Purpose:** 处理 `is there any changes` 相关逻辑。
 
 ### Reset
+`public void Reset(bool fromCancel)`
 
-```csharp
-public void Reset(bool fromCancel)
-```
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
 
 ### CanPlayerCompleteTransaction
+`public bool CanPlayerCompleteTransaction()`
 
-```csharp
-public bool CanPlayerCompleteTransaction()
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `player complete transaction`。
 
 ### CanSlaughterItem
+`public bool CanSlaughterItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)`
 
-```csharp
-public bool CanSlaughterItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `slaughter item`。
 
 ### IsSlaughterable
+`public bool IsSlaughterable(ItemObject item)`
 
-```csharp
-public bool IsSlaughterable(ItemObject item)
-```
+**用途 / Purpose:** 处理 `is slaughterable` 相关逻辑。
 
 ### CanDonateItem
+`public bool CanDonateItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)`
 
-```csharp
-public bool CanDonateItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `donate item`。
 
 ### IsDonatable
+`public bool IsDonatable(ItemObject item)`
 
-```csharp
-public bool IsDonatable(ItemObject item)
-```
+**用途 / Purpose:** 处理 `is donatable` 相关逻辑。
 
 ### SetInventoryListener
+`public void SetInventoryListener(InventoryListener inventoryListener)`
 
-```csharp
-public void SetInventoryListener(InventoryListener inventoryListener)
-```
+**用途 / Purpose:** 设置 `inventory listener` 的值或状态。
 
 ### GetItemPrice
+`public int GetItemPrice(EquipmentElement equipmentElement, bool isBuying = false)`
 
-```csharp
-public int GetItemPrice(EquipmentElement equipmentElement, bool isBuying = false)
-```
+**用途 / Purpose:** 获取 `item price` 的当前值。
 
 ### GetCostOfItemRosterElement
+`public int GetCostOfItemRosterElement(ItemRosterElement itemRosterElement, InventoryLogic.InventorySide side)`
+
+**用途 / Purpose:** 获取 `cost of item roster element` 的当前值。
+
+## 使用示例
 
 ```csharp
-public int GetCostOfItemRosterElement(ItemRosterElement itemRosterElement, InventoryLogic.InventorySide side)
+var value = new CapacityData();
 ```
-
-献文档。
 
 ## 参见
 

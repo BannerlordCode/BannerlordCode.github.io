@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `IMissionDeploymentPlan`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IMissionDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** interface
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/IMissionDeploymentPlan.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IMissionDeploymentPlan` is a interface in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IMissionDeploymentPlan` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+IMissionDeploymentPlan implementation = GetMissionDeploymentPlanImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

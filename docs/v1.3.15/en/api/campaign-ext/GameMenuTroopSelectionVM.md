@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameMenuTroopSelectionVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuTroopSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GameMenuTroopSelectionVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TroopSelection/GameMenuTroopSelectionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameMenuTroopSelectionVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameMenuTroopSelectionVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,64 +39,60 @@
 | `CurrentSelectedAmountText` | `public string CurrentSelectedAmountText { get; set; }` |
 | `CurrentSelectedAmountTitle` | `public string CurrentSelectedAmountTitle { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteDone
+`public void ExecuteDone()`
 
-```csharp
-public void ExecuteDone()
-```
+**Purpose:** Executes the `done` operation or workflow.
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**Purpose:** Executes the `reset` operation or workflow.
 
 ### ExecuteClearSelection
+`public void ExecuteClearSelection()`
 
-```csharp
-public void ExecuteClearSelection()
-```
+**Purpose:** Executes the `clear selection` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotkey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotkey)`
+
+**Purpose:** Sets the value or state of `reset input key`.
+
+## Usage Example
 
 ```csharp
-public void SetResetInputKey(HotKey hotkey)
+var value = new GameMenuTroopSelectionVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TournamentModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TournamentModel
@@ -14,70 +15,73 @@
 
 ## 概述
 
-`TournamentModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<TournamentModel>(new MyTournamentModel())` 注册，以改变其计算逻辑。
+`TournamentModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `TournamentModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetTournamentStartChance
-```csharp
-public abstract float GetTournamentStartChance(Town town)
-```
+`public abstract float GetTournamentStartChance(Town town)`
+
+**用途 / Purpose:** 获取 `tournament start chance` 的当前值。
 
 ### CreateTournament
-```csharp
-public abstract TournamentGame CreateTournament(Town town)
-```
+`public abstract TournamentGame CreateTournament(Town town)`
+
+**用途 / Purpose:** 创建一个 `tournament` 实例或对象。
 
 ### GetTournamentEndChance
-```csharp
-public abstract float GetTournamentEndChance(TournamentGame tournament)
-```
+`public abstract float GetTournamentEndChance(TournamentGame tournament)`
+
+**用途 / Purpose:** 获取 `tournament end chance` 的当前值。
 
 ### GetNumLeaderboardVictoriesAtGameStart
-```csharp
-public abstract int GetNumLeaderboardVictoriesAtGameStart()
-```
+`public abstract int GetNumLeaderboardVictoriesAtGameStart()`
+
+**用途 / Purpose:** 获取 `num leaderboard victories at game start` 的当前值。
 
 ### GetTournamentSimulationScore
-```csharp
-public abstract float GetTournamentSimulationScore(CharacterObject character)
-```
+`public abstract float GetTournamentSimulationScore(CharacterObject character)`
+
+**用途 / Purpose:** 获取 `tournament simulation score` 的当前值。
 
 ### GetRenownReward
-```csharp
-public abstract int GetRenownReward(Hero winner, Town town)
-```
+`public abstract int GetRenownReward(Hero winner, Town town)`
+
+**用途 / Purpose:** 获取 `renown reward` 的当前值。
 
 ### GetInfluenceReward
-```csharp
-public abstract int GetInfluenceReward(Hero winner, Town town)
-```
+`public abstract int GetInfluenceReward(Hero winner, Town town)`
+
+**用途 / Purpose:** 获取 `influence reward` 的当前值。
 
 ### GetSkillXpGainFromTournament
-```csharp
-public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)
-```
+`public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
+
+**用途 / Purpose:** 获取 `skill xp gain from tournament` 的当前值。
 
 ### GetParticipantArmor
-```csharp
-public abstract Equipment GetParticipantArmor(CharacterObject participant)
-```
+`public abstract Equipment GetParticipantArmor(CharacterObject participant)`
+
+**用途 / Purpose:** 获取 `participant armor` 的当前值。
 
 ### GetRegularRewardItems
-```csharp
-public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**用途 / Purpose:** 获取 `regular reward items` 的当前值。
 
 ### GetEliteRewardItems
-```csharp
-public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**用途 / Purpose:** 获取 `elite reward items` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// TournamentModel (Model) 的典型用法
-Game.Current.ReplaceModel<TournamentModel>(new MyTournamentModel());
+var implementation = new CustomTournamentModel();
 ```
 
 ## 参见

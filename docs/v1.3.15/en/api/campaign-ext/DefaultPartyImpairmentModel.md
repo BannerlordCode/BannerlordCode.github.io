@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartyImpairmentModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyImpairmentModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultPartyImpairmentModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartyImpairmentModel>(new MyDefaultPartyImpairmentModel())` to change how it computes.
+`DefaultPartyImpairmentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartyImpairmentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSiegeExpectedVulnerabilityTime
-```csharp
-public override float GetSiegeExpectedVulnerabilityTime()
-```
+`public override float GetSiegeExpectedVulnerabilityTime()`
+
+**Purpose:** Gets the current value of `siege expected vulnerability time`.
 
 ### GetDisorganizedStateDuration
-```csharp
-public override ExplainedNumber GetDisorganizedStateDuration(MobileParty party)
-```
+`public override ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
+
+**Purpose:** Gets the current value of `disorganized state duration`.
 
 ### CanGetDisorganized
-```csharp
-public override bool CanGetDisorganized(PartyBase party)
-```
+`public override bool CanGetDisorganized(PartyBase party)`
+
+**Purpose:** Checks whether the current object can `get disorganized`.
 
 ### GetVulnerabilityStateDuration
-```csharp
-public override float GetVulnerabilityStateDuration(PartyBase party)
-```
+`public override float GetVulnerabilityStateDuration(PartyBase party)`
+
+**Purpose:** Gets the current value of `vulnerability state duration`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartyImpairmentModel (Model)
 Game.Current.ReplaceModel<DefaultPartyImpairmentModel>(new MyDefaultPartyImpairmentModel());
 ```
 

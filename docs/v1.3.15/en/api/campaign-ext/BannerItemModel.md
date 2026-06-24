@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BannerItemModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerItemModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`BannerItemModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BannerItemModel>(new MyBannerItemModel())` to change how it computes.
+`BannerItemModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BannerItemModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPossibleRewardBannerItems
-```csharp
-public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItems()
-```
+`public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
+
+**Purpose:** Gets the current value of `possible reward banner items`.
 
 ### GetPossibleRewardBannerItemsForHero
-```csharp
-public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)
-```
+`public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `possible reward banner items for hero`.
 
 ### GetBannerItemLevelForHero
-```csharp
-public abstract int GetBannerItemLevelForHero(Hero hero)
-```
+`public abstract int GetBannerItemLevelForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `banner item level for hero`.
 
 ### CanBannerBeUpdated
-```csharp
-public abstract bool CanBannerBeUpdated(ItemObject item)
-```
+`public abstract bool CanBannerBeUpdated(ItemObject item)`
+
+**Purpose:** Checks whether the current object can `banner be updated`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BannerItemModel (Model)
-Game.Current.ReplaceModel<BannerItemModel>(new MyBannerItemModel());
+var implementation = new CustomBannerItemModel();
 ```
 
 ## See Also

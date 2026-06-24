@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `GameStateManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameStateManager
@@ -14,75 +15,80 @@
 
 ## 概述
 
-`GameStateManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`GameStateManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `GameStateManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `Current` | `public static GameStateManager Current { get { return GameStateManager._current; }` |
-| `Listeners` | `public IReadOnlyCollection<IGameStateManagerListener> Listeners { get { return this._listeners.AsReadOnly(); }` |
-| `GameStates` | `public IEnumerable<GameState> GameStates { get { return this._gameStates.AsReadOnly(); }` |
-| `ActiveStateDisabledByUser` | `public bool ActiveStateDisabledByUser { get { return this._activeStateDisableRequests.Count > 0; }` |
-| `ActiveState` | `public GameState ActiveState { get { if (this._gameStates.Count <= 0) { return null; }` |
+| `Current` | `public static GameStateManager Current { get; set; }` |
+| `Listeners` | `public IReadOnlyCollection<IGameStateManagerListener> Listeners { get; }` |
+| `CurrentType` | `public GameStateManager.GameStateManagerType CurrentType { get; }` |
+| `Owner` | `public IGameStateManagerOwner Owner { get; }` |
+| `GameStates` | `public IEnumerable<GameState> GameStates { get; }` |
+| `ActiveStateDisabledByUser` | `public bool ActiveStateDisabledByUser { get; }` |
+| `ActiveState` | `public GameState ActiveState { get; }` |
 
 ## 主要方法
 
 ### RegisterListener
-```csharp
-public bool RegisterListener(IGameStateManagerListener listener)
-```
+`public bool RegisterListener(IGameStateManagerListener listener)`
+
+**用途 / Purpose:** 处理 `register listener` 相关逻辑。
 
 ### UnregisterListener
-```csharp
-public bool UnregisterListener(IGameStateManagerListener listener)
-```
+`public bool UnregisterListener(IGameStateManagerListener listener)`
+
+**用途 / Purpose:** 处理 `unregister listener` 相关逻辑。
 
 ### RegisterActiveStateDisableRequest
-```csharp
-public void RegisterActiveStateDisableRequest(object requestingInstance)
-```
+`public void RegisterActiveStateDisableRequest(object requestingInstance)`
+
+**用途 / Purpose:** 处理 `register active state disable request` 相关逻辑。
 
 ### UnregisterActiveStateDisableRequest
-```csharp
-public void UnregisterActiveStateDisableRequest(object requestingInstance)
-```
+`public void UnregisterActiveStateDisableRequest(object requestingInstance)`
+
+**用途 / Purpose:** 处理 `unregister active state disable request` 相关逻辑。
 
 ### OnSavedGameLoadFinished
-```csharp
-public void OnSavedGameLoadFinished()
-```
+`public void OnSavedGameLoadFinished()`
+
+**用途 / Purpose:** 当 `saved game load finished` 事件触发时调用此方法。
 
 ### OnTick
-```csharp
-public void OnTick(float dt)
-```
+`public void OnTick(float dt)`
+
+**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
 
 ### PushState
-```csharp
-public void PushState(GameState gameState, int level = 0)
-```
+`public void PushState(GameState gameState, int level = 0)`
+
+**用途 / Purpose:** 处理 `push state` 相关逻辑。
 
 ### PopState
-```csharp
-public void PopState(int level = 0)
-```
+`public void PopState(int level = 0)`
+
+**用途 / Purpose:** 处理 `pop state` 相关逻辑。
 
 ### CleanAndPushState
-```csharp
-public void CleanAndPushState(GameState gameState, int level = 0)
-```
+`public void CleanAndPushState(GameState gameState, int level = 0)`
+
+**用途 / Purpose:** 处理 `clean and push state` 相关逻辑。
 
 ### CleanStates
-```csharp
-public void CleanStates(int level = 0)
-```
+`public void CleanStates(int level = 0)`
+
+**用途 / Purpose:** 处理 `clean states` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// GameStateManager (Manager) 的典型用法
-GameStateManager.Current;
+var manager = GameStateManager.Current;
 ```
 
 ## 参见

@@ -2,28 +2,48 @@
 **Home** → **API Index** → **Area** → `MissionObjectiveTarget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class MissionObjectiveTarget`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionObjectiveTarget` is a class in the `TaleWorlds.MountAndBlade.Missions.Objectives` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionObjectiveTarget` lives in `TaleWorlds.MountAndBlade.Missions.Objectives` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Key Properties
+Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name | Signature |
-|------|-----------|
-| `Target` | `public T Target { get; }` |
+## Key Methods
+
+### IsActive
+`public abstract bool IsActive()`
+
+**Purpose:** Handles logic related to `is active`.
+
+### GetName
+`public abstract TextObject GetName()`
+
+**Purpose:** Gets the current value of `name`.
+
+### GetGlobalPosition
+`public abstract Vec3 GetGlobalPosition()`
+
+**Purpose:** Gets the current value of `global position`.
+
+## Usage Example
+
+```csharp
+var implementation = new CustomMissionObjectiveTarget();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

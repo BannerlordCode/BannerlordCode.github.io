@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TeamAIComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TeamAIComponent
@@ -14,118 +15,125 @@
 
 ## Overview
 
-`TeamAIComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<TeamAIComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`TeamAIComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `TeamAIComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `StrategicAreas` | `public MBReadOnlyList<StrategicArea> StrategicAreas { get { return this._strategicAreas; }` |
-| `HasStrategicAreas` | `public bool HasStrategicAreas { get { return !this._strategicAreas.IsEmpty<StrategicArea>(); }` |
+| `StrategicAreas` | `public MBReadOnlyList<StrategicArea> StrategicAreas { get; }` |
+| `HasStrategicAreas` | `public bool HasStrategicAreas { get; }` |
+| `IsDefenseApplicable` | `public bool IsDefenseApplicable { get; }` |
+| `GetIsFirstTacticChosen` | `public bool GetIsFirstTacticChosen { get; }` |
+| `Id` | `public string Id { get; }` |
+| `Tactic` | `public Lazy<TacticComponent> Tactic { get; }` |
 | `Weight` | `public float Weight { get; set; }` |
 
 ## Key Methods
 
 ### AddStrategicArea
-```csharp
-public void AddStrategicArea(StrategicArea strategicArea)
-```
+`public void AddStrategicArea(StrategicArea strategicArea)`
+
+**Purpose:** Adds `strategic area` to the current collection or state.
 
 ### RemoveStrategicArea
-```csharp
-public void RemoveStrategicArea(StrategicArea strategicArea)
-```
+`public void RemoveStrategicArea(StrategicArea strategicArea)`
+
+**Purpose:** Removes `strategic area` from the current collection or state.
 
 ### RemoveAllStrategicAreas
-```csharp
-public void RemoveAllStrategicAreas()
-```
+`public void RemoveAllStrategicAreas()`
+
+**Purpose:** Removes `all strategic areas` from the current collection or state.
 
 ### AddTacticOption
-```csharp
-public void AddTacticOption(TacticComponent tacticOption)
-```
+`public void AddTacticOption(TacticComponent tacticOption)`
+
+**Purpose:** Adds `tactic option` to the current collection or state.
 
 ### RemoveTacticOption
-```csharp
-public void RemoveTacticOption(Type tacticType)
-```
+`public void RemoveTacticOption(Type tacticType)`
+
+**Purpose:** Removes `tactic option` from the current collection or state.
 
 ### ClearTacticOptions
-```csharp
-public void ClearTacticOptions()
-```
+`public void ClearTacticOptions()`
+
+**Purpose:** Handles logic related to `clear tactic options`.
 
 ### AssertTeam
-```csharp
-public void AssertTeam(Team team)
-```
+`public void AssertTeam(Team team)`
+
+**Purpose:** Handles logic related to `assert team`.
 
 ### NotifyTacticalDecision
-```csharp
-public void NotifyTacticalDecision(in TacticalDecision decision)
-```
+`public void NotifyTacticalDecision(in TacticalDecision decision)`
+
+**Purpose:** Handles logic related to `notify tactical decision`.
 
 ### OnDeploymentFinished
-```csharp
-public virtual void OnDeploymentFinished()
-```
+`public virtual void OnDeploymentFinished()`
+
+**Purpose:** Called when the `deployment finished` event is raised.
 
 ### OnFormationFrameChanged
-```csharp
-public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)
-```
+`public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
+
+**Purpose:** Called when the `formation frame changed` event is raised.
 
 ### OnMissionEnded
-```csharp
-public virtual void OnMissionEnded()
-```
+`public virtual void OnMissionEnded()`
+
+**Purpose:** Called when the `mission ended` event is raised.
 
 ### ResetTacticalPositions
-```csharp
-public void ResetTacticalPositions()
-```
+`public void ResetTacticalPositions()`
+
+**Purpose:** Resets `tactical positions` to its initial state.
 
 ### ResetTactic
-```csharp
-public void ResetTactic(bool keepCurrentTactic = true)
-```
+`public void ResetTactic(bool keepCurrentTactic = true)`
+
+**Purpose:** Resets `tactic` to its initial state.
 
 ### CheckIsDefenseApplicable
-```csharp
-public void CheckIsDefenseApplicable()
-```
+`public void CheckIsDefenseApplicable()`
+
+**Purpose:** Handles logic related to `check is defense applicable`.
 
 ### OnTacticAppliedForFirstTime
-```csharp
-public void OnTacticAppliedForFirstTime()
-```
+`public void OnTacticAppliedForFirstTime()`
+
+**Purpose:** Called when the `tactic applied for first time` event is raised.
 
 ### TickOccasionally
-```csharp
-public void TickOccasionally()
-```
+`public void TickOccasionally()`
+
+**Purpose:** Handles logic related to `tick occasionally`.
 
 ### IsCurrentTactic
-```csharp
-public bool IsCurrentTactic(TacticComponent tactic)
-```
+`public bool IsCurrentTactic(TacticComponent tactic)`
+
+**Purpose:** Handles logic related to `is current tactic`.
 
 ### OnUnitAddedToFormationForTheFirstTime
-```csharp
-public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)
-```
+`public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
+
+**Purpose:** Called when the `unit added to formation for the first time` event is raised.
 
 ### TacticalDecisionDelegate
-```csharp
-public delegate void TacticalDecisionDelegate(in TacticalDecision decision)
-```
+`public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
+
+**Purpose:** Handles logic related to `tactical decision delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TeamAIComponent (Component)
-agent.GetComponent<TeamAIComponent>();
+var implementation = new CustomTeamAIComponent();
 ```
 
 ## See Also

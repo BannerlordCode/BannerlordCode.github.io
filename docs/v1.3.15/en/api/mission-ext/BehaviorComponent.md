@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BehaviorComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BehaviorComponent
@@ -14,90 +15,94 @@
 
 ## Overview
 
-`BehaviorComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<BehaviorComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`BehaviorComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `BehaviorComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
+| `Formation` | `public Formation Formation { get; }` |
 | `BehaviorCoherence` | `public float BehaviorCoherence { get; set; }` |
-| `NavmeshlessTargetPositionPenalty` | `public virtual float NavmeshlessTargetPositionPenalty { get { if (this._navmeshlessTargetPositionPenalty == 1f) { return 1f; }` |
-| `CurrentOrder` | `public MovementOrder CurrentOrder { get { return this._currentOrder; }` |
+| `NavmeshlessTargetPositionPenalty` | `public virtual float NavmeshlessTargetPositionPenalty { get; }` |
+| `CurrentOrder` | `public MovementOrder CurrentOrder { get; set; }` |
 | `PreserveExpireTime` | `public float PreserveExpireTime { get; set; }` |
 | `WeightFactor` | `public float WeightFactor { get; set; }` |
 
 ## Key Methods
 
 ### OnBehaviorCanceled
-```csharp
-public virtual void OnBehaviorCanceled()
-```
+`public virtual void OnBehaviorCanceled()`
+
+**Purpose:** Called when the `behavior canceled` event is raised.
 
 ### OnLostAIControl
-```csharp
-public virtual void OnLostAIControl()
-```
+`public virtual void OnLostAIControl()`
+
+**Purpose:** Called when the `lost a i control` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public virtual void OnAgentRemoved(Agent agent)
-```
+`public virtual void OnAgentRemoved(Agent agent)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### RemindSergeantPlayer
-```csharp
-public void RemindSergeantPlayer()
-```
+`public void RemindSergeantPlayer()`
+
+**Purpose:** Handles logic related to `remind sergeant player`.
 
 ### TickOccasionally
-```csharp
-public virtual void TickOccasionally()
-```
+`public virtual void TickOccasionally()`
+
+**Purpose:** Handles logic related to `tick occasionally`.
 
 ### GetAIWeight
-```csharp
-public float GetAIWeight()
-```
+`public float GetAIWeight()`
+
+**Purpose:** Gets the current value of `a i weight`.
 
 ### ResetBehavior
-```csharp
-public virtual void ResetBehavior()
-```
+`public virtual void ResetBehavior()`
+
+**Purpose:** Resets `behavior` to its initial state.
 
 ### GetBehaviorString
-```csharp
-public virtual TextObject GetBehaviorString()
-```
+`public virtual TextObject GetBehaviorString()`
+
+**Purpose:** Gets the current value of `behavior string`.
 
 ### OnValidBehaviorSideChanged
-```csharp
-public virtual void OnValidBehaviorSideChanged()
-```
+`public virtual void OnValidBehaviorSideChanged()`
+
+**Purpose:** Called when the `valid behavior side changed` event is raised.
 
 ### PrecalculateMovementOrder
-```csharp
-public void PrecalculateMovementOrder()
-```
+`public void PrecalculateMovementOrder()`
+
+**Purpose:** Handles logic related to `precalculate movement order`.
 
 ### Equals
-```csharp
-public override bool Equals(object obj)
-```
+`public override bool Equals(object obj)`
+
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
-```csharp
-public override int GetHashCode()
-```
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
 
 ### OnDeploymentFinished
-```csharp
-public virtual void OnDeploymentFinished()
-```
+`public virtual void OnDeploymentFinished()`
+
+**Purpose:** Called when the `deployment finished` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BehaviorComponent (Component)
-agent.GetComponent<BehaviorComponent>();
+var implementation = new CustomBehaviorComponent();
 ```
 
 ## See Also

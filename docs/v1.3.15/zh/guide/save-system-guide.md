@@ -5,6 +5,10 @@ description: v1.3.15 全新存档系统使用指南 / Complete guide to v1.3.15'
 
 # 存档系统指南 / Save System Guide
 
+## 心智模型
+
+先把 `存档系统指南` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: TaleWorlds.SaveSystem
 **Version**: 1.3.15 (NEW - 不存在于 1.3.0)
 
@@ -248,3 +252,9 @@ public class MyData
 
 - [常见模式](./common-patterns.md) - Bannerlord modding 最佳实践
 - [战役系统](./campaign-system.md) - 了解 Campaign 世界
+
+## 使用示例
+
+```csharp
+var example = new 存档系统指南();
+```

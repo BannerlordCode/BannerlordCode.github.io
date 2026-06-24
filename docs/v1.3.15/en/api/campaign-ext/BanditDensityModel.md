@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BanditDensityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BanditDensityModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BanditDensityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BanditDensityModel>(new MyBanditDensityModel())` to change how it computes.
+`BanditDensityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BanditDensityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -33,30 +38,29 @@
 ## Key Methods
 
 ### GetMaxSupportedNumberOfLootersForClan
-```csharp
-public abstract int GetMaxSupportedNumberOfLootersForClan(Clan clan)
-```
+`public abstract int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
+
+**Purpose:** Gets the current value of `max supported number of looters for clan`.
 
 ### GetMinimumTroopCountForHideoutMission
-```csharp
-public abstract int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)
-```
+`public abstract int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
+
+**Purpose:** Gets the current value of `minimum troop count for hideout mission`.
 
 ### GetMaximumTroopCountForHideoutMission
-```csharp
-public abstract int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)
-```
+`public abstract int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
+
+**Purpose:** Gets the current value of `maximum troop count for hideout mission`.
 
 ### IsPositionInsideNavalSafeZone
-```csharp
-public abstract bool IsPositionInsideNavalSafeZone(CampaignVec2 position)
-```
+`public abstract bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
+
+**Purpose:** Handles logic related to `is position inside naval safe zone`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BanditDensityModel (Model)
-Game.Current.ReplaceModel<BanditDensityModel>(new MyBanditDensityModel());
+var implementation = new CustomBanditDensityModel();
 ```
 
 ## See Also

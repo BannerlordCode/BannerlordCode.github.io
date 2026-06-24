@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultEncounterGameMenuModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultEncounterGameMenuModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`DefaultEncounterGameMenuModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultEncounterGameMenuModel>(new MyDefaultEncounterGameMenuModel())` to change how it computes.
+`DefaultEncounterGameMenuModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultEncounterGameMenuModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetEncounterMenu
-```csharp
-public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)
-```
+`public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
+
+**Purpose:** Gets the current value of `encounter menu`.
 
 ### GetRaidCompleteMenu
-```csharp
-public override string GetRaidCompleteMenu()
-```
+`public override string GetRaidCompleteMenu()`
+
+**Purpose:** Gets the current value of `raid complete menu`.
 
 ### GetNewPartyJoinMenu
-```csharp
-public override string GetNewPartyJoinMenu(MobileParty newParty)
-```
+`public override string GetNewPartyJoinMenu(MobileParty newParty)`
+
+**Purpose:** Gets the current value of `new party join menu`.
 
 ### GetGenericStateMenu
-```csharp
-public override string GetGenericStateMenu()
-```
+`public override string GetGenericStateMenu()`
+
+**Purpose:** Gets the current value of `generic state menu`.
 
 ### IsPlunderMenu
-```csharp
-public override bool IsPlunderMenu(string gameMenuId)
-```
+`public override bool IsPlunderMenu(string gameMenuId)`
+
+**Purpose:** Handles logic related to `is plunder menu`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultEncounterGameMenuModel (Model)
-Game.Current.ReplaceModel<DefaultEncounterGameMenuModel>(new MyDefaultEncounterGameMenuModel());
+DefaultEncounterGameMenuModel example = DefaultEncounterGameMenuModel.Value;
 ```
 
 ## See Also

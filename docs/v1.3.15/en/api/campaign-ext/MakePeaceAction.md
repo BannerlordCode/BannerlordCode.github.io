@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `MakePeaceAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MakePeaceAction
+
+## Mental Model
+
+Treat `MakePeaceAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ MakePeaceAction is a set of static methods that trigger "MakePeace" in the campa
 public static void Apply(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ### ApplyByKingdomDecision
 

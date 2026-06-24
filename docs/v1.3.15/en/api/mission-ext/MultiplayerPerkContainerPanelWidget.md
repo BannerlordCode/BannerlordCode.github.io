@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerPerkContainerPanelWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerPerkContainerPanelWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerPerkContainerPanelWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerPerkContainerPanelWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,16 +33,14 @@
 ## Key Methods
 
 ### PerkSelected
-```csharp
-public void PerkSelected(MultiplayerPerkItemToggleWidget selectedItem)
-```
+`public void PerkSelected(MultiplayerPerkItemToggleWidget selectedItem)`
+
+**Purpose:** Handles logic related to `perk selected`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerPerkContainerPanelWidget (Widget)
-// 声明/访问一个 MultiplayerPerkContainerPanelWidget
-var widget = root.GetChild("multiplayerPerkContainerPanelWidget");;
+var widget = new MultiplayerPerkContainerPanelWidget(context);
 ```
 
 ## See Also

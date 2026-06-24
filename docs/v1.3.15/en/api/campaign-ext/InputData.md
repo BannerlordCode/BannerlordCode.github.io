@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `InputData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InputData
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class InputData`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/InputData.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `InputData` is a class in the `TaleWorlds.TwoDimension.Standalone` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`InputData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `InputData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,22 +33,24 @@
 | `MouseMove` | `public bool MouseMove { get; set; }` |
 | `MouseScrollDelta` | `public float MouseScrollDelta { get; set; }` |
 
-
 ## Key Methods
 
 ### Reset
+`public void Reset()`
 
-```csharp
-public void Reset()
-```
+**Purpose:** Resets `reset` to its initial state.
 
 ### FillFrom
+`public void FillFrom(InputData inputData)`
+
+**Purpose:** Handles logic related to `fill from`.
+
+## Usage Example
 
 ```csharp
-public void FillFrom(InputData inputData)
+var value = new InputData();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

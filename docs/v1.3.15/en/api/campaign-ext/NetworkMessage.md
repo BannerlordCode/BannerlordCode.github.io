@@ -2,144 +2,134 @@
 **Home** → **API Index** → **Area** → `NetworkMessage`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NetworkMessage
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class NetworkMessage : INetworkMessageWriter, INetworkMessageReader`
+**Base:** `INetworkMessageWriter`
+**File:** `TaleWorlds.Network/NetworkMessage.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `NetworkMessage` is a class in the `TaleWorlds.Network` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`NetworkMessage` lives in `TaleWorlds.Network` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Write
+`public void Write(string data)`
 
-```csharp
-public void Write(string data)
-```
-
-### Write
-
-```csharp
-public void Write(int data)
-```
+**Purpose:** Handles logic related to `write`.
 
 ### Write
+`public void Write(int data)`
 
-```csharp
-public void Write(short data)
-```
-
-### Write
-
-```csharp
-public void Write(bool data)
-```
+**Purpose:** Handles logic related to `write`.
 
 ### Write
+`public void Write(short data)`
 
-```csharp
-public void Write(byte data)
-```
-
-### Write
-
-```csharp
-public void Write(float data)
-```
+**Purpose:** Handles logic related to `write`.
 
 ### Write
+`public void Write(bool data)`
 
-```csharp
-public void Write(long data)
-```
-
-### Write
-
-```csharp
-public void Write(ulong data)
-```
+**Purpose:** Handles logic related to `write`.
 
 ### Write
+`public void Write(byte data)`
 
-```csharp
-public void Write(Guid data)
-```
+**Purpose:** Handles logic related to `write`.
 
 ### Write
+`public void Write(float data)`
 
-```csharp
-public void Write(byte data)
-```
+**Purpose:** Handles logic related to `write`.
+
+### Write
+`public void Write(long data)`
+
+**Purpose:** Handles logic related to `write`.
+
+### Write
+`public void Write(ulong data)`
+
+**Purpose:** Handles logic related to `write`.
+
+### Write
+`public void Write(Guid data)`
+
+**Purpose:** Handles logic related to `write`.
+
+### Write
+`public void Write(byte data)`
+
+**Purpose:** Handles logic related to `write`.
 
 ### ReadInt32
+`public int ReadInt32()`
 
-```csharp
-public int ReadInt32()
-```
+**Purpose:** Handles logic related to `read int32`.
 
 ### ReadInt16
+`public short ReadInt16()`
 
-```csharp
-public short ReadInt16()
-```
+**Purpose:** Handles logic related to `read int16`.
 
 ### ReadBoolean
+`public bool ReadBoolean()`
 
-```csharp
-public bool ReadBoolean()
-```
+**Purpose:** Handles logic related to `read boolean`.
 
 ### ReadByte
+`public byte ReadByte()`
 
-```csharp
-public byte ReadByte()
-```
+**Purpose:** Handles logic related to `read byte`.
 
 ### ReadString
+`public string ReadString()`
 
-```csharp
-public string ReadString()
-```
+**Purpose:** Handles logic related to `read string`.
 
 ### ReadFloat
+`public float ReadFloat()`
 
-```csharp
-public float ReadFloat()
-```
+**Purpose:** Handles logic related to `read float`.
 
 ### ReadInt64
+`public long ReadInt64()`
 
-```csharp
-public long ReadInt64()
-```
+**Purpose:** Handles logic related to `read int64`.
 
 ### ReadUInt64
+`public ulong ReadUInt64()`
 
-```csharp
-public ulong ReadUInt64()
-```
+**Purpose:** Handles logic related to `read u int64`.
 
 ### ReadGuid
+`public Guid ReadGuid()`
 
-```csharp
-public Guid ReadGuid()
-```
+**Purpose:** Handles logic related to `read guid`.
 
 ### ReadByteArray
+`public byte ReadByteArray()`
+
+**Purpose:** Handles logic related to `read byte array`.
+
+## Usage Example
 
 ```csharp
-public byte ReadByteArray()
+var value = new NetworkMessage();
+value.Write("example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

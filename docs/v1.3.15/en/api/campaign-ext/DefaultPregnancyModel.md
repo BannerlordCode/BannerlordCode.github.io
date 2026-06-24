@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPregnancyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPregnancyModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultPregnancyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPregnancyModel>(new MyDefaultPregnancyModel())` to change how it computes.
+`DefaultPregnancyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPregnancyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,14 +34,13 @@
 ## Key Methods
 
 ### GetDailyChanceOfPregnancyForHero
-```csharp
-public override float GetDailyChanceOfPregnancyForHero(Hero hero)
-```
+`public override float GetDailyChanceOfPregnancyForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `daily chance of pregnancy for hero`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPregnancyModel (Model)
 Game.Current.ReplaceModel<DefaultPregnancyModel>(new MyDefaultPregnancyModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomSallyOutMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomSallyOutMissionController
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`CustomSallyOutMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`CustomSallyOutMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `CustomSallyOutMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomSallyOutMissionController (Controller)
-Mission.Current.GetMissionBehavior<CustomSallyOutMissionController>();
+var controller = Mission.Current.GetMissionBehavior<CustomSallyOutMissionController>();
 ```
 
 ## See Also

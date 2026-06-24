@@ -2,94 +2,92 @@
 **首页** → **API 目录** → **本领域** → `EncyclopediaListShipComparer`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaListShipComparer
 
 **命名空间:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public abstract class EncyclopediaListShipComparer : EncyclopediaListItemComparerBase`
+**Base:** `EncyclopediaListItemComparerBase`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`EncyclopediaListShipComparer` 是 `TaleWorlds.CampaignSystem.Encyclopedia.Pages` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`EncyclopediaListShipComparer` 位于 `TaleWorlds.CampaignSystem.Encyclopedia.Pages`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Encyclopedia.Pages` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### IsRelevant
+`public override bool IsRelevant()`
 
-```csharp
-public override bool IsRelevant()
-```
+**用途 / Purpose:** 处理 `is relevant` 相关逻辑。
 
 ### GetViewFullyQualifiedName
+`public override string GetViewFullyQualifiedName()`
 
-```csharp
-public override string GetViewFullyQualifiedName()
-```
+**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
 
 ### GetStringID
+`public override string GetStringID()`
 
-```csharp
-public override string GetStringID()
-```
+**用途 / Purpose:** 获取 `string i d` 的当前值。
 
 ### GetName
+`public override TextObject GetName()`
 
-```csharp
-public override TextObject GetName()
-```
+**用途 / Purpose:** 获取 `name` 的当前值。
 
 ### GetObject
+`public override MBObjectBase GetObject(string typeName, string stringID)`
 
-```csharp
-public override MBObjectBase GetObject(string typeName, string stringID)
-```
+**用途 / Purpose:** 获取 `object` 的当前值。
 
 ### IsValidEncyclopediaItem
+`public override bool IsValidEncyclopediaItem(object o)`
 
-```csharp
-public override bool IsValidEncyclopediaItem(object o)
-```
-
-### Compare
-
-```csharp
-public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)
-```
-
-### GetComparedValueText
-
-```csharp
-public override string GetComparedValueText(EncyclopediaListItem item)
-```
+**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
 
 ### Compare
+`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-```csharp
-public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### GetComparedValueText
+`public override string GetComparedValueText(EncyclopediaListItem item)`
 
-```csharp
-public override string GetComparedValueText(EncyclopediaListItem item)
-```
+**用途 / Purpose:** 获取 `compared value text` 的当前值。
 
 ### Compare
+`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-```csharp
-public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### GetComparedValueText
+`public override string GetComparedValueText(EncyclopediaListItem item)`
+
+**用途 / Purpose:** 获取 `compared value text` 的当前值。
+
+### Compare
+`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### GetComparedValueText
+`public override string GetComparedValueText(EncyclopediaListItem item)`
+
+**用途 / Purpose:** 获取 `compared value text` 的当前值。
+
+## 使用示例
 
 ```csharp
-public override string GetComparedValueText(EncyclopediaListItem item)
+var implementation = new CustomEncyclopediaListShipComparer();
 ```
-
-献文档。
 
 ## 参见
 

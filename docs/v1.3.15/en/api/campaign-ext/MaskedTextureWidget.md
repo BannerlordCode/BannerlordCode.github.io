@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MaskedTextureWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MaskedTextureWidget
@@ -16,28 +17,30 @@
 
 `MaskedTextureWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MaskedTextureWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `OverlayTextureScale` | `public float OverlayTextureScale { get; set; }` |
-| `ImageId` | `public string ImageId { get { return this._imageId; }` |
-| `AdditionalArgs` | `public string AdditionalArgs { get { return this._additionalArgs; }` |
-| `IsBig` | `public bool IsBig { get { return this._isBig; }` |
+| `ImageId` | `public string ImageId { get; set; }` |
+| `AdditionalArgs` | `public string AdditionalArgs { get; set; }` |
+| `IsBig` | `public bool IsBig { get; set; }` |
 
 ## Key Methods
 
 ### OnClearTextureProvider
-```csharp
-public override void OnClearTextureProvider()
-```
+`public override void OnClearTextureProvider()`
+
+**Purpose:** Called when the `clear texture provider` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MaskedTextureWidget (Widget)
-// 声明/访问一个 MaskedTextureWidget
-var widget = root.GetChild("maskedTextureWidget");;
+var widget = new MaskedTextureWidget(context);
 ```
 
 ## See Also

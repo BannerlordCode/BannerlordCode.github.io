@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CampaignOptionData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignOptionData
@@ -14,80 +15,83 @@
 
 ## 概述
 
-`CampaignOptionData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`CampaignOptionData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `CampaignOptionData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetNameOfOption
-```csharp
-public static TextObject GetNameOfOption(string optionIdentifier)
-```
+`public static TextObject GetNameOfOption(string optionIdentifier)`
+
+**用途 / Purpose:** 获取 `name of option` 的当前值。
 
 ### GetDescriptionOfOption
-```csharp
-public static TextObject GetDescriptionOfOption(string optionIdentifier)
-```
+`public static TextObject GetDescriptionOfOption(string optionIdentifier)`
+
+**用途 / Purpose:** 获取 `description of option` 的当前值。
 
 ### GetPriorityIndex
-```csharp
-public int GetPriorityIndex()
-```
+`public int GetPriorityIndex()`
+
+**用途 / Purpose:** 获取 `priority index` 的当前值。
 
 ### GetDataType
-```csharp
-public abstract CampaignOptionDataType GetDataType()
-```
+`public abstract CampaignOptionDataType GetDataType()`
+
+**用途 / Purpose:** 获取 `data type` 的当前值。
 
 ### IsRelatedToDifficultyPreset
-```csharp
-public bool IsRelatedToDifficultyPreset()
-```
+`public bool IsRelatedToDifficultyPreset()`
+
+**用途 / Purpose:** 处理 `is related to difficulty preset` 相关逻辑。
 
 ### GetValueFromDifficultyPreset
-```csharp
-public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)
-```
+`public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)`
+
+**用途 / Purpose:** 获取 `value from difficulty preset` 的当前值。
 
 ### GetIsDisabledWithReason
-```csharp
-public CampaignOptionDisableStatus GetIsDisabledWithReason()
-```
+`public CampaignOptionDisableStatus GetIsDisabledWithReason()`
+
+**用途 / Purpose:** 获取 `is disabled with reason` 的当前值。
 
 ### GetIdentifier
-```csharp
-public string GetIdentifier()
-```
+`public string GetIdentifier()`
+
+**用途 / Purpose:** 获取 `identifier` 的当前值。
 
 ### GetEnableState
-```csharp
-public CampaignOptionEnableState GetEnableState()
-```
+`public CampaignOptionEnableState GetEnableState()`
+
+**用途 / Purpose:** 获取 `enable state` 的当前值。
 
 ### GetName
-```csharp
-public string GetName()
-```
+`public string GetName()`
+
+**用途 / Purpose:** 获取 `name` 的当前值。
 
 ### GetDescription
-```csharp
-public string GetDescription()
-```
+`public string GetDescription()`
+
+**用途 / Purpose:** 获取 `description` 的当前值。
 
 ### GetValue
-```csharp
-public float GetValue()
-```
+`public float GetValue()`
+
+**用途 / Purpose:** 获取 `value` 的当前值。
 
 ### SetValue
-```csharp
-public void SetValue(float value)
-```
+`public void SetValue(float value)`
+
+**用途 / Purpose:** 设置 `value` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// CampaignOptionData (Data) 的典型用法
-new CampaignOptionData { /* fill fields */ };;
+var implementation = new CustomCampaignOptionData();
 ```
 
 ## 参见

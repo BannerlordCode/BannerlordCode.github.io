@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `CraftingOrderSlots`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingOrderSlots
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class CraftingOrderSlots`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `CraftingOrderSlots` is a class in the `TaleWorlds.CampaignSystem.CampaignBehaviors` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CraftingOrderSlots` lives in `TaleWorlds.CampaignSystem.CampaignBehaviors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,127 +28,114 @@
 | `CraftingHistory` | `public IReadOnlyCollection<WeaponDesign> CraftingHistory { get; }` |
 | `CustomOrders` | `public MBReadOnlyList<CraftingOrder> CustomOrders { get; }` |
 
-
 ## Key Methods
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**Purpose:** Handles logic related to `sync data`.
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**Purpose:** Handles logic related to `register events`.
 
 ### IsOpened
+`public bool IsOpened(CraftingPiece craftingPiece, CraftingTemplate craftingTemplate)`
 
-```csharp
-public bool IsOpened(CraftingPiece craftingPiece, CraftingTemplate craftingTemplate)
-```
+**Purpose:** Handles logic related to `is opened`.
 
 ### GetCraftingDifficulty
+`public int GetCraftingDifficulty(WeaponDesign weaponDesign)`
 
-```csharp
-public int GetCraftingDifficulty(WeaponDesign weaponDesign)
-```
+**Purpose:** Gets the current value of `crafting difficulty`.
 
 ### OnSessionLaunched
+`public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-```csharp
-public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)
-```
+**Purpose:** Called when the `session launched` event is raised.
 
 ### GetHeroCraftingStamina
+`public int GetHeroCraftingStamina(Hero hero)`
 
-```csharp
-public int GetHeroCraftingStamina(Hero hero)
-```
+**Purpose:** Gets the current value of `hero crafting stamina`.
 
 ### SetHeroCraftingStamina
+`public void SetHeroCraftingStamina(Hero hero, int value)`
 
-```csharp
-public void SetHeroCraftingStamina(Hero hero, int value)
-```
+**Purpose:** Sets the value or state of `hero crafting stamina`.
 
 ### SetCraftedWeaponName
+`public void SetCraftedWeaponName(ItemObject craftedWeaponItem, TextObject name)`
 
-```csharp
-public void SetCraftedWeaponName(ItemObject craftedWeaponItem, TextObject name)
-```
+**Purpose:** Sets the value or state of `crafted weapon name`.
 
 ### GetMaxHeroCraftingStamina
+`public int GetMaxHeroCraftingStamina(Hero hero)`
 
-```csharp
-public int GetMaxHeroCraftingStamina(Hero hero)
-```
+**Purpose:** Gets the current value of `max hero crafting stamina`.
 
 ### DoRefinement
+`public void DoRefinement(Hero hero, Crafting.RefiningFormula refineFormula)`
 
-```csharp
-public void DoRefinement(Hero hero, Crafting.RefiningFormula refineFormula)
-```
+**Purpose:** Handles logic related to `do refinement`.
 
 ### DoSmelting
+`public void DoSmelting(Hero currentCraftingHero, EquipmentElement equipmentElement)`
 
-```csharp
-public void DoSmelting(Hero currentCraftingHero, EquipmentElement equipmentElement)
-```
+**Purpose:** Handles logic related to `do smelting`.
 
 ### CreateCraftedWeaponInFreeBuildMode
+`public ItemObject CreateCraftedWeaponInFreeBuildMode(Hero hero, WeaponDesign weaponDesign, ItemModifier weaponModifier = null)`
 
-```csharp
-public ItemObject CreateCraftedWeaponInFreeBuildMode(Hero hero, WeaponDesign weaponDesign, ItemModifier weaponModifier = null)
-```
+**Purpose:** Creates a new `crafted weapon in free build mode` instance or object.
 
 ### CreateCraftedWeaponInCraftingOrderMode
+`public ItemObject CreateCraftedWeaponInCraftingOrderMode(Hero crafterHero, CraftingOrder craftingOrder, WeaponDesign weaponDesign)`
 
-```csharp
-public ItemObject CreateCraftedWeaponInCraftingOrderMode(Hero crafterHero, CraftingOrder craftingOrder, WeaponDesign weaponDesign)
-```
+**Purpose:** Creates a new `crafted weapon in crafting order mode` instance or object.
 
 ### GetActiveCraftingHero
+`public Hero GetActiveCraftingHero()`
 
-```csharp
-public Hero GetActiveCraftingHero()
-```
+**Purpose:** Gets the current value of `active crafting hero`.
 
 ### SetActiveCraftingHero
+`public void SetActiveCraftingHero(Hero hero)`
 
-```csharp
-public void SetActiveCraftingHero(Hero hero)
-```
+**Purpose:** Sets the value or state of `active crafting hero`.
 
 ### CreateTownOrder
+`public void CreateTownOrder(Hero orderOwner, int orderSlot)`
 
-```csharp
-public void CreateTownOrder(Hero orderOwner, int orderSlot)
-```
+**Purpose:** Creates a new `town order` instance or object.
 
 ### CreateCustomOrderForHero
+`public CraftingOrder CreateCustomOrderForHero(Hero orderOwner, float orderDifficulty = -1f, WeaponDesign weaponDesign = null, CraftingTemplate craftingTemplate = null)`
 
-```csharp
-public CraftingOrder CreateCustomOrderForHero(Hero orderOwner, float orderDifficulty = -1f, WeaponDesign weaponDesign = null, CraftingTemplate craftingTemplate = null)
-```
+**Purpose:** Creates a new `custom order for hero` instance or object.
 
 ### GetOrderResult
+`public void GetOrderResult(CraftingOrder craftingOrder, ItemObject craftedItem, out bool isSucceed, out TextObject orderRemark, out TextObject orderResult, out int finalReward)`
 
-```csharp
-public void GetOrderResult(CraftingOrder craftingOrder, ItemObject craftedItem, out bool isSucceed, out TextObject orderRemark, out TextObject orderResult, out int finalReward)
-```
+**Purpose:** Gets the current value of `order result`.
 
 ### CompleteOrder
+`public void CompleteOrder(Town town, CraftingOrder craftingOrder, ItemObject craftedItem, Hero completerHero)`
 
-```csharp
-public void CompleteOrder(Town town, CraftingOrder craftingOrder, ItemObject craftedItem, Hero completerHero)
-```
+**Purpose:** Handles logic related to `complete order`.
 
 ### GetCurrentItemModifier
+`public ItemModifier GetCurrentItemModifier()`
+
+**Purpose:** Gets the current value of `current item modifier`.
+
+## Usage Example
 
 ```csharp
-public ItemModifier GetCurrentItemModifier()
+// First obtain a CraftingOrderSlots instance from game state, then call one of its public methods
+var value = new CraftingOrderSlots();
+value.SyncData(dataStore);
 ```
 
 ## See Also

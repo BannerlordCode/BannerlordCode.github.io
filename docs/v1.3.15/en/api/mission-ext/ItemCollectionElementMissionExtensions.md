@@ -2,27 +2,36 @@
 **Home** → **API Index** → **Area** → `ItemCollectionElementMissionExtensions`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemCollectionElementMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public static class ItemCollectionElementMissionExtensions`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ItemCollectionElementMissionExtensions` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemCollectionElementMissionExtensions` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### GetItemHolsterIndices
+`public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)`
+
+**Purpose:** Gets the current value of `item holster indices`.
+
+## Usage Example
 
 ```csharp
-public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)
+// Prepare the required context, then call the static entry point directly
+ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
 ```
 
 ## See Also

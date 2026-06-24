@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultVoiceOverModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultVoiceOverModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultVoiceOverModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultVoiceOverModel>(new MyDefaultVoiceOverModel())` to change how it computes.
+`DefaultVoiceOverModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultVoiceOverModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSoundPathForCharacter
-```csharp
-public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)
-```
+`public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
+
+**Purpose:** Gets the current value of `sound path for character`.
 
 ### GetAccentClass
-```csharp
-public override string GetAccentClass(CultureObject culture, bool isHighClass)
-```
+`public override string GetAccentClass(CultureObject culture, bool isHighClass)`
+
+**Purpose:** Gets the current value of `accent class`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultVoiceOverModel (Model)
 Game.Current.ReplaceModel<DefaultVoiceOverModel>(new MyDefaultVoiceOverModel());
 ```
 

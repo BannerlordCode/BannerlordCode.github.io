@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SiegeTower`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeTower
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SiegeTower : SiegeWeapon, IPathHolder, IPrimarySiegeWeapon, IMoveableSiegeWeapon, ISpawnable`
+**Base:** `SiegeWeapon`
+**File:** `TaleWorlds.MountAndBlade/SiegeTower.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeTower` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeTower` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -38,130 +42,145 @@
 | `FallAngularSpeed` | `public float FallAngularSpeed { get; }` |
 | `TotalDistanceTraveled` | `public float TotalDistanceTraveled { get; }` |
 
-
 ## Key Methods
 
 ### HasCompletedAction
+`public bool HasCompletedAction()`
 
-```csharp
-public bool HasCompletedAction()
-```
+**Purpose:** Checks whether the current object has/contains `completed action`.
 
 ### GetGateNavMeshId
+`public int GetGateNavMeshId()`
 
-```csharp
-public int GetGateNavMeshId()
-```
+**Purpose:** Gets the current value of `gate nav mesh id`.
 
 ### CollectGetDifficultNavmeshIDs
+`public List<int> CollectGetDifficultNavmeshIDs()`
 
-```csharp
-public List<int> CollectGetDifficultNavmeshIDs()
-```
+**Purpose:** Handles logic related to `collect get difficult navmesh i ds`.
 
 ### CollectGetDifficultNavmeshIDsForAttackers
+`public List<int> CollectGetDifficultNavmeshIDsForAttackers()`
 
-```csharp
-public List<int> CollectGetDifficultNavmeshIDsForAttackers()
-```
+**Purpose:** Handles logic related to `collect get difficult navmesh i ds for attackers`.
 
 ### CollectGetDifficultNavmeshIDsForDefenders
+`public List<int> CollectGetDifficultNavmeshIDsForDefenders()`
 
-```csharp
-public List<int> CollectGetDifficultNavmeshIDsForDefenders()
-```
+**Purpose:** Handles logic related to `collect get difficult navmesh i ds for defenders`.
 
 ### GetDescriptionText
+`public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-```csharp
-public override TextObject GetDescriptionText(WeakGameEntity gameEntity)
-```
+**Purpose:** Gets the current value of `description text`.
 
 ### GetActionTextForStandingPoint
+`public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-```csharp
-public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)
-```
+**Purpose:** Gets the current value of `action text for standing point`.
 
 ### WriteToNetwork
+`public override void WriteToNetwork()`
 
-```csharp
-public override void WriteToNetwork()
-```
+**Purpose:** Handles logic related to `write to network`.
 
 ### GetOrder
+`public override OrderType GetOrder(BattleSideEnum side)`
 
-```csharp
-public override OrderType GetOrder(BattleSideEnum side)
-```
+**Purpose:** Gets the current value of `order`.
 
 ### GetTargetFlags
+`public override TargetFlags GetTargetFlags()`
 
-```csharp
-public override TargetFlags GetTargetFlags()
-```
+**Purpose:** Gets the current value of `target flags`.
 
 ### GetTargetValue
+`public override float GetTargetValue(List<Vec3> weaponPos)`
 
-```csharp
-public override float GetTargetValue(List<Vec3> weaponPos)
-```
+**Purpose:** Gets the current value of `target value`.
 
 ### Disable
+`public override void Disable()`
 
-```csharp
-public override void Disable()
-```
+**Purpose:** Handles logic related to `disable`.
 
 ### GetSiegeEngineType
+`public override SiegeEngineType GetSiegeEngineType()`
 
-```csharp
-public override SiegeEngineType GetSiegeEngineType()
-```
+**Purpose:** Gets the current value of `siege engine type`.
 
 ### CreateAIBehaviorObject
+`public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-```csharp
-public override UsableMachineAIBase CreateAIBehaviorObject()
-```
+**Purpose:** Creates a new `a i behavior object` instance or object.
 
 ### SetAbilityOfFaces
+`public override void SetAbilityOfFaces(bool enabled)`
 
-```csharp
-public override void SetAbilityOfFaces(bool enabled)
-```
+**Purpose:** Sets the value or state of `ability of faces`.
 
 ### GetTickRequirement
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-```csharp
-public override ScriptComponentBehavior.TickRequirement GetTickRequirement()
-```
+**Purpose:** Gets the current value of `tick requirement`.
 
 ### OnDestroyed
+`public void OnDestroyed(DestructableComponent destroyedComponent, Agent destroyerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
 
-```csharp
-public void OnDestroyed(DestructableComponent destroyedComponent, Agent destroyerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)
-```
+**Purpose:** Called when the `destroyed` event is raised.
 
 ### HighlightPath
+`public void HighlightPath()`
 
-```csharp
-public void HighlightPath()
-```
+**Purpose:** Handles logic related to `highlight path`.
 
 ### SwitchGhostEntityMovementMode
+`public void SwitchGhostEntityMovementMode(bool isGhostEnabled)`
 
-```csharp
-public void SwitchGhostEntityMovementMode(bool isGhostEnabled)
-```
+**Purpose:** Handles logic related to `switch ghost entity movement mode`.
 
 ### GetInitialFrame
+`public MatrixFrame GetInitialFrame()`
+
+**Purpose:** Gets the current value of `initial frame`.
+
+### SetSpawnedFromSpawner
+`public void SetSpawnedFromSpawner()`
+
+**Purpose:** Sets the value or state of `spawned from spawner`.
+
+### OnAfterReadFromNetwork
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+
+**Purpose:** Called when the `after read from network` event is raised.
+
+### AssignParametersFromSpawner
+`public void AssignParametersFromSpawner(string pathEntityName, string targetWallSegment, string sideTag, int soilNavMeshID1, int soilNavMeshID2, int ditchNavMeshID1, int ditchNavMeshID2, int groundToSoilNavMeshID1, int groundToSoilNavMeshID2, int soilGenericNavMeshID, int groundGenericNavMeshID, Mat3 openStateRotation, string barrierTagToRemove)`
+
+**Purpose:** Handles logic related to `assign parameters from spawner`.
+
+### GetNavmeshFaceIds
+`public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
+
+**Purpose:** Gets the current value of `navmesh face ids`.
+
+### OnFormationFrameChanged
+`public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition frame)`
+
+**Purpose:** Called when the `formation frame changed` event is raised.
+
+### ReadFromNetwork
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**Purpose:** Handles logic related to `read from network`.
+
+## Usage Example
 
 ```csharp
-public MatrixFrame GetInitialFrame()
+var value = new SiegeTower();
+value.HasCompletedAction();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

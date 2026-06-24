@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CultureObject`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CultureObject
@@ -17,6 +19,10 @@ A culture / faction template object. Each `CultureObject` describes a culture (e
 `CultureObject` is the runtime representation of a culture in the campaign system. Basic identity information (`Name`, `IsMainCulture`, `IsBandit`, `CanHaveSettlement`, colors and banner, etc.) is provided by the base class `BasicCultureObject` (in `TaleWorlds.Core`); this class extends it with campaign-layer data such as troop references, equipment rosters, party templates, name lists and cultural feats.
 
 Culture objects are immutable reference data: apart from `MilitiaBonus` and `ProsperityBonus`, almost every property has a `private set` and is fixed after being read from XML during `Deserialize`. Modders typically look up a registered culture by its `StringId` via `MBObjectManager` rather than creating new instances.
+
+## Mental Model
+
+Treat `CultureObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Inherited Properties (from BasicCultureObject)
 

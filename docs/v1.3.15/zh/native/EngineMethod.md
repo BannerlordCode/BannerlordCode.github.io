@@ -5,6 +5,10 @@ description: 原生类型和方法映射特性文档 / Documentation for native 
 
 # EngineClass 与 EngineMethod
 
+## 心智模型
+
+先把 `EngineClass 与 EngineMethod` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **EngineClass 文件**: `TaleWorlds.DotNet/EngineClass.cs`  
 **EngineMethod 文件**: `TaleWorlds.Library/EngineMethod.cs`  
 **EngineBaseClass 文件**: `TaleWorlds.DotNet/EngineBaseClass.cs`

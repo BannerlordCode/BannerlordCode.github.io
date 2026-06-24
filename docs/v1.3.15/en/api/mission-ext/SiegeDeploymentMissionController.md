@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeDeploymentMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeDeploymentMissionController
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`SiegeDeploymentMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`SiegeDeploymentMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `SiegeDeploymentMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### GetSiegeMissiles
-```csharp
-public List<ItemObject> GetSiegeMissiles()
-```
+`public List<ItemObject> GetSiegeMissiles()`
+
+**Purpose:** Gets the current value of `siege missiles`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeDeploymentMissionController (Controller)
-Mission.Current.GetMissionBehavior<SiegeDeploymentMissionController>();
+var controller = Mission.Current.GetMissionBehavior<SiegeDeploymentMissionController>();
 ```
 
 ## See Also

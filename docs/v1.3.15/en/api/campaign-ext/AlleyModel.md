@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AlleyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AlleyModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`AlleyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<AlleyModel>(new MyAlleyModel())` to change how it computes.
+`AlleyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `AlleyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,65 +33,64 @@
 ## Key Methods
 
 ### GetDailyXpGainForAssignedClanMember
-```csharp
-public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)
-```
+`public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
+
+**Purpose:** Gets the current value of `daily xp gain for assigned clan member`.
 
 ### GetDailyXpGainForMainHero
-```csharp
-public abstract float GetDailyXpGainForMainHero()
-```
+`public abstract float GetDailyXpGainForMainHero()`
+
+**Purpose:** Gets the current value of `daily xp gain for main hero`.
 
 ### GetInitialXpGainForMainHero
-```csharp
-public abstract float GetInitialXpGainForMainHero()
-```
+`public abstract float GetInitialXpGainForMainHero()`
+
+**Purpose:** Gets the current value of `initial xp gain for main hero`.
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
-```csharp
-public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()
-```
+`public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
+
+**Purpose:** Gets the current value of `xp gain after successful alley defense for main hero`.
 
 ### GetTroopsOfAIOwnedAlley
-```csharp
-public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)
-```
+`public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `troops of a i owned alley`.
 
 ### GetTroopsOfAlleyForBattleMission
-```csharp
-public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)
-```
+`public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
+
+**Purpose:** Gets the current value of `troops of alley for battle mission`.
 
 ### GetDailyIncomeOfAlley
-```csharp
-public abstract int GetDailyIncomeOfAlley(Alley alley)
-```
+`public abstract int GetDailyIncomeOfAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `daily income of alley`.
 
 ### GetClanMembersAndAvailabilityDetailsForLeadingAnAlley
-```csharp
-public abstract List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
-```
+`public abstract List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `clan members and availability details for leading an alley`.
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
-```csharp
-public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)
-```
+`public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
+
+**Purpose:** Gets the current value of `troops to recruit from alley depending on alley random`.
 
 ### GetDisabledReasonTextForHero
-```csharp
-public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)
-```
+`public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
+
+**Purpose:** Gets the current value of `disabled reason text for hero`.
 
 ### GetAlleyAttackResponseTimeInDays
-```csharp
-public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)
-```
+`public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
+
+**Purpose:** Gets the current value of `alley attack response time in days`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AlleyModel (Model)
-Game.Current.ReplaceModel<AlleyModel>(new MyAlleyModel());
+var implementation = new CustomAlleyModel();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `KingdomSettlementItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomSettlementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class KingdomSettlementItemVM : KingdomItemVM`
+**Base:** `KingdomItemVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Settlements/KingdomSettlementItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `KingdomSettlementItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`KingdomSettlementItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -37,22 +41,25 @@
 | `WallLevel` | `public int WallLevel { get; set; }` |
 | `Prosperity` | `public int Prosperity { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteLink
+`public void ExecuteLink()`
+
+**Purpose:** Executes the `link` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteLink()
+var value = new KingdomSettlementItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

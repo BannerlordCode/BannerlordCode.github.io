@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GlobalLayer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GlobalLayer
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GlobalLayer : IComparable`
+**Base:** `IComparable`
+**File:** `TaleWorlds.ScreenSystem/GlobalLayer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GlobalLayer` is a class in the `TaleWorlds.ScreenSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GlobalLayer` lives in `TaleWorlds.ScreenSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,22 +27,25 @@
 |------|-----------|
 | `Layer` | `public ScreenLayer Layer { get; set; }` |
 
-
 ## Key Methods
 
 ### CompareTo
+`public int CompareTo(object obj)`
 
-```csharp
-public int CompareTo(object obj)
-```
+**Purpose:** Handles logic related to `compare to`.
 
 ### UpdateLayout
+`public virtual void UpdateLayout()`
+
+**Purpose:** Updates the state or data of `layout`.
+
+## Usage Example
 
 ```csharp
-public virtual void UpdateLayout()
+var value = new GlobalLayer();
+value.CompareTo(obj);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `FileHelper`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FileHelper
@@ -14,95 +15,98 @@
 
 ## Overview
 
-`FileHelper` is a static utility class providing helper methods.
+`FileHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `FileHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SaveFile
-```csharp
-public static SaveResult SaveFile(PlatformFilePath path, byte data)
-```
+`public static SaveResult SaveFile(PlatformFilePath path, byte data)`
+
+**Purpose:** Saves `file` data.
 
 ### SaveFileString
-```csharp
-public static SaveResult SaveFileString(PlatformFilePath path, string data)
-```
+`public static SaveResult SaveFileString(PlatformFilePath path, string data)`
+
+**Purpose:** Saves `file string` data.
 
 ### GetFileFullPath
-```csharp
-public static string GetFileFullPath(PlatformFilePath path)
-```
+`public static string GetFileFullPath(PlatformFilePath path)`
+
+**Purpose:** Gets the current value of `file full path`.
 
 ### AppendLineToFileString
-```csharp
-public static SaveResult AppendLineToFileString(PlatformFilePath path, string data)
-```
+`public static SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
+
+**Purpose:** Handles logic related to `append line to file string`.
 
 ### SaveFileAsync
-```csharp
-public static Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)
-```
+`public static Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
+
+**Purpose:** Saves `file async` data.
 
 ### SaveFileStringAsync
-```csharp
-public static Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)
-```
+`public static Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
+
+**Purpose:** Saves `file string async` data.
 
 ### GetError
-```csharp
-public static string GetError()
-```
+`public static string GetError()`
+
+**Purpose:** Gets the current value of `error`.
 
 ### FileExists
-```csharp
-public static bool FileExists(PlatformFilePath path)
-```
+`public static bool FileExists(PlatformFilePath path)`
+
+**Purpose:** Handles logic related to `file exists`.
 
 ### GetFileContentStringAsync
-```csharp
-public static Task<string> GetFileContentStringAsync(PlatformFilePath path)
-```
+`public static Task<string> GetFileContentStringAsync(PlatformFilePath path)`
+
+**Purpose:** Gets the current value of `file content string async`.
 
 ### GetFileContentString
-```csharp
-public static string GetFileContentString(PlatformFilePath path)
-```
+`public static string GetFileContentString(PlatformFilePath path)`
+
+**Purpose:** Gets the current value of `file content string`.
 
 ### DeleteFile
-```csharp
-public static void DeleteFile(PlatformFilePath path)
-```
+`public static void DeleteFile(PlatformFilePath path)`
+
+**Purpose:** Handles logic related to `delete file`.
 
 ### GetFiles
-```csharp
-public static PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)
-```
+`public static PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
+
+**Purpose:** Gets the current value of `files`.
 
 ### GetFileContent
-```csharp
-public static byte GetFileContent(PlatformFilePath filePath)
-```
+`public static byte GetFileContent(PlatformFilePath filePath)`
+
+**Purpose:** Gets the current value of `file content`.
 
 ### GetMetaDataContent
-```csharp
-public static byte GetMetaDataContent(PlatformFilePath filePath)
-```
+`public static byte GetMetaDataContent(PlatformFilePath filePath)`
+
+**Purpose:** Gets the current value of `meta data content`.
 
 ### CopyFile
-```csharp
-public static void CopyFile(PlatformFilePath source, PlatformFilePath target)
-```
+`public static void CopyFile(PlatformFilePath source, PlatformFilePath target)`
+
+**Purpose:** Handles logic related to `copy file`.
 
 ### CopyDirectory
-```csharp
-public static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
-```
+`public static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)`
+
+**Purpose:** Handles logic related to `copy directory`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of FileHelper (Helper)
-FileHelper./* static helper method */();;
+FileHelper.Initialize();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SceneView`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SceneView
@@ -14,165 +15,173 @@
 
 ## Overview
 
-`SceneView` is an engine view/surface (render, texture, scene preview, etc.). Accessed via the engine view system.
+`SceneView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `SceneView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreateSceneView
-```csharp
-public static SceneView CreateSceneView()
-```
+`public static SceneView CreateSceneView()`
+
+**Purpose:** Creates a new `scene view` instance or object.
 
 ### SetScene
-```csharp
-public void SetScene(Scene scene)
-```
+`public void SetScene(Scene scene)`
+
+**Purpose:** Sets the value or state of `scene`.
 
 ### SetAcceptGlobalDebugRenderObjects
-```csharp
-public void SetAcceptGlobalDebugRenderObjects(bool value)
-```
+`public void SetAcceptGlobalDebugRenderObjects(bool value)`
+
+**Purpose:** Sets the value or state of `accept global debug render objects`.
 
 ### SetRenderWithPostfx
-```csharp
-public void SetRenderWithPostfx(bool value)
-```
+`public void SetRenderWithPostfx(bool value)`
+
+**Purpose:** Sets the value or state of `render with postfx`.
 
 ### SetPostfxConfigParams
-```csharp
-public void SetPostfxConfigParams(int value)
-```
+`public void SetPostfxConfigParams(int value)`
+
+**Purpose:** Sets the value or state of `postfx config params`.
 
 ### SetForceShaderCompilation
-```csharp
-public void SetForceShaderCompilation(bool value)
-```
+`public void SetForceShaderCompilation(bool value)`
+
+**Purpose:** Sets the value or state of `force shader compilation`.
 
 ### CheckSceneReadyToRender
-```csharp
-public bool CheckSceneReadyToRender()
-```
+`public bool CheckSceneReadyToRender()`
+
+**Purpose:** Handles logic related to `check scene ready to render`.
 
 ### SetDoQuickExposure
-```csharp
-public void SetDoQuickExposure(bool value)
-```
+`public void SetDoQuickExposure(bool value)`
+
+**Purpose:** Sets the value or state of `do quick exposure`.
 
 ### SetCamera
-```csharp
-public void SetCamera(Camera camera)
-```
+`public void SetCamera(Camera camera)`
+
+**Purpose:** Sets the value or state of `camera`.
 
 ### SetResolutionScaling
-```csharp
-public void SetResolutionScaling(bool value)
-```
+`public void SetResolutionScaling(bool value)`
+
+**Purpose:** Sets the value or state of `resolution scaling`.
 
 ### SetPostfxFromConfig
-```csharp
-public void SetPostfxFromConfig()
-```
+`public void SetPostfxFromConfig()`
+
+**Purpose:** Sets the value or state of `postfx from config`.
 
 ### WorldPointToScreenPoint
-```csharp
-public Vec2 WorldPointToScreenPoint(Vec3 position)
-```
+`public Vec2 WorldPointToScreenPoint(Vec3 position)`
+
+**Purpose:** Handles logic related to `world point to screen point`.
 
 ### ScreenPointToViewportPoint
-```csharp
-public Vec2 ScreenPointToViewportPoint(Vec2 position)
-```
+`public Vec2 ScreenPointToViewportPoint(Vec2 position)`
+
+**Purpose:** Handles logic related to `screen point to viewport point`.
 
 ### ProjectedMousePositionOnGround
-```csharp
-public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)
-```
+`public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
+
+**Purpose:** Handles logic related to `projected mouse position on ground`.
 
 ### ProjectedMousePositionOnWater
-```csharp
-public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)
-```
+`public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)`
+
+**Purpose:** Handles logic related to `projected mouse position on water`.
 
 ### TranslateMouse
-```csharp
-public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)
-```
+`public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
+
+**Purpose:** Handles logic related to `translate mouse`.
 
 ### SetSceneUsesSkybox
-```csharp
-public void SetSceneUsesSkybox(bool value)
-```
+`public void SetSceneUsesSkybox(bool value)`
+
+**Purpose:** Sets the value or state of `scene uses skybox`.
 
 ### SetSceneUsesShadows
-```csharp
-public void SetSceneUsesShadows(bool value)
-```
+`public void SetSceneUsesShadows(bool value)`
+
+**Purpose:** Sets the value or state of `scene uses shadows`.
 
 ### SetSceneUsesContour
-```csharp
-public void SetSceneUsesContour(bool value)
-```
+`public void SetSceneUsesContour(bool value)`
+
+**Purpose:** Sets the value or state of `scene uses contour`.
 
 ### DoNotClear
-```csharp
-public void DoNotClear(bool value)
-```
+`public void DoNotClear(bool value)`
+
+**Purpose:** Handles logic related to `do not clear`.
 
 ### AddClearTask
-```csharp
-public void AddClearTask(bool clearOnlySceneview = false)
-```
+`public void AddClearTask(bool clearOnlySceneview = false)`
+
+**Purpose:** Adds `clear task` to the current collection or state.
 
 ### ReadyToRender
-```csharp
-public bool ReadyToRender()
-```
+`public bool ReadyToRender()`
+
+**Purpose:** Handles logic related to `ready to render`.
 
 ### SetClearAndDisableAfterSucessfullRender
-```csharp
-public void SetClearAndDisableAfterSucessfullRender(bool value)
-```
+`public void SetClearAndDisableAfterSucessfullRender(bool value)`
+
+**Purpose:** Sets the value or state of `clear and disable after sucessfull render`.
 
 ### SetClearGbuffer
-```csharp
-public void SetClearGbuffer(bool value)
-```
+`public void SetClearGbuffer(bool value)`
+
+**Purpose:** Sets the value or state of `clear gbuffer`.
 
 ### SetShadowmapResolutionMultiplier
-```csharp
-public void SetShadowmapResolutionMultiplier(float value)
-```
+`public void SetShadowmapResolutionMultiplier(float value)`
+
+**Purpose:** Sets the value or state of `shadowmap resolution multiplier`.
 
 ### SetPointlightResolutionMultiplier
-```csharp
-public void SetPointlightResolutionMultiplier(float value)
-```
+`public void SetPointlightResolutionMultiplier(float value)`
+
+**Purpose:** Sets the value or state of `pointlight resolution multiplier`.
 
 ### SetCleanScreenUntilLoadingDone
-```csharp
-public void SetCleanScreenUntilLoadingDone(bool value)
-```
+`public void SetCleanScreenUntilLoadingDone(bool value)`
+
+**Purpose:** Sets the value or state of `clean screen until loading done`.
 
 ### ClearAll
-```csharp
-public void ClearAll(bool clearScene, bool removeTerrain)
-```
+`public void ClearAll(bool clearScene, bool removeTerrain)`
+
+**Purpose:** Handles logic related to `clear all`.
 
 ### SetFocusedShadowmap
-```csharp
-public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)
-```
+`public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)`
+
+**Purpose:** Sets the value or state of `focused shadowmap`.
 
 ### GetScene
-```csharp
-public Scene GetScene()
-```
+`public Scene GetScene()`
+
+**Purpose:** Gets the current value of `scene`.
+
+### RayCastForClosestEntityOrTerrain
+`public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
+
+**Purpose:** Handles logic related to `ray cast for closest entity or terrain`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SceneView (View)
-SceneView /* via engine view system */;
+var view = new SceneView();
 ```
 
 ## See Also

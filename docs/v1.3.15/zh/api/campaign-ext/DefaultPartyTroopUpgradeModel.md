@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPartyTroopUpgradeModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyTroopUpgradeModel
@@ -14,54 +15,57 @@
 
 ## 概述
 
-`DefaultPartyTroopUpgradeModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPartyTroopUpgradeModel>(new MyDefaultPartyTroopUpgradeModel())` 注册，以改变其计算逻辑。
+`DefaultPartyTroopUpgradeModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPartyTroopUpgradeModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CanPartyUpgradeTroopToTarget
-```csharp
-public override bool CanPartyUpgradeTroopToTarget(PartyBase upgradingParty, CharacterObject upgradeableCharacter, CharacterObject upgradeTarget)
-```
+`public override bool CanPartyUpgradeTroopToTarget(PartyBase upgradingParty, CharacterObject upgradeableCharacter, CharacterObject upgradeTarget)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `party upgrade troop to target`。
 
 ### IsTroopUpgradeable
-```csharp
-public override bool IsTroopUpgradeable(PartyBase party, CharacterObject character)
-```
+`public override bool IsTroopUpgradeable(PartyBase party, CharacterObject character)`
+
+**用途 / Purpose:** 处理 `is troop upgradeable` 相关逻辑。
 
 ### GetXpCostForUpgrade
-```csharp
-public override int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)
-```
+`public override int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
+
+**用途 / Purpose:** 获取 `xp cost for upgrade` 的当前值。
 
 ### GetGoldCostForUpgrade
-```csharp
-public override ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)
-```
+`public override ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
+
+**用途 / Purpose:** 获取 `gold cost for upgrade` 的当前值。
 
 ### GetSkillXpFromUpgradingTroops
-```csharp
-public override int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)
-```
+`public override int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)`
+
+**用途 / Purpose:** 获取 `skill xp from upgrading troops` 的当前值。
 
 ### DoesPartyHaveRequiredItemsForUpgrade
-```csharp
-public override bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)
-```
+`public override bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)`
+
+**用途 / Purpose:** 处理 `does party have required items for upgrade` 相关逻辑。
 
 ### DoesPartyHaveRequiredPerksForUpgrade
-```csharp
-public override bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)
-```
+`public override bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)`
+
+**用途 / Purpose:** 处理 `does party have required perks for upgrade` 相关逻辑。
 
 ### GetUpgradeChanceForTroopUpgrade
-```csharp
-public override float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)
-```
+`public override float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)`
+
+**用途 / Purpose:** 获取 `upgrade chance for troop upgrade` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultPartyTroopUpgradeModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPartyTroopUpgradeModel>(new MyDefaultPartyTroopUpgradeModel());
 ```
 

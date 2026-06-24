@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `IRoundComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IRoundComponent
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 接口 interface
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/IRoundComponent.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IRoundComponent` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IRoundComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `IRoundComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IRoundComponent implementation = GetRoundComponentImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

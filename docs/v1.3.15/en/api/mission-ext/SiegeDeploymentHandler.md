@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeDeploymentHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeDeploymentHandler
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SiegeDeploymentHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`SiegeDeploymentHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `SiegeDeploymentHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,79 +31,78 @@
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### FinishDeployment
-```csharp
-public override void FinishDeployment()
-```
+`public override void FinishDeployment()`
+
+**Purpose:** Handles logic related to `finish deployment`.
 
 ### DeployAllSiegeWeaponsOfPlayer
-```csharp
-public void DeployAllSiegeWeaponsOfPlayer()
-```
+`public void DeployAllSiegeWeaponsOfPlayer()`
+
+**Purpose:** Handles logic related to `deploy all siege weapons of player`.
 
 ### GetMaxDeployableWeaponCountOfPlayer
-```csharp
-public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)
-```
+`public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)`
+
+**Purpose:** Gets the current value of `max deployable weapon count of player`.
 
 ### DeployAllSiegeWeaponsOfAi
-```csharp
-public void DeployAllSiegeWeaponsOfAi()
-```
+`public void DeployAllSiegeWeaponsOfAi()`
+
+**Purpose:** Handles logic related to `deploy all siege weapons of ai`.
 
 ### RemoveDeploymentPoints
-```csharp
-public void RemoveDeploymentPoints(BattleSideEnum side)
-```
+`public void RemoveDeploymentPoints(BattleSideEnum side)`
+
+**Purpose:** Removes `deployment points` from the current collection or state.
 
 ### RemoveUnavailableDeploymentPoints
-```csharp
-public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)
-```
+`public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)`
+
+**Purpose:** Removes `unavailable deployment points` from the current collection or state.
 
 ### UnHideDeploymentPoints
-```csharp
-public void UnHideDeploymentPoints(BattleSideEnum side)
-```
+`public void UnHideDeploymentPoints(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `un hide deployment points`.
 
 ### GetDeployableWeaponCountOfPlayer
-```csharp
-public int GetDeployableWeaponCountOfPlayer(Type weapon)
-```
+`public int GetDeployableWeaponCountOfPlayer(Type weapon)`
+
+**Purpose:** Gets the current value of `deployable weapon count of player`.
 
 ### AutoDeployTeamUsingTeamAI
-```csharp
-public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)
-```
+`public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)`
+
+**Purpose:** Handles logic related to `auto deploy team using team a i`.
 
 ### AutoAssignDetachmentsForDeployment
-```csharp
-public void AutoAssignDetachmentsForDeployment(Team team)
-```
+`public void AutoAssignDetachmentsForDeployment(Team team)`
+
+**Purpose:** Handles logic related to `auto assign detachments for deployment`.
 
 ### GetEstimatedAverageDefenderPosition
-```csharp
-public Vec2 GetEstimatedAverageDefenderPosition()
-```
+`public Vec2 GetEstimatedAverageDefenderPosition()`
+
+**Purpose:** Gets the current value of `estimated average defender position`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeDeploymentHandler (Handler)
 Mission.Current.AddMissionBehavior(new SiegeDeploymentHandler());
 ```
 

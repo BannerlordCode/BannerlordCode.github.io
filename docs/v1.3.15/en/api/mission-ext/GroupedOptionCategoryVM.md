@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GroupedOptionCategoryVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GroupedOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GroupedOptionCategoryVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/GroupedOptionCategoryVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GroupedOptionCategoryVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GroupedOptionCategoryVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,40 +33,40 @@
 | `Groups` | `public MBBindingList<OptionGroupVM> Groups { get; set; }` |
 | `BaseOptions` | `public MBBindingList<GenericOptionDataVM> BaseOptions { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ResetData
+`public void ResetData()`
 
-```csharp
-public void ResetData()
-```
+**Purpose:** Resets `data` to its initial state.
 
 ### ExecuteResetToDefault
+`public void ExecuteResetToDefault()`
 
-```csharp
-public void ExecuteResetToDefault()
-```
-
-### GetOption
-
-```csharp
-public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)
-```
+**Purpose:** Executes the `reset to default` operation or workflow.
 
 ### GetOption
+`public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)`
+
+**Purpose:** Gets the current value of `option`.
+
+### GetOption
+`public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)`
+
+**Purpose:** Gets the current value of `option`.
+
+## Usage Example
 
 ```csharp
-public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)
+var value = new GroupedOptionCategoryVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

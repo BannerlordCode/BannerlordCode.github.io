@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTemplate`
+**Home** → **API Index** → **Area** → `PartyTemplateObject`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTemplateObject
@@ -13,6 +15,10 @@
 ## Overview
 
 PartyTemplateObject defines the template for a party's troop composition. It contains stacks of troops with minimum and maximum counts, allowing parties to spawn with variable troop sizes within those bounds.
+
+## Mental Model
+
+Treat `PartyTemplateObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

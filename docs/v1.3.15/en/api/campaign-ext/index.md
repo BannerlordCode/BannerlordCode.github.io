@@ -5,6 +5,10 @@ description: TaleWorlds.CampaignSystem extended classes / Campaign extended clas
 
 # Campaign-Ext / Campaign-Ext 战役扩展
 
+## Mental Model
+
+Treat `Campaign-Ext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 Campaign extended module documentation.
 
 战役系统扩展模块文档。

@@ -2,79 +2,80 @@
 **首页** → **API 目录** → **本领域** → `ResourceDepot`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ResourceDepot
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public class ResourceDepot`
+**Base:** 无
+**File:** `TaleWorlds.Library/ResourceDepot.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ResourceDepot` 是 `TaleWorlds.Library` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ResourceDepot` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `ResourceLocations` | `public MBReadOnlyList<ResourceDepotLocation> ResourceLocations { get; }` |
 
-
 ## 主要方法
 
 ### AddLocation
+`public void AddLocation(string basePath, string location)`
 
-```csharp
-public void AddLocation(string basePath, string location)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `location`。
 
 ### CollectResources
+`public void CollectResources()`
 
-```csharp
-public void CollectResources()
-```
+**用途 / Purpose:** 处理 `collect resources` 相关逻辑。
 
 ### GetFiles
+`public string GetFiles(string subDirectory, string extension, bool excludeSubContents = false)`
 
-```csharp
-public string GetFiles(string subDirectory, string extension, bool excludeSubContents = false)
-```
+**用途 / Purpose:** 获取 `files` 的当前值。
 
 ### GetFilePath
+`public string GetFilePath(string file)`
 
-```csharp
-public string GetFilePath(string file)
-```
+**用途 / Purpose:** 获取 `file path` 的当前值。
 
 ### GetFilesEndingWith
+`public IEnumerable<string> GetFilesEndingWith(string fileEndName)`
 
-```csharp
-public IEnumerable<string> GetFilesEndingWith(string fileEndName)
-```
+**用途 / Purpose:** 获取 `files ending with` 的当前值。
 
 ### StartWatchingChangesInDepot
+`public void StartWatchingChangesInDepot()`
 
-```csharp
-public void StartWatchingChangesInDepot()
-```
+**用途 / Purpose:** 处理 `start watching changes in depot` 相关逻辑。
 
 ### StopWatchingChangesInDepot
+`public void StopWatchingChangesInDepot()`
 
-```csharp
-public void StopWatchingChangesInDepot()
-```
+**用途 / Purpose:** 处理 `stop watching changes in depot` 相关逻辑。
 
 ### CheckForChanges
+`public void CheckForChanges()`
+
+**用途 / Purpose:** 处理 `check for changes` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void CheckForChanges()
+var value = new ResourceDepot();
+value.AddLocation("example", "example");
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

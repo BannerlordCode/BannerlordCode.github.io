@@ -2,51 +2,56 @@
 **Home** → **API Index** → **Area** → `CommandLineFunctionality`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CommandLineFunctionality
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public static class CommandLineFunctionality`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `CommandLineFunctionality` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CommandLineFunctionality` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### CollectCommandLineFunctions
+`public static List<string> CollectCommandLineFunctions()`
 
-```csharp
-public static List<string> CollectCommandLineFunctions()
-```
+**Purpose:** Handles logic related to `collect command line functions`.
 
 ### HasFunctionForCommand
+`public static bool HasFunctionForCommand(string command)`
 
-```csharp
-public static bool HasFunctionForCommand(string command)
-```
-
-### CallFunction
-
-```csharp
-public static string CallFunction(string concatName, string concatArguments, out bool found)
-```
+**Purpose:** Checks whether the current object has/contains `function for command`.
 
 ### CallFunction
+`public static string CallFunction(string concatName, string concatArguments, out bool found)`
 
-```csharp
-public static string CallFunction(string concatName, List<string> argList, out bool found)
-```
+**Purpose:** Handles logic related to `call function`.
+
+### CallFunction
+`public static string CallFunction(string concatName, List<string> argList, out bool found)`
+
+**Purpose:** Handles logic related to `call function`.
 
 ### Call
+`public string Call(List<string> objects)`
+
+**Purpose:** Handles logic related to `call`.
+
+## Usage Example
 
 ```csharp
-public string Call(List<string> objects)
+// Prepare the required context, then call the static entry point directly
+CommandLineFunctionality.CollectCommandLineFunctions();
 ```
 
 ## See Also

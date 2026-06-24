@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `AgentInteractionInterfaceVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentInteractionInterfaceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class AgentInteractionInterfaceVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Missions/Interaction/AgentInteractionInterfaceVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AgentInteractionInterfaceVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AgentInteractionInterfaceVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,70 +37,64 @@
 | `ForcedInteractionMessages` | `public MBBindingList<MissionPrimaryInteractionItemVM> ForcedInteractionMessages { get; set; }` |
 | `HasForcedMessages` | `public bool HasForcedMessages { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### OnFocusedHealthChanged
+`public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-```csharp
-public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)
-```
+**Purpose:** Called when the `focused health changed` event is raised.
 
 ### OnActiveMissionHintChanged
+`public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)`
 
-```csharp
-public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)
-```
+**Purpose:** Called when the `active mission hint changed` event is raised.
 
 ### AddSecondaryMessage
+`public void AddSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-```csharp
-public void AddSecondaryMessage(MissionInteractionItemBaseVM message)
-```
+**Purpose:** Adds `secondary message` to the current collection or state.
 
 ### RemoveSecondaryMessage
+`public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-```csharp
-public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)
-```
+**Purpose:** Removes `secondary message` from the current collection or state.
 
 ### HasSecondaryInteractionMessage
+`public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)`
 
-```csharp
-public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)
-```
+**Purpose:** Checks whether the current object has/contains `secondary interaction message`.
 
 ### ResetFocus
+`public void ResetFocus()`
 
-```csharp
-public void ResetFocus()
-```
+**Purpose:** Resets `focus` to its initial state.
 
 ### SetForcedInteractionTexts
+`public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)`
 
-```csharp
-public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)
-```
+**Purpose:** Sets the value or state of `forced interaction texts`.
 
 ### ClearForcedInteractionTexts
+`public void ClearForcedInteractionTexts()`
+
+**Purpose:** Handles logic related to `clear forced interaction texts`.
+
+## Usage Example
 
 ```csharp
-public void ClearForcedInteractionTexts()
+AgentInteractionInterfaceVM implementation = GetAgentInteractionInterfaceVMImplementation();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

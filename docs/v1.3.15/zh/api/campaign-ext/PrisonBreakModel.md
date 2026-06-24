@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PrisonBreakModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PrisonBreakModel
@@ -14,40 +15,43 @@
 
 ## 概述
 
-`PrisonBreakModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<PrisonBreakModel>(new MyPrisonBreakModel())` 注册，以改变其计算逻辑。
+`PrisonBreakModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `PrisonBreakModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetNumberOfGuardsToSpawn
-```csharp
-public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)
-```
+`public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `number of guards to spawn` 的当前值。
 
 ### CanPlayerStagePrisonBreak
-```csharp
-public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)
-```
+`public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player stage prison break`。
 
 ### GetPrisonBreakStartCost
-```csharp
-public abstract int GetPrisonBreakStartCost(Hero prisonerHero)
-```
+`public abstract int GetPrisonBreakStartCost(Hero prisonerHero)`
+
+**用途 / Purpose:** 获取 `prison break start cost` 的当前值。
 
 ### GetRelationRewardOnPrisonBreak
-```csharp
-public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)
-```
+`public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
+
+**用途 / Purpose:** 获取 `relation reward on prison break` 的当前值。
 
 ### GetRogueryRewardOnPrisonBreak
-```csharp
-public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)
-```
+`public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
+
+**用途 / Purpose:** 获取 `roguery reward on prison break` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// PrisonBreakModel (Model) 的典型用法
-Game.Current.ReplaceModel<PrisonBreakModel>(new MyPrisonBreakModel());
+var implementation = new CustomPrisonBreakModel();
 ```
 
 ## 参见

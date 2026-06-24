@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `IMusicHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IMusicHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** interface
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/IMusicHandler.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IMusicHandler` is a interface in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IMusicHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `IMusicHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+IMusicHandler implementation = GetMusicHandlerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SiegeDeploymentHandler`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeDeploymentHandler
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`SiegeDeploymentHandler` 是一个任务处理器（反应逻辑）。经 AddMissionBehavior 添加，对特定任务事件作出响应。
+`SiegeDeploymentHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `SiegeDeploymentHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,79 +31,78 @@
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### FinishDeployment
-```csharp
-public override void FinishDeployment()
-```
+`public override void FinishDeployment()`
+
+**用途 / Purpose:** 处理 `finish deployment` 相关逻辑。
 
 ### DeployAllSiegeWeaponsOfPlayer
-```csharp
-public void DeployAllSiegeWeaponsOfPlayer()
-```
+`public void DeployAllSiegeWeaponsOfPlayer()`
+
+**用途 / Purpose:** 处理 `deploy all siege weapons of player` 相关逻辑。
 
 ### GetMaxDeployableWeaponCountOfPlayer
-```csharp
-public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)
-```
+`public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)`
+
+**用途 / Purpose:** 获取 `max deployable weapon count of player` 的当前值。
 
 ### DeployAllSiegeWeaponsOfAi
-```csharp
-public void DeployAllSiegeWeaponsOfAi()
-```
+`public void DeployAllSiegeWeaponsOfAi()`
+
+**用途 / Purpose:** 处理 `deploy all siege weapons of ai` 相关逻辑。
 
 ### RemoveDeploymentPoints
-```csharp
-public void RemoveDeploymentPoints(BattleSideEnum side)
-```
+`public void RemoveDeploymentPoints(BattleSideEnum side)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `deployment points`。
 
 ### RemoveUnavailableDeploymentPoints
-```csharp
-public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)
-```
+`public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `unavailable deployment points`。
 
 ### UnHideDeploymentPoints
-```csharp
-public void UnHideDeploymentPoints(BattleSideEnum side)
-```
+`public void UnHideDeploymentPoints(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `un hide deployment points` 相关逻辑。
 
 ### GetDeployableWeaponCountOfPlayer
-```csharp
-public int GetDeployableWeaponCountOfPlayer(Type weapon)
-```
+`public int GetDeployableWeaponCountOfPlayer(Type weapon)`
+
+**用途 / Purpose:** 获取 `deployable weapon count of player` 的当前值。
 
 ### AutoDeployTeamUsingTeamAI
-```csharp
-public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)
-```
+`public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)`
+
+**用途 / Purpose:** 处理 `auto deploy team using team a i` 相关逻辑。
 
 ### AutoAssignDetachmentsForDeployment
-```csharp
-public void AutoAssignDetachmentsForDeployment(Team team)
-```
+`public void AutoAssignDetachmentsForDeployment(Team team)`
+
+**用途 / Purpose:** 处理 `auto assign detachments for deployment` 相关逻辑。
 
 ### GetEstimatedAverageDefenderPosition
-```csharp
-public Vec2 GetEstimatedAverageDefenderPosition()
-```
+`public Vec2 GetEstimatedAverageDefenderPosition()`
+
+**用途 / Purpose:** 获取 `estimated average defender position` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// SiegeDeploymentHandler (Handler) 的典型用法
 Mission.Current.AddMissionBehavior(new SiegeDeploymentHandler());
 ```
 

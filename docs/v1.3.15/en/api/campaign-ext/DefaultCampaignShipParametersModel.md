@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCampaignShipParametersModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCampaignShipParametersModel
@@ -14,94 +15,97 @@
 
 ## Overview
 
-`DefaultCampaignShipParametersModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCampaignShipParametersModel>(new MyDefaultCampaignShipParametersModel())` to change how it computes.
+`DefaultCampaignShipParametersModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCampaignShipParametersModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetShipSizeWeatherFactor
-```csharp
-public override float GetShipSizeWeatherFactor(ShipHull shipHull)
-```
+`public override float GetShipSizeWeatherFactor(ShipHull shipHull)`
+
+**Purpose:** Gets the current value of `ship size weather factor`.
 
 ### GetDefaultCombatFactor
-```csharp
-public override float GetDefaultCombatFactor(ShipHull shipHull)
-```
+`public override float GetDefaultCombatFactor(ShipHull shipHull)`
+
+**Purpose:** Gets the current value of `default combat factor`.
 
 ### GetCampaignSpeedBonusFactor
-```csharp
-public override float GetCampaignSpeedBonusFactor(Ship ship)
-```
+`public override float GetCampaignSpeedBonusFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `campaign speed bonus factor`.
 
 ### GetCrewCapacityBonusFactor
-```csharp
-public override float GetCrewCapacityBonusFactor(Ship ship)
-```
+`public override float GetCrewCapacityBonusFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `crew capacity bonus factor`.
 
 ### GetShipWeightFactor
-```csharp
-public override float GetShipWeightFactor(Ship ship)
-```
+`public override float GetShipWeightFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `ship weight factor`.
 
 ### GetForwardDragFactor
-```csharp
-public override float GetForwardDragFactor(Ship ship)
-```
+`public override float GetForwardDragFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `forward drag factor`.
 
 ### GetCrewShieldHitPointsFactor
-```csharp
-public override float GetCrewShieldHitPointsFactor(Ship ship)
-```
+`public override float GetCrewShieldHitPointsFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `crew shield hit points factor`.
 
 ### GetAdditionalAmmoBonus
-```csharp
-public override int GetAdditionalAmmoBonus(Ship ship)
-```
+`public override int GetAdditionalAmmoBonus(Ship ship)`
+
+**Purpose:** Gets the current value of `additional ammo bonus`.
 
 ### GetMaxOarPowerFactor
-```csharp
-public override float GetMaxOarPowerFactor(Ship ship)
-```
+`public override float GetMaxOarPowerFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `max oar power factor`.
 
 ### GetMaxOarForceFactor
-```csharp
-public override float GetMaxOarForceFactor(Ship ship)
-```
+`public override float GetMaxOarForceFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `max oar force factor`.
 
 ### GetSailForceFactor
-```csharp
-public override float GetSailForceFactor(Ship ship)
-```
+`public override float GetSailForceFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `sail force factor`.
 
 ### GetCrewMeleeDamageFactor
-```csharp
-public override float GetCrewMeleeDamageFactor(Ship ship)
-```
+`public override float GetCrewMeleeDamageFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `crew melee damage factor`.
 
 ### GetAdditionalArcherQuivers
-```csharp
-public override int GetAdditionalArcherQuivers(Ship ship)
-```
+`public override int GetAdditionalArcherQuivers(Ship ship)`
+
+**Purpose:** Gets the current value of `additional archer quivers`.
 
 ### GetAdditionalThrowingWeaponStack
-```csharp
-public override int GetAdditionalThrowingWeaponStack(Ship ship)
-```
+`public override int GetAdditionalThrowingWeaponStack(Ship ship)`
+
+**Purpose:** Gets the current value of `additional throwing weapon stack`.
 
 ### GetSailRotationSpeedFactor
-```csharp
-public override float GetSailRotationSpeedFactor(Ship ship)
-```
+`public override float GetSailRotationSpeedFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `sail rotation speed factor`.
 
 ### GetFurlUnfurlSpeedFactor
-```csharp
-public override float GetFurlUnfurlSpeedFactor(Ship ship)
-```
+`public override float GetFurlUnfurlSpeedFactor(Ship ship)`
+
+**Purpose:** Gets the current value of `furl unfurl speed factor`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCampaignShipParametersModel (Model)
 Game.Current.ReplaceModel<DefaultCampaignShipParametersModel>(new MyDefaultCampaignShipParametersModel());
 ```
 

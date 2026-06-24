@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BoundaryWallView`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BoundaryWallView
@@ -14,20 +15,23 @@
 
 ## 概述
 
-`BoundaryWallView` 是一个引擎视图/表面（渲染、纹理、场景预览等）。经引擎视图系统访问。
+`BoundaryWallView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `BoundaryWallView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CreateBoundaryMesh
-```csharp
-public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)
-```
+`public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)`
+
+**用途 / Purpose:** 创建一个 `boundary mesh` 实例或对象。
 
 ## 使用示例
 
 ```csharp
-// BoundaryWallView (View) 的典型用法
-BoundaryWallView /* via engine view system */;
+var view = new BoundaryWallView();
 ```
 
 ## 参见

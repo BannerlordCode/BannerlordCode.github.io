@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCaravanModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCaravanModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultCaravanModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCaravanModel>(new MyDefaultCaravanModel())` to change how it computes.
+`DefaultCaravanModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCaravanModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,39 +30,38 @@
 ## Key Methods
 
 ### GetEliteCaravanSpawnChance
-```csharp
-public override float GetEliteCaravanSpawnChance(Hero hero)
-```
+`public override float GetEliteCaravanSpawnChance(Hero hero)`
+
+**Purpose:** Gets the current value of `elite caravan spawn chance`.
 
 ### GetPowerChangeAfterCaravanCreation
-```csharp
-public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)
-```
+`public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
+
+**Purpose:** Gets the current value of `power change after caravan creation`.
 
 ### CanHeroCreateCaravan
-```csharp
-public override bool CanHeroCreateCaravan(Hero hero)
-```
+`public override bool CanHeroCreateCaravan(Hero hero)`
+
+**Purpose:** Checks whether the current object can `hero create caravan`.
 
 ### GetCaravanFormingCost
-```csharp
-public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)
-```
+`public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)`
+
+**Purpose:** Gets the current value of `caravan forming cost`.
 
 ### GetInitialTradeGold
-```csharp
-public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)
-```
+`public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)`
+
+**Purpose:** Gets the current value of `initial trade gold`.
 
 ### GetMaxGoldToSpendOnOneItemCategory
-```csharp
-public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)
-```
+`public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `max gold to spend on one item category`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCaravanModel (Model)
 Game.Current.ReplaceModel<DefaultCaravanModel>(new MyDefaultCaravanModel());
 ```
 

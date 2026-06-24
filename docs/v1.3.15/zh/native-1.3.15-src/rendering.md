@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 渲染系统类参考
 
 # 渲染系统 / Rendering System
 
+## 心智模型
+
+先把 `渲染系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 渲染系统负责游戏中所有视觉内容的渲染，包括网格、光照、阴影、后处理效果等。
@@ -1203,4 +1207,10 @@ rglInterpolator::vftable
 
 ```cpp
 rglInterpolator_base_definition::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 渲染系统();
 ```

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MBBindingList`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBBindingList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class MBBindingList<T> : Collection<T>, IMBBindingList, IList, ICollection, IEnumerable`
+**Base:** `Collection<T>`
+**File:** `TaleWorlds.Library/MBBindingList.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MBBindingList` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBBindingList` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,34 +27,34 @@
 |------|-----------|
 | `ListChanged` | `public event ListChangedEventHandler ListChanged { get; }` |
 
-
 ## Key Methods
 
 ### Sort
+`public void Sort()`
 
-```csharp
-public void Sort()
-```
+**Purpose:** Handles logic related to `sort`.
 
 ### Sort
+`public void Sort(IComparer<T> comparer)`
 
-```csharp
-public void Sort(IComparer<T> comparer)
-```
+**Purpose:** Handles logic related to `sort`.
 
 ### IsOrdered
+`public bool IsOrdered(IComparer<T> comparer)`
 
-```csharp
-public bool IsOrdered(IComparer<T> comparer)
-```
+**Purpose:** Handles logic related to `is ordered`.
 
 ### ApplyActionOnAllItems
+`public void ApplyActionOnAllItems(Action<T> action)`
+
+**Purpose:** Applies `action on all items` to the current object.
+
+## Usage Example
 
 ```csharp
-public void ApplyActionOnAllItems(Action<T> action)
+MBBindingList example = MBBindingList.ListChanged;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

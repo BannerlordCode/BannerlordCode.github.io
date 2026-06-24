@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionSiegeWeaponsController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionSiegeWeaponsController
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`MissionSiegeWeaponsController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`MissionSiegeWeaponsController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `MissionSiegeWeaponsController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMaxDeployableWeaponCount
-```csharp
-public int GetMaxDeployableWeaponCount(Type t)
-```
+`public int GetMaxDeployableWeaponCount(Type t)`
+
+**Purpose:** Gets the current value of `max deployable weapon count`.
 
 ### GetSiegeWeapons
-```csharp
-public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()
-```
+`public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
+
+**Purpose:** Gets the current value of `siege weapons`.
 
 ### OnWeaponDeployed
-```csharp
-public void OnWeaponDeployed(SiegeWeapon missionWeapon)
-```
+`public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
+
+**Purpose:** Called when the `weapon deployed` event is raised.
 
 ### OnWeaponUndeployed
-```csharp
-public void OnWeaponUndeployed(SiegeWeapon missionWeapon)
-```
+`public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
+
+**Purpose:** Called when the `weapon undeployed` event is raised.
 
 ### GetWeaponType
-```csharp
-public static Type GetWeaponType(ScriptComponentBehavior weapon)
-```
+`public static Type GetWeaponType(ScriptComponentBehavior weapon)`
+
+**Purpose:** Gets the current value of `weapon type`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionSiegeWeaponsController (Controller)
-Mission.Current.GetMissionBehavior<MissionSiegeWeaponsController>();
+var controller = Mission.Current.GetMissionBehavior<MissionSiegeWeaponsController>();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ScriptedMovementComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScriptedMovementComponent
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`ScriptedMovementComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<ScriptedMovementComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`ScriptedMovementComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `ScriptedMovementComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetTargetAgent
-```csharp
-public void SetTargetAgent(Agent targetAgent)
-```
+`public void SetTargetAgent(Agent targetAgent)`
+
+**Purpose:** Sets the value or state of `target agent`.
 
 ### OnTick
-```csharp
-public override void OnTick(float dt)
-```
+`public override void OnTick(float dt)`
+
+**Purpose:** Called when the `tick` event is raised.
 
 ### ShouldConversationStartWithAgent
-```csharp
-public bool ShouldConversationStartWithAgent()
-```
+`public bool ShouldConversationStartWithAgent()`
+
+**Purpose:** Handles logic related to `should conversation start with agent`.
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ScriptedMovementComponent (Component)
-agent.GetComponent<ScriptedMovementComponent>();
+var component = agent.GetComponent<ScriptedMovementComponent>();
 ```
 
 ## See Also

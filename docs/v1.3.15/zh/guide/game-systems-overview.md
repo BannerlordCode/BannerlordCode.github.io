@@ -5,6 +5,10 @@ description: 了解 Bannerlord 中哪些内容可以自定义 / Learn what can b
 
 # 游戏系统概述 / Game Systems Overview
 
+## 心智模型
+
+先把 `游戏系统概述` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 Bannerlord 提供了丰富的系统供 Mod 开发者自定义。了解这些系统可以帮助你规划 Mod 的功能范围。
@@ -127,3 +131,9 @@ MBSubModuleBase
 
 - [故障排除](./troubleshooting.md) - 解决问题
 - [常见模式](./common-patterns.md) - 最佳实践
+
+## 使用示例
+
+```csharp
+var example = new 游戏系统概述();
+```

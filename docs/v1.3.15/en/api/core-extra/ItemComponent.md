@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ItemComponent`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemComponent
@@ -14,32 +15,35 @@
 
 ## Overview
 
-`ItemComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<ItemComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`ItemComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `ItemComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `Item` | `public ItemObject Item { get; set; }` |
-| `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; protected set; }` |
+| `ItemModifierGroup` | `public ItemModifierGroup ItemModifierGroup { get; set; }` |
 
 ## Key Methods
 
 ### Deserialize
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
 
 ### GetCopy
-```csharp
-public abstract ItemComponent GetCopy()
-```
+`public abstract ItemComponent GetCopy()`
+
+**Purpose:** Gets the current value of `copy`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ItemComponent (Component)
-agent.GetComponent<ItemComponent>();
+var implementation = new CustomItemComponent();
 ```
 
 ## See Also

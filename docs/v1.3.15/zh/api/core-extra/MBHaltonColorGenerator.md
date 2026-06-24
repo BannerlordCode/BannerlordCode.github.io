@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `MBHaltonColorGenerator`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBHaltonColorGenerator
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public class MBHaltonColorGenerator`
+**Base:** 无
+**File:** `TaleWorlds.Core/MBHaltonColorGenerator.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MBHaltonColorGenerator` 是 `TaleWorlds.Core` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MBHaltonColorGenerator` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,42 +28,40 @@
 | `Base` | `public int Base { get; }` |
 | `Offset` | `public float Offset { get; }` |
 
-
 ## 主要方法
 
 ### SetBase
+`public void SetBase()`
 
-```csharp
-public void SetBase()
-```
+**用途 / Purpose:** 设置 `base` 的值或状态。
 
 ### SetBase
+`public void SetBase(int baseValue)`
 
-```csharp
-public void SetBase(int baseValue)
-```
+**用途 / Purpose:** 设置 `base` 的值或状态。
 
 ### SetOffset
+`public void SetOffset(float offset)`
 
-```csharp
-public void SetOffset(float offset)
-```
+**用途 / Purpose:** 设置 `offset` 的值或状态。
 
 ### SetRandomOffset
+`public void SetRandomOffset()`
 
-```csharp
-public void SetRandomOffset()
-```
+**用途 / Purpose:** 设置 `random offset` 的值或状态。
 
 ### GetColor
+`public Color GetColor(int index, int maxIndex)`
+
+**用途 / Purpose:** 获取 `color` 的当前值。
+
+## 使用示例
 
 ```csharp
-public Color GetColor(int index, int maxIndex)
+var value = new MBHaltonColorGenerator();
+value.SetBase();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

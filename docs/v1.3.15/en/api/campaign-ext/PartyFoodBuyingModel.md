@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyFoodBuyingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyFoodBuyingModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyFoodBuyingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyFoodBuyingModel>(new MyPartyFoodBuyingModel())` to change how it computes.
+`PartyFoodBuyingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyFoodBuyingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,15 +32,14 @@
 ## Key Methods
 
 ### FindItemToBuy
-```csharp
-public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)
-```
+`public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)`
+
+**Purpose:** Handles logic related to `find item to buy`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyFoodBuyingModel (Model)
-Game.Current.ReplaceModel<PartyFoodBuyingModel>(new MyPartyFoodBuyingModel());
+var implementation = new CustomPartyFoodBuyingModel();
 ```
 
 ## See Also

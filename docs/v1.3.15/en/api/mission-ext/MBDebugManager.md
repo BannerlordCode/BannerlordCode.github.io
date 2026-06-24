@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBDebugManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBDebugManager
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`MBDebugManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MBDebugManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MBDebugManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBDebugManager (Manager)
-MBDebugManager.Current;
+var manager = MBDebugManager.Current;
 ```
 
 ## See Also

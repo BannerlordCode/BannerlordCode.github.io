@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TeamAISiegeComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TeamAISiegeComponent
@@ -14,75 +15,81 @@
 
 ## 概述
 
-`TeamAISiegeComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<TeamAISiegeComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`TeamAISiegeComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `TeamAISiegeComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `QuerySystem` | `public static SiegeQuerySystem QuerySystem { get; protected set; }` |
+| `SiegeLanes` | `public static List<SiegeLane> SiegeLanes { get; }` |
+| `QuerySystem` | `public static SiegeQuerySystem QuerySystem { get; set; }` |
 | `OuterGate` | `public CastleGate OuterGate { get; }` |
 | `PrimarySiegeWeapons` | `public List<IPrimarySiegeWeapon> PrimarySiegeWeapons { get; }` |
 | `InnerGate` | `public CastleGate InnerGate { get; }` |
-| `Ladders` | `public MBReadOnlyList<SiegeLadder> Ladders { get { return this._ladders; }` |
+| `Ladders` | `public MBReadOnlyList<SiegeLadder> Ladders { get; }` |
+| `AreLaddersReady` | `public bool AreLaddersReady { get; }` |
+| `DifficultNavmeshIDs` | `public List<int> DifficultNavmeshIDs { get; }` |
 
 ## 主要方法
 
 ### OnMissionFinalize
-```csharp
-public static void OnMissionFinalize()
-```
+`public static void OnMissionFinalize()`
+
+**用途 / Purpose:** 当 `mission finalize` 事件触发时调用此方法。
 
 ### CalculateIsChargePastWallsApplicable
-```csharp
-public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)
-```
+`public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)`
+
+**用途 / Purpose:** 处理 `calculate is charge past walls applicable` 相关逻辑。
 
 ### SetAreLaddersReady
-```csharp
-public void SetAreLaddersReady(bool areLaddersReady)
-```
+`public void SetAreLaddersReady(bool areLaddersReady)`
+
+**用途 / Purpose:** 设置 `are ladders ready` 的值或状态。
 
 ### CalculateIsAnyLaneOpenToGetInside
-```csharp
-public bool CalculateIsAnyLaneOpenToGetInside()
-```
+`public bool CalculateIsAnyLaneOpenToGetInside()`
+
+**用途 / Purpose:** 处理 `calculate is any lane open to get inside` 相关逻辑。
 
 ### CalculateIsAnyLaneOpenToGoOutside
-```csharp
-public bool CalculateIsAnyLaneOpenToGoOutside()
-```
+`public bool CalculateIsAnyLaneOpenToGoOutside()`
+
+**用途 / Purpose:** 处理 `calculate is any lane open to go outside` 相关逻辑。
 
 ### IsPrimarySiegeWeaponNavmeshFaceId
-```csharp
-public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)
-```
+`public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)`
+
+**用途 / Purpose:** 处理 `is primary siege weapon navmesh face id` 相关逻辑。
 
 ### IsFormationGroupInsideCastle
-```csharp
-public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)
-```
+`public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
+
+**用途 / Purpose:** 处理 `is formation group inside castle` 相关逻辑。
 
 ### IsFormationInsideCastle
-```csharp
-public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)
-```
+`public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
+
+**用途 / Purpose:** 处理 `is formation inside castle` 相关逻辑。
 
 ### IsCastleBreached
-```csharp
-public bool IsCastleBreached()
-```
+`public bool IsCastleBreached()`
+
+**用途 / Purpose:** 处理 `is castle breached` 相关逻辑。
 
 ### OnDeploymentFinished
-```csharp
-public override void OnDeploymentFinished()
-```
+`public override void OnDeploymentFinished()`
+
+**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// TeamAISiegeComponent (Component) 的典型用法
-agent.GetComponent<TeamAISiegeComponent>();
+var implementation = new CustomTeamAISiegeComponent();
 ```
 
 ## 参见

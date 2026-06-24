@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BuildingModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BuildingModel
@@ -14,20 +15,23 @@
 
 ## 概述
 
-`BuildingModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<BuildingModel>(new MyBuildingModel())` 注册，以改变其计算逻辑。
+`BuildingModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `BuildingModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CanAddBuildingTypeToTown
-```csharp
-public abstract bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)
-```
+`public abstract bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `add building type to town`。
 
 ## 使用示例
 
 ```csharp
-// BuildingModel (Model) 的典型用法
-Game.Current.ReplaceModel<BuildingModel>(new MyBuildingModel());
+var implementation = new CustomBuildingModel();
 ```
 
 ## 参见

@@ -2,30 +2,39 @@
 **Home** → **API Index** → **Area** → `TroopItemComparer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TroopItemComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class TroopItemComparer : IComparer<TroopSelectionItemVM>`
+**Base:** `IComparer<TroopSelectionItemVM>`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TroopSelection/TroopItemComparer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TroopItemComparer` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TroopItemComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Compare
+`public int Compare(TroopSelectionItemVM x, TroopSelectionItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(TroopSelectionItemVM x, TroopSelectionItemVM y)
+var value = new TroopItemComparer();
+value.Compare(x, y);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

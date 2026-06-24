@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionMultiplayerGameModeBaseClient`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeBaseClient
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class MissionMultiplayerGameModeBaseClient : MissionNetwork, ICameraModeLogic`
+**Base:** `MissionNetwork`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeBaseClient.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionMultiplayerGameModeBaseClient` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionMultiplayerGameModeBaseClient` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -39,64 +43,59 @@
 | `IsInWarmup` | `public bool IsInWarmup { get; }` |
 | `RemainingTime` | `public float RemainingTime { get; }` |
 
-
 ## Key Methods
 
 ### GetGoldAmount
+`public abstract int GetGoldAmount()`
 
-```csharp
-public abstract int GetGoldAmount()
-```
+**Purpose:** Gets the current value of `gold amount`.
 
 ### GetMissionCameraLockMode
+`public virtual SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-```csharp
-public virtual SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)
-```
+**Purpose:** Gets the current value of `mission camera lock mode`.
 
 ### OnBehaviorInitialize
+`public override void OnBehaviorInitialize()`
 
-```csharp
-public override void OnBehaviorInitialize()
-```
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### EarlyStart
+`public override void EarlyStart()`
 
-```csharp
-public override void EarlyStart()
-```
+**Purpose:** Handles logic related to `early start`.
 
 ### CheckTimer
+`public bool CheckTimer(out int remainingTime, out int remainingWarningTime, bool forceUpdate = false)`
 
-```csharp
-public bool CheckTimer(out int remainingTime, out int remainingWarningTime, bool forceUpdate = false)
-```
+**Purpose:** Handles logic related to `check timer`.
 
 ### OnGoldAmountChangedForRepresentative
+`public abstract void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-```csharp
-public abstract void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)
-```
+**Purpose:** Called when the `gold amount changed for representative` event is raised.
 
 ### CanRequestTroopChange
+`public virtual bool CanRequestTroopChange()`
 
-```csharp
-public virtual bool CanRequestTroopChange()
-```
+**Purpose:** Checks whether the current object can `request troop change`.
 
 ### CanRequestCultureChange
+`public virtual bool CanRequestCultureChange()`
 
-```csharp
-public virtual bool CanRequestCultureChange()
-```
+**Purpose:** Checks whether the current object can `request culture change`.
 
 ### IsClassAvailable
+`public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
+
+**Purpose:** Handles logic related to `is class available`.
+
+## Usage Example
 
 ```csharp
-public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)
+var implementation = new CustomMissionMultiplayerGameModeBaseClient();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPartyTransitionModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyTransitionModel
@@ -14,29 +15,32 @@
 
 ## 概述
 
-`DefaultPartyTransitionModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPartyTransitionModel>(new MyDefaultPartyTransitionModel())` 注册，以改变其计算逻辑。
+`DefaultPartyTransitionModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPartyTransitionModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetFleetTravelTimeToPoint
-```csharp
-public override CampaignTime GetFleetTravelTimeToPoint(MobileParty mobileParty, CampaignVec2 target)
-```
+`public override CampaignTime GetFleetTravelTimeToPoint(MobileParty mobileParty, CampaignVec2 target)`
+
+**用途 / Purpose:** 获取 `fleet travel time to point` 的当前值。
 
 ### GetTransitionTimeDisembarking
-```csharp
-public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)
-```
+`public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `transition time disembarking` 的当前值。
 
 ### GetTransitionTimeForEmbarking
-```csharp
-public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)
-```
+`public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `transition time for embarking` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultPartyTransitionModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPartyTransitionModel>(new MyDefaultPartyTransitionModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerPersonalKillFeedItemWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerPersonalKillFeedItemWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `MultiplayerPersonalKillFeedItemWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `MultiplayerPersonalKillFeedItemWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -36,21 +41,19 @@
 ## Key Methods
 
 ### SetSpeedModifier
-```csharp
-public void SetSpeedModifier(float newSpeed)
-```
+`public void SetSpeedModifier(float newSpeed)`
+
+**Purpose:** Sets the value or state of `speed modifier`.
 
 ### SetMaxAlphaValue
-```csharp
-public void SetMaxAlphaValue(float newMaxAlpha)
-```
+`public void SetMaxAlphaValue(float newMaxAlpha)`
+
+**Purpose:** Sets the value or state of `max alpha value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerPersonalKillFeedItemWidget (Widget)
-// 声明/访问一个 MultiplayerPersonalKillFeedItemWidget
-var widget = root.GetChild("multiplayerPersonalKillFeedItemWidget");;
+var widget = new MultiplayerPersonalKillFeedItemWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PrisonBreakModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PrisonBreakModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`PrisonBreakModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PrisonBreakModel>(new MyPrisonBreakModel())` to change how it computes.
+`PrisonBreakModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PrisonBreakModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetNumberOfGuardsToSpawn
-```csharp
-public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)
-```
+`public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)`
+
+**Purpose:** Gets the current value of `number of guards to spawn`.
 
 ### CanPlayerStagePrisonBreak
-```csharp
-public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)
-```
+`public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)`
+
+**Purpose:** Checks whether the current object can `player stage prison break`.
 
 ### GetPrisonBreakStartCost
-```csharp
-public abstract int GetPrisonBreakStartCost(Hero prisonerHero)
-```
+`public abstract int GetPrisonBreakStartCost(Hero prisonerHero)`
+
+**Purpose:** Gets the current value of `prison break start cost`.
 
 ### GetRelationRewardOnPrisonBreak
-```csharp
-public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)
-```
+`public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
+
+**Purpose:** Gets the current value of `relation reward on prison break`.
 
 ### GetRogueryRewardOnPrisonBreak
-```csharp
-public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)
-```
+`public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
+
+**Purpose:** Gets the current value of `roguery reward on prison break`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PrisonBreakModel (Model)
-Game.Current.ReplaceModel<PrisonBreakModel>(new MyPrisonBreakModel());
+var implementation = new CustomPrisonBreakModel();
 ```
 
 ## See Also

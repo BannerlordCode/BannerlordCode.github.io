@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `WeaponFlags`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponFlags
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** enum
-**Area:** Core
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.Core/WeaponFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WeaponFlags` is a enum in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WeaponFlags` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `MeleeWeapon` |
-| `1UL` |
-| `RangedWeapon` |
-| `2UL` |
-| `WeaponMask` |
-| `3UL` |
-| `FirearmAmmo` |
-| `4UL` |
-| `NotUsableWithOneHand` |
-| `16UL` |
-| `NotUsableWithTwoHand` |
-| `32UL` |
-| `HandUsageMask` |
-| `48UL` |
-| `WideGrip` |
-| `64UL` |
-| `AttachAmmoToVisual` |
-| `128UL` |
-| `Consumable` |
-| `256UL` |
-| `HasHitPoints` |
-| `512UL` |
-| `DataValueMask` |
-| `768UL` |
-| `HasString` |
-| `1024UL` |
-| `StringHeldByHand` |
-| `3072UL` |
-| `UnloadWhenSheathed` |
-| `4096UL` |
+## Usage Example
+
+```csharp
+var value = new WeaponFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

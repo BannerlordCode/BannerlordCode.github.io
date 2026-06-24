@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `AgentVictoryLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentVictoryLogic
@@ -15,6 +17,10 @@
 ## Overview
 
 `AgentVictoryLogic` is a mission logic that drives agent victory cheers and reactions after a side wins a battle. Configure the winning side's behavior via `SetCheerActionGroup` and `SetCheerReactionTimerSettings`. Cleared on scene clear / agent removal.
+
+## Mental Model
+
+Treat `AgentVictoryLogic` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

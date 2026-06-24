@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SelectorWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SelectorWidget
@@ -16,6 +17,10 @@
 
 `SelectorWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `SelectorWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -27,26 +32,24 @@
 ## Key Methods
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget widget)
-```
+`public void OnListChanged(Widget widget)`
+
+**Purpose:** Called when the `list changed` event is raised.
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget parentWidget, Widget addedWidget)
-```
+`public void OnListChanged(Widget parentWidget, Widget addedWidget)`
+
+**Purpose:** Called when the `list changed` event is raised.
 
 ### OnSelectionChanged
-```csharp
-public void OnSelectionChanged(Widget widget)
-```
+`public void OnSelectionChanged(Widget widget)`
+
+**Purpose:** Called when the `selection changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SelectorWidget (Widget)
-// 声明/访问一个 SelectorWidget
-var widget = root.GetChild("selectorWidget");;
+var widget = new SelectorWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultItemValueModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultItemValueModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultItemValueModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultItemValueModel>(new MyDefaultItemValueModel())` to change how it computes.
+`DefaultItemValueModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultItemValueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateValue
-```csharp
-public override int CalculateValue(ItemObject item)
-```
+`public override int CalculateValue(ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate value`.
 
 ### GetIsTransferable
-```csharp
-public override bool GetIsTransferable(ItemObject item)
-```
+`public override bool GetIsTransferable(ItemObject item)`
+
+**Purpose:** Gets the current value of `is transferable`.
 
 ### GetEquipmentValueFromTier
-```csharp
-public override float GetEquipmentValueFromTier(float itemTierf)
-```
+`public override float GetEquipmentValueFromTier(float itemTierf)`
+
+**Purpose:** Gets the current value of `equipment value from tier`.
 
 ### CalculateTier
-```csharp
-public override float CalculateTier(ItemObject item)
-```
+`public override float CalculateTier(ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate tier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultItemValueModel (Model)
 Game.Current.ReplaceModel<DefaultItemValueModel>(new MyDefaultItemValueModel());
 ```
 

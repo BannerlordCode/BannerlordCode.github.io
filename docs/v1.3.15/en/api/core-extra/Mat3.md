@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mat3`
+**Home** → **API Index** → **Area** → `Mat3 / 3D Matrix`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Mat3 / 3D Matrix
@@ -13,6 +15,10 @@
 ## Overview
 
 `Mat3` is a 3x3 matrix struct for rotation and scale transformations in games.
+
+## Mental Model
+
+Treat `Mat3` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Properties
 

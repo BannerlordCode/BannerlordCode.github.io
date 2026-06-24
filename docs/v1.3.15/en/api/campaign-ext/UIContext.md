@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `UIContext`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UIContext
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class UIContext`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/UIContext.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `UIContext` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`UIContext` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,125 @@
 | `DefaultBrush` | `public Brush DefaultBrush { get; }` |
 | `SpriteData` | `public SpriteData SpriteData { get; }` |
 | `BrushFactory` | `public BrushFactory BrushFactory { get; }` |
-
+| `FontFactory` | `public FontFactory FontFactory { get; }` |
+| `InputContext` | `public IReadonlyInputContext InputContext { get; }` |
+| `GamepadNavigation` | `public IGamepadNavigationContext GamepadNavigation { get; }` |
+| `LocalFrameNumber` | `public ulong LocalFrameNumber { get; }` |
 
 ## Key Methods
 
 ### Initialize
+`public void Initialize()`
 
-```csharp
-public void Initialize()
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### GetBrush
+`public Brush GetBrush(string name)`
 
-```csharp
-public Brush GetBrush(string name)
-```
+**Purpose:** Gets the current value of `brush`.
 
 ### RefreshResources
+`public void RefreshResources(SpriteData spriteData, FontFactory fontFactory, BrushFactory brushFactory)`
 
-```csharp
-public void RefreshResources(SpriteData spriteData, FontFactory fontFactory, BrushFactory brushFactory)
-```
+**Purpose:** Refreshes the display or cache of `resources`.
 
 ### OnFinalize
+`public void OnFinalize()`
 
-```csharp
-public void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Activate
+`public void Activate()`
 
-```csharp
-public void Activate()
-```
+**Purpose:** Handles logic related to `activate`.
 
 ### Deactivate
+`public void Deactivate()`
 
-```csharp
-public void Deactivate()
-```
+**Purpose:** Handles logic related to `deactivate`.
 
 ### Update
+`public void Update(float dt)`
 
-```csharp
-public void Update(float dt)
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### LateUpdate
+`public void LateUpdate(float dt)`
 
-```csharp
-public void LateUpdate(float dt)
-```
+**Purpose:** Handles logic related to `late update`.
 
 ### RenderTick
+`public void RenderTick(float dt)`
 
-```csharp
-public void RenderTick(float dt)
-```
+**Purpose:** Handles logic related to `render tick`.
 
 ### InitializeGamepadNavigation
+`public void InitializeGamepadNavigation(IGamepadNavigationContext context)`
 
-```csharp
-public void InitializeGamepadNavigation(IGamepadNavigationContext context)
-```
+**Purpose:** Initializes the state, resources, or bindings for `gamepad navigation`.
 
 ### OnOnScreenkeyboardTextInputDone
+`public void OnOnScreenkeyboardTextInputDone(string inputText)`
 
-```csharp
-public void OnOnScreenkeyboardTextInputDone(string inputText)
-```
+**Purpose:** Called when the `on screenkeyboard text input done` event is raised.
 
 ### OnOnScreenKeyboardCanceled
+`public void OnOnScreenKeyboardCanceled()`
 
-```csharp
-public void OnOnScreenKeyboardCanceled()
-```
-
-### HitTest
-
-```csharp
-public bool HitTest(Widget root, Vector2 position)
-```
+**Purpose:** Called when the `on screen keyboard canceled` event is raised.
 
 ### HitTest
+`public bool HitTest(Widget root, Vector2 position)`
 
-```csharp
-public bool HitTest(Widget root)
-```
+**Purpose:** Handles logic related to `hit test`.
+
+### HitTest
+`public bool HitTest(Widget root)`
+
+**Purpose:** Handles logic related to `hit test`.
 
 ### FocusTest
+`public bool FocusTest(Widget root)`
 
-```csharp
-public bool FocusTest(Widget root)
-```
+**Purpose:** Handles logic related to `focus test`.
 
 ### SetIsMouseEnabled
+`public void SetIsMouseEnabled(bool isMouseEnabled)`
 
-```csharp
-public void SetIsMouseEnabled(bool isMouseEnabled)
-```
+**Purpose:** Sets the value or state of `is mouse enabled`.
 
 ### UpdateInput
+`public void UpdateInput(InputType handleInputs)`
 
-```csharp
-public void UpdateInput(InputType handleInputs)
-```
+**Purpose:** Updates the state or data of `input`.
 
 ### OnMovieLoaded
+`public void OnMovieLoaded(string movieName)`
 
-```csharp
-public void OnMovieLoaded(string movieName)
-```
+**Purpose:** Called when the `movie loaded` event is raised.
 
 ### OnMovieReleased
+`public void OnMovieReleased(string movieName)`
 
-```csharp
-public void OnMovieReleased(string movieName)
-```
+**Purpose:** Called when the `movie released` event is raised.
 
 ### DrawWidgetDebugInfo
+`public void DrawWidgetDebugInfo()`
+
+**Purpose:** Handles logic related to `draw widget debug info`.
+
+### DebugDraw
+`public void DebugDraw()`
+
+**Purpose:** Handles logic related to `debug draw`.
+
+## Usage Example
 
 ```csharp
-public void DrawWidgetDebugInfo()
+var value = new UIContext();
+value.Initialize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

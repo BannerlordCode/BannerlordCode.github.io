@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HeroCreationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroCreationModel
@@ -14,90 +15,93 @@
 
 ## Overview
 
-`HeroCreationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<HeroCreationModel>(new MyHeroCreationModel())` to change how it computes.
+`HeroCreationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `HeroCreationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBirthAndDeathDay
-```csharp
-public abstract ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)
-```
+`public abstract ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)`
+
+**Purpose:** Gets the current value of `birth and death day`.
 
 ### GetBornSettlement
-```csharp
-public abstract Settlement GetBornSettlement(Hero character)
-```
+`public abstract Settlement GetBornSettlement(Hero character)`
+
+**Purpose:** Gets the current value of `born settlement`.
 
 ### GetStaticBodyProperties
-```csharp
-public abstract StaticBodyProperties GetStaticBodyProperties(Hero character, bool isOffspring, float variationAmount = 0.35f)
-```
+`public abstract StaticBodyProperties GetStaticBodyProperties(Hero character, bool isOffspring, float variationAmount = 0.35f)`
+
+**Purpose:** Gets the current value of `static body properties`.
 
 ### GetPreferredUpgradeFormation
-```csharp
-public abstract FormationClass GetPreferredUpgradeFormation(Hero character)
-```
+`public abstract FormationClass GetPreferredUpgradeFormation(Hero character)`
+
+**Purpose:** Gets the current value of `preferred upgrade formation`.
 
 ### GetClan
-```csharp
-public abstract Clan GetClan(Hero character)
-```
+`public abstract Clan GetClan(Hero character)`
+
+**Purpose:** Gets the current value of `clan`.
 
 ### GetCulture
-```csharp
-public abstract CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)
-```
+`public abstract CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)`
+
+**Purpose:** Gets the current value of `culture`.
 
 ### GetRandomTemplateByOccupation
-```csharp
-public abstract CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)
-```
+`public abstract CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)`
+
+**Purpose:** Gets the current value of `random template by occupation`.
 
 ### GetTraitsForHero
-```csharp
-public abstract List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `traits for hero`.
 
 ### GetCivilianEquipment
-```csharp
-public abstract Equipment GetCivilianEquipment(Hero hero)
-```
+`public abstract Equipment GetCivilianEquipment(Hero hero)`
+
+**Purpose:** Gets the current value of `civilian equipment`.
 
 ### GetBattleEquipment
-```csharp
-public abstract Equipment GetBattleEquipment(Hero hero)
-```
+`public abstract Equipment GetBattleEquipment(Hero hero)`
+
+**Purpose:** Gets the current value of `battle equipment`.
 
 ### GetCharacterTemplateForOffspring
-```csharp
-public abstract CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)
-```
+`public abstract CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)`
+
+**Purpose:** Gets the current value of `character template for offspring`.
 
 ### GenerateFirstAndFullName
-```csharp
-public abstract ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)
-```
+`public abstract ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)`
+
+**Purpose:** Handles logic related to `generate first and full name`.
 
 ### GetDefaultSkillsForHero
-```csharp
-public abstract List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `default skills for hero`.
 
 ### GetInheritedSkillsForHero
-```csharp
-public abstract List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `inherited skills for hero`.
 
 ### IsHeroCombatant
-```csharp
-public abstract bool IsHeroCombatant(Hero hero)
-```
+`public abstract bool IsHeroCombatant(Hero hero)`
+
+**Purpose:** Handles logic related to `is hero combatant`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HeroCreationModel (Model)
-Game.Current.ReplaceModel<HeroCreationModel>(new MyHeroCreationModel());
+var implementation = new CustomHeroCreationModel();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CallbackStringBufferManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CallbackStringBufferManager
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class CallbackStringBufferManager`
+**Base:** none
+**File:** `TaleWorlds.DotNet/CallbackStringBufferManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CallbackStringBufferManager` is a class in the `TaleWorlds.DotNet` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CallbackStringBufferManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
+## Mental Model
+
+Treat `CallbackStringBufferManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,7 +32,12 @@
 | `StringBuffer4` | `public static byte StringBuffer4 { get; }` |
 | `StringBuffer5` | `public static byte StringBuffer5 { get; }` |
 
+## Usage Example
+
+```csharp
+var manager = CallbackStringBufferManager.Current;
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

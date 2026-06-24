@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderTroopItemFormationClassVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderTroopItemFormationClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OrderTroopItemFormationClassVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/OrderTroopItemFormationClassVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderTroopItemFormationClassVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Order` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderTroopItemFormationClassVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Order` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,16 +28,20 @@
 | `FormationClassValue` | `public int FormationClassValue { get; set; }` |
 | `TroopCount` | `public int TroopCount { get; set; }` |
 
-
 ## Key Methods
 
 ### UpdateTroopCount
+`public void UpdateTroopCount()`
+
+**Purpose:** Updates the state or data of `troop count`.
+
+## Usage Example
 
 ```csharp
-public void UpdateTroopCount()
+var value = new OrderTroopItemFormationClassVM();
+value.UpdateTroopCount();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

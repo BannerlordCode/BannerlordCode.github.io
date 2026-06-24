@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `AgentNavigator`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentNavigator
+
+## Mental Model
+
+Treat `AgentNavigator` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Class Overview
 
@@ -27,3 +33,9 @@ For Agent navigation functionality, consider:
 - `Agent` - Agent/unit base class
 - `HumanAIComponent` - Human AI component
 - `MissionBehavior` - Mission behavior base class
+
+## Usage Example
+
+```csharp
+var example = new AgentNavigator();
+```

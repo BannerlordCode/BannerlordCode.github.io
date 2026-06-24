@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SPScoreboardPartyVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SPScoreboardPartyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SPScoreboardPartyVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Scoreboard/SPScoreboardPartyVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SPScoreboardPartyVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SPScoreboardPartyVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,40 +31,40 @@
 | `Score` | `public SPScoreboardStatsVM Score { get; set; }` |
 | `Members` | `public MBBindingList<SPScoreboardUnitVM> Members { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### UpdateScores
+`public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-```csharp
-public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)
-```
+**Purpose:** Updates the state or data of `scores`.
 
 ### UpdateHeroSkills
+`public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-```csharp
-public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)
-```
+**Purpose:** Updates the state or data of `hero skills`.
 
 ### GetUnitAddIfNotExists
+`public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)`
 
-```csharp
-public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)
-```
+**Purpose:** Gets the current value of `unit add if not exists`.
 
 ### GetUnit
+`public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)`
+
+**Purpose:** Gets the current value of `unit`.
+
+## Usage Example
 
 ```csharp
-public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)
+var value = new SPScoreboardPartyVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

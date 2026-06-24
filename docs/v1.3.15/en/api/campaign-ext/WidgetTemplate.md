@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `WidgetTemplate`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WidgetTemplate`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetTemplate.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WidgetTemplate` is a class in the `TaleWorlds.GauntletUI.PrefabSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WidgetTemplate` lives in `TaleWorlds.GauntletUI.PrefabSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,106 +36,95 @@
 | `Tag` | `public object Tag { get; set; }` |
 | `AllAttributes` | `public IEnumerable<WidgetAttributeTemplate> AllAttributes { get; }` |
 
-
 ## Key Methods
 
 ### AddExtensionData
+`public void AddExtensionData(string name, object data)`
 
-```csharp
-public void AddExtensionData(string name, object data)
-```
+**Purpose:** Adds `extension data` to the current collection or state.
 
 ### RemoveExtensionData
+`public void RemoveExtensionData(string name)`
 
-```csharp
-public void RemoveExtensionData(string name)
-```
+**Purpose:** Removes `extension data` from the current collection or state.
 
 ### AddExtensionData
+`public void AddExtensionData(object data)`
 
-```csharp
-public void AddExtensionData(object data)
-```
+**Purpose:** Adds `extension data` to the current collection or state.
 
 ### SetAttribute
+`public void SetAttribute(WidgetAttributeTemplate attribute)`
 
-```csharp
-public void SetAttribute(WidgetAttributeTemplate attribute)
-```
+**Purpose:** Sets the value or state of `attribute`.
 
 ### GetChildAt
+`public WidgetTemplate GetChildAt(int i)`
 
-```csharp
-public WidgetTemplate GetChildAt(int i)
-```
+**Purpose:** Gets the current value of `child at`.
 
 ### AddChild
+`public void AddChild(WidgetTemplate child)`
 
-```csharp
-public void AddChild(WidgetTemplate child)
-```
+**Purpose:** Adds `child` to the current collection or state.
 
 ### RemoveChild
+`public void RemoveChild(WidgetTemplate child)`
 
-```csharp
-public void RemoveChild(WidgetTemplate child)
-```
+**Purpose:** Removes `child` from the current collection or state.
 
 ### SwapChildren
+`public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)`
 
-```csharp
-public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)
-```
+**Purpose:** Handles logic related to `swap children`.
 
 ### Instantiate
+`public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-```csharp
-public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)
-```
+**Purpose:** Handles logic related to `instantiate`.
 
 ### OnRelease
+`public void OnRelease()`
 
-```csharp
-public void OnRelease()
-```
+**Purpose:** Called when the `release` event is raised.
 
 ### LoadFrom
+`public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)`
 
-```csharp
-public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)
-```
+**Purpose:** Loads `from` data.
 
 ### SetRootTemplate
+`public void SetRootTemplate(WidgetPrefab prefab)`
 
-```csharp
-public void SetRootTemplate(WidgetPrefab prefab)
-```
+**Purpose:** Sets the value or state of `root template`.
 
 ### AddAttributeTo
+`public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)`
 
-```csharp
-public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)
-```
-
-### RemoveAttributeFrom
-
-```csharp
-public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)
-```
+**Purpose:** Adds `attribute to` to the current collection or state.
 
 ### RemoveAttributeFrom
+`public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)`
 
-```csharp
-public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)
-```
+**Purpose:** Removes `attribute from` from the current collection or state.
+
+### RemoveAttributeFrom
+`public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)`
+
+**Purpose:** Removes `attribute from` from the current collection or state.
 
 ### Save
+`public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)`
+
+**Purpose:** Saves `save` data.
+
+## Usage Example
 
 ```csharp
-public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)
+var value = new WidgetTemplate();
+value.AddExtensionData("example", data);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

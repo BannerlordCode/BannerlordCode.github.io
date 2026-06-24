@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerGameNotificationsComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerGameNotificationsComponent
@@ -14,81 +15,84 @@
 
 ## Overview
 
-`MultiplayerGameNotificationsComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerGameNotificationsComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerGameNotificationsComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerGameNotificationsComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `NotificationCount` | `public static int NotificationCount { get { return 18; }` |
+| `NotificationCount` | `public static int NotificationCount { get; }` |
 
 ## Key Methods
 
 ### WarmupEnding
-```csharp
-public void WarmupEnding()
-```
+`public void WarmupEnding()`
+
+**Purpose:** Handles logic related to `warmup ending`.
 
 ### GameOver
-```csharp
-public void GameOver(Team winnerTeam)
-```
+`public void GameOver(Team winnerTeam)`
+
+**Purpose:** Handles logic related to `game over`.
 
 ### PreparationStarted
-```csharp
-public void PreparationStarted()
-```
+`public void PreparationStarted()`
+
+**Purpose:** Handles logic related to `preparation started`.
 
 ### FlagsXRemoved
-```csharp
-public void FlagsXRemoved(FlagCapturePoint removedFlag)
-```
+`public void FlagsXRemoved(FlagCapturePoint removedFlag)`
+
+**Purpose:** Handles logic related to `flags x removed`.
 
 ### FlagXRemaining
-```csharp
-public void FlagXRemaining(FlagCapturePoint remainingFlag)
-```
+`public void FlagXRemaining(FlagCapturePoint remainingFlag)`
+
+**Purpose:** Handles logic related to `flag x remaining`.
 
 ### FlagsWillBeRemovedInXSeconds
-```csharp
-public void FlagsWillBeRemovedInXSeconds(int timeLeft)
-```
+`public void FlagsWillBeRemovedInXSeconds(int timeLeft)`
+
+**Purpose:** Handles logic related to `flags will be removed in x seconds`.
 
 ### FlagXCapturedByTeamX
-```csharp
-public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)
-```
+`public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)`
+
+**Purpose:** Handles logic related to `flag x captured by team x`.
 
 ### GoldCarriedFromPreviousRound
-```csharp
-public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)
-```
+`public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)`
+
+**Purpose:** Handles logic related to `gold carried from previous round`.
 
 ### PlayerIsInactive
-```csharp
-public void PlayerIsInactive(NetworkCommunicator peer)
-```
+`public void PlayerIsInactive(NetworkCommunicator peer)`
+
+**Purpose:** Handles logic related to `player is inactive`.
 
 ### FormationAutoFollowEnforced
-```csharp
-public void FormationAutoFollowEnforced(NetworkCommunicator peer)
-```
+`public void FormationAutoFollowEnforced(NetworkCommunicator peer)`
+
+**Purpose:** Handles logic related to `formation auto follow enforced`.
 
 ### PollRejected
-```csharp
-public void PollRejected(MultiplayerPollRejectReason reason)
-```
+`public void PollRejected(MultiplayerPollRejectReason reason)`
+
+**Purpose:** Handles logic related to `poll rejected`.
 
 ### PlayerKicked
-```csharp
-public void PlayerKicked(NetworkCommunicator kickedPeer)
-```
+`public void PlayerKicked(NetworkCommunicator kickedPeer)`
+
+**Purpose:** Handles logic related to `player kicked`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerGameNotificationsComponent (Component)
-agent.GetComponent<MultiplayerGameNotificationsComponent>();
+var component = agent.GetComponent<MultiplayerGameNotificationsComponent>();
 ```
 
 ## See Also

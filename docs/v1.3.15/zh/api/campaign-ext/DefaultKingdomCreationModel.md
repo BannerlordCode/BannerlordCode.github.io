@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultKingdomCreationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultKingdomCreationModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultKingdomCreationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreationModel())` 注册，以改变其计算逻辑。
+`DefaultKingdomCreationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultKingdomCreationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,24 +33,23 @@
 ## 主要方法
 
 ### IsPlayerKingdomCreationPossible
-```csharp
-public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)
-```
+`public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
+
+**用途 / Purpose:** 处理 `is player kingdom creation possible` 相关逻辑。
 
 ### IsPlayerKingdomAbdicationPossible
-```csharp
-public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)
-```
+`public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
+
+**用途 / Purpose:** 处理 `is player kingdom abdication possible` 相关逻辑。
 
 ### GetAvailablePlayerKingdomCultures
-```csharp
-public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()
-```
+`public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
+
+**用途 / Purpose:** 获取 `available player kingdom cultures` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultKingdomCreationModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreationModel());
 ```
 

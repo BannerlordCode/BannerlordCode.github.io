@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `NotificationSceneProperties`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NotificationSceneProperties
 
 **命名空间:** TaleWorlds.Core
 **模块:** TaleWorlds.Core
-**类型:** 结构体 struct struct
-**领域:** 核心数据 Core
+**类型:** `public struct NotificationSceneProperties`
+**领域:** core-extra
 
 ## 概述
 
-> 本页为自动生成的存根。`NotificationSceneProperties` 是 `TaleWorlds.Core` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`NotificationSceneProperties` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -36,46 +41,45 @@
 | `RelevantContext` | `public virtual SceneNotificationData.RelevantContextType RelevantContext { get; }` |
 | `SceneProperties` | `public virtual SceneNotificationData.NotificationSceneProperties SceneProperties { get; }` |
 
-
 ## 主要方法
 
 ### OnAffirmativeAction
+`public virtual void OnAffirmativeAction()`
 
-```csharp
-public virtual void OnAffirmativeAction()
-```
+**用途 / Purpose:** 当 `affirmative action` 事件触发时调用此方法。
 
 ### OnNegativeAction
+`public virtual void OnNegativeAction()`
 
-```csharp
-public virtual void OnNegativeAction()
-```
+**用途 / Purpose:** 当 `negative action` 事件触发时调用此方法。
 
 ### OnCloseAction
+`public virtual void OnCloseAction()`
 
-```csharp
-public virtual void OnCloseAction()
-```
+**用途 / Purpose:** 当 `close action` 事件触发时调用此方法。
 
 ### GetBanners
+`public virtual Banner GetBanners()`
 
-```csharp
-public virtual Banner GetBanners()
-```
+**用途 / Purpose:** 获取 `banners` 的当前值。
 
 ### GetSceneNotificationCharacters
+`public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-```csharp
-public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()
-```
+**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
 
 ### GetShips
+`public virtual SceneNotificationData.SceneNotificationShip GetShips()`
+
+**用途 / Purpose:** 获取 `ships` 的当前值。
+
+## 使用示例
 
 ```csharp
-public virtual SceneNotificationData.SceneNotificationShip GetShips()
+// 先从游戏状态中拿到一个 NotificationSceneProperties 实例，再调用它的公开方法
+var value = new NotificationSceneProperties();
+value.OnAffirmativeAction();
 ```
-
-贡献文档。
 
 ## 参见
 

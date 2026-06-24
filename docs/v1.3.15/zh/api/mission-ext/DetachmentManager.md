@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DetachmentManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DetachmentManager
@@ -9,114 +10,275 @@
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** public class DetachmentManager
-**Base:** 无
-**File:** `TaleWorlds.MountAndBlade/DetachmentManager.cs`
+**Base:** ?**File:** 
+
+`TaleWorlds.MountAndBlade/DetachmentManager.cs
+
+`
 
 ## 概述
 
-`DetachmentManager` 拥有分遣队——特殊任务槽位，如攻城梯、塔楼、远程位置，可由队形填充。它创建/销毁分遣队（`MakeDetachment`/`DestroyDetachment`），跟踪队形加入/离开，并每 tick 推进。mod 查询 `Detachments` 或为新攻城器械创建自定义分遣队。
+`DetachmentManager
 
-## 主要属性
+` 拥有分遣队——特殊任务槽位，如攻城梯、塔楼、远程位置，可由队形填充。它创建/销毁分遣队（`MakeDetachment
 
-| Name | Signature |
-|------|-----------|
-| `Detachments` | `public MBReadOnlyList<ValueTuple<IDetachment, DetachmentData>> Detachments { get { return this._detachments; }` |
+`/
+
+`DestroyDetachment
+
+`），跟踪队形加入/离开，并?tick 推进。mod 查询 
+
+`Detachments
+
+` 或为新攻城器械创建自定义分遣队?
+## 
+## 心智模型
+
+先把 `DetachmentManager` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+主要属?
+\| Name \| Signature \|
+\|------\|-----------\|
+\| 
+
+`Detachments
+
+` \| 
+
+`public MBReadOnlyList&lt;ValueTuple&lt;IDetachment, DetachmentData&gt;&gt; Detachments { get { return this._detachments; }
+
+` \|
 
 ## 主要方法
 
 ### Clear
-```csharp
+`
+
+`
+
+`csharp
 public void Clear()
-```
+`
+
+`
+
+`
 
 ### ContainsDetachment
-```csharp
+`
+
+`
+
+`csharp
 public bool ContainsDetachment(IDetachment detachment)
-```
+`
+
+`
+
+`
 
 ### MakeDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void MakeDetachment(IDetachment detachment)
-```
+`
+
+`
+
+`
 
 ### DestroyDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void DestroyDetachment(IDetachment destroyedDetachment)
-```
+`
+
+`
+
+`
 
 ### OnFormationJoinDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void OnFormationJoinDetachment(Formation formation, IDetachment joinedDetachment)
-```
+`
+
+`
+
+`
 
 ### OnFormationLeaveDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void OnFormationLeaveDetachment(Formation formation, IDetachment leftDetachment)
-```
+`
+
+`
+
+`
 
 ### TickDetachments
-```csharp
+`
+
+`
+
+`csharp
 public void TickDetachments()
-```
+`
+
+`
+
+`
 
 ### TickAgent
-```csharp
+`
+
+`
+
+`csharp
 public void TickAgent(Agent agent)
-```
+`
+
+`
+
+`
 
 ### OnAgentRemoved
-```csharp
+`
+
+`
+
+`csharp
 public void OnAgentRemoved(Agent agent)
-```
+`
+
+`
+
+`
 
 ### RemoveScoresOfAgentFromDetachments
-```csharp
+`
+
+`
+
+`csharp
 public void RemoveScoresOfAgentFromDetachments(Agent agent)
-```
+`
+
+`
+
+`
 
 ### RemoveScoresOfAgentFromDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void RemoveScoresOfAgentFromDetachment(Agent agent, IDetachment detachmentToBeRemovedFrom)
-```
+`
+
+`
+
+`
 
 ### AddAgentAsMovingToDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void AddAgentAsMovingToDetachment(Agent agent, IDetachment detachment)
-```
+`
+
+`
+
+`
 
 ### RemoveAgentAsMovingToDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void RemoveAgentAsMovingToDetachment(Agent agent)
-```
+`
+
+`
+
+`
 
 ### AddAgentAsDefendingToDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void AddAgentAsDefendingToDetachment(Agent agent, IDetachment detachment)
-```
+`
+
+`
+
+`
 
 ### RemoveAgentAsDefendingToDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void RemoveAgentAsDefendingToDetachment(Agent agent)
-```
+`
+
+`
+
+`
 
 ### AssertDetachment
-```csharp
+`
+
+`
+
+`csharp
 public void AssertDetachment(Team team, IDetachment detachment)
-```
+`
+
+`
+
+`
 
 ## 使用示例
 
-```csharp
+`
+
+`
+
+`csharp
 // 列出所有分遣队及其填充情况
-var dm = Mission.Current.GetMissionBehavior<DetachmentManager>();
+var dm = Mission.Current.GetMissionBehavior&lt;DetachmentManager&gt;();
 foreach (var det in dm.Detachments)
 {
     IDetachment d = det.Item1;
     int manned = d.AgentCount;
     InformationManager.DisplayMessage(new InformationMessage(
-        $"分遣队 {d.GetType().Name}：{manned} 人在位"));
+        $"分遣?{d.GetType().Name}：{manned} 人在?));
 }
-```
+`
+
+`
+
+`
 
 ## 参见
 

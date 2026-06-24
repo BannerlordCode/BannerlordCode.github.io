@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BarterManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`BarterManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`BarterManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `BarterManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,105 +31,104 @@
 ## 主要方法
 
 ### BeginPlayerBarter
-```csharp
-public void BeginPlayerBarter(BarterData args)
-```
+`public void BeginPlayerBarter(BarterData args)`
+
+**用途 / Purpose:** 处理 `begin player barter` 相关逻辑。
 
 ### StartBarterOffer
-```csharp
-public void StartBarterOffer(Hero offerer, Hero other, PartyBase offererParty, PartyBase otherParty, Hero beneficiaryOfOtherHero = null, BarterManager.BarterContextInitializer InitContext = null, int persuasionCostReduction = 0, bool isAIBarter = false, IEnumerable<Barterable> defaultBarterables = null)
-```
+`public void StartBarterOffer(Hero offerer, Hero other, PartyBase offererParty, PartyBase otherParty, Hero beneficiaryOfOtherHero = null, BarterManager.BarterContextInitializer InitContext = null, int persuasionCostReduction = 0, bool isAIBarter = false, IEnumerable<Barterable> defaultBarterables = null)`
+
+**用途 / Purpose:** 处理 `start barter offer` 相关逻辑。
 
 ### ExecuteAiBarter
-```csharp
-public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, Barterable barterable)
-```
+`public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, Barterable barterable)`
+
+**用途 / Purpose:** 执行 `ai barter` 操作或流程。
 
 ### ExecuteAiBarter
-```csharp
-public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, IEnumerable<Barterable> baseBarterables)
-```
+`public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, IEnumerable<Barterable> baseBarterables)`
+
+**用途 / Purpose:** 执行 `ai barter` 操作或流程。
 
 ### ExecuteAIBarter
-```csharp
-public void ExecuteAIBarter(BarterData barterData, IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero)
-```
+`public void ExecuteAIBarter(BarterData barterData, IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero)`
+
+**用途 / Purpose:** 执行 `a i barter` 操作或流程。
 
 ### Close
-```csharp
-public void Close()
-```
+`public void Close()`
+
+**用途 / Purpose:** 处理 `close` 相关逻辑。
 
 ### IsOfferAcceptable
-```csharp
-public bool IsOfferAcceptable(BarterData args, Hero hero, PartyBase party)
-```
+`public bool IsOfferAcceptable(BarterData args, Hero hero, PartyBase party)`
+
+**用途 / Purpose:** 处理 `is offer acceptable` 相关逻辑。
 
 ### GetOfferValueForFaction
-```csharp
-public float GetOfferValueForFaction(BarterData barterData, IFaction faction)
-```
+`public float GetOfferValueForFaction(BarterData barterData, IFaction faction)`
+
+**用途 / Purpose:** 获取 `offer value for faction` 的当前值。
 
 ### GetOfferValue
-```csharp
-public float GetOfferValue(Hero selfHero, PartyBase selfParty, PartyBase offererParty, IEnumerable<Barterable> offeredBarters)
-```
+`public float GetOfferValue(Hero selfHero, PartyBase selfParty, PartyBase offererParty, IEnumerable<Barterable> offeredBarters)`
+
+**用途 / Purpose:** 获取 `offer value` 的当前值。
 
 ### ApplyAndFinalizePlayerBarter
-```csharp
-public void ApplyAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)
-```
+`public void ApplyAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
+
+**用途 / Purpose:** 将 `and finalize player barter` 应用到当前对象。
 
 ### CancelAndFinalizePlayerBarter
-```csharp
-public void CancelAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)
-```
+`public void CancelAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `cel and finalize player barter`。
 
 ### CanPlayerBarterWithHero
-```csharp
-public bool CanPlayerBarterWithHero(Hero hero)
-```
+`public bool CanPlayerBarterWithHero(Hero hero)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player barter with hero`。
 
 ### InitializeMarriageBarterContext
-```csharp
-public bool InitializeMarriageBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeMarriageBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**用途 / Purpose:** 初始化 `marriage barter context` 的状态、资源或绑定。
 
 ### InitializeJoinFactionBarterContext
-```csharp
-public bool InitializeJoinFactionBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeJoinFactionBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**用途 / Purpose:** 初始化 `join faction barter context` 的状态、资源或绑定。
 
 ### InitializeMakePeaceBarterContext
-```csharp
-public bool InitializeMakePeaceBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeMakePeaceBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**用途 / Purpose:** 初始化 `make peace barter context` 的状态、资源或绑定。
 
 ### InitializeSafePassageBarterContext
-```csharp
-public bool InitializeSafePassageBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeSafePassageBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**用途 / Purpose:** 初始化 `safe passage barter context` 的状态、资源或绑定。
 
 ### BarterContextInitializer
-```csharp
-public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)
-```
+`public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)`
+
+**用途 / Purpose:** 处理 `barter context initializer` 相关逻辑。
 
 ### BarterCloseEventDelegate
-```csharp
-public delegate void BarterCloseEventDelegate()
-```
+`public delegate void BarterCloseEventDelegate()`
+
+**用途 / Purpose:** 处理 `barter close event delegate` 相关逻辑。
 
 ### BarterBeginEventDelegate
-```csharp
-public delegate void BarterBeginEventDelegate(BarterData args)
-```
+`public delegate void BarterBeginEventDelegate(BarterData args)`
+
+**用途 / Purpose:** 处理 `barter begin event delegate` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// BarterManager (Manager) 的典型用法
-BarterManager.Current;
+var manager = BarterManager.Current;
 ```
 
 ## 参见

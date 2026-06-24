@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultMapTrackModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMapTrackModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultMapTrackModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultMapTrackModel>(new MyDefaultMapTrackModel())` 注册，以改变其计算逻辑。
+`DefaultMapTrackModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultMapTrackModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,59 +30,58 @@
 ## 主要方法
 
 ### GetMaxTrackSpottingDistanceForMainParty
-```csharp
-public override float GetMaxTrackSpottingDistanceForMainParty()
-```
+`public override float GetMaxTrackSpottingDistanceForMainParty()`
+
+**用途 / Purpose:** 获取 `max track spotting distance for main party` 的当前值。
 
 ### CanPartyLeaveTrack
-```csharp
-public override bool CanPartyLeaveTrack(MobileParty mobileParty)
-```
+`public override bool CanPartyLeaveTrack(MobileParty mobileParty)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `party leave track`。
 
 ### GetTrackLife
-```csharp
-public override int GetTrackLife(MobileParty mobileParty)
-```
+`public override int GetTrackLife(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `track life` 的当前值。
 
 ### GetTrackDetectionDifficultyForMainParty
-```csharp
-public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)
-```
+`public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
+
+**用途 / Purpose:** 获取 `track detection difficulty for main party` 的当前值。
 
 ### GetSkillFromTrackDetected
-```csharp
-public override float GetSkillFromTrackDetected(Track track)
-```
+`public override float GetSkillFromTrackDetected(Track track)`
+
+**用途 / Purpose:** 获取 `skill from track detected` 的当前值。
 
 ### GetSkipTrackChance
-```csharp
-public override float GetSkipTrackChance(MobileParty mobileParty)
-```
+`public override float GetSkipTrackChance(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `skip track chance` 的当前值。
 
 ### TrackTitle
-```csharp
-public override TextObject TrackTitle(Track track)
-```
+`public override TextObject TrackTitle(Track track)`
+
+**用途 / Purpose:** 处理 `track title` 相关逻辑。
 
 ### GetTrackDescription
-```csharp
-public override IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)
-```
+`public override IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)`
+
+**用途 / Purpose:** 获取 `track description` 的当前值。
 
 ### GetTrackColor
-```csharp
-public override uint GetTrackColor(Track track)
-```
+`public override uint GetTrackColor(Track track)`
+
+**用途 / Purpose:** 获取 `track color` 的当前值。
 
 ### GetTrackScale
-```csharp
-public override float GetTrackScale(Track track)
-```
+`public override float GetTrackScale(Track track)`
+
+**用途 / Purpose:** 获取 `track scale` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultMapTrackModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultMapTrackModel>(new MyDefaultMapTrackModel());
 ```
 

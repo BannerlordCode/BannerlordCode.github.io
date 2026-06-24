@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultTroopSupplierProbabilityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultTroopSupplierProbabilityModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultTroopSupplierProbabilityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultTroopSupplierProbabilityModel>(new MyDefaultTroopSupplierProbabilityModel())` to change how it computes.
+`DefaultTroopSupplierProbabilityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultTroopSupplierProbabilityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
-```csharp
-public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)
-```
+`public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
+
+**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultTroopSupplierProbabilityModel (Model)
 Game.Current.ReplaceModel<DefaultTroopSupplierProbabilityModel>(new MyDefaultTroopSupplierProbabilityModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPersuasionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPersuasionModel
@@ -14,49 +15,52 @@
 
 ## Overview
 
-`DefaultPersuasionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPersuasionModel>(new MyDefaultPersuasionModel())` to change how it computes.
+`DefaultPersuasionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPersuasionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSkillXpFromPersuasion
-```csharp
-public override int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)
-```
+`public override int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
+
+**Purpose:** Gets the current value of `skill xp from persuasion`.
 
 ### GetChances
-```csharp
-public override void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)
-```
+`public override void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
+
+**Purpose:** Gets the current value of `chances`.
 
 ### GetEffectChances
-```csharp
-public override void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)
-```
+`public override void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
+
+**Purpose:** Gets the current value of `effect chances`.
 
 ### GetArgumentStrengthBasedOnTargetTraits
-```csharp
-public override PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelations)
-```
+`public override PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelations)`
+
+**Purpose:** Gets the current value of `argument strength based on target traits`.
 
 ### CalculateInitialPersuasionProgress
-```csharp
-public override float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)
-```
+`public override float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
+
+**Purpose:** Handles logic related to `calculate initial persuasion progress`.
 
 ### CalculatePersuasionGoalValue
-```csharp
-public override float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)
-```
+`public override float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
+
+**Purpose:** Handles logic related to `calculate persuasion goal value`.
 
 ### GetDifficulty
-```csharp
-public override float GetDifficulty(PersuasionDifficulty difficulty)
-```
+`public override float GetDifficulty(PersuasionDifficulty difficulty)`
+
+**Purpose:** Gets the current value of `difficulty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPersuasionModel (Model)
 Game.Current.ReplaceModel<DefaultPersuasionModel>(new MyDefaultPersuasionModel());
 ```
 

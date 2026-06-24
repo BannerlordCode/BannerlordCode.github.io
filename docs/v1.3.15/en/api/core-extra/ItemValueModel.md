@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ItemValueModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemValueModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`ItemValueModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ItemValueModel>(new MyItemValueModel())` to change how it computes.
+`ItemValueModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ItemValueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetEquipmentValueFromTier
-```csharp
-public abstract float GetEquipmentValueFromTier(float itemTierf)
-```
+`public abstract float GetEquipmentValueFromTier(float itemTierf)`
+
+**Purpose:** Gets the current value of `equipment value from tier`.
 
 ### CalculateTier
-```csharp
-public abstract float CalculateTier(ItemObject item)
-```
+`public abstract float CalculateTier(ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate tier`.
 
 ### CalculateValue
-```csharp
-public abstract int CalculateValue(ItemObject item)
-```
+`public abstract int CalculateValue(ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate value`.
 
 ### GetIsTransferable
-```csharp
-public abstract bool GetIsTransferable(ItemObject item)
-```
+`public abstract bool GetIsTransferable(ItemObject item)`
+
+**Purpose:** Gets the current value of `is transferable`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ItemValueModel (Model)
-Game.Current.ReplaceModel<ItemValueModel>(new MyItemValueModel());
+var implementation = new CustomItemValueModel();
 ```
 
 ## See Also

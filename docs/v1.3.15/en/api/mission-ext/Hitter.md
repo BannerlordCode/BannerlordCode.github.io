@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `Hitter`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Hitter
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class Hitter`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Hitter` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Hitter` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,127 +45,114 @@
 | `AverageVelocity` | `public Vec3 AverageVelocity { get; }` |
 | `MovementDirectionAsAngle` | `public float MovementDirectionAsAngle { get; }` |
 
-
 ## Key Methods
 
 ### GetHasOnAiInputSetCallback
+`public bool GetHasOnAiInputSetCallback()`
 
-```csharp
-public bool GetHasOnAiInputSetCallback()
-```
+**Purpose:** Gets the current value of `has on ai input set callback`.
 
 ### SetHasOnAiInputSetCallback
+`public void SetHasOnAiInputSetCallback(bool value)`
 
-```csharp
-public void SetHasOnAiInputSetCallback(bool value)
-```
+**Purpose:** Sets the value or state of `has on ai input set callback`.
 
 ### GetMissileRangeWithHeightDifferenceAux
+`public float GetMissileRangeWithHeightDifferenceAux(float targetZ)`
 
-```csharp
-public float GetMissileRangeWithHeightDifferenceAux(float targetZ)
-```
+**Purpose:** Gets the current value of `missile range with height difference aux`.
 
 ### GetSoundAndCollisionInfoClassName
+`public string GetSoundAndCollisionInfoClassName()`
 
-```csharp
-public string GetSoundAndCollisionInfoClassName()
-```
+**Purpose:** Gets the current value of `sound and collision info class name`.
 
 ### UpdateAgentStats
+`public void UpdateAgentStats()`
 
-```csharp
-public void UpdateAgentStats()
-```
+**Purpose:** Updates the state or data of `agent stats`.
 
 ### GetWeaponInaccuracy
+`public float GetWeaponInaccuracy(EquipmentIndex weaponSlotIndex, int weaponUsageIndex)`
 
-```csharp
-public float GetWeaponInaccuracy(EquipmentIndex weaponSlotIndex, int weaponUsageIndex)
-```
+**Purpose:** Gets the current value of `weapon inaccuracy`.
 
 ### DebugGetHealth
+`public float DebugGetHealth()`
 
-```csharp
-public float DebugGetHealth()
-```
+**Purpose:** Handles logic related to `debug get health`.
 
 ### SetTargetPosition
+`public void SetTargetPosition(Vec2 value)`
 
-```csharp
-public void SetTargetPosition(Vec2 value)
-```
+**Purpose:** Sets the value or state of `target position`.
 
 ### SetTargetZ
+`public void SetTargetZ(float targetZ)`
 
-```csharp
-public void SetTargetZ(float targetZ)
-```
+**Purpose:** Sets the value or state of `target z`.
 
 ### SetTargetUp
+`public void SetTargetUp(in Vec3 targetUp)`
 
-```csharp
-public void SetTargetUp(in Vec3 targetUp)
-```
+**Purpose:** Sets the value or state of `target up`.
 
 ### SetCanLeadFormationsRemotely
+`public void SetCanLeadFormationsRemotely(bool value)`
 
-```csharp
-public void SetCanLeadFormationsRemotely(bool value)
-```
+**Purpose:** Sets the value or state of `can lead formations remotely`.
 
 ### SetAveragePingInMilliseconds
+`public void SetAveragePingInMilliseconds(double averagePingInMilliseconds)`
 
-```csharp
-public void SetAveragePingInMilliseconds(double averagePingInMilliseconds)
-```
+**Purpose:** Sets the value or state of `average ping in milliseconds`.
 
 ### SetTargetPositionAndDirection
+`public void SetTargetPositionAndDirection(in Vec2 targetPosition, in Vec3 targetDirection)`
 
-```csharp
-public void SetTargetPositionAndDirection(in Vec2 targetPosition, in Vec3 targetDirection)
-```
+**Purpose:** Sets the value or state of `target position and direction`.
 
 ### AddAcceleration
+`public void AddAcceleration(in Vec3 acceleration)`
 
-```csharp
-public void AddAcceleration(in Vec3 acceleration)
-```
+**Purpose:** Adds `acceleration` to the current collection or state.
 
 ### SetWeaponGuard
+`public void SetWeaponGuard(Agent.UsageDirection direction)`
 
-```csharp
-public void SetWeaponGuard(Agent.UsageDirection direction)
-```
+**Purpose:** Sets the value or state of `weapon guard`.
 
 ### SetWatchState
+`public void SetWatchState(Agent.WatchState watchState)`
 
-```csharp
-public void SetWatchState(Agent.WatchState watchState)
-```
+**Purpose:** Sets the value or state of `watch state`.
 
 ### IsAlarmStateNormal
+`public bool IsAlarmStateNormal()`
 
-```csharp
-public bool IsAlarmStateNormal()
-```
+**Purpose:** Handles logic related to `is alarm state normal`.
 
 ### IsCautious
+`public bool IsCautious()`
 
-```csharp
-public bool IsCautious()
-```
+**Purpose:** Handles logic related to `is cautious`.
 
 ### IsPatrollingCautious
+`public bool IsPatrollingCautious()`
 
-```csharp
-public bool IsPatrollingCautious()
-```
+**Purpose:** Handles logic related to `is patrolling cautious`.
 
 ### IsAlarmed
+`public bool IsAlarmed()`
+
+**Purpose:** Handles logic related to `is alarmed`.
+
+## Usage Example
 
 ```csharp
-public bool IsAlarmed()
+// First obtain a Hitter instance from game state, then call one of its public methods
+var value = new Hitter();
+value.GetHasOnAiInputSetCallback();
 ```
 
 ## See Also

@@ -2,73 +2,74 @@
 **首页** → **API 目录** → **本领域** → `ClientWebSocketHandler`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClientWebSocketHandler
 
-**命名空间:** TaleWorlds.Network
-**模块:** TaleWorlds.Network
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.Network
+**Module:** TaleWorlds.Network
+**Type:** `public class ClientWebSocketHandler`
+**Base:** 无
+**File:** `TaleWorlds.Network/ClientWebSocketHandler.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ClientWebSocketHandler` 是 `TaleWorlds.Network` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ClientWebSocketHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `ClientWebSocketHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `IsConnected` | `public bool IsConnected { get; }` |
 
-
 ## 主要方法
 
 ### Connect
+`public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
 
-```csharp
-public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)
-```
+**用途 / Purpose:** 处理 `connect` 相关逻辑。
 
 ### Disconnect
+`public Task Disconnect(string reason, bool onDisconnectCommand)`
 
-```csharp
-public Task Disconnect(string reason, bool onDisconnectCommand)
-```
+**用途 / Purpose:** 处理 `disconnect` 相关逻辑。
 
 ### SendTextMessage
+`public void SendTextMessage(string postBoxId, string text)`
 
-```csharp
-public void SendTextMessage(string postBoxId, string text)
-```
+**用途 / Purpose:** 处理 `send text message` 相关逻辑。
 
 ### MessageReceivedDelegate
+`public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
 
-```csharp
-public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)
-```
+**用途 / Purpose:** 处理 `message received delegate` 相关逻辑。
 
 ### OnErrorDelegate
+`public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)`
 
-```csharp
-public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)
-```
+**用途 / Purpose:** 当 `error delegate` 事件触发时调用此方法。
 
 ### DisconnectedDelegate
+`public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)`
 
-```csharp
-public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)
-```
+**用途 / Purpose:** 处理 `disconnected delegate` 相关逻辑。
 
 ### ConnectedDelegate
+`public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)`
+
+**用途 / Purpose:** 处理 `connected delegate` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)
+Mission.Current.AddMissionBehavior(new ClientWebSocketHandler());
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

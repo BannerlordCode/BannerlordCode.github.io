@@ -2,144 +2,134 @@
 **首页** → **API 目录** → **本领域** → `NetworkMessage`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NetworkMessage
 
-**命名空间:** TaleWorlds.Network
-**模块:** TaleWorlds.Network
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.Network
+**Module:** TaleWorlds.Network
+**Type:** `public class NetworkMessage : INetworkMessageWriter, INetworkMessageReader`
+**Base:** `INetworkMessageWriter`
+**File:** `TaleWorlds.Network/NetworkMessage.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`NetworkMessage` 是 `TaleWorlds.Network` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`NetworkMessage` 位于 `TaleWorlds.Network`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Network` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### Write
+`public void Write(string data)`
 
-```csharp
-public void Write(string data)
-```
-
-### Write
-
-```csharp
-public void Write(int data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### Write
+`public void Write(int data)`
 
-```csharp
-public void Write(short data)
-```
-
-### Write
-
-```csharp
-public void Write(bool data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### Write
+`public void Write(short data)`
 
-```csharp
-public void Write(byte data)
-```
-
-### Write
-
-```csharp
-public void Write(float data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### Write
+`public void Write(bool data)`
 
-```csharp
-public void Write(long data)
-```
-
-### Write
-
-```csharp
-public void Write(ulong data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### Write
+`public void Write(byte data)`
 
-```csharp
-public void Write(Guid data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### Write
+`public void Write(float data)`
 
-```csharp
-public void Write(byte data)
-```
+**用途 / Purpose:** 处理 `write` 相关逻辑。
+
+### Write
+`public void Write(long data)`
+
+**用途 / Purpose:** 处理 `write` 相关逻辑。
+
+### Write
+`public void Write(ulong data)`
+
+**用途 / Purpose:** 处理 `write` 相关逻辑。
+
+### Write
+`public void Write(Guid data)`
+
+**用途 / Purpose:** 处理 `write` 相关逻辑。
+
+### Write
+`public void Write(byte data)`
+
+**用途 / Purpose:** 处理 `write` 相关逻辑。
 
 ### ReadInt32
+`public int ReadInt32()`
 
-```csharp
-public int ReadInt32()
-```
+**用途 / Purpose:** 处理 `read int32` 相关逻辑。
 
 ### ReadInt16
+`public short ReadInt16()`
 
-```csharp
-public short ReadInt16()
-```
+**用途 / Purpose:** 处理 `read int16` 相关逻辑。
 
 ### ReadBoolean
+`public bool ReadBoolean()`
 
-```csharp
-public bool ReadBoolean()
-```
+**用途 / Purpose:** 处理 `read boolean` 相关逻辑。
 
 ### ReadByte
+`public byte ReadByte()`
 
-```csharp
-public byte ReadByte()
-```
+**用途 / Purpose:** 处理 `read byte` 相关逻辑。
 
 ### ReadString
+`public string ReadString()`
 
-```csharp
-public string ReadString()
-```
+**用途 / Purpose:** 处理 `read string` 相关逻辑。
 
 ### ReadFloat
+`public float ReadFloat()`
 
-```csharp
-public float ReadFloat()
-```
+**用途 / Purpose:** 处理 `read float` 相关逻辑。
 
 ### ReadInt64
+`public long ReadInt64()`
 
-```csharp
-public long ReadInt64()
-```
+**用途 / Purpose:** 处理 `read int64` 相关逻辑。
 
 ### ReadUInt64
+`public ulong ReadUInt64()`
 
-```csharp
-public ulong ReadUInt64()
-```
+**用途 / Purpose:** 处理 `read u int64` 相关逻辑。
 
 ### ReadGuid
+`public Guid ReadGuid()`
 
-```csharp
-public Guid ReadGuid()
-```
+**用途 / Purpose:** 处理 `read guid` 相关逻辑。
 
 ### ReadByteArray
+`public byte ReadByteArray()`
+
+**用途 / Purpose:** 处理 `read byte array` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public byte ReadByteArray()
+var value = new NetworkMessage();
+value.Write("example");
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

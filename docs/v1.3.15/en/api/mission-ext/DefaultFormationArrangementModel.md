@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultFormationArrangementModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultFormationArrangementModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultFormationArrangementModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultFormationArrangementModel>(new MyDefaultFormationArrangementModel())` to change how it computes.
+`DefaultFormationArrangementModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultFormationArrangementModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBannerBearerPositions
-```csharp
-public override List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)
-```
+`public override List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
+
+**Purpose:** Gets the current value of `banner bearer positions`.
 
 ### GetArrangementPosition
-```csharp
-public FormationArrangementModel.ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)
-```
+`public FormationArrangementModel.ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
+
+**Purpose:** Gets the current value of `arrangement position`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultFormationArrangementModel (Model)
 Game.Current.ReplaceModel<DefaultFormationArrangementModel>(new MyDefaultFormationArrangementModel());
 ```
 

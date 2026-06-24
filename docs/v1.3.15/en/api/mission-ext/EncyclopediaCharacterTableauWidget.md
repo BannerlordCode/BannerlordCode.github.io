@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncyclopediaCharacterTableauWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaCharacterTableauWidget
@@ -16,6 +17,10 @@
 
 `EncyclopediaCharacterTableauWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `EncyclopediaCharacterTableauWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -25,9 +30,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of EncyclopediaCharacterTableauWidget (Widget)
-// 声明/访问一个 EncyclopediaCharacterTableauWidget
-var widget = root.GetChild("encyclopediaCharacterTableauWidget");;
+var widget = new EncyclopediaCharacterTableauWidget(context);
 ```
 
 ## See Also

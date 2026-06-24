@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SpawnerEntityEditorHelper`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpawnerEntityEditorHelper
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SpawnerEntityEditorHelper` is a static utility class providing helper methods.
+`SpawnerEntityEditorHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `SpawnerEntityEditorHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,45 +31,44 @@
 ## Key Methods
 
 ### GetGhostEntityOrChild
-```csharp
-public GameEntity GetGhostEntityOrChild(string name)
-```
+`public GameEntity GetGhostEntityOrChild(string name)`
+
+**Purpose:** Gets the current value of `ghost entity or child`.
 
 ### Tick
-```csharp
-public void Tick(float dt)
-```
+`public void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
 
 ### GivePermission
-```csharp
-public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)
-```
+`public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)`
+
+**Purpose:** Handles logic related to `give permission`.
 
 ### ChangeStableChildMatrixFrameAndApply
-```csharp
-public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)
-```
+`public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
+
+**Purpose:** Handles logic related to `change stable child matrix frame and apply`.
 
 ### GetPrefabName
-```csharp
-public string GetPrefabName()
-```
+`public string GetPrefabName()`
+
+**Purpose:** Gets the current value of `prefab name`.
 
 ### SetupGhostMovement
-```csharp
-public void SetupGhostMovement(string pathName)
-```
+`public void SetupGhostMovement(string pathName)`
+
+**Purpose:** Sets the value or state of `up ghost movement`.
 
 ### SetEnableAutoGhostMovement
-```csharp
-public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)
-```
+`public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)`
+
+**Purpose:** Sets the value or state of `enable auto ghost movement`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SpawnerEntityEditorHelper (Helper)
-SpawnerEntityEditorHelper./* static helper method */();;
+SpawnerEntityEditorHelper.Initialize();
 ```
 
 ## See Also

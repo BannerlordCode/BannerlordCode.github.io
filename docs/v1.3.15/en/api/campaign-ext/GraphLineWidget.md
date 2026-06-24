@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GraphLineWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GraphLineWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets.Graph
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GraphLineWidget : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.GauntletUI.ExtraWidgets/Graph/GraphLineWidget.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GraphLineWidget` is a class in the `TaleWorlds.GauntletUI.ExtraWidgets.Graph` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GraphLineWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `GraphLineWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -24,7 +28,12 @@
 | `LineBrushStateName` | `public string LineBrushStateName { get; set; }` |
 | `PointContainerWidget` | `public Widget PointContainerWidget { get; set; }` |
 
+## Usage Example
+
+```csharp
+var widget = new GraphLineWidget(context);
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

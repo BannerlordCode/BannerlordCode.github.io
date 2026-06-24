@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClassLoadoutTroopTupleCultureColorBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClassLoadoutTroopTupleCultureColorBrushWidget
@@ -16,6 +17,10 @@
 
 `ClassLoadoutTroopTupleCultureColorBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ClassLoadoutTroopTupleCultureColorBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -25,9 +30,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of ClassLoadoutTroopTupleCultureColorBrushWidget (Widget)
-// 声明/访问一个 ClassLoadoutTroopTupleCultureColorBrushWidget
-var widget = root.GetChild("classLoadoutTroopTupleCultureColorBrushWidget");;
+var widget = new ClassLoadoutTroopTupleCultureColorBrushWidget(context);
 ```
 
 ## See Also

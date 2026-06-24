@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AgentStatCalculateModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentStatCalculateModel
@@ -14,154 +15,158 @@
 
 ## Overview
 
-> TODO: add this class's responsibility and typical use-cases from a developer perspective.
+`AgentStatCalculateModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `AgentStatCalculateModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### InitializeAgentStats
-```csharp
-public abstract void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)
-```
+`public abstract void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
+
+**Purpose:** Initializes the state, resources, or bindings for `agent stats`.
 
 ### InitializeMissionEquipment
-```csharp
-public virtual void InitializeMissionEquipment(Agent agent)
-```
+`public virtual void InitializeMissionEquipment(Agent agent)`
+
+**Purpose:** Initializes the state, resources, or bindings for `mission equipment`.
 
 ### InitializeAgentStatsAfterDeploymentFinished
-```csharp
-public virtual void InitializeAgentStatsAfterDeploymentFinished(Agent agent)
-```
+`public virtual void InitializeAgentStatsAfterDeploymentFinished(Agent agent)`
+
+**Purpose:** Initializes the state, resources, or bindings for `agent stats after deployment finished`.
 
 ### InitializeMissionEquipmentAfterDeploymentFinished
-```csharp
-public virtual void InitializeMissionEquipmentAfterDeploymentFinished(Agent agent)
-```
+`public virtual void InitializeMissionEquipmentAfterDeploymentFinished(Agent agent)`
+
+**Purpose:** Initializes the state, resources, or bindings for `mission equipment after deployment finished`.
 
 ### UpdateAgentStats
-```csharp
-public abstract void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)
-```
+`public abstract void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
+
+**Purpose:** Updates the state or data of `agent stats`.
 
 ### GetDifficultyModifier
-```csharp
-public abstract float GetDifficultyModifier()
-```
+`public abstract float GetDifficultyModifier()`
+
+**Purpose:** Gets the current value of `difficulty modifier`.
 
 ### CanAgentRideMount
-```csharp
-public abstract bool CanAgentRideMount(Agent agent, Agent targetMount)
-```
+`public abstract bool CanAgentRideMount(Agent agent, Agent targetMount)`
+
+**Purpose:** Checks whether the current object can `agent ride mount`.
 
 ### HasHeavyArmor
-```csharp
-public virtual bool HasHeavyArmor(Agent agent)
-```
+`public virtual bool HasHeavyArmor(Agent agent)`
+
+**Purpose:** Checks whether the current object has/contains `heavy armor`.
 
 ### GetEffectiveArmorEncumbrance
-```csharp
-public virtual float GetEffectiveArmorEncumbrance(Agent agent, Equipment equipment)
-```
+`public virtual float GetEffectiveArmorEncumbrance(Agent agent, Equipment equipment)`
+
+**Purpose:** Gets the current value of `effective armor encumbrance`.
 
 ### GetEffectiveMaxHealth
-```csharp
-public virtual float GetEffectiveMaxHealth(Agent agent)
-```
+`public virtual float GetEffectiveMaxHealth(Agent agent)`
+
+**Purpose:** Gets the current value of `effective max health`.
 
 ### GetEnvironmentSpeedFactor
-```csharp
-public virtual float GetEnvironmentSpeedFactor(Agent agent)
-```
+`public virtual float GetEnvironmentSpeedFactor(Agent agent)`
+
+**Purpose:** Gets the current value of `environment speed factor`.
 
 ### CalculateAIAttackOnDecideMaxValue
-```csharp
-public float CalculateAIAttackOnDecideMaxValue()
-```
+`public float CalculateAIAttackOnDecideMaxValue()`
+
+**Purpose:** Handles logic related to `calculate a i attack on decide max value`.
 
 ### GetWeaponInaccuracy
-```csharp
-public virtual float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)
-```
+`public virtual float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
+
+**Purpose:** Gets the current value of `weapon inaccuracy`.
 
 ### GetDetachmentCostMultiplierOfAgent
-```csharp
-public virtual float GetDetachmentCostMultiplierOfAgent(Agent agent, IDetachment detachment)
-```
+`public virtual float GetDetachmentCostMultiplierOfAgent(Agent agent, IDetachment detachment)`
+
+**Purpose:** Gets the current value of `detachment cost multiplier of agent`.
 
 ### GetInteractionDistance
-```csharp
-public virtual float GetInteractionDistance(Agent agent)
-```
+`public virtual float GetInteractionDistance(Agent agent)`
+
+**Purpose:** Gets the current value of `interaction distance`.
 
 ### GetMaxCameraZoom
-```csharp
-public virtual float GetMaxCameraZoom(Agent agent)
-```
+`public virtual float GetMaxCameraZoom(Agent agent)`
+
+**Purpose:** Gets the current value of `max camera zoom`.
 
 ### GetEffectiveSkill
-```csharp
-public virtual int GetEffectiveSkill(Agent agent, SkillObject skill)
-```
+`public virtual int GetEffectiveSkill(Agent agent, SkillObject skill)`
+
+**Purpose:** Gets the current value of `effective skill`.
 
 ### GetEffectiveSkillForWeapon
-```csharp
-public virtual int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)
-```
+`public virtual int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)`
+
+**Purpose:** Gets the current value of `effective skill for weapon`.
 
 ### GetWeaponDamageMultiplier
-```csharp
-public abstract float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)
-```
+`public abstract float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
+
+**Purpose:** Gets the current value of `weapon damage multiplier`.
 
 ### GetEquipmentStealthBonus
-```csharp
-public abstract float GetEquipmentStealthBonus(Agent agent)
-```
+`public abstract float GetEquipmentStealthBonus(Agent agent)`
+
+**Purpose:** Gets the current value of `equipment stealth bonus`.
 
 ### GetSneakAttackMultiplier
-```csharp
-public abstract float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)
-```
+`public abstract float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
+
+**Purpose:** Gets the current value of `sneak attack multiplier`.
 
 ### GetKnockBackResistance
-```csharp
-public abstract float GetKnockBackResistance(Agent agent)
-```
+`public abstract float GetKnockBackResistance(Agent agent)`
+
+**Purpose:** Gets the current value of `knock back resistance`.
 
 ### GetKnockDownResistance
-```csharp
-public abstract float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)
-```
+`public abstract float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
+
+**Purpose:** Gets the current value of `knock down resistance`.
 
 ### GetDismountResistance
-```csharp
-public abstract float GetDismountResistance(Agent agent)
-```
+`public abstract float GetDismountResistance(Agent agent)`
+
+**Purpose:** Gets the current value of `dismount resistance`.
 
 ### GetBreatheHoldMaxDuration
-```csharp
-public abstract float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)
-```
+`public abstract float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
+
+**Purpose:** Gets the current value of `breathe hold max duration`.
 
 ### GetMissionDebugInfoForAgent
-```csharp
-public virtual string GetMissionDebugInfoForAgent(Agent agent)
-```
+`public virtual string GetMissionDebugInfoForAgent(Agent agent)`
+
+**Purpose:** Gets the current value of `mission debug info for agent`.
 
 ### ResetAILevelMultiplier
-```csharp
-public void ResetAILevelMultiplier()
-```
+`public void ResetAILevelMultiplier()`
+
+**Purpose:** Resets `a i level multiplier` to its initial state.
 
 ### SetAILevelMultiplier
-```csharp
-public void SetAILevelMultiplier(float multiplier)
-```
+`public void SetAILevelMultiplier(float multiplier)`
+
+**Purpose:** Sets the value or state of `a i level multiplier`.
 
 ## Usage Example
 
 ```csharp
-// TODO: add a typical use-case
+var implementation = new CustomAgentStatCalculateModel();
 ```
 
 ## See Also

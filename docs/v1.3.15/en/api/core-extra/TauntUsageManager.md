@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TauntUsageManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TauntUsageManager
@@ -14,97 +15,100 @@
 
 ## Overview
 
-`TauntUsageManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`TauntUsageManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `TauntUsageManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `Instance` | `public static TauntUsageManager Instance { get { if (TauntUsageManager._instance == null) { TauntUsageManager._instance = TauntUsageManager.Initialize(); }` |
+| `Instance` | `public static TauntUsageManager Instance { get; }` |
 | `UsageFlag` | `public TauntUsageManager.TauntUsage.TauntUsageFlag UsageFlag { get; }` |
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public static TauntUsageManager Initialize()
-```
+`public static TauntUsageManager Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Read
-```csharp
-public void Read()
-```
+`public void Read()`
+
+**Purpose:** Handles logic related to `read`.
 
 ### GetUsageSet
-```csharp
-public TauntUsageManager.TauntUsageSet GetUsageSet(string id)
-```
+`public TauntUsageManager.TauntUsageSet GetUsageSet(string id)`
+
+**Purpose:** Gets the current value of `usage set`.
 
 ### GetAction
-```csharp
-public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**Purpose:** Gets the current value of `action`.
 
 ### GetActionDisabledReasonText
-```csharp
-public static string GetActionDisabledReasonText(TauntUsageManager.TauntUsage.TauntUsageFlag disabledReasonFlag)
-```
+`public static string GetActionDisabledReasonText(TauntUsageManager.TauntUsage.TauntUsageFlag disabledReasonFlag)`
+
+**Purpose:** Gets the current value of `action disabled reason text`.
 
 ### GetIsActionNotSuitableReason
-```csharp
-public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**Purpose:** Gets the current value of `is action not suitable reason`.
 
 ### GetTauntItemCount
-```csharp
-public int GetTauntItemCount()
-```
+`public int GetTauntItemCount()`
+
+**Purpose:** Gets the current value of `taunt item count`.
 
 ### GetIndexOfAction
-```csharp
-public int GetIndexOfAction(string id)
-```
+`public int GetIndexOfAction(string id)`
+
+**Purpose:** Gets the current value of `index of action`.
 
 ### GetDefaultAction
-```csharp
-public string GetDefaultAction(int index)
-```
+`public string GetDefaultAction(int index)`
+
+**Purpose:** Gets the current value of `default action`.
 
 ### Compare
-```csharp
-public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)
-```
+`public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)`
+
+**Purpose:** Handles logic related to `compare`.
 
 ### AddUsage
-```csharp
-public void AddUsage(TauntUsageManager.TauntUsage usage)
-```
+`public void AddUsage(TauntUsageManager.TauntUsage usage)`
+
+**Purpose:** Adds `usage` to the current collection or state.
 
 ### GetUsages
-```csharp
-public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()
-```
+`public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()`
+
+**Purpose:** Gets the current value of `usages`.
 
 ### IsSuitable
-```csharp
-public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**Purpose:** Handles logic related to `is suitable`.
 
 ### GetIsNotSuitableReason
-```csharp
-public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**Purpose:** Gets the current value of `is not suitable reason`.
 
 ### GetAction
-```csharp
-public string GetAction()
-```
+`public string GetAction()`
+
+**Purpose:** Gets the current value of `action`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TauntUsageManager (Manager)
-TauntUsageManager.Current;
+var manager = TauntUsageManager.Current;
 ```
 
 ## See Also

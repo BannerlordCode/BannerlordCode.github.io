@@ -5,6 +5,10 @@ description: TaleWorlds.SaveSystem save management / Save management
 
 # Save-System / Save-System 存档系统
 
+## Mental Model
+
+Treat `Save-System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 Save system module documentation.
 
 存档系统模块文档。

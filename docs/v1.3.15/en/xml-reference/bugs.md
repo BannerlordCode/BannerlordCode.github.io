@@ -1,5 +1,9 @@
 # XML Parsing Bug Analysis Report
 
+## Mental Model
+
+Treat `XML Parsing Bug Analysis Report` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 > Version: Bannerlord v1.3.15  
 > Analysis Scope: TaleWorlds.ObjectSystem
 
@@ -413,3 +417,9 @@ Program crash
 2. **Silent `catch (Exception)` blocks should at least log the exception**
 3. **ValidationEventHandler should consider throwing exception to block invalid XML loading**
 4. **Add more detailed error context** (file path, line number, node name, etc.)
+
+## Usage Example
+
+```csharp
+var example = new XML Parsing Bug Analysis Report();
+```

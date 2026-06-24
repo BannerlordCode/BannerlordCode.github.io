@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionHintLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionHintLogic
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MissionHintLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new MissionHintLogic())`; subclass it to customize.
+`MissionHintLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `MissionHintLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,24 +30,23 @@
 ## Key Methods
 
 ### SetActiveHint
-```csharp
-public void SetActiveHint(MissionHint hint)
-```
+`public void SetActiveHint(MissionHint hint)`
+
+**Purpose:** Sets the value or state of `active hint`.
 
 ### Clear
-```csharp
-public void Clear()
-```
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
 
 ### MissionHintChangedDelegate
-```csharp
-public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)
-```
+`public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
+
+**Purpose:** Handles logic related to `mission hint changed delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionHintLogic (Logic)
 Mission.Current.AddMissionBehavior(new MissionHintLogic());
 ```
 

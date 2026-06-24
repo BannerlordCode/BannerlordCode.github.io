@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 工具函数和辅助类参考
 
 # 工具函数 / Utilities
 
+## 心智模型
+
+先把 `工具函数` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 工具模块包含字符串处理、数学运算、日志系统等辅助功能。
@@ -338,4 +342,10 @@ rglDev_config::vftable
 
 ```cpp
 rglUser_config::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 工具函数();
 ```

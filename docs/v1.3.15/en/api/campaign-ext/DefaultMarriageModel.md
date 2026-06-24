@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMarriageModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMarriageModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultMarriageModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMarriageModel>(new MyDefaultMarriageModel())` to change how it computes.
+`DefaultMarriageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMarriageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,49 +31,48 @@
 ## Key Methods
 
 ### IsCoupleSuitableForMarriage
-```csharp
-public override bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)
-```
+`public override bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Handles logic related to `is couple suitable for marriage`.
 
 ### IsClanSuitableForMarriage
-```csharp
-public override bool IsClanSuitableForMarriage(Clan clan)
-```
+`public override bool IsClanSuitableForMarriage(Clan clan)`
+
+**Purpose:** Handles logic related to `is clan suitable for marriage`.
 
 ### NpcCoupleMarriageChance
-```csharp
-public override float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)
-```
+`public override float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Handles logic related to `npc couple marriage chance`.
 
 ### ShouldNpcMarriageBetweenClansBeAllowed
-```csharp
-public override bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)
-```
+`public override bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
+
+**Purpose:** Handles logic related to `should npc marriage between clans be allowed`.
 
 ### GetAdultChildrenSuitableForMarriage
-```csharp
-public override List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)
-```
+`public override List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
+
+**Purpose:** Gets the current value of `adult children suitable for marriage`.
 
 ### GetEffectiveRelationIncrease
-```csharp
-public override int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)
-```
+`public override int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Gets the current value of `effective relation increase`.
 
 ### IsSuitableForMarriage
-```csharp
-public override bool IsSuitableForMarriage(Hero maidenOrSuitor)
-```
+`public override bool IsSuitableForMarriage(Hero maidenOrSuitor)`
+
+**Purpose:** Handles logic related to `is suitable for marriage`.
 
 ### GetClanAfterMarriage
-```csharp
-public override Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)
-```
+`public override Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Gets the current value of `clan after marriage`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMarriageModel (Model)
 Game.Current.ReplaceModel<DefaultMarriageModel>(new MyDefaultMarriageModel());
 ```
 

@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `ProsperityLevel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ProsperityLevel
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** enum
-**Area:** Campaign System
+**Type:** `public enum ProsperityLevel`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ProsperityLevel` is a enum in the `TaleWorlds.CampaignSystem.Settlements` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ProsperityLevel` lives in `TaleWorlds.CampaignSystem.Settlements`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -24,6 +27,12 @@
 | `Low` |
 | `Mid` |
 | `High` |
+
+## Usage Example
+
+```csharp
+ProsperityLevel example = ProsperityLevel.Low;
+```
 
 ## See Also
 

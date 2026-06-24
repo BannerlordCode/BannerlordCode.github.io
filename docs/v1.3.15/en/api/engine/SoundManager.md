@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SoundManager`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SoundManager
@@ -14,165 +15,218 @@
 
 ## Overview
 
-`SoundManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`SoundManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `SoundManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetListenerFrame
-```csharp
-public static void SetListenerFrame(MatrixFrame frame)
-```
+`public static void SetListenerFrame(MatrixFrame frame)`
+
+**Purpose:** Sets the value or state of `listener frame`.
 
 ### SetListenerFrame
-```csharp
-public static void SetListenerFrame(MatrixFrame frame, Vec3 attenuationPosition)
-```
+`public static void SetListenerFrame(MatrixFrame frame, Vec3 attenuationPosition)`
+
+**Purpose:** Sets the value or state of `listener frame`.
 
 ### GetListenerFrame
-```csharp
-public static MatrixFrame GetListenerFrame()
-```
+`public static MatrixFrame GetListenerFrame()`
+
+**Purpose:** Gets the current value of `listener frame`.
 
 ### GetAttenuationPosition
-```csharp
-public static Vec3 GetAttenuationPosition()
-```
+`public static Vec3 GetAttenuationPosition()`
+
+**Purpose:** Gets the current value of `attenuation position`.
 
 ### Reset
-```csharp
-public static void Reset()
-```
+`public static void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ### StartOneShotEvent
-```csharp
-public static bool StartOneShotEvent(string eventFullName, in Vec3 position, string paramName, float paramValue)
-```
+`public static bool StartOneShotEvent(string eventFullName, in Vec3 position, string paramName, float paramValue)`
+
+**Purpose:** Handles logic related to `start one shot event`.
 
 ### StartOneShotEvent
-```csharp
-public static bool StartOneShotEvent(string eventFullName, in Vec3 position)
-```
+`public static bool StartOneShotEvent(string eventFullName, in Vec3 position)`
+
+**Purpose:** Handles logic related to `start one shot event`.
 
 ### StartOneShotEventWithIndex
-```csharp
-public static bool StartOneShotEventWithIndex(int index, in Vec3 position)
-```
+`public static bool StartOneShotEventWithIndex(int index, in Vec3 position)`
+
+**Purpose:** Handles logic related to `start one shot event with index`.
 
 ### SetState
-```csharp
-public static void SetState(string stateGroup, string state)
-```
+`public static void SetState(string stateGroup, string state)`
+
+**Purpose:** Sets the value or state of `state`.
 
 ### CreateEvent
-```csharp
-public static SoundEvent CreateEvent(string eventFullName, Scene scene)
-```
+`public static SoundEvent CreateEvent(string eventFullName, Scene scene)`
+
+**Purpose:** Creates a new `event` instance or object.
 
 ### LoadEventFileAux
-```csharp
-public static void LoadEventFileAux(string soundBank, bool decompressSamples)
-```
+`public static void LoadEventFileAux(string soundBank, bool decompressSamples)`
+
+**Purpose:** Loads `event file aux` data.
 
 ### AddSoundClientWithId
-```csharp
-public static void AddSoundClientWithId(ulong clientId)
-```
+`public static void AddSoundClientWithId(ulong clientId)`
+
+**Purpose:** Adds `sound client with id` to the current collection or state.
 
 ### DeleteSoundClientWithId
-```csharp
-public static void DeleteSoundClientWithId(ulong clientId)
-```
+`public static void DeleteSoundClientWithId(ulong clientId)`
+
+**Purpose:** Handles logic related to `delete sound client with id`.
 
 ### SetGlobalParameter
-```csharp
-public static void SetGlobalParameter(string parameterName, float value)
-```
+`public static void SetGlobalParameter(string parameterName, float value)`
+
+**Purpose:** Sets the value or state of `global parameter`.
 
 ### GetEventGlobalIndex
-```csharp
-public static int GetEventGlobalIndex(string eventFullName)
-```
+`public static int GetEventGlobalIndex(string eventFullName)`
+
+**Purpose:** Gets the current value of `event global index`.
 
 ### PauseBus
-```csharp
-public static void PauseBus(string busName)
-```
+`public static void PauseBus(string busName)`
+
+**Purpose:** Handles logic related to `pause bus`.
 
 ### UnpauseBus
-```csharp
-public static void UnpauseBus(string busName)
-```
+`public static void UnpauseBus(string busName)`
+
+**Purpose:** Handles logic related to `unpause bus`.
 
 ### InitializeVoicePlayEvent
-```csharp
-public static void InitializeVoicePlayEvent()
-```
+`public static void InitializeVoicePlayEvent()`
+
+**Purpose:** Initializes the state, resources, or bindings for `voice play event`.
 
 ### CreateVoiceEvent
-```csharp
-public static void CreateVoiceEvent()
-```
+`public static void CreateVoiceEvent()`
+
+**Purpose:** Creates a new `voice event` instance or object.
 
 ### DestroyVoiceEvent
-```csharp
-public static void DestroyVoiceEvent(int id)
-```
+`public static void DestroyVoiceEvent(int id)`
+
+**Purpose:** Handles logic related to `destroy voice event`.
 
 ### FinalizeVoicePlayEvent
-```csharp
-public static void FinalizeVoicePlayEvent()
-```
+`public static void FinalizeVoicePlayEvent()`
+
+**Purpose:** Handles logic related to `finalize voice play event`.
 
 ### StartVoiceRecording
-```csharp
-public static void StartVoiceRecording()
-```
+`public static void StartVoiceRecording()`
+
+**Purpose:** Handles logic related to `start voice recording`.
 
 ### StopVoiceRecording
-```csharp
-public static void StopVoiceRecording()
-```
+`public static void StopVoiceRecording()`
+
+**Purpose:** Handles logic related to `stop voice recording`.
 
 ### GetVoiceData
-```csharp
-public static void GetVoiceData(byte voiceBuffer, int chunkSize, out int readBytesLength)
-```
+`public static void GetVoiceData(byte voiceBuffer, int chunkSize, out int readBytesLength)`
+
+**Purpose:** Gets the current value of `voice data`.
 
 ### UpdateVoiceToPlay
-```csharp
-public static void UpdateVoiceToPlay(byte voiceBuffer, int length, int index)
-```
+`public static void UpdateVoiceToPlay(byte voiceBuffer, int length, int index)`
+
+**Purpose:** Updates the state or data of `voice to play`.
 
 ### AddXBOXRemoteUser
-```csharp
-public static void AddXBOXRemoteUser(ulong XUID, ulong deviceID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)
-```
+`public static void AddXBOXRemoteUser(ulong XUID, ulong deviceID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
+
+**Purpose:** Adds `x b o x remote user` to the current collection or state.
 
 ### InitializeXBOXSoundManager
-```csharp
-public static void InitializeXBOXSoundManager()
-```
+`public static void InitializeXBOXSoundManager()`
+
+**Purpose:** Initializes the state, resources, or bindings for `x b o x sound manager`.
 
 ### ApplyPushToTalk
-```csharp
-public static void ApplyPushToTalk(bool pushed)
-```
+`public static void ApplyPushToTalk(bool pushed)`
+
+**Purpose:** Applies `push to talk` to the current object.
 
 ### ClearXBOXSoundManager
-```csharp
-public static void ClearXBOXSoundManager()
-```
+`public static void ClearXBOXSoundManager()`
+
+**Purpose:** Handles logic related to `clear x b o x sound manager`.
 
 ### UpdateXBOXLocalUser
-```csharp
-public static void UpdateXBOXLocalUser()
-```
+`public static void UpdateXBOXLocalUser()`
+
+**Purpose:** Updates the state or data of `x b o x local user`.
+
+### UpdateXBOXChatCommunicationFlags
+`public static void UpdateXBOXChatCommunicationFlags(ulong XUID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
+
+**Purpose:** Updates the state or data of `x b o x chat communication flags`.
+
+### RemoveXBOXRemoteUser
+`public static void RemoveXBOXRemoteUser(ulong XUID)`
+
+**Purpose:** Removes `x b o x remote user` from the current collection or state.
+
+### ProcessDataToBeReceived
+`public static void ProcessDataToBeReceived(ulong senderDeviceID, byte data, uint dataSize)`
+
+**Purpose:** Handles logic related to `process data to be received`.
+
+### ProcessDataToBeSent
+`public static void ProcessDataToBeSent(ref int numData)`
+
+**Purpose:** Handles logic related to `process data to be sent`.
+
+### HandleStateChanges
+`public static void HandleStateChanges()`
+
+**Purpose:** Handles the `state changes` event or callback.
+
+### GetSizeOfDataToBeSentAt
+`public static void GetSizeOfDataToBeSentAt(int index, ref uint byteCount, ref uint numReceivers)`
+
+**Purpose:** Gets the current value of `size of data to be sent at`.
+
+### GetDataToBeSentAt
+`public static bool GetDataToBeSentAt(int index, byte buffer, ulong receivers, ref bool transportGuaranteed)`
+
+**Purpose:** Gets the current value of `data to be sent at`.
+
+### ClearDataToBeSent
+`public static void ClearDataToBeSent()`
+
+**Purpose:** Handles logic related to `clear data to be sent`.
+
+### CompressData
+`public static void CompressData(int clientID, byte buffer, int length, byte compressedBuffer, out int compressedBufferLength)`
+
+**Purpose:** Handles logic related to `compress data`.
+
+### DecompressData
+`public static void DecompressData(int clientID, byte compressedBuffer, int compressedBufferLength, byte decompressedBuffer, out int decompressedBufferLength)`
+
+**Purpose:** Handles logic related to `decompress data`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SoundManager (Manager)
-SoundManager.Current;
+var manager = SoundManager.Current;
 ```
 
 ## See Also

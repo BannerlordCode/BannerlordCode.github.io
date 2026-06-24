@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `ConversationSentence`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationSentence
 
-**命名空间:** TaleWorlds.CampaignSystem.Conversation
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.Conversation
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class ConversationSentence`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Conversation/ConversationSentence.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ConversationSentence` 是 `TaleWorlds.CampaignSystem.Conversation` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ConversationSentence` 位于 `TaleWorlds.CampaignSystem.Conversation`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Conversation` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,60 +45,55 @@
 | `SelectedRepeatObject` | `public static object SelectedRepeatObject { get; }` |
 | `SelectedRepeatLine` | `public static TextObject SelectedRepeatLine { get; }` |
 
-
 ## 主要方法
 
 ### Variation
+`public ConversationSentence Variation(params object list)`
 
-```csharp
-public ConversationSentence Variation(params object list)
-```
+**用途 / Purpose:** 处理 `variation` 相关逻辑。
 
 ### Deserialize
+`public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)`
 
-```csharp
-public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)
-```
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
 
 ### SetObjectsToRepeatOver
+`public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)`
 
-```csharp
-public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)
-```
+**用途 / Purpose:** 设置 `objects to repeat over` 的值或状态。
 
 ### OnConditionDelegate
+`public delegate bool OnConditionDelegate()`
 
-```csharp
-public delegate bool OnConditionDelegate()
-```
+**用途 / Purpose:** 当 `condition delegate` 事件触发时调用此方法。
 
 ### OnClickableConditionDelegate
+`public delegate bool OnClickableConditionDelegate(out TextObject explanation)`
 
-```csharp
-public delegate bool OnClickableConditionDelegate(out TextObject explanation)
-```
+**用途 / Purpose:** 当 `clickable condition delegate` 事件触发时调用此方法。
 
 ### OnPersuasionOptionDelegate
+`public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()`
 
-```csharp
-public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()
-```
+**用途 / Purpose:** 当 `persuasion option delegate` 事件触发时调用此方法。
 
 ### OnConsequenceDelegate
+`public delegate void OnConsequenceDelegate()`
 
-```csharp
-public delegate void OnConsequenceDelegate()
-```
+**用途 / Purpose:** 当 `consequence delegate` 事件触发时调用此方法。
 
 ### OnMultipleConversationConsequenceDelegate
+`public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)`
+
+**用途 / Purpose:** 当 `multiple conversation consequence delegate` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)
+var value = new ConversationSentence();
+value.Variation(list);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

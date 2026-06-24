@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PartyWageModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyWageModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`PartyWageModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<PartyWageModel>(new MyPartyWageModel())` 注册，以改变其计算逻辑。
+`PartyWageModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `PartyWageModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,25 +30,24 @@
 ## 主要方法
 
 ### GetCharacterWage
-```csharp
-public abstract int GetCharacterWage(CharacterObject character)
-```
+`public abstract int GetCharacterWage(CharacterObject character)`
+
+**用途 / Purpose:** 获取 `character wage` 的当前值。
 
 ### GetTotalWage
-```csharp
-public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 获取 `total wage` 的当前值。
 
 ### GetTroopRecruitmentCost
-```csharp
-public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)
-```
+`public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
+
+**用途 / Purpose:** 获取 `troop recruitment cost` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// PartyWageModel (Model) 的典型用法
-Game.Current.ReplaceModel<PartyWageModel>(new MyPartyWageModel());
+var implementation = new CustomPartyWageModel();
 ```
 
 ## 参见

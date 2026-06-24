@@ -12,6 +12,10 @@ description: Complete guide to v1.3.15's new SaveSystem
 
 TaleWorlds.SaveSystem is a new save system introduced in v1.3.15. In v1.3.0, save logic was scattered across modules, but v1.3.15 unified it into a dedicated system.
 
+## Mental Model
+
+Treat `Save System Guide` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Contents
 
 1. [Core Concepts](#core-concepts)
@@ -246,3 +250,9 @@ No. v1.3.15 uses a completely new TaleWorlds.SaveSystem and requires re-implemen
 
 - [Common Patterns](./common-patterns.md) - Bannerlord modding best practices
 - [Campaign System](./campaign-system.md) - Learn about the Campaign world
+
+## Usage Example
+
+```csharp
+var example = new Save System Guide();
+```

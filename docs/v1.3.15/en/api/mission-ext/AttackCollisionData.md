@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AttackCollisionData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AttackCollisionData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`AttackCollisionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`AttackCollisionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `AttackCollisionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -60,29 +65,30 @@
 | `MissileStartingPosition` | `public Vec3 MissileStartingPosition { get; }` |
 | `VictimAgentCurVelocity` | `public Vec3 VictimAgentCurVelocity { get; }` |
 | `CollisionGlobalNormal` | `public Vec3 CollisionGlobalNormal { get; }` |
+| `LastBoneSegmentRotUp` | `public Vec3 LastBoneSegmentRotUp { get; }` |
+| `LastBoneSegmentSwingDir` | `public Vec3 LastBoneSegmentSwingDir { get; }` |
 
 ## Key Methods
 
 ### SetCollisionBoneIndexForAreaDamage
-```csharp
-public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)
-```
+`public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)`
+
+**Purpose:** Sets the value or state of `collision bone index for area damage`.
 
 ### UpdateCollisionPositionAndBoneForReflect
-```csharp
-public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)
-```
+`public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)`
+
+**Purpose:** Updates the state or data of `collision position and bone for reflect`.
 
 ### GetAttackCollisionDataForDebugPurpose
-```csharp
-public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)
-```
+`public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)`
+
+**Purpose:** Gets the current value of `attack collision data for debug purpose`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AttackCollisionData (Data)
-new AttackCollisionData { /* fill fields */ };;
+var value = new AttackCollisionData();
 ```
 
 ## See Also

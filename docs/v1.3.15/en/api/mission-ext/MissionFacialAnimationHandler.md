@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionFacialAnimationHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionFacialAnimationHandler
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`MissionFacialAnimationHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`MissionFacialAnimationHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `MissionFacialAnimationHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionFacialAnimationHandler (Handler)
 Mission.Current.AddMissionBehavior(new MissionFacialAnimationHandler());
 ```
 

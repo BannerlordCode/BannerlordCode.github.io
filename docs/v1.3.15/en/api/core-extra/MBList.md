@@ -2,31 +2,31 @@
 **Home** → **API Index** → **Area** → `MBList`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# MBList / List
+# MBList
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.15/TaleWorlds.MountAndBlade/MBList.cs`
-**Purpose**: Bannerlord custom list implementation
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public class MBList<T> : MBReadOnlyList<T>`
+**Base:** `MBReadOnlyList<T>`
+**File:** `TaleWorlds.Library/MBList.cs`
 
 ## Overview
 
-`MBList` is Bannerlord's custom generic list class, a wrapper around the standard List.
+`MBList` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-## Methods
+## Mental Model
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| Add | `void Add(T item)` | Add element |
-| Remove | `bool Remove(T item)` | Remove element |
-| Clear | `void Clear()` | Clear list |
-| Count | `int Count` | Element count |
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Usage Example
 
 ```csharp
-MBList<ItemObject> items = new MBList<ItemObject>();
-items.Add(item);
-int count = items.Count;
+var example = new MBList();
 ```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MPPerksAgentComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPPerksAgentComponent
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`MPPerksAgentComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MPPerksAgentComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MPPerksAgentComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MPPerksAgentComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnMount
-```csharp
-public override void OnMount(Agent mount)
-```
+`public override void OnMount(Agent mount)`
+
+**Purpose:** Called when the `mount` event is raised.
 
 ### OnDismount
-```csharp
-public override void OnDismount(Agent mount)
-```
+`public override void OnDismount(Agent mount)`
+
+**Purpose:** Called when the `dismount` event is raised.
 
 ### OnItemPickup
-```csharp
-public override void OnItemPickup(SpawnedItemEntity item)
-```
+`public override void OnItemPickup(SpawnedItemEntity item)`
+
+**Purpose:** Called when the `item pickup` event is raised.
 
 ### OnWeaponDrop
-```csharp
-public override void OnWeaponDrop(MissionWeapon droppedWeapon)
-```
+`public override void OnWeaponDrop(MissionWeapon droppedWeapon)`
+
+**Purpose:** Called when the `weapon drop` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved()
-```
+`public override void OnAgentRemoved()`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MPPerksAgentComponent (Component)
-agent.GetComponent<MPPerksAgentComponent>();
+var component = agent.GetComponent<MPPerksAgentComponent>();
 ```
 
 ## See Also

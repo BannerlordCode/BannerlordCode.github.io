@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ActionCampaignOptionData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ActionCampaignOptionData
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`ActionCampaignOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`ActionCampaignOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `ActionCampaignOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetDataType
-```csharp
-public override CampaignOptionDataType GetDataType()
-```
+`public override CampaignOptionDataType GetDataType()`
+
+**Purpose:** Gets the current value of `data type`.
 
 ### ExecuteAction
-```csharp
-public void ExecuteAction()
-```
+`public void ExecuteAction()`
+
+**Purpose:** Executes the `action` operation or workflow.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ActionCampaignOptionData (Data)
-new ActionCampaignOptionData { /* fill fields */ };;
+var value = new ActionCampaignOptionData();
 ```
 
 ## See Also

@@ -5,6 +5,10 @@ description: Documentation for native object array interface
 
 # INativeObjectArray
 
+## Mental Model
+
+Treat `INativeObjectArray` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **File**: `TaleWorlds.DotNet/INativeObjectArray.cs`  
 **Namespace**: `TaleWorlds.DotNet`  
 **Attribute**: `[LibraryInterfaceBase]`

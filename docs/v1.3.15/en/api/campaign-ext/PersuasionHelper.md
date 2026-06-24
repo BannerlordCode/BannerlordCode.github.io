@@ -2,36 +2,43 @@
 **Home** → **API Index** → **Area** → `PersuasionHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PersuasionHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class PersuasionHelper`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Helpers/PersuasionHelper.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PersuasionHelper` is a class in the `Helpers` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PersuasionHelper` is a helper class that usually provides static logic which does not depend on instance state.
 
+## Mental Model
+
+Treat `PersuasionHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### ShowSuccess
+`public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)`
 
-```csharp
-public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)
-```
+**Purpose:** Handles logic related to `show success`.
 
 ### GetDefaultPersuasionOptionReaction
+`public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)`
+
+**Purpose:** Gets the current value of `default persuasion option reaction`.
+
+## Usage Example
 
 ```csharp
-public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)
+PersuasionHelper.Initialize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

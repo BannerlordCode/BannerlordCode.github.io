@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignOptionData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignOptionData
@@ -14,80 +15,83 @@
 
 ## Overview
 
-`CampaignOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`CampaignOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `CampaignOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetNameOfOption
-```csharp
-public static TextObject GetNameOfOption(string optionIdentifier)
-```
+`public static TextObject GetNameOfOption(string optionIdentifier)`
+
+**Purpose:** Gets the current value of `name of option`.
 
 ### GetDescriptionOfOption
-```csharp
-public static TextObject GetDescriptionOfOption(string optionIdentifier)
-```
+`public static TextObject GetDescriptionOfOption(string optionIdentifier)`
+
+**Purpose:** Gets the current value of `description of option`.
 
 ### GetPriorityIndex
-```csharp
-public int GetPriorityIndex()
-```
+`public int GetPriorityIndex()`
+
+**Purpose:** Gets the current value of `priority index`.
 
 ### GetDataType
-```csharp
-public abstract CampaignOptionDataType GetDataType()
-```
+`public abstract CampaignOptionDataType GetDataType()`
+
+**Purpose:** Gets the current value of `data type`.
 
 ### IsRelatedToDifficultyPreset
-```csharp
-public bool IsRelatedToDifficultyPreset()
-```
+`public bool IsRelatedToDifficultyPreset()`
+
+**Purpose:** Handles logic related to `is related to difficulty preset`.
 
 ### GetValueFromDifficultyPreset
-```csharp
-public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)
-```
+`public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)`
+
+**Purpose:** Gets the current value of `value from difficulty preset`.
 
 ### GetIsDisabledWithReason
-```csharp
-public CampaignOptionDisableStatus GetIsDisabledWithReason()
-```
+`public CampaignOptionDisableStatus GetIsDisabledWithReason()`
+
+**Purpose:** Gets the current value of `is disabled with reason`.
 
 ### GetIdentifier
-```csharp
-public string GetIdentifier()
-```
+`public string GetIdentifier()`
+
+**Purpose:** Gets the current value of `identifier`.
 
 ### GetEnableState
-```csharp
-public CampaignOptionEnableState GetEnableState()
-```
+`public CampaignOptionEnableState GetEnableState()`
+
+**Purpose:** Gets the current value of `enable state`.
 
 ### GetName
-```csharp
-public string GetName()
-```
+`public string GetName()`
+
+**Purpose:** Gets the current value of `name`.
 
 ### GetDescription
-```csharp
-public string GetDescription()
-```
+`public string GetDescription()`
+
+**Purpose:** Gets the current value of `description`.
 
 ### GetValue
-```csharp
-public float GetValue()
-```
+`public float GetValue()`
+
+**Purpose:** Gets the current value of `value`.
 
 ### SetValue
-```csharp
-public void SetValue(float value)
-```
+`public void SetValue(float value)`
+
+**Purpose:** Sets the value or state of `value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignOptionData (Data)
-new CampaignOptionData { /* fill fields */ };;
+var implementation = new CustomCampaignOptionData();
 ```
 
 ## See Also

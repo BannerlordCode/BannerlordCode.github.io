@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `SimpleAgentOrigin`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SimpleAgentOrigin
 
-**命名空间:** TaleWorlds.CampaignSystem.AgentOrigins
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.AgentOrigins
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SimpleAgentOrigin : IAgentOriginBase`
+**Base:** `IAgentOriginBase`
+**File:** `TaleWorlds.CampaignSystem/AgentOrigins/SimpleAgentOrigin.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SimpleAgentOrigin` 是 `TaleWorlds.CampaignSystem.AgentOrigins` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SimpleAgentOrigin` 位于 `TaleWorlds.CampaignSystem.AgentOrigins`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.AgentOrigins` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -30,42 +36,40 @@
 | `Rank` | `public int Rank { get; }` |
 | `UniqueSeed` | `public int UniqueSeed { get; }` |
 
-
 ## 主要方法
 
 ### SetWounded
+`public void SetWounded()`
 
-```csharp
-public void SetWounded()
-```
+**用途 / Purpose:** 设置 `wounded` 的值或状态。
 
 ### SetKilled
+`public void SetKilled()`
 
-```csharp
-public void SetKilled()
-```
+**用途 / Purpose:** 设置 `killed` 的值或状态。
 
 ### SetRouted
+`public void SetRouted(bool isOrderRetreat)`
 
-```csharp
-public void SetRouted(bool isOrderRetreat)
-```
+**用途 / Purpose:** 设置 `routed` 的值或状态。
 
 ### OnAgentRemoved
+`public void OnAgentRemoved(float agentHealth)`
 
-```csharp
-public void OnAgentRemoved(float agentHealth)
-```
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ### SetBanner
+`public void SetBanner(Banner banner)`
+
+**用途 / Purpose:** 设置 `banner` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetBanner(Banner banner)
+var value = new SimpleAgentOrigin();
+value.SetWounded();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

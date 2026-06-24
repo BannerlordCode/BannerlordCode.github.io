@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLobbyProfileScreenWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLobbyProfileScreenWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerLobbyProfileScreenWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerLobbyProfileScreenWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,16 +33,14 @@
 ## Key Methods
 
 ### LobbyStateChanged
-```csharp
-public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)
-```
+`public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
+
+**Purpose:** Handles logic related to `lobby state changed`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLobbyProfileScreenWidget (Widget)
-// 声明/访问一个 MultiplayerLobbyProfileScreenWidget
-var widget = root.GetChild("multiplayerLobbyProfileScreenWidget");;
+var widget = new MultiplayerLobbyProfileScreenWidget(context);
 ```
 
 ## See Also

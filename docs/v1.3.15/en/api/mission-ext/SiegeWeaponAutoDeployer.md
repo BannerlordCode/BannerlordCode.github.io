@@ -2,30 +2,39 @@
 **Home** → **API Index** → **Area** → `SiegeWeaponAutoDeployer`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeWeaponAutoDeployer
 
 **Namespace:** TaleWorlds.MountAndBlade.AI
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SiegeWeaponAutoDeployer`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/AI/SiegeWeaponAutoDeployer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeWeaponAutoDeployer` is a class in the `TaleWorlds.MountAndBlade.AI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeWeaponAutoDeployer` lives in `TaleWorlds.MountAndBlade.AI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.AI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### DeployAll
+`public void DeployAll(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `deploy all`.
+
+## Usage Example
 
 ```csharp
-public void DeployAll(BattleSideEnum side)
+var value = new SiegeWeaponAutoDeployer();
+value.DeployAll(side);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

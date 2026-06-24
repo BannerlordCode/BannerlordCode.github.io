@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ModuleNetworkData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ModuleNetworkData
@@ -14,45 +15,48 @@
 
 ## 概述
 
-`ModuleNetworkData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`ModuleNetworkData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `ModuleNetworkData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### ReadItemReferenceFromPacket
-```csharp
-public static EquipmentElement ReadItemReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)
-```
+`public static EquipmentElement ReadItemReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
+
+**用途 / Purpose:** 处理 `read item reference from packet` 相关逻辑。
 
 ### WriteItemReferenceToPacket
-```csharp
-public static void WriteItemReferenceToPacket(EquipmentElement equipElement)
-```
+`public static void WriteItemReferenceToPacket(EquipmentElement equipElement)`
+
+**用途 / Purpose:** 处理 `write item reference to packet` 相关逻辑。
 
 ### ReadWeaponReferenceFromPacket
-```csharp
-public static MissionWeapon ReadWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)
-```
+`public static MissionWeapon ReadWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
+
+**用途 / Purpose:** 处理 `read weapon reference from packet` 相关逻辑。
 
 ### WriteWeaponReferenceToPacket
-```csharp
-public static void WriteWeaponReferenceToPacket(MissionWeapon weapon)
-```
+`public static void WriteWeaponReferenceToPacket(MissionWeapon weapon)`
+
+**用途 / Purpose:** 处理 `write weapon reference to packet` 相关逻辑。
 
 ### ReadMissileWeaponReferenceFromPacket
-```csharp
-public static MissionWeapon ReadMissileWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)
-```
+`public static MissionWeapon ReadMissileWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
+
+**用途 / Purpose:** 处理 `read missile weapon reference from packet` 相关逻辑。
 
 ### WriteMissileWeaponReferenceToPacket
-```csharp
-public static void WriteMissileWeaponReferenceToPacket(MissionWeapon weapon)
-```
+`public static void WriteMissileWeaponReferenceToPacket(MissionWeapon weapon)`
+
+**用途 / Purpose:** 处理 `write missile weapon reference to packet` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// ModuleNetworkData (Data) 的典型用法
-new ModuleNetworkData { /* fill fields */ };;
+var value = new ModuleNetworkData();
 ```
 
 ## 参见

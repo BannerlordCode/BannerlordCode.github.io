@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BannerlordCustomWidgetManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerlordCustomWidgetManager
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`BannerlordCustomWidgetManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`BannerlordCustomWidgetManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `BannerlordCustomWidgetManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### TouchAssembly
-```csharp
-public static void TouchAssembly()
-```
+`public static void TouchAssembly()`
+
+**Purpose:** Handles logic related to `touch assembly`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BannerlordCustomWidgetManager (Manager)
-BannerlordCustomWidgetManager.Current;
+var manager = BannerlordCustomWidgetManager.Current;
 ```
 
 ## See Also

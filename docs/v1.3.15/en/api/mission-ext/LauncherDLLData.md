@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `LauncherDLLData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherDLLData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`LauncherDLLData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`LauncherDLLData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `LauncherDLLData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,25 +33,24 @@
 ## Key Methods
 
 ### SetIsDLLDangerous
-```csharp
-public void SetIsDLLDangerous(bool isDangerous)
-```
+`public void SetIsDLLDangerous(bool isDangerous)`
+
+**Purpose:** Sets the value or state of `is d l l dangerous`.
 
 ### SetDLLSize
-```csharp
-public void SetDLLSize(uint size)
-```
+`public void SetDLLSize(uint size)`
+
+**Purpose:** Sets the value or state of `d l l size`.
 
 ### SetDLLVerifyInformation
-```csharp
-public void SetDLLVerifyInformation(string info)
-```
+`public void SetDLLVerifyInformation(string info)`
+
+**Purpose:** Sets the value or state of `d l l verify information`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of LauncherDLLData (Data)
-new LauncherDLLData { /* fill fields */ };;
+var value = new LauncherDLLData();
 ```
 
 ## See Also

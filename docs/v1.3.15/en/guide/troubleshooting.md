@@ -9,6 +9,10 @@ description: Common problem diagnosis and solutions
 
 This guide helps you diagnose and solve common issues in Bannerlord modding.
 
+## Mental Model
+
+Treat `Troubleshooting` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Contents
 
 1. [Module Issues](#module-issues)
@@ -220,3 +224,9 @@ public override void OnMissionFinish(bool isHeroParty)
 
 - [Common Patterns](./common-patterns.md) - Best practices
 - [Getting Started Guide](./index.md) - Return to main guide
+
+## Usage Example
+
+```csharp
+var example = new Troubleshooting();
+```

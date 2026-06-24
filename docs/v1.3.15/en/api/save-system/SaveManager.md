@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `SaveManager`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveManager
@@ -80,6 +82,10 @@ if (result.Success)
 ## Overview
 
 SaveManager handles the high-level save/load workflow. It manages the definition context that tracks all saveable types, coordinates with drivers for file I/O, and provides utilities for type checking.
+
+## Mental Model
+
+Treat `SaveManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Constants
 

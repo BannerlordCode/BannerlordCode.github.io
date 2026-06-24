@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPrisonerRecruitmentCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPrisonerRecruitmentCalculationModel
@@ -14,44 +15,47 @@
 
 ## Overview
 
-`DefaultPrisonerRecruitmentCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPrisonerRecruitmentCalculationModel>(new MyDefaultPrisonerRecruitmentCalculationModel())` to change how it computes.
+`DefaultPrisonerRecruitmentCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPrisonerRecruitmentCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetConformityNeededToRecruitPrisoner
-```csharp
-public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)
-```
+`public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
+
+**Purpose:** Gets the current value of `conformity needed to recruit prisoner`.
 
 ### GetConformityChangePerHour
-```csharp
-public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject troopToBoost)
-```
+`public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject troopToBoost)`
+
+**Purpose:** Gets the current value of `conformity change per hour`.
 
 ### GetPrisonerRecruitmentMoraleEffect
-```csharp
-public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)
-```
+`public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
+
+**Purpose:** Gets the current value of `prisoner recruitment morale effect`.
 
 ### IsPrisonerRecruitable
-```csharp
-public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)
-```
+`public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
+
+**Purpose:** Handles logic related to `is prisoner recruitable`.
 
 ### ShouldPartyRecruitPrisoners
-```csharp
-public override bool ShouldPartyRecruitPrisoners(PartyBase party)
-```
+`public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
+
+**Purpose:** Handles logic related to `should party recruit prisoners`.
 
 ### CalculateRecruitableNumber
-```csharp
-public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)
-```
+`public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
+
+**Purpose:** Handles logic related to `calculate recruitable number`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPrisonerRecruitmentCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultPrisonerRecruitmentCalculationModel>(new MyDefaultPrisonerRecruitmentCalculationModel());
 ```
 

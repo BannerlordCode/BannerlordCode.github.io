@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `KillData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KillData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`KillData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`KillData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `KillData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,8 +35,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of KillData (Data)
-new KillData { /* fill fields */ };;
+var value = new KillData();
 ```
 
 ## See Also

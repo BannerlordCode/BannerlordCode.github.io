@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 音频系统类参考
 
 # 音频系统 / Audio System
 
+## 心智模型
+
+先把 `音频系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 音频系统管理游戏中的所有声音，包括背景音乐、战斗音效、环境音效等。
@@ -146,4 +150,10 @@ road_instance::vftable
 
 ```cpp
 reverb_instance::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 音频系统();
 ```

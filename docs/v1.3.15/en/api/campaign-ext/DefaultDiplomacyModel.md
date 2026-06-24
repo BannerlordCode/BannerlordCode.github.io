@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultDiplomacyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultDiplomacyModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultDiplomacyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultDiplomacyModel>(new MyDefaultDiplomacyModel())` to change how it computes.
+`DefaultDiplomacyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultDiplomacyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -33,159 +38,278 @@
 ## Key Methods
 
 ### GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom
-```csharp
-public override float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)
-```
+`public override float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)`
+
+**Purpose:** Gets the current value of `strength threshold for non mutual wars to be ignored to join kingdom`.
 
 ### GetClanStrength
-```csharp
-public override float GetClanStrength(Clan clan)
-```
+`public override float GetClanStrength(Clan clan)`
+
+**Purpose:** Gets the current value of `clan strength`.
 
 ### GetHeroCommandingStrengthForClan
-```csharp
-public override float GetHeroCommandingStrengthForClan(Hero hero)
-```
+`public override float GetHeroCommandingStrengthForClan(Hero hero)`
+
+**Purpose:** Gets the current value of `hero commanding strength for clan`.
 
 ### GetHeroGoverningStrengthForClan
-```csharp
-public override float GetHeroGoverningStrengthForClan(Hero hero)
-```
+`public override float GetHeroGoverningStrengthForClan(Hero hero)`
+
+**Purpose:** Gets the current value of `hero governing strength for clan`.
 
 ### GetRelationIncreaseFactor
-```csharp
-public override float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationChange)
-```
+`public override float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationChange)`
+
+**Purpose:** Gets the current value of `relation increase factor`.
 
 ### GetInfluenceAwardForSettlementCapturer
-```csharp
-public override int GetInfluenceAwardForSettlementCapturer(Settlement settlement)
-```
+`public override int GetInfluenceAwardForSettlementCapturer(Settlement settlement)`
+
+**Purpose:** Gets the current value of `influence award for settlement capturer`.
 
 ### GetHourlyInfluenceAwardForBeingArmyMember
-```csharp
-public override float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)
-```
+`public override float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `hourly influence award for being army member`.
 
 ### GetHourlyInfluenceAwardForRaidingEnemyVillage
-```csharp
-public override float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)
-```
+`public override float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `hourly influence award for raiding enemy village`.
 
 ### GetHourlyInfluenceAwardForBesiegingEnemyFortification
-```csharp
-public override float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)
-```
+`public override float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `hourly influence award for besieging enemy fortification`.
 
 ### GetScoreOfClanToJoinKingdom
-```csharp
-public override float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)
-```
+`public override float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `score of clan to join kingdom`.
 
 ### GetScoreOfClanToLeaveKingdom
-```csharp
-public override float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)
-```
+`public override float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `score of clan to leave kingdom`.
 
 ### GetScoreOfKingdomToGetClan
-```csharp
-public override float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)
-```
+`public override float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)`
+
+**Purpose:** Gets the current value of `score of kingdom to get clan`.
 
 ### GetScoreOfKingdomToSackClan
-```csharp
-public override float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)
-```
+`public override float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)`
+
+**Purpose:** Gets the current value of `score of kingdom to sack clan`.
 
 ### GetScoreOfMercenaryToJoinKingdom
-```csharp
-public override float GetScoreOfMercenaryToJoinKingdom(Clan mercenaryClan, Kingdom kingdom)
-```
+`public override float GetScoreOfMercenaryToJoinKingdom(Clan mercenaryClan, Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `score of mercenary to join kingdom`.
 
 ### GetScoreOfMercenaryToLeaveKingdom
-```csharp
-public override float GetScoreOfMercenaryToLeaveKingdom(Clan mercenaryClan, Kingdom kingdom)
-```
+`public override float GetScoreOfMercenaryToLeaveKingdom(Clan mercenaryClan, Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `score of mercenary to leave kingdom`.
 
 ### GetScoreOfKingdomToHireMercenary
-```csharp
-public override float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)
-```
+`public override float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)`
+
+**Purpose:** Gets the current value of `score of kingdom to hire mercenary`.
 
 ### GetScoreOfKingdomToSackMercenary
-```csharp
-public override float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)
-```
+`public override float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)`
+
+**Purpose:** Gets the current value of `score of kingdom to sack mercenary`.
 
 ### GetScoreOfDeclaringPeaceForClan
-```csharp
-public override float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason, bool includeReason = false)
-```
+`public override float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
+
+**Purpose:** Gets the current value of `score of declaring peace for clan`.
 
 ### GetScoreOfDeclaringPeace
-```csharp
-public override float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)
-```
+`public override float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
+
+**Purpose:** Gets the current value of `score of declaring peace`.
 
 ### GetWarProgressScore
-```csharp
-public override ExplainedNumber GetWarProgressScore(IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetWarProgressScore(IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `war progress score`.
 
 ### GetScoreOfDeclaringWar
-```csharp
-public override float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason, bool includeReason = false)
-```
+`public override float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
+
+**Purpose:** Gets the current value of `score of declaring war`.
 
 ### GetScoreOfLettingPartyGo
-```csharp
-public override float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)
-```
+`public override float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)`
+
+**Purpose:** Gets the current value of `score of letting party go`.
 
 ### GetValueOfHeroForFaction
-```csharp
-public override float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)
-```
+`public override float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)`
+
+**Purpose:** Gets the current value of `value of hero for faction`.
 
 ### GetRelationCostOfExpellingClanFromKingdom
-```csharp
-public override int GetRelationCostOfExpellingClanFromKingdom()
-```
+`public override int GetRelationCostOfExpellingClanFromKingdom()`
+
+**Purpose:** Gets the current value of `relation cost of expelling clan from kingdom`.
 
 ### GetInfluenceCostOfSupportingClan
-```csharp
-public override int GetInfluenceCostOfSupportingClan()
-```
+`public override int GetInfluenceCostOfSupportingClan()`
+
+**Purpose:** Gets the current value of `influence cost of supporting clan`.
 
 ### GetInfluenceCostOfExpellingClan
-```csharp
-public override int GetInfluenceCostOfExpellingClan(Clan proposingClan)
-```
+`public override int GetInfluenceCostOfExpellingClan(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of expelling clan`.
 
 ### GetInfluenceCostOfProposingPeace
-```csharp
-public override int GetInfluenceCostOfProposingPeace(Clan proposingClan)
-```
+`public override int GetInfluenceCostOfProposingPeace(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of proposing peace`.
 
 ### GetInfluenceCostOfProposingWar
-```csharp
-public override int GetInfluenceCostOfProposingWar(Clan proposingClan)
-```
+`public override int GetInfluenceCostOfProposingWar(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of proposing war`.
 
 ### GetInfluenceValueOfSupportingClan
-```csharp
-public override int GetInfluenceValueOfSupportingClan()
-```
+`public override int GetInfluenceValueOfSupportingClan()`
+
+**Purpose:** Gets the current value of `influence value of supporting clan`.
 
 ### GetRelationValueOfSupportingClan
-```csharp
-public override int GetRelationValueOfSupportingClan()
-```
+`public override int GetRelationValueOfSupportingClan()`
+
+**Purpose:** Gets the current value of `relation value of supporting clan`.
+
+### GetInfluenceCostOfAnnexation
+`public override int GetInfluenceCostOfAnnexation(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of annexation`.
+
+### GetInfluenceCostOfChangingLeaderOfArmy
+`public override int GetInfluenceCostOfChangingLeaderOfArmy()`
+
+**Purpose:** Gets the current value of `influence cost of changing leader of army`.
+
+### GetInfluenceCostOfDisbandingArmy
+`public override int GetInfluenceCostOfDisbandingArmy()`
+
+**Purpose:** Gets the current value of `influence cost of disbanding army`.
+
+### GetRelationCostOfDisbandingArmy
+`public override int GetRelationCostOfDisbandingArmy(bool isLeaderParty)`
+
+**Purpose:** Gets the current value of `relation cost of disbanding army`.
+
+### GetInfluenceCostOfPolicyProposalAndDisavowal
+`public override int GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposerClan)`
+
+**Purpose:** Gets the current value of `influence cost of policy proposal and disavowal`.
+
+### GetInfluenceCostOfAbandoningArmy
+`public override int GetInfluenceCostOfAbandoningArmy()`
+
+**Purpose:** Gets the current value of `influence cost of abandoning army`.
+
+### GetBaseRelation
+`public override int GetBaseRelation(Hero hero1, Hero hero2)`
+
+**Purpose:** Gets the current value of `base relation`.
+
+### GetEffectiveRelation
+`public override int GetEffectiveRelation(Hero hero1, Hero hero2)`
+
+**Purpose:** Gets the current value of `effective relation`.
+
+### GetHeroesForEffectiveRelation
+`public override void GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)`
+
+**Purpose:** Gets the current value of `heroes for effective relation`.
+
+### GetRelationChangeAfterClanLeaderIsDead
+`public override int GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)`
+
+**Purpose:** Gets the current value of `relation change after clan leader is dead`.
+
+### GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision
+`public override int GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)`
+
+**Purpose:** Gets the current value of `relation change after voting in settlement owner preliminary decision`.
+
+### GetCharmExperienceFromRelationGain
+`public override int GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)`
+
+**Purpose:** Gets the current value of `charm experience from relation gain`.
+
+### GetNotificationColor
+`public override uint GetNotificationColor(ChatNotificationType notificationType)`
+
+**Purpose:** Gets the current value of `notification color`.
+
+### DenarsToInfluence
+`public override float DenarsToInfluence()`
+
+**Purpose:** Handles logic related to `denars to influence`.
+
+### GetDecisionMakingThreshold
+`public override float GetDecisionMakingThreshold(IFaction consideringFaction)`
+
+**Purpose:** Gets the current value of `decision making threshold`.
+
+### CanSettlementBeGifted
+`public override bool CanSettlementBeGifted(Settlement settlementToGift)`
+
+**Purpose:** Checks whether the current object can `settlement be gifted`.
+
+### GetValueOfSettlementsForFaction
+`public override float GetValueOfSettlementsForFaction(IFaction faction)`
+
+**Purpose:** Gets the current value of `value of settlements for faction`.
+
+### GetBarterGroups
+`public override IEnumerable<BarterGroup> GetBarterGroups()`
+
+**Purpose:** Gets the current value of `barter groups`.
+
+### IsPeaceSuitable
+`public override bool IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
+
+**Purpose:** Handles logic related to `is peace suitable`.
+
+### GetDailyTributeToPay
+`public override int GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive, out int tributeDurationInDays)`
+
+**Purpose:** Gets the current value of `daily tribute to pay`.
+
+### IsClanEligibleToBecomeRuler
+`public override bool IsClanEligibleToBecomeRuler(Clan clan)`
+
+**Purpose:** Handles logic related to `is clan eligible to become ruler`.
+
+### GetShallowDiplomaticStance
+`public override DiplomacyModel.DiplomacyStance? GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Gets the current value of `shallow diplomatic stance`.
+
+### GetDefaultDiplomaticStance
+`public override DiplomacyModel.DiplomacyStance GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Gets the current value of `default diplomatic stance`.
+
+### IsAtConstantWar
+`public override bool IsAtConstantWar(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Handles logic related to `is at constant war`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultDiplomacyModel (Model)
 Game.Current.ReplaceModel<DefaultDiplomacyModel>(new MyDefaultDiplomacyModel());
 ```
 

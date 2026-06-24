@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMapTrackModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMapTrackModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultMapTrackModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMapTrackModel>(new MyDefaultMapTrackModel())` to change how it computes.
+`DefaultMapTrackModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMapTrackModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,59 +30,58 @@
 ## Key Methods
 
 ### GetMaxTrackSpottingDistanceForMainParty
-```csharp
-public override float GetMaxTrackSpottingDistanceForMainParty()
-```
+`public override float GetMaxTrackSpottingDistanceForMainParty()`
+
+**Purpose:** Gets the current value of `max track spotting distance for main party`.
 
 ### CanPartyLeaveTrack
-```csharp
-public override bool CanPartyLeaveTrack(MobileParty mobileParty)
-```
+`public override bool CanPartyLeaveTrack(MobileParty mobileParty)`
+
+**Purpose:** Checks whether the current object can `party leave track`.
 
 ### GetTrackLife
-```csharp
-public override int GetTrackLife(MobileParty mobileParty)
-```
+`public override int GetTrackLife(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `track life`.
 
 ### GetTrackDetectionDifficultyForMainParty
-```csharp
-public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)
-```
+`public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
+
+**Purpose:** Gets the current value of `track detection difficulty for main party`.
 
 ### GetSkillFromTrackDetected
-```csharp
-public override float GetSkillFromTrackDetected(Track track)
-```
+`public override float GetSkillFromTrackDetected(Track track)`
+
+**Purpose:** Gets the current value of `skill from track detected`.
 
 ### GetSkipTrackChance
-```csharp
-public override float GetSkipTrackChance(MobileParty mobileParty)
-```
+`public override float GetSkipTrackChance(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `skip track chance`.
 
 ### TrackTitle
-```csharp
-public override TextObject TrackTitle(Track track)
-```
+`public override TextObject TrackTitle(Track track)`
+
+**Purpose:** Handles logic related to `track title`.
 
 ### GetTrackDescription
-```csharp
-public override IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)
-```
+`public override IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)`
+
+**Purpose:** Gets the current value of `track description`.
 
 ### GetTrackColor
-```csharp
-public override uint GetTrackColor(Track track)
-```
+`public override uint GetTrackColor(Track track)`
+
+**Purpose:** Gets the current value of `track color`.
 
 ### GetTrackScale
-```csharp
-public override float GetTrackScale(Track track)
-```
+`public override float GetTrackScale(Track track)`
+
+**Purpose:** Gets the current value of `track scale`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMapTrackModel (Model)
 Game.Current.ReplaceModel<DefaultMapTrackModel>(new MyDefaultMapTrackModel());
 ```
 

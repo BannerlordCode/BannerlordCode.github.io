@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VassalRewardsModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VassalRewardsModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`VassalRewardsModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<VassalRewardsModel>(new MyVassalRewardsModel())` to change how it computes.
+`VassalRewardsModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `VassalRewardsModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,20 +31,19 @@
 ## Key Methods
 
 ### GetTroopRewardsForJoiningKingdom
-```csharp
-public abstract TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)
-```
+`public abstract TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `troop rewards for joining kingdom`.
 
 ### GetEquipmentRewardsForJoiningKingdom
-```csharp
-public abstract ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)
-```
+`public abstract ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `equipment rewards for joining kingdom`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VassalRewardsModel (Model)
-Game.Current.ReplaceModel<VassalRewardsModel>(new MyVassalRewardsModel());
+var implementation = new CustomVassalRewardsModel();
 ```
 
 ## See Also

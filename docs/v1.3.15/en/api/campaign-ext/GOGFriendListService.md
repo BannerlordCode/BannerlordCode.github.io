@@ -2,30 +2,39 @@
 **Home** → **API Index** → **Area** → `GOGFriendListService`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GOGFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GOGFriendListService : IFriendListService`
+**Base:** `IFriendListService`
+**File:** `TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GOGFriendListService` is a class in the `TaleWorlds.PlatformService.GOG` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GOGFriendListService` lives in `TaleWorlds.PlatformService.GOG` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### RequestFriendList
+`public void RequestFriendList()`
+
+**Purpose:** Handles logic related to `request friend list`.
+
+## Usage Example
 
 ```csharp
-public void RequestFriendList()
+var value = new GOGFriendListService();
+value.RequestFriendList();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

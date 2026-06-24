@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `InventoryCapacityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryCapacityModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`InventoryCapacityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<InventoryCapacityModel>(new MyInventoryCapacityModel())` to change how it computes.
+`InventoryCapacityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `InventoryCapacityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateInventoryCapacity
-```csharp
-public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)
-```
+`public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
+
+**Purpose:** Handles logic related to `calculate inventory capacity`.
 
 ### GetItemAverageWeight
-```csharp
-public abstract int GetItemAverageWeight()
-```
+`public abstract int GetItemAverageWeight()`
+
+**Purpose:** Gets the current value of `item average weight`.
 
 ### GetItemEffectiveWeight
-```csharp
-public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)
-```
+`public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
+
+**Purpose:** Gets the current value of `item effective weight`.
 
 ### CalculateTotalWeightCarried
-```csharp
-public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate total weight carried`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of InventoryCapacityModel (Model)
-Game.Current.ReplaceModel<InventoryCapacityModel>(new MyInventoryCapacityModel());
+var implementation = new CustomInventoryCapacityModel();
 ```
 
 ## See Also

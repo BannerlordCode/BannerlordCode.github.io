@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleDeploymentHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleDeploymentHandler
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`BattleDeploymentHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`BattleDeploymentHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `BattleDeploymentHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### AutoDeployTeamUsingDeploymentPlan
-```csharp
-public override void AutoDeployTeamUsingDeploymentPlan(Team team)
-```
+`public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
+
+**Purpose:** Handles logic related to `auto deploy team using deployment plan`.
 
 ### ForceUpdateAllUnits
-```csharp
-public override void ForceUpdateAllUnits()
-```
+`public override void ForceUpdateAllUnits()`
+
+**Purpose:** Handles logic related to `force update all units`.
 
 ### SetDefaultFormationOrders
-```csharp
-public void SetDefaultFormationOrders(OrderController orderController)
-```
+`public void SetDefaultFormationOrders(OrderController orderController)`
+
+**Purpose:** Sets the value or state of `default formation orders`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleDeploymentHandler (Handler)
 Mission.Current.AddMissionBehavior(new BattleDeploymentHandler());
 ```
 

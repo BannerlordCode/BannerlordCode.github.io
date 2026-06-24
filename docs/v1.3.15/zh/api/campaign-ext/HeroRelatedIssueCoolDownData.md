@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `HeroRelatedIssueCoolDownData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroRelatedIssueCoolDownData
@@ -14,25 +15,28 @@
 
 ## 概述
 
-`HeroRelatedIssueCoolDownData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`HeroRelatedIssueCoolDownData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `HeroRelatedIssueCoolDownData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### IsRelatedTo
-```csharp
-public override bool IsRelatedTo(object obj)
-```
+`public override bool IsRelatedTo(object obj)`
+
+**用途 / Purpose:** 处理 `is related to` 相关逻辑。
 
 ### IsValid
-```csharp
-public override bool IsValid()
-```
+`public override bool IsValid()`
+
+**用途 / Purpose:** 处理 `is valid` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// HeroRelatedIssueCoolDownData (Data) 的典型用法
-new HeroRelatedIssueCoolDownData { /* fill fields */ };;
+var value = new HeroRelatedIssueCoolDownData();
 ```
 
 ## 参见

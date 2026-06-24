@@ -2,45 +2,52 @@
 **Home** → **API Index** → **Area** → `MBInitialScreenBase`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBInitialScreenBase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MBInitialScreenBase : ScreenBase, IGameStateListener`
+**Base:** `ScreenBase`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `MBInitialScreenBase` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBInitialScreenBase` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### DoExitButtonAction
+`public static void DoExitButtonAction()`
 
-```csharp
-public static void DoExitButtonAction()
-```
+**Purpose:** Handles logic related to `do exit button action`.
 
 ### StartedRendering
+`public bool StartedRendering()`
 
-```csharp
-public bool StartedRendering()
-```
+**Purpose:** Handles logic related to `started rendering`.
 
 ### OnEditModeEnterPress
+`public static void OnEditModeEnterPress()`
 
-```csharp
-public static void OnEditModeEnterPress()
-```
+**Purpose:** Called when the `edit mode enter press` event is raised.
 
 ### OnEditModeEnterRelease
+`public static void OnEditModeEnterRelease()`
+
+**Purpose:** Called when the `edit mode enter release` event is raised.
+
+## Usage Example
 
 ```csharp
-public static void OnEditModeEnterRelease()
+// Prepare the required context, then call the static entry point directly
+MBInitialScreenBase.DoExitButtonAction();
 ```
 
 ## See Also

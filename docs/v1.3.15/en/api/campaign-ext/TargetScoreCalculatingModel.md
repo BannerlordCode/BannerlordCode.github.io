@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TargetScoreCalculatingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TargetScoreCalculatingModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`TargetScoreCalculatingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TargetScoreCalculatingModel>(new MyTargetScoreCalculatingModel())` to change how it computes.
+`TargetScoreCalculatingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TargetScoreCalculatingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,30 +34,29 @@
 ## Key Methods
 
 ### GetPatrollingFactor
-```csharp
-public abstract float GetPatrollingFactor(bool isNavalPatrolling)
-```
+`public abstract float GetPatrollingFactor(bool isNavalPatrolling)`
+
+**Purpose:** Gets the current value of `patrolling factor`.
 
 ### GetTargetScoreForFaction
-```csharp
-public abstract float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)
-```
+`public abstract float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
+
+**Purpose:** Gets the current value of `target score for faction`.
 
 ### CalculatePatrollingScoreForSettlement
-```csharp
-public abstract float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)
-```
+`public abstract float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `calculate patrolling score for settlement`.
 
 ### CurrentObjectiveValue
-```csharp
-public abstract float CurrentObjectiveValue(MobileParty mobileParty)
-```
+`public abstract float CurrentObjectiveValue(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `current objective value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TargetScoreCalculatingModel (Model)
-Game.Current.ReplaceModel<TargetScoreCalculatingModel>(new MyTargetScoreCalculatingModel());
+var implementation = new CustomTargetScoreCalculatingModel();
 ```
 
 ## See Also

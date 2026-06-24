@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `UpgradeTargetVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UpgradeTargetVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class UpgradeTargetVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Party/UpgradeTargetVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `UpgradeTargetVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Party` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`UpgradeTargetVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Party` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,46 +37,45 @@
 | `IsHighlighted` | `public bool IsHighlighted { get; set; }` |
 | `IsMarinerTroop` | `public bool IsMarinerTroop { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Refresh
+`public void Refresh(int upgradableAmount, bool isAvailable, bool isInsufficient, bool itemRequirementsMet, bool perkRequirementsMet, string hintString, bool isMarinerTroop)`
 
-```csharp
-public void Refresh(int upgradableAmount, bool isAvailable, bool isInsufficient, bool itemRequirementsMet, bool perkRequirementsMet, string hintString, bool isMarinerTroop)
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### ExecuteUpgradeEncyclopediaLink
+`public void ExecuteUpgradeEncyclopediaLink()`
 
-```csharp
-public void ExecuteUpgradeEncyclopediaLink()
-```
+**Purpose:** Executes the `upgrade encyclopedia link` operation or workflow.
 
 ### ExecuteUpgrade
+`public void ExecuteUpgrade()`
 
-```csharp
-public void ExecuteUpgrade()
-```
+**Purpose:** Executes the `upgrade` operation or workflow.
 
 ### ExecuteSetFocused
+`public void ExecuteSetFocused()`
 
-```csharp
-public void ExecuteSetFocused()
-```
+**Purpose:** Executes the `set focused` operation or workflow.
 
 ### ExecuteSetUnfocused
+`public void ExecuteSetUnfocused()`
+
+**Purpose:** Executes the `set unfocused` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteSetUnfocused()
+var value = new UpgradeTargetVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

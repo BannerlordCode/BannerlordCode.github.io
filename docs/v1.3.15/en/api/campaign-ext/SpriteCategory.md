@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SpriteCategory`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpriteCategory
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SpriteCategory`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension/SpriteCategory.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SpriteCategory` is a class in the `TaleWorlds.TwoDimension` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SpriteCategory` lives in `TaleWorlds.TwoDimension` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,70 +34,65 @@
 | `IsPartiallyLoaded` | `public bool IsPartiallyLoaded { get; }` |
 | `SheetSizes` | `public Vec2i SheetSizes { get; set; }` |
 
-
 ## Key Methods
 
 ### Load
+`public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-```csharp
-public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)
-```
+**Purpose:** Loads `load` data.
 
 ### Unload
+`public void Unload()`
 
-```csharp
-public void Unload()
-```
+**Purpose:** Handles logic related to `unload`.
 
 ### Reload
+`public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-```csharp
-public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)
-```
+**Purpose:** Handles logic related to `reload`.
 
 ### InitializePartialLoad
+`public void InitializePartialLoad()`
 
-```csharp
-public void InitializePartialLoad()
-```
+**Purpose:** Initializes the state, resources, or bindings for `partial load`.
 
 ### ReleasePartialLoad
+`public void ReleasePartialLoad()`
 
-```csharp
-public void ReleasePartialLoad()
-```
+**Purpose:** Handles logic related to `release partial load`.
 
 ### PartialLoadAtIndex
+`public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-```csharp
-public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)
-```
+**Purpose:** Handles logic related to `partial load at index`.
 
 ### PartialUnloadAtIndex
+`public void PartialUnloadAtIndex(int sheetIndex)`
 
-```csharp
-public void PartialUnloadAtIndex(int sheetIndex)
-```
+**Purpose:** Handles logic related to `partial unload at index`.
 
 ### SortList
+`public void SortList()`
 
-```csharp
-public void SortList()
-```
+**Purpose:** Handles logic related to `sort list`.
 
 ### IsCategoryFullyLoaded
+`public bool IsCategoryFullyLoaded()`
 
-```csharp
-public bool IsCategoryFullyLoaded()
-```
+**Purpose:** Handles logic related to `is category fully loaded`.
 
 ### Compare
+`public int Compare(SpritePart x, SpritePart y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(SpritePart x, SpritePart y)
+var value = new SpriteCategory();
+value.Load(resourceContext, resourceDepot);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

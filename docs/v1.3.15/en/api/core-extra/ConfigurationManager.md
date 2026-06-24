@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ConfigurationManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConfigurationManager
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`ConfigurationManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`ConfigurationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ConfigurationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetConfigurationManager
-```csharp
-public static void SetConfigurationManager(IConfigurationManager configurationManager)
-```
+`public static void SetConfigurationManager(IConfigurationManager configurationManager)`
+
+**Purpose:** Sets the value or state of `configuration manager`.
 
 ### GetAppSettings
-```csharp
-public static string GetAppSettings(string name)
-```
+`public static string GetAppSettings(string name)`
+
+**Purpose:** Gets the current value of `app settings`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ConfigurationManager (Manager)
-ConfigurationManager.Current;
+var manager = ConfigurationManager.Current;
 ```
 
 ## See Also

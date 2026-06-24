@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `StackArray3Int`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StackArray3Int
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** struct
-**Area:** Core
+**Type:** `public struct StackArray3Int`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `StackArray3Int` is a struct in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StackArray3Int` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,6 +38,12 @@
 | `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
+
+## Usage Example
+
+```csharp
+var value = new StackArray3Int();
+```
 
 ## See Also
 

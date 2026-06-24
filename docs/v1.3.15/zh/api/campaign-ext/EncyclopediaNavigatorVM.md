@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `EncyclopediaNavigatorVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaNavigatorVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class EncyclopediaNavigatorVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/EncyclopediaNavigatorVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`EncyclopediaNavigatorVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`EncyclopediaNavigatorVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -37,114 +43,100 @@
 | `NextPageInputKey` | `public InputKeyItemVM NextPageInputKey { get; set; }` |
 | `SearchText` | `public string SearchText { get; set; }` |
 
-
 ## 主要方法
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### ExecuteHome
+`public void ExecuteHome()`
 
-```csharp
-public void ExecuteHome()
-```
+**用途 / Purpose:** 执行 `home` 操作或流程。
 
 ### ExecuteBarLink
+`public void ExecuteBarLink(string targetID)`
 
-```csharp
-public void ExecuteBarLink(string targetID)
-```
+**用途 / Purpose:** 执行 `bar link` 操作或流程。
 
 ### ExecuteCloseEncyclopedia
+`public void ExecuteCloseEncyclopedia()`
 
-```csharp
-public void ExecuteCloseEncyclopedia()
-```
+**用途 / Purpose:** 执行 `close encyclopedia` 操作或流程。
 
 ### ResetHistory
+`public void ResetHistory()`
 
-```csharp
-public void ResetHistory()
-```
+**用途 / Purpose:** 将 `history` 重置为初始状态。
 
 ### ExecuteBack
+`public void ExecuteBack()`
 
-```csharp
-public void ExecuteBack()
-```
+**用途 / Purpose:** 执行 `back` 操作或流程。
 
 ### ExecuteForward
+`public void ExecuteForward()`
 
-```csharp
-public void ExecuteForward()
-```
+**用途 / Purpose:** 执行 `forward` 操作或流程。
 
 ### GetLastPage
+`public Tuple<string, object> GetLastPage()`
 
-```csharp
-public Tuple<string, object> GetLastPage()
-```
+**用途 / Purpose:** 获取 `last page` 的当前值。
 
 ### AddHistory
+`public void AddHistory(string pageId, object obj)`
 
-```csharp
-public void AddHistory(string pageId, object obj)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `history`。
 
 ### UpdatePageName
+`public void UpdatePageName(string value)`
 
-```csharp
-public void UpdatePageName(string value)
-```
+**用途 / Purpose:** 更新 `page name` 的状态或数据。
 
 ### ResetSearch
+`public void ResetSearch()`
 
-```csharp
-public void ResetSearch()
-```
+**用途 / Purpose:** 将 `search` 重置为初始状态。
 
 ### ExecuteOnSearchActivated
+`public void ExecuteOnSearchActivated()`
 
-```csharp
-public void ExecuteOnSearchActivated()
-```
+**用途 / Purpose:** 执行 `on search activated` 操作或流程。
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
 
 ### SetPreviousPageInputKey
+`public void SetPreviousPageInputKey(HotKey hotkey)`
 
-```csharp
-public void SetPreviousPageInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `previous page input key` 的值或状态。
 
 ### SetNextPageInputKey
+`public void SetNextPageInputKey(HotKey hotkey)`
 
-```csharp
-public void SetNextPageInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `next page input key` 的值或状态。
 
 ### Compare
+`public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)
+var value = new EncyclopediaNavigatorVM();
+value.OnFinalize();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

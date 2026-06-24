@@ -2,149 +2,138 @@
 **首页** → **API 目录** → **本领域** → `ArrangementOrder`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArrangementOrder
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 结构体 struct struct
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public struct ArrangementOrder`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ArrangementOrder` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`ArrangementOrder` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `OrderType` | `public OrderType OrderType { get; }` |
 
-
 ## 主要方法
 
 ### GetUnitSpacingOf
+`public static int GetUnitSpacingOf(ArrangementOrder.ArrangementOrderEnum a)`
 
-```csharp
-public static int GetUnitSpacingOf(ArrangementOrder.ArrangementOrderEnum a)
-```
+**用途 / Purpose:** 获取 `unit spacing of` 的当前值。
 
 ### GetUnitLooseness
+`public static bool GetUnitLooseness(ArrangementOrder.ArrangementOrderEnum a)`
 
-```csharp
-public static bool GetUnitLooseness(ArrangementOrder.ArrangementOrderEnum a)
-```
+**用途 / Purpose:** 获取 `unit looseness` 的当前值。
 
 ### GetMovementSpeedRestriction
+`public void GetMovementSpeedRestriction(out float? runRestriction, out float? walkRestriction)`
 
-```csharp
-public void GetMovementSpeedRestriction(out float? runRestriction, out float? walkRestriction)
-```
+**用途 / Purpose:** 获取 `movement speed restriction` 的当前值。
 
 ### GetArrangement
+`public IFormationArrangement GetArrangement(Formation formation)`
 
-```csharp
-public IFormationArrangement GetArrangement(Formation formation)
-```
+**用途 / Purpose:** 获取 `arrangement` 的当前值。
 
 ### OnApply
+`public unsafe void OnApply(Formation formation)`
 
-```csharp
-public unsafe void OnApply(Formation formation)
-```
+**用途 / Purpose:** 当 `apply` 事件触发时调用此方法。
 
 ### SoftUpdate
+`public void SoftUpdate(Formation formation)`
 
-```csharp
-public void SoftUpdate(Formation formation)
-```
+**用途 / Purpose:** 处理 `soft update` 相关逻辑。
 
 ### GetShieldDirectionOfUnit
+`public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
-```csharp
-public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrder.ArrangementOrderEnum orderEnum)
-```
+**用途 / Purpose:** 获取 `shield direction of unit` 的当前值。
 
 ### GetUnitSpacing
+`public int GetUnitSpacing()`
 
-```csharp
-public int GetUnitSpacing()
-```
+**用途 / Purpose:** 获取 `unit spacing` 的当前值。
 
 ### Rearrange
+`public void Rearrange(Formation formation)`
 
-```csharp
-public void Rearrange(Formation formation)
-```
+**用途 / Purpose:** 处理 `rearrange` 相关逻辑。
 
 ### RearrangeAux
+`public void RearrangeAux(Formation formation, bool isDirectly)`
 
-```csharp
-public void RearrangeAux(Formation formation, bool isDirectly)
-```
+**用途 / Purpose:** 处理 `rearrange aux` 相关逻辑。
 
 ### TransposeLineFormation
+`public unsafe static void TransposeLineFormation(Formation formation)`
 
-```csharp
-public unsafe static void TransposeLineFormation(Formation formation)
-```
+**用途 / Purpose:** 处理 `transpose line formation` 相关逻辑。
 
 ### OnCancel
+`public void OnCancel(Formation formation)`
 
-```csharp
-public void OnCancel(Formation formation)
-```
+**用途 / Purpose:** 当 `cancel` 事件触发时调用此方法。
 
 ### TickOccasionally
+`public void TickOccasionally(Formation formation)`
 
-```csharp
-public void TickOccasionally(Formation formation)
-```
+**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
 
 ### GetNativeEnum
+`public ArrangementOrder.ArrangementOrderEnum GetNativeEnum()`
 
-```csharp
-public ArrangementOrder.ArrangementOrderEnum GetNativeEnum()
-```
+**用途 / Purpose:** 获取 `native enum` 的当前值。
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**用途 / Purpose:** 处理 `equals` 相关逻辑。
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**用途 / Purpose:** 获取 `hash code` 的当前值。
 
 ### OnOrderPositionChanged
+`public void OnOrderPositionChanged(Formation formation, Vec2 previousOrderPosition)`
 
-```csharp
-public void OnOrderPositionChanged(Formation formation, Vec2 previousOrderPosition)
-```
+**用途 / Purpose:** 当 `order position changed` 事件触发时调用此方法。
 
 ### GetArrangementOrderDefensiveness
+`public static int GetArrangementOrderDefensiveness(ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
-```csharp
-public static int GetArrangementOrderDefensiveness(ArrangementOrder.ArrangementOrderEnum orderEnum)
-```
+**用途 / Purpose:** 获取 `arrangement order defensiveness` 的当前值。
 
 ### GetArrangementOrderDefensivenessChange
+`public static int GetArrangementOrderDefensivenessChange(ArrangementOrder.ArrangementOrderEnum previousOrderEnum, ArrangementOrder.ArrangementOrderEnum nextOrderEnum)`
 
-```csharp
-public static int GetArrangementOrderDefensivenessChange(ArrangementOrder.ArrangementOrderEnum previousOrderEnum, ArrangementOrder.ArrangementOrderEnum nextOrderEnum)
-```
+**用途 / Purpose:** 获取 `arrangement order defensiveness change` 的当前值。
 
 ### CalculateFormationDirectionEnforcingFactorForRank
+`public float CalculateFormationDirectionEnforcingFactorForRank(int formationRankIndex, int rankCount)`
+
+**用途 / Purpose:** 处理 `calculate formation direction enforcing factor for rank` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public float CalculateFormationDirectionEnforcingFactorForRank(int formationRankIndex, int rankCount)
+// 先准备该类型需要的上下文，然后直接调用静态入口
+ArrangementOrder.GetUnitSpacingOf(a);
 ```
-
-贡献文档。
 
 ## 参见
 

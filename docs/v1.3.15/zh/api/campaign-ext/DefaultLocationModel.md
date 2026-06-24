@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultLocationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultLocationModel
@@ -14,34 +15,37 @@
 
 ## 概述
 
-`DefaultLocationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel())` 注册，以改变其计算逻辑。
+`DefaultLocationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultLocationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetSettlementUpgradeLevel
-```csharp
-public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)
-```
+`public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
+
+**用途 / Purpose:** 获取 `settlement upgrade level` 的当前值。
 
 ### GetCivilianSceneLevel
-```csharp
-public override string GetCivilianSceneLevel(Settlement settlement)
-```
+`public override string GetCivilianSceneLevel(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `civilian scene level` 的当前值。
 
 ### GetCivilianUpgradeLevelTag
-```csharp
-public override string GetCivilianUpgradeLevelTag(int upgradeLevel)
-```
+`public override string GetCivilianUpgradeLevelTag(int upgradeLevel)`
+
+**用途 / Purpose:** 获取 `civilian upgrade level tag` 的当前值。
 
 ### GetUpgradeLevelTag
-```csharp
-public override string GetUpgradeLevelTag(int upgradeLevel)
-```
+`public override string GetUpgradeLevelTag(int upgradeLevel)`
+
+**用途 / Purpose:** 获取 `upgrade level tag` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultLocationModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel());
 ```
 

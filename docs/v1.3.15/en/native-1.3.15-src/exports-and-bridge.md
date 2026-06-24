@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll v1.3.15 exports, startup entry points, and ma
 
 # Exports and Managed Bridge
 
+## Mental Model
+
+Treat `Exports and Managed Bridge` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 This page focuses on the connection points between `TaleWorlds.Native.dll` v1.3.15 and the managed layer. It complements the [Native Reference](../native/): the managed reference explains the C# interfaces, while this page shows the DLL-side exports, callbacks, and native type-name anchors visible in the decompiled source.
 
 ## Startup Exports
@@ -111,3 +115,9 @@ This type belongs near `rglScript_component` and `rglManaged_script_component` i
 - Vftable names are strong type-location clues, but object layouts in decompiled code still require manual confirmation.
 - Managed interface names are more stable than native addresses. Prefer managed APIs when implementing mods.
 - Addresses and line numbers apply only to the current v1.3.15 decompiled sample.
+
+## Usage Example
+
+```csharp
+var example = new Exports and Managed Bridge();
+```

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CompressionInfo`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompressionInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class CompressionInfo`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CompressionInfo` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CompressionInfo` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,70 +27,65 @@
 |------|-----------|
 | `FullPrecision` | `public static CompressionInfo.Float FullPrecision { get; }` |
 
-
 ## Key Methods
 
 ### GetNumBits
+`public int GetNumBits()`
 
-```csharp
-public int GetNumBits()
-```
-
-### GetMaximumValue
-
-```csharp
-public int GetMaximumValue()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
+**Purpose:** Gets the current value of `num bits`.
 
 ### GetMaximumValue
+`public int GetMaximumValue()`
 
-```csharp
-public float GetMaximumValue()
-```
+**Purpose:** Gets the current value of `maximum value`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetMaximumValue
+`public float GetMaximumValue()`
+
+**Purpose:** Gets the current value of `maximum value`.
 
 ### GetMinimumValue
+`public float GetMinimumValue()`
 
-```csharp
-public float GetMinimumValue()
-```
+**Purpose:** Gets the current value of `minimum value`.
 
 ### GetPrecision
+`public float GetPrecision()`
 
-```csharp
-public float GetPrecision()
-```
+**Purpose:** Gets the current value of `precision`.
 
 ### ClampValueAccordingToLimits
+`public void ClampValueAccordingToLimits(ref float x)`
+
+**Purpose:** Handles logic related to `clamp value according to limits`.
+
+## Usage Example
 
 ```csharp
-public void ClampValueAccordingToLimits(ref float x)
+var value = new CompressionInfo();
+value.GetNumBits();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

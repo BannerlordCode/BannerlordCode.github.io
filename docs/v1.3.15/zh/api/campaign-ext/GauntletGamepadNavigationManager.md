@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `GauntletGamepadNavigationManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GauntletGamepadNavigationManager
 
-**命名空间:** TaleWorlds.GauntletUI.GamepadNavigation
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class GauntletGamepadNavigationManager`
+**Base:** 无
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GamepadNavigation/GauntletGamepadNavigationManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`GauntletGamepadNavigationManager` 是 `TaleWorlds.GauntletUI.GamepadNavigation` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`GauntletGamepadNavigationManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `GauntletGamepadNavigationManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -29,84 +35,74 @@
 | `TargetedWidgetHasAction` | `public bool TargetedWidgetHasAction { get; }` |
 | `AnyWidgetUsingNavigation` | `public bool AnyWidgetUsingNavigation { get; }` |
 
-
 ## 主要方法
 
 ### Initialize
+`public static void Initialize()`
 
-```csharp
-public static void Initialize()
-```
-
-### TryNavigateTo
-
-```csharp
-public bool TryNavigateTo(Widget widget)
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### TryNavigateTo
+`public bool TryNavigateTo(Widget widget)`
 
-```csharp
-public bool TryNavigateTo(GamepadNavigationScope scope)
-```
+**用途 / Purpose:** 尝试获取 `navigate to`，通常以 out 参数返回结果。
+
+### TryNavigateTo
+`public bool TryNavigateTo(GamepadNavigationScope scope)`
+
+**用途 / Purpose:** 尝试获取 `navigate to`，通常以 out 参数返回结果。
 
 ### OnFinalize
+`public void OnFinalize()`
 
-```csharp
-public void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### Update
+`public void Update(float dt)`
 
-```csharp
-public void Update(float dt)
-```
+**用途 / Purpose:** 更新 `update` 的状态或数据。
 
 ### SetAllDirty
+`public void SetAllDirty()`
 
-```csharp
-public void SetAllDirty()
-```
-
-### Compare
-
-```csharp
-public int Compare(IGamepadNavigationContext x, IGamepadNavigationContext y)
-```
+**用途 / Purpose:** 设置 `all dirty` 的值或状态。
 
 ### Compare
+`public int Compare(IGamepadNavigationContext x, IGamepadNavigationContext y)`
 
-```csharp
-public int Compare(GamepadNavigationForcedScopeCollection x, GamepadNavigationForcedScopeCollection y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public int Compare(GamepadNavigationForcedScopeCollection x, GamepadNavigationForcedScopeCollection y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### GainNavigationAfterFrames
+`public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)`
 
-```csharp
-public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)
-```
+**用途 / Purpose:** 处理 `gain navigation after frames` 相关逻辑。
 
 ### GainNavigationAfterTime
+`public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)`
 
-```csharp
-public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)
-```
+**用途 / Purpose:** 处理 `gain navigation after time` 相关逻辑。
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**用途 / Purpose:** 处理 `tick` 相关逻辑。
 
 ### Clear
+`public void Clear()`
+
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void Clear()
+var manager = GauntletGamepadNavigationManager.Current;
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

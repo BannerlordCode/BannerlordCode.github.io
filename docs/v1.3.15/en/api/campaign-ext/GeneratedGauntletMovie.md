@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GeneratedGauntletMovie`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GeneratedGauntletMovie
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GeneratedGauntletMovie : IGauntletMovie`
+**Base:** `IGauntletMovie`
+**File:** `TaleWorlds.GauntletUI.Data/GeneratedGauntletMovie.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GeneratedGauntletMovie` is a class in the `TaleWorlds.GauntletUI.Data` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GeneratedGauntletMovie` lives in `TaleWorlds.GauntletUI.Data` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,34 +31,35 @@
 | `IsLoaded` | `public bool IsLoaded { get; }` |
 | `IsReleased` | `public bool IsReleased { get; }` |
 
-
 ## Key Methods
 
 ### Update
+`public void Update()`
 
-```csharp
-public void Update()
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### Release
+`public void Release()`
 
-```csharp
-public void Release()
-```
+**Purpose:** Handles logic related to `release`.
 
 ### RefreshBindingWithChildren
+`public void RefreshBindingWithChildren()`
 
-```csharp
-public void RefreshBindingWithChildren()
-```
+**Purpose:** Refreshes the display or cache of `binding with children`.
 
 ### OnResourcesRefreshed
+`public void OnResourcesRefreshed(SpriteData spriteData, WidgetFactory widgetFactory, BrushFactory brushFactory, FontFactory fontFactory)`
+
+**Purpose:** Called when the `resources refreshed` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OnResourcesRefreshed(SpriteData spriteData, WidgetFactory widgetFactory, BrushFactory brushFactory, FontFactory fontFactory)
+var value = new GeneratedGauntletMovie();
+value.Update();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

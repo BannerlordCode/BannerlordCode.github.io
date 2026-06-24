@@ -2,36 +2,44 @@
 **Home** → **API Index** → **Area** → `TooltipTriggerVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TooltipTriggerVM
 
 **Namespace:** TaleWorlds.Library.Information
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class TooltipTriggerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Library/Information/TooltipTriggerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TooltipTriggerVM` is a class in the `TaleWorlds.Library.Information` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TooltipTriggerVM` lives in `TaleWorlds.Library.Information` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library.Information` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### ExecuteBeginHint
+`public void ExecuteBeginHint()`
 
-```csharp
-public void ExecuteBeginHint()
-```
+**Purpose:** Executes the `begin hint` operation or workflow.
 
 ### ExecuteEndHint
+`public void ExecuteEndHint()`
+
+**Purpose:** Executes the `end hint` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteEndHint()
+var value = new TooltipTriggerVM();
+value.ExecuteBeginHint();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

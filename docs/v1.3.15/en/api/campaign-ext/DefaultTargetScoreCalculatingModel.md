@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultTargetScoreCalculatingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultTargetScoreCalculatingModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultTargetScoreCalculatingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultTargetScoreCalculatingModel>(new MyDefaultTargetScoreCalculatingModel())` to change how it computes.
+`DefaultTargetScoreCalculatingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultTargetScoreCalculatingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,29 +34,28 @@
 ## Key Methods
 
 ### GetPatrollingFactor
-```csharp
-public override float GetPatrollingFactor(bool isNavalPatrolling)
-```
+`public override float GetPatrollingFactor(bool isNavalPatrolling)`
+
+**Purpose:** Gets the current value of `patrolling factor`.
 
 ### CalculatePatrollingScoreForSettlement
-```csharp
-public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)
-```
+`public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `calculate patrolling score for settlement`.
 
 ### CurrentObjectiveValue
-```csharp
-public override float CurrentObjectiveValue(MobileParty mobileParty)
-```
+`public override float CurrentObjectiveValue(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `current objective value`.
 
 ### GetTargetScoreForFaction
-```csharp
-public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)
-```
+`public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
+
+**Purpose:** Gets the current value of `target score for faction`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultTargetScoreCalculatingModel (Model)
 Game.Current.ReplaceModel<DefaultTargetScoreCalculatingModel>(new MyDefaultTargetScoreCalculatingModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeAftermathModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeAftermathModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`SiegeAftermathModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SiegeAftermathModel>(new MySiegeAftermathModel())` to change how it computes.
+`SiegeAftermathModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SiegeAftermathModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSiegeAftermathTraitXpChangeForPlayer
-```csharp
-public abstract int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)
-```
+`public abstract int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
+
+**Purpose:** Gets the current value of `siege aftermath trait xp change for player`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeAftermathModel (Model)
-Game.Current.ReplaceModel<SiegeAftermathModel>(new MySiegeAftermathModel());
+var implementation = new CustomSiegeAftermathModel();
 ```
 
 ## See Also

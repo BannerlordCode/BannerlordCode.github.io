@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<PartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`PartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `PartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -35,40 +40,39 @@
 ## Key Methods
 
 ### SetWagePaymentLimit
-```csharp
-public virtual void SetWagePaymentLimit(int newLimit)
-```
+`public virtual void SetWagePaymentLimit(int newLimit)`
+
+**Purpose:** Sets the value or state of `wage payment limit`.
 
 ### GetDefaultComponentBanner
-```csharp
-public abstract Banner GetDefaultComponentBanner()
-```
+`public abstract Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### ClearCachedName
-```csharp
-public virtual void ClearCachedName()
-```
+`public virtual void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### ChangePartyLeader
-```csharp
-public void ChangePartyLeader(Hero newLeader)
-```
+`public void ChangePartyLeader(Hero newLeader)`
+
+**Purpose:** Handles logic related to `change party leader`.
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
-```csharp
-public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)
-```
+`public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
+
+**Purpose:** Gets the current value of `mount and harness visual ids for party icon`.
 
 ### OnPartyComponentCreatedDelegate
-```csharp
-public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)
-```
+`public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)`
+
+**Purpose:** Called when the `party component created delegate` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyComponent (Component)
-agent.GetComponent<PartyComponent>();
+var implementation = new CustomPartyComponent();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AutoBlockModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AutoBlockModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`AutoBlockModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<AutoBlockModel>(new MyAutoBlockModel())` to change how it computes.
+`AutoBlockModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `AutoBlockModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBlockDirection
-```csharp
-public abstract Agent.UsageDirection GetBlockDirection(Mission mission)
-```
+`public abstract Agent.UsageDirection GetBlockDirection(Mission mission)`
+
+**Purpose:** Gets the current value of `block direction`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AutoBlockModel (Model)
-Game.Current.ReplaceModel<AutoBlockModel>(new MyAutoBlockModel());
+var implementation = new CustomAutoBlockModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CaravanModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CaravanModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CaravanModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<CaravanModel>(new MyCaravanModel())` 注册，以改变其计算逻辑。
+`CaravanModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `CaravanModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,40 +30,39 @@
 ## 主要方法
 
 ### GetMaxGoldToSpendOnOneItemCategory
-```csharp
-public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)
-```
+`public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
+
+**用途 / Purpose:** 获取 `max gold to spend on one item category` 的当前值。
 
 ### GetInitialTradeGold
-```csharp
-public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)
-```
+`public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)`
+
+**用途 / Purpose:** 获取 `initial trade gold` 的当前值。
 
 ### GetCaravanFormingCost
-```csharp
-public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)
-```
+`public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)`
+
+**用途 / Purpose:** 获取 `caravan forming cost` 的当前值。
 
 ### GetPowerChangeAfterCaravanCreation
-```csharp
-public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)
-```
+`public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
+
+**用途 / Purpose:** 获取 `power change after caravan creation` 的当前值。
 
 ### CanHeroCreateCaravan
-```csharp
-public abstract bool CanHeroCreateCaravan(Hero hero)
-```
+`public abstract bool CanHeroCreateCaravan(Hero hero)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero create caravan`。
 
 ### GetEliteCaravanSpawnChance
-```csharp
-public abstract float GetEliteCaravanSpawnChance(Hero hero)
-```
+`public abstract float GetEliteCaravanSpawnChance(Hero hero)`
+
+**用途 / Purpose:** 获取 `elite caravan spawn chance` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// CaravanModel (Model) 的典型用法
-Game.Current.ReplaceModel<CaravanModel>(new MyCaravanModel());
+var implementation = new CustomCaravanModel();
 ```
 
 ## 参见

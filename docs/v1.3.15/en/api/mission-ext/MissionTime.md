@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionTime`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionTime
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct MissionTime : IComparable<MissionTime>`
+**Base:** `IComparable<MissionTime>`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `MissionTime` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionTime` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -36,67 +40,63 @@
 | `ToMilliseconds` | `public double ToMilliseconds { get; }` |
 | `Zero` | `public static MissionTime Zero { get; }` |
 
-
 ## Key Methods
 
 ### MillisecondsFromNow
+`public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-```csharp
-public static MissionTime MillisecondsFromNow(float valueInMilliseconds)
-```
+**Purpose:** Handles logic related to `milliseconds from now`.
 
 ### SecondsFromNow
+`public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-```csharp
-public static MissionTime SecondsFromNow(float valueInSeconds)
-```
-
-### Equals
-
-```csharp
-public bool Equals(MissionTime other)
-```
+**Purpose:** Handles logic related to `seconds from now`.
 
 ### Equals
+`public bool Equals(MissionTime other)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
+
+### Equals
+`public override bool Equals(object obj)`
+
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**Purpose:** Gets the current value of `hash code`.
 
 ### CompareTo
+`public int CompareTo(MissionTime other)`
 
-```csharp
-public int CompareTo(MissionTime other)
-```
+**Purpose:** Handles logic related to `compare to`.
 
 ### Milliseconds
+`public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-```csharp
-public static MissionTime Milliseconds(float valueInMilliseconds)
-```
+**Purpose:** Handles logic related to `milliseconds`.
 
 ### Seconds
+`public static MissionTime Seconds(float valueInSeconds)`
 
-```csharp
-public static MissionTime Seconds(float valueInSeconds)
-```
+**Purpose:** Handles logic related to `seconds`.
 
 ### Minutes
+`public static MissionTime Minutes(float valueInMinutes)`
 
-```csharp
-public static MissionTime Minutes(float valueInMinutes)
-```
+**Purpose:** Handles logic related to `minutes`.
 
 ### Hours
+`public static MissionTime Hours(float valueInHours)`
+
+**Purpose:** Handles logic related to `hours`.
+
+## Usage Example
 
 ```csharp
-public static MissionTime Hours(float valueInHours)
+// Prepare the required context, then call the static entry point directly
+MissionTime.MillisecondsFromNow(0);
 ```
 
 ## See Also

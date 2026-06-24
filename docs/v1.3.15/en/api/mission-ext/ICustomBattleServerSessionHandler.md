@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `ICustomBattleServerSessionHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ICustomBattleServerSessionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** interface
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/ICustomBattleServerSessionHandler.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ICustomBattleServerSessionHandler` is a interface in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ICustomBattleServerSessionHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `ICustomBattleServerSessionHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+ICustomBattleServerSessionHandler implementation = GetCustomBattleServerSessionHandlerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

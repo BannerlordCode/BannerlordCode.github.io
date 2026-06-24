@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementAccessModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementAccessModel
@@ -14,44 +15,47 @@
 
 ## Overview
 
-`DefaultSettlementAccessModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementAccessModel>(new MyDefaultSettlementAccessModel())` to change how it computes.
+`DefaultSettlementAccessModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementAccessModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CanMainHeroEnterSettlement
-```csharp
-public override void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public override void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter settlement`.
 
 ### CanMainHeroEnterDungeon
-```csharp
-public override void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public override void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter dungeon`.
 
 ### CanMainHeroEnterLordsHall
-```csharp
-public override void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)
-```
+`public override void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
+
+**Purpose:** Checks whether the current object can `main hero enter lords hall`.
 
 ### CanMainHeroAccessLocation
-```csharp
-public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)
-```
+`public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Checks whether the current object can `main hero access location`.
 
 ### IsRequestMeetingOptionAvailable
-```csharp
-public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)
-```
+`public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Handles logic related to `is request meeting option available`.
 
 ### CanMainHeroDoSettlementAction
-```csharp
-public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)
-```
+`public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
+
+**Purpose:** Checks whether the current object can `main hero do settlement action`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementAccessModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementAccessModel>(new MyDefaultSettlementAccessModel());
 ```
 

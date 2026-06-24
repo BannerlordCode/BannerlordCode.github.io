@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerMissionAgentVisualSpawnComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerMissionAgentVisualSpawnComponent
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`MultiplayerMissionAgentVisualSpawnComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerMissionAgentVisualSpawnComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerMissionAgentVisualSpawnComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerMissionAgentVisualSpawnComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SpawnAgentVisualsForPeer
-```csharp
-public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)
-```
+`public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
+
+**Purpose:** Handles logic related to `spawn agent visuals for peer`.
 
 ### RemoveAgentVisuals
-```csharp
-public void RemoveAgentVisuals(MissionPeer missionPeer, bool sync = false)
-```
+`public void RemoveAgentVisuals(MissionPeer missionPeer, bool sync = false)`
+
+**Purpose:** Removes `agent visuals` from the current collection or state.
 
 ### OnMyAgentSpawned
-```csharp
-public void OnMyAgentSpawned()
-```
+`public void OnMyAgentSpawned()`
+
+**Purpose:** Called when the `my agent spawned` event is raised.
 
 ### OnPreMissionTick
-```csharp
-public override void OnPreMissionTick(float dt)
-```
+`public override void OnPreMissionTick(float dt)`
+
+**Purpose:** Called when the `pre mission tick` event is raised.
 
 ### GetSpawnPointFrameForPlayer
-```csharp
-public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)
-```
+`public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
+
+**Purpose:** Gets the current value of `spawn point frame for player`.
 
 ### FreeSpawnPointFromPlayer
-```csharp
-public void FreeSpawnPointFromPlayer(VirtualPlayer player)
-```
+`public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
+
+**Purpose:** Handles logic related to `free spawn point from player`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerMissionAgentVisualSpawnComponent (Component)
-agent.GetComponent<MultiplayerMissionAgentVisualSpawnComponent>();
+var component = agent.GetComponent<MultiplayerMissionAgentVisualSpawnComponent>();
 ```
 
 ## See Also

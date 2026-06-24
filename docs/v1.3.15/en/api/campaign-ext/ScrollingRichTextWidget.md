@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ScrollingRichTextWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScrollingRichTextWidget
@@ -16,29 +17,32 @@
 
 `ScrollingRichTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ScrollingRichTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `ScrollOnHoverWidget` | `public Widget ScrollOnHoverWidget { get { return this._scrollOnHoverWidget; }` |
-| `IsAutoScrolling` | `public bool IsAutoScrolling { get { return this._isAutoScrolling; }` |
-| `ScrollPerTick` | `public float ScrollPerTick { get { return this._scrollPerTick; }` |
-| `InbetweenScrollDuration` | `public float InbetweenScrollDuration { get { return this._inbetweenScrollDuration; }` |
-| `DefaultTextHorizontalAlignment` | `public TextHorizontalAlignment DefaultTextHorizontalAlignment { get { return this._defaultTextHorizontalAlignment; }` |
+| `ActualText` | `public string ActualText { get; }` |
+| `ScrollOnHoverWidget` | `public Widget ScrollOnHoverWidget { get; set; }` |
+| `IsAutoScrolling` | `public bool IsAutoScrolling { get; set; }` |
+| `ScrollPerTick` | `public float ScrollPerTick { get; set; }` |
+| `InbetweenScrollDuration` | `public float InbetweenScrollDuration { get; set; }` |
+| `DefaultTextHorizontalAlignment` | `public TextHorizontalAlignment DefaultTextHorizontalAlignment { get; set; }` |
 
 ## Key Methods
 
 ### OnBrushChanged
-```csharp
-public override void OnBrushChanged()
-```
+`public override void OnBrushChanged()`
+
+**Purpose:** Called when the `brush changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ScrollingRichTextWidget (Widget)
-// 声明/访问一个 ScrollingRichTextWidget
-var widget = root.GetChild("scrollingRichTextWidget");;
+var widget = new ScrollingRichTextWidget(context);
 ```
 
 ## See Also

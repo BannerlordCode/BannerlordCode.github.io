@@ -2,40 +2,31 @@
 **Home** → **API Index** → **Area** → `SkinMask`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkinMask
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** enum
-**Area:** Core
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.Core/SkinMask.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SkinMask` is a enum in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SkinMask` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `NoneVisible` |
-| `0` |
-| `HeadVisible` |
-| `1` |
-| `BodyVisible` |
-| `32` |
-| `UnderwearVisible` |
-| `64` |
-| `HandsVisible` |
-| `128` |
-| `LegsVisible` |
-| `256` |
-| `AllVisible` |
+## Usage Example
+
+```csharp
+var value = new SkinMask();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

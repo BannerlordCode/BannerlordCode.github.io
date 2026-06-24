@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OptionsVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OptionsVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/OptionsVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OptionsVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OptionsVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,113 +45,105 @@
 | `BrightnessPopUp` | `public BrightnessOptionVM BrightnessPopUp { get; set; }` |
 | `ExposurePopUp` | `public ExposureOptionVM ExposurePopUp { get; set; }` |
 | `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
-
+| `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
+| `PreviousTabInputKey` | `public InputKeyItemVM PreviousTabInputKey { get; set; }` |
+| `NextTabInputKey` | `public InputKeyItemVM NextTabInputKey { get; set; }` |
+| `ResetInputKey` | `public InputKeyItemVM ResetInputKey { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteCloseOptions
+`public void ExecuteCloseOptions()`
 
-```csharp
-public void ExecuteCloseOptions()
-```
+**Purpose:** Executes the `close options` operation or workflow.
 
 ### GetActiveCategory
+`public ViewModel GetActiveCategory()`
 
-```csharp
-public ViewModel GetActiveCategory()
-```
+**Purpose:** Gets the current value of `active category`.
 
 ### GetIndexOfCategory
+`public int GetIndexOfCategory(ViewModel categoryVM)`
 
-```csharp
-public int GetIndexOfCategory(ViewModel categoryVM)
-```
+**Purpose:** Gets the current value of `index of category`.
 
 ### GetConfig
+`public float GetConfig(IOptionData data)`
 
-```csharp
-public float GetConfig(IOptionData data)
-```
+**Purpose:** Gets the current value of `config`.
 
 ### SetConfig
+`public void SetConfig(IOptionData data, float val)`
 
-```csharp
-public void SetConfig(IOptionData data, float val)
-```
+**Purpose:** Sets the value or state of `config`.
 
 ### SelectPreviousCategory
+`public void SelectPreviousCategory()`
 
-```csharp
-public void SelectPreviousCategory()
-```
+**Purpose:** Handles logic related to `select previous category`.
 
 ### SelectNextCategory
+`public void SelectNextCategory()`
 
-```csharp
-public void SelectNextCategory()
-```
+**Purpose:** Handles logic related to `select next category`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### ExecuteDone
+`public void ExecuteDone()`
 
-```csharp
-public void ExecuteDone()
-```
+**Purpose:** Executes the `done` operation or workflow.
 
 ### IsOptionsChanged
+`public bool IsOptionsChanged()`
 
-```csharp
-public bool IsOptionsChanged()
-```
+**Purpose:** Handles logic related to `is options changed`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotkey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetPreviousTabInputKey
+`public void SetPreviousTabInputKey(HotKey hotkey)`
 
-```csharp
-public void SetPreviousTabInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `previous tab input key`.
 
 ### SetNextTabInputKey
+`public void SetNextTabInputKey(HotKey hotkey)`
 
-```csharp
-public void SetNextTabInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `next tab input key`.
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotkey)`
+
+**Purpose:** Sets the value or state of `reset input key`.
+
+## Usage Example
 
 ```csharp
-public void SetResetInputKey(HotKey hotkey)
+var value = new OptionsVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

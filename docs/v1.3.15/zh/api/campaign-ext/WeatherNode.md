@@ -2,43 +2,50 @@
 **首页** → **API 目录** → **本领域** → `WeatherNode`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeatherNode
 
-**命名空间:** TaleWorlds.CampaignSystem.Map
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.Map
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class WeatherNode`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Map/WeatherNode.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`WeatherNode` 是 `TaleWorlds.CampaignSystem.Map` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`WeatherNode` 位于 `TaleWorlds.CampaignSystem.Map`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Map` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `IsVisuallyDirty` | `public bool IsVisuallyDirty { get; }` |
 
-
 ## 主要方法
 
 ### SetVisualDirty
+`public void SetVisualDirty()`
 
-```csharp
-public void SetVisualDirty()
-```
+**用途 / Purpose:** 设置 `visual dirty` 的值或状态。
 
 ### OnVisualUpdated
+`public void OnVisualUpdated()`
+
+**用途 / Purpose:** 当 `visual updated` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public void OnVisualUpdated()
+var value = new WeatherNode();
+value.SetVisualDirty();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Theme`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Theme
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Theme : PsaiMusicEntity, ICloneable`
+**Base:** `PsaiMusicEntity`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Theme` is a class in the `psai.Editor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Theme` lives in `psai.Editor`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `psai.Editor` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -38,121 +42,108 @@
 | `WeightingLowPlaycountVsRandom` | `public float WeightingLowPlaycountVsRandom { get; set; }` |
 | `Groups` | `public List<Group> Groups { get; set; }` |
 
-
 ## Key Methods
 
 ### ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred
+`public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)`
 
-```csharp
-public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)
-```
+**Purpose:** Handles logic related to `convert playcount vs random weighting to boolean playcount preferred`.
 
 ### GetClassString
+`public override string GetClassString()`
 
-```csharp
-public override string GetClassString()
-```
+**Purpose:** Gets the current value of `class string`.
 
 ### GetChildren
+`public override List<PsaiMusicEntity> GetChildren()`
 
-```csharp
-public override List<PsaiMusicEntity> GetChildren()
-```
+**Purpose:** Gets the current value of `children`.
 
 ### GetParent
+`public override PsaiMusicEntity GetParent()`
 
-```csharp
-public override PsaiMusicEntity GetParent()
-```
+**Purpose:** Gets the current value of `parent`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### AddGroup
+`public bool AddGroup(Group groupToAdd)`
 
-```csharp
-public bool AddGroup(Group groupToAdd)
-```
+**Purpose:** Adds `group` to the current collection or state.
 
 ### DeleteGroup
+`public void DeleteGroup(Group group)`
 
-```csharp
-public void DeleteGroup(Group group)
-```
+**Purpose:** Handles logic related to `delete group`.
 
 ### GetSegmentsOfAllGroups
+`public HashSet<Segment> GetSegmentsOfAllGroups()`
 
-```csharp
-public HashSet<Segment> GetSegmentsOfAllGroups()
-```
+**Purpose:** Gets the current value of `segments of all groups`.
 
 ### GetAudioDataRelativeFilePathsUsedByThisTheme
+`public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()`
 
-```csharp
-public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()
-```
+**Purpose:** Gets the current value of `audio data relative file paths used by this theme`.
 
 ### GetCompatibilitySetting
+`public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-```csharp
-public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)
-```
+**Purpose:** Gets the current value of `compatibility setting`.
 
 ### GetCompatibilityType
+`public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-```csharp
-public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)
-```
+**Purpose:** Gets the current value of `compatibility type`.
 
 ### GetIndexPositionWithinParentEntity
+`public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-```csharp
-public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)
-```
+**Purpose:** Gets the current value of `index position within parent entity`.
 
 ### PropertyDifferencesAffectCompatibilities
+`public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-```csharp
-public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)
-```
+**Purpose:** Handles logic related to `property differences affect compatibilities`.
 
 ### SetAsParentThemeForAllGroupsAndSegments
+`public void SetAsParentThemeForAllGroupsAndSegments()`
 
-```csharp
-public void SetAsParentThemeForAllGroupsAndSegments()
-```
+**Purpose:** Sets the value or state of `as parent theme for all groups and segments`.
 
 ### CreatePsaiDotNetVersion
+`public Theme CreatePsaiDotNetVersion()`
 
-```csharp
-public Theme CreatePsaiDotNetVersion()
-```
+**Purpose:** Creates a new `psai dot net version` instance or object.
 
 ### getTestTheme1
+`public static Theme getTestTheme1()`
 
-```csharp
-public static Theme getTestTheme1()
-```
+**Purpose:** Handles logic related to `get test theme1`.
 
 ### getTestTheme2
+`public static Theme getTestTheme2()`
 
-```csharp
-public static Theme getTestTheme2()
-```
+**Purpose:** Handles logic related to `get test theme2`.
 
 ### Clone
+`public override object Clone()`
 
-```csharp
-public override object Clone()
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### ShallowCopy
+`public override PsaiMusicEntity ShallowCopy()`
+
+**Purpose:** Handles logic related to `shallow copy`.
+
+## Usage Example
 
 ```csharp
-public override PsaiMusicEntity ShallowCopy()
+// Prepare the required context, then call the static entry point directly
+Theme.ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(0);
 ```
 
 ## See Also

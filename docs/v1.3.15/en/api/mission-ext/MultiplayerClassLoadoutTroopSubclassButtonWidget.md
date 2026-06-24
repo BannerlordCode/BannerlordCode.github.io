@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerClassLoadoutTroopSubclassButtonWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutTroopSubclassButtonWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerClassLoadoutTroopSubclassButtonWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerClassLoadoutTroopSubclassButtonWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,16 +33,14 @@
 ## Key Methods
 
 ### SetState
-```csharp
-public override void SetState(string stateName)
-```
+`public override void SetState(string stateName)`
+
+**Purpose:** Sets the value or state of `state`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerClassLoadoutTroopSubclassButtonWidget (Widget)
-// 声明/访问一个 MultiplayerClassLoadoutTroopSubclassButtonWidget
-var widget = root.GetChild("multiplayerClassLoadoutTroopSubclassButtonWidget");;
+var widget = new MultiplayerClassLoadoutTroopSubclassButtonWidget(context);
 ```
 
 ## See Also

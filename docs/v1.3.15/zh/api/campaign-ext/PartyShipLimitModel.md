@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PartyShipLimitModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyShipLimitModel
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`PartyShipLimitModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<PartyShipLimitModel>(new MyPartyShipLimitModel())` 注册，以改变其计算逻辑。
+`PartyShipLimitModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `PartyShipLimitModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetIdealShipNumber
-```csharp
-public abstract int GetIdealShipNumber(MobileParty mobileParty)
-```
+`public abstract int GetIdealShipNumber(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
 
 ### GetIdealShipNumber
-```csharp
-public abstract int GetIdealShipNumber(Clan clan)
-```
+`public abstract int GetIdealShipNumber(Clan clan)`
+
+**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
 
 ### GetShipPriority
-```csharp
-public abstract float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)
-```
+`public abstract float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
+
+**用途 / Purpose:** 获取 `ship priority` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// PartyShipLimitModel (Model) 的典型用法
-Game.Current.ReplaceModel<PartyShipLimitModel>(new MyPartyShipLimitModel());
+var implementation = new CustomPartyShipLimitModel();
 ```
 
 ## 参见

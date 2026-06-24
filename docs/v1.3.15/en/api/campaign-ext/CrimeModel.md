@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CrimeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CrimeModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CrimeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CrimeModel>(new MyCrimeModel())` to change how it computes.
+`CrimeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CrimeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,55 +30,54 @@
 ## Key Methods
 
 ### GetMaxCrimeRating
-```csharp
-public abstract float GetMaxCrimeRating()
-```
+`public abstract float GetMaxCrimeRating()`
+
+**Purpose:** Gets the current value of `max crime rating`.
 
 ### GetMinAcceptableCrimeRating
-```csharp
-public abstract float GetMinAcceptableCrimeRating(IFaction faction)
-```
+`public abstract float GetMinAcceptableCrimeRating(IFaction faction)`
+
+**Purpose:** Gets the current value of `min acceptable crime rating`.
 
 ### GetCrimeRatingAfterPunishment
-```csharp
-public abstract float GetCrimeRatingAfterPunishment()
-```
+`public abstract float GetCrimeRatingAfterPunishment()`
+
+**Purpose:** Gets the current value of `crime rating after punishment`.
 
 ### DoesPlayerHaveAnyCrimeRating
-```csharp
-public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)
-```
+`public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
+
+**Purpose:** Handles logic related to `does player have any crime rating`.
 
 ### IsPlayerCrimeRatingSevere
-```csharp
-public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)
-```
+`public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)`
+
+**Purpose:** Handles logic related to `is player crime rating severe`.
 
 ### IsPlayerCrimeRatingModerate
-```csharp
-public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)
-```
+`public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)`
+
+**Purpose:** Handles logic related to `is player crime rating moderate`.
 
 ### IsPlayerCrimeRatingMild
-```csharp
-public abstract bool IsPlayerCrimeRatingMild(IFaction faction)
-```
+`public abstract bool IsPlayerCrimeRatingMild(IFaction faction)`
+
+**Purpose:** Handles logic related to `is player crime rating mild`.
 
 ### GetCost
-```csharp
-public abstract float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)
-```
+`public abstract float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
+
+**Purpose:** Gets the current value of `cost`.
 
 ### GetDailyCrimeRatingChange
-```csharp
-public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `daily crime rating change`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CrimeModel (Model)
-Game.Current.ReplaceModel<CrimeModel>(new MyCrimeModel());
+var implementation = new CustomCrimeModel();
 ```
 
 ## See Also

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `MatrixFrame`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MatrixFrame
@@ -17,6 +19,10 @@ The engine's general-purpose affine transform: a 3x3 rotation [`Mat3`](./Mat3.md
 `MatrixFrame` carries both position and orientation and is the basic unit for describing how an object is posed in the world. Its two core operations are `TransformToParent` (mapping a local point/child frame into this frame's space, i.e. "to world") and `TransformToLocal` (the inverse, mapping a world point into this frame's local space). Move along the local axes with `Strafe` / `Advance` / `Elevate`; rotate about an arbitrary axis with `Rotate`. Multiple transforms compose with the `*` operator.
 
 > Note: this is a `struct` (value type) — assignment and passing copy it. `Advance` / `Strafe` / `Elevate` / `Rotate` / `Scale` mutate `this` in place and return `this`.
+
+## Mental Model
+
+Treat `MatrixFrame` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Fields
 

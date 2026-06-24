@@ -2,36 +2,44 @@
 **首页** → **API 目录** → **本领域** → `StealthBox`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StealthBox
 
-**命名空间:** TaleWorlds.MountAndBlade.Objects
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.Objects
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class StealthBox : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
+**File:** `TaleWorlds.MountAndBlade/Objects/StealthBox.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`StealthBox` 是 `TaleWorlds.MountAndBlade.Objects` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`StealthBox` 位于 `TaleWorlds.MountAndBlade.Objects`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.Objects` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### IsPointInside
+`public bool IsPointInside(Vec3 point)`
 
-```csharp
-public bool IsPointInside(Vec3 point)
-```
+**用途 / Purpose:** 处理 `is point inside` 相关逻辑。
 
 ### IsAgentInside
+`public bool IsAgentInside(Agent agent)`
+
+**用途 / Purpose:** 处理 `is agent inside` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public bool IsAgentInside(Agent agent)
+var value = new StealthBox();
+value.IsPointInside(point);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TauntSlotData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TauntSlotData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`TauntSlotData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`TauntSlotData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `TauntSlotData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,15 +31,14 @@
 ## Key Methods
 
 ### HasSameContentWith
-```csharp
-public override bool HasSameContentWith(MultiplayerLocalData other)
-```
+`public override bool HasSameContentWith(MultiplayerLocalData other)`
+
+**Purpose:** Checks whether the current object has/contains `same content with`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TauntSlotData (Data)
-new TauntSlotData { /* fill fields */ };;
+var value = new TauntSlotData();
 ```
 
 ## See Also

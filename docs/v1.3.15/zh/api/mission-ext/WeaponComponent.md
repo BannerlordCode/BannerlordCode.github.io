@@ -1,19 +1,25 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `WeaponComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponComponent
 
+## 心智模型
+
+先把 `WeaponComponent` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 类概述
 
-| 项目 | 说明 |
-|------|------|
-| **命名空间** | TaleWorlds.Core |
-| **文件路径** | TaleWorlds.Core/WeaponComponent.cs |
-| **基类** | ItemComponent |
-| **类型** | 公开类 |
+\| 项目 \| 说明 \|
+\|------\|------\|
+\| **命名空间** \| TaleWorlds.Core \|
+\| **文件路径** \| TaleWorlds.Core/WeaponComponent.cs \|
+\| **基类** \| ItemComponent \|
+\| **类型** \| 公开类 \|
 
 ## 说明
 
@@ -21,18 +27,18 @@
 
 ## 关键属性
 
-| 属性 | 类型 | 说明 |
-|------|------|------|
-| Weapons | MBReadOnlyList | 武器数据列表 |
-| PrimaryWeapon | WeaponComponentData | 主要武器数据 |
+\| 属性 \| 类型 \| 说明 \|
+\|------\|------\|------\|
+\| Weapons \| MBReadOnlyList \| 武器数据列表 \|
+\| PrimaryWeapon \| WeaponComponentData \| 主要武器数据 \|
 
 ## 关键方法
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup) | void | 添加武器 |
-| GetCopy() | ItemComponent | 创建副本 |
-| GetItemType() | ItemObject.ItemTypeEnum | 获取物品类型 |
+\| 方法 \| 返回值 \| 说明 \|
+\|------\|--------\|------\|
+\| AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup) \| void \| 添加武器 \|
+\| GetCopy() \| ItemComponent \| 创建副本 \|
+\| GetItemType() \| ItemObject.ItemTypeEnum \| 获取物品类型 \|
 
 ## 使用示例
 

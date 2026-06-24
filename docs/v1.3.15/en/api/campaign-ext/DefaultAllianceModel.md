@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultAllianceModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultAllianceModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultAllianceModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultAllianceModel>(new MyDefaultAllianceModel())` to change how it computes.
+`DefaultAllianceModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultAllianceModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,39 +33,38 @@
 ## Key Methods
 
 ### GetCallToWarCost
-```csharp
-public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)
-```
+`public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
+
+**Purpose:** Gets the current value of `call to war cost`.
 
 ### GetScoreOfStartingAlliance
-```csharp
-public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanationText, bool includeDescription = false)
-```
+`public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanationText, bool includeDescription = false)`
+
+**Purpose:** Gets the current value of `score of starting alliance`.
 
 ### GetInfluenceCostOfProposingStartingAlliance
-```csharp
-public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)
-```
+`public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of proposing starting alliance`.
 
 ### GetScoreOfCallingToWar
-```csharp
-public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**Purpose:** Gets the current value of `score of calling to war`.
 
 ### GetScoreOfJoiningWar
-```csharp
-public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**Purpose:** Gets the current value of `score of joining war`.
 
 ### GetInfluenceCostOfCallingToWar
-```csharp
-public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)
-```
+`public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of calling to war`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultAllianceModel (Model)
 Game.Current.ReplaceModel<DefaultAllianceModel>(new MyDefaultAllianceModel());
 ```
 

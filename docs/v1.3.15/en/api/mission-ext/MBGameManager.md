@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `MBGameManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBGameManager
@@ -15,6 +17,10 @@
 ## Overview
 
 `MBGameManager` is the abstract base for game modes — the campaign, custom battles, and multiplayer each subclass it. It owns the mission lifecycle, application time, and config flags (`CheatMode`, `IsDevelopmentMode`, `UnitSpawnPrioritization`). The active manager is reachable via `MBGameManager.Current`. Mods subclass it to implement a fully custom game mode.
+
+## Mental Model
+
+Treat `MBGameManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 
@@ -133,19 +139,7 @@ public virtual void OnPlatformRequestedMultiplayer()
 ## Usage Example
 
 ```csharp
-// Minimal custom game mode: subclass MBGameManager and drive a mission
-public class MyGameManager : MBGameManager
-{
-    public override void OnLoadFinished()
-    {
-        base.OnLoadFinished();
-        // Start your custom mission scene
-        var mission = Mission.StartNewMission(...);
-        mission.SetMissionMode(MissionMode.Battle, true);
-    }
-
-    public override bool IsDevelopmentMode => NativeConfig.IsDevelopmentMode;
-}
+var implementation = new CustomMBGameManager();
 ```
 
 ## See Also

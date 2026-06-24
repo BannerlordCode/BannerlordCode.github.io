@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapNotificationVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapNotificationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MapNotificationVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/MapNotificationVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapNotificationVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Map` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapNotificationVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Map` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,58 +29,55 @@
 | `FocusedNotificationItem` | `public MapNotificationItemBaseVM FocusedNotificationItem { get; set; }` |
 | `NotificationItems` | `public MBBindingList<MapNotificationItemBaseVM> NotificationItems { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RegisterMapNotificationType
+`public void RegisterMapNotificationType(Type data, Type item)`
 
-```csharp
-public void RegisterMapNotificationType(Type data, Type item)
-```
+**Purpose:** Handles logic related to `register map notification type`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### OnFrameTick
+`public void OnFrameTick(float dt)`
 
-```csharp
-public void OnFrameTick(float dt)
-```
+**Purpose:** Called when the `frame tick` event is raised.
 
 ### OnMenuModeTick
+`public void OnMenuModeTick(float dt)`
 
-```csharp
-public void OnMenuModeTick(float dt)
-```
+**Purpose:** Called when the `menu mode tick` event is raised.
 
 ### AddMapNotification
+`public void AddMapNotification(InformationData data)`
 
-```csharp
-public void AddMapNotification(InformationData data)
-```
+**Purpose:** Adds `map notification` to the current collection or state.
 
 ### RemoveAllNotifications
+`public void RemoveAllNotifications()`
 
-```csharp
-public void RemoveAllNotifications()
-```
+**Purpose:** Removes `all notifications` from the current collection or state.
 
 ### SetRemoveInputKey
+`public void SetRemoveInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `remove input key`.
+
+## Usage Example
 
 ```csharp
-public void SetRemoveInputKey(HotKey hotKey)
+var value = new MapNotificationVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

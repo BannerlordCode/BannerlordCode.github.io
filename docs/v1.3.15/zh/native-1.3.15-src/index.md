@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll v1.3.15 反编译源码参考文档
 
 # Native 1.3.15 源码参考 / Native 1.3.15 Source Reference
 
+## 心智模型
+
+先把 `Native 1.3.15 源码参考` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 本节整理 `TaleWorlds.Native.dll` v1.3.15 的反编译 C 源码和头文件，重点用于查找原生导出、托管桥接、引擎类型名、函数地址以及常见系统模块。
 
 > 说明：源码来自反编译输出。`FUN_180...`、`DAT_180...`、`LAB_180...` 等名称是工具生成名，不是 TaleWorlds 原始符号名。函数语义需要结合字符串引用、vftable、导出表、托管接口和调用交叉引用继续确认。
@@ -35,7 +39,7 @@ description: TaleWorlds.Native.dll v1.3.15 反编译源码参考文档
 | 头文件 | `TaleWorlds.Native.dll.h` |
 | 头文件行数 | 33,875 |
 | 已索引反编译函数 | 11,095 |
-| 完整函数地址列表 | [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) |
+| 完整函数地址列表 | [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS) |
 | Typedef 类型 | 349 |
 | Struct 定义 | 146 |
 | Union 定义 | 12 |
@@ -49,7 +53,7 @@ native-1.3.15-src/
 ├── exports-and-bridge.md
 ├── COMPLETE-FUNCTIONS.md
 ├── COMPLETE-TYPES.md
-├── ALL-FUNCTIONS-LIST.txt
+├── COMPLETE-FUNCTIONS.md
 ├── engine-core.md
 ├── rendering.md
 ├── animation.md
@@ -114,7 +118,7 @@ NativeObject / NativeArray / NativeString / NativeObjectArray
 
 1. 已知托管接口方法名时，先查 [原生接口文档](../native/) 中的 `[EngineMethod]`，再在反编译源码中搜索该原生方法名或附近注册逻辑。
 2. 已知原生类型名时，搜索字符串，例如 `ftdnNative_string`、`rglScene`、`rglMaterial`，再沿附近 vftable 写入和构造函数向外追踪。
-3. 已知函数地址时，先在 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) 确认函数是否已索引，再到源码中搜索 `FUN_` 名称。
+3. 已知函数地址时，先在 [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS) 确认函数是否已索引，再到源码中搜索 `FUN_` 名称。
 4. 已知崩溃日志或字符串时，优先搜索错误文本。例如 `Unable to find native module`、`/nativeTest`、`Modules/Native/get_tileset.bat`。
 5. 做版本对比时，不要复用地址作为稳定 API。地址只对当前 v1.3.15 反编译样本有效。
 
@@ -138,3 +142,9 @@ NativeObject / NativeArray / NativeString / NativeObjectArray
 
 **最后更新:** 2026-05-14  
 **源码版本:** TaleWorlds.Native.dll v1.3.15
+
+## 使用示例
+
+```csharp
+var example = new Native 1.3.15 源码参考();
+```

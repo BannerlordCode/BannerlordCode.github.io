@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `NarrativeMenuCharacter`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NarrativeMenuCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class NarrativeMenuCharacter`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterCreationContent/NarrativeMenuCharacter.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `NarrativeMenuCharacter` is a class in the `TaleWorlds.CampaignSystem.CharacterCreationContent` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`NarrativeMenuCharacter` lives in `TaleWorlds.CampaignSystem.CharacterCreationContent` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,82 +36,75 @@
 | `RightHandEquipmentIndex` | `public EquipmentIndex RightHandEquipmentIndex { get; }` |
 | `LeftHandEquipmentIndex` | `public EquipmentIndex LeftHandEquipmentIndex { get; }` |
 
-
 ## Key Methods
 
 ### UpdateBodyProperties
+`public void UpdateBodyProperties(BodyProperties bodyProperties, int race, bool isFemale)`
 
-```csharp
-public void UpdateBodyProperties(BodyProperties bodyProperties, int race, bool isFemale)
-```
+**Purpose:** Updates the state or data of `body properties`.
 
 ### SetEquipment
+`public void SetEquipment(MBEquipmentRoster equipment)`
 
-```csharp
-public void SetEquipment(MBEquipmentRoster equipment)
-```
+**Purpose:** Sets the value or state of `equipment`.
 
 ### SetAnimationId
+`public void SetAnimationId(string animationId)`
 
-```csharp
-public void SetAnimationId(string animationId)
-```
+**Purpose:** Sets the value or state of `animation id`.
 
 ### SetRightHandItem
+`public void SetRightHandItem(string itemId)`
 
-```csharp
-public void SetRightHandItem(string itemId)
-```
+**Purpose:** Sets the value or state of `right hand item`.
 
 ### SetLeftHandItem
+`public void SetLeftHandItem(string itemId)`
 
-```csharp
-public void SetLeftHandItem(string itemId)
-```
+**Purpose:** Sets the value or state of `left hand item`.
 
 ### EquipRightHandItemWithEquipmentIndex
+`public void EquipRightHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-```csharp
-public void EquipRightHandItemWithEquipmentIndex(EquipmentIndex item)
-```
+**Purpose:** Handles logic related to `equip right hand item with equipment index`.
 
 ### EquipLeftHandItemWithEquipmentIndex
+`public void EquipLeftHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-```csharp
-public void EquipLeftHandItemWithEquipmentIndex(EquipmentIndex item)
-```
+**Purpose:** Handles logic related to `equip left hand item with equipment index`.
 
 ### SetSpawnPointEntityId
+`public void SetSpawnPointEntityId(string spawnPointEntityId)`
 
-```csharp
-public void SetSpawnPointEntityId(string spawnPointEntityId)
-```
+**Purpose:** Sets the value or state of `spawn point entity id`.
 
 ### ChangeAge
+`public void ChangeAge(float age)`
 
-```csharp
-public void ChangeAge(float age)
-```
+**Purpose:** Handles logic related to `change age`.
 
 ### SetMountCreationKey
+`public void SetMountCreationKey(MountCreationKey mountCreationKey)`
 
-```csharp
-public void SetMountCreationKey(MountCreationKey mountCreationKey)
-```
+**Purpose:** Sets the value or state of `mount creation key`.
 
 ### SetHorseItemId
+`public void SetHorseItemId(string itemId)`
 
-```csharp
-public void SetHorseItemId(string itemId)
-```
+**Purpose:** Sets the value or state of `horse item id`.
 
 ### SetHarnessItemId
+`public void SetHarnessItemId(string itemId)`
+
+**Purpose:** Sets the value or state of `harness item id`.
+
+## Usage Example
 
 ```csharp
-public void SetHarnessItemId(string itemId)
+var value = new NarrativeMenuCharacter();
+value.UpdateBodyProperties(bodyProperties, 0, false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

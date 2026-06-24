@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapTimeControlVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapTimeControlVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MapTimeControlVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/MapBar/MapTimeControlVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapTimeControlVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapTimeControlVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,47 +45,50 @@
 | `Time` | `public double Time { get; set; }` |
 | `PausedText` | `public string PausedText { get; set; }` |
 | `Date` | `public string Date { get; set; }` |
-
+| `TimeFlowState` | `public int TimeFlowState { get; set; }` |
+| `PauseHint` | `public BasicTooltipViewModel PauseHint { get; set; }` |
+| `PlayHint` | `public BasicTooltipViewModel PlayHint { get; set; }` |
+| `FastForwardHint` | `public BasicTooltipViewModel FastForwardHint { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Tick
+`public void Tick()`
 
-```csharp
-public void Tick()
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### Refresh
+`public void Refresh()`
 
-```csharp
-public void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### ExecuteTimeControlChange
+`public void ExecuteTimeControlChange(int selectedTimeSpeed)`
 
-```csharp
-public void ExecuteTimeControlChange(int selectedTimeSpeed)
-```
+**Purpose:** Executes the `time control change` operation or workflow.
 
 ### ExecuteResetCamera
+`public void ExecuteResetCamera()`
+
+**Purpose:** Executes the `reset camera` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteResetCamera()
+var value = new MapTimeControlVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

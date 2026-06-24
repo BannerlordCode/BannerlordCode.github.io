@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Incident`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Incident
 
-**命名空间:** TaleWorlds.CampaignSystem.Incidents
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.Incidents
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class Incident : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.CampaignSystem/Incidents/Incident.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Incident` 是 `TaleWorlds.CampaignSystem.Incidents` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Incident` 位于 `TaleWorlds.CampaignSystem.Incidents`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Incidents` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -27,60 +33,55 @@
 | `NumOfOptions` | `public int NumOfOptions { get; }` |
 | `Effects` | `public IReadOnlyList<IncidentEffect> Effects { get; }` |
 
-
 ## 主要方法
 
 ### Initialize
+`public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)`
 
-```csharp
-public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### AddOption
+`public void AddOption(string text, List<IncidentEffect> effects, Incident.IncidentOptionConditionDelegate condition = null, Incident.IncidentOptionConsequenceDelegate consequence = null)`
 
-```csharp
-public void AddOption(string text, List<IncidentEffect> effects, Incident.IncidentOptionConditionDelegate condition = null, Incident.IncidentOptionConsequenceDelegate consequence = null)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `option`。
 
 ### CanIncidentBeInvoked
+`public bool CanIncidentBeInvoked()`
 
-```csharp
-public bool CanIncidentBeInvoked()
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `incident be invoked`。
 
 ### GetOptionText
+`public TextObject GetOptionText(int index)`
 
-```csharp
-public TextObject GetOptionText(int index)
-```
+**用途 / Purpose:** 获取 `option text` 的当前值。
 
 ### GetOptionHint
+`public List<TextObject> GetOptionHint(int index)`
 
-```csharp
-public List<TextObject> GetOptionHint(int index)
-```
+**用途 / Purpose:** 获取 `option hint` 的当前值。
 
 ### InvokeOption
+`public List<TextObject> InvokeOption(int index)`
 
-```csharp
-public List<TextObject> InvokeOption(int index)
-```
+**用途 / Purpose:** 处理 `invoke option` 相关逻辑。
 
 ### IncidentOptionConditionDelegate
+`public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-```csharp
-public delegate bool IncidentOptionConditionDelegate(TextObject text)
-```
+**用途 / Purpose:** 处理 `incident option condition delegate` 相关逻辑。
 
 ### IncidentOptionConsequenceDelegate
+`public delegate void IncidentOptionConsequenceDelegate()`
+
+**用途 / Purpose:** 处理 `incident option consequence delegate` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public delegate void IncidentOptionConsequenceDelegate()
+var value = new Incident();
+value.Initialize("example", "example", trigger, type, cooldown, func<TextObject, false);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

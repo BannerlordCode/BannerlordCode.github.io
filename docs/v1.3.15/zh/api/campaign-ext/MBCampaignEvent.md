@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `MBCampaignEvent`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBCampaignEvent
 
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class MBCampaignEvent`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/MBCampaignEvent.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MBCampaignEvent` 是 `TaleWorlds.CampaignSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MBCampaignEvent` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,48 +29,45 @@
 | `InitialWait` | `public CampaignTime InitialWait { get; }` |
 | `isEventDeleted` | `public bool isEventDeleted { get; set; }` |
 
-
 ## 主要方法
 
 ### AddHandler
+`public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)`
 
-```csharp
-public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `handler`。
 
 ### RunHandlers
+`public void RunHandlers(params object delegateParams)`
 
-```csharp
-public void RunHandlers(params object delegateParams)
-```
+**用途 / Purpose:** 处理 `run handlers` 相关逻辑。
 
 ### Unregister
+`public void Unregister(object instance)`
 
-```csharp
-public void Unregister(object instance)
-```
+**用途 / Purpose:** 处理 `unregister` 相关逻辑。
 
 ### CheckUpdate
+`public void CheckUpdate()`
 
-```csharp
-public void CheckUpdate()
-```
+**用途 / Purpose:** 处理 `check update` 相关逻辑。
 
 ### DeletePeriodicEvent
+`public void DeletePeriodicEvent()`
 
-```csharp
-public void DeletePeriodicEvent()
-```
+**用途 / Purpose:** 处理 `delete periodic event` 相关逻辑。
 
 ### CampaignEventDelegate
+`public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
+
+**用途 / Purpose:** 处理 `campaign event delegate` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)
+var value = new MBCampaignEvent();
+value.AddHandler(gameEventDelegate);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

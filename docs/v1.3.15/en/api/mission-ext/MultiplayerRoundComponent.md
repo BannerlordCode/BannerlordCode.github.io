@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerRoundComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerRoundComponent
@@ -14,26 +15,34 @@
 
 ## Overview
 
-`MultiplayerRoundComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerRoundComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerRoundComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerRoundComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `RemainingRoundTime` | `public float RemainingRoundTime { get { return this._gameModeClient.TimerComponent.GetRemainingTime(true); }` |
+| `RemainingRoundTime` | `public float RemainingRoundTime { get; }` |
+| `LastRoundEndRemainingTime` | `public float LastRoundEndRemainingTime { get; }` |
+| `CurrentRoundState` | `public MultiplayerRoundState CurrentRoundState { get; }` |
+| `RoundCount` | `public int RoundCount { get; }` |
+| `RoundWinner` | `public BattleSideEnum RoundWinner { get; }` |
+| `RoundEndReason` | `public RoundEndReason RoundEndReason { get; }` |
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerRoundComponent (Component)
-agent.GetComponent<MultiplayerRoundComponent>();
+var component = agent.GetComponent<MultiplayerRoundComponent>();
 ```
 
 ## See Also

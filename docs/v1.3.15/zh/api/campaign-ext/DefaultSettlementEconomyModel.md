@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultSettlementEconomyModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementEconomyModel
@@ -14,49 +15,52 @@
 
 ## 概述
 
-`DefaultSettlementEconomyModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlementEconomyModel())` 注册，以改变其计算逻辑。
+`DefaultSettlementEconomyModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultSettlementEconomyModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetSupplyDemandForCategory
-```csharp
-public override ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)
-```
+`public override ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
+
+**用途 / Purpose:** 获取 `supply demand for category` 的当前值。
 
 ### GetDailyDemandForCategory
-```csharp
-public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)
-```
+`public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
+
+**用途 / Purpose:** 获取 `daily demand for category` 的当前值。
 
 ### GetTownGoldChange
-```csharp
-public override int GetTownGoldChange(Town town)
-```
+`public override int GetTownGoldChange(Town town)`
+
+**用途 / Purpose:** 获取 `town gold change` 的当前值。
 
 ### CalculateDailySettlementBudgetForItemCategory
-```csharp
-public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)
-```
+`public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
+
+**用途 / Purpose:** 处理 `calculate daily settlement budget for item category` 相关逻辑。
 
 ### GetDemandChangeFromValue
-```csharp
-public override float GetDemandChangeFromValue(float purchaseValue)
-```
+`public override float GetDemandChangeFromValue(float purchaseValue)`
+
+**用途 / Purpose:** 获取 `demand change from value` 的当前值。
 
 ### GetEstimatedDemandForCategory
-```csharp
-public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)
-```
+`public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
+
+**用途 / Purpose:** 获取 `estimated demand for category` 的当前值。
 
 ### GetValueOfCategory
-```csharp
-public int GetValueOfCategory(ItemCategory category)
-```
+`public int GetValueOfCategory(ItemCategory category)`
+
+**用途 / Purpose:** 获取 `value of category` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultSettlementEconomyModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlementEconomyModel());
 ```
 

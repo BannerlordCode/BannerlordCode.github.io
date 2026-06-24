@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TradeAgreementModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TradeAgreementModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`TradeAgreementModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TradeAgreementModel>(new MyTradeAgreementModel())` to change how it computes.
+`TradeAgreementModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TradeAgreementModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetTradeAgreementDurationInYears
-```csharp
-public abstract CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)
-```
+`public abstract CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
+
+**Purpose:** Gets the current value of `trade agreement duration in years`.
 
 ### GetMaximumTradeAgreementCount
-```csharp
-public abstract int GetMaximumTradeAgreementCount(Kingdom kingdom)
-```
+`public abstract int GetMaximumTradeAgreementCount(Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `maximum trade agreement count`.
 
 ### GetInfluenceCostOfProposingTradeAgreement
-```csharp
-public abstract int GetInfluenceCostOfProposingTradeAgreement(Clan clan)
-```
+`public abstract int GetInfluenceCostOfProposingTradeAgreement(Clan clan)`
+
+**Purpose:** Gets the current value of `influence cost of proposing trade agreement`.
 
 ### GetScoreOfStartingTradeAgreement
-```csharp
-public abstract float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)
-```
+`public abstract float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)`
+
+**Purpose:** Gets the current value of `score of starting trade agreement`.
 
 ### CanMakeTradeAgreement
-```csharp
-public abstract bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)
-```
+`public abstract bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)`
+
+**Purpose:** Checks whether the current object can `make trade agreement`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TradeAgreementModel (Model)
-Game.Current.ReplaceModel<TradeAgreementModel>(new MyTradeAgreementModel());
+var implementation = new CustomTradeAgreementModel();
 ```
 
 ## See Also

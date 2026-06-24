@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameModel
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`GameModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<GameModel>(new MyGameModel())` to change how it computes.
+`GameModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `GameModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameModel (Model)
-Game.Current.ReplaceModel<GameModel>(new MyGameModel());
+var implementation = new CustomGameModel();
 ```
 
 ## See Also

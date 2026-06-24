@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementEconomyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementEconomyModel
@@ -14,49 +15,52 @@
 
 ## Overview
 
-`DefaultSettlementEconomyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlementEconomyModel())` to change how it computes.
+`DefaultSettlementEconomyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementEconomyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSupplyDemandForCategory
-```csharp
-public override ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)
-```
+`public override ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
+
+**Purpose:** Gets the current value of `supply demand for category`.
 
 ### GetDailyDemandForCategory
-```csharp
-public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)
-```
+`public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
+
+**Purpose:** Gets the current value of `daily demand for category`.
 
 ### GetTownGoldChange
-```csharp
-public override int GetTownGoldChange(Town town)
-```
+`public override int GetTownGoldChange(Town town)`
+
+**Purpose:** Gets the current value of `town gold change`.
 
 ### CalculateDailySettlementBudgetForItemCategory
-```csharp
-public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)
-```
+`public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
+
+**Purpose:** Handles logic related to `calculate daily settlement budget for item category`.
 
 ### GetDemandChangeFromValue
-```csharp
-public override float GetDemandChangeFromValue(float purchaseValue)
-```
+`public override float GetDemandChangeFromValue(float purchaseValue)`
+
+**Purpose:** Gets the current value of `demand change from value`.
 
 ### GetEstimatedDemandForCategory
-```csharp
-public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)
-```
+`public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
+
+**Purpose:** Gets the current value of `estimated demand for category`.
 
 ### GetValueOfCategory
-```csharp
-public int GetValueOfCategory(ItemCategory category)
-```
+`public int GetValueOfCategory(ItemCategory category)`
+
+**Purpose:** Gets the current value of `value of category`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementEconomyModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlementEconomyModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultArmyManagementCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultArmyManagementCalculationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultArmyManagementCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultArmyManagementCalculationModel>(new MyDefaultArmyManagementCalculationModel())` to change how it computes.
+`DefaultArmyManagementCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultArmyManagementCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,64 +37,63 @@
 ## Key Methods
 
 ### DailyBeingAtArmyInfluenceAward
-```csharp
-public override float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)
-```
+`public override float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
+
+**Purpose:** Handles logic related to `daily being at army influence award`.
 
 ### CalculatePartyInfluenceCost
-```csharp
-public override int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)
-```
+`public override int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
+
+**Purpose:** Handles logic related to `calculate party influence cost`.
 
 ### GetMobilePartiesToCallToArmy
-```csharp
-public override List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)
-```
+`public override List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
+
+**Purpose:** Gets the current value of `mobile parties to call to army`.
 
 ### CalculateTotalInfluenceCost
-```csharp
-public override int CalculateTotalInfluenceCost(Army army, float percentage)
-```
+`public override int CalculateTotalInfluenceCost(Army army, float percentage)`
+
+**Purpose:** Handles logic related to `calculate total influence cost`.
 
 ### GetPartySizeScore
-```csharp
-public override float GetPartySizeScore(MobileParty party)
-```
+`public override float GetPartySizeScore(MobileParty party)`
+
+**Purpose:** Gets the current value of `party size score`.
 
 ### CalculateDailyCohesionChange
-```csharp
-public override ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate daily cohesion change`.
 
 ### CalculateNewCohesion
-```csharp
-public override int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)
-```
+`public override int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
+
+**Purpose:** Handles logic related to `calculate new cohesion`.
 
 ### GetCohesionBoostInfluenceCost
-```csharp
-public override int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)
-```
+`public override int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
+
+**Purpose:** Gets the current value of `cohesion boost influence cost`.
 
 ### GetPartyRelation
-```csharp
-public override int GetPartyRelation(Hero hero)
-```
+`public override int GetPartyRelation(Hero hero)`
+
+**Purpose:** Gets the current value of `party relation`.
 
 ### CanPlayerCreateArmy
-```csharp
-public override bool CanPlayerCreateArmy(out TextObject disabledReason)
-```
+`public override bool CanPlayerCreateArmy(out TextObject disabledReason)`
+
+**Purpose:** Checks whether the current object can `player create army`.
 
 ### CheckPartyEligibility
-```csharp
-public override bool CheckPartyEligibility(MobileParty party, out TextObject explanation)
-```
+`public override bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
+
+**Purpose:** Handles logic related to `check party eligibility`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultArmyManagementCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultArmyManagementCalculationModel>(new MyDefaultArmyManagementCalculationModel());
 ```
 

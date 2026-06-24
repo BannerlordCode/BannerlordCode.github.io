@@ -1,97 +1,251 @@
+---
+title: BindingPath
+description: BindingPath - GauntletUI 数据绑定路径，按反斜杠分隔的属性节点序?
+---
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `BindingPath`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BindingPath
-
 **命名空间:** TaleWorlds.Library
 **模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**类型:** class
 
 ## 概述
+`BindingPath
 
-> 本页为自动生成的存根。`BindingPath` 是 `TaleWorlds.Library` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
-## 主要属性
+` 描述 GauntletUI 数据绑定中从源对象到目标属性的寻址路径。路径以反斜?
 
-| Name | Signature |
-|------|-----------|
-| `Path` | `public string Path { get; }` |
-| `Nodes` | `public string Nodes { get; }` |
-| `FirstNode` | `public string FirstNode { get; }` |
-| `LastNode` | `public string LastNode { get; }` |
-| `SubPath` | `public BindingPath SubPath { get; }` |
-| `ParentPath` | `public BindingPath ParentPath { get; }` |
+`\
 
+` 分隔，例?
+
+`Parent\Items\0\Name
+
+`。它把字符串切分?
+
+`Nodes
+
+` 数组，并提供 
+
+`FirstNode
+
+` / 
+
+`LastNode
+
+` / 
+
+`SubPath
+
+` / 
+
+`ParentPath
+
+` 等视图?
+该类还支持路径关系判断（
+
+`IsRelatedWith
+
+`）、相对路径拼接（
+
+`Append
+
+`）、`..
+
+` 简化（
+
+`Simplify
+
+`）以及与索引节点配合?
+
+`DecrementIfRelatedWith
+
+`（用于在列表删除元素时调整后续索引）?
+## 心智模型
+?
+
+`BindingPath
+
+` 看作绑定系统中的"属性寻址字符?+ 节点数组"。当 ViewModel 上的集合发生增删时，绑定系统通过 
+
+`IsRelatedWith
+
+` 找到受影响的子路径，并用 
+
+`DecrementIfRelatedWith
+
+` 把索引节点减一来保持引用稳定?
+## 主要属?\| 属?\| 类型 \| 说明 \|
+\|------\|------\|------\|
+\| 
+
+`Path
+
+` \| 
+
+`string
+
+` \| 原始路径字符?\|
+\| 
+
+`Nodes
+
+` \| 
+
+`string[]
+
+` \| 切分后的节点数组 \|
+\| 
+
+`FirstNode
+
+` \| 
+
+`string
+
+` \| 首个节点 \|
+\| 
+
+`LastNode
+
+` \| 
+
+`string
+
+` \| 末尾节点 \|
+\| 
+
+`SubPath
+
+` \| 
+
+`BindingPath
+
+` \| 去掉首节点后的子路径 \|
+\| 
+
+`ParentPath
+
+` \| 
+
+`BindingPath
+
+` \| 去掉末节点后的父路径 \|
 
 ## 主要方法
-
 ### CreateFromProperty
+`
 
-```csharp
+`
+
+`csharp
 public static BindingPath CreateFromProperty(string propertyName)
-```
+`
 
-### GetHashCode
+`
 
-```csharp
-public override int GetHashCode()
-```
+`
+为单属性名构造路径?
+### IsRelatedWith / IsRelatedWithPath / IsRelatedWithPathAsString
+`
 
-### Equals
+`
 
-```csharp
-public override bool Equals(object obj)
-```
-
-### IsRelatedWithPathAsString
-
-```csharp
-public static bool IsRelatedWithPathAsString(string path, string referencePath)
-```
-
-### IsRelatedWithPath
-
-```csharp
-public static bool IsRelatedWithPath(string path, BindingPath referencePath)
-```
-
-### IsRelatedWith
-
-```csharp
+`csharp
 public bool IsRelatedWith(BindingPath referencePath)
-```
+public static bool IsRelatedWithPath(string path, BindingPath referencePath)
+public static bool IsRelatedWithPathAsString(string path, string referencePath)
+`
 
-### DecrementIfRelatedWith
+`
 
-```csharp
-public void DecrementIfRelatedWith(BindingPath path, int startIndex)
-```
-
+`
+判断当前路径是否以指定路径为前缀?
 ### Simplify
+`
 
-```csharp
+`
+
+`csharp
 public BindingPath Simplify()
-```
+`
 
+`
+
+`
+应用 
+
+`..
+
+` 规则化简路径，返回新 
+
+`BindingPath
+
+`?
 ### Append
+`
 
-```csharp
+`
+
+`csharp
 public BindingPath Append(BindingPath bindingPath)
-```
+`
 
-### ToString
+`
 
-```csharp
-public override string ToString()
-```
+`
+拼接两段路径，返回新?
 
-献文档。
+`BindingPath
 
+`?
+### DecrementIfRelatedWith
+`
+
+`
+
+`csharp
+public void DecrementIfRelatedWith(BindingPath path, int startIndex)
+`
+
+`
+
+`
+若当前路径是 
+
+`path
+
+` 的扩展且其下一节点为数字索??
+
+`startIndex
+
+`，则将该索引?1?
+## 使用示例
+### 示例: 解析并遍历绑定路?**场景**: 调试 GauntletUI 绑定
+`
+
+`
+
+`csharp
+var bp = new BindingPath("Hero\\Inventory\\2\\ItemName");
+Console.WriteLine(bp.FirstNode);   // Hero
+Console.WriteLine(bp.LastNode);    // ItemName
+var parent = bp.ParentPath;        // Hero\Inventory\2
+`
+
+`
+
+`
+**要点**: 节点间用 
+
+`\
+
+` 分隔；索引节点是字符串形式的整数?
 ## 参见
-
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [完整类目录](../catalog-core)
+- [API 目录](../)
+- [SDK 总览](../../architecture/sdk-overview)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ChatLogWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ChatLogWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `ChatLogWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `ChatLogWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -37,21 +42,19 @@
 ## Key Methods
 
 ### RegisterMultiLineElement
-```csharp
-public void RegisterMultiLineElement(ChatCollapsableListPanel element)
-```
+`public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
+
+**Purpose:** Handles logic related to `register multi line element`.
 
 ### RemoveMultiLineElement
-```csharp
-public void RemoveMultiLineElement(ChatCollapsableListPanel element)
-```
+`public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
+
+**Purpose:** Removes `multi line element` from the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ChatLogWidget (Widget)
-// 声明/访问一个 ChatLogWidget
-var widget = root.GetChild("chatLogWidget");;
+var widget = new ChatLogWidget(context);
 ```
 
 ## See Also

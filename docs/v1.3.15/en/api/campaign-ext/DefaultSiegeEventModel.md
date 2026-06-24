@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSiegeEventModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSiegeEventModel
@@ -14,129 +15,132 @@
 
 ## Overview
 
-`DefaultSiegeEventModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSiegeEventModel>(new MyDefaultSiegeEventModel())` to change how it computes.
+`DefaultSiegeEventModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSiegeEventModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSiegeEngineMapPrefabName
-```csharp
-public override string GetSiegeEngineMapPrefabName(SiegeEngineType type, int wallLevel, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapPrefabName(SiegeEngineType type, int wallLevel, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege engine map prefab name`.
 
 ### GetSiegeEngineMapProjectilePrefabName
-```csharp
-public override string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType type)
-```
+`public override string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType type)`
+
+**Purpose:** Gets the current value of `siege engine map projectile prefab name`.
 
 ### GetSiegeEngineMapReloadAnimationName
-```csharp
-public override string GetSiegeEngineMapReloadAnimationName(SiegeEngineType type, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapReloadAnimationName(SiegeEngineType type, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege engine map reload animation name`.
 
 ### GetSiegeEngineMapFireAnimationName
-```csharp
-public override string GetSiegeEngineMapFireAnimationName(SiegeEngineType type, BattleSideEnum side)
-```
+`public override string GetSiegeEngineMapFireAnimationName(SiegeEngineType type, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege engine map fire animation name`.
 
 ### GetSiegeEngineMapProjectileBoneIndex
-```csharp
-public override sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType type, BattleSideEnum side)
-```
+`public override sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType type, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege engine map projectile bone index`.
 
 ### GetEffectiveSiegePartyForSide
-```csharp
-public override MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum battleSide)
-```
+`public override MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum battleSide)`
+
+**Purpose:** Gets the current value of `effective siege party for side`.
 
 ### GetCasualtyChance
-```csharp
-public override float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)
-```
+`public override float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `casualty chance`.
 
 ### GetSiegeEngineDestructionCasualties
-```csharp
-public override int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)
-```
+`public override int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)`
+
+**Purpose:** Gets the current value of `siege engine destruction casualties`.
 
 ### GetColleteralDamageCasualties
-```csharp
-public override int GetColleteralDamageCasualties(SiegeEngineType siegeEngineType, MobileParty party)
-```
+`public override int GetColleteralDamageCasualties(SiegeEngineType siegeEngineType, MobileParty party)`
+
+**Purpose:** Gets the current value of `colleteral damage casualties`.
 
 ### GetSiegeEngineHitChance
-```csharp
-public override float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)
-```
+`public override float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)`
+
+**Purpose:** Gets the current value of `siege engine hit chance`.
 
 ### GetSiegeStrategyScore
-```csharp
-public override float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)
-```
+`public override float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)`
+
+**Purpose:** Gets the current value of `siege strategy score`.
 
 ### GetConstructionProgressPerHour
-```csharp
-public override float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)
-```
+`public override float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)`
+
+**Purpose:** Gets the current value of `construction progress per hour`.
 
 ### GetAvailableManDayPower
-```csharp
-public override float GetAvailableManDayPower(ISiegeEventSide side)
-```
+`public override float GetAvailableManDayPower(ISiegeEventSide side)`
+
+**Purpose:** Gets the current value of `available man day power`.
 
 ### GetPrebuiltSiegeEnginesOfSettlement
-```csharp
-public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)
-```
+`public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)`
+
+**Purpose:** Gets the current value of `prebuilt siege engines of settlement`.
 
 ### GetPrebuiltSiegeEnginesOfSiegeCamp
-```csharp
-public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp besiegerCamp)
-```
+`public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp besiegerCamp)`
+
+**Purpose:** Gets the current value of `prebuilt siege engines of siege camp`.
 
 ### GetSiegeEngineHitPoints
-```csharp
-public override float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)
-```
+`public override float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)`
+
+**Purpose:** Gets the current value of `siege engine hit points`.
 
 ### GetSiegeEngineDamage
-```csharp
-public override float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)
-```
+`public override float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)`
+
+**Purpose:** Gets the current value of `siege engine damage`.
 
 ### GetRangedSiegeEngineReloadTime
-```csharp
-public override int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)
-```
+`public override int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)`
+
+**Purpose:** Gets the current value of `ranged siege engine reload time`.
 
 ### GetAvailableAttackerRangedSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)`
+
+**Purpose:** Gets the current value of `available attacker ranged siege engines`.
 
 ### GetAvailableDefenderSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)`
+
+**Purpose:** Gets the current value of `available defender siege engines`.
 
 ### GetAvailableAttackerRamSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)`
+
+**Purpose:** Gets the current value of `available attacker ram siege engines`.
 
 ### GetAvailableAttackerTowerSiegeEngines
-```csharp
-public override IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)
-```
+`public override IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)`
+
+**Purpose:** Gets the current value of `available attacker tower siege engines`.
 
 ### GetPriorityTroopsForSallyOutAmbush
-```csharp
-public override FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()
-```
+`public override FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()`
+
+**Purpose:** Gets the current value of `priority troops for sally out ambush`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSiegeEventModel (Model)
 Game.Current.ReplaceModel<DefaultSiegeEventModel>(new MyDefaultSiegeEventModel());
 ```
 

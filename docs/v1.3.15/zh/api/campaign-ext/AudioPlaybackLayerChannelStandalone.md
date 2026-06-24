@@ -2,66 +2,69 @@
 **首页** → **API 目录** → **本领域** → `AudioPlaybackLayerChannelStandalone`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AudioPlaybackLayerChannelStandalone
 
-**命名空间:** psai.net
-**模块:** psai.net
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** psai.net
+**Module:** psai.net
+**Type:** `public class AudioPlaybackLayerChannelStandalone : IAudioPlaybackLayerChannel`
+**Base:** `IAudioPlaybackLayerChannel`
+**File:** `TaleWorlds.PSAI/net/AudioPlaybackLayerChannelStandalone.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`AudioPlaybackLayerChannelStandalone` 是 `psai.net` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`AudioPlaybackLayerChannelStandalone` 位于 `psai.net`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `psai.net` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### Release
+`public void Release()`
 
-```csharp
-public void Release()
-```
+**用途 / Purpose:** 处理 `release` 相关逻辑。
 
 ### LoadSegment
+`public PsaiResult LoadSegment(Segment segment)`
 
-```csharp
-public PsaiResult LoadSegment(Segment segment)
-```
+**用途 / Purpose:** 加载 `segment` 数据。
 
 ### ReleaseSegment
+`public PsaiResult ReleaseSegment()`
 
-```csharp
-public PsaiResult ReleaseSegment()
-```
+**用途 / Purpose:** 处理 `release segment` 相关逻辑。
 
 ### ScheduleSegmentPlayback
+`public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)`
 
-```csharp
-public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)
-```
+**用途 / Purpose:** 处理 `schedule segment playback` 相关逻辑。
 
 ### StopChannel
+`public PsaiResult StopChannel()`
 
-```csharp
-public PsaiResult StopChannel()
-```
+**用途 / Purpose:** 处理 `stop channel` 相关逻辑。
 
 ### SetVolume
+`public PsaiResult SetVolume(float volume)`
 
-```csharp
-public PsaiResult SetVolume(float volume)
-```
+**用途 / Purpose:** 设置 `volume` 的值或状态。
 
 ### SetPaused
+`public PsaiResult SetPaused(bool paused)`
+
+**用途 / Purpose:** 设置 `paused` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public PsaiResult SetPaused(bool paused)
+var value = new AudioPlaybackLayerChannelStandalone();
+value.Release();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

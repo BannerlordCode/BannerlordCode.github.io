@@ -12,6 +12,10 @@ description: Complete guide to Mission, MissionBehavior, Agent, Formation, Team
 
 Bannerlord's combat system is built on **Mission** (battle). Every battle scene is a Mission containing core concepts like Agent (units), Formation (formations), and Team (sides).
 
+## Mental Model
+
+Treat `Mission System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Core Concepts
 
 | Concept | Class | Description |
@@ -386,3 +390,9 @@ public class MySubModule : MBSubModuleBase
 
 - [Campaign System](./campaign-system.md) - Learn Campaign world map gameplay
 - [Gauntlet UI](./gauntlet-ui.md) - Create custom interfaces
+
+## Usage Example
+
+```csharp
+var example = new Mission System();
+```

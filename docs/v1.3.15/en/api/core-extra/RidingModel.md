@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `RidingModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RidingModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`RidingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<RidingModel>(new MyRidingModel())` to change how it computes.
+`RidingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `RidingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateAcceleration
-```csharp
-public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)
-```
+`public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
+
+**Purpose:** Handles logic related to `calculate acceleration`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of RidingModel (Model)
-Game.Current.ReplaceModel<RidingModel>(new MyRidingModel());
+var implementation = new CustomRidingModel();
 ```
 
 ## See Also

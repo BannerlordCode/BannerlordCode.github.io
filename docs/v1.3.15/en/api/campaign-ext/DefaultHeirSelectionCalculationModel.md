@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultHeirSelectionCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultHeirSelectionCalculationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultHeirSelectionCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultHeirSelectionCalculationModel>(new MyDefaultHeirSelectionCalculationModel())` to change how it computes.
+`DefaultHeirSelectionCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultHeirSelectionCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,14 +30,13 @@
 ## Key Methods
 
 ### CalculateHeirSelectionPoint
-```csharp
-public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)
-```
+`public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
+
+**Purpose:** Handles logic related to `calculate heir selection point`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultHeirSelectionCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultHeirSelectionCalculationModel>(new MyDefaultHeirSelectionCalculationModel());
 ```
 

@@ -2,74 +2,31 @@
 **Home** → **API Index** → **Area** → `Permission`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Permission
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** struct
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.PlatformService/Permission.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Permission` is a enum in the `TaleWorlds.PlatformService` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
-## Key Properties
+`Permission` lives in `TaleWorlds.PlatformService` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-| Name | Signature |
-|------|-----------|
-| `IsValid` | `public bool IsValid { get; }` |
-| `SpawnedGhostEntity` | `public GameEntity SpawnedGhostEntity { get; }` |
+## Mental Model
 
+Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Methods
-
-### GetGhostEntityOrChild
+## Usage Example
 
 ```csharp
-public GameEntity GetGhostEntityOrChild(string name)
+var value = new Permission();
 ```
-
-### Tick
-
-```csharp
-public void Tick(float dt)
-```
-
-### GivePermission
-
-```csharp
-public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)
-```
-
-### ChangeStableChildMatrixFrameAndApply
-
-```csharp
-public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)
-```
-
-### GetPrefabName
-
-```csharp
-public string GetPrefabName()
-```
-
-### SetupGhostMovement
-
-```csharp
-public void SetupGhostMovement(string pathName)
-```
-
-### SetEnableAutoGhostMovement
-
-```csharp
-public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)
-```
-
-
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

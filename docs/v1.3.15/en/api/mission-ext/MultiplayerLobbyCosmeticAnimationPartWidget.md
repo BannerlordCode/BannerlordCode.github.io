@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLobbyCosmeticAnimationPartWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLobbyCosmeticAnimationPartWidget
@@ -16,29 +17,31 @@
 
 `MultiplayerLobbyCosmeticAnimationPartWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerLobbyCosmeticAnimationPartWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Methods
 
 ### InitializeAnimationParameters
-```csharp
-public void InitializeAnimationParameters()
-```
+`public void InitializeAnimationParameters()`
+
+**Purpose:** Initializes the state, resources, or bindings for `animation parameters`.
 
 ### StartAnimation
-```csharp
-public void StartAnimation(float alphaChangeDuration, float minAlpha, float maxAlpha)
-```
+`public void StartAnimation(float alphaChangeDuration, float minAlpha, float maxAlpha)`
+
+**Purpose:** Handles logic related to `start animation`.
 
 ### StopAnimation
-```csharp
-public void StopAnimation()
-```
+`public void StopAnimation()`
+
+**Purpose:** Handles logic related to `stop animation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLobbyCosmeticAnimationPartWidget (Widget)
-// 声明/访问一个 MultiplayerLobbyCosmeticAnimationPartWidget
-var widget = root.GetChild("multiplayerLobbyCosmeticAnimationPartWidget");;
+var widget = new MultiplayerLobbyCosmeticAnimationPartWidget(context);
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GamepadNavigationScope`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GamepadNavigationScope
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GamepadNavigationScope`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GamepadNavigation/GamepadNavigationScope.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GamepadNavigationScope` is a class in the `TaleWorlds.GauntletUI.GamepadNavigation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GamepadNavigationScope` lives in `TaleWorlds.GauntletUI.GamepadNavigation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,47 +45,66 @@
 | `FollowMobileTargets` | `public bool FollowMobileTargets { get; set; }` |
 | `DoNotAutoCollectChildScopes` | `public bool DoNotAutoCollectChildScopes { get; set; }` |
 | `IsDefaultNavigationScope` | `public bool IsDefaultNavigationScope { get; set; }` |
-
+| `ExtendDiscoveryAreaRight` | `public float ExtendDiscoveryAreaRight { get; set; }` |
+| `ExtendDiscoveryAreaTop` | `public float ExtendDiscoveryAreaTop { get; set; }` |
+| `ExtendDiscoveryAreaBottom` | `public float ExtendDiscoveryAreaBottom { get; set; }` |
+| `ExtendDiscoveryAreaLeft` | `public float ExtendDiscoveryAreaLeft { get; set; }` |
+| `ExtendChildrenCursorAreaLeft` | `public float ExtendChildrenCursorAreaLeft { get; set; }` |
+| `ExtendChildrenCursorAreaRight` | `public float ExtendChildrenCursorAreaRight { get; set; }` |
+| `ExtendChildrenCursorAreaTop` | `public float ExtendChildrenCursorAreaTop { get; set; }` |
+| `ExtendChildrenCursorAreaBottom` | `public float ExtendChildrenCursorAreaBottom { get; set; }` |
+| `DiscoveryAreaOffsetX` | `public float DiscoveryAreaOffsetX { get; set; }` |
+| `DiscoveryAreaOffsetY` | `public float DiscoveryAreaOffsetY { get; set; }` |
+| `IsEnabled` | `public bool IsEnabled { get; set; }` |
+| `IsDisabled` | `public bool IsDisabled { get; set; }` |
+| `UpNavigationScopeID` | `public string UpNavigationScopeID { get; set; }` |
+| `RightNavigationScopeID` | `public string RightNavigationScopeID { get; set; }` |
+| `DownNavigationScopeID` | `public string DownNavigationScopeID { get; set; }` |
+| `LeftNavigationScopeID` | `public string LeftNavigationScopeID { get; set; }` |
+| `UpNavigationScope` | `public GamepadNavigationScope UpNavigationScope { get; set; }` |
+| `RightNavigationScope` | `public GamepadNavigationScope RightNavigationScope { get; set; }` |
+| `DownNavigationScope` | `public GamepadNavigationScope DownNavigationScope { get; set; }` |
+| `LeftNavigationScope` | `public GamepadNavigationScope LeftNavigationScope { get; set; }` |
 
 ## Key Methods
 
 ### AddWidgetAtIndex
+`public void AddWidgetAtIndex(Widget widget, int index)`
 
-```csharp
-public void AddWidgetAtIndex(Widget widget, int index)
-```
+**Purpose:** Adds `widget at index` to the current collection or state.
 
 ### AddWidget
+`public void AddWidget(Widget widget)`
 
-```csharp
-public void AddWidget(Widget widget)
-```
+**Purpose:** Adds `widget` to the current collection or state.
 
 ### RemoveWidget
+`public void RemoveWidget(Widget widget)`
 
-```csharp
-public void RemoveWidget(Widget widget)
-```
+**Purpose:** Removes `widget` from the current collection or state.
 
 ### SetParentScope
+`public void SetParentScope(GamepadNavigationScope scope)`
 
-```csharp
-public void SetParentScope(GamepadNavigationScope scope)
-```
+**Purpose:** Sets the value or state of `parent scope`.
 
 ### ClearNavigatableWidgets
+`public void ClearNavigatableWidgets()`
 
-```csharp
-public void ClearNavigatableWidgets()
-```
+**Purpose:** Handles logic related to `clear navigatable widgets`.
 
 ### Compare
+`public int Compare(Widget x, Widget y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(Widget x, Widget y)
+var value = new GamepadNavigationScope();
+value.AddWidgetAtIndex(widget, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

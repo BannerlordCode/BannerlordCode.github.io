@@ -5,6 +5,10 @@ description: MobileParty、Kingdom、Clan、Settlement 详解 / Complete guide t
 
 # 战役系统 / Campaign System
 
+## 心智模型
+
+先把 `战役系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: TaleWorlds.CampaignSystem
 **Key Classes**: `Campaign`, `CampaignGameStarter`, `MobileParty`, `Kingdom`, `Clan`, `Settlement`, `Hero`
 
@@ -391,3 +395,9 @@ public class MySaveableData
 
 - [存档系统](./save-system-guide.md) - 确保你的数据正确保存
 - [任务系统](./mission-system.md) - 自定义战斗
+
+## 使用示例
+
+```csharp
+var example = new 战役系统();
+```

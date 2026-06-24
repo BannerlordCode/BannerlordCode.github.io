@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MarriageModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MarriageModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MarriageModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MarriageModel>(new MyMarriageModel())` to change how it computes.
+`MarriageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MarriageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,50 +31,49 @@
 ## Key Methods
 
 ### IsCoupleSuitableForMarriage
-```csharp
-public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)
-```
+`public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Handles logic related to `is couple suitable for marriage`.
 
 ### GetEffectiveRelationIncrease
-```csharp
-public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)
-```
+`public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Gets the current value of `effective relation increase`.
 
 ### GetClanAfterMarriage
-```csharp
-public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)
-```
+`public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Gets the current value of `clan after marriage`.
 
 ### IsSuitableForMarriage
-```csharp
-public abstract bool IsSuitableForMarriage(Hero hero)
-```
+`public abstract bool IsSuitableForMarriage(Hero hero)`
+
+**Purpose:** Handles logic related to `is suitable for marriage`.
 
 ### IsClanSuitableForMarriage
-```csharp
-public abstract bool IsClanSuitableForMarriage(Clan clan)
-```
+`public abstract bool IsClanSuitableForMarriage(Clan clan)`
+
+**Purpose:** Handles logic related to `is clan suitable for marriage`.
 
 ### NpcCoupleMarriageChance
-```csharp
-public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)
-```
+`public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
+
+**Purpose:** Handles logic related to `npc couple marriage chance`.
 
 ### ShouldNpcMarriageBetweenClansBeAllowed
-```csharp
-public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)
-```
+`public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
+
+**Purpose:** Handles logic related to `should npc marriage between clans be allowed`.
 
 ### GetAdultChildrenSuitableForMarriage
-```csharp
-public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)
-```
+`public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
+
+**Purpose:** Gets the current value of `adult children suitable for marriage`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MarriageModel (Model)
-Game.Current.ReplaceModel<MarriageModel>(new MyMarriageModel());
+var implementation = new CustomMarriageModel();
 ```
 
 ## See Also

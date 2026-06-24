@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionHintLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionHintLogic
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`MissionHintLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new MissionHintLogic())` 添加；继承它可定制。
+`MissionHintLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `MissionHintLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,24 +30,23 @@
 ## 主要方法
 
 ### SetActiveHint
-```csharp
-public void SetActiveHint(MissionHint hint)
-```
+`public void SetActiveHint(MissionHint hint)`
+
+**用途 / Purpose:** 设置 `active hint` 的值或状态。
 
 ### Clear
-```csharp
-public void Clear()
-```
+`public void Clear()`
+
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
 
 ### MissionHintChangedDelegate
-```csharp
-public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)
-```
+`public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
+
+**用途 / Purpose:** 处理 `mission hint changed delegate` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MissionHintLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new MissionHintLogic());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLobbyBattleRewardWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLobbyBattleRewardWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerLobbyBattleRewardWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerLobbyBattleRewardWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -27,26 +32,24 @@
 ## Key Methods
 
 ### StartAnimation
-```csharp
-public void StartAnimation()
-```
+`public void StartAnimation()`
+
+**Purpose:** Handles logic related to `start animation`.
 
 ### StartPreAnimation
-```csharp
-public void StartPreAnimation()
-```
+`public void StartPreAnimation()`
+
+**Purpose:** Handles logic related to `start pre animation`.
 
 ### EndAnimation
-```csharp
-public void EndAnimation()
-```
+`public void EndAnimation()`
+
+**Purpose:** Handles logic related to `end animation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLobbyBattleRewardWidget (Widget)
-// 声明/访问一个 MultiplayerLobbyBattleRewardWidget
-var widget = root.GetChild("multiplayerLobbyBattleRewardWidget");;
+var widget = new MultiplayerLobbyBattleRewardWidget(context);
 ```
 
 ## See Also

@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `IConversationStateHandler`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IConversationStateHandler
 
-**命名空间:** TaleWorlds.CampaignSystem.Conversation
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 接口 interface
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.Conversation
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Conversation/IConversationStateHandler.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IConversationStateHandler` 是 `TaleWorlds.CampaignSystem.Conversation` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IConversationStateHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `IConversationStateHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IConversationStateHandler implementation = GetConversationStateHandlerImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

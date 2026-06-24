@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `XmlHelper`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # XmlHelper
@@ -14,45 +15,48 @@
 
 ## 概述
 
-`XmlHelper` 是一个静态工具类，提供辅助方法。
+`XmlHelper` 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。
+
+## 心智模型
+
+把 `XmlHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### ReadInt
-```csharp
-public static int ReadInt(XmlNode node, string str)
-```
+`public static int ReadInt(XmlNode node, string str)`
+
+**用途 / Purpose:** 处理 `read int` 相关逻辑。
 
 ### ReadInt
-```csharp
-public static void ReadInt(ref int val, XmlNode node, string str)
-```
+`public static void ReadInt(ref int val, XmlNode node, string str)`
+
+**用途 / Purpose:** 处理 `read int` 相关逻辑。
 
 ### ReadFloat
-```csharp
-public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)
-```
+`public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)`
+
+**用途 / Purpose:** 处理 `read float` 相关逻辑。
 
 ### ReadString
-```csharp
-public static string ReadString(XmlNode node, string str)
-```
+`public static string ReadString(XmlNode node, string str)`
+
+**用途 / Purpose:** 处理 `read string` 相关逻辑。
 
 ### ReadHexCode
-```csharp
-public static void ReadHexCode(ref uint val, XmlNode node, string str)
-```
+`public static void ReadHexCode(ref uint val, XmlNode node, string str)`
+
+**用途 / Purpose:** 处理 `read hex code` 相关逻辑。
 
 ### ReadBool
-```csharp
-public static bool ReadBool(XmlNode node, string str)
-```
+`public static bool ReadBool(XmlNode node, string str)`
+
+**用途 / Purpose:** 处理 `read bool` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// XmlHelper (Helper) 的典型用法
-XmlHelper./* static helper method */();;
+XmlHelper.Initialize();
 ```
 
 ## 参见

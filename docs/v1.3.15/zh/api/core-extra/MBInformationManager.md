@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MBInformationManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBInformationManager
@@ -14,70 +15,73 @@
 
 ## 概述
 
-`MBInformationManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`MBInformationManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MBInformationManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### AddQuickInformation
-```csharp
-public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")
-```
+`public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `quick information`。
 
 ### ClearQuickInformations
-```csharp
-public static void ClearQuickInformations()
-```
+`public static void ClearQuickInformations()`
+
+**用途 / Purpose:** 处理 `clear quick informations` 相关逻辑。
 
 ### ShowMultiSelectionInquiry
-```csharp
-public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)
-```
+`public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
+
+**用途 / Purpose:** 处理 `show multi selection inquiry` 相关逻辑。
 
 ### AddNotice
-```csharp
-public static void AddNotice(InformationData data)
-```
+`public static void AddNotice(InformationData data)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `notice`。
 
 ### MapNoticeRemoved
-```csharp
-public static void MapNoticeRemoved(InformationData data)
-```
+`public static void MapNoticeRemoved(InformationData data)`
+
+**用途 / Purpose:** 处理 `map notice removed` 相关逻辑。
 
 ### ShowHint
-```csharp
-public static void ShowHint(string hint)
-```
+`public static void ShowHint(string hint)`
+
+**用途 / Purpose:** 处理 `show hint` 相关逻辑。
 
 ### HideInformations
-```csharp
-public static void HideInformations()
-```
+`public static void HideInformations()`
+
+**用途 / Purpose:** 处理 `hide informations` 相关逻辑。
 
 ### ShowSceneNotification
-```csharp
-public static void ShowSceneNotification(SceneNotificationData data)
-```
+`public static void ShowSceneNotification(SceneNotificationData data)`
+
+**用途 / Purpose:** 处理 `show scene notification` 相关逻辑。
 
 ### HideSceneNotification
-```csharp
-public static void HideSceneNotification()
-```
+`public static void HideSceneNotification()`
+
+**用途 / Purpose:** 处理 `hide scene notification` 相关逻辑。
 
 ### GetIsAnySceneNotificationActive
-```csharp
-public static bool? GetIsAnySceneNotificationActive()
-```
+`public static bool? GetIsAnySceneNotificationActive()`
+
+**用途 / Purpose:** 获取 `is any scene notification active` 的当前值。
 
 ### Clear
-```csharp
-public static void Clear()
-```
+`public static void Clear()`
+
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MBInformationManager (Manager) 的典型用法
-MBInformationManager.Current;
+var manager = MBInformationManager.Current;
 ```
 
 ## 参见

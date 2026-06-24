@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `ClassCode`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClassCode
 
-**命名空间:** TaleWorlds.Library.CodeGeneration
-**模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library.CodeGeneration
+**Module:** TaleWorlds.Library
+**Type:** `public class ClassCode`
+**Base:** 无
+**File:** `TaleWorlds.Library/CodeGeneration/ClassCode.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ClassCode` 是 `TaleWorlds.Library.CodeGeneration` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ClassCode` 位于 `TaleWorlds.Library.CodeGeneration`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library.CodeGeneration` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -32,48 +38,45 @@
 | `Variables` | `public List<VariableCode> Variables { get; }` |
 | `CommentSection` | `public CommentSection CommentSection { get; set; }` |
 
-
 ## 主要方法
 
 ### GenerateInto
+`public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-```csharp
-public void GenerateInto(CodeGenerationFile codeGenerationFile)
-```
+**用途 / Purpose:** 处理 `generate into` 相关逻辑。
 
 ### AddVariable
+`public void AddVariable(VariableCode variableCode)`
 
-```csharp
-public void AddVariable(VariableCode variableCode)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `variable`。
 
 ### AddNestedClass
+`public void AddNestedClass(ClassCode clasCode)`
 
-```csharp
-public void AddNestedClass(ClassCode clasCode)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `nested class`。
 
 ### AddMethod
+`public void AddMethod(MethodCode methodCode)`
 
-```csharp
-public void AddMethod(MethodCode methodCode)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `method`。
 
 ### AddConsturctor
+`public void AddConsturctor(ConstructorCode constructorCode)`
 
-```csharp
-public void AddConsturctor(ConstructorCode constructorCode)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `consturctor`。
 
 ### AddInterface
+`public void AddInterface(string interfaceName)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `interface`。
+
+## 使用示例
 
 ```csharp
-public void AddInterface(string interfaceName)
+var value = new ClassCode();
+value.GenerateInto(codeGenerationFile);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

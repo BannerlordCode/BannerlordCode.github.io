@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MapMarkerManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapMarkerManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MapMarkerManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MapMarkerManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MapMarkerManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,30 +30,29 @@
 ## Key Methods
 
 ### CreateMapMarker
-```csharp
-public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)
-```
+`public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)`
+
+**Purpose:** Creates a new `map marker` instance or object.
 
 ### RemoveMapMarker
-```csharp
-public void RemoveMapMarker(MapMarker mapMarker)
-```
+`public void RemoveMapMarker(MapMarker mapMarker)`
+
+**Purpose:** Removes `map marker` from the current collection or state.
 
 ### RemoveAllMapMarkersByQuestId
-```csharp
-public void RemoveAllMapMarkersByQuestId(string questId)
-```
+`public void RemoveAllMapMarkersByQuestId(string questId)`
+
+**Purpose:** Removes `all map markers by quest id` from the current collection or state.
 
 ### GetMapMarkersByQuestId
-```csharp
-public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)
-```
+`public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)`
+
+**Purpose:** Gets the current value of `map markers by quest id`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MapMarkerManager (Manager)
-MapMarkerManager.Current;
+var manager = MapMarkerManager.Current;
 ```
 
 ## See Also

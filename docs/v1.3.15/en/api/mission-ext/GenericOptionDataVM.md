@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GenericOptionDataVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GenericOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class GenericOptionDataVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/GenericOptionDataVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GenericOptionDataVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GenericOptionDataVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,82 +34,74 @@
 | `IsEnabled` | `public bool IsEnabled { get; set; }` |
 | `Hint` | `public HintViewModel Hint { get; set; }` |
 
-
 ## Key Methods
 
 ### UpdateData
+`public virtual void UpdateData(bool initUpdate)`
 
-```csharp
-public virtual void UpdateData(bool initUpdate)
-```
+**Purpose:** Updates the state or data of `data`.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### GetOptionType
+`public object GetOptionType()`
 
-```csharp
-public object GetOptionType()
-```
+**Purpose:** Gets the current value of `option type`.
 
 ### GetOptionData
+`public IOptionData GetOptionData()`
 
-```csharp
-public IOptionData GetOptionData()
-```
+**Purpose:** Gets the current value of `option data`.
 
 ### ResetToDefault
+`public void ResetToDefault()`
 
-```csharp
-public void ResetToDefault()
-```
+**Purpose:** Resets `to default` to its initial state.
 
 ### UpdateEnableState
+`public void UpdateEnableState()`
 
-```csharp
-public void UpdateEnableState()
-```
+**Purpose:** Updates the state or data of `enable state`.
 
 ### UpdateValue
+`public abstract void UpdateValue()`
 
-```csharp
-public abstract void UpdateValue()
-```
+**Purpose:** Updates the state or data of `value`.
 
 ### Cancel
+`public abstract void Cancel()`
 
-```csharp
-public abstract void Cancel()
-```
+**Purpose:** Checks whether the current object can `cel`.
 
 ### IsChanged
+`public abstract bool IsChanged()`
 
-```csharp
-public abstract bool IsChanged()
-```
+**Purpose:** Handles logic related to `is changed`.
 
 ### SetValue
+`public abstract void SetValue(float value)`
 
-```csharp
-public abstract void SetValue(float value)
-```
+**Purpose:** Sets the value or state of `value`.
 
 ### ResetData
+`public abstract void ResetData()`
 
-```csharp
-public abstract void ResetData()
-```
+**Purpose:** Resets `data` to its initial state.
 
 ### ApplyValue
+`public abstract void ApplyValue()`
+
+**Purpose:** Applies `value` to the current object.
+
+## Usage Example
 
 ```csharp
-public abstract void ApplyValue()
+var implementation = new CustomGenericOptionDataVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleAgentStatCalculateModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleAgentStatCalculateModel
@@ -14,69 +15,72 @@
 
 ## Overview
 
-`CustomBattleAgentStatCalculateModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CustomBattleAgentStatCalculateModel>(new MyCustomBattleAgentStatCalculateModel())` to change how it computes.
+`CustomBattleAgentStatCalculateModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CustomBattleAgentStatCalculateModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetDifficultyModifier
-```csharp
-public override float GetDifficultyModifier()
-```
+`public override float GetDifficultyModifier()`
+
+**Purpose:** Gets the current value of `difficulty modifier`.
 
 ### CanAgentRideMount
-```csharp
-public override bool CanAgentRideMount(Agent agent, Agent targetMount)
-```
+`public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
+
+**Purpose:** Checks whether the current object can `agent ride mount`.
 
 ### InitializeAgentStats
-```csharp
-public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)
-```
+`public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
+
+**Purpose:** Initializes the state, resources, or bindings for `agent stats`.
 
 ### UpdateAgentStats
-```csharp
-public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)
-```
+`public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
+
+**Purpose:** Updates the state or data of `agent stats`.
 
 ### GetWeaponDamageMultiplier
-```csharp
-public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)
-```
+`public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
+
+**Purpose:** Gets the current value of `weapon damage multiplier`.
 
 ### GetEquipmentStealthBonus
-```csharp
-public override float GetEquipmentStealthBonus(Agent agent)
-```
+`public override float GetEquipmentStealthBonus(Agent agent)`
+
+**Purpose:** Gets the current value of `equipment stealth bonus`.
 
 ### GetSneakAttackMultiplier
-```csharp
-public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)
-```
+`public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
+
+**Purpose:** Gets the current value of `sneak attack multiplier`.
 
 ### GetKnockBackResistance
-```csharp
-public override float GetKnockBackResistance(Agent agent)
-```
+`public override float GetKnockBackResistance(Agent agent)`
+
+**Purpose:** Gets the current value of `knock back resistance`.
 
 ### GetKnockDownResistance
-```csharp
-public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)
-```
+`public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
+
+**Purpose:** Gets the current value of `knock down resistance`.
 
 ### GetDismountResistance
-```csharp
-public override float GetDismountResistance(Agent agent)
-```
+`public override float GetDismountResistance(Agent agent)`
+
+**Purpose:** Gets the current value of `dismount resistance`.
 
 ### GetBreatheHoldMaxDuration
-```csharp
-public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)
-```
+`public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
+
+**Purpose:** Gets the current value of `breathe hold max duration`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleAgentStatCalculateModel (Model)
 Game.Current.ReplaceModel<CustomBattleAgentStatCalculateModel>(new MyCustomBattleAgentStatCalculateModel());
 ```
 

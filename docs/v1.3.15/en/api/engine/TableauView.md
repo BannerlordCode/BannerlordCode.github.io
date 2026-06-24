@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TableauView`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TableauView
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`TableauView` is an engine view/surface (render, texture, scene preview, etc.). Accessed via the engine view system.
+`TableauView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `TableauView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreateTableauView
-```csharp
-public static TableauView CreateTableauView(string viewName)
-```
+`public static TableauView CreateTableauView(string viewName)`
+
+**Purpose:** Creates a new `tableau view` instance or object.
 
 ### SetSortingEnabled
-```csharp
-public void SetSortingEnabled(bool value)
-```
+`public void SetSortingEnabled(bool value)`
+
+**Purpose:** Sets the value or state of `sorting enabled`.
 
 ### SetContinuousRendering
-```csharp
-public void SetContinuousRendering(bool value)
-```
+`public void SetContinuousRendering(bool value)`
+
+**Purpose:** Sets the value or state of `continuous rendering`.
 
 ### SetDoNotRenderThisFrame
-```csharp
-public void SetDoNotRenderThisFrame(bool value)
-```
+`public void SetDoNotRenderThisFrame(bool value)`
+
+**Purpose:** Sets the value or state of `do not render this frame`.
 
 ### SetDeleteAfterRendering
-```csharp
-public void SetDeleteAfterRendering(bool value)
-```
+`public void SetDeleteAfterRendering(bool value)`
+
+**Purpose:** Sets the value or state of `delete after rendering`.
 
 ### AddTableau
-```csharp
-public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)
-```
+`public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
+
+**Purpose:** Adds `tableau` to the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TableauView (View)
-TableauView /* via engine view system */;
+var view = new TableauView();
 ```
 
 ## See Also

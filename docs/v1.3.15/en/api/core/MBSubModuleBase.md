@@ -2,177 +2,128 @@
 **Home** → **API Index** → **Area** → `MBSubModuleBase`
 - [← Area / Back to core](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# MBSubModuleBase / MBSubModuleBase
+# MBSubModuleBase
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.15/TaleWorlds.MountAndBlade/MBSubModuleBase.cs`
-**Purpose**: Base class for all modules, defines module lifecycle hooks / 所有模组的基类，定义模组生命周期钩子
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class MBSubModuleBase`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`
 
-## Overview / 概述
+## Overview
 
-`MBSubModuleBase` is the main entry point for every mod. When you declare a SubModule in `SubModule.xml`, you must create a class inheriting from `MBSubModuleBase` to respond to game events.
+`MBSubModuleBase` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-`MBSubModuleBase` 是每个模组的主入口点。当你在 `SubModule.xml` 中声明一个 SubModule 时，必须创建一个继承自 `MBSubModuleBase` 的类来响应游戏事件。
+## Mental Model
 
-## Lifecycle / 生命周期
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-Game startup call order:
+## Key Methods
 
-1. `OnSubModuleLoad()` - Called after DLL is loaded
-2. `OnNewModuleLoad()` - Called when new module loads
-3. `OnBeforeInitialModuleScreenSetAsRoot()` - Before main menu displays
-4. `OnInitialState()` - When initial screen shows
-5. `OnGameStart(Game, IGameStarter)` - When game starts
-6. `OnCampaignStart(Game, object)` - When campaign begins
-7. `OnMissionBehaviorInitialize(Mission)` - When mission behaviors initialize
-8. `OnApplicationTick(float)` - Called every frame (in game loop)
+### OnConfigChanged
+`public virtual void OnConfigChanged()`
 
-游戏启动时调用顺序:
+**Purpose:** Called when the `config changed` event is raised.
 
-1. `OnSubModuleLoad()` - DLL 加载后调用
-2. `OnNewModuleLoad()` - 新模组加载时调用
-3. `OnBeforeInitialModuleScreenSetAsRoot()` - 主菜单显示前调用
-4. `OnInitialState()` - 初始界面显示时调用
-5. `OnGameStart(Game, IGameStarter)` - 游戏开始时调用
-6. `OnCampaignStart(Game, object)` - 战役开始时调用
-7. `OnMissionBehaviorInitialize(Mission)` - 任务行为初始化时调用
-8. `OnApplicationTick(float)` - 每帧调用（游戏循环中）
+### OnGameLoaded
+`public virtual void OnGameLoaded(Game game, object initializerObject)`
 
-## Developer Use Cases
+**Purpose:** Called when the `game loaded` event is raised.
 
-### Use Case 1: Implement OnSubModuleLoad for one-time initialization
+### OnAfterGameLoaded
+`public virtual void OnAfterGameLoaded(Game game)`
 
-**Scenario**: Run one-time initialization right after the mod DLL loads (register Harmony patches, read config).
+**Purpose:** Called when the `after game loaded` event is raised.
+
+### OnNewGameCreated
+`public virtual void OnNewGameCreated(Game game, object initializerObject)`
+
+**Purpose:** Called when the `new game created` event is raised.
+
+### BeginGameStart
+`public virtual void BeginGameStart(Game game)`
+
+**Purpose:** Handles logic related to `begin game start`.
+
+### OnCampaignStart
+`public virtual void OnCampaignStart(Game game, object starterObject)`
+
+**Purpose:** Called when the `campaign start` event is raised.
+
+### RegisterSubModuleObjects
+`public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`
+
+**Purpose:** Handles logic related to `register sub module objects`.
+
+### AfterRegisterSubModuleObjects
+`public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
+
+**Purpose:** Handles logic related to `after register sub module objects`.
+
+### OnMultiplayerGameStart
+`public virtual void OnMultiplayerGameStart(Game game, object starterObject)`
+
+**Purpose:** Called when the `multiplayer game start` event is raised.
+
+### OnGameInitializationFinished
+`public virtual void OnGameInitializationFinished(Game game)`
+
+**Purpose:** Called when the `game initialization finished` event is raised.
+
+### OnAfterGameInitializationFinished
+`public virtual void OnAfterGameInitializationFinished(Game game, object starterObject)`
+
+**Purpose:** Called when the `after game initialization finished` event is raised.
+
+### DoLoading
+`public virtual bool DoLoading(Game game)`
+
+**Purpose:** Handles logic related to `do loading`.
+
+### OnGameEnd
+`public virtual void OnGameEnd(Game game)`
+
+**Purpose:** Called when the `game end` event is raised.
+
+### OnMissionBehaviorInitialize
+`public virtual void OnMissionBehaviorInitialize(Mission mission)`
+
+**Purpose:** Called when the `mission behavior initialize` event is raised.
+
+### OnBeforeMissionBehaviorInitialize
+`public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)`
+
+**Purpose:** Called when the `before mission behavior initialize` event is raised.
+
+### OnInitialState
+`public virtual void OnInitialState()`
+
+**Purpose:** Called when the `initial state` event is raised.
+
+### OnSubModuleActivated
+`public virtual void OnSubModuleActivated()`
+
+**Purpose:** Called when the `sub module activated` event is raised.
+
+### OnSubModuleDeactivated
+`public virtual void OnSubModuleDeactivated()`
+
+**Purpose:** Called when the `sub module deactivated` event is raised.
+
+### InitializeSubModuleGameObjects
+`public virtual void InitializeSubModuleGameObjects(Game game)`
+
+**Purpose:** Initializes the state, resources, or bindings for `sub module game objects`.
+
+## Usage Example
 
 ```csharp
-protected override void OnSubModuleLoad()
-{
-    base.OnSubModuleLoad();
-    // Harmony patches, config reads, one-time initialization
-}
+var implementation = new CustomMBSubModuleBase();
 ```
 
-**Key points**: `OnSubModuleLoad` is called during the SubModule load phase — `Game.Current` is not yet created; do not access campaign/mission objects here; mount Harmony patches here.
+## See Also
 
-### Use Case 2: Register CampaignBehavior in OnGameStart
-
-**Scenario**: Inject a custom campaign behavior into `Campaign` when the game starts.
-
-```csharp
-protected override void OnGameStart(Game game, IGameStarter starter)
-{
-    base.OnGameStart(game, starter);
-    if (game.GameType is CampaignGameType)
-    {
-        starter.AddModel(new MyCampaignBehavior());
-    }
-}
-```
-
-**Key points**: Always check `game.GameType is CampaignGameType` — otherwise the behavior gets injected into the wrong game type (e.g., custom battle); `IGameStarter.AddModel` is the standard entry for registering behaviors/models.
-
-### Use Case 3: Add a MissionBehavior in OnMissionBehaviorInitialize
-
-**Scenario**: Attach a custom battle behavior when a mission initializes.
-
-```csharp
-public override void OnMissionBehaviorInitialize(Mission mission)
-{
-    base.OnMissionBehaviorInitialize(mission);
-    mission.AddMissionBehavior(new MyMissionBehavior());
-}
-```
-
-**Key points**: This callback fires for every mission created; filter by `mission.MissionName` for specific mission types; Agents are not yet spawned here — only register behaviors.
-
-### Use Case 4: Register saveable objects via RegisterSubModuleObjects
-
-**Scenario**: A custom `MBObjectBase` subclass needs to load from XML and persist in saves.
-
-```csharp
-public override void RegisterSubModuleObjects(bool isSavedCampaign)
-{
-    base.RegisterSubModuleObjects(isSavedCampaign);
-    Game.Current.ObjectManager.RegisterType<MyCustomObject>(
-        "MyCustomObject", "MyCustomObjects", 500, autoCreateInstance: true);
-}
-```
-
-**Key points**: `RegisterType` registers the type with the object manager so it can load from XML; the `typeId` must be globally unique (recommend > 1000 to avoid clashing with the official types).
-
-## Important Methods / 重要方法
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| OnSubModuleLoad | `protected internal virtual void OnSubModuleLoad()` | Called after module loads, use for initialization / 模组加载后调用，用于初始化 |
-| OnGameStart | `protected internal virtual void OnGameStart(Game game, IGameStarter gameStarterObject)` | Called when game starts, add GameStarter here / 游戏开始时调用，可在此添加 GameStarter |
-| OnCampaignStart | `public virtual void OnCampaignStart(Game game, object starterObject)` | Called when campaign mode starts / 战役模式开始时调用 |
-| OnMissionBehaviorInitialize | `public virtual void OnMissionBehaviorInitialize(Mission mission)` | Mission behavior init, add MissionBehavior here / 任务行为初始化，可添加 MissionBehavior |
-| OnApplicationTick | `protected internal virtual void OnApplicationTick(float dt)` | Called every frame, use for game loop logic / 每帧调用，用于游戏循环逻辑 |
-| RegisterSubModuleObjects | `public virtual void RegisterSubModuleObjects(bool isSavedCampaign)` | Register custom objects to MBObjectManager / 注册自定义对象到 MBObjectManager |
-| OnGameLoaded | `public virtual void OnGameLoaded(Game game, object initializerObject)` | Called after save file is loaded / 存档加载完成后调用 |
-
-## Usage Example / 使用示例
-
-```csharp
-// MySubModule.cs
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.Core;
-
-namespace MyMod
-{
-    public class MySubModule : MBSubModuleBase
-    {
-        // Called when module loads
-        // 模组加载时调用
-        protected override void OnSubModuleLoad()
-        {
-            base.OnSubModuleLoad();
-            // Do initialization setup
-            // 进行初始化设置
-        }
-
-        // Called when game starts - add game systems here
-        // 游戏开始时调用 - 在这里可以添加游戏系统
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-            // Add custom GameStarter
-            // 添加自定义 GameStarter
-            gameStarterObject.AddModel(new MyGameModel());
-        }
-
-        // Called every frame
-        // 每帧调用
-        protected override void OnApplicationTick(float dt)
-        {
-            base.OnApplicationTick(dt);
-            // Game loop logic
-            // 游戏循环逻辑
-        }
-    }
-}
-```
-
-## SubModule.xml Configuration / SubModule.xml 配置
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Module>
-    <ModuleState>
-        <AssemblyName>MyMod</AssemblyName>
-        <ModuleClassType>MyMod.MySubModule</ModuleClassType>
-    </ModuleState>
-</Module>
-```
-
-## Notes / 注意事项
-
-- All virtual methods have default empty implementations, override only what you need
-- 所有虚方法都有默认空实现，可以选择重写需要的
-- `OnApplicationTick` should not perform heavy operations or game FPS will suffer
-- `OnApplicationTick` 不要执行耗时操作，否则会影响游戏帧率
-- Use `RegisterSubModuleObjects` to register custom objects that need to be saved
-- 使用 `RegisterSubModuleObjects` 来注册需要在存档中保存的自定义对象
+- [Complete Class Catalog](../catalog)

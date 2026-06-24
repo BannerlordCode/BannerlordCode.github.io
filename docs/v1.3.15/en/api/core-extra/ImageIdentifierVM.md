@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ImageIdentifierVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public abstract class ImageIdentifierVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/ImageIdentifiers/ImageIdentifierVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ImageIdentifierVM` is a class in the `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ImageIdentifierVM` lives in `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,16 +31,19 @@
 | `IsEmpty` | `public bool IsEmpty { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 
-
 ## Key Methods
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var implementation = new CustomImageIdentifierVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

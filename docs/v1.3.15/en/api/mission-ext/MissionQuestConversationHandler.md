@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionQuestConversationHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionQuestConversationHandler
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`MissionQuestConversationHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`MissionQuestConversationHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `MissionQuestConversationHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionQuestConversationHandler (Handler)
 Mission.Current.AddMissionBehavior(new MissionQuestConversationHandler());
 ```
 

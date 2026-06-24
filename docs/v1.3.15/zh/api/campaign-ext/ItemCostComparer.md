@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `ItemCostComparer`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemCostComparer
 
 **命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public class ItemCostComparer : ArmyManagementSortControllerVM.ItemComparerBase`
+**Base:** `ArmyManagementSortControllerVM.ItemComparerBase`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ItemCostComparer` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ItemCostComparer` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -32,94 +38,85 @@
 | `IsClanSelected` | `public bool IsClanSelected { get; set; }` |
 | `IsShipCountSelected` | `public bool IsShipCountSelected { get; set; }` |
 
-
 ## 主要方法
 
 ### ExecuteSortByDistance
+`public void ExecuteSortByDistance()`
 
-```csharp
-public void ExecuteSortByDistance()
-```
+**用途 / Purpose:** 执行 `sort by distance` 操作或流程。
 
 ### ExecuteSortByCost
+`public void ExecuteSortByCost()`
 
-```csharp
-public void ExecuteSortByCost()
-```
+**用途 / Purpose:** 执行 `sort by cost` 操作或流程。
 
 ### ExecuteSortByStrength
+`public void ExecuteSortByStrength()`
 
-```csharp
-public void ExecuteSortByStrength()
-```
+**用途 / Purpose:** 执行 `sort by strength` 操作或流程。
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**用途 / Purpose:** 执行 `sort by name` 操作或流程。
 
 ### ExecuteSortByClan
+`public void ExecuteSortByClan()`
 
-```csharp
-public void ExecuteSortByClan()
-```
+**用途 / Purpose:** 执行 `sort by clan` 操作或流程。
 
 ### ExecuteSortByShipCount
+`public void ExecuteSortByShipCount()`
 
-```csharp
-public void ExecuteSortByShipCount()
-```
+**用途 / Purpose:** 执行 `sort by ship count` 操作或流程。
 
 ### SetSortMode
+`public void SetSortMode(bool isAscending)`
 
-```csharp
-public void SetSortMode(bool isAscending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
+**用途 / Purpose:** 设置 `sort mode` 的值或状态。
 
 ### Compare
+`public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
+// 先从游戏状态中拿到一个 ItemCostComparer 实例，再调用它的公开方法
+var value = new ItemCostComparer();
+value.ExecuteSortByDistance();
 ```
-
-献文档。
 
 ## 参见
 

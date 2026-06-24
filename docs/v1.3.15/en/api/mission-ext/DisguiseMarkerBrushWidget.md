@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DisguiseMarkerBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DisguiseMarkerBrushWidget
@@ -16,6 +17,10 @@
 
 `DisguiseMarkerBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `DisguiseMarkerBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -26,9 +31,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of DisguiseMarkerBrushWidget (Widget)
-// 声明/访问一个 DisguiseMarkerBrushWidget
-var widget = root.GetChild("disguiseMarkerBrushWidget");;
+var widget = new DisguiseMarkerBrushWidget(context);
 ```
 
 ## See Also

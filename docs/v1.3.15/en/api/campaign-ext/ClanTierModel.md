@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClanTierModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanTierModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`ClanTierModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ClanTierModel>(new MyClanTierModel())` to change how it computes.
+`ClanTierModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ClanTierModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,45 +36,44 @@
 ## Key Methods
 
 ### CalculateInitialRenown
-```csharp
-public abstract int CalculateInitialRenown(Clan clan)
-```
+`public abstract int CalculateInitialRenown(Clan clan)`
+
+**Purpose:** Handles logic related to `calculate initial renown`.
 
 ### CalculateInitialInfluence
-```csharp
-public abstract int CalculateInitialInfluence(Clan clan)
-```
+`public abstract int CalculateInitialInfluence(Clan clan)`
+
+**Purpose:** Handles logic related to `calculate initial influence`.
 
 ### CalculateTier
-```csharp
-public abstract int CalculateTier(Clan clan)
-```
+`public abstract int CalculateTier(Clan clan)`
+
+**Purpose:** Handles logic related to `calculate tier`.
 
 ### HasUpcomingTier
-```csharp
-public abstract ValueTuple<ExplainedNumber, bool> HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)
-```
+`public abstract ValueTuple<ExplainedNumber, bool> HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)`
+
+**Purpose:** Checks whether the current object has/contains `upcoming tier`.
 
 ### GetRequiredRenownForTier
-```csharp
-public abstract int GetRequiredRenownForTier(int tier)
-```
+`public abstract int GetRequiredRenownForTier(int tier)`
+
+**Purpose:** Gets the current value of `required renown for tier`.
 
 ### GetPartyLimitForTier
-```csharp
-public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)
-```
+`public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
+
+**Purpose:** Gets the current value of `party limit for tier`.
 
 ### GetCompanionLimit
-```csharp
-public abstract int GetCompanionLimit(Clan clan)
-```
+`public abstract int GetCompanionLimit(Clan clan)`
+
+**Purpose:** Gets the current value of `companion limit`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ClanTierModel (Model)
-Game.Current.ReplaceModel<ClanTierModel>(new MyClanTierModel());
+var implementation = new CustomClanTierModel();
 ```
 
 ## See Also

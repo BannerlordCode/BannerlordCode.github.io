@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MarriageModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MarriageModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`MarriageModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<MarriageModel>(new MyMarriageModel())` 注册，以改变其计算逻辑。
+`MarriageModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MarriageModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,50 +31,49 @@
 ## 主要方法
 
 ### IsCoupleSuitableForMarriage
-```csharp
-public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)
-```
+`public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
+
+**用途 / Purpose:** 处理 `is couple suitable for marriage` 相关逻辑。
 
 ### GetEffectiveRelationIncrease
-```csharp
-public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)
-```
+`public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
+
+**用途 / Purpose:** 获取 `effective relation increase` 的当前值。
 
 ### GetClanAfterMarriage
-```csharp
-public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)
-```
+`public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
+
+**用途 / Purpose:** 获取 `clan after marriage` 的当前值。
 
 ### IsSuitableForMarriage
-```csharp
-public abstract bool IsSuitableForMarriage(Hero hero)
-```
+`public abstract bool IsSuitableForMarriage(Hero hero)`
+
+**用途 / Purpose:** 处理 `is suitable for marriage` 相关逻辑。
 
 ### IsClanSuitableForMarriage
-```csharp
-public abstract bool IsClanSuitableForMarriage(Clan clan)
-```
+`public abstract bool IsClanSuitableForMarriage(Clan clan)`
+
+**用途 / Purpose:** 处理 `is clan suitable for marriage` 相关逻辑。
 
 ### NpcCoupleMarriageChance
-```csharp
-public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)
-```
+`public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
+
+**用途 / Purpose:** 处理 `npc couple marriage chance` 相关逻辑。
 
 ### ShouldNpcMarriageBetweenClansBeAllowed
-```csharp
-public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)
-```
+`public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
+
+**用途 / Purpose:** 处理 `should npc marriage between clans be allowed` 相关逻辑。
 
 ### GetAdultChildrenSuitableForMarriage
-```csharp
-public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)
-```
+`public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
+
+**用途 / Purpose:** 获取 `adult children suitable for marriage` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MarriageModel (Model) 的典型用法
-Game.Current.ReplaceModel<MarriageModel>(new MyMarriageModel());
+var implementation = new CustomMarriageModel();
 ```
 
 ## 参见

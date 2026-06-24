@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OptionGroupVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OptionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OptionGroupVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/OptionGroupVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OptionGroupVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OptionGroupVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,16 +28,20 @@
 | `Name` | `public string Name { get; set; }` |
 | `Options` | `public MBBindingList<GenericOptionDataVM> Options { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Refreshes the display or cache of `values`.
+
+## Usage Example
 
 ```csharp
-public override void RefreshValues()
+var value = new OptionGroupVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

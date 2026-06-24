@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BuildingScoreCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BuildingScoreCalculationModel
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`BuildingScoreCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BuildingScoreCalculationModel>(new MyBuildingScoreCalculationModel())` to change how it computes.
+`BuildingScoreCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BuildingScoreCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetNextBuilding
-```csharp
-public abstract Building GetNextBuilding(Town town)
-```
+`public abstract Building GetNextBuilding(Town town)`
+
+**Purpose:** Gets the current value of `next building`.
 
 ### GetNextDailyBuilding
-```csharp
-public abstract Building GetNextDailyBuilding(Town town)
-```
+`public abstract Building GetNextDailyBuilding(Town town)`
+
+**Purpose:** Gets the current value of `next daily building`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BuildingScoreCalculationModel (Model)
-Game.Current.ReplaceModel<BuildingScoreCalculationModel>(new MyBuildingScoreCalculationModel());
+var implementation = new CustomBuildingScoreCalculationModel();
 ```
 
 ## See Also

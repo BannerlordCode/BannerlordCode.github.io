@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `NumericCampaignOptionData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NumericCampaignOptionData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`NumericCampaignOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`NumericCampaignOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `NumericCampaignOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,15 +32,14 @@
 ## Key Methods
 
 ### GetDataType
-```csharp
-public override CampaignOptionDataType GetDataType()
-```
+`public override CampaignOptionDataType GetDataType()`
+
+**Purpose:** Gets the current value of `data type`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of NumericCampaignOptionData (Data)
-new NumericCampaignOptionData { /* fill fields */ };;
+var value = new NumericCampaignOptionData();
 ```
 
 ## See Also

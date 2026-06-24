@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `KingdomTabControlListPanel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomTabControlListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class KingdomTabControlListPanel : ListPanel`
+**Base:** `ListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Kingdom/KingdomTabControlListPanel.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `KingdomTabControlListPanel` is a class in the `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`KingdomTabControlListPanel` lives in `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,7 +36,12 @@
 | `ArmiesButton` | `public ButtonWidget ArmiesButton { get; set; }` |
 | `DiplomacyButton` | `public ButtonWidget DiplomacyButton { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new KingdomTabControlListPanel();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

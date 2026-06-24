@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CompanionHiringPriceCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompanionHiringPriceCalculationModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`CompanionHiringPriceCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CompanionHiringPriceCalculationModel>(new MyCompanionHiringPriceCalculationModel())` to change how it computes.
+`CompanionHiringPriceCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CompanionHiringPriceCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetCompanionHiringPrice
-```csharp
-public abstract int GetCompanionHiringPrice(Hero companion)
-```
+`public abstract int GetCompanionHiringPrice(Hero companion)`
+
+**Purpose:** Gets the current value of `companion hiring price`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CompanionHiringPriceCalculationModel (Model)
-Game.Current.ReplaceModel<CompanionHiringPriceCalculationModel>(new MyCompanionHiringPriceCalculationModel());
+var implementation = new CustomCompanionHiringPriceCalculationModel();
 ```
 
 ## See Also

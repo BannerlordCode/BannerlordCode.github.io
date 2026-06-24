@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementEconomyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementEconomyModel
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`SettlementEconomyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementEconomyModel>(new MySettlementEconomyModel())` to change how it computes.
+`SettlementEconomyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementEconomyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetEstimatedDemandForCategory
-```csharp
-public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)
-```
+`public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
+
+**Purpose:** Gets the current value of `estimated demand for category`.
 
 ### GetDailyDemandForCategory
-```csharp
-public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)
-```
+`public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)`
+
+**Purpose:** Gets the current value of `daily demand for category`.
 
 ### GetDemandChangeFromValue
-```csharp
-public abstract float GetDemandChangeFromValue(float purchaseValue)
-```
+`public abstract float GetDemandChangeFromValue(float purchaseValue)`
+
+**Purpose:** Gets the current value of `demand change from value`.
 
 ### GetSupplyDemandForCategory
-```csharp
-public abstract ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)
-```
+`public abstract ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
+
+**Purpose:** Gets the current value of `supply demand for category`.
 
 ### GetTownGoldChange
-```csharp
-public abstract int GetTownGoldChange(Town town)
-```
+`public abstract int GetTownGoldChange(Town town)`
+
+**Purpose:** Gets the current value of `town gold change`.
 
 ### CalculateDailySettlementBudgetForItemCategory
-```csharp
-public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)
-```
+`public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
+
+**Purpose:** Handles logic related to `calculate daily settlement budget for item category`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementEconomyModel (Model)
-Game.Current.ReplaceModel<SettlementEconomyModel>(new MySettlementEconomyModel());
+var implementation = new CustomSettlementEconomyModel();
 ```
 
 ## See Also

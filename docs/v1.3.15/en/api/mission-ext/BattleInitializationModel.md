@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleInitializationModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleInitializationModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`BattleInitializationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BattleInitializationModel>(new MyBattleInitializationModel())` to change how it computes.
+`BattleInitializationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BattleInitializationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetAllAvailableTroopTypes
-```csharp
-public abstract List<FormationClass> GetAllAvailableTroopTypes()
-```
+`public abstract List<FormationClass> GetAllAvailableTroopTypes()`
+
+**Purpose:** Gets the current value of `all available troop types`.
 
 ### CanPlayerSideDeployWithOrderOfBattle
-```csharp
-public bool CanPlayerSideDeployWithOrderOfBattle()
-```
+`public bool CanPlayerSideDeployWithOrderOfBattle()`
+
+**Purpose:** Checks whether the current object can `player side deploy with order of battle`.
 
 ### InitializeModel
-```csharp
-public void InitializeModel()
-```
+`public void InitializeModel()`
+
+**Purpose:** Initializes the state, resources, or bindings for `model`.
 
 ### FinalizeModel
-```csharp
-public void FinalizeModel()
-```
+`public void FinalizeModel()`
+
+**Purpose:** Handles logic related to `finalize model`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleInitializationModel (Model)
-Game.Current.ReplaceModel<BattleInitializationModel>(new MyBattleInitializationModel());
+var implementation = new CustomBattleInitializationModel();
 ```
 
 ## See Also

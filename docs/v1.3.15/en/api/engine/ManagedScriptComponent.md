@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ManagedScriptComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedScriptComponent
@@ -14,31 +15,34 @@
 
 ## Overview
 
-`ManagedScriptComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<ManagedScriptComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`ManagedScriptComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `ManagedScriptComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `ScriptComponentBehavior` | `public ScriptComponentBehavior ScriptComponentBehavior { get { return EngineApplicationInterface.IScriptComponent.GetScriptComponentBehavior(base.Pointer); }` |
+| `ScriptComponentBehavior` | `public ScriptComponentBehavior ScriptComponentBehavior { get; }` |
 
 ## Key Methods
 
 ### SetVariableEditorWidgetStatus
-```csharp
-public void SetVariableEditorWidgetStatus(string field, bool enabled)
-```
+`public void SetVariableEditorWidgetStatus(string field, bool enabled)`
+
+**Purpose:** Sets the value or state of `variable editor widget status`.
 
 ### SetVariableEditorWidgetValue
-```csharp
-public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)
-```
+`public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)`
+
+**Purpose:** Sets the value or state of `variable editor widget value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ManagedScriptComponent (Component)
-agent.GetComponent<ManagedScriptComponent>();
+var component = agent.GetComponent<ManagedScriptComponent>();
 ```
 
 ## See Also

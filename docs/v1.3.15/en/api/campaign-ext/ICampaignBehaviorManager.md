@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `ICampaignBehaviorManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ICampaignBehaviorManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** interface
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/ICampaignBehaviorManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ICampaignBehaviorManager` is a interface in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ICampaignBehaviorManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ICampaignBehaviorManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+ICampaignBehaviorManager implementation = GetCampaignBehaviorManagerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

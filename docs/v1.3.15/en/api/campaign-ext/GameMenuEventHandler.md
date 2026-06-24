@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameMenuEventHandler`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuEventHandler
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`GameMenuEventHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`GameMenuEventHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `GameMenuEventHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,7 +32,6 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of GameMenuEventHandler (Handler)
 Mission.Current.AddMissionBehavior(new GameMenuEventHandler());
 ```
 

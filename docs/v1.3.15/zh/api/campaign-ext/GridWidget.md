@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `GridWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GridWidget
@@ -16,44 +17,47 @@
 
 `GridWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `GridWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `DefaultCellWidth` | `public float DefaultCellWidth { get { return this._defaultCellWidth; }` |
-| `DefaultScaledCellWidth` | `public float DefaultScaledCellWidth { get { return this.DefaultCellWidth * base._scaleToUse; }` |
-| `DefaultCellHeight` | `public float DefaultCellHeight { get { return this._defaultCellHeight; }` |
-| `DefaultScaledCellHeight` | `public float DefaultScaledCellHeight { get { return this.DefaultCellHeight * base._scaleToUse; }` |
-| `RowCount` | `public int RowCount { get { return this._rowCount; }` |
-| `ColumnCount` | `public int ColumnCount { get { return this._columnCount; }` |
-| `UseDynamicCellWidth` | `public bool UseDynamicCellWidth { get { return this._useDynamicCellWidth; }` |
-| `UseDynamicCellHeight` | `public bool UseDynamicCellHeight { get { return this._useDynamicCellHeight; }` |
+| `GridLayout` | `public GridLayout GridLayout { get; }` |
+| `DefaultCellWidth` | `public float DefaultCellWidth { get; set; }` |
+| `DefaultScaledCellWidth` | `public float DefaultScaledCellWidth { get; set; }` |
+| `DefaultCellHeight` | `public float DefaultCellHeight { get; set; }` |
+| `DefaultScaledCellHeight` | `public float DefaultScaledCellHeight { get; set; }` |
+| `RowCount` | `public int RowCount { get; set; }` |
+| `ColumnCount` | `public int ColumnCount { get; set; }` |
+| `UseDynamicCellWidth` | `public bool UseDynamicCellWidth { get; set; }` |
+| `UseDynamicCellHeight` | `public bool UseDynamicCellHeight { get; set; }` |
 | `AcceptDropPredicate` | `public override Predicate<Widget> AcceptDropPredicate { get; set; }` |
-| `IsDragHovering` | `public override bool IsDragHovering { get { return false; }` |
+| `IsDragHovering` | `public override bool IsDragHovering { get; }` |
 
 ## 主要方法
 
 ### GetDropGizmoPosition
-```csharp
-public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)
-```
+`public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
+
+**用途 / Purpose:** 获取 `drop gizmo position` 的当前值。
 
 ### GetIndexForDrop
-```csharp
-public override int GetIndexForDrop(Vector2 draggedWidgetPosition)
-```
+`public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
+
+**用途 / Purpose:** 获取 `index for drop` 的当前值。
 
 ### OnChildSelected
-```csharp
-public override void OnChildSelected(Widget widget)
-```
+`public override void OnChildSelected(Widget widget)`
+
+**用途 / Purpose:** 当 `child selected` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// GridWidget (Widget) 的典型用法
-// 声明/访问一个 GridWidget
-var widget = root.GetChild("gridWidget");;
+var widget = new GridWidget(context);
 ```
 
 ## 参见

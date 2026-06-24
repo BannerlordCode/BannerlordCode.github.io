@@ -5,6 +5,10 @@ description: MBTextManager 多语言支持 / Multi-language support with MBTextM
 
 # 本地化 / Localization
 
+## 心智模型
+
+先把 `本地化` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: TaleWorlds.Localization
 **Key Classes**: `MBTextManager`, `TextObject`, `LanguageData`
 
@@ -149,3 +153,9 @@ LocalizedTextManager.SetLanguage(newLanguageCode);
 
 - [常见模式](./common-patterns.md) - 最佳实践
 - [游戏系统概述](./game-systems-overview.md) - 了解可自定义的内容
+
+## 使用示例
+
+```csharp
+var example = new 本地化();
+```

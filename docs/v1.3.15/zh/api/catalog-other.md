@@ -5,7 +5,11 @@ sidebar: auto
 
 # 其它 Other 类目录
 
-本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **62** 个类型，其中 **62** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `其它 Other 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **62** 个类型，其中 **56** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -26,7 +30,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [BannerHelper](./campaign-ext/BannerHelper.md) | 🔗 |
+| C | BannerHelper | — |
 
 ## Sandbox.View.GameStates (1)
 
@@ -72,7 +76,7 @@ sidebar: auto
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | S | [DependedModule](./campaign-ext/DependedModule.md) | 🔗 |
-| C | [Extensions](./engine/Extensions.md) | 🔗 |
+| C | Extensions | — |
 | I | [IPlatformModuleExtension](./campaign-ext/IPlatformModuleExtension.md) | 🔗 |
 | E | [ModuleCategory](./campaign-ext/ModuleCategory.md) | 🔗 |
 | C | [ModuleHelper](./campaign-ext/ModuleHelper.md) | 🔗 |
@@ -85,7 +89,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [Program](./mission-ext/Program.md) | 🔗 |
+| C | Program | — |
 
 ## psai.Editor (10)
 
@@ -106,7 +110,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [AudioData](./campaign-ext/AudioData.md) | 🔗 |
+| C | AudioData | — |
 | C | [AudioPlaybackLayerChannelStandalone](./campaign-ext/AudioPlaybackLayerChannelStandalone.md) | 🔗 |
 | S | [Follower](./campaign-ext/Follower.md) | 🔗 |
 | C | [PlaybackChannel](./campaign-ext/PlaybackChannel.md) | 🔗 |
@@ -115,12 +119,12 @@ sidebar: auto
 | E | [PsaiPlayMode](./campaign-ext/PsaiPlayMode.md) | 🔗 |
 | E | [PsaiResult](./campaign-ext/PsaiResult.md) | 🔗 |
 | E | [PsaiState](./campaign-ext/PsaiState.md) | 🔗 |
-| C | [Segment](./campaign-ext/Segment.md) | 🔗 |
+| C | Segment | — |
 | C | [SegmentInfo](./campaign-ext/SegmentInfo.md) | 🔗 |
 | E | [SegmentSuitability](./campaign-ext/SegmentSuitability.md) | 🔗 |
 | C | [Soundtrack](./campaign-ext/Soundtrack.md) | 🔗 |
 | C | [SoundtrackInfo](./campaign-ext/SoundtrackInfo.md) | 🔗 |
-| C | [Theme](./campaign-ext/Theme.md) | 🔗 |
+| C | Theme | — |
 | C | [ThemeInfo](./campaign-ext/ThemeInfo.md) | 🔗 |
 | E | [ThemeInterruptionBehavior](./campaign-ext/ThemeInterruptionBehavior.md) | 🔗 |
 | E | [ThemeType](./campaign-ext/ThemeType.md) | 🔗 |

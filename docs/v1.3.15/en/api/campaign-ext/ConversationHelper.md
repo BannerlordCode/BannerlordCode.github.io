@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ConversationHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationHelper
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`ConversationHelper` is a static utility class providing helper methods.
+`ConversationHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `ConversationHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### HeroRefersToHero
-```csharp
-public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)
-```
+`public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)`
+
+**Purpose:** Handles logic related to `hero refers to hero`.
 
 ### GetHeroRelationToHeroTextShort
-```csharp
-public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)
-```
+`public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)`
+
+**Purpose:** Gets the current value of `hero relation to hero text short`.
 
 ### GetConversationCharacterPartyLeader
-```csharp
-public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)
-```
+`public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)`
+
+**Purpose:** Gets the current value of `conversation character party leader`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ConversationHelper (Helper)
-ConversationHelper./* static helper method */();;
+ConversationHelper.Initialize();
 ```
 
 ## See Also

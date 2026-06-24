@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EncyclopediaListItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaListItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EncyclopediaListItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/List/EncyclopediaListItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EncyclopediaListItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EncyclopediaListItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,40 +34,40 @@
 | `ComparedValue` | `public string ComparedValue { get; set; }` |
 | `IsBookmarked` | `public bool IsBookmarked { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Execute
+`public void Execute()`
 
-```csharp
-public void Execute()
-```
+**Purpose:** Executes the `execute` operation or workflow.
 
 ### SetComparedValue
+`public void SetComparedValue(EncyclopediaListItemComparerBase comparer)`
 
-```csharp
-public void SetComparedValue(EncyclopediaListItemComparerBase comparer)
-```
+**Purpose:** Sets the value or state of `compared value`.
 
 ### ExecuteBeginTooltip
+`public void ExecuteBeginTooltip()`
 
-```csharp
-public void ExecuteBeginTooltip()
-```
+**Purpose:** Executes the `begin tooltip` operation or workflow.
 
 ### ExecuteEndTooltip
+`public void ExecuteEndTooltip()`
+
+**Purpose:** Executes the `end tooltip` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteEndTooltip()
+var value = new EncyclopediaListItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

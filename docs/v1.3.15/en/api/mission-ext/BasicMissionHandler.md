@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BasicMissionHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BasicMissionHandler
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BasicMissionHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`BasicMissionHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `BasicMissionHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,19 +30,18 @@
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### CreateWarningWidgetForResult
-```csharp
-public void CreateWarningWidgetForResult(BattleEndLogic.ExitResult result)
-```
+`public void CreateWarningWidgetForResult(BattleEndLogic.ExitResult result)`
+
+**Purpose:** Creates a new `warning widget for result` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BasicMissionHandler (Handler)
 Mission.Current.AddMissionBehavior(new BasicMissionHandler());
 ```
 

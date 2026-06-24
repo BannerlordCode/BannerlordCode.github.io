@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Brush`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Brush
 
-**命名空间:** TaleWorlds.GauntletUI
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class Brush`
+**Base:** 无
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Brush.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Brush` 是 `TaleWorlds.GauntletUI` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Brush` 位于 `TaleWorlds.GauntletUI`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.GauntletUI` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,97 +45,99 @@
 | `Color` | `public Color Color { get; set; }` |
 | `ColorFactor` | `public float ColorFactor { get; set; }` |
 | `AlphaFactor` | `public float AlphaFactor { get; set; }` |
-
+| `HueFactor` | `public float HueFactor { get; set; }` |
+| `SaturationFactor` | `public float SaturationFactor { get; set; }` |
+| `ValueFactor` | `public float ValueFactor { get; set; }` |
+| `FontColor` | `public Color FontColor { get; set; }` |
+| `TextColorFactor` | `public float TextColorFactor { get; set; }` |
+| `TextAlphaFactor` | `public float TextAlphaFactor { get; set; }` |
+| `TextHueFactor` | `public float TextHueFactor { get; set; }` |
+| `TextSaturationFactor` | `public float TextSaturationFactor { get; set; }` |
+| `TextValueFactor` | `public float TextValueFactor { get; set; }` |
+| `Layers` | `public Dictionary<string, BrushLayer>.ValueCollection Layers { get; }` |
+| `DefaultStyleLayer` | `public StyleLayer DefaultStyleLayer { get; }` |
+| `DefaultLayer` | `public BrushLayer DefaultLayer { get; }` |
+| `Styles` | `public Dictionary<string, Style>.ValueCollection Styles { get; }` |
 
 ## 主要方法
 
 ### GetStyle
+`public Style GetStyle(string name)`
 
-```csharp
-public Style GetStyle(string name)
-```
+**用途 / Purpose:** 获取 `style` 的当前值。
 
 ### GetStyleOrDefault
+`public Style GetStyleOrDefault(string name)`
 
-```csharp
-public Style GetStyleOrDefault(string name)
-```
+**用途 / Purpose:** 获取 `style or default` 的当前值。
 
 ### AddStyle
+`public void AddStyle(Style style)`
 
-```csharp
-public void AddStyle(Style style)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `style`。
 
 ### RemoveStyle
+`public void RemoveStyle(string styleName)`
 
-```csharp
-public void RemoveStyle(string styleName)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `style`。
 
 ### AddLayer
+`public void AddLayer(BrushLayer layer)`
 
-```csharp
-public void AddLayer(BrushLayer layer)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `layer`。
 
 ### RemoveLayer
+`public void RemoveLayer(string layerName)`
 
-```csharp
-public void RemoveLayer(string layerName)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `layer`。
 
 ### GetLayer
+`public BrushLayer GetLayer(string name)`
 
-```csharp
-public BrushLayer GetLayer(string name)
-```
+**用途 / Purpose:** 获取 `layer` 的当前值。
 
 ### FillFrom
+`public void FillFrom(Brush brush)`
 
-```csharp
-public void FillFrom(Brush brush)
-```
+**用途 / Purpose:** 处理 `fill from` 相关逻辑。
 
 ### Clone
+`public Brush Clone()`
 
-```csharp
-public Brush Clone()
-```
+**用途 / Purpose:** 处理 `clone` 相关逻辑。
 
 ### AddAnimation
+`public void AddAnimation(BrushAnimation animation)`
 
-```csharp
-public void AddAnimation(BrushAnimation animation)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `animation`。
 
 ### GetAnimation
+`public BrushAnimation GetAnimation(string name)`
 
-```csharp
-public BrushAnimation GetAnimation(string name)
-```
+**用途 / Purpose:** 获取 `animation` 的当前值。
 
 ### GetAnimations
+`public IEnumerable<BrushAnimation> GetAnimations()`
 
-```csharp
-public IEnumerable<BrushAnimation> GetAnimations()
-```
+**用途 / Purpose:** 获取 `animations` 的当前值。
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**用途 / Purpose:** 处理 `to string` 相关逻辑。
 
 ### IsCloneRelated
+`public bool IsCloneRelated(Brush brush)`
+
+**用途 / Purpose:** 处理 `is clone related` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public bool IsCloneRelated(Brush brush)
+var value = new Brush();
+value.GetStyle("example");
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

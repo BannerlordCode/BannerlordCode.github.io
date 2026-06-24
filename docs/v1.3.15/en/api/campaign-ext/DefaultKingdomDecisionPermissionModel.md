@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultKingdomDecisionPermissionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultKingdomDecisionPermissionModel
@@ -14,49 +15,52 @@
 
 ## Overview
 
-`DefaultKingdomDecisionPermissionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultKingdomDecisionPermissionModel>(new MyDefaultKingdomDecisionPermissionModel())` to change how it computes.
+`DefaultKingdomDecisionPermissionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultKingdomDecisionPermissionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsPolicyDecisionAllowed
-```csharp
-public override bool IsPolicyDecisionAllowed(PolicyObject policy)
-```
+`public override bool IsPolicyDecisionAllowed(PolicyObject policy)`
+
+**Purpose:** Handles logic related to `is policy decision allowed`.
 
 ### IsWarDecisionAllowedBetweenKingdoms
-```csharp
-public override bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public override bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is war decision allowed between kingdoms`.
 
 ### IsPeaceDecisionAllowedBetweenKingdoms
-```csharp
-public override bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public override bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is peace decision allowed between kingdoms`.
 
 ### IsAnnexationDecisionAllowed
-```csharp
-public override bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)
-```
+`public override bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
+
+**Purpose:** Handles logic related to `is annexation decision allowed`.
 
 ### IsExpulsionDecisionAllowed
-```csharp
-public override bool IsExpulsionDecisionAllowed(Clan expelledClan)
-```
+`public override bool IsExpulsionDecisionAllowed(Clan expelledClan)`
+
+**Purpose:** Handles logic related to `is expulsion decision allowed`.
 
 ### IsKingSelectionDecisionAllowed
-```csharp
-public override bool IsKingSelectionDecisionAllowed(Kingdom kingdom)
-```
+`public override bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
+
+**Purpose:** Handles logic related to `is king selection decision allowed`.
 
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
-```csharp
-public override bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public override bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is start alliance decision allowed between kingdoms`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultKingdomDecisionPermissionModel (Model)
 Game.Current.ReplaceModel<DefaultKingdomDecisionPermissionModel>(new MyDefaultKingdomDecisionPermissionModel());
 ```
 

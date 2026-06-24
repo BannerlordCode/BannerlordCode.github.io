@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ScrollingRichTextWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScrollingRichTextWidget
@@ -16,29 +17,32 @@
 
 `ScrollingRichTextWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `ScrollingRichTextWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `ScrollOnHoverWidget` | `public Widget ScrollOnHoverWidget { get { return this._scrollOnHoverWidget; }` |
-| `IsAutoScrolling` | `public bool IsAutoScrolling { get { return this._isAutoScrolling; }` |
-| `ScrollPerTick` | `public float ScrollPerTick { get { return this._scrollPerTick; }` |
-| `InbetweenScrollDuration` | `public float InbetweenScrollDuration { get { return this._inbetweenScrollDuration; }` |
-| `DefaultTextHorizontalAlignment` | `public TextHorizontalAlignment DefaultTextHorizontalAlignment { get { return this._defaultTextHorizontalAlignment; }` |
+| `ActualText` | `public string ActualText { get; }` |
+| `ScrollOnHoverWidget` | `public Widget ScrollOnHoverWidget { get; set; }` |
+| `IsAutoScrolling` | `public bool IsAutoScrolling { get; set; }` |
+| `ScrollPerTick` | `public float ScrollPerTick { get; set; }` |
+| `InbetweenScrollDuration` | `public float InbetweenScrollDuration { get; set; }` |
+| `DefaultTextHorizontalAlignment` | `public TextHorizontalAlignment DefaultTextHorizontalAlignment { get; set; }` |
 
 ## 主要方法
 
 ### OnBrushChanged
-```csharp
-public override void OnBrushChanged()
-```
+`public override void OnBrushChanged()`
+
+**用途 / Purpose:** 当 `brush changed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// ScrollingRichTextWidget (Widget) 的典型用法
-// 声明/访问一个 ScrollingRichTextWidget
-var widget = root.GetChild("scrollingRichTextWidget");;
+var widget = new ScrollingRichTextWidget(context);
 ```
 
 ## 参见

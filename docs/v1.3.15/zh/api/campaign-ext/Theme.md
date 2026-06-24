@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Theme`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Theme
 
 **命名空间:** psai.Editor
 **模块:** psai.Editor
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public class Theme : PsaiMusicEntity, ICloneable`
+**Base:** `PsaiMusicEntity`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`Theme` 是 `psai.Editor` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Theme` 位于 `psai.Editor`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `psai.Editor` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -36,124 +42,109 @@
 | `WeightingLowPlaycountVsRandom` | `public float WeightingLowPlaycountVsRandom { get; set; }` |
 | `Groups` | `public List<Group> Groups { get; set; }` |
 
-
 ## 主要方法
 
 ### ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred
+`public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)`
 
-```csharp
-public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)
-```
+**用途 / Purpose:** 处理 `convert playcount vs random weighting to boolean playcount preferred` 相关逻辑。
 
 ### GetClassString
+`public override string GetClassString()`
 
-```csharp
-public override string GetClassString()
-```
+**用途 / Purpose:** 获取 `class string` 的当前值。
 
 ### GetChildren
+`public override List<PsaiMusicEntity> GetChildren()`
 
-```csharp
-public override List<PsaiMusicEntity> GetChildren()
-```
+**用途 / Purpose:** 获取 `children` 的当前值。
 
 ### GetParent
+`public override PsaiMusicEntity GetParent()`
 
-```csharp
-public override PsaiMusicEntity GetParent()
-```
+**用途 / Purpose:** 获取 `parent` 的当前值。
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**用途 / Purpose:** 处理 `to string` 相关逻辑。
 
 ### AddGroup
+`public bool AddGroup(Group groupToAdd)`
 
-```csharp
-public bool AddGroup(Group groupToAdd)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `group`。
 
 ### DeleteGroup
+`public void DeleteGroup(Group group)`
 
-```csharp
-public void DeleteGroup(Group group)
-```
+**用途 / Purpose:** 处理 `delete group` 相关逻辑。
 
 ### GetSegmentsOfAllGroups
+`public HashSet<Segment> GetSegmentsOfAllGroups()`
 
-```csharp
-public HashSet<Segment> GetSegmentsOfAllGroups()
-```
+**用途 / Purpose:** 获取 `segments of all groups` 的当前值。
 
 ### GetAudioDataRelativeFilePathsUsedByThisTheme
+`public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()`
 
-```csharp
-public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()
-```
+**用途 / Purpose:** 获取 `audio data relative file paths used by this theme` 的当前值。
 
 ### GetCompatibilitySetting
+`public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-```csharp
-public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)
-```
+**用途 / Purpose:** 获取 `compatibility setting` 的当前值。
 
 ### GetCompatibilityType
+`public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-```csharp
-public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)
-```
+**用途 / Purpose:** 获取 `compatibility type` 的当前值。
 
 ### GetIndexPositionWithinParentEntity
+`public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-```csharp
-public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)
-```
+**用途 / Purpose:** 获取 `index position within parent entity` 的当前值。
 
 ### PropertyDifferencesAffectCompatibilities
+`public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-```csharp
-public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)
-```
+**用途 / Purpose:** 处理 `property differences affect compatibilities` 相关逻辑。
 
 ### SetAsParentThemeForAllGroupsAndSegments
+`public void SetAsParentThemeForAllGroupsAndSegments()`
 
-```csharp
-public void SetAsParentThemeForAllGroupsAndSegments()
-```
+**用途 / Purpose:** 设置 `as parent theme for all groups and segments` 的值或状态。
 
 ### CreatePsaiDotNetVersion
+`public Theme CreatePsaiDotNetVersion()`
 
-```csharp
-public Theme CreatePsaiDotNetVersion()
-```
+**用途 / Purpose:** 创建一个 `psai dot net version` 实例或对象。
 
 ### getTestTheme1
+`public static Theme getTestTheme1()`
 
-```csharp
-public static Theme getTestTheme1()
-```
+**用途 / Purpose:** 处理 `get test theme1` 相关逻辑。
 
 ### getTestTheme2
+`public static Theme getTestTheme2()`
 
-```csharp
-public static Theme getTestTheme2()
-```
+**用途 / Purpose:** 处理 `get test theme2` 相关逻辑。
 
 ### Clone
+`public override object Clone()`
 
-```csharp
-public override object Clone()
-```
+**用途 / Purpose:** 处理 `clone` 相关逻辑。
 
 ### ShallowCopy
+`public override PsaiMusicEntity ShallowCopy()`
+
+**用途 / Purpose:** 处理 `shallow copy` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public override PsaiMusicEntity ShallowCopy()
+// 先准备该类型需要的上下文，然后直接调用静态入口
+Theme.ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(0);
 ```
-
-献文档。
 
 ## 参见
 

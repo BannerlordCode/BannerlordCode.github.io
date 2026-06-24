@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderOfBattleFormationItemVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderOfBattleFormationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OrderOfBattleFormationItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/OrderOfBattle/OrderOfBattleFormationItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderOfBattleFormationItemVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderOfBattleFormationItemVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,113 +45,117 @@
 | `TroopCount` | `public int TroopCount { get; set; }` |
 | `BannerBearerCount` | `public int BannerBearerCount { get; set; }` |
 | `OrderOfBattleFormationClassInt` | `public int OrderOfBattleFormationClassInt { get; set; }` |
-
+| `WSign` | `public int WSign { get; set; }` |
+| `ScreenPosition` | `public Vec2 ScreenPosition { get; set; }` |
+| `Captain` | `public OrderOfBattleHeroItemVM Captain { get; set; }` |
+| `HeroTroops` | `public MBBindingList<OrderOfBattleHeroItemVM> HeroTroops { get; set; }` |
+| `Classes` | `public MBBindingList<OrderOfBattleFormationClassVM> Classes { get; set; }` |
+| `FormationClassSelector` | `public SelectorVM<OrderOfBattleFormationClassSelectorItemVM> FormationClassSelector { get; set; }` |
+| `FilterItems` | `public MBBindingList<OrderOfBattleFormationFilterSelectorItemVM> FilterItems { get; set; }` |
+| `Tooltip` | `public BasicTooltipViewModel Tooltip { get; set; }` |
+| `BannerBearerTooltip` | `public BasicTooltipViewModel BannerBearerTooltip { get; set; }` |
+| `CantAdjustHint` | `public HintViewModel CantAdjustHint { get; set; }` |
+| `CaptainSlotHint` | `public HintViewModel CaptainSlotHint { get; set; }` |
+| `HeroTroopSlotHint` | `public HintViewModel HeroTroopSlotHint { get; set; }` |
+| `AssignCaptainHint` | `public HintViewModel AssignCaptainHint { get; set; }` |
+| `AssignHeroTroopHint` | `public HintViewModel AssignHeroTroopHint { get; set; }` |
+| `IsCaptainSlotHighlightActive` | `public bool IsCaptainSlotHighlightActive { get; set; }` |
+| `IsTypeSelectionHighlightActive` | `public bool IsTypeSelectionHighlightActive { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Tick
+`public void Tick()`
 
-```csharp
-public void Tick()
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### RefreshFormation
+`public void RefreshFormation(Formation formation, DeploymentFormationClass overriddenClass = DeploymentFormationClass.Unset, bool mustExist = false)`
 
-```csharp
-public void RefreshFormation(Formation formation, DeploymentFormationClass overriddenClass = DeploymentFormationClass.Unset, bool mustExist = false)
-```
+**Purpose:** Refreshes the display or cache of `formation`.
 
 ### MakeMarkerWorldPositionDirty
+`public void MakeMarkerWorldPositionDirty()`
 
-```csharp
-public void MakeMarkerWorldPositionDirty()
-```
+**Purpose:** Handles logic related to `make marker world position dirty`.
 
 ### OnSizeChanged
+`public void OnSizeChanged()`
 
-```csharp
-public void OnSizeChanged()
-```
+**Purpose:** Called when the `size changed` event is raised.
 
 ### GetOrderOfBattleClass
+`public DeploymentFormationClass GetOrderOfBattleClass()`
 
-```csharp
-public DeploymentFormationClass GetOrderOfBattleClass()
-```
+**Purpose:** Gets the current value of `order of battle class`.
 
 ### UpdateAdjustable
+`public void UpdateAdjustable()`
 
-```csharp
-public void UpdateAdjustable()
-```
+**Purpose:** Updates the state or data of `adjustable`.
 
 ### HasFilter
+`public bool HasFilter(FormationFilterType filter)`
 
-```csharp
-public bool HasFilter(FormationFilterType filter)
-```
+**Purpose:** Checks whether the current object has/contains `filter`.
 
 ### HasOnlyOneClass
+`public bool HasOnlyOneClass()`
 
-```csharp
-public bool HasOnlyOneClass()
-```
+**Purpose:** Checks whether the current object has/contains `only one class`.
 
 ### HasClass
+`public bool HasClass(FormationClass formationClass)`
 
-```csharp
-public bool HasClass(FormationClass formationClass)
-```
+**Purpose:** Checks whether the current object has/contains `class`.
 
 ### HasClasses
+`public bool HasClasses(FormationClass formationClasses)`
 
-```csharp
-public bool HasClasses(FormationClass formationClasses)
-```
+**Purpose:** Checks whether the current object has/contains `classes`.
 
 ### UnassignCaptain
+`public void UnassignCaptain()`
 
-```csharp
-public void UnassignCaptain()
-```
+**Purpose:** Handles logic related to `unassign captain`.
 
 ### ExecuteAcceptCaptain
+`public void ExecuteAcceptCaptain()`
 
-```csharp
-public void ExecuteAcceptCaptain()
-```
+**Purpose:** Executes the `accept captain` operation or workflow.
 
 ### ExecuteAcceptHeroTroops
+`public void ExecuteAcceptHeroTroops()`
 
-```csharp
-public void ExecuteAcceptHeroTroops()
-```
+**Purpose:** Executes the `accept hero troops` operation or workflow.
 
 ### OnHeroSelectionUpdated
+`public void OnHeroSelectionUpdated(int selectedHeroCount, bool hasOwnHeroTroopInSelection)`
 
-```csharp
-public void OnHeroSelectionUpdated(int selectedHeroCount, bool hasOwnHeroTroopInSelection)
-```
+**Purpose:** Called when the `hero selection updated` event is raised.
 
 ### AddHeroTroop
+`public void AddHeroTroop(OrderOfBattleHeroItemVM heroItem)`
 
-```csharp
-public void AddHeroTroop(OrderOfBattleHeroItemVM heroItem)
-```
+**Purpose:** Adds `hero troop` to the current collection or state.
 
 ### RemoveHeroTroop
+`public void RemoveHeroTroop(OrderOfBattleHeroItemVM heroItem)`
+
+**Purpose:** Removes `hero troop` from the current collection or state.
+
+## Usage Example
 
 ```csharp
-public void RemoveHeroTroop(OrderOfBattleHeroItemVM heroItem)
+var value = new OrderOfBattleFormationItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

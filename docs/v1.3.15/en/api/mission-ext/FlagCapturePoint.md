@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `FlagCapturePoint`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FlagCapturePoint
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class FlagCapturePoint : SynchedMissionObject`
+**Base:** `SynchedMissionObject`
+**File:** `TaleWorlds.MountAndBlade/Objects/FlagCapturePoint.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `FlagCapturePoint` is a class in the `TaleWorlds.MountAndBlade.Objects` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FlagCapturePoint` lives in `TaleWorlds.MountAndBlade.Objects` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,76 +31,70 @@
 | `IsFullyRaised` | `public bool IsFullyRaised { get; }` |
 | `IsDeactivated` | `public bool IsDeactivated { get; }` |
 
-
 ## Key Methods
 
 ### ResetPointAsServer
+`public void ResetPointAsServer(uint defaultColor, uint defaultColor2)`
 
-```csharp
-public void ResetPointAsServer(uint defaultColor, uint defaultColor2)
-```
+**Purpose:** Resets `point as server` to its initial state.
 
 ### RemovePointAsServer
+`public void RemovePointAsServer()`
 
-```csharp
-public void RemovePointAsServer()
-```
+**Purpose:** Removes `point as server` from the current collection or state.
 
 ### OnAfterTick
+`public void OnAfterTick(bool canOwnershipChange, out bool ownerTeamChanged)`
 
-```csharp
-public void OnAfterTick(bool canOwnershipChange, out bool ownerTeamChanged)
-```
+**Purpose:** Called when the `after tick` event is raised.
 
 ### SetMoveFlag
+`public void SetMoveFlag(CaptureTheFlagFlagDirection directionTo, float speedMultiplier = 1f)`
 
-```csharp
-public void SetMoveFlag(CaptureTheFlagFlagDirection directionTo, float speedMultiplier = 1f)
-```
+**Purpose:** Sets the value or state of `move flag`.
 
 ### ChangeMovementSpeed
+`public void ChangeMovementSpeed(float speedMultiplier)`
 
-```csharp
-public void ChangeMovementSpeed(float speedMultiplier)
-```
+**Purpose:** Handles logic related to `change movement speed`.
 
 ### SetMoveNone
+`public void SetMoveNone()`
 
-```csharp
-public void SetMoveNone()
-```
+**Purpose:** Sets the value or state of `move none`.
 
 ### SetVisibleWithAllSynched
+`public void SetVisibleWithAllSynched(bool value, bool forceChildrenVisible = false)`
 
-```csharp
-public void SetVisibleWithAllSynched(bool value, bool forceChildrenVisible = false)
-```
+**Purpose:** Sets the value or state of `visible with all synched`.
 
 ### SetTeamColorsWithAllSynched
+`public void SetTeamColorsWithAllSynched(uint color, uint color2)`
 
-```csharp
-public void SetTeamColorsWithAllSynched(uint color, uint color2)
-```
+**Purpose:** Sets the value or state of `team colors with all synched`.
 
 ### GetFlagColor
+`public uint GetFlagColor()`
 
-```csharp
-public uint GetFlagColor()
-```
+**Purpose:** Gets the current value of `flag color`.
 
 ### GetFlagColor2
+`public uint GetFlagColor2()`
 
-```csharp
-public uint GetFlagColor2()
-```
+**Purpose:** Gets the current value of `flag color2`.
 
 ### GetFlagProgress
+`public float GetFlagProgress()`
+
+**Purpose:** Gets the current value of `flag progress`.
+
+## Usage Example
 
 ```csharp
-public float GetFlagProgress()
+var value = new FlagCapturePoint();
+value.ResetPointAsServer(0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

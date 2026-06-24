@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `EducationCampaignBehavior`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EducationCampaignBehavior
 
-**命名空间:** TaleWorlds.CampaignSystem.CampaignBehaviors
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class EducationCampaignBehavior : CampaignBehaviorBase, IEducationLogic`
+**Base:** `CampaignBehaviorBase`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/EducationCampaignBehavior.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`EducationCampaignBehavior` 是 `TaleWorlds.CampaignSystem.CampaignBehaviors` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`EducationCampaignBehavior` 位于 `TaleWorlds.CampaignSystem.CampaignBehaviors`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.CampaignBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,132 +28,130 @@
 | `PageCount` | `public int PageCount { get; }` |
 | `Options` | `public IEnumerable<EducationCampaignBehavior.EducationOption> Options { get; }` |
 
-
 ## 主要方法
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**用途 / Purpose:** 处理 `sync data` 相关逻辑。
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**用途 / Purpose:** 处理 `register events` 相关逻辑。
 
 ### GetOptionProperties
+`public void GetOptionProperties(Hero child, string optionKey, List<string> previousOptions, out TextObject optionTitle, out TextObject description, out TextObject effect, out ValueTuple<CharacterAttribute, int> attributes, out ValueTuple<SkillObject, int> skills, out ValueTuple<SkillObject, int> focusPoints, out EducationCampaignBehavior.EducationCharacterProperties educationCharacterProperties)`
 
-```csharp
-public void GetOptionProperties(Hero child, string optionKey, List<string> previousOptions, out TextObject optionTitle, out TextObject description, out TextObject effect, out ValueTuple<CharacterAttribute, int> attributes, out ValueTuple<SkillObject, int> skills, out ValueTuple<SkillObject, int> focusPoints, out EducationCampaignBehavior.EducationCharacterProperties educationCharacterProperties)
-```
+**用途 / Purpose:** 获取 `option properties` 的当前值。
 
 ### GetPageProperties
+`public void GetPageProperties(Hero child, List<string> previousChoices, out TextObject title, out TextObject description, out TextObject instruction, out EducationCampaignBehavior.EducationCharacterProperties defaultCharacterProperties, out string availableOptions)`
 
-```csharp
-public void GetPageProperties(Hero child, List<string> previousChoices, out TextObject title, out TextObject description, out TextObject instruction, out EducationCampaignBehavior.EducationCharacterProperties defaultCharacterProperties, out string availableOptions)
-```
+**用途 / Purpose:** 获取 `page properties` 的当前值。
 
 ### IsValidEducationNotification
+`public bool IsValidEducationNotification(EducationMapNotification data)`
 
-```csharp
-public bool IsValidEducationNotification(EducationMapNotification data)
-```
+**用途 / Purpose:** 处理 `is valid education notification` 相关逻辑。
 
 ### GetStageProperties
+`public void GetStageProperties(Hero child, out int pageCount)`
 
-```csharp
-public void GetStageProperties(Hero child, out int pageCount)
-```
+**用途 / Purpose:** 获取 `stage properties` 的当前值。
 
 ### Finalize
+`public void Finalize(Hero child, List<string> chosenOptions)`
 
-```csharp
-public void Finalize(Hero child, List<string> chosenOptions)
-```
+**用途 / Purpose:** 处理 `finalize` 相关逻辑。
 
 ### OnConsequence
+`public void OnConsequence(Hero child)`
 
-```csharp
-public void OnConsequence(Hero child)
-```
+**用途 / Purpose:** 当 `consequence` 事件触发时调用此方法。
 
 ### EducationOptionConditionDelegate
+`public delegate bool EducationOptionConditionDelegate(EducationCampaignBehavior.EducationOption option, List<EducationCampaignBehavior.EducationOption> previousOptions)`
 
-```csharp
-public delegate bool EducationOptionConditionDelegate(EducationCampaignBehavior.EducationOption option, List<EducationCampaignBehavior.EducationOption> previousOptions)
-```
+**用途 / Purpose:** 处理 `education option condition delegate` 相关逻辑。
 
 ### EducationOptionConsequenceDelegate
+`public delegate bool EducationOptionConsequenceDelegate(EducationCampaignBehavior.EducationOption option)`
 
-```csharp
-public delegate bool EducationOptionConsequenceDelegate(EducationCampaignBehavior.EducationOption option)
-```
+**用途 / Purpose:** 处理 `education option consequence delegate` 相关逻辑。
 
 ### AddPage
+`public EducationCampaignBehavior.EducationPage AddPage(int pageIndex, TextObject title, TextObject description, TextObject instruction, EducationCampaignBehavior.EducationCharacterProperties childProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationCharacterProperties specialCharacterProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationPage.EducationPageConditionDelegate condition = null)`
 
-```csharp
-public EducationCampaignBehavior.EducationPage AddPage(int pageIndex, TextObject title, TextObject description, TextObject instruction, EducationCampaignBehavior.EducationCharacterProperties childProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationCharacterProperties specialCharacterProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationPage.EducationPageConditionDelegate condition = null)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `page`。
 
 ### GetOption
+`public EducationCampaignBehavior.EducationOption GetOption(string optionKey)`
 
-```csharp
-public EducationCampaignBehavior.EducationOption GetOption(string optionKey)
-```
+**用途 / Purpose:** 获取 `option` 的当前值。
 
 ### GetPage
+`public EducationCampaignBehavior.EducationPage GetPage(List<string> previousOptionKeys)`
 
-```csharp
-public EducationCampaignBehavior.EducationPage GetPage(List<string> previousOptionKeys)
-```
+**用途 / Purpose:** 获取 `page` 的当前值。
 
 ### StringIdToEducationOption
+`public List<EducationCampaignBehavior.EducationOption> StringIdToEducationOption(List<string> previousOptionKeys)`
 
-```csharp
-public List<EducationCampaignBehavior.EducationOption> StringIdToEducationOption(List<string> previousOptionKeys)
-```
+**用途 / Purpose:** 处理 `string id to education option` 相关逻辑。
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
-
-### Equals
-
-```csharp
-public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)
-```
+**用途 / Purpose:** 处理 `to string` 相关逻辑。
 
 ### Equals
+`public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**用途 / Purpose:** 处理 `equals` 相关逻辑。
+
+### Equals
+`public override bool Equals(object obj)`
+
+**用途 / Purpose:** 处理 `equals` 相关逻辑。
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**用途 / Purpose:** 获取 `hash code` 的当前值。
 
 ### GetUsedHandBoneIndex
+`public sbyte GetUsedHandBoneIndex()`
 
-```csharp
-public sbyte GetUsedHandBoneIndex()
-```
+**用途 / Purpose:** 获取 `used hand bone index` 的当前值。
 
 ### AddOption
+`public void AddOption(EducationCampaignBehavior.EducationOption option)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `option`。
+
+### GetOption
+`public EducationCampaignBehavior.EducationOption GetOption(string optionKey)`
+
+**用途 / Purpose:** 获取 `option` 的当前值。
+
+### GetAvailableOptions
+`public string GetAvailableOptions(List<EducationCampaignBehavior.EducationOption> previousEducationOptions)`
+
+**用途 / Purpose:** 获取 `available options` 的当前值。
+
+### EducationPageConditionDelegate
+`public delegate bool EducationPageConditionDelegate(EducationCampaignBehavior.EducationPage page, List<EducationCampaignBehavior.EducationOption> previousOptions)`
+
+**用途 / Purpose:** 处理 `education page condition delegate` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void AddOption(EducationCampaignBehavior.EducationOption option)
+var value = new EducationCampaignBehavior();
+value.SyncData(dataStore);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

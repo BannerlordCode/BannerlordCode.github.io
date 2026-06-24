@@ -5,6 +5,10 @@ description: Bannerlord modding 最佳实践 / Bannerlord modding best practices
 
 # 常见模式 / Common Patterns
 
+## 心智模型
+
+先把 `常见模式` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: All TaleWorlds.*
 
 ## 概述 / Overview
@@ -210,3 +214,9 @@ C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 - [游戏系统概述](./game-systems-overview.md) - 了解可自定义的内容
 - [故障排除](./troubleshooting.md) - 解决问题
+
+## 使用示例
+
+```csharp
+var example = new 常见模式();
+```

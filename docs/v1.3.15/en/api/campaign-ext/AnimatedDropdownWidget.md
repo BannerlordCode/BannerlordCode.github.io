@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AnimatedDropdownWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AnimatedDropdownWidget
@@ -16,53 +17,55 @@
 
 `AnimatedDropdownWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `AnimatedDropdownWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `TextWidget` | `public Widget TextWidget { get; set; }` |
 | `ScrollbarWidget` | `public ScrollbarWidget ScrollbarWidget { get; set; }` |
-| `Button` | `public ButtonWidget Button { get { return this._button; }` |
-| `DropdownContainerWidget` | `public Widget DropdownContainerWidget { get { return this._dropdownContainerWidget; }` |
-| `DropdownClipWidget` | `public Widget DropdownClipWidget { get { return this._dropdownClipWidget; }` |
-| `ListPanel` | `public ListPanel ListPanel { get { return this._listPanel; }` |
-| `ListPanelValue` | `public int ListPanelValue { get { if (this.ListPanel != null) { return this.ListPanel.IntValue; }` |
-| `CurrentSelectedIndex` | `public int CurrentSelectedIndex { get { return this._currentSelectedIndex; }` |
-| `UpdateSelectedItem` | `public bool UpdateSelectedItem { get { return this._updateSelectedItem; }` |
+| `Button` | `public ButtonWidget Button { get; set; }` |
+| `DropdownContainerWidget` | `public Widget DropdownContainerWidget { get; set; }` |
+| `DropdownClipWidget` | `public Widget DropdownClipWidget { get; set; }` |
+| `ListPanel` | `public ListPanel ListPanel { get; set; }` |
+| `ListPanelValue` | `public int ListPanelValue { get; set; }` |
+| `CurrentSelectedIndex` | `public int CurrentSelectedIndex { get; set; }` |
+| `UpdateSelectedItem` | `public bool UpdateSelectedItem { get; set; }` |
 
 ## Key Methods
 
 ### OnButtonClick
-```csharp
-public void OnButtonClick(Widget widget)
-```
+`public void OnButtonClick(Widget widget)`
+
+**Purpose:** Called when the `button click` event is raised.
 
 ### UpdateButtonText
-```csharp
-public void UpdateButtonText(string text)
-```
+`public void UpdateButtonText(string text)`
+
+**Purpose:** Updates the state or data of `button text`.
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget widget)
-```
+`public void OnListChanged(Widget widget)`
+
+**Purpose:** Called when the `list changed` event is raised.
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget parentWidget, Widget addedWidget)
-```
+`public void OnListChanged(Widget parentWidget, Widget addedWidget)`
+
+**Purpose:** Called when the `list changed` event is raised.
 
 ### OnSelectionChanged
-```csharp
-public void OnSelectionChanged(Widget widget)
-```
+`public void OnSelectionChanged(Widget widget)`
+
+**Purpose:** Called when the `selection changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AnimatedDropdownWidget (Widget)
-// 声明/访问一个 AnimatedDropdownWidget
-var widget = root.GetChild("animatedDropdownWidget");;
+var widget = new AnimatedDropdownWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CapsuleData`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CapsuleData
@@ -14,28 +15,31 @@
 
 ## Overview
 
-`CapsuleData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`CapsuleData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `CapsuleData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `P1` | `public Vec3 P1 { get { return this._globalData.P1; }` |
-| `P2` | `public Vec3 P2 { get { return this._globalData.P2; }` |
-| `Radius` | `public float Radius { get { return this._globalData.Radius; }` |
+| `P1` | `public Vec3 P1 { get; set; }` |
+| `P2` | `public Vec3 P2 { get; set; }` |
+| `Radius` | `public float Radius { get; set; }` |
 
 ## Key Methods
 
 ### GetBoxMinMax
-```csharp
-public ValueTuple<Vec3, Vec3> GetBoxMinMax()
-```
+`public ValueTuple<Vec3, Vec3> GetBoxMinMax()`
+
+**Purpose:** Gets the current value of `box min max`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CapsuleData (Data)
-new CapsuleData { /* fill fields */ };;
+var value = new CapsuleData();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MilitaryPowerModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MilitaryPowerModel
@@ -14,50 +15,53 @@
 
 ## 概述
 
-`MilitaryPowerModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<MilitaryPowerModel>(new MyMilitaryPowerModel())` 注册，以改变其计算逻辑。
+`MilitaryPowerModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MilitaryPowerModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetTroopPower
-```csharp
-public abstract float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)
-```
+`public abstract float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
+
+**用途 / Purpose:** 获取 `troop power` 的当前值。
 
 ### GetPowerOfParty
-```csharp
-public abstract float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)
-```
+`public abstract float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
+
+**用途 / Purpose:** 获取 `power of party` 的当前值。
 
 ### GetContextModifier
-```csharp
-public abstract float GetContextModifier(CharacterObject troop, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)
-```
+`public abstract float GetContextModifier(CharacterObject troop, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
+
+**用途 / Purpose:** 获取 `context modifier` 的当前值。
 
 ### GetContextModifier
-```csharp
-public abstract float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)
-```
+`public abstract float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
+
+**用途 / Purpose:** 获取 `context modifier` 的当前值。
 
 ### GetContextForPosition
-```csharp
-public abstract MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)
-```
+`public abstract MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
+
+**用途 / Purpose:** 获取 `context for position` 的当前值。
 
 ### GetDefaultTroopPower
-```csharp
-public abstract float GetDefaultTroopPower(CharacterObject troop)
-```
+`public abstract float GetDefaultTroopPower(CharacterObject troop)`
+
+**用途 / Purpose:** 获取 `default troop power` 的当前值。
 
 ### GetPowerModifierOfHero
-```csharp
-public abstract float GetPowerModifierOfHero(Hero leaderHero)
-```
+`public abstract float GetPowerModifierOfHero(Hero leaderHero)`
+
+**用途 / Purpose:** 获取 `power modifier of hero` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MilitaryPowerModel (Model) 的典型用法
-Game.Current.ReplaceModel<MilitaryPowerModel>(new MyMilitaryPowerModel());
+var implementation = new CustomMilitaryPowerModel();
 ```
 
 ## 参见

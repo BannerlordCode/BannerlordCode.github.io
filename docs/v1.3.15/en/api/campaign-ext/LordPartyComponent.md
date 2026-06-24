@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `LordPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LordPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`LordPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<LordPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`LordPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `LordPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,35 +36,34 @@
 ## Key Methods
 
 ### SetWagePaymentLimit
-```csharp
-public override void SetWagePaymentLimit(int newLimit)
-```
+`public override void SetWagePaymentLimit(int newLimit)`
+
+**Purpose:** Sets the value or state of `wage payment limit`.
 
 ### CreateLordParty
-```csharp
-public static MobileParty CreateLordParty(string stringId, Hero hero, CampaignVec2 position, float spawnRadius, Settlement spawnSettlement, Hero partyLeader)
-```
+`public static MobileParty CreateLordParty(string stringId, Hero hero, CampaignVec2 position, float spawnRadius, Settlement spawnSettlement, Hero partyLeader)`
+
+**Purpose:** Creates a new `lord party` instance or object.
 
 ### ConvertPartyToLordParty
-```csharp
-public static void ConvertPartyToLordParty(MobileParty mobileParty, Hero owner, Hero partyLeader)
-```
+`public static void ConvertPartyToLordParty(MobileParty mobileParty, Hero owner, Hero partyLeader)`
+
+**Purpose:** Handles logic related to `convert party to lord party`.
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### InitializeLordPartyProperties
-```csharp
-public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)
-```
+`public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
+
+**Purpose:** Initializes the state, resources, or bindings for `lord party properties`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of LordPartyComponent (Component)
-agent.GetComponent<LordPartyComponent>();
+var component = agent.GetComponent<LordPartyComponent>();
 ```
 
 ## See Also

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `LoadContext`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LoadContext
@@ -19,6 +21,10 @@ The **read-side context** of the save system. `SaveManager.Load` creates a `Load
 1. **Read headers**: `ArchiveDeserializer` parses object/container/string counts and header data from `loadData.GameData.Header`.
 2. **Create objects**: iterate `ObjectHeaderLoadData`, creating empty objects per definition (ID 0 is the root).
 3. **Fill objects**: read field values and populate each object (supports deferred init via `loadAsLateInitialize`).
+
+## Mental Model
+
+Treat `LoadContext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -55,3 +61,9 @@ Like `SaveContext`, `LoadContext` is managed internally by `SaveManager` and not
 - [SaveManager](./SaveManager.md)
 - [SaveContext](./SaveContext.md)
 - [SaveAttributes](./SaveAttributes.md)
+
+## Usage Example
+
+```csharp
+var example = new LoadContext();
+```

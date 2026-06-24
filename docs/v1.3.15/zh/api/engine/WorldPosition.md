@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `WorldPosition`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WorldPosition
 
-**命名空间:** TaleWorlds.Engine
-**模块:** TaleWorlds.Engine
-**类型:** 结构体 struct struct
-**领域:** 引擎 Engine
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public struct WorldPosition`
+**Base:** 无
+**File:** `TaleWorlds.Engine/WorldPosition.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`WorldPosition` 是 `TaleWorlds.Engine` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`WorldPosition` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -24,108 +30,95 @@
 | `Y` | `public float Y { get; }` |
 | `IsValid` | `public bool IsValid { get; }` |
 
-
 ## 主要方法
 
 ### SetVec3
+`public void SetVec3(UIntPtr navMesh, Vec3 position, bool hasValidZ)`
 
-```csharp
-public void SetVec3(UIntPtr navMesh, Vec3 position, bool hasValidZ)
-```
+**用途 / Purpose:** 设置 `vec3` 的值或状态。
 
 ### GetNavMesh
+`public UIntPtr GetNavMesh()`
 
-```csharp
-public UIntPtr GetNavMesh()
-```
+**用途 / Purpose:** 获取 `nav mesh` 的当前值。
 
 ### GetNavMeshMT
+`public UIntPtr GetNavMeshMT()`
 
-```csharp
-public UIntPtr GetNavMeshMT()
-```
+**用途 / Purpose:** 获取 `nav mesh m t` 的当前值。
 
 ### GetNearestNavMesh
+`public UIntPtr GetNearestNavMesh()`
 
-```csharp
-public UIntPtr GetNearestNavMesh()
-```
+**用途 / Purpose:** 获取 `nearest nav mesh` 的当前值。
 
 ### GetNavMeshZ
+`public float GetNavMeshZ()`
 
-```csharp
-public float GetNavMeshZ()
-```
+**用途 / Purpose:** 获取 `nav mesh z` 的当前值。
 
 ### GetNavMeshZMT
+`public float GetNavMeshZMT()`
 
-```csharp
-public float GetNavMeshZMT()
-```
+**用途 / Purpose:** 获取 `nav mesh z m t` 的当前值。
 
 ### GetGroundZ
+`public float GetGroundZ()`
 
-```csharp
-public float GetGroundZ()
-```
+**用途 / Purpose:** 获取 `ground z` 的当前值。
 
 ### GetGroundZMT
+`public float GetGroundZMT()`
 
-```csharp
-public float GetGroundZMT()
-```
+**用途 / Purpose:** 获取 `ground z m t` 的当前值。
 
 ### GetNavMeshVec3
+`public Vec3 GetNavMeshVec3()`
 
-```csharp
-public Vec3 GetNavMeshVec3()
-```
+**用途 / Purpose:** 获取 `nav mesh vec3` 的当前值。
 
 ### GetNavMeshVec3MT
+`public Vec3 GetNavMeshVec3MT()`
 
-```csharp
-public Vec3 GetNavMeshVec3MT()
-```
+**用途 / Purpose:** 获取 `nav mesh vec3 m t` 的当前值。
 
 ### GetGroundVec3
+`public Vec3 GetGroundVec3()`
 
-```csharp
-public Vec3 GetGroundVec3()
-```
+**用途 / Purpose:** 获取 `ground vec3` 的当前值。
 
 ### GetGroundVec3MT
+`public Vec3 GetGroundVec3MT()`
 
-```csharp
-public Vec3 GetGroundVec3MT()
-```
+**用途 / Purpose:** 获取 `ground vec3 m t` 的当前值。
 
 ### GetVec3WithoutValidity
+`public Vec3 GetVec3WithoutValidity()`
 
-```csharp
-public Vec3 GetVec3WithoutValidity()
-```
+**用途 / Purpose:** 获取 `vec3 without validity` 的当前值。
 
 ### SetVec2MT
+`public void SetVec2MT(Vec2 value)`
 
-```csharp
-public void SetVec2MT(Vec2 value)
-```
+**用途 / Purpose:** 设置 `vec2 m t` 的值或状态。
 
 ### SetVec2
+`public void SetVec2(Vec2 value)`
 
-```csharp
-public void SetVec2(Vec2 value)
-```
+**用途 / Purpose:** 设置 `vec2` 的值或状态。
 
 ### DistanceSquaredWithLimit
+`public float DistanceSquaredWithLimit(in Vec3 targetPoint, float limitSquared)`
+
+**用途 / Purpose:** 处理 `distance squared with limit` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public float DistanceSquaredWithLimit(in Vec3 targetPoint, float limitSquared)
+var value = new WorldPosition();
+value.SetVec3(navMesh, position, false);
 ```
-
-贡献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-engine)

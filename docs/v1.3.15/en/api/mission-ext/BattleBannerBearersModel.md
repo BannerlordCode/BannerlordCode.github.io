@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleBannerBearersModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleBannerBearersModel
@@ -14,110 +15,113 @@
 
 ## Overview
 
-`BattleBannerBearersModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BattleBannerBearersModel>(new MyBattleBannerBearersModel())` to change how it computes.
+`BattleBannerBearersModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BattleBannerBearersModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### InitializeModel
-```csharp
-public void InitializeModel(BannerBearerLogic bannerBearerLogic)
-```
+`public void InitializeModel(BannerBearerLogic bannerBearerLogic)`
+
+**Purpose:** Initializes the state, resources, or bindings for `model`.
 
 ### FinalizeModel
-```csharp
-public void FinalizeModel()
-```
+`public void FinalizeModel()`
+
+**Purpose:** Handles logic related to `finalize model`.
 
 ### IsFormationBanner
-```csharp
-public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)
-```
+`public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)`
+
+**Purpose:** Handles logic related to `is formation banner`.
 
 ### IsBannerSearchingAgent
-```csharp
-public bool IsBannerSearchingAgent(Agent agent)
-```
+`public bool IsBannerSearchingAgent(Agent agent)`
+
+**Purpose:** Handles logic related to `is banner searching agent`.
 
 ### IsInteractableFormationBanner
-```csharp
-public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)
-```
+`public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)`
+
+**Purpose:** Handles logic related to `is interactable formation banner`.
 
 ### HasFormationBanner
-```csharp
-public bool HasFormationBanner(Formation formation)
-```
+`public bool HasFormationBanner(Formation formation)`
+
+**Purpose:** Checks whether the current object has/contains `formation banner`.
 
 ### HasBannerOnGround
-```csharp
-public bool HasBannerOnGround(Formation formation)
-```
+`public bool HasBannerOnGround(Formation formation)`
+
+**Purpose:** Checks whether the current object has/contains `banner on ground`.
 
 ### GetFormationBanner
-```csharp
-public ItemObject GetFormationBanner(Formation formation)
-```
+`public ItemObject GetFormationBanner(Formation formation)`
+
+**Purpose:** Gets the current value of `formation banner`.
 
 ### GetFormationBannerBearers
-```csharp
-public List<Agent> GetFormationBannerBearers(Formation formation)
-```
+`public List<Agent> GetFormationBannerBearers(Formation formation)`
+
+**Purpose:** Gets the current value of `formation banner bearers`.
 
 ### GetActiveBanner
-```csharp
-public BannerComponent GetActiveBanner(Formation formation)
-```
+`public BannerComponent GetActiveBanner(Formation formation)`
+
+**Purpose:** Gets the current value of `active banner`.
 
 ### GetMinimumFormationTroopCountToBearBanners
-```csharp
-public abstract int GetMinimumFormationTroopCountToBearBanners()
-```
+`public abstract int GetMinimumFormationTroopCountToBearBanners()`
+
+**Purpose:** Gets the current value of `minimum formation troop count to bear banners`.
 
 ### GetBannerInteractionDistance
-```csharp
-public abstract float GetBannerInteractionDistance(Agent interactingAgent)
-```
+`public abstract float GetBannerInteractionDistance(Agent interactingAgent)`
+
+**Purpose:** Gets the current value of `banner interaction distance`.
 
 ### CanBannerBearerProvideEffectToFormation
-```csharp
-public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)
-```
+`public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
+
+**Purpose:** Checks whether the current object can `banner bearer provide effect to formation`.
 
 ### CanAgentPickUpAnyBanner
-```csharp
-public abstract bool CanAgentPickUpAnyBanner(Agent agent)
-```
+`public abstract bool CanAgentPickUpAnyBanner(Agent agent)`
+
+**Purpose:** Checks whether the current object can `agent pick up any banner`.
 
 ### CanAgentBecomeBannerBearer
-```csharp
-public abstract bool CanAgentBecomeBannerBearer(Agent agent)
-```
+`public abstract bool CanAgentBecomeBannerBearer(Agent agent)`
+
+**Purpose:** Checks whether the current object can `agent become banner bearer`.
 
 ### GetAgentBannerBearingPriority
-```csharp
-public abstract int GetAgentBannerBearingPriority(Agent agent)
-```
+`public abstract int GetAgentBannerBearingPriority(Agent agent)`
+
+**Purpose:** Gets the current value of `agent banner bearing priority`.
 
 ### CanFormationDeployBannerBearers
-```csharp
-public abstract bool CanFormationDeployBannerBearers(Formation formation)
-```
+`public abstract bool CanFormationDeployBannerBearers(Formation formation)`
+
+**Purpose:** Checks whether the current object can `formation deploy banner bearers`.
 
 ### GetDesiredNumberOfBannerBearersForFormation
-```csharp
-public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)
-```
+`public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
+
+**Purpose:** Gets the current value of `desired number of banner bearers for formation`.
 
 ### GetBannerBearerReplacementWeapon
-```csharp
-public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)
-```
+`public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
+
+**Purpose:** Gets the current value of `banner bearer replacement weapon`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleBannerBearersModel (Model)
-Game.Current.ReplaceModel<BattleBannerBearersModel>(new MyBattleBannerBearersModel());
+var implementation = new CustomBattleBannerBearersModel();
 ```
 
 ## See Also

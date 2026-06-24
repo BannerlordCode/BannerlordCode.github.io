@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerPollComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerPollComponent
@@ -14,14 +15,19 @@
 
 ## Overview
 
-`MultiplayerPollComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerPollComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerPollComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerPollComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `PollType` | `public MultiplayerPollComponent.MultiplayerPoll.Type PollType { get; }` |
-| `ParticipantsToVote` | `public List<NetworkCommunicator> ParticipantsToVote { get { return this._participantsToVote; }` |
+| `IsOpen` | `public bool IsOpen { get; }` |
+| `ParticipantsToVote` | `public List<NetworkCommunicator> ParticipantsToVote { get; }` |
 | `TargetPeer` | `public NetworkCommunicator TargetPeer { get; }` |
 | `TargetPeer` | `public NetworkCommunicator TargetPeer { get; }` |
 | `GameType` | `public string GameType { get; }` |
@@ -30,75 +36,74 @@
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### Vote
-```csharp
-public void Vote(bool accepted)
-```
+`public void Vote(bool accepted)`
+
+**Purpose:** Handles logic related to `vote`.
 
 ### RequestKickPlayerPoll
-```csharp
-public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)
-```
+`public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
+
+**Purpose:** Handles logic related to `request kick player poll`.
 
 ### IsCancelled
-```csharp
-public virtual bool IsCancelled()
-```
+`public virtual bool IsCancelled()`
+
+**Purpose:** Handles logic related to `is cancelled`.
 
 ### GetPollProgressReceivers
-```csharp
-public virtual List<NetworkCommunicator> GetPollProgressReceivers()
-```
+`public virtual List<NetworkCommunicator> GetPollProgressReceivers()`
+
+**Purpose:** Gets the current value of `poll progress receivers`.
 
 ### Tick
-```csharp
-public void Tick()
-```
+`public void Tick()`
+
+**Purpose:** Handles logic related to `tick`.
 
 ### Close
-```csharp
-public void Close()
-```
+`public void Close()`
+
+**Purpose:** Handles logic related to `close`.
 
 ### Cancel
-```csharp
-public void Cancel()
-```
+`public void Cancel()`
+
+**Purpose:** Checks whether the current object can `cel`.
 
 ### ApplyVote
-```csharp
-public bool ApplyVote(NetworkCommunicator peer, bool accepted)
-```
+`public bool ApplyVote(NetworkCommunicator peer, bool accepted)`
+
+**Purpose:** Applies `vote` to the current object.
 
 ### GotEnoughAcceptVotesToEnd
-```csharp
-public bool GotEnoughAcceptVotesToEnd()
-```
+`public bool GotEnoughAcceptVotesToEnd()`
+
+**Purpose:** Handles logic related to `got enough accept votes to end`.
 
 ### IsCancelled
-```csharp
-public override bool IsCancelled()
-```
+`public override bool IsCancelled()`
+
+**Purpose:** Handles logic related to `is cancelled`.
 
 ### GetPollProgressReceivers
-```csharp
-public override List<NetworkCommunicator> GetPollProgressReceivers()
-```
+`public override List<NetworkCommunicator> GetPollProgressReceivers()`
+
+**Purpose:** Gets the current value of `poll progress receivers`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerPollComponent (Component)
-agent.GetComponent<MultiplayerPollComponent>();
+var component = agent.GetComponent<MultiplayerPollComponent>();
 ```
 
 ## See Also

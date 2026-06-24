@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `WeaponComponentData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponComponentData
@@ -14,73 +15,110 @@
 
 ## Overview
 
-`WeaponComponentData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`WeaponComponentData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `WeaponComponentData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `MissileDamage` | `public int MissileDamage { get { return this.ThrustDamage; }` |
-| `IsMeleeWeapon` | `public bool IsMeleeWeapon { get { return this.WeaponFlags.HasAllFlags(WeaponFlags.MeleeWeapon); }` |
-| `IsRangedWeapon` | `public bool IsRangedWeapon { get { return this.WeaponFlags.HasAllFlags(WeaponFlags.RangedWeapon); }` |
-| `IsPolearm` | `public bool IsPolearm { get { return this.WeaponFlags.HasAllFlags(WeaponFlags.MeleeWeapon | WeaponFlags.WideGrip); }` |
-| `IsConsumable` | `public bool IsConsumable { get { return this.WeaponFlags.HasAllFlags(WeaponFlags.Consumable); }` |
-| `IsAmmo` | `public bool IsAmmo { get { return !this.WeaponFlags.HasAnyFlag(WeaponFlags.WeaponMask) && this.IsConsumable; }` |
-| `IsShield` | `public bool IsShield { get { return !this.WeaponFlags.HasAnyFlag(WeaponFlags.WeaponMask) && this.WeaponFlags.HasAllFlags(WeaponFlags.HasHitPoints | WeaponFlags.CanBlockRanged); }` |
-| `IsTwoHanded` | `public bool IsTwoHanded { get { return this.WeaponFlags.HasAllFlags(WeaponFlags.MeleeWeapon | WeaponFlags.NotUsableWithOneHand); }` |
-| `IsOneHanded` | `public bool IsOneHanded { get { return this.WeaponFlags.HasAnyFlag(WeaponFlags.MeleeWeapon) && !this.IsTwoHanded; }` |
-| `IsBow` | `public bool IsBow { get { return this.WeaponFlags.HasAllFlags((WeaponFlags)527360UL); }` |
-| `IsCrossBow` | `public bool IsCrossBow { get { return this.WeaponFlags.HasAnyFlag(WeaponFlags.HasString) && !this.IsBow; }` |
-| `RelevantSkill` | `public SkillObject RelevantSkill { get { return WeaponComponentData.GetRelevantSkillFromWeaponClass(this.WeaponClass); }` |
-| `CanHitMultipleTargets` | `public bool CanHitMultipleTargets { get { return this.WeaponClass == WeaponClass.TwoHandedAxe || this.WeaponClass == WeaponClass.TwoHandedMace; }` |
+| `WeaponTier` | `public WeaponComponentData.WeaponTiers WeaponTier { get; }` |
+| `WeaponDescriptionId` | `public string WeaponDescriptionId { get; }` |
+| `BodyArmor` | `public int BodyArmor { get; }` |
+| `PhysicsMaterial` | `public string PhysicsMaterial { get; }` |
+| `FlyingSoundCode` | `public string FlyingSoundCode { get; }` |
+| `PassbySoundCode` | `public string PassbySoundCode { get; }` |
+| `ItemUsage` | `public string ItemUsage { get; }` |
+| `ThrustSpeed` | `public int ThrustSpeed { get; }` |
+| `SwingSpeed` | `public int SwingSpeed { get; }` |
+| `MissileSpeed` | `public int MissileSpeed { get; }` |
+| `WeaponLength` | `public int WeaponLength { get; }` |
+| `WeaponBalance` | `public float WeaponBalance { get; }` |
+| `ThrustDamage` | `public int ThrustDamage { get; }` |
+| `ThrustDamageType` | `public DamageTypes ThrustDamageType { get; }` |
+| `SwingDamage` | `public int SwingDamage { get; }` |
+| `SwingDamageType` | `public DamageTypes SwingDamageType { get; }` |
+| `FireDamage` | `public int FireDamage { get; }` |
+| `Accuracy` | `public int Accuracy { get; }` |
+| `WeaponClass` | `public WeaponClass WeaponClass { get; }` |
+| `AmmoClass` | `public WeaponClass AmmoClass { get; }` |
+| `MissileDamage` | `public int MissileDamage { get; }` |
+| `TotalInertia` | `public float TotalInertia { get; }` |
+| `CenterOfMass` | `public float CenterOfMass { get; }` |
+| `CenterOfMass3D` | `public Vec3 CenterOfMass3D { get; }` |
+| `SwingDamageFactor` | `public float SwingDamageFactor { get; }` |
+| `ThrustDamageFactor` | `public float ThrustDamageFactor { get; }` |
+| `Handling` | `public int Handling { get; }` |
+| `SweetSpotReach` | `public float SweetSpotReach { get; }` |
+| `TrailParticleName` | `public string TrailParticleName { get; }` |
+| `StickingFrame` | `public MatrixFrame StickingFrame { get; }` |
+| `AmmoOffset` | `public Vec3 AmmoOffset { get; }` |
+| `MaxDataValue` | `public short MaxDataValue { get; }` |
+| `Frame` | `public MatrixFrame Frame { get; }` |
+| `RotationSpeed` | `public Vec3 RotationSpeed { get; }` |
+| `ReloadPhaseCount` | `public short ReloadPhaseCount { get; }` |
+| `IsMeleeWeapon` | `public bool IsMeleeWeapon { get; }` |
+| `IsRangedWeapon` | `public bool IsRangedWeapon { get; }` |
+| `IsPolearm` | `public bool IsPolearm { get; }` |
+| `IsConsumable` | `public bool IsConsumable { get; }` |
+| `IsAmmo` | `public bool IsAmmo { get; }` |
+| `IsShield` | `public bool IsShield { get; }` |
+| `IsTwoHanded` | `public bool IsTwoHanded { get; }` |
+| `IsOneHanded` | `public bool IsOneHanded { get; }` |
+| `IsBow` | `public bool IsBow { get; }` |
+| `IsCrossBow` | `public bool IsCrossBow { get; }` |
+| `RelevantSkill` | `public SkillObject RelevantSkill { get; }` |
+| `CanHitMultipleTargets` | `public bool CanHitMultipleTargets { get; }` |
 
 ## Key Methods
 
 ### Init
-```csharp
-public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponComponentData.WeaponTiers tier, short reloadPhaseCount)
-```
+`public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponComponentData.WeaponTiers tier, short reloadPhaseCount)`
+
+**Purpose:** Initializes the state, resources, or bindings for `init`.
 
 ### SetFrame
-```csharp
-public void SetFrame(MatrixFrame frame)
-```
+`public void SetFrame(MatrixFrame frame)`
+
+**Purpose:** Sets the value or state of `frame`.
 
 ### SetAmmoOffset
-```csharp
-public void SetAmmoOffset(Vec3 ammoOffset)
-```
+`public void SetAmmoOffset(Vec3 ammoOffset)`
+
+**Purpose:** Sets the value or state of `ammo offset`.
 
 ### GetRelevantSkillFromWeaponClass
-```csharp
-public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)
-```
+`public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)`
+
+**Purpose:** Gets the current value of `relevant skill from weapon class`.
 
 ### GetItemTypeFromWeaponClass
-```csharp
-public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)
-```
+`public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)`
+
+**Purpose:** Gets the current value of `item type from weapon class`.
 
 ### Deserialize
-```csharp
-public void Deserialize(ItemObject item, XmlNode node)
-```
+`public void Deserialize(ItemObject item, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
 
 ### GetRealWeaponLength
-```csharp
-public float GetRealWeaponLength()
-```
+`public float GetRealWeaponLength()`
+
+**Purpose:** Gets the current value of `real weapon length`.
 
 ### GetMissileStartingFrame
-```csharp
-public MatrixFrame GetMissileStartingFrame()
-```
+`public MatrixFrame GetMissileStartingFrame()`
+
+**Purpose:** Gets the current value of `missile starting frame`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of WeaponComponentData (Data)
-new WeaponComponentData { /* fill fields */ };;
+var value = new WeaponComponentData();
 ```
 
 ## See Also

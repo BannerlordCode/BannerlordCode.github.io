@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SpawnPathData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpawnPathData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SpawnPathData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`SpawnPathData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `SpawnPathData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,45 +30,44 @@
 ## Key Methods
 
 ### Invert
-```csharp
-public SpawnPathData Invert()
-```
+`public SpawnPathData Invert()`
+
+**Purpose:** Handles logic related to `invert`.
 
 ### ClampPathOffset
-```csharp
-public float ClampPathOffset(float pathOffsetRatio)
-```
+`public float ClampPathOffset(float pathOffsetRatio)`
+
+**Purpose:** Handles logic related to `clamp path offset`.
 
 ### GetOffsetOverflow
-```csharp
-public float GetOffsetOverflow(float pathOffset)
-```
+`public float GetOffsetOverflow(float pathOffset)`
+
+**Purpose:** Gets the current value of `offset overflow`.
 
 ### GetSpawnPathFrameFacingTarget
-```csharp
-public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)
-```
+`public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
+
+**Purpose:** Gets the current value of `spawn path frame facing target`.
 
 ### GetSpawnPathFrameFacingPivot
-```csharp
-public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)
-```
+`public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
+
+**Purpose:** Gets the current value of `spawn path frame facing pivot`.
 
 ### GetSpawnPathFrameFacingTangentDirection
-```csharp
-public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)
-```
+`public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
+
+**Purpose:** Gets the current value of `spawn path frame facing tangent direction`.
 
 ### Create
-```csharp
-public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)
-```
+`public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)`
+
+**Purpose:** Creates a new `create` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SpawnPathData (Data)
-new SpawnPathData { /* fill fields */ };;
+var value = new SpawnPathData();
 ```
 
 ## See Also

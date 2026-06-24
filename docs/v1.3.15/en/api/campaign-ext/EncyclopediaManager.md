@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncyclopediaManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`EncyclopediaManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`EncyclopediaManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `EncyclopediaManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,45 +30,44 @@
 ## Key Methods
 
 ### CreateEncyclopediaPages
-```csharp
-public void CreateEncyclopediaPages()
-```
+`public void CreateEncyclopediaPages()`
+
+**Purpose:** Creates a new `encyclopedia pages` instance or object.
 
 ### GetEncyclopediaPages
-```csharp
-public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()
-```
+`public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()`
+
+**Purpose:** Gets the current value of `encyclopedia pages`.
 
 ### GetPageOf
-```csharp
-public EncyclopediaPage GetPageOf(Type type)
-```
+`public EncyclopediaPage GetPageOf(Type type)`
+
+**Purpose:** Gets the current value of `page of`.
 
 ### GetIdentifier
-```csharp
-public string GetIdentifier(Type type)
-```
+`public string GetIdentifier(Type type)`
+
+**Purpose:** Gets the current value of `identifier`.
 
 ### GoToLink
-```csharp
-public void GoToLink(string pageType, string stringID)
-```
+`public void GoToLink(string pageType, string stringID)`
+
+**Purpose:** Handles logic related to `go to link`.
 
 ### GoToLink
-```csharp
-public void GoToLink(string link)
-```
+`public void GoToLink(string link)`
+
+**Purpose:** Handles logic related to `go to link`.
 
 ### SetLinkCallback
-```csharp
-public void SetLinkCallback(Action<string, object> ExecuteLink)
-```
+`public void SetLinkCallback(Action<string, object> ExecuteLink)`
+
+**Purpose:** Sets the value or state of `link callback`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EncyclopediaManager (Manager)
-EncyclopediaManager.Current;
+var manager = EncyclopediaManager.Current;
 ```
 
 ## See Also

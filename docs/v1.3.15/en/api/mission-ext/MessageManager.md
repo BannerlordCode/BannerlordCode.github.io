@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MessageManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MessageManager
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`MessageManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MessageManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MessageManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### DisplayMessage
-```csharp
-public static void DisplayMessage(string message)
-```
+`public static void DisplayMessage(string message)`
+
+**Purpose:** Handles logic related to `display message`.
 
 ### DisplayMessage
-```csharp
-public static void DisplayMessage(string message, uint color)
-```
+`public static void DisplayMessage(string message, uint color)`
+
+**Purpose:** Handles logic related to `display message`.
 
 ### DisplayDebugMessage
-```csharp
-public static void DisplayDebugMessage(string message)
-```
+`public static void DisplayDebugMessage(string message)`
+
+**Purpose:** Handles logic related to `display debug message`.
 
 ### DisplayMultilineMessage
-```csharp
-public static void DisplayMultilineMessage(string message, uint color)
-```
+`public static void DisplayMultilineMessage(string message, uint color)`
+
+**Purpose:** Handles logic related to `display multiline message`.
 
 ### EraseMessageLines
-```csharp
-public static void EraseMessageLines()
-```
+`public static void EraseMessageLines()`
+
+**Purpose:** Handles logic related to `erase message lines`.
 
 ### SetMessageManager
-```csharp
-public static void SetMessageManager(MessageManagerBase messageManager)
-```
+`public static void SetMessageManager(MessageManagerBase messageManager)`
+
+**Purpose:** Sets the value or state of `message manager`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MessageManager (Manager)
-MessageManager.Current;
+var manager = MessageManager.Current;
 ```
 
 ## See Also

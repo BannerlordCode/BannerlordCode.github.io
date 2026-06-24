@@ -2,51 +2,31 @@
 **Home** → **API Index** → **Area** → `WindowMessage`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WindowMessage
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/WindowMessage.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WindowMessage` is a enum in the `TaleWorlds.TwoDimension.Standalone.Native.Windows` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WindowMessage` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `Quit` |
-| `18U` |
-| `Close` |
-| `16U` |
-| `Size` |
-| `5U` |
-| `KeyDown` |
-| `256U` |
-| `KeyUp` |
-| `RightButtonUp` |
-| `517U` |
-| `RightButtonDown` |
-| `516U` |
-| `LeftButtonUp` |
-| `514U` |
-| `LeftButtonDown` |
-| `513U` |
-| `MouseMove` |
-| `512U` |
-| `MouseWheel` |
-| `522U` |
-| `KillFocus` |
-| `8U` |
-| `SetFocus` |
+## Usage Example
+
+```csharp
+var value = new WindowMessage();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

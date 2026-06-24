@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `InquiryElementVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InquiryElementVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class InquiryElementVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/InquiryElementVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `InquiryElementVM` is a class in the `TaleWorlds.Core.ViewModelCollection.Information` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`InquiryElementVM` lives in `TaleWorlds.Core.ViewModelCollection.Information` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,7 +33,12 @@
 | `ImageIdentifier` | `public ImageIdentifierVM ImageIdentifier { get; set; }` |
 | `Hint` | `public HintViewModel Hint { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new InquiryElementVM();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

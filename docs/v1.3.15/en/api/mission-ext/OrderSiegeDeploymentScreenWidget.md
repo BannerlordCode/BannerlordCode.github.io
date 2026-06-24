@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `OrderSiegeDeploymentScreenWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderSiegeDeploymentScreenWidget
@@ -16,6 +17,10 @@
 
 `OrderSiegeDeploymentScreenWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `OrderSiegeDeploymentScreenWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -27,16 +32,14 @@
 ## Key Methods
 
 ### SetSelectedDeploymentItem
-```csharp
-public void SetSelectedDeploymentItem(OrderSiegeDeploymentItemButtonWidget deploymentItem)
-```
+`public void SetSelectedDeploymentItem(OrderSiegeDeploymentItemButtonWidget deploymentItem)`
+
+**Purpose:** Sets the value or state of `selected deployment item`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of OrderSiegeDeploymentScreenWidget (Widget)
-// 声明/访问一个 OrderSiegeDeploymentScreenWidget
-var widget = root.GetChild("orderSiegeDeploymentScreenWidget");;
+var widget = new OrderSiegeDeploymentScreenWidget(context);
 ```
 
 ## See Also

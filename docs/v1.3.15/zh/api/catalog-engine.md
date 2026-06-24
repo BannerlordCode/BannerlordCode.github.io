@@ -5,7 +5,11 @@ sidebar: auto
 
 # 引擎 Engine 类目录
 
-本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **154** 个类型，其中 **154** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `引擎 Engine 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **154** 个类型，其中 **150** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -98,7 +102,7 @@ sidebar: auto
 | C | [RenderTargetComponent](./engine/RenderTargetComponent.md) | 🔗 |
 | C | [Resource](./engine/Resource.md) | 🔗 |
 | E | [RglScriptFieldType](./engine/RglScriptFieldType.md) | 🔗 |
-| C | [Scene](./engine/Scene.md) | 🔗 |
+| C | Scene | — |
 | S | [SceneInitializationData](./engine/SceneInitializationData.md) | 🔗 |
 | C | [SceneProblemChecker](./engine/SceneProblemChecker.md) | 🔗 |
 | C | [SceneView](./engine/SceneView.md) | 🔗 |
@@ -111,7 +115,7 @@ sidebar: auto
 | E | [ShadowType](./engine/ShadowType.md) | 🔗 |
 | E | [Significance](./engine/Significance.md) | 🔗 |
 | C | [SimpleButton](./engine/SimpleButton.md) | 🔗 |
-| C | [Skeleton](./engine/Skeleton.md) | 🔗 |
+| C | Skeleton | — |
 | C | [SoundEvent](./engine/SoundEvent.md) | 🔗 |
 | S | [SoundEventParameter](./engine/SoundEventParameter.md) | 🔗 |
 | C | [SoundManager](./engine/SoundManager.md) | 🔗 |
@@ -129,9 +133,9 @@ sidebar: auto
 | S | [TwoDimensionMeshDrawData](./engine/TwoDimensionMeshDrawData.md) | 🔗 |
 | S | [TwoDimensionTextMeshDrawData](./engine/TwoDimensionTextMeshDrawData.md) | 🔗 |
 | C | [TwoDimensionView](./engine/TwoDimensionView.md) | 🔗 |
-| E | [Type](./mission-ext/Type.md) | 🔗 |
+| E | [Type](./engine/Type.md) | 🔗 |
 | E | [UpgradeLevelMask](./engine/UpgradeLevelMask.md) | 🔗 |
-| C | [Utilities](./engine/Utilities.md) | 🔗 |
+| C | Utilities | — |
 | C | [VideoPlayerView](./engine/VideoPlayerView.md) | 🔗 |
 | C | [View](./engine/View.md) | 🔗 |
 | E | [ViewRenderOptions](./engine/ViewRenderOptions.md) | 🔗 |
@@ -149,7 +153,7 @@ sidebar: auto
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | C | [EngineTexture](./engine/EngineTexture.md) | 🔗 |
-| C | [Extensions](./engine/Extensions.md) | 🔗 |
+| C | Extensions | — |
 | C | [GauntletLayer](./engine/GauntletLayer.md) | 🔗 |
 | C | [GauntletMovieIdentifier](./engine/GauntletMovieIdentifier.md) | 🔗 |
 | C | [TwoDimensionEnginePlatform](./engine/TwoDimensionEnginePlatform.md) | 🔗 |

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `InventoryTradeVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryTradeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class InventoryTradeVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Inventory/InventoryTradeVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `InventoryTradeVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`InventoryTradeVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -40,58 +44,55 @@
 | `IsTrading` | `public bool IsTrading { get; set; }` |
 | `IsTradeable` | `public bool IsTradeable { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### UpdateItemData
+`public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)`
 
-```csharp
-public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)
-```
+**Purpose:** Updates the state or data of `item data`.
 
 ### GetAveragePrice
+`public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)`
 
-```csharp
-public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)
-```
+**Purpose:** Gets the current value of `average price`.
 
 ### ExecuteIncreaseThisStock
+`public void ExecuteIncreaseThisStock()`
 
-```csharp
-public void ExecuteIncreaseThisStock()
-```
+**Purpose:** Executes the `increase this stock` operation or workflow.
 
 ### ExecuteIncreaseOtherStock
+`public void ExecuteIncreaseOtherStock()`
 
-```csharp
-public void ExecuteIncreaseOtherStock()
-```
+**Purpose:** Executes the `increase other stock` operation or workflow.
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**Purpose:** Executes the `reset` operation or workflow.
 
 ### ExecuteApplyTransaction
+`public void ExecuteApplyTransaction()`
 
-```csharp
-public void ExecuteApplyTransaction()
-```
+**Purpose:** Executes the `apply transaction` operation or workflow.
 
 ### ExecuteRemoveZeroCounts
+`public void ExecuteRemoveZeroCounts()`
+
+**Purpose:** Executes the `remove zero counts` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteRemoveZeroCounts()
+var value = new InventoryTradeVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

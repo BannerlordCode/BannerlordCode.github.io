@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionAgentDamageFeedItemWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentDamageFeedItemWidget
@@ -16,6 +17,10 @@
 
 `MissionAgentDamageFeedItemWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `MissionAgentDamageFeedItemWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -28,21 +33,19 @@
 ## 主要方法
 
 ### ShowFeed
-```csharp
-public void ShowFeed()
-```
+`public void ShowFeed()`
+
+**用途 / Purpose:** 处理 `show feed` 相关逻辑。
 
 ### SetSpeedModifier
-```csharp
-public void SetSpeedModifier(float newSpeed)
-```
+`public void SetSpeedModifier(float newSpeed)`
+
+**用途 / Purpose:** 设置 `speed modifier` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// MissionAgentDamageFeedItemWidget (Widget) 的典型用法
-// 声明/访问一个 MissionAgentDamageFeedItemWidget
-var widget = root.GetChild("missionAgentDamageFeedItemWidget");;
+var widget = new MissionAgentDamageFeedItemWidget(context);
 ```
 
 ## 参见

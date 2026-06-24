@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerTeamSelectComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerTeamSelectComponent
@@ -14,80 +15,89 @@
 
 ## Overview
 
-`MultiplayerTeamSelectComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerTeamSelectComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerTeamSelectComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerTeamSelectComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `TeamSelectionEnabled` | `public bool TeamSelectionEnabled { get; }` |
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### SelectTeam
-```csharp
-public void SelectTeam()
-```
+`public void SelectTeam()`
+
+**Purpose:** Handles logic related to `select team`.
 
 ### UpdateTeams
-```csharp
-public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)
-```
+`public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
+
+**Purpose:** Updates the state or data of `teams`.
 
 ### GetDisabledTeams
-```csharp
-public List<Team> GetDisabledTeams()
-```
+`public List<Team> GetDisabledTeams()`
+
+**Purpose:** Gets the current value of `disabled teams`.
 
 ### ChangeTeamServer
-```csharp
-public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)
-```
+`public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
+
+**Purpose:** Handles logic related to `change team server`.
 
 ### ChangeTeam
-```csharp
-public void ChangeTeam(Team team)
-```
+`public void ChangeTeam(Team team)`
+
+**Purpose:** Handles logic related to `change team`.
 
 ### GetPlayerCountForTeam
-```csharp
-public int GetPlayerCountForTeam(Team team)
-```
+`public int GetPlayerCountForTeam(Team team)`
+
+**Purpose:** Gets the current value of `player count for team`.
 
 ### GetFriendsForTeam
-```csharp
-public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)
-```
+`public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)`
+
+**Purpose:** Gets the current value of `friends for team`.
 
 ### BalanceTeams
-```csharp
-public void BalanceTeams()
-```
+`public void BalanceTeams()`
+
+**Purpose:** Handles logic related to `balance teams`.
 
 ### AutoAssignTeam
-```csharp
-public void AutoAssignTeam(NetworkCommunicator peer)
-```
+`public void AutoAssignTeam(NetworkCommunicator peer)`
+
+**Purpose:** Handles logic related to `auto assign team`.
 
 ### OnSelectingTeamDelegate
-```csharp
-public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)
-```
+`public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
+
+**Purpose:** Called when the `selecting team delegate` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerTeamSelectComponent (Component)
-agent.GetComponent<MultiplayerTeamSelectComponent>();
+var component = agent.GetComponent<MultiplayerTeamSelectComponent>();
 ```
 
 ## See Also

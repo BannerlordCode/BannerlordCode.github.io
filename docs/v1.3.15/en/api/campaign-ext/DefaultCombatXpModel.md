@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCombatXpModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCombatXpModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultCombatXpModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCombatXpModel>(new MyDefaultCombatXpModel())` to change how it computes.
+`DefaultCombatXpModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCombatXpModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,24 +30,23 @@
 ## Key Methods
 
 ### GetSkillForWeapon
-```csharp
-public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)
-```
+`public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
+
+**Purpose:** Gets the current value of `skill for weapon`.
 
 ### GetXpFromHit
-```csharp
-public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)
-```
+`public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
+
+**Purpose:** Gets the current value of `xp from hit`.
 
 ### GetXpMultiplierFromShotDifficulty
-```csharp
-public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)
-```
+`public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
+
+**Purpose:** Gets the current value of `xp multiplier from shot difficulty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCombatXpModel (Model)
 Game.Current.ReplaceModel<DefaultCombatXpModel>(new MyDefaultCombatXpModel());
 ```
 

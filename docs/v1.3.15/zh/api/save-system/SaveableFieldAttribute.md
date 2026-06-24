@@ -2,26 +2,37 @@
 **首页** → **API 目录** → **本领域** → `SaveableFieldAttribute`
 - [← 本领域 / 返回 save-system](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveableFieldAttribute
 
 **命名空间:** TaleWorlds.SaveSystem
 **模块:** TaleWorlds.SaveSystem
-**类型:** 类 class class
-**领域:** 存档系统 SaveSystem
+**类型:** `public class SaveableFieldAttribute : Attribute`
+**Base:** `Attribute`
+**领域:** save-system
 
 ## 概述
 
-> 本页为自动生成的存根。`SaveableFieldAttribute` 是 `TaleWorlds.SaveSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SaveableFieldAttribute` 是一个 .NET 特性，用来给类型或成员打标签，让运行时或工具链按约定识别它。
+
+## 心智模型
+
+把 `SaveableFieldAttribute` 当作一个 Attribute 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `LocalSaveId` | `public short LocalSaveId { get; set; }` |
 
-献文档。
+## 使用示例
+
+```csharp
+[SaveableFieldAttribute]
+public class Example { }
+```
 
 ## 参见
 

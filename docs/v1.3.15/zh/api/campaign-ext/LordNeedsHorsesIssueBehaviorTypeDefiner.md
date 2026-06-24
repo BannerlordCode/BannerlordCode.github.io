@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `LordNeedsHorsesIssueBehaviorTypeDefiner`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LordNeedsHorsesIssueBehaviorTypeDefiner
 
 **命名空间:** TaleWorlds.CampaignSystem.Issues
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public class LordNeedsHorsesIssueBehaviorTypeDefiner : SaveableTypeDefiner`
+**Base:** `SaveableTypeDefiner`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`LordNeedsHorsesIssueBehaviorTypeDefiner` 是 `TaleWorlds.CampaignSystem.Issues` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`LordNeedsHorsesIssueBehaviorTypeDefiner` 位于 `TaleWorlds.CampaignSystem.Issues`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Issues` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -37,82 +43,74 @@
 | `Title` | `public override TextObject Title { get; }` |
 | `IsRemainingTimeHidden` | `public override bool IsRemainingTimeHidden { get; }` |
 
-
 ## 主要方法
 
 ### ComputeMountsOverInfantryCountRatio
+`public static float ComputeMountsOverInfantryCountRatio(MobileParty issueParty, out int numInfantry)`
 
-```csharp
-public static float ComputeMountsOverInfantryCountRatio(MobileParty issueParty, out int numInfantry)
-```
+**用途 / Purpose:** 处理 `compute mounts over infantry count ratio` 相关逻辑。
 
 ### IsMountCamel
+`public static bool IsMountCamel(ItemObject mountObject)`
 
-```csharp
-public static bool IsMountCamel(ItemObject mountObject)
-```
+**用途 / Purpose:** 处理 `is mount camel` 相关逻辑。
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**用途 / Purpose:** 处理 `register events` 相关逻辑。
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**用途 / Purpose:** 处理 `sync data` 相关逻辑。
 
 ### DoTroopsSatisfyAlternativeSolution
+`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-```csharp
-public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)
-```
+**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
 
 ### IsTroopTypeNeededByAlternativeSolution
+`public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-```csharp
-public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)
-```
+**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
 
 ### AlternativeSolutionCondition
+`public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-```csharp
-public override bool AlternativeSolutionCondition(out TextObject explanation)
-```
+**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
 
 ### AlternativeSolutionStartConsequence
+`public override void AlternativeSolutionStartConsequence()`
 
-```csharp
-public override void AlternativeSolutionStartConsequence()
-```
+**用途 / Purpose:** 处理 `alternative solution start consequence` 相关逻辑。
 
 ### GetFrequency
+`public override IssueBase.IssueFrequency GetFrequency()`
 
-```csharp
-public override IssueBase.IssueFrequency GetFrequency()
-```
+**用途 / Purpose:** 获取 `frequency` 的当前值。
 
 ### IssueStayAliveConditions
+`public override bool IssueStayAliveConditions()`
 
-```csharp
-public override bool IssueStayAliveConditions()
-```
+**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
 
 ### GetAlternativeSolutionSkill
+`public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-```csharp
-public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)
-```
+**用途 / Purpose:** 获取 `alternative solution skill` 的当前值。
 
 ### OnFailed
+`public override void OnFailed()`
+
+**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public override void OnFailed()
+// 先准备该类型需要的上下文，然后直接调用静态入口
+LordNeedsHorsesIssueBehaviorTypeDefiner.ComputeMountsOverInfantryCountRatio(issueParty, numInfantry);
 ```
-
-献文档。
 
 ## 参见
 

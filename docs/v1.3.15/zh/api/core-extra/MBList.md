@@ -2,33 +2,31 @@
 **首页** → **API 目录** → **本领域** → `MBList`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# MBList / 列表
+# MBList
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.15/TaleWorlds.MountAndBlade/MBList.cs`
-**Purpose**: Bannerlord自定义列表实现 / Bannerlord custom list implementation
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public class MBList<T> : MBReadOnlyList<T>`
+**Base:** `MBReadOnlyList<T>`
+**File:** `TaleWorlds.Library/MBList.cs`
 
-## 概述 / Overview
+## 概述
 
-`MBList` 是Bannerlord自定义的泛型列表类，是标准List的封装。
+`MBList` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`MBList` is Bannerlord's custom generic list class, a wrapper around the standard List.
+## 心智模型
 
-## 方法 / Methods
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| Add | `void Add(T item)` | 添加元素 / Add element |
-| Remove | `bool Remove(T item)` | 移除元素 / Remove element |
-| Clear | `void Clear()` | 清空列表 / Clear list |
-| Count | `int Count` | 元素数量 / Element count |
-
-## 代码示例 / Code Example
+## 使用示例
 
 ```csharp
-MBList<ItemObject> items = new MBList<ItemObject>();
-items.Add(item);
-int count = items.Count;
+var example = new MBList();
 ```
+
+## 参见
+
+- [完整类目录](../catalog)

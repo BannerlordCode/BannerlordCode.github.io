@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MPPerkSelectionManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPPerkSelectionManager
@@ -14,45 +15,54 @@
 
 ## Overview
 
-`MPPerkSelectionManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MPPerkSelectionManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MPPerkSelectionManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static MPPerkSelectionManager Instance { get; }` |
 
 ## Key Methods
 
 ### FreeInstance
-```csharp
-public static void FreeInstance()
-```
+`public static void FreeInstance()`
+
+**Purpose:** Handles logic related to `free instance`.
 
 ### InitializeForUser
-```csharp
-public void InitializeForUser(string username, PlayerId playerId)
-```
+`public void InitializeForUser(string username, PlayerId playerId)`
+
+**Purpose:** Initializes the state, resources, or bindings for `for user`.
 
 ### ResetPendingChanges
-```csharp
-public void ResetPendingChanges()
-```
+`public void ResetPendingChanges()`
+
+**Purpose:** Resets `pending changes` to its initial state.
 
 ### TryToApplyAndSavePendingChanges
-```csharp
-public void TryToApplyAndSavePendingChanges()
-```
+`public void TryToApplyAndSavePendingChanges()`
+
+**Purpose:** Attempts to get `to apply and save pending changes`, usually returning the result in an out parameter.
 
 ### GetSelectionsForHeroClass
-```csharp
-public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)
-```
+`public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
+
+**Purpose:** Gets the current value of `selections for hero class`.
 
 ### SetSelectionsForHeroClassTemporarily
-```csharp
-public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)
-```
+`public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
+
+**Purpose:** Sets the value or state of `selections for hero class temporarily`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MPPerkSelectionManager (Manager)
-MPPerkSelectionManager.Current;
+var manager = MPPerkSelectionManager.Current;
 ```
 
 ## See Also

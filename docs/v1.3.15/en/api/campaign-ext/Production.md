@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `Production`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Production
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
 **Module:** TaleWorlds.CampaignSystem
-**Type:** struct
-**Area:** Campaign System
+**Type:** `public struct Production`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Production` is a struct in the `TaleWorlds.CampaignSystem.Settlements.Workshops` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Production` lives in `TaleWorlds.CampaignSystem.Settlements.Workshops`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -40,61 +43,59 @@
 | `Outputs` | `public MBReadOnlyList<ValueTuple<ItemCategory, int>> Outputs { get; }` |
 | `ConversionSpeed` | `public float ConversionSpeed { get; }` |
 
-
 ## Key Methods
 
 ### GetName
+`public override TextObject GetName()`
 
-```csharp
-public override TextObject GetName()
-```
+**Purpose:** Gets the current value of `name`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### Initialize
+`public override void Initialize()`
 
-```csharp
-public override void Initialize()
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+**Purpose:** Handles logic related to `deserialize`.
 
 ### Find
+`public static WorkshopType Find(string idString)`
 
-```csharp
-public static WorkshopType Find(string idString)
-```
+**Purpose:** Handles logic related to `find`.
 
 ### FindFirst
+`public static WorkshopType FindFirst(Func<WorkshopType, bool> predicate)`
 
-```csharp
-public static WorkshopType FindFirst(Func<WorkshopType, bool> predicate)
-```
+**Purpose:** Handles logic related to `find first`.
 
 ### AddInput
+`public void AddInput(ItemCategory item, int count = 1)`
 
-```csharp
-public void AddInput(ItemCategory item, int count = 1)
-```
+**Purpose:** Adds `input` to the current collection or state.
 
 ### AddOutput
+`public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-```csharp
-public void AddOutput(ItemCategory outputCategory, int outputCount)
-```
+**Purpose:** Adds `output` to the current collection or state.
 
 ### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+## Usage Example
 
 ```csharp
-public override string ToString()
+// First obtain a Production instance from game state, then call one of its public methods
+var value = new Production();
+value.GetName();
 ```
 
 ## See Also

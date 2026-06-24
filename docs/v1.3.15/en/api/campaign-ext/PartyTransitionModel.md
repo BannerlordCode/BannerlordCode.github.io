@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyTransitionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTransitionModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`PartyTransitionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyTransitionModel>(new MyPartyTransitionModel())` to change how it computes.
+`PartyTransitionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyTransitionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetTransitionTimeForEmbarking
-```csharp
-public abstract CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)
-```
+`public abstract CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `transition time for embarking`.
 
 ### GetTransitionTimeDisembarking
-```csharp
-public abstract CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)
-```
+`public abstract CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `transition time disembarking`.
 
 ### GetFleetTravelTimeToPoint
-```csharp
-public abstract CampaignTime GetFleetTravelTimeToPoint(MobileParty owner, CampaignVec2 target)
-```
+`public abstract CampaignTime GetFleetTravelTimeToPoint(MobileParty owner, CampaignVec2 target)`
+
+**Purpose:** Gets the current value of `fleet travel time to point`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyTransitionModel (Model)
-Game.Current.ReplaceModel<PartyTransitionModel>(new MyPartyTransitionModel());
+var implementation = new CustomPartyTransitionModel();
 ```
 
 ## See Also

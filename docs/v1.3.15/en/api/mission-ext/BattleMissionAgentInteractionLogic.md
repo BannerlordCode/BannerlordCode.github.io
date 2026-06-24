@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleMissionAgentInteractionLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleMissionAgentInteractionLogic
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`BattleMissionAgentInteractionLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new BattleMissionAgentInteractionLogic())`; subclass it to customize.
+`BattleMissionAgentInteractionLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `BattleMissionAgentInteractionLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsThereAgentAction
-```csharp
-public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)
-```
+`public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
+
+**Purpose:** Handles logic related to `is there agent action`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleMissionAgentInteractionLogic (Logic)
 Mission.Current.AddMissionBehavior(new BattleMissionAgentInteractionLogic());
 ```
 

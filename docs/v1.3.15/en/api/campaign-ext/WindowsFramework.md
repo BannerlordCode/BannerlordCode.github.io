@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `WindowsFramework`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WindowsFramework
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WindowsFramework`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/WindowsFramework.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WindowsFramework` is a class in the `TaleWorlds.TwoDimension.Standalone` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WindowsFramework` lives in `TaleWorlds.TwoDimension.Standalone` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,46 +29,45 @@
 | `ElapsedTicks` | `public long ElapsedTicks { get; }` |
 | `TicksPerSecond` | `public long TicksPerSecond { get; }` |
 
-
 ## Key Methods
 
 ### Initialize
+`public void Initialize(FrameworkDomain frameworkDomains)`
 
-```csharp
-public void Initialize(FrameworkDomain frameworkDomains)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### RegisterMessageCommunicator
+`public void RegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-```csharp
-public void RegisterMessageCommunicator(IMessageCommunicator communicator)
-```
+**Purpose:** Handles logic related to `register message communicator`.
 
 ### UnRegisterMessageCommunicator
+`public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-```csharp
-public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)
-```
+**Purpose:** Handles logic related to `un register message communicator`.
 
 ### Stop
+`public void Stop()`
 
-```csharp
-public void Stop()
-```
+**Purpose:** Handles logic related to `stop`.
 
 ### OnFinalize
+`public void OnFinalize()`
 
-```csharp
-public void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Start
+`public void Start()`
+
+**Purpose:** Handles logic related to `start`.
+
+## Usage Example
 
 ```csharp
-public void Start()
+var value = new WindowsFramework();
+value.Initialize(frameworkDomains);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

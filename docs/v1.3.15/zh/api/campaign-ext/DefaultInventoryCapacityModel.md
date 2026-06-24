@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultInventoryCapacityModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultInventoryCapacityModel
@@ -14,34 +15,37 @@
 
 ## 概述
 
-`DefaultInventoryCapacityModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryCapacityModel())` 注册，以改变其计算逻辑。
+`DefaultInventoryCapacityModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultInventoryCapacityModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetItemAverageWeight
-```csharp
-public override int GetItemAverageWeight()
-```
+`public override int GetItemAverageWeight()`
+
+**用途 / Purpose:** 获取 `item average weight` 的当前值。
 
 ### GetItemEffectiveWeight
-```csharp
-public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)
-```
+`public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
+
+**用途 / Purpose:** 获取 `item effective weight` 的当前值。
 
 ### CalculateInventoryCapacity
-```csharp
-public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)
-```
+`public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
+
+**用途 / Purpose:** 处理 `calculate inventory capacity` 相关逻辑。
 
 ### CalculateTotalWeightCarried
-```csharp
-public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate total weight carried` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// DefaultInventoryCapacityModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryCapacityModel());
 ```
 

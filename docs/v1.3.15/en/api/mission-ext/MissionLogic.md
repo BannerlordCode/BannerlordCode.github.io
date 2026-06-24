@@ -2,66 +2,84 @@
 **Home** → **API Index** → **Area** → `MissionLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionLogic
 
-## Class Overview
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class MissionLogic : MissionBehavior`
+**Base:** `MissionBehavior`
+**File:** `TaleWorlds.MountAndBlade/MissionLogic.cs`
 
-| Item | Description |
-|------|-------------|
-| **Namespace** | TaleWorlds.MountAndBlade |
-| **File Path** | TaleWorlds.MountAndBlade/MissionLogic.cs |
-| **Base Class** | MissionBehavior |
-| **Type** | Abstract class |
+## Overview
 
-## Description
+`MissionLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
 
-`MissionLogic` is the base class for mission logic, inheriting from `MissionBehavior`. Used to implement game rules, victory/defeat conditions, special modes, and other mission-level logic.
+## Mental Model
+
+Treat `MissionLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| BehaviorType | MissionBehaviorType | Returns Logic |
+| Name | Signature |
+|------|-----------|
+| `BehaviorType` | `public override MissionBehaviorType BehaviorType { get; }` |
 
 ## Key Methods
 
-| Method | Return Value | Description |
-|--------|--------------|-------------|
-| OnEndMissionRequest(out bool canLeave) | InquiryData | Called when end mission is requested |
-| MissionEnded(ref MissionResult missionResult) | bool | Called when mission ends, returns whether it ended |
-| OnBattleEnded() | void | Called when battle ends |
-| ShowBattleResults() | void | Displays battle results |
-| OnRetreatMission() | void | Called on retreat |
-| OnSurrenderMission() | void | Called on surrender |
-| OnAutoDeployTeam(Team team) | void | Called when team auto deploys |
-| GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments) | List | Gets extra equipment |
-| OnMissionResultReady(MissionResult missionResult) | void | Called when mission result is ready |
+### OnEndMissionRequest
+`public virtual InquiryData OnEndMissionRequest(out bool canLeave)`
+
+**Purpose:** Called when the `end mission request` event is raised.
+
+### MissionEnded
+`public virtual bool MissionEnded(ref MissionResult missionResult)`
+
+**Purpose:** Handles logic related to `mission ended`.
+
+### OnBattleEnded
+`public virtual void OnBattleEnded()`
+
+**Purpose:** Called when the `battle ended` event is raised.
+
+### ShowBattleResults
+`public virtual void ShowBattleResults()`
+
+**Purpose:** Handles logic related to `show battle results`.
+
+### OnRetreatMission
+`public virtual void OnRetreatMission()`
+
+**Purpose:** Called when the `retreat mission` event is raised.
+
+### OnSurrenderMission
+`public virtual void OnSurrenderMission()`
+
+**Purpose:** Called when the `surrender mission` event is raised.
+
+### OnAutoDeployTeam
+`public virtual void OnAutoDeployTeam(Team team)`
+
+**Purpose:** Called when the `auto deploy team` event is raised.
+
+### GetExtraEquipmentElementsForCharacter
+`public virtual List<EquipmentElement> GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)`
+
+**Purpose:** Gets the current value of `extra equipment elements for character`.
+
+### OnMissionResultReady
+`public virtual void OnMissionResultReady(MissionResult missionResult)`
+
+**Purpose:** Called when the `mission result ready` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Create custom mission logic
-public class MyMissionLogic : MissionLogic
-{
-    public override bool MissionEnded(ref MissionResult missionResult)
-    {
-        // Check custom end conditions
-        if (ShouldEndMission())
-        {
-            missionResult = MissionResult.CreateSuccessful();
-            return true;
-        }
-        return false;
-    }
-
-    public override void OnBattleEnded()
-    {
-        // Cleanup after battle
-    }
-}
-
-// Register to mission
-mission.AddMissionLogic(new MyMissionLogic());
+var implementation = new CustomMissionLogic();
 ```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

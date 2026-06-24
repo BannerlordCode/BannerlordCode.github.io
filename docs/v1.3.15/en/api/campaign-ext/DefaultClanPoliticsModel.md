@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultClanPoliticsModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultClanPoliticsModel
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`DefaultClanPoliticsModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultClanPoliticsModel>(new MyDefaultClanPoliticsModel())` to change how it computes.
+`DefaultClanPoliticsModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultClanPoliticsModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateInfluenceChange
-```csharp
-public override ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate influence change`.
 
 ### CalculateSupportForPolicyInClan
-```csharp
-public override float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)
-```
+`public override float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
+
+**Purpose:** Handles logic related to `calculate support for policy in clan`.
 
 ### CalculateRelationshipChangeWithSponsor
-```csharp
-public override float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)
-```
+`public override float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
+
+**Purpose:** Handles logic related to `calculate relationship change with sponsor`.
 
 ### GetInfluenceRequiredToOverrideKingdomDecision
-```csharp
-public override int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)
-```
+`public override int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
+
+**Purpose:** Gets the current value of `influence required to override kingdom decision`.
 
 ### CanHeroBeGovernor
-```csharp
-public override bool CanHeroBeGovernor(Hero hero)
-```
+`public override bool CanHeroBeGovernor(Hero hero)`
+
+**Purpose:** Checks whether the current object can `hero be governor`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultClanPoliticsModel (Model)
 Game.Current.ReplaceModel<DefaultClanPoliticsModel>(new MyDefaultClanPoliticsModel());
 ```
 

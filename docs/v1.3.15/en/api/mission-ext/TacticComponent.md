@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TacticComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TacticComponent
@@ -14,36 +15,39 @@
 
 ## Overview
 
-`TacticComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<TacticComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`TacticComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `TacticComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `Team` | `public Team Team { get; protected set; }` |
+| `Team` | `public Team Team { get; set; }` |
 
 ## Key Methods
 
 ### TickOccasionally
-```csharp
-public virtual void TickOccasionally()
-```
+`public virtual void TickOccasionally()`
+
+**Purpose:** Handles logic related to `tick occasionally`.
 
 ### ResetTactic
-```csharp
-public void ResetTactic()
-```
+`public void ResetTactic()`
+
+**Purpose:** Resets `tactic` to its initial state.
 
 ### SetDefaultBehaviorWeights
-```csharp
-public static void SetDefaultBehaviorWeights(Formation f)
-```
+`public static void SetDefaultBehaviorWeights(Formation f)`
+
+**Purpose:** Sets the value or state of `default behavior weights`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TacticComponent (Component)
-agent.GetComponent<TacticComponent>();
+var implementation = new CustomTacticComponent();
 ```
 
 ## See Also

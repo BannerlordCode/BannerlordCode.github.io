@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `GainRenownAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GainRenownAction
+
+## Mental Model
+
+Treat `GainRenownAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ GainRenownAction is a set of static methods that trigger "GainRenown" in the cam
 public static void Apply(Hero hero, float renownValue, bool doNotNotify = false)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ## Usage Example
 

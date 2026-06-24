@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MarriageOfferPopupVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MarriageOfferPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MarriageOfferPopupVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/MarriageOfferPopup/MarriageOfferPopupVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MarriageOfferPopupVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MarriageOfferPopupVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -36,58 +40,55 @@
 | `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
 | `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
 
-
 ## Key Methods
 
 ### Update
+`public void Update()`
 
-```csharp
-public void Update()
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### ExecuteAcceptOffer
+`public void ExecuteAcceptOffer()`
 
-```csharp
-public void ExecuteAcceptOffer()
-```
+**Purpose:** Executes the `accept offer` operation or workflow.
 
 ### ExecuteDeclineOffer
+`public void ExecuteDeclineOffer()`
 
-```csharp
-public void ExecuteDeclineOffer()
-```
+**Purpose:** Executes the `decline offer` operation or workflow.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### ExecuteLink
+`public void ExecuteLink(string link)`
 
-```csharp
-public void ExecuteLink(string link)
-```
+**Purpose:** Executes the `link` operation or workflow.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `done input key`.
+
+## Usage Example
 
 ```csharp
-public void SetDoneInputKey(HotKey hotKey)
+var value = new MarriageOfferPopupVM();
+value.Update();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BoolBrushChangerBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BoolBrushChangerBrushWidget
@@ -16,6 +17,10 @@
 
 `BoolBrushChangerBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `BoolBrushChangerBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -29,9 +34,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of BoolBrushChangerBrushWidget (Widget)
-// 声明/访问一个 BoolBrushChangerBrushWidget
-var widget = root.GetChild("boolBrushChangerBrushWidget");;
+var widget = new BoolBrushChangerBrushWidget(context);
 ```
 
 ## See Also

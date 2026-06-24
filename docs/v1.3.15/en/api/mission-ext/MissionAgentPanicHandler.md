@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionAgentPanicHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentPanicHandler
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`MissionAgentPanicHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`MissionAgentPanicHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `MissionAgentPanicHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAgentPanicked
-```csharp
-public override void OnAgentPanicked(Agent agent)
-```
+`public override void OnAgentPanicked(Agent agent)`
+
+**Purpose:** Called when the `agent panicked` event is raised.
 
 ### OnPreMissionTick
-```csharp
-public override void OnPreMissionTick(float dt)
-```
+`public override void OnPreMissionTick(float dt)`
+
+**Purpose:** Called when the `pre mission tick` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionAgentPanicHandler (Handler)
 Mission.Current.AddMissionBehavior(new MissionAgentPanicHandler());
 ```
 

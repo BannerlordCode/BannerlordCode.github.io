@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VisualOrderHelper`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VisualOrderHelper
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`VisualOrderHelper` is a static utility class providing helper methods.
+`VisualOrderHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `VisualOrderHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### DoesFormationHaveOrderType
-```csharp
-public unsafe static bool DoesFormationHaveOrderType(Formation formation, OrderType type)
-```
+`public unsafe static bool DoesFormationHaveOrderType(Formation formation, OrderType type)`
+
+**Purpose:** Handles logic related to `does formation have order type`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VisualOrderHelper (Helper)
-VisualOrderHelper./* static helper method */();;
+VisualOrderHelper.Initialize();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncyclopediaSortController`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaSortController
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`EncyclopediaSortController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`EncyclopediaSortController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `EncyclopediaSortController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,8 +31,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of EncyclopediaSortController (Controller)
-Mission.Current.GetMissionBehavior<EncyclopediaSortController>();
+var controller = Mission.Current.GetMissionBehavior<EncyclopediaSortController>();
 ```
 
 ## See Also

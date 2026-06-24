@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CharacterAttribute`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterAttribute
@@ -16,6 +18,10 @@
 ## Overview
 
 Mods usually reference existing attributes via the `DefaultAttributes` static fields (e.g. `DefaultAttributes.Vigour`). Read a hero's attribute level with `Hero.GetAttributeValue(attr)`; spend an attribute point with `HeroDeveloper.AddAttribute(attr, amount)`.
+
+## Mental Model
+
+Treat `CharacterAttribute` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -47,3 +53,9 @@ hero.HeroDeveloper.AddAttribute(vigour, 1);
 - [SkillObject](./SkillObject.md)
 - [HeroDeveloper](../campaign-ext/HeroDeveloper.md)
 - [Hero](../campaign/Hero.md)
+
+## Usage Example
+
+```csharp
+var example = new CharacterAttribute();
+```

@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `StanceLink`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StanceLink
 
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class StanceLink`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/StanceLink.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`StanceLink` 是 `TaleWorlds.CampaignSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`StanceLink` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,60 +45,55 @@
 | `SuccessfulTownSieges1` | `public int SuccessfulTownSieges1 { get; set; }` |
 | `SuccessfulTownSieges2` | `public int SuccessfulTownSieges2 { get; set; }` |
 
-
 ## 主要方法
 
 ### GetCasualties
+`public int GetCasualties(IFaction faction)`
 
-```csharp
-public int GetCasualties(IFaction faction)
-```
+**用途 / Purpose:** 获取 `casualties` 的当前值。
 
 ### GetSuccessfulSieges
+`public int GetSuccessfulSieges(IFaction faction)`
 
-```csharp
-public int GetSuccessfulSieges(IFaction faction)
-```
+**用途 / Purpose:** 获取 `successful sieges` 的当前值。
 
 ### GetSuccessfulRaids
+`public int GetSuccessfulRaids(IFaction faction)`
 
-```csharp
-public int GetSuccessfulRaids(IFaction faction)
-```
+**用途 / Purpose:** 获取 `successful raids` 的当前值。
 
 ### GetTotalTributePaid
+`public int GetTotalTributePaid(IFaction faction)`
 
-```csharp
-public int GetTotalTributePaid(IFaction faction)
-```
+**用途 / Purpose:** 获取 `total tribute paid` 的当前值。
 
 ### GetSuccessfulTownSieges
+`public int GetSuccessfulTownSieges(IFaction faction)`
 
-```csharp
-public int GetSuccessfulTownSieges(IFaction faction)
-```
+**用途 / Purpose:** 获取 `successful town sieges` 的当前值。
 
 ### GetDailyTributeToPay
+`public int GetDailyTributeToPay(IFaction faction)`
 
-```csharp
-public int GetDailyTributeToPay(IFaction faction)
-```
+**用途 / Purpose:** 获取 `daily tribute to pay` 的当前值。
 
 ### SetDailyTributePaid
+`public void SetDailyTributePaid(IFaction payer, int dailyTribute, int dailyTributeInstallments)`
 
-```csharp
-public void SetDailyTributePaid(IFaction payer, int dailyTribute, int dailyTributeInstallments)
-```
+**用途 / Purpose:** 设置 `daily tribute paid` 的值或状态。
 
 ### GetRemainingTributePaymentCount
+`public int GetRemainingTributePaymentCount()`
+
+**用途 / Purpose:** 获取 `remaining tribute payment count` 的当前值。
+
+## 使用示例
 
 ```csharp
-public int GetRemainingTributePaymentCount()
+var value = new StanceLink();
+value.GetCasualties(faction);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

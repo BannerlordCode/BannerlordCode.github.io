@@ -2,48 +2,53 @@
 **首页** → **API 目录** → **本领域** → `HttpDriverManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HttpDriverManager
 
-**命名空间:** TaleWorlds.Library.Http
-**模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library.Http
+**Module:** TaleWorlds.Library
+**Type:** `public static class HttpDriverManager`
+**Base:** 无
+**File:** `TaleWorlds.Library/Http/HttpDriverManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`HttpDriverManager` 是 `TaleWorlds.Library.Http` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`HttpDriverManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `HttpDriverManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### AddHttpDriver
+`public static void AddHttpDriver(string name, IHttpDriver driver)`
 
-```csharp
-public static void AddHttpDriver(string name, IHttpDriver driver)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `http driver`。
 
 ### SetDefault
+`public static void SetDefault(string name)`
 
-```csharp
-public static void SetDefault(string name)
-```
+**用途 / Purpose:** 设置 `default` 的值或状态。
 
 ### GetHttpDriver
+`public static IHttpDriver GetHttpDriver(string name)`
 
-```csharp
-public static IHttpDriver GetHttpDriver(string name)
-```
+**用途 / Purpose:** 获取 `http driver` 的当前值。
 
 ### GetDefaultHttpDriver
+`public static IHttpDriver GetDefaultHttpDriver()`
+
+**用途 / Purpose:** 获取 `default http driver` 的当前值。
+
+## 使用示例
 
 ```csharp
-public static IHttpDriver GetDefaultHttpDriver()
+var manager = HttpDriverManager.Current;
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

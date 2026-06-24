@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignSceneNotificationHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignSceneNotificationHelper
@@ -14,75 +15,78 @@
 
 ## Overview
 
-`CampaignSceneNotificationHelper` is a static utility class providing helper methods.
+`CampaignSceneNotificationHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `CampaignSceneNotificationHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBodyguardOfCulture
-```csharp
-public static SceneNotificationData.SceneNotificationCharacter GetBodyguardOfCulture(CultureObject culture)
-```
+`public static SceneNotificationData.SceneNotificationCharacter GetBodyguardOfCulture(CultureObject culture)`
+
+**Purpose:** Gets the current value of `bodyguard of culture`.
 
 ### RemoveWeaponsFromEquipment
-```csharp
-public static void RemoveWeaponsFromEquipment(ref Equipment equipment, bool removeHelmet = false, bool removeShoulder = false)
-```
+`public static void RemoveWeaponsFromEquipment(ref Equipment equipment, bool removeHelmet = false, bool removeShoulder = false)`
+
+**Purpose:** Removes `weapons from equipment` from the current collection or state.
 
 ### GetChildStageEquipmentIDFromCulture
-```csharp
-public static string GetChildStageEquipmentIDFromCulture(CultureObject childCulture)
-```
+`public static string GetChildStageEquipmentIDFromCulture(CultureObject childCulture)`
+
+**Purpose:** Gets the current value of `child stage equipment i d from culture`.
 
 ### GetRandomTroopForCulture
-```csharp
-public static CharacterObject GetRandomTroopForCulture(CultureObject culture)
-```
+`public static CharacterObject GetRandomTroopForCulture(CultureObject culture)`
+
+**Purpose:** Gets the current value of `random troop for culture`.
 
 ### GetMilitaryAudienceForHero
-```csharp
-public static IEnumerable<Hero> GetMilitaryAudienceForHero(Hero hero, bool includeClanLeader = true, bool onlyClanMembers = false)
-```
+`public static IEnumerable<Hero> GetMilitaryAudienceForHero(Hero hero, bool includeClanLeader = true, bool onlyClanMembers = false)`
+
+**Purpose:** Gets the current value of `military audience for hero`.
 
 ### GetMilitaryAudienceForKingdom
-```csharp
-public static IEnumerable<Hero> GetMilitaryAudienceForKingdom(Kingdom kingdom, bool includeKingdomLeader = true)
-```
+`public static IEnumerable<Hero> GetMilitaryAudienceForKingdom(Kingdom kingdom, bool includeKingdomLeader = true)`
+
+**Purpose:** Gets the current value of `military audience for kingdom`.
 
 ### GetFormalDayAndSeasonText
-```csharp
-public static TextObject GetFormalDayAndSeasonText(CampaignTime time)
-```
+`public static TextObject GetFormalDayAndSeasonText(CampaignTime time)`
+
+**Purpose:** Gets the current value of `formal day and season text`.
 
 ### GetFormalNameForKingdom
-```csharp
-public static TextObject GetFormalNameForKingdom(Kingdom kingdom)
-```
+`public static TextObject GetFormalNameForKingdom(Kingdom kingdom)`
+
+**Purpose:** Gets the current value of `formal name for kingdom`.
 
 ### CreateNotificationCharacterFromHero
-```csharp
-public static SceneNotificationData.SceneNotificationCharacter CreateNotificationCharacterFromHero(Hero hero, Equipment overridenEquipment = null, bool useCivilian = false, BodyProperties overriddenBodyProperties = default(BodyProperties), uint overriddenColor1 = 4294967295U, uint overriddenColor2 = 4294967295U, bool useHorse = false)
-```
+`public static SceneNotificationData.SceneNotificationCharacter CreateNotificationCharacterFromHero(Hero hero, Equipment overridenEquipment = null, bool useCivilian = false, BodyProperties overriddenBodyProperties = default(BodyProperties), uint overriddenColor1 = 4294967295U, uint overriddenColor2 = 4294967295U, bool useHorse = false)`
+
+**Purpose:** Creates a new `notification character from hero` instance or object.
 
 ### CreateNotificationShipFromShip
-```csharp
-public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship)
-```
+`public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship)`
+
+**Purpose:** Creates a new `notification ship from ship` instance or object.
 
 ### CreateNotificationShipFromShip
-```csharp
-public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship, float hitPointRatio)
-```
+`public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship, float hitPointRatio)`
+
+**Purpose:** Creates a new `notification ship from ship` instance or object.
 
 ### GetDefaultHorseItem
-```csharp
-public static ItemObject GetDefaultHorseItem()
-```
+`public static ItemObject GetDefaultHorseItem()`
+
+**Purpose:** Gets the current value of `default horse item`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignSceneNotificationHelper (Helper)
-CampaignSceneNotificationHelper./* static helper method */();;
+CampaignSceneNotificationHelper.Initialize();
 ```
 
 ## See Also

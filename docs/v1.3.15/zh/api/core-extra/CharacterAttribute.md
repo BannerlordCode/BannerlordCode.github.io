@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `CharacterAttribute`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterAttribute
@@ -17,11 +19,15 @@
 
 mod 通常通过 `DefaultAttributes` 静态字段引用既有属性（如 `DefaultAttributes.Vigour`）。读取角色的属性等级用 `Hero.GetAttributeValue(attr)`，投入属性点用 `HeroDeveloper.AddAttribute(attr, amount)`。
 
+## 心智模型
+
+先把 `CharacterAttribute` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 主要属性
 
-| 名称 | 类型 | 描述 |
-|------|------|------|
-| Abbreviation | TextObject | 属性缩写（仅 get） |
+\| 名称 \| 类型 \| 描述 \|
+\|------\|------\|------\|
+\| Abbreviation \| TextObject \| 属性缩写（仅 get） \|
 
 ## Initialize
 

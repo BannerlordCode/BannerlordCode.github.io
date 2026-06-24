@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultDailyTroopXpBonusModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultDailyTroopXpBonusModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultDailyTroopXpBonusModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultDailyTroopXpBonusModel>(new MyDefaultDailyTroopXpBonusModel())` to change how it computes.
+`DefaultDailyTroopXpBonusModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultDailyTroopXpBonusModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateDailyTroopXpBonus
-```csharp
-public override int CalculateDailyTroopXpBonus(Town town)
-```
+`public override int CalculateDailyTroopXpBonus(Town town)`
+
+**Purpose:** Handles logic related to `calculate daily troop xp bonus`.
 
 ### CalculateGarrisonXpBonusMultiplier
-```csharp
-public override float CalculateGarrisonXpBonusMultiplier(Town town)
-```
+`public override float CalculateGarrisonXpBonusMultiplier(Town town)`
+
+**Purpose:** Handles logic related to `calculate garrison xp bonus multiplier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultDailyTroopXpBonusModel (Model)
 Game.Current.ReplaceModel<DefaultDailyTroopXpBonusModel>(new MyDefaultDailyTroopXpBonusModel());
 ```
 

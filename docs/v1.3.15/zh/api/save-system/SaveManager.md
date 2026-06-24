@@ -2,204 +2,86 @@
 **首页** → **API 目录** → **本领域** → `SaveManager`
 - [← 本领域 / 返回 save-system](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveManager
 
-**命名空间:** TaleWorlds.SaveSystem  
-**模块:** TaleWorlds.SaveSystem  
-**类型:** static class
-
-Bannerlord 存档系统的主要入口点。这个静态类提供初始化存档系统、检查可存档类型以及执行存档和读取操作的方法。
-
-
-<!-- BEGIN DEV-USE-CASES -->
-
-## 开发用例 / Developer Use Cases
-
-### 用例 1: 标记类为可存档
-
-**场景**: mod 自定义类需要在存档中持久化。
-
-```csharp
-[SaveableClass]
-public class MyModData
-{
-    [SaveableProperty(1)] public int Gold { get; set; }
-    [SaveableField(2)] private string _name;
-}
-```
-
-**要点**: 类用 `[SaveableClass]`；属性用 `[SaveableProperty(id)]`，字段用 `[SaveableField(id)]`；`id` 在同类内必须唯一且稳定（不要在版本更新中复用已删除的 id）。
-
-### 用例 2: 保存游戏状态
-
-**场景**: mod 触发手动存档（如关键事件后）。
-
-```csharp
-MetaData meta = new MetaData();
-meta["ModVersion"] = "1.0.0";
-SaveOutput result = SaveManager.Save(
-    Campaign.Current, meta, "mysave", SaveGameDriver);
-if (result.Success) { /* 存档成功 */ }
-```
-
-**要点**: `target` 通常是 `Campaign.Current`；`saveName` 不带扩展名；错误不抛异常，检查 `result.Success`。
-
-### 用例 3: 仅读取存档元数据
-
-**场景**: 在加载完整存档前，先检查版本兼容性。
-
-```csharp
-MetaData meta = SaveManager.LoadMetaData("mysave", SaveGameDriver);
-if (meta != null && meta.TryGetValue("ModVersion", out string ver))
-{
-    // 检查版本兼容
-}
-```
-
-**要点**: `LoadMetaData` 比 `Load` 快得多，只读文件头；返回 `null` 表示文件不存在。
-
-### 用例 4: 加载存档
-
-**场景**: 恢复之前保存的游戏状态。
-
-```csharp
-LoadResult result = SaveManager.Load("mysave", SaveGameDriver);
-if (result.Success)
-{
-    // result.LoadData() 完成反序列化
-}
-```
-
-**要点**: `Load` 返回 `LoadResult`；`loadAsLateInitialize: true` 用于分帧加载大存档。
-
-<!-- END DEV-USE-CASES -->
-
+**命名空间:** TaleWorlds.SaveSystem
+**模块:** TaleWorlds.SaveSystem
+**类型:** `public static class SaveManager`
 
 ## 概述
 
-SaveManager 处理高级别的存档/读取工作流程。它管理跟踪所有可存档类型的定义上下文，与驱动程序协调进行文件 I/O，并提供类型检查工具。
+`SaveManager` 是 Bannerlord 存档系统的高层入口。模组作者通常通过它做三类事情：初始化可存档类型定义、把对象图写入存档文件、以及从存档文件恢复对象图和元数据。
 
-## 常量
+## 心智模型
 
-| 名称 | 类型 | 值 | 描述 |
-|------|------|-------|-------------|
-| SaveFileExtension | string | `"sav"` | 存档文件的扩展名 |
+把 `SaveManager` 当作“存档门面”来看待：你的 mod 不直接操作底层二进制结构，而是先定义哪些类型可存、再把根对象交给它统一序列化。大多数时候，`SaveManager` 负责调度 `DefinitionContext`、`ISaveDriver` 和 `MetaData` 这些下层对象。
 
-## 静态属性
+## 关键用例
 
-| 名称 | 类型 | 描述 |
-|------|------|-------------|
-| OperatingVersion | ApplicationVersion | 存档/读取操作期间运行的游戏版本 |
+### 1. 初始化存档定义上下文
 
-## 静态方法
+当 mod 注册新的存档类型或字段时，先调用初始化入口，让运行时建立当前 AppDomain 的类型定义图。
+
+### 2. 保存游戏状态
+
+把 `Campaign.Current` 或你自己的根对象与 `MetaData` 一起交给 `SaveManager.Save(...)`，由驱动层落盘。
+
+### 3. 读取元数据或恢复存档
+
+在真正反序列化前，可以先调用 `LoadMetaData(...)` 做版本检查；确认兼容后，再走 `Load(...)` 恢复完整对象图。
+
+## 主要方法
 
 ### InitializeGlobalDefinitionContext
+`public static void InitializeGlobalDefinitionContext()`
 
-```csharp
-public static void InitializeGlobalDefinitionContext()
-```
-
-初始化全局定义上下文。此方法必须在任何存档操作之前调用。它创建一个新的 DefinitionContext 并用当前程序集域中的所有类型填充它。类型注册期间遇到的任何错误都会打印到调试输出。
+**用途 / Purpose:** 初始化全局类型定义上下文，使当前进程里的可存档类型在后续保存/加载时可被解析。
 
 ### CheckSaveableTypes
+`public static List<Type> CheckSaveableTypes()`
 
-```csharp
-public static List<Type> CheckSaveableTypes()
-```
-
-扫描当前 AppDomain 中的所有程序集，查找具有 `[SaveableField]` 或 `[SaveableProperty]` 属性但缺少类型定义的类型。返回需要注册的类型列表。
+**用途 / Purpose:** 扫描当前应用域中标了 `Saveable*` 特性的类型，找出定义不完整或未注册的类型。
 
 ### Save
+`public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
 
-```csharp
-public static SaveOutput Save(
-    object target, 
-    MetaData metaData, 
-    string saveName, 
-    ISaveDriver driver
-)
-```
-
-将对象图保存到文件。
-
-**参数:**
-- `target` - 要保存的根对象
-- `metaData` - 要包含在存档文件中的元数据
-- `saveName` - 存档文件名（不带扩展名）
-- `driver` - 处理文件 I/O 的存档驱动程序
-
-**返回:** 一个 `SaveOutput` 对象，指示成功、失败或继续状态。
-
-**抛出:** 不会抛出。错误被捕获在返回的 SaveOutput 中。
+**用途 / Purpose:** 以 `target` 为根对象执行一次完整存档，并返回保存结果。
 
 ### LoadMetaData
+`public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
 
-```csharp
-public static MetaData LoadMetaData(string saveName, ISaveDriver driver)
-```
-
-仅从存档文件加载元数据，而不加载完整的游戏状态。
-
-**参数:**
-- `saveName` - 存档文件名
-- `driver` - 处理文件 I/O 的存档驱动程序
-
-**返回:** 存档文件中的元数据对象。
+**用途 / Purpose:** 只读取存档头和元数据，不反序列化完整对象图，适合做版本预检和存档列表展示。
 
 ### Load
+`public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize = false)`
 
-```csharp
-public static LoadResult Load(string saveName, ISaveDriver driver)
-public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)
-```
-
-加载已保存的游戏文件。
-
-**参数:**
-- `saveName` - 存档文件名
-- `driver` - 处理文件 I/O 的存档驱动程序
-- `loadAsLateInitialize` - 如果为 true，则延迟调用回调以供手动调用
-
-**返回:** 一个 `LoadResult` 对象，包含根对象和元数据。
-
-### ShouldResolveConflicts
-
-```csharp
-public static bool ShouldResolveConflicts()
-```
-
-**返回:** 如果当前正在加载存档，则为 true，否则为 false。类型解析器可以使用此方法来处理版本兼容性。
+**用途 / Purpose:** 从指定存档恢复对象图，并返回加载结果和延迟初始化相关状态。
 
 ## 使用示例
 
 ```csharp
-// 存档前初始化
 SaveManager.InitializeGlobalDefinitionContext();
 
-// 保存游戏
-var metaData = new MetaData();
-metaData.SetApplicationVersion(currentVersion);
-var output = SaveManager.Save(myGameState, metaData, "MySave", fileDriver);
+MetaData metaData = new MetaData();
+metaData["ModVersion"] = "1.0.0";
 
-if (output.Result == SaveResult.Success)
-{
-    Console.WriteLine("游戏保存成功");
-}
+SaveOutput saveResult = SaveManager.Save(
+    Campaign.Current,
+    metaData,
+    "my_mod_save",
+    SaveGameFileDriver
+);
 
-// 加载游戏
-var loadResult = SaveManager.Load("MySave", fileDriver);
-if (loadResult.Success)
-{
-    var loadedGame = loadResult.RootObject;
-}
+MetaData loadedMeta = SaveManager.LoadMetaData("my_mod_save", SaveGameFileDriver);
+LoadResult loadResult = SaveManager.Load("my_mod_save", SaveGameFileDriver);
 ```
 
 ## 参见
 
-- [SaveableRootClassAttribute](./SaveAttributes.md)
-- [SaveablePropertyAttribute](./SaveAttributes.md)
-- [SaveableFieldAttribute](./SaveAttributes.md)
 - [SaveContext](./SaveContext.md)
 - [LoadContext](./LoadContext.md)
+- [MetaData](./MetaData.md)
+- [ISaveDriver](./ISaveDriver.md)

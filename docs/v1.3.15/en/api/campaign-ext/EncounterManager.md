@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncounterManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncounterManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`EncounterManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`EncounterManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `EncounterManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,30 +30,29 @@
 ## Key Methods
 
 ### Tick
-```csharp
-public static void Tick(float dt)
-```
+`public static void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
 
 ### HandleEncounterForMobileParty
-```csharp
-public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)
-```
+`public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
+
+**Purpose:** Handles the `encounter for mobile party` event or callback.
 
 ### StartPartyEncounter
-```csharp
-public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Handles logic related to `start party encounter`.
 
 ### StartSettlementEncounter
-```csharp
-public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)
-```
+`public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
+
+**Purpose:** Handles logic related to `start settlement encounter`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EncounterManager (Manager)
-EncounterManager.Current;
+var manager = EncounterManager.Current;
 ```
 
 ## See Also

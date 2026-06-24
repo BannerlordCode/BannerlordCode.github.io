@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CharacterRelationManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterRelationManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CharacterRelationManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CharacterRelationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CharacterRelationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,50 +30,49 @@
 ## Key Methods
 
 ### GetHeroRelation
-```csharp
-public static int GetHeroRelation(Hero hero1, Hero hero2)
-```
+`public static int GetHeroRelation(Hero hero1, Hero hero2)`
+
+**Purpose:** Gets the current value of `hero relation`.
 
 ### SetHeroRelation
-```csharp
-public static void SetHeroRelation(Hero hero1, Hero hero2, int value)
-```
+`public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
+
+**Purpose:** Sets the value or state of `hero relation`.
 
 ### AfterLoad
-```csharp
-public void AfterLoad()
-```
+`public void AfterLoad()`
+
+**Purpose:** Handles logic related to `after load`.
 
 ### RemoveHero
-```csharp
-public void RemoveHero(Hero deadHero)
-```
+`public void RemoveHero(Hero deadHero)`
+
+**Purpose:** Removes `hero` from the current collection or state.
 
 ### GetRelation
-```csharp
-public int GetRelation(Hero hero1, Hero hero2)
-```
+`public int GetRelation(Hero hero1, Hero hero2)`
+
+**Purpose:** Gets the current value of `relation`.
 
 ### SetRelation
-```csharp
-public void SetRelation(Hero hero1, Hero hero2, int value)
-```
+`public void SetRelation(Hero hero1, Hero hero2, int value)`
+
+**Purpose:** Sets the value or state of `relation`.
 
 ### Remove
-```csharp
-public void Remove(Hero hero)
-```
+`public void Remove(Hero hero)`
+
+**Purpose:** Removes `remove` from the current collection or state.
 
 ### ClearOldData
-```csharp
-public void ClearOldData()
-```
+`public void ClearOldData()`
+
+**Purpose:** Handles logic related to `clear old data`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CharacterRelationManager (Manager)
-CharacterRelationManager.Current;
+var manager = CharacterRelationManager.Current;
 ```
 
 ## See Also

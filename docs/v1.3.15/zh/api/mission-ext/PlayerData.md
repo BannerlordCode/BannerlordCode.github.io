@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PlayerData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PlayerData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`PlayerData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`PlayerData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `PlayerData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -52,35 +57,34 @@
 ## 主要方法
 
 ### FillWith
-```csharp
-public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)
-```
+`public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
+
+**用途 / Purpose:** 处理 `fill with` 相关逻辑。
 
 ### FillWithNewPlayer
-```csharp
-public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)
-```
+`public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
+
+**用途 / Purpose:** 处理 `fill with new player` 相关逻辑。
 
 ### HasGameStats
-```csharp
-public bool HasGameStats(string gameType)
-```
+`public bool HasGameStats(string gameType)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `game stats`。
 
 ### GetGameStats
-```csharp
-public PlayerStatsBase GetGameStats(string gameType)
-```
+`public PlayerStatsBase GetGameStats(string gameType)`
+
+**用途 / Purpose:** 获取 `game stats` 的当前值。
 
 ### UpdateGameStats
-```csharp
-public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)
-```
+`public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)`
+
+**用途 / Purpose:** 更新 `game stats` 的状态或数据。
 
 ## 使用示例
 
 ```csharp
-// PlayerData (Data) 的典型用法
-new PlayerData { /* fill fields */ };;
+var value = new PlayerData();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MapVisibilityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapVisibilityModel
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`MapVisibilityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MapVisibilityModel>(new MyMapVisibilityModel())` to change how it computes.
+`MapVisibilityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MapVisibilityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### MaximumSeeingRange
-```csharp
-public abstract float MaximumSeeingRange()
-```
+`public abstract float MaximumSeeingRange()`
+
+**Purpose:** Handles logic related to `maximum seeing range`.
 
 ### GetPartySpottingRangeBase
-```csharp
-public abstract float GetPartySpottingRangeBase(MobileParty party)
-```
+`public abstract float GetPartySpottingRangeBase(MobileParty party)`
+
+**Purpose:** Gets the current value of `party spotting range base`.
 
 ### GetPartySpottingRange
-```csharp
-public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `party spotting range`.
 
 ### GetPartyRelativeInspectionRange
-```csharp
-public abstract float GetPartyRelativeInspectionRange(IMapPoint party)
-```
+`public abstract float GetPartyRelativeInspectionRange(IMapPoint party)`
+
+**Purpose:** Gets the current value of `party relative inspection range`.
 
 ### GetPartySpottingDifficulty
-```csharp
-public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)
-```
+`public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)`
+
+**Purpose:** Gets the current value of `party spotting difficulty`.
 
 ### GetHideoutSpottingDistance
-```csharp
-public abstract float GetHideoutSpottingDistance()
-```
+`public abstract float GetHideoutSpottingDistance()`
+
+**Purpose:** Gets the current value of `hideout spotting distance`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MapVisibilityModel (Model)
-Game.Current.ReplaceModel<MapVisibilityModel>(new MyMapVisibilityModel());
+var implementation = new CustomMapVisibilityModel();
 ```
 
 ## See Also

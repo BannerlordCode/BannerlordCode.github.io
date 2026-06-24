@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyTradeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTradeModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyTradeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyTradeModel>(new MyPartyTradeModel())` to change how it computes.
+`PartyTradeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyTradeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### GetTradePenaltyFactor
-```csharp
-public abstract float GetTradePenaltyFactor(MobileParty party)
-```
+`public abstract float GetTradePenaltyFactor(MobileParty party)`
+
+**Purpose:** Gets the current value of `trade penalty factor`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyTradeModel (Model)
-Game.Current.ReplaceModel<PartyTradeModel>(new MyPartyTradeModel());
+var implementation = new CustomPartyTradeModel();
 ```
 
 ## See Also

@@ -2,32 +2,31 @@
 **Home** → **API Index** → **Area** → `CompatibilityType`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompatibilityType
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.PSAI/Editor/CompatibilityType.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CompatibilityType` is a enum in the `psai.Editor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CompatibilityType` lives in `psai.Editor` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `psai.Editor` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `undefined` |
-| `allowed_implicitly` |
-| `allowed_manually` |
-| `blocked_implicitly` |
-| `blocked_manually` |
+## Usage Example
+
+```csharp
+var value = new CompatibilityType();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

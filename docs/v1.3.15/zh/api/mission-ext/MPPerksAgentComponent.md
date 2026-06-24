@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MPPerksAgentComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPPerksAgentComponent
@@ -14,40 +15,43 @@
 
 ## 概述
 
-`MPPerksAgentComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MPPerksAgentComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MPPerksAgentComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MPPerksAgentComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### OnMount
-```csharp
-public override void OnMount(Agent mount)
-```
+`public override void OnMount(Agent mount)`
+
+**用途 / Purpose:** 当 `mount` 事件触发时调用此方法。
 
 ### OnDismount
-```csharp
-public override void OnDismount(Agent mount)
-```
+`public override void OnDismount(Agent mount)`
+
+**用途 / Purpose:** 当 `dismount` 事件触发时调用此方法。
 
 ### OnItemPickup
-```csharp
-public override void OnItemPickup(SpawnedItemEntity item)
-```
+`public override void OnItemPickup(SpawnedItemEntity item)`
+
+**用途 / Purpose:** 当 `item pickup` 事件触发时调用此方法。
 
 ### OnWeaponDrop
-```csharp
-public override void OnWeaponDrop(MissionWeapon droppedWeapon)
-```
+`public override void OnWeaponDrop(MissionWeapon droppedWeapon)`
+
+**用途 / Purpose:** 当 `weapon drop` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved()
-```
+`public override void OnAgentRemoved()`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// MPPerksAgentComponent (Component) 的典型用法
-agent.GetComponent<MPPerksAgentComponent>();
+var component = agent.GetComponent<MPPerksAgentComponent>();
 ```
 
 ## 参见

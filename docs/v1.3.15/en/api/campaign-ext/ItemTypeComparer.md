@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ItemTypeComparer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemTypeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ItemTypeComparer : SPInventorySortControllerVM.ItemComparer`
+**Base:** `SPInventorySortControllerVM.ItemComparer`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ItemTypeComparer` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemTypeComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,85 +36,79 @@
 | `IsQuantitySelected` | `public bool IsQuantitySelected { get; set; }` |
 | `IsCostSelected` | `public bool IsCostSelected { get; set; }` |
 
-
 ## Key Methods
 
 ### SortByOption
+`public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)`
 
-```csharp
-public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)
-```
+**Purpose:** Handles logic related to `sort by option`.
 
 ### SortByDefaultState
+`public void SortByDefaultState()`
 
-```csharp
-public void SortByDefaultState()
-```
+**Purpose:** Handles logic related to `sort by default state`.
 
 ### SortByCurrentState
+`public void SortByCurrentState()`
 
-```csharp
-public void SortByCurrentState()
-```
+**Purpose:** Handles logic related to `sort by current state`.
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**Purpose:** Executes the `sort by name` operation or workflow.
 
 ### ExecuteSortByType
+`public void ExecuteSortByType()`
 
-```csharp
-public void ExecuteSortByType()
-```
+**Purpose:** Executes the `sort by type` operation or workflow.
 
 ### ExecuteSortByQuantity
+`public void ExecuteSortByQuantity()`
 
-```csharp
-public void ExecuteSortByQuantity()
-```
+**Purpose:** Executes the `sort by quantity` operation or workflow.
 
 ### ExecuteSortByCost
+`public void ExecuteSortByCost()`
 
-```csharp
-public void ExecuteSortByCost()
-```
+**Purpose:** Executes the `sort by cost` operation or workflow.
 
 ### SetSortMode
+`public void SetSortMode(bool isAscending)`
 
-```csharp
-public void SetSortMode(bool isAscending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(SPItemVM x, SPItemVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
 
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
+// First obtain a ItemTypeComparer instance from game state, then call one of its public methods
+var value = new ItemTypeComparer();
+value.SortByOption(sortOption, sortState);
 ```
 
 ## See Also

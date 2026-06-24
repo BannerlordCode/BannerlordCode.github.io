@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `AlleyModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AlleyModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`AlleyModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<AlleyModel>(new MyAlleyModel())` 注册，以改变其计算逻辑。
+`AlleyModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `AlleyModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,65 +33,64 @@
 ## 主要方法
 
 ### GetDailyXpGainForAssignedClanMember
-```csharp
-public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)
-```
+`public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
+
+**用途 / Purpose:** 获取 `daily xp gain for assigned clan member` 的当前值。
 
 ### GetDailyXpGainForMainHero
-```csharp
-public abstract float GetDailyXpGainForMainHero()
-```
+`public abstract float GetDailyXpGainForMainHero()`
+
+**用途 / Purpose:** 获取 `daily xp gain for main hero` 的当前值。
 
 ### GetInitialXpGainForMainHero
-```csharp
-public abstract float GetInitialXpGainForMainHero()
-```
+`public abstract float GetInitialXpGainForMainHero()`
+
+**用途 / Purpose:** 获取 `initial xp gain for main hero` 的当前值。
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
-```csharp
-public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()
-```
+`public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
+
+**用途 / Purpose:** 获取 `xp gain after successful alley defense for main hero` 的当前值。
 
 ### GetTroopsOfAIOwnedAlley
-```csharp
-public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)
-```
+`public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
+
+**用途 / Purpose:** 获取 `troops of a i owned alley` 的当前值。
 
 ### GetTroopsOfAlleyForBattleMission
-```csharp
-public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)
-```
+`public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
+
+**用途 / Purpose:** 获取 `troops of alley for battle mission` 的当前值。
 
 ### GetDailyIncomeOfAlley
-```csharp
-public abstract int GetDailyIncomeOfAlley(Alley alley)
-```
+`public abstract int GetDailyIncomeOfAlley(Alley alley)`
+
+**用途 / Purpose:** 获取 `daily income of alley` 的当前值。
 
 ### GetClanMembersAndAvailabilityDetailsForLeadingAnAlley
-```csharp
-public abstract List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
-```
+`public abstract List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)`
+
+**用途 / Purpose:** 获取 `clan members and availability details for leading an alley` 的当前值。
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
-```csharp
-public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)
-```
+`public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
+
+**用途 / Purpose:** 获取 `troops to recruit from alley depending on alley random` 的当前值。
 
 ### GetDisabledReasonTextForHero
-```csharp
-public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)
-```
+`public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
+
+**用途 / Purpose:** 获取 `disabled reason text for hero` 的当前值。
 
 ### GetAlleyAttackResponseTimeInDays
-```csharp
-public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)
-```
+`public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
+
+**用途 / Purpose:** 获取 `alley attack response time in days` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// AlleyModel (Model) 的典型用法
-Game.Current.ReplaceModel<AlleyModel>(new MyAlleyModel());
+var implementation = new CustomAlleyModel();
 ```
 
 ## 参见

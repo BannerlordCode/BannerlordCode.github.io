@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMissionDifficultyModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMissionDifficultyModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultMissionDifficultyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMissionDifficultyModel>(new MyDefaultMissionDifficultyModel())` to change how it computes.
+`DefaultMissionDifficultyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMissionDifficultyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetDamageMultiplierOfCombatDifficulty
-```csharp
-public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)
-```
+`public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
+
+**Purpose:** Gets the current value of `damage multiplier of combat difficulty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMissionDifficultyModel (Model)
 Game.Current.ReplaceModel<DefaultMissionDifficultyModel>(new MyDefaultMissionDifficultyModel());
 ```
 

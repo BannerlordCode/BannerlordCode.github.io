@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ManagementItemComparer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagementItemComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ManagementItemComparer : IComparer<ArmyManagementItemVM>`
+**Base:** `IComparer<ArmyManagementItemVM>`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ManagementItemComparer` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ManagementItemComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,79 +46,74 @@
 | `CanAffordInfluenceCost` | `public bool CanAffordInfluenceCost { get; set; }` |
 | `TitleText` | `public string TitleText { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteDone
+`public void ExecuteDone()`
 
-```csharp
-public void ExecuteDone()
-```
+**Purpose:** Executes the `done` operation or workflow.
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**Purpose:** Executes the `reset` operation or workflow.
 
 ### ExecuteDisbandArmy
+`public void ExecuteDisbandArmy()`
 
-```csharp
-public void ExecuteDisbandArmy()
-```
+**Purpose:** Executes the `disband army` operation or workflow.
 
 ### ExecuteBoostCohesionManual
+`public void ExecuteBoostCohesionManual()`
 
-```csharp
-public void ExecuteBoostCohesionManual()
-```
+**Purpose:** Executes the `boost cohesion manual` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotKey)`
 
-```csharp
-public void SetResetInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `reset input key`.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetRemoveInputKey
+`public void SetRemoveInputKey(HotKey hotKey)`
 
-```csharp
-public void SetRemoveInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `remove input key`.
 
 ### Compare
+`public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
+// First obtain a ManagementItemComparer instance from game state, then call one of its public methods
+var value = new ManagementItemComparer();
+value.RefreshValues();
 ```
 
 ## See Also

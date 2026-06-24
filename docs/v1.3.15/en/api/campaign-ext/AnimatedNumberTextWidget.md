@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AnimatedNumberTextWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AnimatedNumberTextWidget
@@ -16,34 +17,36 @@
 
 `AnimatedNumberTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `AnimatedNumberTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `AnimationDelay` | `public float AnimationDelay { get { return this._animationDelay; }` |
-| `AnimationDuration` | `public float AnimationDuration { get { return this._animationDuration; }` |
-| `ReferenceNumber` | `public int ReferenceNumber { get { return this._referenceNumber; }` |
-| `Number` | `public int Number { get { return this._number; }` |
-| `AutoStart` | `public bool AutoStart { get { return this._autoStart; }` |
+| `AnimationDelay` | `public float AnimationDelay { get; set; }` |
+| `AnimationDuration` | `public float AnimationDuration { get; set; }` |
+| `ReferenceNumber` | `public int ReferenceNumber { get; set; }` |
+| `Number` | `public int Number { get; set; }` |
+| `AutoStart` | `public bool AutoStart { get; set; }` |
 
 ## Key Methods
 
 ### StartAnimation
-```csharp
-public void StartAnimation()
-```
+`public void StartAnimation()`
+
+**Purpose:** Handles logic related to `start animation`.
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AnimatedNumberTextWidget (Widget)
-// 声明/访问一个 AnimatedNumberTextWidget
-var widget = root.GetChild("animatedNumberTextWidget");;
+var widget = new AnimatedNumberTextWidget(context);
 ```
 
 ## See Also

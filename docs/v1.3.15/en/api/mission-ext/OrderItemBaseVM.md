@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderItemBaseVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderItemBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class OrderItemBaseVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/OrderItemBaseVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderItemBaseVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Order` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderItemBaseVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Order` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,34 +33,34 @@
 | `SelectionState` | `public string SelectionState { get; set; }` |
 | `Name` | `public string Name { get; set; }` |
 
-
 ## Key Methods
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### RefreshState
+`public void RefreshState()`
 
-```csharp
-public void RefreshState()
-```
+**Purpose:** Refreshes the display or cache of `state`.
 
 ### ExecuteAction
+`public void ExecuteAction(VisualOrderExecutionParameters executionParameters)`
 
-```csharp
-public void ExecuteAction(VisualOrderExecutionParameters executionParameters)
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### SetShortcutKey
+`public void SetShortcutKey(InputKeyItemVM inputKeyItem)`
+
+**Purpose:** Sets the value or state of `shortcut key`.
+
+## Usage Example
 
 ```csharp
-public void SetShortcutKey(InputKeyItemVM inputKeyItem)
+var implementation = new CustomOrderItemBaseVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

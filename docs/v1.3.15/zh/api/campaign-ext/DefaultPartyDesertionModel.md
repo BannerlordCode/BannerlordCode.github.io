@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPartyDesertionModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyDesertionModel
@@ -14,29 +15,32 @@
 
 ## 概述
 
-`DefaultPartyDesertionModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPartyDesertionModel>(new MyDefaultPartyDesertionModel())` 注册，以改变其计算逻辑。
+`DefaultPartyDesertionModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPartyDesertionModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetMoraleThresholdForTroopDesertion
-```csharp
-public override int GetMoraleThresholdForTroopDesertion()
-```
+`public override int GetMoraleThresholdForTroopDesertion()`
+
+**用途 / Purpose:** 获取 `morale threshold for troop desertion` 的当前值。
 
 ### GetDesertionChanceForTroop
-```csharp
-public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)
-```
+`public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
+
+**用途 / Purpose:** 获取 `desertion chance for troop` 的当前值。
 
 ### GetTroopsToDesert
-```csharp
-public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)
-```
+`public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
+
+**用途 / Purpose:** 获取 `troops to desert` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultPartyDesertionModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPartyDesertionModel>(new MyDefaultPartyDesertionModel());
 ```
 

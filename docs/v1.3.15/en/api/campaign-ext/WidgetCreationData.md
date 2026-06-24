@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `WidgetCreationData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetCreationData
@@ -14,33 +15,39 @@
 
 ## Overview
 
-`WidgetCreationData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`WidgetCreationData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `WidgetCreationData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `BrushFactory` | `public BrushFactory BrushFactory { get { return this.Context.BrushFactory; }` |
-| `SpriteData` | `public SpriteData SpriteData { get { return this.Context.SpriteData; }` |
-| `PrefabExtensionContext` | `public PrefabExtensionContext PrefabExtensionContext { get { return this.WidgetFactory.PrefabExtensionContext; }` |
+| `Parent` | `public Widget Parent { get; }` |
+| `Context` | `public UIContext Context { get; }` |
+| `WidgetFactory` | `public WidgetFactory WidgetFactory { get; }` |
+| `BrushFactory` | `public BrushFactory BrushFactory { get; }` |
+| `SpriteData` | `public SpriteData SpriteData { get; }` |
+| `PrefabExtensionContext` | `public PrefabExtensionContext PrefabExtensionContext { get; }` |
 
 ## Key Methods
 
 ### AddExtensionData
-```csharp
-public void AddExtensionData(string name, object data)
-```
+`public void AddExtensionData(string name, object data)`
+
+**Purpose:** Adds `extension data` to the current collection or state.
 
 ### AddExtensionData
-```csharp
-public void AddExtensionData(object data)
-```
+`public void AddExtensionData(object data)`
+
+**Purpose:** Adds `extension data` to the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of WidgetCreationData (Data)
-new WidgetCreationData { /* fill fields */ };;
+var value = new WidgetCreationData();
 ```
 
 ## See Also

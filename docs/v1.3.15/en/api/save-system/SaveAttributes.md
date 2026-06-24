@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveAttributes`
+**Home** → **API Index** → **Area** → `Save Attributes`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Save Attributes
@@ -14,6 +16,10 @@ Attributes used to mark classes, properties, and fields as saveable in Bannerlor
 ## Overview
 
 The save system uses .NET attributes to identify which types and members should be serialized. Three main attributes control what gets saved: `SaveableRootClassAttribute` marks the root of a save graph, while `SaveableFieldAttribute` and `SaveablePropertyAttribute` mark individual members.
+
+## Mental Model
+
+Treat `Save Attributes` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## SaveableRootClassAttribute
 

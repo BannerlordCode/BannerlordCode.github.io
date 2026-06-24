@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionSiegeWeaponsController`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionSiegeWeaponsController
@@ -14,40 +15,43 @@
 
 ## 概述
 
-`MissionSiegeWeaponsController` 是一个任务控制器，驱动某个任务子系统（部署、高光、援兵等）。经 Mission.Current 或作为任务行为访问。
+`MissionSiegeWeaponsController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `MissionSiegeWeaponsController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetMaxDeployableWeaponCount
-```csharp
-public int GetMaxDeployableWeaponCount(Type t)
-```
+`public int GetMaxDeployableWeaponCount(Type t)`
+
+**用途 / Purpose:** 获取 `max deployable weapon count` 的当前值。
 
 ### GetSiegeWeapons
-```csharp
-public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()
-```
+`public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
+
+**用途 / Purpose:** 获取 `siege weapons` 的当前值。
 
 ### OnWeaponDeployed
-```csharp
-public void OnWeaponDeployed(SiegeWeapon missionWeapon)
-```
+`public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
+
+**用途 / Purpose:** 当 `weapon deployed` 事件触发时调用此方法。
 
 ### OnWeaponUndeployed
-```csharp
-public void OnWeaponUndeployed(SiegeWeapon missionWeapon)
-```
+`public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
+
+**用途 / Purpose:** 当 `weapon undeployed` 事件触发时调用此方法。
 
 ### GetWeaponType
-```csharp
-public static Type GetWeaponType(ScriptComponentBehavior weapon)
-```
+`public static Type GetWeaponType(ScriptComponentBehavior weapon)`
+
+**用途 / Purpose:** 获取 `weapon type` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MissionSiegeWeaponsController (Controller) 的典型用法
-Mission.Current.GetMissionBehavior<MissionSiegeWeaponsController>();
+var controller = Mission.Current.GetMissionBehavior<MissionSiegeWeaponsController>();
 ```
 
 ## 参见

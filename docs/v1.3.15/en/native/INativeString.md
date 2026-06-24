@@ -5,6 +5,10 @@ description: Documentation for native string operations interface
 
 # INativeString
 
+## Mental Model
+
+Treat `INativeString` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **File**: `TaleWorlds.DotNet/INativeString.cs`  
 **Namespace**: `TaleWorlds.DotNet`  
 **Attribute**: `[LibraryInterfaceBase]`

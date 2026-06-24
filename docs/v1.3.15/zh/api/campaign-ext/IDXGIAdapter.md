@@ -2,40 +2,46 @@
 **首页** → **API 目录** → **本领域** → `IDXGIAdapter`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IDXGIAdapter
 
 **命名空间:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **模块:** TaleWorlds.TwoDimension
-**类型:** 接口 interface interface
-**领域:** 战役系统 Campaign
+**类型:** `public interface IDXGIAdapter`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`IDXGIAdapter` 是 `TaleWorlds.TwoDimension.Standalone.Native.Windows` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考
+`IDXGIAdapter` 位于 `TaleWorlds.TwoDimension.Standalone.Native.Windows`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.TwoDimension.Standalone.Native.Windows` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### CreateDXGIFactory
+`public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
 
-```csharp
-public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)
-```
+**用途 / Purpose:** 创建一个 `d x g i factory` 实例或对象。
 
 ### Equals
+`public override bool Equals(object o)`
 
-```csharp
-public override bool Equals(object o)
-```
+**用途 / Purpose:** 处理 `equals` 相关逻辑。
 
 ### GetHashCode
+`public override int GetHashCode()`
+
+**用途 / Purpose:** 获取 `hash code` 的当前值。
+
+## 使用示例
 
 ```csharp
-public override int GetHashCode()
+IDXGIAdapter implementation = GetDXGIAdapterImplementation();
 ```
-
-源码或贡献文档。
 
 ## 参见
 

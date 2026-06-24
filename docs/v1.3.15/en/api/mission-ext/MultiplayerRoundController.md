@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerRoundController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerRoundController
@@ -14,50 +15,56 @@
 
 ## Overview
 
-`MultiplayerRoundController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`MultiplayerRoundController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `MultiplayerRoundController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `RoundCount` | `public int RoundCount { get { return this._roundCount; }` |
-| `RoundWinner` | `public BattleSideEnum RoundWinner { get { return this._roundWinner; }` |
-| `RoundEndReason` | `public RoundEndReason RoundEndReason { get { return this._roundEndReason; }` |
-| `RemainingRoundTime` | `public float RemainingRoundTime { get { return this._gameModeServer.TimerComponent.GetRemainingTime(false); }` |
-| `IsRoundInProgress` | `public bool IsRoundInProgress { get { return this.CurrentRoundState == MultiplayerRoundState.InProgress; }` |
+| `RoundCount` | `public int RoundCount { get; set; }` |
+| `RoundWinner` | `public BattleSideEnum RoundWinner { get; set; }` |
+| `RoundEndReason` | `public RoundEndReason RoundEndReason { get; set; }` |
+| `IsMatchEnding` | `public bool IsMatchEnding { get; }` |
+| `LastRoundEndRemainingTime` | `public float LastRoundEndRemainingTime { get; }` |
+| `RemainingRoundTime` | `public float RemainingRoundTime { get; }` |
+| `CurrentRoundState` | `public MultiplayerRoundState CurrentRoundState { get; }` |
+| `IsRoundInProgress` | `public bool IsRoundInProgress { get; }` |
 
 ## Key Methods
 
 ### EnableEquipmentUpdate
-```csharp
-public void EnableEquipmentUpdate()
-```
+`public void EnableEquipmentUpdate()`
+
+**Purpose:** Handles logic related to `enable equipment update`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### OnPreDisplayMissionTick
-```csharp
-public override void OnPreDisplayMissionTick(float dt)
-```
+`public override void OnPreDisplayMissionTick(float dt)`
+
+**Purpose:** Called when the `pre display mission tick` event is raised.
 
 ### HandleClientEventCultureSelect
-```csharp
-public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)
-```
+`public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
+
+**Purpose:** Handles the `client event culture select` event or callback.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerRoundController (Controller)
-Mission.Current.GetMissionBehavior<MultiplayerRoundController>();
+var controller = Mission.Current.GetMissionBehavior<MultiplayerRoundController>();
 ```
 
 ## See Also

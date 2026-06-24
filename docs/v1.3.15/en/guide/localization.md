@@ -12,6 +12,10 @@ description: Multi-language support with MBTextManager
 
 Bannerlord supports multiple languages through `MBTextManager` and language files. Learn how to add multi-language support for your mods.
 
+## Mental Model
+
+Treat `Localization` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Contents
 
 1. [Language Files](#language-files)
@@ -147,3 +151,9 @@ LocalizedTextManager.SetLanguage(newLanguageCode);
 
 - [Common Patterns](./common-patterns.md) - Best practices
 - [Game Systems Overview](./game-systems-overview.md) - Learn what can be customized
+
+## Usage Example
+
+```csharp
+var example = new Localization();
+```

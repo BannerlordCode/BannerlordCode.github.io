@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `MissionOrderVM`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionOrderVM
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionOrderVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/MissionOrderVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MissionOrderVM` 是 `TaleWorlds.MountAndBlade.ViewModelCollection.Order` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MissionOrderVM` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.Order`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.Order` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,133 +45,152 @@
 | `IsHolding` | `public bool IsHolding { get; set; }` |
 | `IsAnyOrderSetActive` | `public bool IsAnyOrderSetActive { get; set; }` |
 | `ReturnText` | `public string ReturnText { get; set; }` |
-
+| `UseAlternativeFormationLayout` | `public bool UseAlternativeFormationLayout { get; set; }` |
 
 ## 主要方法
 
 ### SetDeploymentParemeters
+`public void SetDeploymentParemeters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-```csharp
-public void SetDeploymentParemeters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)
-```
+**用途 / Purpose:** 设置 `deployment paremeters` 的值或状态。
 
 ### SetCallbacks
+`public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-```csharp
-public void SetCallbacks(MissionOrderCallbacks callbacks)
-```
+**用途 / Purpose:** 设置 `callbacks` 的值或状态。
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### OnOrderExecuted
+`public void OnOrderExecuted(OrderItemVM orderItem)`
 
-```csharp
-public void OnOrderExecuted(OrderItemVM orderItem)
-```
+**用途 / Purpose:** 当 `order executed` 事件触发时调用此方法。
 
 ### OnOrderLayoutTypeChanged
+`public virtual void OnOrderLayoutTypeChanged()`
 
-```csharp
-public virtual void OnOrderLayoutTypeChanged()
-```
+**用途 / Purpose:** 当 `order layout type changed` 事件触发时调用此方法。
 
 ### OpenToggleOrder
+`public void OpenToggleOrder(bool fromHold, bool displayMessage = true)`
 
-```csharp
-public void OpenToggleOrder(bool fromHold, bool displayMessage = true)
-```
+**用途 / Purpose:** 处理 `open toggle order` 相关逻辑。
 
 ### TryCloseToggleOrder
+`public bool TryCloseToggleOrder(bool applySelectedOrders = false)`
 
-```csharp
-public bool TryCloseToggleOrder(bool applySelectedOrders = false)
-```
+**用途 / Purpose:** 尝试获取 `close toggle order`，通常以 out 参数返回结果。
 
 ### SetActiveOrders
+`public void SetActiveOrders()`
 
-```csharp
-public void SetActiveOrders()
-```
+**用途 / Purpose:** 设置 `active orders` 的值或状态。
 
 ### SetFocusedFormations
+`public void SetFocusedFormations(MBReadOnlyList<Formation> focusedFormationsCache)`
 
-```csharp
-public void SetFocusedFormations(MBReadOnlyList<Formation> focusedFormationsCache)
-```
+**用途 / Purpose:** 设置 `focused formations` 的值或状态。
 
 ### AfterInitialize
+`public void AfterInitialize()`
 
-```csharp
-public void AfterInitialize()
-```
+**用途 / Purpose:** 处理 `after initialize` 相关逻辑。
 
 ### Update
+`public void Update()`
 
-```csharp
-public void Update()
-```
+**用途 / Purpose:** 更新 `update` 的状态或数据。
 
 ### OnEscape
+`public void OnEscape()`
 
-```csharp
-public void OnEscape()
-```
+**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
 
 ### ViewOrders
+`public void ViewOrders()`
 
-```csharp
-public void ViewOrders()
-```
+**用途 / Purpose:** 处理 `view orders` 相关逻辑。
 
 ### GetOrderSetAtIndex
+`public OrderSetVM GetOrderSetAtIndex(int orderSetIndex)`
 
-```csharp
-public OrderSetVM GetOrderSetAtIndex(int orderSetIndex)
-```
+**用途 / Purpose:** 获取 `order set at index` 的当前值。
 
 ### TrySelectOrderSet
+`public bool TrySelectOrderSet(OrderSetVM orderSet)`
 
-```csharp
-public bool TrySelectOrderSet(OrderSetVM orderSet)
-```
+**用途 / Purpose:** 尝试获取 `select order set`，通常以 out 参数返回结果。
 
 ### OnTroopFormationSelected
+`public void OnTroopFormationSelected(int formationTroopIndex)`
 
-```csharp
-public void OnTroopFormationSelected(int formationTroopIndex)
-```
+**用途 / Purpose:** 当 `troop formation selected` 事件触发时调用此方法。
 
 ### ExecuteSelectHighlightedFormation
+`public void ExecuteSelectHighlightedFormation()`
 
-```csharp
-public void ExecuteSelectHighlightedFormation()
-```
+**用途 / Purpose:** 执行 `select highlighted formation` 操作或流程。
 
 ### OnTroopHighlightSelection
+`public void OnTroopHighlightSelection(bool isDirectionLeft)`
 
-```csharp
-public void OnTroopHighlightSelection(bool isDirectionLeft)
-```
+**用途 / Purpose:** 当 `troop highlight selection` 事件触发时调用此方法。
 
 ### ExecuteToggleHighlightedFormation
+`public void ExecuteToggleHighlightedFormation()`
+
+**用途 / Purpose:** 执行 `toggle highlighted formation` 操作或流程。
+
+### OnDeploymentFinished
+`public void OnDeploymentFinished()`
+
+**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+
+### OnAfterDeploymentFinished
+`public void OnAfterDeploymentFinished()`
+
+**用途 / Purpose:** 当 `after deployment finished` 事件触发时调用此方法。
+
+### OnFiltersSet
+`public void OnFiltersSet(List<MissionOrderVM.FormationConfiguration> filterData)`
+
+**用途 / Purpose:** 当 `filters set` 事件触发时调用此方法。
+
+### UpdateCanUseShortcuts
+`public void UpdateCanUseShortcuts(bool value)`
+
+**用途 / Purpose:** 更新 `can use shortcuts` 的状态或数据。
+
+### SetOrderIndexKey
+`public void SetOrderIndexKey(int orderIndex, GameKey gameKey)`
+
+**用途 / Purpose:** 设置 `order index key` 的值或状态。
+
+### SetReturnKey
+`public void SetReturnKey(GameKey gameKey)`
+
+**用途 / Purpose:** 设置 `return key` 的值或状态。
+
+### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
+
+**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void ExecuteToggleHighlightedFormation()
+var value = new MissionOrderVM();
+value.SetDeploymentParemeters(deploymentCamera, deploymentPoints);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

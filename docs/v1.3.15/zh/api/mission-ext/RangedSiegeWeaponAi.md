@@ -2,72 +2,73 @@
 **首页** → **API 目录** → **本领域** → `RangedSiegeWeaponAi`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RangedSiegeWeaponAi
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class RangedSiegeWeaponAi : UsableMachineAIBase`
+**Base:** `UsableMachineAIBase`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`RangedSiegeWeaponAi` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`RangedSiegeWeaponAi` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### FindNextTarget
+`public void FindNextTarget()`
 
-```csharp
-public void FindNextTarget()
-```
+**用途 / Purpose:** 处理 `find next target` 相关逻辑。
 
 ### PrepareTargetFromTask
+`public Threat PrepareTargetFromTask()`
 
-```csharp
-public Threat PrepareTargetFromTask()
-```
+**用途 / Purpose:** 处理 `prepare target from task` 相关逻辑。
 
 ### UpdateThreatSeekerTask
+`public bool UpdateThreatSeekerTask()`
 
-```csharp
-public bool UpdateThreatSeekerTask()
-```
+**用途 / Purpose:** 更新 `threat seeker task` 的状态或数据。
 
 ### PrepareThreatSeekerTask
+`public void PrepareThreatSeekerTask(Action lastAction)`
 
-```csharp
-public void PrepareThreatSeekerTask(Action lastAction)
-```
+**用途 / Purpose:** 处理 `prepare threat seeker task` 相关逻辑。
 
 ### Release
+`public void Release()`
 
-```csharp
-public void Release()
-```
+**用途 / Purpose:** 处理 `release` 相关逻辑。
 
 ### GetAllThreats
+`public List<Threat> GetAllThreats()`
 
-```csharp
-public List<Threat> GetAllThreats()
-```
+**用途 / Purpose:** 获取 `all threats` 的当前值。
 
 ### GetTargetFlagsOfFormation
+`public static TargetFlags GetTargetFlagsOfFormation()`
 
-```csharp
-public static TargetFlags GetTargetFlagsOfFormation()
-```
+**用途 / Purpose:** 获取 `target flags of formation` 的当前值。
 
 ### GetMaxThreat
+`public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
+
+**用途 / Purpose:** 获取 `max threat` 的当前值。
+
+## 使用示例
 
 ```csharp
-public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)
+var implementation = new CustomRangedSiegeWeaponAi();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

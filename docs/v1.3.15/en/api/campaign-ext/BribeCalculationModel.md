@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BribeCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BribeCalculationModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`BribeCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BribeCalculationModel>(new MyBribeCalculationModel())` to change how it computes.
+`BribeCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BribeCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBribeToEnterLordsHall
-```csharp
-public abstract int GetBribeToEnterLordsHall(Settlement settlement)
-```
+`public abstract int GetBribeToEnterLordsHall(Settlement settlement)`
+
+**Purpose:** Gets the current value of `bribe to enter lords hall`.
 
 ### GetBribeToEnterDungeon
-```csharp
-public abstract int GetBribeToEnterDungeon(Settlement settlement)
-```
+`public abstract int GetBribeToEnterDungeon(Settlement settlement)`
+
+**Purpose:** Gets the current value of `bribe to enter dungeon`.
 
 ### IsBribeNotNeededToEnterKeep
-```csharp
-public abstract bool IsBribeNotNeededToEnterKeep(Settlement settlement)
-```
+`public abstract bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
+
+**Purpose:** Handles logic related to `is bribe not needed to enter keep`.
 
 ### IsBribeNotNeededToEnterDungeon
-```csharp
-public abstract bool IsBribeNotNeededToEnterDungeon(Settlement settlement)
-```
+`public abstract bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
+
+**Purpose:** Handles logic related to `is bribe not needed to enter dungeon`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BribeCalculationModel (Model)
-Game.Current.ReplaceModel<BribeCalculationModel>(new MyBribeCalculationModel());
+var implementation = new CustomBribeCalculationModel();
 ```
 
 ## See Also

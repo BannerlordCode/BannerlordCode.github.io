@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `VoiceGroupPersonaCurtLowerTag`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VoiceGroupPersonaCurtLowerTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class VoiceGroupPersonaCurtLowerTag : ConversationTag`
+**Base:** `ConversationTag`
+**File:** `TaleWorlds.CampaignSystem/Conversation/Tags/VoiceGroupPersonaCurtLowerTag.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `VoiceGroupPersonaCurtLowerTag` is a class in the `TaleWorlds.CampaignSystem.Conversation.Tags` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`VoiceGroupPersonaCurtLowerTag` lives in `TaleWorlds.CampaignSystem.Conversation.Tags` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,16 +27,20 @@
 |------|-----------|
 | `StringId` | `public override string StringId { get; }` |
 
-
 ## Key Methods
 
 ### IsApplicableTo
+`public override bool IsApplicableTo(CharacterObject character)`
+
+**Purpose:** Handles logic related to `is applicable to`.
+
+## Usage Example
 
 ```csharp
-public override bool IsApplicableTo(CharacterObject character)
+var value = new VoiceGroupPersonaCurtLowerTag();
+value.IsApplicableTo(character);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

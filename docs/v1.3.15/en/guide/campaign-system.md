@@ -12,6 +12,10 @@ description: Complete guide to MobileParty, Kingdom, Clan, Settlement
 
 Bannerlord's Campaign is the macro level of the game, containing various activities on the world map. You need to understand core concepts like `MobileParty` (moving parties), `Kingdom` (kingdoms), `Clan` (clans), and `Settlement` (settlements).
 
+## Mental Model
+
+Treat `Campaign System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Core Concepts
 
 | Concept | Class | Description |
@@ -380,3 +384,9 @@ public class MySaveableData
 
 - [Save System](./save-system-guide.md) - Ensure your data saves correctly
 - [Mission System](./mission-system.md) - Customize battles
+
+## Usage Example
+
+```csharp
+var example = new Campaign System();
+```

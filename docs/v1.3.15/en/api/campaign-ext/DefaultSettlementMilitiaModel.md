@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementMilitiaModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementMilitiaModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultSettlementMilitiaModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementMilitiaModel>(new MyDefaultSettlementMilitiaModel())` to change how it computes.
+`DefaultSettlementMilitiaModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementMilitiaModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### MilitiaToSpawnAfterSiege
-```csharp
-public override int MilitiaToSpawnAfterSiege(Town town)
-```
+`public override int MilitiaToSpawnAfterSiege(Town town)`
+
+**Purpose:** Handles logic related to `militia to spawn after siege`.
 
 ### CalculateMilitiaChange
-```csharp
-public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate militia change`.
 
 ### CalculateVeteranMilitiaSpawnChance
-```csharp
-public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)
-```
+`public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
+
+**Purpose:** Handles logic related to `calculate veteran militia spawn chance`.
 
 ### CalculateMilitiaSpawnRate
-```csharp
-public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)
-```
+`public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
+
+**Purpose:** Handles logic related to `calculate militia spawn rate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementMilitiaModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementMilitiaModel>(new MyDefaultSettlementMilitiaModel());
 ```
 

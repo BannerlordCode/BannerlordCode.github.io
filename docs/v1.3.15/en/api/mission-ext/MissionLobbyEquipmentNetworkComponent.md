@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionLobbyEquipmentNetworkComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionLobbyEquipmentNetworkComponent
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`MissionLobbyEquipmentNetworkComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MissionLobbyEquipmentNetworkComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MissionLobbyEquipmentNetworkComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MissionLobbyEquipmentNetworkComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### PerkUpdated
-```csharp
-public void PerkUpdated(int perkList, int perkIndex)
-```
+`public void PerkUpdated(int perkList, int perkIndex)`
+
+**Purpose:** Handles logic related to `perk updated`.
 
 ### EquipmentUpdated
-```csharp
-public void EquipmentUpdated()
-```
+`public void EquipmentUpdated()`
+
+**Purpose:** Handles logic related to `equipment updated`.
 
 ### ToggleLoadout
-```csharp
-public void ToggleLoadout(bool isActive)
-```
+`public void ToggleLoadout(bool isActive)`
+
+**Purpose:** Handles logic related to `toggle loadout`.
 
 ### OnToggleLoadoutDelegate
-```csharp
-public delegate void OnToggleLoadoutDelegate(bool isActive)
-```
+`public delegate void OnToggleLoadoutDelegate(bool isActive)`
+
+**Purpose:** Called when the `toggle loadout delegate` event is raised.
 
 ### OnRefreshEquipmentEventDelegate
-```csharp
-public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)
-```
+`public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
+
+**Purpose:** Called when the `refresh equipment event delegate` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionLobbyEquipmentNetworkComponent (Component)
-agent.GetComponent<MissionLobbyEquipmentNetworkComponent>();
+var component = agent.GetComponent<MissionLobbyEquipmentNetworkComponent>();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BannerManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerManager
@@ -14,91 +15,96 @@
 
 ## 概述
 
-`BannerManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`BannerManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `BannerManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `BannerIconGroups` | `public MBReadOnlyList<BannerIconGroup> BannerIconGroups { get { return this._bannerIconGroups; }` |
+| `Instance` | `public static BannerManager Instance { get; }` |
+| `BannerIconGroups` | `public MBReadOnlyList<BannerIconGroup> BannerIconGroups { get; }` |
+| `BaseBackgroundId` | `public int BaseBackgroundId { get; }` |
 
 ## 主要方法
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### ResetAndLoad
-```csharp
-public static void ResetAndLoad()
-```
+`public static void ResetAndLoad()`
+
+**用途 / Purpose:** 将 `and load` 重置为初始状态。
 
 ### GetColor
-```csharp
-public static uint GetColor(int id)
-```
+`public static uint GetColor(int id)`
+
+**用途 / Purpose:** 获取 `color` 的当前值。
 
 ### GetColorId
-```csharp
-public static int GetColorId(uint color)
-```
+`public static int GetColorId(uint color)`
+
+**用途 / Purpose:** 获取 `color id` 的当前值。
 
 ### GetRandomColorId
-```csharp
-public int GetRandomColorId(MBFastRandom random)
-```
+`public int GetRandomColorId(MBFastRandom random)`
+
+**用途 / Purpose:** 获取 `random color id` 的当前值。
 
 ### GetIconDataFromIconId
-```csharp
-public BannerIconData GetIconDataFromIconId(int id)
-```
+`public BannerIconData GetIconDataFromIconId(int id)`
+
+**用途 / Purpose:** 获取 `icon data from icon id` 的当前值。
 
 ### GetRandomBackgroundId
-```csharp
-public int GetRandomBackgroundId(MBFastRandom random)
-```
+`public int GetRandomBackgroundId(MBFastRandom random)`
+
+**用途 / Purpose:** 获取 `random background id` 的当前值。
 
 ### GetRandomBannerIconId
-```csharp
-public int GetRandomBannerIconId(MBFastRandom random)
-```
+`public int GetRandomBannerIconId(MBFastRandom random)`
+
+**用途 / Purpose:** 获取 `random banner icon id` 的当前值。
 
 ### GetBackgroundMeshName
-```csharp
-public string GetBackgroundMeshName(int id)
-```
+`public string GetBackgroundMeshName(int id)`
+
+**用途 / Purpose:** 获取 `background mesh name` 的当前值。
 
 ### GetIconSourceTextureName
-```csharp
-public string GetIconSourceTextureName(int id)
-```
+`public string GetIconSourceTextureName(int id)`
+
+**用途 / Purpose:** 获取 `icon source texture name` 的当前值。
 
 ### SetBaseBackgroundId
-```csharp
-public void SetBaseBackgroundId(int id)
-```
+`public void SetBaseBackgroundId(int id)`
+
+**用途 / Purpose:** 设置 `base background id` 的值或状态。
 
 ### SetCultureColors
-```csharp
-public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)
-```
+`public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)`
+
+**用途 / Purpose:** 设置 `culture colors` 的值或状态。
 
 ### LoadBannerIcons
-```csharp
-public void LoadBannerIcons()
-```
+`public void LoadBannerIcons()`
+
+**用途 / Purpose:** 加载 `banner icons` 数据。
 
 ### LoadBannerIcons
-```csharp
-public void LoadBannerIcons(string xmlPath)
-```
+`public void LoadBannerIcons(string xmlPath)`
+
+**用途 / Purpose:** 加载 `banner icons` 数据。
 
 ## 使用示例
 
 ```csharp
-// BannerManager (Manager) 的典型用法
-BannerManager.Current;
+var manager = BannerManager.Current;
 ```
 
 ## 参见

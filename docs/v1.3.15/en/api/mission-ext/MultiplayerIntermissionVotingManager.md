@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerIntermissionVotingManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerIntermissionVotingManager
@@ -14,110 +15,122 @@
 
 ## Overview
 
-`MultiplayerIntermissionVotingManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MultiplayerIntermissionVotingManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MultiplayerIntermissionVotingManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static MultiplayerIntermissionVotingManager Instance { get; }` |
+| `MapVoteItems` | `public List<IntermissionVoteItem> MapVoteItems { get; }` |
+| `CultureVoteItems` | `public List<IntermissionVoteItem> CultureVoteItems { get; }` |
+| `UsableMaps` | `public List<CustomGameUsableMap> UsableMaps { get; }` |
 
 ## Key Methods
 
 ### AddMapItem
-```csharp
-public void AddMapItem(string mapID)
-```
+`public void AddMapItem(string mapID)`
+
+**Purpose:** Adds `map item` to the current collection or state.
 
 ### AddUsableMap
-```csharp
-public void AddUsableMap(CustomGameUsableMap usableMap)
-```
+`public void AddUsableMap(CustomGameUsableMap usableMap)`
+
+**Purpose:** Adds `usable map` to the current collection or state.
 
 ### GetUsableMaps
-```csharp
-public List<string> GetUsableMaps(string gameType)
-```
+`public List<string> GetUsableMaps(string gameType)`
+
+**Purpose:** Gets the current value of `usable maps`.
 
 ### AddCultureItem
-```csharp
-public void AddCultureItem(string cultureID)
-```
+`public void AddCultureItem(string cultureID)`
+
+**Purpose:** Adds `culture item` to the current collection or state.
 
 ### AddVote
-```csharp
-public void AddVote(PlayerId voterID, string itemID, int voteCount)
-```
+`public void AddVote(PlayerId voterID, string itemID, int voteCount)`
+
+**Purpose:** Adds `vote` to the current collection or state.
 
 ### SetVotesOfMap
-```csharp
-public void SetVotesOfMap(int mapItemIndex, int voteCount)
-```
+`public void SetVotesOfMap(int mapItemIndex, int voteCount)`
+
+**Purpose:** Sets the value or state of `votes of map`.
 
 ### SetVotesOfCulture
-```csharp
-public void SetVotesOfCulture(int cultureItemIndex, int voteCount)
-```
+`public void SetVotesOfCulture(int cultureItemIndex, int voteCount)`
+
+**Purpose:** Sets the value or state of `votes of culture`.
 
 ### ClearVotes
-```csharp
-public void ClearVotes()
-```
+`public void ClearVotes()`
+
+**Purpose:** Handles logic related to `clear votes`.
 
 ### ClearItems
-```csharp
-public void ClearItems()
-```
+`public void ClearItems()`
+
+**Purpose:** Handles logic related to `clear items`.
 
 ### IsCultureItem
-```csharp
-public bool IsCultureItem(string itemID)
-```
+`public bool IsCultureItem(string itemID)`
+
+**Purpose:** Handles logic related to `is culture item`.
 
 ### IsMapItem
-```csharp
-public bool IsMapItem(string itemID)
-```
+`public bool IsMapItem(string itemID)`
+
+**Purpose:** Handles logic related to `is map item`.
 
 ### HandlePlayerDisconnect
-```csharp
-public void HandlePlayerDisconnect(PlayerId playerID)
-```
+`public void HandlePlayerDisconnect(PlayerId playerID)`
+
+**Purpose:** Handles the `player disconnect` event or callback.
 
 ### SelectRandomCultures
-```csharp
-public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)
-```
+`public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
+
+**Purpose:** Handles logic related to `select random cultures`.
 
 ### IsPeerVotedForItem
-```csharp
-public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)
-```
+`public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)`
+
+**Purpose:** Handles logic related to `is peer voted for item`.
 
 ### SortVotesAndPickBest
-```csharp
-public void SortVotesAndPickBest()
-```
+`public void SortVotesAndPickBest()`
+
+**Purpose:** Handles logic related to `sort votes and pick best`.
 
 ### MapItemAddedDelegate
-```csharp
-public delegate void MapItemAddedDelegate(string mapId)
-```
+`public delegate void MapItemAddedDelegate(string mapId)`
+
+**Purpose:** Handles logic related to `map item added delegate`.
 
 ### CultureItemAddedDelegate
-```csharp
-public delegate void CultureItemAddedDelegate(string cultureId)
-```
+`public delegate void CultureItemAddedDelegate(string cultureId)`
+
+**Purpose:** Handles logic related to `culture item added delegate`.
 
 ### MapItemVoteCountChangedDelegate
-```csharp
-public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)
-```
+`public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
+
+**Purpose:** Handles logic related to `map item vote count changed delegate`.
 
 ### CultureItemVoteCountChangedDelegate
-```csharp
-public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)
-```
+`public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
+
+**Purpose:** Handles logic related to `culture item vote count changed delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerIntermissionVotingManager (Manager)
-MultiplayerIntermissionVotingManager.Current;
+var manager = MultiplayerIntermissionVotingManager.Current;
 ```
 
 ## See Also

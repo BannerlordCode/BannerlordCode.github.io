@@ -5,6 +5,10 @@ description: Quick start guide for Bannerlord modding
 
 # Getting Started Guide
 
+## Mental Model
+
+Treat `Getting Started Guide` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Welcome to the Bannerlord modding getting started guide. This guide will help you set up your development environment, create your first SubModule, and master debugging techniques.
 
 ## Table of Contents
@@ -167,28 +171,6 @@ Edit `SubModule.xml`:
 </Module>
 ```
 
-### Common API Examples
-
-```csharp
-// Get game instance
-Game game = Game.Current;
-
-// Create new item
-ItemObject newItem = ItemObject.CreateItem("my_item");
-
-// Add to game world
-game.ItemRoster.Add(newItem);
-
-// Listen to events
-game.GameStarted += OnGameStarted;
-
-// Output debug info
-InformationMessage message = new InformationMessage("Hello from MyModule!");
-MBInformationManager.AddQuickInformation(message);
-```
-
----
-
 ## Debugging Tips
 
 ### Breakpoint Debugging
@@ -197,21 +179,6 @@ MBInformationManager.AddQuickInformation(message);
 2. Set breakpoints (F9) on target code
 3. Press `F5` to start debugging
 4. Game will pause at breakpoints
-
-### Output Debug Information
-
-```csharp
-// Method 1: Use Debug.Print
-Debug.Print("Debug message here", Debug.Color.White);
-
-// Method 2: Use InformationManager
-MBInformationManager.AddQuickInformation(
-    new InformationMessage("Info text", Debug.Color.Blue)
-);
-
-// Method 3: Write to log file
-File.WriteAllText("debug_log.txt", "content");
-```
 
 ### Common Debugging Scenarios
 

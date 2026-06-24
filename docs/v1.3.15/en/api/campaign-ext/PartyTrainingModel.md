@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyTrainingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTrainingModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`PartyTrainingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyTrainingModel>(new MyPartyTrainingModel())` to change how it computes.
+`PartyTrainingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyTrainingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GenerateSharedXp
-```csharp
-public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)
-```
+`public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `generate shared xp`.
 
 ### CalculateXpGainFromBattles
-```csharp
-public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)
-```
+`public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
+
+**Purpose:** Handles logic related to `calculate xp gain from battles`.
 
 ### GetXpReward
-```csharp
-public abstract int GetXpReward(CharacterObject character)
-```
+`public abstract int GetXpReward(CharacterObject character)`
+
+**Purpose:** Gets the current value of `xp reward`.
 
 ### GetEffectiveDailyExperience
-```csharp
-public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)
-```
+`public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)`
+
+**Purpose:** Gets the current value of `effective daily experience`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyTrainingModel (Model)
-Game.Current.ReplaceModel<PartyTrainingModel>(new MyPartyTrainingModel());
+var implementation = new CustomPartyTrainingModel();
 ```
 
 ## See Also

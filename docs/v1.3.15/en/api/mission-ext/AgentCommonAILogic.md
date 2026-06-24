@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AgentCommonAILogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentCommonAILogic
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`AgentCommonAILogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new AgentCommonAILogic())`; subclass it to customize.
+`AgentCommonAILogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `AgentCommonAILogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAgentCreated
-```csharp
-public override void OnAgentCreated(Agent agent)
-```
+`public override void OnAgentCreated(Agent agent)`
+
+**Purpose:** Called when the `agent created` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AgentCommonAILogic (Logic)
 Mission.Current.AddMissionBehavior(new AgentCommonAILogic());
 ```
 

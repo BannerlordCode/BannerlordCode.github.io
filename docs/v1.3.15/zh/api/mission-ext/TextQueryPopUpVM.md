@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `TextQueryPopUpVM`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextQueryPopUpVM
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class TextQueryPopUpVM : PopUpBaseVM`
+**Base:** `PopUpBaseVM`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Inquiries/TextQueryPopUpVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`TextQueryPopUpVM` 是 `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`TextQueryPopUpVM` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,36 +29,35 @@
 | `IsInputObfuscated` | `public bool IsInputObfuscated { get; set; }` |
 | `DoneButtonDisabledReasonHint` | `public HintViewModel DoneButtonDisabledReasonHint { get; set; }` |
 
-
 ## 主要方法
 
 ### SetData
+`public void SetData(TextInquiryData data)`
 
-```csharp
-public void SetData(TextInquiryData data)
-```
+**用途 / Purpose:** 设置 `data` 的值或状态。
 
 ### ExecuteAffirmativeAction
+`public override void ExecuteAffirmativeAction()`
 
-```csharp
-public override void ExecuteAffirmativeAction()
-```
+**用途 / Purpose:** 执行 `affirmative action` 操作或流程。
 
 ### ExecuteNegativeAction
+`public override void ExecuteNegativeAction()`
 
-```csharp
-public override void ExecuteNegativeAction()
-```
+**用途 / Purpose:** 执行 `negative action` 操作或流程。
 
 ### OnClearData
+`public override void OnClearData()`
+
+**用途 / Purpose:** 当 `clear data` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public override void OnClearData()
+var value = new TextQueryPopUpVM();
+value.SetData(data);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

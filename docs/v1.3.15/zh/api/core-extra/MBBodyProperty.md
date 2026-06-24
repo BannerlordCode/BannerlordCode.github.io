@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `MBBodyProperty`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBBodyProperty
 
 **命名空间:** TaleWorlds.Core
 **模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**类型:** `public class MBBodyProperty : MBObjectBase`
+**Base:** `MBObjectBase`
+**领域:** core-extra
 
 ## 概述
 
-> 本页为自动生成的存根。`MBBodyProperty` 是 `TaleWorlds.Core` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MBBodyProperty` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -25,28 +31,29 @@
 | `BodyPropertyMin` | `public BodyProperties BodyPropertyMin { get; }` |
 | `BodyPropertyMax` | `public BodyProperties BodyPropertyMax { get; }` |
 
-
 ## 主要方法
 
 ### CreateFrom
+`public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)`
 
-```csharp
-public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)
-```
+**用途 / Purpose:** 创建一个 `from` 实例或对象。
 
 ### Init
+`public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)`
 
-```csharp
-public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)
-```
+**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+// 先准备该类型需要的上下文，然后直接调用静态入口
+MBBodyProperty.CreateFrom(bodyProperty);
 ```
-
-献文档。
 
 ## 参见
 

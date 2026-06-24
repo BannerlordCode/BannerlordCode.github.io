@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultNotablePowerModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultNotablePowerModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultNotablePowerModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultNotablePowerModel>(new MyDefaultNotablePowerModel())` to change how it computes.
+`DefaultNotablePowerModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultNotablePowerModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,34 +31,33 @@
 ## Key Methods
 
 ### CalculateDailyPowerChangeForHero
-```csharp
-public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate daily power change for hero`.
 
 ### GetPowerRankName
-```csharp
-public override TextObject GetPowerRankName(Hero hero)
-```
+`public override TextObject GetPowerRankName(Hero hero)`
+
+**Purpose:** Gets the current value of `power rank name`.
 
 ### GetInfluenceBonusToClan
-```csharp
-public override float GetInfluenceBonusToClan(Hero hero)
-```
+`public override float GetInfluenceBonusToClan(Hero hero)`
+
+**Purpose:** Gets the current value of `influence bonus to clan`.
 
 ### GetInitialPower
-```csharp
-public override int GetInitialPower(Hero hero)
-```
+`public override int GetInitialPower(Hero hero)`
+
+**Purpose:** Gets the current value of `initial power`.
 
 ### GetInitialNotableSupporterCost
-```csharp
-public override int GetInitialNotableSupporterCost(Hero hero)
-```
+`public override int GetInitialNotableSupporterCost(Hero hero)`
+
+**Purpose:** Gets the current value of `initial notable supporter cost`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultNotablePowerModel (Model)
 Game.Current.ReplaceModel<DefaultNotablePowerModel>(new MyDefaultNotablePowerModel());
 ```
 

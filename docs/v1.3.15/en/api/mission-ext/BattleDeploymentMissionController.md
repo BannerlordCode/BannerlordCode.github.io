@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleDeploymentMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleDeploymentMissionController
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`BattleDeploymentMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`BattleDeploymentMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `BattleDeploymentMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleDeploymentMissionController (Controller)
-Mission.Current.GetMissionBehavior<BattleDeploymentMissionController>();
+var controller = Mission.Current.GetMissionBehavior<BattleDeploymentMissionController>();
 ```
 
 ## See Also

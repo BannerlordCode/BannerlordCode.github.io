@@ -2,50 +2,31 @@
 **Home** → **API Index** → **Area** → `GoldGainFlags`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GoldGainFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/GoldGainFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GoldGainFlags` is a enum in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GoldGainFlags` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `FirstRangedKill` |
-| `1` |
-| `FirstMeleeKill` |
-| `2` |
-| `FirstAssist` |
-| `4` |
-| `SecondAssist` |
-| `8` |
-| `ThirdAssist` |
-| `16` |
-| `FifthKill` |
-| `32` |
-| `TenthKill` |
-| `64` |
-| `DefaultKill` |
-| `128` |
-| `DefaultAssist` |
-| `256` |
-| `ObjectiveCompleted` |
-| `512` |
-| `ObjectiveDestroyed` |
-| `1024` |
-| `PerkBonus` |
+## Usage Example
+
+```csharp
+var value = new GoldGainFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `InquiryData`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InquiryData
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`InquiryData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`InquiryData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `InquiryData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### SetText
-```csharp
-public void SetText(string text)
-```
+`public void SetText(string text)`
+
+**用途 / Purpose:** 设置 `text` 的值或状态。
 
 ### SetTitleText
-```csharp
-public void SetTitleText(string titleText)
-```
+`public void SetTitleText(string titleText)`
+
+**用途 / Purpose:** 设置 `title text` 的值或状态。
 
 ### HasSameContentWith
-```csharp
-public bool HasSameContentWith(object other)
-```
+`public bool HasSameContentWith(object other)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
 
 ## 使用示例
 
 ```csharp
-// InquiryData (Data) 的典型用法
-new InquiryData { /* fill fields */ };;
+var value = new InquiryData();
 ```
 
 ## 参见

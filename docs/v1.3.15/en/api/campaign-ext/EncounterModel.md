@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncounterModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncounterModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`EncounterModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<EncounterModel>(new MyEncounterModel())` to change how it computes.
+`EncounterModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `EncounterModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,80 +37,79 @@
 ## Key Methods
 
 ### IsEncounterExemptFromHostileActions
-```csharp
-public abstract bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)
-```
+`public abstract bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
+
+**Purpose:** Handles logic related to `is encounter exempt from hostile actions`.
 
 ### CanMainHeroDoParleyWithParty
-```csharp
-public abstract bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)
-```
+`public abstract bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `main hero do parley with party`.
 
 ### GetLeaderOfSiegeEvent
-```csharp
-public abstract Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)
-```
+`public abstract Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `leader of siege event`.
 
 ### GetLeaderOfMapEvent
-```csharp
-public abstract Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)
-```
+`public abstract Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `leader of map event`.
 
 ### GetCharacterSergeantScore
-```csharp
-public abstract int GetCharacterSergeantScore(Hero hero)
-```
+`public abstract int GetCharacterSergeantScore(Hero hero)`
+
+**Purpose:** Gets the current value of `character sergeant score`.
 
 ### GetDefenderPartiesOfSettlement
-```csharp
-public abstract IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)
-```
+`public abstract IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
+
+**Purpose:** Gets the current value of `defender parties of settlement`.
 
 ### GetNextDefenderPartyOfSettlement
-```csharp
-public abstract PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)
-```
+`public abstract PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
+
+**Purpose:** Gets the current value of `next defender party of settlement`.
 
 ### CreateMapEventComponentForEncounter
-```csharp
-public abstract MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)
-```
+`public abstract MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
+
+**Purpose:** Creates a new `map event component for encounter` instance or object.
 
 ### GetBribeChance
-```csharp
-public abstract ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public abstract ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**Purpose:** Gets the current value of `bribe chance`.
 
 ### GetSurrenderChance
-```csharp
-public abstract float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public abstract float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**Purpose:** Gets the current value of `surrender chance`.
 
 ### GetMapEventSideRunAwayChance
-```csharp
-public abstract float GetMapEventSideRunAwayChance(MapEventSide mapEventside)
-```
+`public abstract float GetMapEventSideRunAwayChance(MapEventSide mapEventside)`
+
+**Purpose:** Gets the current value of `map event side run away chance`.
 
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
-```csharp
-public abstract void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)
-```
+`public abstract void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
+
+**Purpose:** Handles logic related to `find non attached npc parties who will join player encounter`.
 
 ### CanPlayerForceBanditsToJoin
-```csharp
-public abstract bool CanPlayerForceBanditsToJoin(out TextObject explanation)
-```
+`public abstract bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `player force bandits to join`.
 
 ### IsPartyUnderPlayerCommand
-```csharp
-public abstract bool IsPartyUnderPlayerCommand(PartyBase party)
-```
+`public abstract bool IsPartyUnderPlayerCommand(PartyBase party)`
+
+**Purpose:** Handles logic related to `is party under player command`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EncounterModel (Model)
-Game.Current.ReplaceModel<EncounterModel>(new MyEncounterModel());
+var implementation = new CustomEncounterModel();
 ```
 
 ## See Also

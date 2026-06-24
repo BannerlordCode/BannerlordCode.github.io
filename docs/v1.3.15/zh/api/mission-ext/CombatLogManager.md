@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `CombatLogManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatLogManager
@@ -15,6 +17,10 @@
 ## 概述
 
 `CombatLogManager` 生成战斗日志条目（任务中的击杀/伤害提示流）。mod 调 `GenerateCombatLog` 发出自定义通知，订阅 `OnPrintCombatLogHandler` 响应或改写日志。`PrintDebugLogForInfo` 用于诊断。
+
+## 心智模型
+
+先把 `CombatLogManager` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
 ## 主要方法
 

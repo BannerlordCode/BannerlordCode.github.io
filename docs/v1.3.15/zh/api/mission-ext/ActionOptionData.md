@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ActionOptionData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ActionOptionData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`ActionOptionData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`ActionOptionData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `ActionOptionData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,50 +30,49 @@
 ## 主要方法
 
 ### Commit
-```csharp
-public void Commit()
-```
+`public void Commit()`
+
+**用途 / Purpose:** 处理 `commit` 相关逻辑。
 
 ### GetDefaultValue
-```csharp
-public float GetDefaultValue()
-```
+`public float GetDefaultValue()`
+
+**用途 / Purpose:** 获取 `default value` 的当前值。
 
 ### GetOptionType
-```csharp
-public object GetOptionType()
-```
+`public object GetOptionType()`
+
+**用途 / Purpose:** 获取 `option type` 的当前值。
 
 ### GetValue
-```csharp
-public float GetValue(bool forceRefresh)
-```
+`public float GetValue(bool forceRefresh)`
+
+**用途 / Purpose:** 获取 `value` 的当前值。
 
 ### IsNative
-```csharp
-public bool IsNative()
-```
+`public bool IsNative()`
+
+**用途 / Purpose:** 处理 `is native` 相关逻辑。
 
 ### SetValue
-```csharp
-public void SetValue(float value)
-```
+`public void SetValue(float value)`
+
+**用途 / Purpose:** 设置 `value` 的值或状态。
 
 ### IsAction
-```csharp
-public bool IsAction()
-```
+`public bool IsAction()`
+
+**用途 / Purpose:** 处理 `is action` 相关逻辑。
 
 ### GetIsDisabledAndReasonID
-```csharp
-public ValueTuple<string, bool> GetIsDisabledAndReasonID()
-```
+`public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
+
+**用途 / Purpose:** 获取 `is disabled and reason i d` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// ActionOptionData (Data) 的典型用法
-new ActionOptionData { /* fill fields */ };;
+var value = new ActionOptionData();
 ```
 
 ## 参见

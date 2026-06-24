@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MouseManager`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MouseManager
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`MouseManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MouseManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MouseManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### ActivateMouseCursor
-```csharp
-public static void ActivateMouseCursor(CursorType mouseId)
-```
+`public static void ActivateMouseCursor(CursorType mouseId)`
+
+**Purpose:** Handles logic related to `activate mouse cursor`.
 
 ### SetMouseCursor
-```csharp
-public static void SetMouseCursor(CursorType mouseId, string mousePath)
-```
+`public static void SetMouseCursor(CursorType mouseId, string mousePath)`
+
+**Purpose:** Sets the value or state of `mouse cursor`.
 
 ### ShowCursor
-```csharp
-public static void ShowCursor(bool show)
-```
+`public static void ShowCursor(bool show)`
+
+**Purpose:** Handles logic related to `show cursor`.
 
 ### LockCursorAtCurrentPosition
-```csharp
-public static void LockCursorAtCurrentPosition(bool lockCursor)
-```
+`public static void LockCursorAtCurrentPosition(bool lockCursor)`
+
+**Purpose:** Handles logic related to `lock cursor at current position`.
 
 ### LockCursorAtPosition
-```csharp
-public static void LockCursorAtPosition(float x, float y)
-```
+`public static void LockCursorAtPosition(float x, float y)`
+
+**Purpose:** Handles logic related to `lock cursor at position`.
 
 ### UnlockCursor
-```csharp
-public static void UnlockCursor()
-```
+`public static void UnlockCursor()`
+
+**Purpose:** Handles logic related to `unlock cursor`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MouseManager (Manager)
-MouseManager.Current;
+var manager = MouseManager.Current;
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BannerIconData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerIconData
@@ -14,13 +15,23 @@
 
 ## Overview
 
-`BannerIconData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BannerIconData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BannerIconData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `MaterialName` | `public string MaterialName { get; }` |
+| `TextureIndex` | `public int TextureIndex { get; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BannerIconData (Data)
-new BannerIconData { /* fill fields */ };;
+var value = new BannerIconData();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleResultPartyData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleResultPartyData
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`BattleResultPartyData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BattleResultPartyData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BattleResultPartyData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleResultPartyData (Data)
-new BattleResultPartyData { /* fill fields */ };;
+var value = new BattleResultPartyData();
 ```
 
 ## See Also

@@ -2,89 +2,46 @@
 **首页** → **API 目录** → **本领域** → `HintViewModel`
 - [← 本领域 / 返回 viewmodel](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# HintViewModel / HintViewModel
+# HintViewModel
 
-**Namespace**: TaleWorlds.Core.ViewModelCollection.Information
-**File**: `bannerlord-1.3.15/TaleWorlds.Core.ViewModelCollection/Information/HintViewModel.cs`
-**Purpose**: 用于显示游戏提示信息的 ViewModel / ViewModel for displaying game hint information
+**命名空间:** TaleWorlds.Core.ViewModelCollection.Information
+**模块:** TaleWorlds.Core
+**类型:** `public class HintViewModel : ViewModel`
 
-## 概述 / Overview
+## 概述
 
-`HintViewModel` 是一个简单的 ViewModel 实现，用于在 UI 中显示提示信息（Tooltip/Hint）。它使用 `TextObject` 来支持本地化的提示文本。
+`HintViewModel` 是 UI 提示（hint / tooltip）层的轻量 ViewModel。它的职责很明确：把一段可本地化的提示文本以及相关显隐状态暴露给 Gauntlet 绑定层，让界面在悬停或聚焦时显示正确提示。
 
-`HintViewModel` is a simple ViewModel implementation for displaying hint information (Tooltip/Hint) in the UI. It uses `TextObject` to support localized hint text.
+## 心智模型
 
-## 继承关系 / Inheritance Hierarchy
+把 `HintViewModel` 当作“单一提示气泡的数据源”来看：界面层负责决定什么时候显示提示，而这个 ViewModel 负责携带提示内容、更新绑定状态，并通过 `ViewModel` 的通知机制把变化推给界面。
 
-```
-ViewModel (TaleWorlds.Library)
-    └── HintViewModel (TaleWorlds.Core.ViewModelCollection.Information)
-```
+## 主要属性
 
-## 重要属性 / Important Properties
+### HintText
+`public TextObject HintText { get; set; }`
 
-| Property | Type | Description |
-|----------|------|-------------|
-| HintText | `TextObject` | 提示文本内容，支持本地化 / Hint text content, supports localization |
+**用途 / Purpose:** 保存当前提示文本，通常由调用方在创建 ViewModel 时传入。
 
-## 重要方法 / Important Methods
+## 主要方法
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ExecuteBeginHint | `public void ExecuteBeginHint()` | 开始显示提示 / Begin displaying the hint |
-| ExecuteEndHint | `public void ExecuteEndHint()` | 结束显示提示 / End displaying the hint |
+### RefreshValues
+`public override void RefreshValues()`
 
-## 使用示例 / Usage Example
+**用途 / Purpose:** 当语言切换或 UI 需要重新拉取本地化文本时，刷新绑定值。
+
+## 使用示例
 
 ```csharp
-using TaleWorlds.Core.ViewModelCollection.Information;
-using TaleWorlds.Localization;
-
-// 创建带本地化文本的 HintViewModel
-// Create HintViewModel with localized text
-public HintViewModel CreateItemHint(ItemObject item)
-{
-    TextObject hintText = new TextObject("{=item_hint}" +
-        "Name: {=item_name}{NAME}\n" +
-        "Value: {=item_value}{VALUE}", null);
-    hintText.SetTextVariable("NAME", item.Name);
-    hintText.SetTextVariable("VALUE", item.Value.ToString());
-    
-    return new HintViewModel(hintText, item.StringId);
-}
-
-// 在 UI 中使用
-// Use in UI
-public class MyItemVM : ViewModel
-{
-    private HintViewModel _itemHint;
-    
-    [DataSourceProperty]
-    public HintViewModel ItemHint
-    {
-        get => this._itemHint;
-        set => this.SetField(ref this._itemHint, value, "ItemHint");
-    }
-    
-    public void OnItemHover()
-    {
-        this._itemHint.ExecuteBeginHint();
-    }
-    
-    public void OnItemLeave()
-    {
-        this._itemHint.ExecuteEndHint();
-    }
-}
+HintViewModel hint = new HintViewModel();
+hint.HintText = new TextObject("{=my_mod_hint}This action consumes 10 stamina.");
+hint.RefreshValues();
 ```
 
-## 注意事项 / Notes
+## 参见
 
-- `HintViewModel` 内部直接使用 `TextObject` 字段而非属性，这是该类的特殊设计
-- `HintViewModel` uses `TextObject` field directly internally rather than a property, which is a special design of this class
-- 提示文本通过 `MBInformationManager.ShowHint()` 显示
-- Hint text is displayed via `MBInformationManager.ShowHint()`
-- 可以通过 `uniqueName` 参数为提示指定唯一名称
-- You can specify a unique name for the hint via the `uniqueName` parameter
+- [ViewModel](./ViewModel.md)
+- [DataSourceProperty](./DataSourceProperty.md)

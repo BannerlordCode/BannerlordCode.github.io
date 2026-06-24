@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerGlobalMutedPlayersManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerGlobalMutedPlayersManager
@@ -14,41 +15,44 @@
 
 ## Overview
 
-`MultiplayerGlobalMutedPlayersManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MultiplayerGlobalMutedPlayersManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MultiplayerGlobalMutedPlayersManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `MutedPlayers` | `public static List<PlayerId> MutedPlayers { get { return MultiplayerGlobalMutedPlayersManager._mutedPlayers; }` |
+| `MutedPlayers` | `public static List<PlayerId> MutedPlayers { get; }` |
 
 ## Key Methods
 
 ### MutePlayer
-```csharp
-public static void MutePlayer(PlayerId playerId)
-```
+`public static void MutePlayer(PlayerId playerId)`
+
+**Purpose:** Handles logic related to `mute player`.
 
 ### UnmutePlayer
-```csharp
-public static void UnmutePlayer(PlayerId playerId)
-```
+`public static void UnmutePlayer(PlayerId playerId)`
+
+**Purpose:** Handles logic related to `unmute player`.
 
 ### IsUserMuted
-```csharp
-public static bool IsUserMuted(PlayerId playerId)
-```
+`public static bool IsUserMuted(PlayerId playerId)`
+
+**Purpose:** Handles logic related to `is user muted`.
 
 ### ClearMutedPlayers
-```csharp
-public static void ClearMutedPlayers()
-```
+`public static void ClearMutedPlayers()`
+
+**Purpose:** Handles logic related to `clear muted players`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerGlobalMutedPlayersManager (Manager)
-MultiplayerGlobalMutedPlayersManager.Current;
+var manager = MultiplayerGlobalMutedPlayersManager.Current;
 ```
 
 ## See Also

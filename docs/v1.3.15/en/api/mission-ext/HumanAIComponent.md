@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `HumanAIComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HumanAIComponent
@@ -15,6 +17,10 @@
 ## Overview
 
 `HumanAIComponent` is the AI driver attached to human (NPC) agents. It owns behavior parameters, scripted movement frames (`HasTimedScriptedFrame`), and defending/useable-object interest state. Mods use it to override AI behavior params or place an agent at a scripted frame (e.g. a guard post).
+
+## Mental Model
+
+Treat `HumanAIComponent` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

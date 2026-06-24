@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ManagedOptionData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedOptionData
@@ -14,55 +15,58 @@
 
 ## Overview
 
-`ManagedOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`ManagedOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `ManagedOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetDefaultValue
-```csharp
-public virtual float GetDefaultValue()
-```
+`public virtual float GetDefaultValue()`
+
+**Purpose:** Gets the current value of `default value`.
 
 ### Commit
-```csharp
-public void Commit()
-```
+`public void Commit()`
+
+**Purpose:** Handles logic related to `commit`.
 
 ### GetValue
-```csharp
-public float GetValue(bool forceRefresh)
-```
+`public float GetValue(bool forceRefresh)`
+
+**Purpose:** Gets the current value of `value`.
 
 ### SetValue
-```csharp
-public void SetValue(float value)
-```
+`public void SetValue(float value)`
+
+**Purpose:** Sets the value or state of `value`.
 
 ### GetOptionType
-```csharp
-public object GetOptionType()
-```
+`public object GetOptionType()`
+
+**Purpose:** Gets the current value of `option type`.
 
 ### IsNative
-```csharp
-public bool IsNative()
-```
+`public bool IsNative()`
+
+**Purpose:** Handles logic related to `is native`.
 
 ### IsAction
-```csharp
-public bool IsAction()
-```
+`public bool IsAction()`
+
+**Purpose:** Handles logic related to `is action`.
 
 ### GetIsDisabledAndReasonID
-```csharp
-public ValueTuple<string, bool> GetIsDisabledAndReasonID()
-```
+`public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
+
+**Purpose:** Gets the current value of `is disabled and reason i d`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ManagedOptionData (Data)
-new ManagedOptionData { /* fill fields */ };;
+var implementation = new CustomManagedOptionData();
 ```
 
 ## See Also

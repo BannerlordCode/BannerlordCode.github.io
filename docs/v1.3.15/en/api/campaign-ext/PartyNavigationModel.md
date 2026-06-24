@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyNavigationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyNavigationModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`PartyNavigationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyNavigationModel>(new MyPartyNavigationModel())` to change how it computes.
+`PartyNavigationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyNavigationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CanPlayerNavigateToPosition
-```csharp
-public abstract bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)
-```
+`public abstract bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
+
+**Purpose:** Checks whether the current object can `player navigate to position`.
 
 ### GetEmbarkDisembarkThresholdDistance
-```csharp
-public abstract float GetEmbarkDisembarkThresholdDistance()
-```
+`public abstract float GetEmbarkDisembarkThresholdDistance()`
+
+**Purpose:** Gets the current value of `embark disembark threshold distance`.
 
 ### IsTerrainTypeValidForNavigationType
-```csharp
-public abstract bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)
-```
+`public abstract bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
+
+**Purpose:** Handles logic related to `is terrain type valid for navigation type`.
 
 ### GetInvalidTerrainTypesForNavigationType
-```csharp
-public abstract int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)
-```
+`public abstract int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
+
+**Purpose:** Gets the current value of `invalid terrain types for navigation type`.
 
 ### HasNavalNavigationCapability
-```csharp
-public abstract bool HasNavalNavigationCapability(MobileParty mobileParty)
-```
+`public abstract bool HasNavalNavigationCapability(MobileParty mobileParty)`
+
+**Purpose:** Checks whether the current object has/contains `naval navigation capability`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyNavigationModel (Model)
-Game.Current.ReplaceModel<PartyNavigationModel>(new MyPartyNavigationModel());
+var implementation = new CustomPartyNavigationModel();
 ```
 
 ## See Also

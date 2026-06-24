@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `IFaceGeneratorHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IFaceGeneratorHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** interface
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IFaceGeneratorHandler` is a interface in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IFaceGeneratorHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `IFaceGeneratorHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+IFaceGeneratorHandler implementation = GetFaceGeneratorHandlerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

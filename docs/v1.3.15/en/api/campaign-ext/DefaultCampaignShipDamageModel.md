@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCampaignShipDamageModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCampaignShipDamageModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultCampaignShipDamageModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCampaignShipDamageModel>(new MyDefaultCampaignShipDamageModel())` to change how it computes.
+`DefaultCampaignShipDamageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCampaignShipDamageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetHourlyShipDamage
-```csharp
-public override int GetHourlyShipDamage(MobileParty owner, Ship ship)
-```
+`public override int GetHourlyShipDamage(MobileParty owner, Ship ship)`
+
+**Purpose:** Gets the current value of `hourly ship damage`.
 
 ### GetEstimatedSafeSailDuration
-```csharp
-public override float GetEstimatedSafeSailDuration(MobileParty mobileParty)
-```
+`public override float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `estimated safe sail duration`.
 
 ### GetShipDamage
-```csharp
-public override float GetShipDamage(Ship ship, Ship rammingShip, float rawDamage)
-```
+`public override float GetShipDamage(Ship ship, Ship rammingShip, float rawDamage)`
+
+**Purpose:** Gets the current value of `ship damage`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCampaignShipDamageModel (Model)
 Game.Current.ReplaceModel<DefaultCampaignShipDamageModel>(new MyDefaultCampaignShipDamageModel());
 ```
 

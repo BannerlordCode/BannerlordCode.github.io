@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AmmoSupplyLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AmmoSupplyLogic
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`AmmoSupplyLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new AmmoSupplyLogic())`; subclass it to customize.
+`AmmoSupplyLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `AmmoSupplyLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsAgentEligibleForAmmoSupply
-```csharp
-public bool IsAgentEligibleForAmmoSupply(Agent agent)
-```
+`public bool IsAgentEligibleForAmmoSupply(Agent agent)`
+
+**Purpose:** Handles logic related to `is agent eligible for ammo supply`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AmmoSupplyLogic (Logic)
 Mission.Current.AddMissionBehavior(new AmmoSupplyLogic());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionScoreboardComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionScoreboardComponent
@@ -14,178 +15,196 @@
 
 ## Overview
 
-`MissionScoreboardComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MissionScoreboardComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MissionScoreboardComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MissionScoreboardComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `IsOneSided` | `public bool IsOneSided { get { return this._scoreboardSides == MissionScoreboardComponent.ScoreboardSides.OneSide; }` |
-| `RoundWinner` | `public BattleSideEnum RoundWinner { get { IRoundComponent roundComponent = this._mpGameModeBase.RoundComponent; if (roundComponent == null) { return BattleSideEnum.None; }` |
-| `Headers` | `public MissionScoreboardComponent.ScoreboardHeader Headers { get { return this._scoreboardData.GetScoreboardHeaders(); }` |
-| `RoundWinnerList` | `public IEnumerable<BattleSideEnum> RoundWinnerList { get { return this._roundWinnerList.AsReadOnly(); }` |
-| `Sides` | `public MissionScoreboardComponent.MissionScoreboardSide Sides { get { return this._sides; }` |
-| `Spectators` | `public List<MissionPeer> Spectators { get { return this._spectators; }` |
-| `CurrentPlayerCount` | `public int CurrentPlayerCount { get { return this._players.Count; }` |
-| `Players` | `public IEnumerable<MissionPeer> Players { get { return this._players; }` |
+| `IsOneSided` | `public bool IsOneSided { get; }` |
+| `RoundWinner` | `public BattleSideEnum RoundWinner { get; }` |
+| `Headers` | `public MissionScoreboardComponent.ScoreboardHeader Headers { get; }` |
+| `RoundWinnerList` | `public IEnumerable<BattleSideEnum> RoundWinnerList { get; }` |
+| `Sides` | `public MissionScoreboardComponent.MissionScoreboardSide Sides { get; }` |
+| `Spectators` | `public List<MissionPeer> Spectators { get; }` |
+| `CurrentPlayerCount` | `public int CurrentPlayerCount { get; }` |
+| `Players` | `public IEnumerable<MissionPeer> Players { get; }` |
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### ResetBotScores
-```csharp
-public void ResetBotScores()
-```
+`public void ResetBotScores()`
+
+**Purpose:** Resets `bot scores` to its initial state.
 
 ### ChangeTeamScore
-```csharp
-public void ChangeTeamScore(Team team, int scoreChange)
-```
+`public void ChangeTeamScore(Team team, int scoreChange)`
+
+**Purpose:** Handles logic related to `change team score`.
 
 ### GetSideSafe
-```csharp
-public MissionScoreboardComponent.MissionScoreboardSide GetSideSafe(BattleSideEnum battleSide)
-```
+`public MissionScoreboardComponent.MissionScoreboardSide GetSideSafe(BattleSideEnum battleSide)`
+
+**Purpose:** Gets the current value of `side safe`.
 
 ### GetRoundScore
-```csharp
-public int GetRoundScore(BattleSideEnum side)
-```
+`public int GetRoundScore(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `round score`.
 
 ### HandleServerUpdateRoundScoresMessage
-```csharp
-public void HandleServerUpdateRoundScoresMessage(GameNetworkMessage baseMessage)
-```
+`public void HandleServerUpdateRoundScoresMessage(GameNetworkMessage baseMessage)`
+
+**Purpose:** Handles the `server update round scores message` event or callback.
 
 ### HandleServerSetRoundMVP
-```csharp
-public void HandleServerSetRoundMVP(GameNetworkMessage baseMessage)
-```
+`public void HandleServerSetRoundMVP(GameNetworkMessage baseMessage)`
+
+**Purpose:** Handles the `server set round m v p` event or callback.
 
 ### CalculateTotalNumbers
-```csharp
-public void CalculateTotalNumbers()
-```
+`public void CalculateTotalNumbers()`
+
+**Purpose:** Handles logic related to `calculate total numbers`.
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
 
 ### OnPlayerConnectedToServer
-```csharp
-public override void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)
-```
+`public override void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
+
+**Purpose:** Called when the `player connected to server` event is raised.
 
 ### OnPlayerDisconnectedFromServer
-```csharp
-public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)
-```
+`public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
+
+**Purpose:** Called when the `player disconnected from server` event is raised.
 
 ### OnAgentBuild
-```csharp
-public override void OnAgentBuild(Agent agent, Banner banner)
-```
+`public override void OnAgentBuild(Agent agent, Banner banner)`
+
+**Purpose:** Called when the `agent build` event is raised.
 
 ### OnAssignPlayerAsSergeantOfFormation
-```csharp
-public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)
-```
+`public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
+
+**Purpose:** Called when the `assign player as sergeant of formation` event is raised.
 
 ### BotPropertiesChanged
-```csharp
-public void BotPropertiesChanged(BattleSideEnum side)
-```
+`public void BotPropertiesChanged(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `bot properties changed`.
 
 ### PlayerPropertiesChanged
-```csharp
-public void PlayerPropertiesChanged(NetworkCommunicator player)
-```
+`public void PlayerPropertiesChanged(NetworkCommunicator player)`
+
+**Purpose:** Handles logic related to `player properties changed`.
 
 ### PlayerPropertiesChanged
-```csharp
-public void PlayerPropertiesChanged(MissionPeer player)
-```
+`public void PlayerPropertiesChanged(MissionPeer player)`
+
+**Purpose:** Handles logic related to `player properties changed`.
 
 ### HandleServerEventBotDataMessage
-```csharp
-public void HandleServerEventBotDataMessage(GameNetworkMessage baseMessage)
-```
+`public void HandleServerEventBotDataMessage(GameNetworkMessage baseMessage)`
+
+**Purpose:** Handles the `server event bot data message` event or callback.
 
 ### OnRoundEnding
-```csharp
-public void OnRoundEnding()
-```
+`public void OnRoundEnding()`
+
+**Purpose:** Called when the `round ending` event is raised.
 
 ### OnMultiplayerGameClientBehaviorInitialized
-```csharp
-public void OnMultiplayerGameClientBehaviorInitialized(ref Action<NetworkCommunicator> onBotsControlledChanged)
-```
+`public void OnMultiplayerGameClientBehaviorInitialized(ref Action<NetworkCommunicator> onBotsControlledChanged)`
+
+**Purpose:** Called when the `multiplayer game client behavior initialized` event is raised.
 
 ### GetMatchWinnerSide
-```csharp
-public BattleSideEnum GetMatchWinnerSide()
-```
+`public BattleSideEnum GetMatchWinnerSide()`
+
+**Purpose:** Gets the current value of `match winner side`.
 
 ### OnScoreHit
-```csharp
-public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)
-```
+`public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
+
+**Purpose:** Called when the `score hit` event is raised.
 
 ### GetValueOf
-```csharp
-public string GetValueOf(MissionPeer missionPeer)
-```
+`public string GetValueOf(MissionPeer missionPeer)`
+
+**Purpose:** Gets the current value of `value of`.
 
 ### GetValueOf
-```csharp
-public string GetValueOf(BotData botData)
-```
+`public string GetValueOf(BotData botData)`
+
+**Purpose:** Gets the current value of `value of`.
 
 ### AddPlayer
-```csharp
-public void AddPlayer(MissionPeer peer)
-```
+`public void AddPlayer(MissionPeer peer)`
+
+**Purpose:** Adds `player` to the current collection or state.
 
 ### RemovePlayer
-```csharp
-public void RemovePlayer(MissionPeer peer)
-```
+`public void RemovePlayer(MissionPeer peer)`
+
+**Purpose:** Removes `player` from the current collection or state.
 
 ### GetValuesOf
-```csharp
-public string GetValuesOf(MissionPeer peer)
-```
+`public string GetValuesOf(MissionPeer peer)`
+
+**Purpose:** Gets the current value of `values of`.
 
 ### GetHeaderNames
-```csharp
-public string GetHeaderNames()
-```
+`public string GetHeaderNames()`
+
+**Purpose:** Gets the current value of `header names`.
 
 ### GetHeaderIds
-```csharp
-public string GetHeaderIds()
-```
+`public string GetHeaderIds()`
+
+**Purpose:** Gets the current value of `header ids`.
 
 ### GetScore
-```csharp
-public int GetScore(MissionPeer peer)
-```
+`public int GetScore(MissionPeer peer)`
+
+**Purpose:** Gets the current value of `score`.
+
+### UpdateHeader
+`public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
+
+**Purpose:** Updates the state or data of `header`.
+
+### Clear
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+### CalculateAndGetMVPScoreWithPeer
+`public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
+
+**Purpose:** Handles logic related to `calculate and get m v p score with peer`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionScoreboardComponent (Component)
-agent.GetComponent<MissionScoreboardComponent>();
+var component = agent.GetComponent<MissionScoreboardComponent>();
 ```
 
 ## See Also

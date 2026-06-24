@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MBReadOnlyDictionary`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBReadOnlyDictionary
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class MBReadOnlyDictionary<TKey, TValue> : ICollection, IEnumerable, IReadOnlyDictionary<TKey, TValue>, IEnumerable<KeyValuePair<TKey, TValue>>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>`
+**Base:** `ICollection`
+**File:** `TaleWorlds.Library/MBReadOnlyDictionary.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MBReadOnlyDictionary` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBReadOnlyDictionary` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,34 +32,34 @@
 | `Keys` | `public IEnumerable<TKey> Keys { get; }` |
 | `Values` | `public IEnumerable<TValue> Values { get; }` |
 
-
 ## Key Methods
 
 ### GetEnumerator
+`public Dictionary<TKey, TValue>.Enumerator GetEnumerator()`
 
-```csharp
-public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
-```
+**Purpose:** Gets the current value of `enumerator`.
 
 ### ContainsKey
+`public bool ContainsKey(TKey key)`
 
-```csharp
-public bool ContainsKey(TKey key)
-```
+**Purpose:** Handles logic related to `contains key`.
 
 ### TryGetValue
+`public bool TryGetValue(TKey key, out TValue value)`
 
-```csharp
-public bool TryGetValue(TKey key, out TValue value)
-```
+**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
 
 ### CopyTo
+`public void CopyTo(Array array, int index)`
+
+**Purpose:** Handles logic related to `copy to`.
+
+## Usage Example
 
 ```csharp
-public void CopyTo(Array array, int index)
+MBReadOnlyDictionary example = MBReadOnlyDictionary.Count;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

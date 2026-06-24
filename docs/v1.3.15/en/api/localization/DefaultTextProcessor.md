@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DefaultTextProcessor`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
-**Type:** class
-**Area:** Localization
+**Type:** `public class DefaultTextProcessor : LanguageSpecificTextProcessor`
+**Base:** `LanguageSpecificTextProcessor`
+**Area:** localization
 
 ## Overview
 
-> This is an auto-generated stub. `DefaultTextProcessor` is a class in the `TaleWorlds.Localization.TextProcessor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefaultTextProcessor` lives in `TaleWorlds.Localization.TextProcessor`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,19 +27,24 @@
 |------|-----------|
 | `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
-
 ## Key Methods
 
 ### ProcessToken
+`public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-```csharp
-public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)
-```
+**Purpose:** Handles logic related to `process token`.
 
 ### ClearTemporaryData
+`public override void ClearTemporaryData()`
+
+**Purpose:** Handles logic related to `clear temporary data`.
+
+## Usage Example
 
 ```csharp
-public override void ClearTemporaryData()
+// First obtain a DefaultTextProcessor instance from game state, then call one of its public methods
+var value = new DefaultTextProcessor();
+value.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also

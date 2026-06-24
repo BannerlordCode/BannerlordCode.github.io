@@ -2,33 +2,40 @@
 **Home** → **API Index** → **Area** → `LocalizedVoiceManager`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LocalizedVoiceManager
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
-**Type:** class
-**Area:** Localization
+**Type:** `public static class LocalizedVoiceManager`
+**Area:** localization
 
 ## Overview
 
-> This is an auto-generated stub. `LocalizedVoiceManager` is a class in the `TaleWorlds.Localization` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LocalizedVoiceManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
+## Mental Model
+
+Treat `LocalizedVoiceManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetLocalizedVoice
+`public static VoiceObject GetLocalizedVoice(string id)`
 
-```csharp
-public static VoiceObject GetLocalizedVoice(string id)
-```
+**Purpose:** Gets the current value of `localized voice`.
 
 ### GetVoiceLanguageIds
+`public static List<string> GetVoiceLanguageIds()`
+
+**Purpose:** Gets the current value of `voice language ids`.
+
+## Usage Example
 
 ```csharp
-public static List<string> GetVoiceLanguageIds()
+var manager = LocalizedVoiceManager.Current;
 ```
 
 ## See Also

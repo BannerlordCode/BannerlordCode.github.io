@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `WeaponPropertyComparer`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponPropertyComparer
 
 **命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**类型:** `public class WeaponPropertyComparer : IComparer<CraftingListPropertyItem>`
+**Base:** `IComparer<CraftingListPropertyItem>`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`WeaponPropertyComparer` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`WeaponPropertyComparer` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -40,130 +46,115 @@
 | `DesignResultPropertyList` | `public MBBindingList<WeaponDesignResultPropertyItemVM> DesignResultPropertyList { get; set; }` |
 | `SecondaryUsageSelector` | `public SelectorVM<CraftingSecondaryUsageItemVM> SecondaryUsageSelector { get; set; }` |
 
-
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### SetPieceNewlyUnlocked
+`public void SetPieceNewlyUnlocked(CraftingPiece piece)`
 
-```csharp
-public void SetPieceNewlyUnlocked(CraftingPiece piece)
-```
+**用途 / Purpose:** 设置 `piece newly unlocked` 的值或状态。
 
 ### SelectPrimaryWeaponClass
+`public void SelectPrimaryWeaponClass(CraftingTemplate template)`
 
-```csharp
-public void SelectPrimaryWeaponClass(CraftingTemplate template)
-```
+**用途 / Purpose:** 处理 `select primary weapon class` 相关逻辑。
 
 ### ExecuteOpenOrderPopup
+`public void ExecuteOpenOrderPopup()`
 
-```csharp
-public void ExecuteOpenOrderPopup()
-```
+**用途 / Purpose:** 执行 `open order popup` 操作或流程。
 
 ### ExecuteCloseOrderPopup
+`public void ExecuteCloseOrderPopup()`
 
-```csharp
-public void ExecuteCloseOrderPopup()
-```
+**用途 / Purpose:** 执行 `close order popup` 操作或流程。
 
 ### ExecuteOpenOrdersTab
+`public void ExecuteOpenOrdersTab()`
 
-```csharp
-public void ExecuteOpenOrdersTab()
-```
+**用途 / Purpose:** 执行 `open orders tab` 操作或流程。
 
 ### ExecuteOpenWeaponClassSelectionPopup
+`public void ExecuteOpenWeaponClassSelectionPopup()`
 
-```csharp
-public void ExecuteOpenWeaponClassSelectionPopup()
-```
+**用途 / Purpose:** 执行 `open weapon class selection popup` 操作或流程。
 
 ### ExecuteOpenFreeBuildTab
+`public void ExecuteOpenFreeBuildTab()`
 
-```csharp
-public void ExecuteOpenFreeBuildTab()
-```
+**用途 / Purpose:** 执行 `open free build tab` 操作或流程。
 
 ### CreateCraftingResultPopup
+`public void CreateCraftingResultPopup()`
 
-```csharp
-public void CreateCraftingResultPopup()
-```
+**用途 / Purpose:** 创建一个 `crafting result popup` 实例或对象。
 
 ### ExecuteToggleShowOnlyUnlockedPieces
+`public void ExecuteToggleShowOnlyUnlockedPieces()`
 
-```csharp
-public void ExecuteToggleShowOnlyUnlockedPieces()
-```
+**用途 / Purpose:** 执行 `toggle show only unlocked pieces` 操作或流程。
 
 ### ExecuteUndo
+`public void ExecuteUndo()`
 
-```csharp
-public void ExecuteUndo()
-```
+**用途 / Purpose:** 执行 `undo` 操作或流程。
 
 ### ExecuteRedo
+`public void ExecuteRedo()`
 
-```csharp
-public void ExecuteRedo()
-```
+**用途 / Purpose:** 执行 `redo` 操作或流程。
 
 ### ChangeModeIfHeroIsUnavailable
+`public void ChangeModeIfHeroIsUnavailable()`
 
-```csharp
-public void ChangeModeIfHeroIsUnavailable()
-```
+**用途 / Purpose:** 处理 `change mode if hero is unavailable` 相关逻辑。
 
 ### ExecuteBeginHeroHint
+`public void ExecuteBeginHeroHint()`
 
-```csharp
-public void ExecuteBeginHeroHint()
-```
+**用途 / Purpose:** 执行 `begin hero hint` 操作或流程。
 
 ### ExecuteEndHeroHint
+`public void ExecuteEndHeroHint()`
 
-```csharp
-public void ExecuteEndHeroHint()
-```
+**用途 / Purpose:** 执行 `end hero hint` 操作或流程。
 
 ### ExecuteRandomize
+`public void ExecuteRandomize()`
 
-```csharp
-public void ExecuteRandomize()
-```
+**用途 / Purpose:** 执行 `randomize` 操作或流程。
 
 ### ExecuteChangeScabbardVisibility
+`public void ExecuteChangeScabbardVisibility()`
 
-```csharp
-public void ExecuteChangeScabbardVisibility()
-```
+**用途 / Purpose:** 执行 `change scabbard visibility` 操作或流程。
 
 ### SelectWeapon
+`public void SelectWeapon(ItemObject itemObject)`
 
-```csharp
-public void SelectWeapon(ItemObject itemObject)
-```
+**用途 / Purpose:** 处理 `select weapon` 相关逻辑。
 
 ### CanCompleteOrder
+`public bool CanCompleteOrder()`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `complete order`。
+
+## 使用示例
 
 ```csharp
-public bool CanCompleteOrder()
+// 先从游戏状态中拿到一个 WeaponPropertyComparer 实例，再调用它的公开方法
+var value = new WeaponPropertyComparer();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 

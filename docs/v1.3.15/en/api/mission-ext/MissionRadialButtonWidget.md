@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionRadialButtonWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionRadialButtonWidget
@@ -16,24 +17,26 @@
 
 `MissionRadialButtonWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MissionRadialButtonWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Methods
 
 ### ExecuteFocused
-```csharp
-public void ExecuteFocused()
-```
+`public void ExecuteFocused()`
+
+**Purpose:** Executes the `focused` operation or workflow.
 
 ### ExecuteUnfocused
-```csharp
-public void ExecuteUnfocused()
-```
+`public void ExecuteUnfocused()`
+
+**Purpose:** Executes the `unfocused` operation or workflow.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionRadialButtonWidget (Widget)
-// 声明/访问一个 MissionRadialButtonWidget
-var widget = root.GetChild("missionRadialButtonWidget");;
+var widget = new MissionRadialButtonWidget(context);
 ```
 
 ## See Also

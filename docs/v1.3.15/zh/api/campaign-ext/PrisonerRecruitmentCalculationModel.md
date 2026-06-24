@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PrisonerRecruitmentCalculationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PrisonerRecruitmentCalculationModel
@@ -14,45 +15,48 @@
 
 ## 概述
 
-`PrisonerRecruitmentCalculationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<PrisonerRecruitmentCalculationModel>(new MyPrisonerRecruitmentCalculationModel())` 注册，以改变其计算逻辑。
+`PrisonerRecruitmentCalculationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `PrisonerRecruitmentCalculationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetConformityNeededToRecruitPrisoner
-```csharp
-public abstract int GetConformityNeededToRecruitPrisoner(CharacterObject character)
-```
+`public abstract int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
+
+**用途 / Purpose:** 获取 `conformity needed to recruit prisoner` 的当前值。
 
 ### GetConformityChangePerHour
-```csharp
-public abstract ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)
-```
+`public abstract ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
+
+**用途 / Purpose:** 获取 `conformity change per hour` 的当前值。
 
 ### GetPrisonerRecruitmentMoraleEffect
-```csharp
-public abstract int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)
-```
+`public abstract int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
+
+**用途 / Purpose:** 获取 `prisoner recruitment morale effect` 的当前值。
 
 ### IsPrisonerRecruitable
-```csharp
-public abstract bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)
-```
+`public abstract bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
+
+**用途 / Purpose:** 处理 `is prisoner recruitable` 相关逻辑。
 
 ### ShouldPartyRecruitPrisoners
-```csharp
-public abstract bool ShouldPartyRecruitPrisoners(PartyBase party)
-```
+`public abstract bool ShouldPartyRecruitPrisoners(PartyBase party)`
+
+**用途 / Purpose:** 处理 `should party recruit prisoners` 相关逻辑。
 
 ### CalculateRecruitableNumber
-```csharp
-public abstract int CalculateRecruitableNumber(PartyBase party, CharacterObject character)
-```
+`public abstract int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
+
+**用途 / Purpose:** 处理 `calculate recruitable number` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// PrisonerRecruitmentCalculationModel (Model) 的典型用法
-Game.Current.ReplaceModel<PrisonerRecruitmentCalculationModel>(new MyPrisonerRecruitmentCalculationModel());
+var implementation = new CustomPrisonerRecruitmentCalculationModel();
 ```
 
 ## 参见

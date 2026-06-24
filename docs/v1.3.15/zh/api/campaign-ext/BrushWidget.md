@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BrushWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushWidget
@@ -16,41 +17,45 @@
 
 `BrushWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `BrushWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `ReadOnlyBrush` | `public Brush ReadOnlyBrush { get { if (this._clonedBrush != null) { return this._clonedBrush; }` |
-| `Sprite` | `public new Sprite Sprite { get { return this.ReadOnlyBrush.DefaultStyle.GetLayer("Default").Sprite; }` |
+| `Brush` | `public Brush Brush { get; }` |
+| `ReadOnlyBrush` | `public Brush ReadOnlyBrush { get; }` |
+| `Sprite` | `public new Sprite Sprite { get; set; }` |
+| `BrushRenderer` | `public BrushRenderer BrushRenderer { get; }` |
 
 ## 主要方法
 
 ### UpdateBrushes
-```csharp
-public override void UpdateBrushes(float dt)
-```
+`public override void UpdateBrushes(float dt)`
+
+**用途 / Purpose:** 更新 `brushes` 的状态或数据。
 
 ### SetState
-```csharp
-public override void SetState(string stateName)
-```
+`public override void SetState(string stateName)`
+
+**用途 / Purpose:** 设置 `state` 的值或状态。
 
 ### UpdateAnimationPropertiesSubTask
-```csharp
-public override void UpdateAnimationPropertiesSubTask(float alphaFactor)
-```
+`public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
+
+**用途 / Purpose:** 更新 `animation properties sub task` 的状态或数据。
 
 ### OnBrushChanged
-```csharp
-public virtual void OnBrushChanged()
-```
+`public virtual void OnBrushChanged()`
+
+**用途 / Purpose:** 当 `brush changed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// BrushWidget (Widget) 的典型用法
-// 声明/访问一个 BrushWidget
-var widget = root.GetChild("brushWidget");;
+var widget = new BrushWidget(context);
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultAgentDecideKilledOrUnconsciousModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultAgentDecideKilledOrUnconsciousModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultAgentDecideKilledOrUnconsciousModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultAgentDecideKilledOrUnconsciousModel>(new MyDefaultAgentDecideKilledOrUnconsciousModel())` to change how it computes.
+`DefaultAgentDecideKilledOrUnconsciousModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultAgentDecideKilledOrUnconsciousModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetAgentStateProbability
-```csharp
-public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)
-```
+`public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
+
+**Purpose:** Gets the current value of `agent state probability`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultAgentDecideKilledOrUnconsciousModel (Model)
 Game.Current.ReplaceModel<DefaultAgentDecideKilledOrUnconsciousModel>(new MyDefaultAgentDecideKilledOrUnconsciousModel());
 ```
 

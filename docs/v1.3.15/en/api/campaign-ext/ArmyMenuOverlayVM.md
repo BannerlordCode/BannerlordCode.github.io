@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArmyMenuOverlayVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArmyMenuOverlayVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ArmyMenuOverlayVM : GameMenuOverlay`
+**Base:** `GameMenuOverlay`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/ArmyMenuOverlayVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ArmyMenuOverlayVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArmyMenuOverlayVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,40 +39,40 @@
 | `FoodHint` | `public BasicTooltipViewModel FoodHint { get; set; }` |
 | `IssueList` | `public MBBindingList<StringItemWithHintVM> IssueList { get; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### OnFrameTick
+`public override void OnFrameTick(float dt)`
 
-```csharp
-public override void OnFrameTick(float dt)
-```
+**Purpose:** Called when the `frame tick` event is raised.
 
 ### Refresh
+`public sealed override void Refresh()`
 
-```csharp
-public sealed override void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### ExecuteOpenArmyManagement
+`public void ExecuteOpenArmyManagement()`
+
+**Purpose:** Executes the `open army management` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteOpenArmyManagement()
+var value = new ArmyMenuOverlayVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

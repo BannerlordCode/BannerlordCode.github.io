@@ -5,6 +5,10 @@ description: 原生对象包装类完整文档 / Complete documentation for nati
 
 # NativeObject
 
+## 心智模型
+
+先把 `NativeObject` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **文件**: `TaleWorlds.DotNet/NativeObject.cs`  
 **命名空间**: `TaleWorlds.DotNet`  
 **继承**: 无基类 / Base class for all native object wrappers

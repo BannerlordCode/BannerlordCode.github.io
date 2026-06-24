@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeWeaponMovementComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeWeaponMovementComponent
@@ -14,104 +15,109 @@
 
 ## Overview
 
-`SiegeWeaponMovementComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<SiegeWeaponMovementComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`SiegeWeaponMovementComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `SiegeWeaponMovementComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `HasApproachedTarget` | `public bool HasApproachedTarget { get { return !this._pathTracker.PathExists() || this._pathTracker.PathTraveledPercentage > 0.7f; }` |
-| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get { return !this._pathTracker.PathExists() || this._pathTracker.HasReachedEnd; }` |
+| `HasApproachedTarget` | `public bool HasApproachedTarget { get; }` |
+| `Velocity` | `public Vec3 Velocity { get; }` |
+| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; }` |
+| `CurrentSpeed` | `public float CurrentSpeed { get; }` |
 | `MovementSoundCodeID` | `public int MovementSoundCodeID { get; set; }` |
 | `MinSpeed` | `public float MinSpeed { get; set; }` |
 | `MaxSpeed` | `public float MaxSpeed { get; set; }` |
 | `PathEntityName` | `public string PathEntityName { get; set; }` |
 | `GhostEntitySpeedMultiplier` | `public float GhostEntitySpeedMultiplier { get; set; }` |
-| `WheelDiameter` | `public float WheelDiameter { set { this._wheelDiameter = value; this._wheelCircumference = this._wheelDiameter * 3.1415927f; }` |
+| `WheelDiameter` | `public float WheelDiameter { get; set; }` |
 | `MainObject` | `public SynchedMissionObject MainObject { get; set; }` |
 
 ## Key Methods
 
 ### HighlightPath
-```csharp
-public void HighlightPath()
-```
+`public void HighlightPath()`
+
+**Purpose:** Handles logic related to `highlight path`.
 
 ### SetupGhostEntity
-```csharp
-public void SetupGhostEntity()
-```
+`public void SetupGhostEntity()`
+
+**Purpose:** Sets the value or state of `up ghost entity`.
 
 ### SetGhostVisibility
-```csharp
-public void SetGhostVisibility(bool isVisible)
-```
+`public void SetGhostVisibility(bool isVisible)`
+
+**Purpose:** Sets the value or state of `ghost visibility`.
 
 ### OnEditorInit
-```csharp
-public void OnEditorInit()
-```
+`public void OnEditorInit()`
+
+**Purpose:** Called when the `editor init` event is raised.
 
 ### SetDistanceTraveledAsClient
-```csharp
-public void SetDistanceTraveledAsClient(float distance)
-```
+`public void SetDistanceTraveledAsClient(float distance)`
+
+**Purpose:** Sets the value or state of `distance traveled as client`.
 
 ### IsOnTickRequired
-```csharp
-public override bool IsOnTickRequired()
-```
+`public override bool IsOnTickRequired()`
+
+**Purpose:** Handles logic related to `is on tick required`.
 
 ### TickParallelManually
-```csharp
-public void TickParallelManually(float dt)
-```
+`public void TickParallelManually(float dt)`
+
+**Purpose:** Handles logic related to `tick parallel manually`.
 
 ### GetInitialFrame
-```csharp
-public MatrixFrame GetInitialFrame()
-```
+`public MatrixFrame GetInitialFrame()`
+
+**Purpose:** Gets the current value of `initial frame`.
 
 ### GetTargetFrame
-```csharp
-public MatrixFrame GetTargetFrame()
-```
+`public MatrixFrame GetTargetFrame()`
+
+**Purpose:** Gets the current value of `target frame`.
 
 ### SetDestinationNavMeshIdState
-```csharp
-public void SetDestinationNavMeshIdState(bool enabled)
-```
+`public void SetDestinationNavMeshIdState(bool enabled)`
+
+**Purpose:** Sets the value or state of `destination nav mesh id state`.
 
 ### MoveToTargetAsClient
-```csharp
-public void MoveToTargetAsClient()
-```
+`public void MoveToTargetAsClient()`
+
+**Purpose:** Handles logic related to `move to target as client`.
 
 ### GetTotalDistanceTraveledForPathTracker
-```csharp
-public float GetTotalDistanceTraveledForPathTracker()
-```
+`public float GetTotalDistanceTraveledForPathTracker()`
+
+**Purpose:** Gets the current value of `total distance traveled for path tracker`.
 
 ### SetTotalDistanceTraveledForPathTracker
-```csharp
-public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)
-```
+`public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)`
+
+**Purpose:** Sets the value or state of `total distance traveled for path tracker`.
 
 ### SetTargetFrameForPathTracker
-```csharp
-public void SetTargetFrameForPathTracker()
-```
+`public void SetTargetFrameForPathTracker()`
+
+**Purpose:** Sets the value or state of `target frame for path tracker`.
 
 ### FindGroundFrameForWheelsStatic
-```csharp
-public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)
-```
+`public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)`
+
+**Purpose:** Handles logic related to `find ground frame for wheels static`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeWeaponMovementComponent (Component)
-agent.GetComponent<SiegeWeaponMovementComponent>();
+var component = agent.GetComponent<SiegeWeaponMovementComponent>();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AIBehaviorData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AIBehaviorData
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`AIBehaviorData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`AIBehaviorData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `AIBehaviorData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### Equals
-```csharp
-public override bool Equals(object obj)
-```
+`public override bool Equals(object obj)`
+
+**Purpose:** Handles logic related to `equals`.
 
 ### Equals
-```csharp
-public bool Equals(AIBehaviorData other)
-```
+`public bool Equals(AIBehaviorData other)`
+
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
-```csharp
-public override int GetHashCode()
-```
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AIBehaviorData (Data)
-new AIBehaviorData { /* fill fields */ };;
+var value = new AIBehaviorData();
 ```
 
 ## See Also

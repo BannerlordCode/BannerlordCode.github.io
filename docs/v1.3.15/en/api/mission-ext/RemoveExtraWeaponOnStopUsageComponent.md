@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `RemoveExtraWeaponOnStopUsageComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RemoveExtraWeaponOnStopUsageComponent
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`RemoveExtraWeaponOnStopUsageComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`RemoveExtraWeaponOnStopUsageComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `RemoveExtraWeaponOnStopUsageComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of RemoveExtraWeaponOnStopUsageComponent (Component)
-agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>();
+var component = agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>();
 ```
 
 ## See Also

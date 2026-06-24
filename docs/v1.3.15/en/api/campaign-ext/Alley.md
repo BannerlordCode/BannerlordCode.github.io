@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Alley`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Alley
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Alley : SettlementArea`
+**Base:** `SettlementArea`
+**File:** `TaleWorlds.CampaignSystem/Settlements/Alley.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Alley` is a class in the `TaleWorlds.CampaignSystem.Settlements` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Alley` lives in `TaleWorlds.CampaignSystem.Settlements` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,22 +31,25 @@
 | `Tag` | `public override string Tag { get; }` |
 | `State` | `public Alley.AreaState State { get; }` |
 
-
 ## Key Methods
 
 ### SetOwner
+`public void SetOwner(Hero newOwner)`
 
-```csharp
-public void SetOwner(Hero newOwner)
-```
+**Purpose:** Sets the value or state of `owner`.
 
 ### Initialize
+`public void Initialize(Settlement settlement, string tag, TextObject name)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+
+## Usage Example
 
 ```csharp
-public void Initialize(Settlement settlement, string tag, TextObject name)
+var value = new Alley();
+value.SetOwner(newOwner);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

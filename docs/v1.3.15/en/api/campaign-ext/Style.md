@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Style`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Style
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Style : IDataSource`
+**Base:** `IDataSource`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Style.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Style` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Style` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,77 +45,74 @@
 | `TextHueFactor` | `public float TextHueFactor { get; set; }` |
 | `TextSaturationFactor` | `public float TextSaturationFactor { get; set; }` |
 | `TextValueFactor` | `public float TextValueFactor { get; set; }` |
-
+| `Font` | `public Font Font { get; set; }` |
+| `FontStyle` | `public FontStyle FontStyle { get; set; }` |
+| `FontSize` | `public int FontSize { get; set; }` |
 
 ## Key Methods
 
 ### FillFrom
+`public void FillFrom(Style style)`
 
-```csharp
-public void FillFrom(Style style)
-```
+**Purpose:** Handles logic related to `fill from`.
 
 ### AddLayer
+`public void AddLayer(StyleLayer layer)`
 
-```csharp
-public void AddLayer(StyleLayer layer)
-```
+**Purpose:** Adds `layer` to the current collection or state.
 
 ### RemoveLayer
+`public void RemoveLayer(string layerName)`
 
-```csharp
-public void RemoveLayer(string layerName)
-```
-
-### GetLayer
-
-```csharp
-public StyleLayer GetLayer(int index)
-```
+**Purpose:** Removes `layer` from the current collection or state.
 
 ### GetLayer
+`public StyleLayer GetLayer(int index)`
 
-```csharp
-public StyleLayer GetLayer(string name)
-```
+**Purpose:** Gets the current value of `layer`.
+
+### GetLayer
+`public StyleLayer GetLayer(string name)`
+
+**Purpose:** Gets the current value of `layer`.
 
 ### GetLayers
+`public StyleLayer GetLayers()`
 
-```csharp
-public StyleLayer GetLayers()
-```
+**Purpose:** Gets the current value of `layers`.
 
 ### CreateTextMaterial
+`public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-```csharp
-public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)
-```
+**Purpose:** Creates a new `text material` instance or object.
 
 ### GetValueAsFloat
+`public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as float`.
 
 ### GetValueAsColor
+`public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as color`.
 
 ### GetValueAsSprite
+`public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as sprite`.
 
 ### SetAsDefaultStyle
+`public void SetAsDefaultStyle()`
+
+**Purpose:** Sets the value or state of `as default style`.
+
+## Usage Example
 
 ```csharp
-public void SetAsDefaultStyle()
+var value = new Style();
+value.FillFrom(style);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

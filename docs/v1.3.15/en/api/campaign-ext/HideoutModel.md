@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HideoutModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HideoutModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HideoutModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<HideoutModel>(new MyHideoutModel())` to change how it computes.
+`HideoutModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `HideoutModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,15 +32,14 @@
 ## Key Methods
 
 ### GetRogueryXpGainOnHideoutMissionEnd
-```csharp
-public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)
-```
+`public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
+
+**Purpose:** Gets the current value of `roguery xp gain on hideout mission end`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HideoutModel (Model)
-Game.Current.ReplaceModel<HideoutModel>(new MyHideoutModel());
+var implementation = new CustomHideoutModel();
 ```
 
 ## See Also

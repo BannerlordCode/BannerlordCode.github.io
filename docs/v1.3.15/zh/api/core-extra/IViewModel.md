@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `IViewModel`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IViewModel
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** 接口 interface
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.Library/IViewModel.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IViewModel` 是 `TaleWorlds.Library` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
+
+## 心智模型
+
+把 `IViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IViewModel implementation = GetViewModelImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

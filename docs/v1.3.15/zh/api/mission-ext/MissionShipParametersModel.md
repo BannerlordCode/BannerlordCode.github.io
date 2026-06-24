@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionShipParametersModel`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionShipParametersModel
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`MissionShipParametersModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<MissionShipParametersModel>(new MyMissionShipParametersModel())` 注册，以改变其计算逻辑。
+`MissionShipParametersModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MissionShipParametersModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CalculateMainDeckCrewSize
-```csharp
-public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)
-```
+`public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)`
+
+**用途 / Purpose:** 处理 `calculate main deck crew size` 相关逻辑。
 
 ### CalculateWindBonus
-```csharp
-public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)
-```
+`public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)`
+
+**用途 / Purpose:** 处理 `calculate wind bonus` 相关逻辑。
 
 ### CalculateOarForceMultiplier
-```csharp
-public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)
-```
+`public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)`
+
+**用途 / Purpose:** 处理 `calculate oar force multiplier` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MissionShipParametersModel (Model) 的典型用法
-Game.Current.ReplaceModel<MissionShipParametersModel>(new MyMissionShipParametersModel());
+var implementation = new CustomMissionShipParametersModel();
 ```
 
 ## 参见

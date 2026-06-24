@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBStringBuilder`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBStringBuilder
@@ -14,7 +15,11 @@
 
 ## Overview
 
-> TODO: add this class's responsibility and typical use-cases from a developer perspective.
+`MBStringBuilder` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,74 +30,75 @@
 ## Key Methods
 
 ### Initialize
-```csharp
-public void Initialize(int capacity = 16, string callerMemberName = "")
-```
+`public void Initialize(int capacity = 16, string callerMemberName = "")`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### ToStringAndRelease
-```csharp
-public string ToStringAndRelease()
-```
+`public string ToStringAndRelease()`
+
+**Purpose:** Handles logic related to `to string and release`.
 
 ### Release
-```csharp
-public void Release()
-```
+`public void Release()`
+
+**Purpose:** Handles logic related to `release`.
 
 ### Append
-```csharp
-public MBStringBuilder Append(char value)
-```
+`public MBStringBuilder Append(char value)`
+
+**Purpose:** Handles logic related to `append`.
 
 ### Append
-```csharp
-public MBStringBuilder Append(int value)
-```
+`public MBStringBuilder Append(int value)`
+
+**Purpose:** Handles logic related to `append`.
 
 ### Append
-```csharp
-public MBStringBuilder Append(uint value)
-```
+`public MBStringBuilder Append(uint value)`
+
+**Purpose:** Handles logic related to `append`.
 
 ### Append
-```csharp
-public MBStringBuilder Append(float value)
-```
+`public MBStringBuilder Append(float value)`
+
+**Purpose:** Handles logic related to `append`.
 
 ### Append
-```csharp
-public MBStringBuilder Append(double value)
-```
+`public MBStringBuilder Append(double value)`
+
+**Purpose:** Handles logic related to `append`.
 
 ### AppendLine
-```csharp
-public MBStringBuilder AppendLine()
-```
+`public MBStringBuilder AppendLine()`
+
+**Purpose:** Handles logic related to `append line`.
 
 ### ToString
-```csharp
-public override string ToString()
-```
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
 
 ### Acquire
-```csharp
-public static StringBuilder Acquire(int capacity = 16)
-```
+`public static StringBuilder Acquire(int capacity = 16)`
+
+**Purpose:** Handles logic related to `acquire`.
 
 ### Release
-```csharp
-public static void Release(StringBuilder sb)
-```
+`public static void Release(StringBuilder sb)`
+
+**Purpose:** Handles logic related to `release`.
 
 ### GetStringAndReleaseBuilder
-```csharp
-public static string GetStringAndReleaseBuilder(StringBuilder sb)
-```
+`public static string GetStringAndReleaseBuilder(StringBuilder sb)`
+
+**Purpose:** Gets the current value of `string and release builder`.
 
 ## Usage Example
 
 ```csharp
-// TODO: add a typical use-case
+var value = new MBStringBuilder();
+value.Initialize(0, "example");
 ```
 
 ## See Also

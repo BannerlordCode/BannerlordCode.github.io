@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBInformationManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBInformationManager
@@ -14,70 +15,73 @@
 
 ## Overview
 
-`MBInformationManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MBInformationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MBInformationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AddQuickInformation
-```csharp
-public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")
-```
+`public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")`
+
+**Purpose:** Adds `quick information` to the current collection or state.
 
 ### ClearQuickInformations
-```csharp
-public static void ClearQuickInformations()
-```
+`public static void ClearQuickInformations()`
+
+**Purpose:** Handles logic related to `clear quick informations`.
 
 ### ShowMultiSelectionInquiry
-```csharp
-public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)
-```
+`public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
+
+**Purpose:** Handles logic related to `show multi selection inquiry`.
 
 ### AddNotice
-```csharp
-public static void AddNotice(InformationData data)
-```
+`public static void AddNotice(InformationData data)`
+
+**Purpose:** Adds `notice` to the current collection or state.
 
 ### MapNoticeRemoved
-```csharp
-public static void MapNoticeRemoved(InformationData data)
-```
+`public static void MapNoticeRemoved(InformationData data)`
+
+**Purpose:** Handles logic related to `map notice removed`.
 
 ### ShowHint
-```csharp
-public static void ShowHint(string hint)
-```
+`public static void ShowHint(string hint)`
+
+**Purpose:** Handles logic related to `show hint`.
 
 ### HideInformations
-```csharp
-public static void HideInformations()
-```
+`public static void HideInformations()`
+
+**Purpose:** Handles logic related to `hide informations`.
 
 ### ShowSceneNotification
-```csharp
-public static void ShowSceneNotification(SceneNotificationData data)
-```
+`public static void ShowSceneNotification(SceneNotificationData data)`
+
+**Purpose:** Handles logic related to `show scene notification`.
 
 ### HideSceneNotification
-```csharp
-public static void HideSceneNotification()
-```
+`public static void HideSceneNotification()`
+
+**Purpose:** Handles logic related to `hide scene notification`.
 
 ### GetIsAnySceneNotificationActive
-```csharp
-public static bool? GetIsAnySceneNotificationActive()
-```
+`public static bool? GetIsAnySceneNotificationActive()`
+
+**Purpose:** Gets the current value of `is any scene notification active`.
 
 ### Clear
-```csharp
-public static void Clear()
-```
+`public static void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBInformationManager (Manager)
-MBInformationManager.Current;
+var manager = MBInformationManager.Current;
 ```
 
 ## See Also

@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `CraftingVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class CraftingVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/WeaponCrafting/CraftingVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CraftingVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`CraftingVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,133 +45,132 @@
 | `ItemValue` | `public int ItemValue { get; set; }` |
 | `CraftingHint` | `public HintViewModel CraftingHint { get; set; }` |
 | `RefiningHint` | `public HintViewModel RefiningHint { get; set; }` |
-
+| `SmeltingHint` | `public HintViewModel SmeltingHint { get; set; }` |
+| `ResetCameraHint` | `public HintViewModel ResetCameraHint { get; set; }` |
+| `MainActionHint` | `public BasicTooltipViewModel MainActionHint { get; set; }` |
+| `DoneLbl` | `public string DoneLbl { get; set; }` |
+| `CancelLbl` | `public string CancelLbl { get; set; }` |
+| `Smelting` | `public SmeltingVM Smelting { get; set; }` |
+| `WeaponDesign` | `public WeaponDesignVM WeaponDesign { get; set; }` |
+| `Refinement` | `public RefinementVM Refinement { get; set; }` |
+| `IsInCraftingMode` | `public bool IsInCraftingMode { get; set; }` |
+| `IsInSmeltingMode` | `public bool IsInSmeltingMode { get; set; }` |
+| `IsInRefinementMode` | `public bool IsInRefinementMode { get; set; }` |
+| `IsSmeltingItemSelected` | `public bool IsSmeltingItemSelected { get; set; }` |
+| `IsRefinementItemSelected` | `public bool IsRefinementItemSelected { get; set; }` |
+| `SelectItemToSmeltText` | `public string SelectItemToSmeltText { get; set; }` |
+| `SelectItemToRefineText` | `public string SelectItemToRefineText { get; set; }` |
+| `TutorialNotification` | `public ElementNotificationVM TutorialNotification { get; set; }` |
 
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### OnCraftingLogicRefreshed
+`public void OnCraftingLogicRefreshed(Crafting newCraftingLogic)`
 
-```csharp
-public void OnCraftingLogicRefreshed(Crafting newCraftingLogic)
-```
+**用途 / Purpose:** 当 `crafting logic refreshed` 事件触发时调用此方法。
 
 ### UpdateCraftingHero
+`public void UpdateCraftingHero(CraftingAvailableHeroItemVM newHero)`
 
-```csharp
-public void UpdateCraftingHero(CraftingAvailableHeroItemVM newHero)
-```
+**用途 / Purpose:** 更新 `crafting hero` 的状态或数据。
 
 ### ExecuteConfirm
+`public ValueTuple<bool, bool> ExecuteConfirm()`
 
-```csharp
-public ValueTuple<bool, bool> ExecuteConfirm()
-```
+**用途 / Purpose:** 执行 `confirm` 操作或流程。
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**用途 / Purpose:** 执行 `cancel` 操作或流程。
 
 ### ExecuteMainAction
+`public void ExecuteMainAction()`
 
-```csharp
-public void ExecuteMainAction()
-```
+**用途 / Purpose:** 执行 `main action` 操作或流程。
 
 ### ExecuteResetCamera
+`public void ExecuteResetCamera()`
 
-```csharp
-public void ExecuteResetCamera()
-```
+**用途 / Purpose:** 执行 `reset camera` 操作或流程。
 
 ### SetConfirmInputKey
+`public void SetConfirmInputKey(HotKey hotKey)`
 
-```csharp
-public void SetConfirmInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `confirm input key` 的值或状态。
 
 ### SetExitInputKey
+`public void SetExitInputKey(HotKey hotKey)`
 
-```csharp
-public void SetExitInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `exit input key` 的值或状态。
 
 ### SetPreviousTabInputKey
+`public void SetPreviousTabInputKey(HotKey hotKey)`
 
-```csharp
-public void SetPreviousTabInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `previous tab input key` 的值或状态。
 
 ### SetNextTabInputKey
+`public void SetNextTabInputKey(HotKey hotKey)`
 
-```csharp
-public void SetNextTabInputKey(HotKey hotKey)
-```
-
-### AddCameraControlInputKey
-
-```csharp
-public void AddCameraControlInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `next tab input key` 的值或状态。
 
 ### AddCameraControlInputKey
+`public void AddCameraControlInputKey(HotKey hotKey)`
 
-```csharp
-public void AddCameraControlInputKey(GameKey gameKey)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
 
 ### AddCameraControlInputKey
+`public void AddCameraControlInputKey(GameKey gameKey)`
 
-```csharp
-public void AddCameraControlInputKey(GameAxisKey gameAxisKey)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+
+### AddCameraControlInputKey
+`public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
 
 ### ExecuteSwitchToCrafting
+`public void ExecuteSwitchToCrafting()`
 
-```csharp
-public void ExecuteSwitchToCrafting()
-```
+**用途 / Purpose:** 执行 `switch to crafting` 操作或流程。
 
 ### ExecuteSwitchToSmelting
+`public void ExecuteSwitchToSmelting()`
 
-```csharp
-public void ExecuteSwitchToSmelting()
-```
+**用途 / Purpose:** 执行 `switch to smelting` 操作或流程。
 
 ### ExecuteSwitchToRefinement
+`public void ExecuteSwitchToRefinement()`
 
-```csharp
-public void ExecuteSwitchToRefinement()
-```
+**用途 / Purpose:** 执行 `switch to refinement` 操作或流程。
 
 ### SetCurrentDesignManually
+`public void SetCurrentDesignManually(CraftingTemplate craftingTemplate, ValueTuple<CraftingPiece, int> pieces)`
 
-```csharp
-public void SetCurrentDesignManually(CraftingTemplate craftingTemplate, ValueTuple<CraftingPiece, int> pieces)
-```
+**用途 / Purpose:** 设置 `current design manually` 的值或状态。
 
 ### OnItemRefreshedDelegate
+`public delegate void OnItemRefreshedDelegate(bool isItemVisible)`
+
+**用途 / Purpose:** 当 `item refreshed delegate` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public delegate void OnItemRefreshedDelegate(bool isItemVisible)
+var value = new CraftingVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

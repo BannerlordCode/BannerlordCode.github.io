@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleAutoBlockModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleAutoBlockModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`CustomBattleAutoBlockModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CustomBattleAutoBlockModel>(new MyCustomBattleAutoBlockModel())` to change how it computes.
+`CustomBattleAutoBlockModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CustomBattleAutoBlockModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBlockDirection
-```csharp
-public override Agent.UsageDirection GetBlockDirection(Mission mission)
-```
+`public override Agent.UsageDirection GetBlockDirection(Mission mission)`
+
+**Purpose:** Gets the current value of `block direction`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleAutoBlockModel (Model)
 Game.Current.ReplaceModel<CustomBattleAutoBlockModel>(new MyCustomBattleAutoBlockModel());
 ```
 

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionDeploymentPlanningLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionDeploymentPlanningLogic
@@ -14,130 +15,133 @@
 
 ## 概述
 
-`MissionDeploymentPlanningLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new MissionDeploymentPlanningLogic())` 添加；继承它可定制。
+`MissionDeploymentPlanningLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `MissionDeploymentPlanningLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### Initialize
-```csharp
-public virtual void Initialize()
-```
+`public virtual void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### ClearAll
-```csharp
-public virtual void ClearAll()
-```
+`public virtual void ClearAll()`
+
+**用途 / Purpose:** 处理 `clear all` 相关逻辑。
 
 ### MakeDefaultDeploymentPlans
-```csharp
-public virtual void MakeDefaultDeploymentPlans()
-```
+`public virtual void MakeDefaultDeploymentPlans()`
+
+**用途 / Purpose:** 处理 `make default deployment plans` 相关逻辑。
 
 ### MakeDeploymentPlan
-```csharp
-public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)
-```
+`public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
+
+**用途 / Purpose:** 处理 `make deployment plan` 相关逻辑。
 
 ### RemakeDeploymentPlan
-```csharp
-public virtual bool RemakeDeploymentPlan(Team team)
-```
+`public virtual bool RemakeDeploymentPlan(Team team)`
+
+**用途 / Purpose:** 处理 `remake deployment plan` 相关逻辑。
 
 ### ClearDeploymentPlan
-```csharp
-public virtual void ClearDeploymentPlan(Team team)
-```
+`public virtual void ClearDeploymentPlan(Team team)`
+
+**用途 / Purpose:** 处理 `clear deployment plan` 相关逻辑。
 
 ### IsPlanMade
-```csharp
-public virtual bool IsPlanMade(Team team)
-```
+`public virtual bool IsPlanMade(Team team)`
+
+**用途 / Purpose:** 处理 `is plan made` 相关逻辑。
 
 ### IsPlanMade
-```csharp
-public virtual bool IsPlanMade(Team team, out bool isFirstPlan)
-```
+`public virtual bool IsPlanMade(Team team, out bool isFirstPlan)`
+
+**用途 / Purpose:** 处理 `is plan made` 相关逻辑。
 
 ### IsPositionInsideDeploymentBoundaries
-```csharp
-public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)
-```
+`public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
+
+**用途 / Purpose:** 处理 `is position inside deployment boundaries` 相关逻辑。
 
 ### HasDeploymentBoundaries
-```csharp
-public virtual bool HasDeploymentBoundaries(Team team)
-```
+`public virtual bool HasDeploymentBoundaries(Team team)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `deployment boundaries`。
 
 ### GetDeploymentBoundaries
-```csharp
-public virtual MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)
-```
+`public virtual MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)`
+
+**用途 / Purpose:** 获取 `deployment boundaries` 的当前值。
 
 ### SupportsReinforcements
-```csharp
-public virtual bool SupportsReinforcements()
-```
+`public virtual bool SupportsReinforcements()`
+
+**用途 / Purpose:** 处理 `supports reinforcements` 相关逻辑。
 
 ### SupportsNavmesh
-```csharp
-public virtual bool SupportsNavmesh()
-```
+`public virtual bool SupportsNavmesh()`
+
+**用途 / Purpose:** 处理 `supports navmesh` 相关逻辑。
 
 ### HasPlayerSpawnFrame
-```csharp
-public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)
-```
+`public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `player spawn frame`。
 
 ### GetPlayerSpawnFrame
-```csharp
-public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)
-```
+`public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
+
+**用途 / Purpose:** 获取 `player spawn frame` 的当前值。
 
 ### GetClosestDeploymentBoundaryPosition
-```csharp
-public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)
-```
+`public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
+
+**用途 / Purpose:** 获取 `closest deployment boundary position` 的当前值。
 
 ### ProjectPositionToDeploymentBoundaries
-```csharp
-public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)
-```
+`public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
+
+**用途 / Purpose:** 处理 `project position to deployment boundaries` 相关逻辑。
 
 ### GetPathDeploymentBoundaryIntersection
-```csharp
-public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)
-```
+`public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)`
+
+**用途 / Purpose:** 获取 `path deployment boundary intersection` 的当前值。
 
 ### GetDeploymentFrame
-```csharp
-public virtual MatrixFrame GetDeploymentFrame(Team team)
-```
+`public virtual MatrixFrame GetDeploymentFrame(Team team)`
+
+**用途 / Purpose:** 获取 `deployment frame` 的当前值。
 
 ### GetFormationPlan
-```csharp
-public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)
-```
+`public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)`
+
+**用途 / Purpose:** 获取 `formation plan` 的当前值。
 
 ### GetSpawnPathOffset
-```csharp
-public virtual float GetSpawnPathOffset(Team team)
-```
+`public virtual float GetSpawnPathOffset(Team team)`
+
+**用途 / Purpose:** 获取 `spawn path offset` 的当前值。
 
 ### GetZoomFocusFrame
-```csharp
-public virtual MatrixFrame GetZoomFocusFrame(Team team)
-```
+`public virtual MatrixFrame GetZoomFocusFrame(Team team)`
+
+**用途 / Purpose:** 获取 `zoom focus frame` 的当前值。
 
 ### GetZoomOffset
-```csharp
-public virtual float GetZoomOffset(Team team, float fovAngle)
-```
+`public virtual float GetZoomOffset(Team team, float fovAngle)`
+
+**用途 / Purpose:** 获取 `zoom offset` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MissionDeploymentPlanningLogic (Logic) 的典型用法
-Mission.Current.AddMissionBehavior(new MissionDeploymentPlanningLogic());
+var implementation = new CustomMissionDeploymentPlanningLogic();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultGenericXpModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultGenericXpModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultGenericXpModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultGenericXpModel>(new MyDefaultGenericXpModel())` to change how it computes.
+`DefaultGenericXpModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultGenericXpModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetXpMultiplier
-```csharp
-public override float GetXpMultiplier(Hero hero)
-```
+`public override float GetXpMultiplier(Hero hero)`
+
+**Purpose:** Gets the current value of `xp multiplier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultGenericXpModel (Model)
 Game.Current.ReplaceModel<DefaultGenericXpModel>(new MyDefaultGenericXpModel());
 ```
 

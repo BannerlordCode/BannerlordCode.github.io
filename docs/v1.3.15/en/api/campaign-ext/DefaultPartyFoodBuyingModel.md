@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartyFoodBuyingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyFoodBuyingModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultPartyFoodBuyingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartyFoodBuyingModel>(new MyDefaultPartyFoodBuyingModel())` to change how it computes.
+`DefaultPartyFoodBuyingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartyFoodBuyingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,14 +32,13 @@
 ## Key Methods
 
 ### FindItemToBuy
-```csharp
-public override void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemElement, out float itemElementsPrice)
-```
+`public override void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemElement, out float itemElementsPrice)`
+
+**Purpose:** Handles logic related to `find item to buy`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartyFoodBuyingModel (Model)
 Game.Current.ReplaceModel<DefaultPartyFoodBuyingModel>(new MyDefaultPartyFoodBuyingModel());
 ```
 

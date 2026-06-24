@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerDeathCardWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerDeathCardWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `MultiplayerDeathCardWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `MultiplayerDeathCardWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -36,9 +41,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerDeathCardWidget (Widget)
-// 声明/访问一个 MultiplayerDeathCardWidget
-var widget = root.GetChild("multiplayerDeathCardWidget");;
+var widget = new MultiplayerDeathCardWidget(context);
 ```
 
 ## See Also

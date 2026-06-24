@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultMapDistanceModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMapDistanceModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultMapDistanceModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultMapDistanceModel>(new MyDefaultMapDistanceModel())` 注册，以改变其计算逻辑。
+`DefaultMapDistanceModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultMapDistanceModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -27,84 +32,83 @@
 ## 主要方法
 
 ### RegisterDistanceCache
-```csharp
-public override void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, MapDistanceModel.INavigationCache cacheToRegister)
-```
+`public override void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, MapDistanceModel.INavigationCache cacheToRegister)`
+
+**用途 / Purpose:** 处理 `register distance cache` 相关逻辑。
 
 ### GetMaximumDistanceBetweenTwoConnectedSettlements
-```csharp
-public override float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationCapabilities)
-```
+`public override float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationCapabilities)`
+
+**用途 / Purpose:** 获取 `maximum distance between two connected settlements` 的当前值。
 
 ### GetLandRatioOfPathBetweenSettlements
-```csharp
-public override float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)
-```
+`public override float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)`
+
+**用途 / Purpose:** 获取 `land ratio of path between settlements` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort = false, bool isTargetingPort = false, MobileParty.NavigationType navigationCapability = MobileParty.NavigationType.Default)
-```
+`public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort = false, bool isTargetingPort = false, MobileParty.NavigationType navigationCapability = MobileParty.NavigationType.Default)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)
-```
+`public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)
-```
+`public override float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)
-```
+`public override float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)
-```
+`public override bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType customCapability, out float landRatio)
-```
+`public override float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType customCapability, out float landRatio)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetDistance
-```csharp
-public override float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType customCapability)
-```
+`public override float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType customCapability)`
+
+**用途 / Purpose:** 获取 `distance` 的当前值。
 
 ### GetPortToGateDistanceForSettlement
-```csharp
-public override float GetPortToGateDistanceForSettlement(Settlement settlement)
-```
+`public override float GetPortToGateDistanceForSettlement(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `port to gate distance for settlement` 的当前值。
 
 ### PathExistBetweenPoints
-```csharp
-public override bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)
-```
+`public override bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)`
+
+**用途 / Purpose:** 处理 `path exist between points` 相关逻辑。
 
 ### GetClosestEntranceToFace
-```csharp
-public override ValueTuple<Settlement, bool> GetClosestEntranceToFace(PathFaceRecord face, MobileParty.NavigationType navigationCapabilities)
-```
+`public override ValueTuple<Settlement, bool> GetClosestEntranceToFace(PathFaceRecord face, MobileParty.NavigationType navigationCapabilities)`
+
+**用途 / Purpose:** 获取 `closest entrance to face` 的当前值。
 
 ### GetNeighborsOfFortification
-```csharp
-public override MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)
-```
+`public override MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)`
+
+**用途 / Purpose:** 获取 `neighbors of fortification` 的当前值。
 
 ### GetTransitionCostAdjustment
-```csharp
-public override float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)
-```
+`public override float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)`
+
+**用途 / Purpose:** 获取 `transition cost adjustment` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultMapDistanceModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultMapDistanceModel>(new MyDefaultMapDistanceModel());
 ```
 

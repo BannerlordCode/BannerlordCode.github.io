@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `TownManagementDescriptionItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TownManagementDescriptionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class TownManagementDescriptionItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TownManagement/TownManagementDescriptionItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TownManagementDescriptionItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TownManagementDescriptionItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,16 +32,20 @@
 | `Hint` | `public BasicTooltipViewModel Hint { get; set; }` |
 | `IsWarning` | `public bool IsWarning { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Refreshes the display or cache of `values`.
+
+## Usage Example
 
 ```csharp
-public override void RefreshValues()
+var value = new TownManagementDescriptionItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `GameManagerComponent`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameManagerComponent
@@ -14,19 +15,22 @@
 
 ## 概述
 
-`GameManagerComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<GameManagerComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`GameManagerComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `GameManagerComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `GameManager` | `public GameManagerBase GameManager { get; internal set; }` |
+| `GameManager` | `public GameManagerBase GameManager { get; set; }` |
 
 ## 使用示例
 
 ```csharp
-// GameManagerComponent (Component) 的典型用法
-agent.GetComponent<GameManagerComponent>();
+var implementation = new CustomGameManagerComponent();
 ```
 
 ## 参见

@@ -2,54 +2,59 @@
 **首页** → **API 目录** → **本领域** → `BasicTooltipViewModel`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BasicTooltipViewModel
 
-**命名空间:** TaleWorlds.Core.ViewModelCollection.Information
-**模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core.ViewModelCollection.Information
+**Module:** TaleWorlds.Core
+**Type:** `public class BasicTooltipViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/BasicTooltipViewModel.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`BasicTooltipViewModel` 是 `TaleWorlds.Core.ViewModelCollection.Information` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`BasicTooltipViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
+
+## 心智模型
+
+把 `BasicTooltipViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### SetToolipCallback
+`public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)`
 
-```csharp
-public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)
-```
+**用途 / Purpose:** 设置 `toolip callback` 的值或状态。
 
 ### SetGenericTooltipCallback
+`public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)`
 
-```csharp
-public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)
-```
+**用途 / Purpose:** 设置 `generic tooltip callback` 的值或状态。
 
 ### SetHintCallback
+`public void SetHintCallback(Func<string> hintProperty)`
 
-```csharp
-public void SetHintCallback(Func<string> hintProperty)
-```
+**用途 / Purpose:** 设置 `hint callback` 的值或状态。
 
 ### ExecuteBeginHint
+`public void ExecuteBeginHint()`
 
-```csharp
-public void ExecuteBeginHint()
-```
+**用途 / Purpose:** 执行 `begin hint` 操作或流程。
 
 ### ExecuteEndHint
+`public void ExecuteEndHint()`
+
+**用途 / Purpose:** 执行 `end hint` 操作或流程。
+
+## 使用示例
 
 ```csharp
-public void ExecuteEndHint()
+var vm = new BasicTooltipViewModel();
+movie.SetViewModel(vm);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

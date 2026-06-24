@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BodyPropertiesModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BodyPropertiesModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`BodyPropertiesModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BodyPropertiesModel>(new MyBodyPropertiesModel())` to change how it computes.
+`BodyPropertiesModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BodyPropertiesModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetHairIndicesForCulture
-```csharp
-public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `hair indices for culture`.
 
 ### GetBeardIndicesForCulture
-```csharp
-public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `beard indices for culture`.
 
 ### GetTattooIndicesForCulture
-```csharp
-public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `tattoo indices for culture`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BodyPropertiesModel (Model)
-Game.Current.ReplaceModel<BodyPropertiesModel>(new MyBodyPropertiesModel());
+var implementation = new CustomBodyPropertiesModel();
 ```
 
 ## See Also

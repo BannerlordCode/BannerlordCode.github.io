@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CampaignData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`CampaignData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `CampaignData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,8 +30,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignData (Data)
-new CampaignData { /* fill fields */ };;
+var value = new CampaignData();
 ```
 
 ## See Also

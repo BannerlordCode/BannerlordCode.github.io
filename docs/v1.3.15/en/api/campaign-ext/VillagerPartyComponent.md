@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VillagerPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VillagerPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`VillagerPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<VillagerPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`VillagerPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `VillagerPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,35 +33,34 @@
 ## Key Methods
 
 ### CreateVillagerParty
-```csharp
-public static MobileParty CreateVillagerParty(string stringId, Village village)
-```
+`public static MobileParty CreateVillagerParty(string stringId, Village village)`
+
+**Purpose:** Creates a new `villager party` instance or object.
 
 ### ConvertPartyToVillagerParty
-```csharp
-public static void ConvertPartyToVillagerParty(MobileParty mobileParty, Village village)
-```
+`public static void ConvertPartyToVillagerParty(MobileParty mobileParty, Village village)`
+
+**Purpose:** Handles logic related to `convert party to villager party`.
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### InitializeVillagerPartyProperties
-```csharp
-public void InitializeVillagerPartyProperties(MobileParty mobileParty, Village village)
-```
+`public void InitializeVillagerPartyProperties(MobileParty mobileParty, Village village)`
+
+**Purpose:** Initializes the state, resources, or bindings for `villager party properties`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VillagerPartyComponent (Component)
-agent.GetComponent<VillagerPartyComponent>();
+var component = agent.GetComponent<VillagerPartyComponent>();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `WeaponClassVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponClassVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WeaponClassVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/WeaponCrafting/WeaponDesign/WeaponClassVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WeaponClassVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WeaponClassVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,34 +35,35 @@
 | `SelectionIndex` | `public int SelectionIndex { get; set; }` |
 | `WeaponType` | `public string WeaponType { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RegisterSelectedPiece
+`public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)`
 
-```csharp
-public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)
-```
+**Purpose:** Handles logic related to `register selected piece`.
 
 ### GetSelectedPieceData
+`public string GetSelectedPieceData(CraftingPiece.PieceTypes type)`
 
-```csharp
-public string GetSelectedPieceData(CraftingPiece.PieceTypes type)
-```
+**Purpose:** Gets the current value of `selected piece data`.
 
 ### ExecuteSelect
+`public void ExecuteSelect()`
+
+**Purpose:** Executes the `select` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteSelect()
+var value = new WeaponClassVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

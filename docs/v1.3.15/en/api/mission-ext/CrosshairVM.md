@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CrosshairVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CrosshairVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class CrosshairVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/CrosshairVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CrosshairVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CrosshairVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -36,34 +40,35 @@
 | `CrosshairScale` | `public double CrosshairScale { get; set; }` |
 | `CrosshairType` | `public int CrosshairType { get; set; }` |
 
-
 ## Key Methods
 
 ### SetProperties
+`public void SetProperties(double accuracy, double scale)`
 
-```csharp
-public void SetProperties(double accuracy, double scale)
-```
+**Purpose:** Sets the value or state of `properties`.
 
 ### SetArrowProperties
+`public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)`
 
-```csharp
-public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)
-```
+**Purpose:** Sets the value or state of `arrow properties`.
 
 ### SetReloadProperties
+`public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)`
 
-```csharp
-public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)
-```
+**Purpose:** Sets the value or state of `reload properties`.
 
 ### ShowHitMarker
+`public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)`
+
+**Purpose:** Handles logic related to `show hit marker`.
+
+## Usage Example
 
 ```csharp
-public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)
+var value = new CrosshairVM();
+value.SetProperties(0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

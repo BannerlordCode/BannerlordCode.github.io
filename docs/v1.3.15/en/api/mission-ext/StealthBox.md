@@ -2,36 +2,44 @@
 **Home** → **API Index** → **Area** → `StealthBox`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StealthBox
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class StealthBox : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
+**File:** `TaleWorlds.MountAndBlade/Objects/StealthBox.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StealthBox` is a class in the `TaleWorlds.MountAndBlade.Objects` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StealthBox` lives in `TaleWorlds.MountAndBlade.Objects` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### IsPointInside
+`public bool IsPointInside(Vec3 point)`
 
-```csharp
-public bool IsPointInside(Vec3 point)
-```
+**Purpose:** Handles logic related to `is point inside`.
 
 ### IsAgentInside
+`public bool IsAgentInside(Agent agent)`
+
+**Purpose:** Handles logic related to `is agent inside`.
+
+## Usage Example
 
 ```csharp
-public bool IsAgentInside(Agent agent)
+var value = new StealthBox();
+value.IsPointInside(point);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

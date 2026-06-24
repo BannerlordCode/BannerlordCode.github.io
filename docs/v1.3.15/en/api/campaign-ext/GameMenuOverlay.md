@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameMenuOverlay`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuOverlay
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GameMenuOverlay : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/GameMenuOverlay.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameMenuOverlay` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameMenuOverlay` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,64 +32,60 @@
 | `CurrentOverlayType` | `public int CurrentOverlayType { get; set; }` |
 | `ExitInputKey` | `public InputKeyItemVM ExitInputKey { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteOnOverlayClosed
+`public virtual void ExecuteOnOverlayClosed()`
 
-```csharp
-public virtual void ExecuteOnOverlayClosed()
-```
+**Purpose:** Executes the `on overlay closed` operation or workflow.
 
 ### ExecuteOnOverlayOpened
+`public virtual void ExecuteOnOverlayOpened()`
 
-```csharp
-public virtual void ExecuteOnOverlayOpened()
-```
+**Purpose:** Executes the `on overlay opened` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Refresh
+`public virtual void Refresh()`
 
-```csharp
-public virtual void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### UpdateOverlayType
+`public virtual void UpdateOverlayType(GameMenu.MenuOverlayType newType)`
 
-```csharp
-public virtual void UpdateOverlayType(GameMenu.MenuOverlayType newType)
-```
+**Purpose:** Updates the state or data of `overlay type`.
 
 ### OnFrameTick
+`public virtual void OnFrameTick(float dt)`
 
-```csharp
-public virtual void OnFrameTick(float dt)
-```
+**Purpose:** Called when the `frame tick` event is raised.
 
 ### HourlyTick
+`public void HourlyTick()`
 
-```csharp
-public void HourlyTick()
-```
+**Purpose:** Handles logic related to `hourly tick`.
 
 ### SetExitInputKey
+`public void SetExitInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `exit input key`.
+
+## Usage Example
 
 ```csharp
-public void SetExitInputKey(HotKey hotKey)
+var value = new GameMenuOverlay();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

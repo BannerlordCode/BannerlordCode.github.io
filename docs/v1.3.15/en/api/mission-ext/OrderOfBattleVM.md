@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderOfBattleVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderOfBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OrderOfBattleVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/OrderOfBattle/OrderOfBattleVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderOfBattleVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderOfBattleVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,119 @@
 | `LastSelectedHeroItem` | `public OrderOfBattleHeroItemVM LastSelectedHeroItem { get; set; }` |
 | `CanToggleHeroSelection` | `public bool CanToggleHeroSelection { get; set; }` |
 | `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
-
+| `ResetInputKey` | `public InputKeyItemVM ResetInputKey { get; set; }` |
+| `FormationsSecondHalf` | `public MBBindingList<OrderOfBattleFormationItemVM> FormationsSecondHalf { get; set; }` |
+| `UnassignedHeroes` | `public MBBindingList<OrderOfBattleHeroItemVM> UnassignedHeroes { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Tick
+`public void Tick()`
 
-```csharp
-public void Tick()
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### Initialize
+`public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)`
 
-```csharp
-public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### OnAllFormationsAssignedSergeants
+`public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)`
 
-```csharp
-public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)
-```
+**Purpose:** Called when the `all formations assigned sergeants` event is raised.
 
 ### IsAnyClassSelectionEnabled
+`public bool IsAnyClassSelectionEnabled()`
 
-```csharp
-public bool IsAnyClassSelectionEnabled()
-```
+**Purpose:** Handles logic related to `is any class selection enabled`.
 
 ### ExecuteDisableAllClassSelections
+`public void ExecuteDisableAllClassSelections()`
 
-```csharp
-public void ExecuteDisableAllClassSelections()
-```
+**Purpose:** Executes the `disable all class selections` operation or workflow.
 
 ### ExecuteAcceptHeroes
+`public void ExecuteAcceptHeroes()`
 
-```csharp
-public void ExecuteAcceptHeroes()
-```
+**Purpose:** Executes the `accept heroes` operation or workflow.
 
 ### ExecuteSelectAllHeroes
+`public void ExecuteSelectAllHeroes()`
 
-```csharp
-public void ExecuteSelectAllHeroes()
-```
+**Purpose:** Executes the `select all heroes` operation or workflow.
 
 ### ExecuteClearHeroSelection
+`public void ExecuteClearHeroSelection()`
 
-```csharp
-public void ExecuteClearHeroSelection()
-```
+**Purpose:** Executes the `clear hero selection` operation or workflow.
 
 ### OnDeploymentFinalized
+`public void OnDeploymentFinalized(bool playerDeployed)`
 
-```csharp
-public void OnDeploymentFinalized(bool playerDeployed)
-```
+**Purpose:** Called when the `deployment finalized` event is raised.
 
 ### SelectFormationItemAtIndex
+`public void SelectFormationItemAtIndex(int index)`
 
-```csharp
-public void SelectFormationItemAtIndex(int index)
-```
+**Purpose:** Handles logic related to `select formation item at index`.
 
 ### FocusFormationItemAtIndex
+`public void FocusFormationItemAtIndex(int index)`
 
-```csharp
-public void FocusFormationItemAtIndex(int index)
-```
+**Purpose:** Handles logic related to `focus formation item at index`.
 
 ### DeselectAllFormations
+`public void DeselectAllFormations()`
 
-```csharp
-public void DeselectAllFormations()
-```
+**Purpose:** Handles logic related to `deselect all formations`.
 
 ### OnUnitDeployed
+`public void OnUnitDeployed()`
 
-```csharp
-public void OnUnitDeployed()
-```
+**Purpose:** Called when the `unit deployed` event is raised.
 
 ### OnEscape
+`public bool OnEscape()`
 
-```csharp
-public bool OnEscape()
-```
+**Purpose:** Called when the `escape` event is raised.
 
 ### ExecuteAutoDeploy
+`public void ExecuteAutoDeploy()`
 
-```csharp
-public void ExecuteAutoDeploy()
-```
+**Purpose:** Executes the `auto deploy` operation or workflow.
 
 ### ExecuteBeginMission
+`public void ExecuteBeginMission()`
 
-```csharp
-public void ExecuteBeginMission()
-```
+**Purpose:** Executes the `begin mission` operation or workflow.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotkey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotkey)`
+
+**Purpose:** Sets the value or state of `reset input key`.
+
+## Usage Example
 
 ```csharp
-public void SetResetInputKey(HotKey hotkey)
+var value = new OrderOfBattleVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CosmeticsManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CosmeticsManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CosmeticsManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`CosmeticsManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `CosmeticsManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,20 +30,19 @@
 ## 主要方法
 
 ### GetCosmeticElement
-```csharp
-public static CosmeticElement GetCosmeticElement(string cosmeticId)
-```
+`public static CosmeticElement GetCosmeticElement(string cosmeticId)`
+
+**用途 / Purpose:** 获取 `cosmetic element` 的当前值。
 
 ### LoadFromXml
-```csharp
-public static void LoadFromXml(string path)
-```
+`public static void LoadFromXml(string path)`
+
+**用途 / Purpose:** 加载 `from xml` 数据。
 
 ## 使用示例
 
 ```csharp
-// CosmeticsManager (Manager) 的典型用法
-CosmeticsManager.Current;
+var manager = CosmeticsManager.Current;
 ```
 
 ## 参见

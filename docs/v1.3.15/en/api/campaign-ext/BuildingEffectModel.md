@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BuildingEffectModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BuildingEffectModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`BuildingEffectModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BuildingEffectModel>(new MyBuildingEffectModel())` to change how it computes.
+`BuildingEffectModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BuildingEffectModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBuildingEffect
-```csharp
-public abstract ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)
-```
+`public abstract ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`
+
+**Purpose:** Gets the current value of `building effect`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BuildingEffectModel (Model)
-Game.Current.ReplaceModel<BuildingEffectModel>(new MyBuildingEffectModel());
+var implementation = new CustomBuildingEffectModel();
 ```
 
 ## See Also

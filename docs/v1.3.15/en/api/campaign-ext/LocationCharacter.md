@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `LocationCharacter`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LocationCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class LocationCharacter`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Settlements/Locations/LocationCharacter.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `LocationCharacter` is a class in the `TaleWorlds.CampaignSystem.Settlements.Locations` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LocationCharacter` lives in `TaleWorlds.CampaignSystem.Settlements.Locations` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,34 +39,35 @@
 | `MemberOfAlley` | `public Alley MemberOfAlley { get; }` |
 | `SpecialItem` | `public ItemObject SpecialItem { get; }` |
 
-
 ## Key Methods
 
 ### SetAlleyOfCharacter
+`public void SetAlleyOfCharacter(Alley alley)`
 
-```csharp
-public void SetAlleyOfCharacter(Alley alley)
-```
+**Purpose:** Sets the value or state of `alley of character`.
 
 ### CreateBodyguardHero
+`public static LocationCharacter CreateBodyguardHero(Hero hero, MobileParty party, LocationCharacter.AddBehaviorsDelegate addBehaviorsDelegate)`
 
-```csharp
-public static LocationCharacter CreateBodyguardHero(Hero hero, MobileParty party, LocationCharacter.AddBehaviorsDelegate addBehaviorsDelegate)
-```
+**Purpose:** Creates a new `bodyguard hero` instance or object.
 
 ### AddBehaviorsDelegate
+`public delegate void AddBehaviorsDelegate(IAgent agent)`
 
-```csharp
-public delegate void AddBehaviorsDelegate(IAgent agent)
-```
+**Purpose:** Adds `behaviors delegate` to the current collection or state.
 
 ### AfterAgentCreatedDelegate
+`public delegate void AfterAgentCreatedDelegate(IAgent agent)`
+
+**Purpose:** Handles logic related to `after agent created delegate`.
+
+## Usage Example
 
 ```csharp
-public delegate void AfterAgentCreatedDelegate(IAgent agent)
+var value = new LocationCharacter();
+value.SetAlleyOfCharacter(alley);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

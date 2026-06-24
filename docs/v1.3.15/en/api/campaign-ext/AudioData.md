@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `AudioData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AudioData
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class AudioData : ICloneable`
+**Base:** `ICloneable`
+**File:** `TaleWorlds.PSAI/Editor/AudioData.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AudioData` is a class in the `psai.Editor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AudioData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `AudioData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -37,82 +41,74 @@
 | `ByteIndexOfWaveformDataWithinAudioFile` | `public long ByteIndexOfWaveformDataWithinAudioFile { get; set; }` |
 | `LengthOfWaveformDataInBytes` | `public int LengthOfWaveformDataInBytes { get; set; }` |
 
-
 ## Key Methods
 
 ### CreatePsaiDotNetVersion
+`public AudioData CreatePsaiDotNetVersion()`
 
-```csharp
-public AudioData CreatePsaiDotNetVersion()
-```
+**Purpose:** Creates a new `psai dot net version` instance or object.
 
 ### GetMillisecondsFromSampleCount
+`public int GetMillisecondsFromSampleCount(int sampleCount)`
 
-```csharp
-public int GetMillisecondsFromSampleCount(int sampleCount)
-```
+**Purpose:** Gets the current value of `milliseconds from sample count`.
 
 ### GetSampleCountFromMilliseconds
+`public int GetSampleCountFromMilliseconds(int durationMs)`
 
-```csharp
-public int GetSampleCountFromMilliseconds(int durationMs)
-```
+**Purpose:** Gets the current value of `sample count from milliseconds`.
 
 ### GetLengthInSamplesBasedOnBeats
+`public int GetLengthInSamplesBasedOnBeats(float bpm, float beats)`
 
-```csharp
-public int GetLengthInSamplesBasedOnBeats(float bpm, float beats)
-```
+**Purpose:** Gets the current value of `length in samples based on beats`.
 
 ### GetPostbeatLengthInSamplesBasedOnBeats
+`public int GetPostbeatLengthInSamplesBasedOnBeats()`
 
-```csharp
-public int GetPostbeatLengthInSamplesBasedOnBeats()
-```
+**Purpose:** Gets the current value of `postbeat length in samples based on beats`.
 
 ### GetPrebeatLengthInSamplesBasedOnBeats
+`public int GetPrebeatLengthInSamplesBasedOnBeats()`
 
-```csharp
-public int GetPrebeatLengthInSamplesBasedOnBeats()
-```
+**Purpose:** Gets the current value of `prebeat length in samples based on beats`.
 
 ### CalculateTotalLengthInSamples
+`public static int CalculateTotalLengthInSamples(int lengthOfWaveformDataInBytes, int bitsPerSample, int channelCount)`
 
-```csharp
-public static int CalculateTotalLengthInSamples(int lengthOfWaveformDataInBytes, int bitsPerSample, int channelCount)
-```
+**Purpose:** Handles logic related to `calculate total length in samples`.
 
 ### DoUpdateMembersBasedOnWaveHeader
+`public bool DoUpdateMembersBasedOnWaveHeader(string fullPathToAudioFile, out string errorMessage)`
 
-```csharp
-public bool DoUpdateMembersBasedOnWaveHeader(string fullPathToAudioFile, out string errorMessage)
-```
+**Purpose:** Handles logic related to `do update members based on wave header`.
 
 ### SeekChunkInWaveHeader
+`public static bool SeekChunkInWaveHeader(ref BinaryReader reader, string chunk)`
 
-```csharp
-public static bool SeekChunkInWaveHeader(ref BinaryReader reader, string chunk)
-```
+**Purpose:** Handles logic related to `seek chunk in wave header`.
 
 ### ReadWaveHeader
+`public static PsaiResult ReadWaveHeader(Stream stream, out int outChannelCount, out int outSampleRate, out int outBitsPerSample, out int outLengthOfWaveformDatablockInBytes, out long outBytePositionOfWaveformData)`
 
-```csharp
-public static PsaiResult ReadWaveHeader(Stream stream, out int outChannelCount, out int outSampleRate, out int outBitsPerSample, out int outLengthOfWaveformDatablockInBytes, out long outBytePositionOfWaveformData)
-```
+**Purpose:** Handles logic related to `read wave header`.
 
 ### LoadWaveformDataToByteArray
+`public static byte LoadWaveformDataToByteArray(string fullFilePath, long byteIndexOfWaveformDataWithinAudioFile, int lengthOfWaveformDataInBytes)`
 
-```csharp
-public static byte LoadWaveformDataToByteArray(string fullFilePath, long byteIndexOfWaveformDataWithinAudioFile, int lengthOfWaveformDataInBytes)
-```
+**Purpose:** Loads `waveform data to byte array` data.
 
 ### Clone
+`public object Clone()`
+
+**Purpose:** Handles logic related to `clone`.
+
+## Usage Example
 
 ```csharp
-public object Clone()
+var value = new AudioData();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

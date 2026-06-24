@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `NoticeType`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NoticeType
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** enum
-**Area:** Campaign System
+**Type:** `public enum NoticeType`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `NoticeType` is a enum in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`NoticeType` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -27,6 +30,12 @@
 | `ChangeSettlementOwner` |
 | `FortificationIsCaptured` |
 | `HeroChangedFaction` |
+
+## Usage Example
+
+```csharp
+NoticeType example = NoticeType.None;
+```
 
 ## See Also
 

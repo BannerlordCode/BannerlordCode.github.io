@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLobbyScreenWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLobbyScreenWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `MultiplayerLobbyScreenWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `MultiplayerLobbyScreenWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -36,9 +41,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLobbyScreenWidget (Widget)
-// 声明/访问一个 MultiplayerLobbyScreenWidget
-var widget = root.GetChild("multiplayerLobbyScreenWidget");;
+var widget = new MultiplayerLobbyScreenWidget(context);
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Light`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Light
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** class
-**Area:** Engine
+**Type:** `public sealed class Light : GameEntityComponent`
+**Base:** `GameEntityComponent`
+**Area:** engine
 
 ## Overview
 
-> This is an auto-generated stub. `Light` is a class in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Light` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,43 +32,43 @@
 | `Radius` | `public float Radius { get; set; }` |
 | `ShadowEnabled` | `public bool ShadowEnabled { get; set; }` |
 
-
 ## Key Methods
 
 ### CreatePointLight
+`public static Light CreatePointLight(float lightRadius)`
 
-```csharp
-public static Light CreatePointLight(float lightRadius)
-```
+**Purpose:** Creates a new `point light` instance or object.
 
 ### SetShadowType
+`public void SetShadowType(Light.ShadowType type)`
 
-```csharp
-public void SetShadowType(Light.ShadowType type)
-```
+**Purpose:** Sets the value or state of `shadow type`.
 
 ### SetLightFlicker
+`public void SetLightFlicker(float magnitude, float interval)`
 
-```csharp
-public void SetLightFlicker(float magnitude, float interval)
-```
+**Purpose:** Sets the value or state of `light flicker`.
 
 ### SetVolumetricProperties
+`public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-```csharp
-public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)
-```
+**Purpose:** Sets the value or state of `volumetric properties`.
 
 ### Dispose
+`public void Dispose()`
 
-```csharp
-public void Dispose()
-```
+**Purpose:** Handles logic related to `dispose`.
 
 ### SetVisibility
+`public void SetVisibility(bool value)`
+
+**Purpose:** Sets the value or state of `visibility`.
+
+## Usage Example
 
 ```csharp
-public void SetVisibility(bool value)
+// Prepare the required context, then call the static entry point directly
+Light.CreatePointLight(0);
 ```
 
 ## See Also

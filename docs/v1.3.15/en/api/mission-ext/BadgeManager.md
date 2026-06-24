@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BadgeManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BadgeManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BadgeManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`BadgeManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `BadgeManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,45 +31,44 @@
 ## Key Methods
 
 ### InitializeWithXML
-```csharp
-public static void InitializeWithXML(string xmlPath)
-```
+`public static void InitializeWithXML(string xmlPath)`
+
+**Purpose:** Initializes the state, resources, or bindings for `with x m l`.
 
 ### OnFinalize
-```csharp
-public static void OnFinalize()
-```
+`public static void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
 
 ### GetByIndex
-```csharp
-public static Badge GetByIndex(int index)
-```
+`public static Badge GetByIndex(int index)`
+
+**Purpose:** Gets the current value of `by index`.
 
 ### GetById
-```csharp
-public static Badge GetById(string id)
-```
+`public static Badge GetById(string id)`
+
+**Purpose:** Gets the current value of `by id`.
 
 ### GetByType
-```csharp
-public static List<Badge> GetByType(BadgeType type)
-```
+`public static List<Badge> GetByType(BadgeType type)`
+
+**Purpose:** Gets the current value of `by type`.
 
 ### GetBadgeConditionValue
-```csharp
-public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)
-```
+`public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
+
+**Purpose:** Gets the current value of `badge condition value`.
 
 ### GetBadgeConditionNumericValue
-```csharp
-public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)
-```
+`public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
+
+**Purpose:** Gets the current value of `badge condition numeric value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BadgeManager (Manager)
-BadgeManager.Current;
+var manager = BadgeManager.Current;
 ```
 
 ## See Also

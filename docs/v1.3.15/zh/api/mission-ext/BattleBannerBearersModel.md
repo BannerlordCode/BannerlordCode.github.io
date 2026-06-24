@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BattleBannerBearersModel`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleBannerBearersModel
@@ -14,110 +15,113 @@
 
 ## 概述
 
-`BattleBannerBearersModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<BattleBannerBearersModel>(new MyBattleBannerBearersModel())` 注册，以改变其计算逻辑。
+`BattleBannerBearersModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `BattleBannerBearersModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### InitializeModel
-```csharp
-public void InitializeModel(BannerBearerLogic bannerBearerLogic)
-```
+`public void InitializeModel(BannerBearerLogic bannerBearerLogic)`
+
+**用途 / Purpose:** 初始化 `model` 的状态、资源或绑定。
 
 ### FinalizeModel
-```csharp
-public void FinalizeModel()
-```
+`public void FinalizeModel()`
+
+**用途 / Purpose:** 处理 `finalize model` 相关逻辑。
 
 ### IsFormationBanner
-```csharp
-public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)
-```
+`public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)`
+
+**用途 / Purpose:** 处理 `is formation banner` 相关逻辑。
 
 ### IsBannerSearchingAgent
-```csharp
-public bool IsBannerSearchingAgent(Agent agent)
-```
+`public bool IsBannerSearchingAgent(Agent agent)`
+
+**用途 / Purpose:** 处理 `is banner searching agent` 相关逻辑。
 
 ### IsInteractableFormationBanner
-```csharp
-public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)
-```
+`public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)`
+
+**用途 / Purpose:** 处理 `is interactable formation banner` 相关逻辑。
 
 ### HasFormationBanner
-```csharp
-public bool HasFormationBanner(Formation formation)
-```
+`public bool HasFormationBanner(Formation formation)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `formation banner`。
 
 ### HasBannerOnGround
-```csharp
-public bool HasBannerOnGround(Formation formation)
-```
+`public bool HasBannerOnGround(Formation formation)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `banner on ground`。
 
 ### GetFormationBanner
-```csharp
-public ItemObject GetFormationBanner(Formation formation)
-```
+`public ItemObject GetFormationBanner(Formation formation)`
+
+**用途 / Purpose:** 获取 `formation banner` 的当前值。
 
 ### GetFormationBannerBearers
-```csharp
-public List<Agent> GetFormationBannerBearers(Formation formation)
-```
+`public List<Agent> GetFormationBannerBearers(Formation formation)`
+
+**用途 / Purpose:** 获取 `formation banner bearers` 的当前值。
 
 ### GetActiveBanner
-```csharp
-public BannerComponent GetActiveBanner(Formation formation)
-```
+`public BannerComponent GetActiveBanner(Formation formation)`
+
+**用途 / Purpose:** 获取 `active banner` 的当前值。
 
 ### GetMinimumFormationTroopCountToBearBanners
-```csharp
-public abstract int GetMinimumFormationTroopCountToBearBanners()
-```
+`public abstract int GetMinimumFormationTroopCountToBearBanners()`
+
+**用途 / Purpose:** 获取 `minimum formation troop count to bear banners` 的当前值。
 
 ### GetBannerInteractionDistance
-```csharp
-public abstract float GetBannerInteractionDistance(Agent interactingAgent)
-```
+`public abstract float GetBannerInteractionDistance(Agent interactingAgent)`
+
+**用途 / Purpose:** 获取 `banner interaction distance` 的当前值。
 
 ### CanBannerBearerProvideEffectToFormation
-```csharp
-public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)
-```
+`public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `banner bearer provide effect to formation`。
 
 ### CanAgentPickUpAnyBanner
-```csharp
-public abstract bool CanAgentPickUpAnyBanner(Agent agent)
-```
+`public abstract bool CanAgentPickUpAnyBanner(Agent agent)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `agent pick up any banner`。
 
 ### CanAgentBecomeBannerBearer
-```csharp
-public abstract bool CanAgentBecomeBannerBearer(Agent agent)
-```
+`public abstract bool CanAgentBecomeBannerBearer(Agent agent)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `agent become banner bearer`。
 
 ### GetAgentBannerBearingPriority
-```csharp
-public abstract int GetAgentBannerBearingPriority(Agent agent)
-```
+`public abstract int GetAgentBannerBearingPriority(Agent agent)`
+
+**用途 / Purpose:** 获取 `agent banner bearing priority` 的当前值。
 
 ### CanFormationDeployBannerBearers
-```csharp
-public abstract bool CanFormationDeployBannerBearers(Formation formation)
-```
+`public abstract bool CanFormationDeployBannerBearers(Formation formation)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `formation deploy banner bearers`。
 
 ### GetDesiredNumberOfBannerBearersForFormation
-```csharp
-public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)
-```
+`public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
+
+**用途 / Purpose:** 获取 `desired number of banner bearers for formation` 的当前值。
 
 ### GetBannerBearerReplacementWeapon
-```csharp
-public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)
-```
+`public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
+
+**用途 / Purpose:** 获取 `banner bearer replacement weapon` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// BattleBannerBearersModel (Model) 的典型用法
-Game.Current.ReplaceModel<BattleBannerBearersModel>(new MyBattleBannerBearersModel());
+var implementation = new CustomBattleBannerBearersModel();
 ```
 
 ## 参见

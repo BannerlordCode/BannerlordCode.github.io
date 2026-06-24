@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClanPartyRoleSelectionPopupWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanPartyRoleSelectionPopupWidget
@@ -16,6 +17,10 @@
 
 `ClanPartyRoleSelectionPopupWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ClanPartyRoleSelectionPopupWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -25,16 +30,14 @@
 ## Key Methods
 
 ### AddToggleWidget
-```csharp
-public void AddToggleWidget(Widget widget)
-```
+`public void AddToggleWidget(Widget widget)`
+
+**Purpose:** Adds `toggle widget` to the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ClanPartyRoleSelectionPopupWidget (Widget)
-// 声明/访问一个 ClanPartyRoleSelectionPopupWidget
-var widget = root.GetChild("clanPartyRoleSelectionPopupWidget");;
+var widget = new ClanPartyRoleSelectionPopupWidget(context);
 ```
 
 ## See Also

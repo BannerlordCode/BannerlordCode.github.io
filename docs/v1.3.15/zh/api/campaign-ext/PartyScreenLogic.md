@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PartyScreenLogic`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyScreenLogic
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`PartyScreenLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new PartyScreenLogic())` 添加；继承它可定制。
+`PartyScreenLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `PartyScreenLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -60,159 +65,228 @@
 ## 主要方法
 
 ### Initialize
-```csharp
-public void Initialize(PartyScreenLogicInitializationData initializationData)
-```
+`public void Initialize(PartyScreenLogicInitializationData initializationData)`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### AddCommand
-```csharp
-public void AddCommand(PartyScreenLogic.PartyCommand command)
-```
+`public void AddCommand(PartyScreenLogic.PartyCommand command)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `command`。
 
 ### ValidateCommand
-```csharp
-public bool ValidateCommand(PartyScreenLogic.PartyCommand command)
-```
+`public bool ValidateCommand(PartyScreenLogic.PartyCommand command)`
+
+**用途 / Purpose:** 处理 `validate command` 相关逻辑。
 
 ### GetIndexToInsertTroop
-```csharp
-public int GetIndexToInsertTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, TroopRosterElement troop)
-```
+`public int GetIndexToInsertTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, TroopRosterElement troop)`
+
+**用途 / Purpose:** 获取 `index to insert troop` 的当前值。
 
 ### GetActiveSortTypeForSide
-```csharp
-public PartyScreenLogic.TroopSortType GetActiveSortTypeForSide(PartyScreenLogic.PartyRosterSide side)
-```
+`public PartyScreenLogic.TroopSortType GetActiveSortTypeForSide(PartyScreenLogic.PartyRosterSide side)`
+
+**用途 / Purpose:** 获取 `active sort type for side` 的当前值。
 
 ### GetIsAscendingSortForSide
-```csharp
-public bool GetIsAscendingSortForSide(PartyScreenLogic.PartyRosterSide side)
-```
+`public bool GetIsAscendingSortForSide(PartyScreenLogic.PartyRosterSide side)`
+
+**用途 / Purpose:** 获取 `is ascending sort for side` 的当前值。
 
 ### IsDoneActive
-```csharp
-public bool IsDoneActive()
-```
+`public bool IsDoneActive()`
+
+**用途 / Purpose:** 处理 `is done active` 相关逻辑。
 
 ### IsCancelActive
-```csharp
-public bool IsCancelActive()
-```
+`public bool IsCancelActive()`
+
+**用途 / Purpose:** 处理 `is cancel active` 相关逻辑。
 
 ### DoneLogic
-```csharp
-public bool DoneLogic(bool isForced)
-```
+`public bool DoneLogic(bool isForced)`
+
+**用途 / Purpose:** 处理 `done logic` 相关逻辑。
 
 ### OnPartyScreenClosed
-```csharp
-public void OnPartyScreenClosed(bool fromCancel)
-```
+`public void OnPartyScreenClosed(bool fromCancel)`
+
+**用途 / Purpose:** 当 `party screen closed` 事件触发时调用此方法。
 
 ### IsTroopTransferable
-```csharp
-public bool IsTroopTransferable(PartyScreenLogic.TroopType troopType, CharacterObject character, int side)
-```
+`public bool IsTroopTransferable(PartyScreenLogic.TroopType troopType, CharacterObject character, int side)`
+
+**用途 / Purpose:** 处理 `is troop transferable` 相关逻辑。
 
 ### IsTroopRosterTransferable
-```csharp
-public bool IsTroopRosterTransferable(PartyScreenLogic.TroopType troopType)
-```
+`public bool IsTroopRosterTransferable(PartyScreenLogic.TroopType troopType)`
+
+**用途 / Purpose:** 处理 `is troop roster transferable` 相关逻辑。
 
 ### IsPrisonerRecruitable
-```csharp
-public bool IsPrisonerRecruitable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)
-```
+`public bool IsPrisonerRecruitable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)`
+
+**用途 / Purpose:** 处理 `is prisoner recruitable` 相关逻辑。
 
 ### GetRecruitableReasonString
-```csharp
-public string GetRecruitableReasonString(CharacterObject character, bool isRecruitable, int troopCount, out bool showStackModifierText)
-```
+`public string GetRecruitableReasonString(CharacterObject character, bool isRecruitable, int troopCount, out bool showStackModifierText)`
+
+**用途 / Purpose:** 获取 `recruitable reason string` 的当前值。
 
 ### IsExecutable
-```csharp
-public bool IsExecutable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)
-```
+`public bool IsExecutable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)`
+
+**用途 / Purpose:** 处理 `is executable` 相关逻辑。
 
 ### GetExecutableReasonString
-```csharp
-public string GetExecutableReasonString(CharacterObject character, bool isExecutable)
-```
+`public string GetExecutableReasonString(CharacterObject character, bool isExecutable)`
+
+**用途 / Purpose:** 获取 `executable reason string` 的当前值。
 
 ### GetCurrentQuestCurrentCount
-```csharp
-public int GetCurrentQuestCurrentCount(bool includePrisoners, bool includeMembers)
-```
+`public int GetCurrentQuestCurrentCount(bool includePrisoners, bool includeMembers)`
+
+**用途 / Purpose:** 获取 `current quest current count` 的当前值。
 
 ### GetCurrentQuestRequiredCount
-```csharp
-public int GetCurrentQuestRequiredCount()
-```
+`public int GetCurrentQuestRequiredCount()`
+
+**用途 / Purpose:** 获取 `current quest required count` 的当前值。
 
 ### Reset
-```csharp
-public void Reset(bool fromCancel)
-```
+`public void Reset(bool fromCancel)`
+
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
 
 ### SavePartyScreenData
-```csharp
-public void SavePartyScreenData()
-```
+`public void SavePartyScreenData()`
+
+**用途 / Purpose:** 保存 `party screen data` 数据。
 
 ### ResetToLastSavedPartyScreenData
-```csharp
-public void ResetToLastSavedPartyScreenData(bool fromCancel)
-```
+`public void ResetToLastSavedPartyScreenData(bool fromCancel)`
+
+**用途 / Purpose:** 将 `to last saved party screen data` 重置为初始状态。
 
 ### RemoveZeroCounts
-```csharp
-public void RemoveZeroCounts()
-```
+`public void RemoveZeroCounts()`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `zero counts`。
 
 ### GetTroopRecruitableAmount
-```csharp
-public int GetTroopRecruitableAmount(CharacterObject troop)
-```
+`public int GetTroopRecruitableAmount(CharacterObject troop)`
+
+**用途 / Purpose:** 获取 `troop recruitable amount` 的当前值。
 
 ### GetRoster
-```csharp
-public TroopRoster GetRoster(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType troopType)
-```
+`public TroopRoster GetRoster(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType troopType)`
+
+**用途 / Purpose:** 获取 `roster` 的当前值。
 
 ### IsThereAnyChanges
-```csharp
-public bool IsThereAnyChanges()
-```
+`public bool IsThereAnyChanges()`
+
+**用途 / Purpose:** 处理 `is there any changes` 相关逻辑。
 
 ### HaveRightSideGainedTroops
-```csharp
-public bool HaveRightSideGainedTroops()
-```
+`public bool HaveRightSideGainedTroops()`
+
+**用途 / Purpose:** 处理 `have right side gained troops` 相关逻辑。
 
 ### GetComparer
-```csharp
-public PartyScreenLogic.TroopComparer GetComparer(PartyScreenLogic.TroopSortType sortType)
-```
+`public PartyScreenLogic.TroopComparer GetComparer(PartyScreenLogic.TroopSortType sortType)`
+
+**用途 / Purpose:** 获取 `comparer` 的当前值。
 
 ### PresentationUpdate
-```csharp
-public delegate void PresentationUpdate(PartyScreenLogic.PartyCommand command)
-```
+`public delegate void PresentationUpdate(PartyScreenLogic.PartyCommand command)`
+
+**用途 / Purpose:** 处理 `presentation update` 相关逻辑。
 
 ### PartyGoldDelegate
-```csharp
-public delegate void PartyGoldDelegate()
-```
+`public delegate void PartyGoldDelegate()`
+
+**用途 / Purpose:** 处理 `party gold delegate` 相关逻辑。
 
 ### PartyMoraleDelegate
-```csharp
-public delegate void PartyMoraleDelegate()
-```
+`public delegate void PartyMoraleDelegate()`
+
+**用途 / Purpose:** 处理 `party morale delegate` 相关逻辑。
+
+### PartyInfluenceDelegate
+`public delegate void PartyInfluenceDelegate()`
+
+**用途 / Purpose:** 处理 `party influence delegate` 相关逻辑。
+
+### PartyHorseDelegate
+`public delegate void PartyHorseDelegate()`
+
+**用途 / Purpose:** 处理 `party horse delegate` 相关逻辑。
+
+### AfterResetDelegate
+`public delegate void AfterResetDelegate(PartyScreenLogic partyScreenLogic, bool fromCancel)`
+
+**用途 / Purpose:** 处理 `after reset delegate` 相关逻辑。
+
+### FillForTransferTroop
+`public void FillForTransferTroop(PartyScreenLogic.PartyRosterSide fromSide, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
+
+**用途 / Purpose:** 处理 `fill for transfer troop` 相关逻辑。
+
+### FillForShiftTroop
+`public void FillForShiftTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int targetIndex)`
+
+**用途 / Purpose:** 处理 `fill for shift troop` 相关逻辑。
+
+### FillForTransferTroopToLeaderSlot
+`public void FillForTransferTroopToLeaderSlot(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
+
+**用途 / Purpose:** 处理 `fill for transfer troop to leader slot` 相关逻辑。
+
+### FillForTransferPartyLeaderTroop
+`public void FillForTransferPartyLeaderTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber)`
+
+**用途 / Purpose:** 处理 `fill for transfer party leader troop` 相关逻辑。
+
+### FillForUpgradeTroop
+`public void FillForUpgradeTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int number, int upgradeTargetType, int index)`
+
+**用途 / Purpose:** 处理 `fill for upgrade troop` 相关逻辑。
+
+### FillForRecruitTroop
+`public void FillForRecruitTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int number, int index)`
+
+**用途 / Purpose:** 处理 `fill for recruit troop` 相关逻辑。
+
+### FillForExecuteTroop
+`public void FillForExecuteTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character)`
+
+**用途 / Purpose:** 处理 `fill for execute troop` 相关逻辑。
+
+### FillForTransferAllTroops
+`public void FillForTransferAllTroops(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type)`
+
+**用途 / Purpose:** 处理 `fill for transfer all troops` 相关逻辑。
+
+### FillForSortTroops
+`public void FillForSortTroops(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopSortType sortType, bool isAscending)`
+
+**用途 / Purpose:** 处理 `fill for sort troops` 相关逻辑。
+
+### SetIsAscending
+`public void SetIsAscending(bool isAscending)`
+
+**用途 / Purpose:** 设置 `is ascending` 的值或状态。
+
+### Compare
+`public int Compare(TroopRosterElement x, TroopRosterElement y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// PartyScreenLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new PartyScreenLogic());
 ```
 

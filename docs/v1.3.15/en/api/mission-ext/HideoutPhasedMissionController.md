@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HideoutPhasedMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HideoutPhasedMissionController
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HideoutPhasedMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`HideoutPhasedMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `HideoutPhasedMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,25 +30,24 @@
 ## Key Methods
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HideoutPhasedMissionController (Controller)
-Mission.Current.GetMissionBehavior<HideoutPhasedMissionController>();
+var controller = Mission.Current.GetMissionBehavior<HideoutPhasedMissionController>();
 ```
 
 ## See Also

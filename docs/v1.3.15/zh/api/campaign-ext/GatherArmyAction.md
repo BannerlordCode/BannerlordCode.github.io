@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `GatherArmyAction`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GatherArmyAction
+
+## 心智模型
+
+先把 `GatherArmyAction` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ GatherArmyAction 是一组静态方法，用于在战役中以特定原因触发
 public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)
 ```
 
-**用途 / Purpose:** 。
+**用途 / Purpose:** 执行此入口。
 
 ## 使用示例
 

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ManagedScriptComponent`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedScriptComponent
@@ -14,31 +15,34 @@
 
 ## 概述
 
-`ManagedScriptComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<ManagedScriptComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`ManagedScriptComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `ManagedScriptComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `ScriptComponentBehavior` | `public ScriptComponentBehavior ScriptComponentBehavior { get { return EngineApplicationInterface.IScriptComponent.GetScriptComponentBehavior(base.Pointer); }` |
+| `ScriptComponentBehavior` | `public ScriptComponentBehavior ScriptComponentBehavior { get; }` |
 
 ## 主要方法
 
 ### SetVariableEditorWidgetStatus
-```csharp
-public void SetVariableEditorWidgetStatus(string field, bool enabled)
-```
+`public void SetVariableEditorWidgetStatus(string field, bool enabled)`
+
+**用途 / Purpose:** 设置 `variable editor widget status` 的值或状态。
 
 ### SetVariableEditorWidgetValue
-```csharp
-public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)
-```
+`public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)`
+
+**用途 / Purpose:** 设置 `variable editor widget value` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// ManagedScriptComponent (Component) 的典型用法
-agent.GetComponent<ManagedScriptComponent>();
+var component = agent.GetComponent<ManagedScriptComponent>();
 ```
 
 ## 参见

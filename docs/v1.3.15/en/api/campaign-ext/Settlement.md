@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Settlement`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/Settlement](/versions/Settlement)
 <!-- END BREADCRUMB -->
@@ -14,6 +16,10 @@
 ## Overview
 
 Settlement is the base class for all fixed locations in Bannerlord. It can represent towns, castles, villages, and hideouts. Each settlement has a party component, can contain buildings, workshops, and is associated with an owner faction.
+
+## Mental Model
+
+Treat `Settlement` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

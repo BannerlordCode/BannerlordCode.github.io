@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArmyManagementVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArmyManagementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ArmyManagementVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ArmyManagement/ArmyManagementVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ArmyManagementVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArmyManagementVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,83 +45,103 @@
 | `CanDisbandArmy` | `public bool CanDisbandArmy { get; set; }` |
 | `CanAffordInfluenceCost` | `public bool CanAffordInfluenceCost { get; set; }` |
 | `TitleText` | `public string TitleText { get; set; }` |
-
+| `ClanText` | `public string ClanText { get; set; }` |
+| `NameText` | `public string NameText { get; set; }` |
+| `CancelText` | `public string CancelText { get; set; }` |
+| `DoneText` | `public string DoneText { get; set; }` |
+| `FocusedItem` | `public ArmyManagementItemVM FocusedItem { get; set; }` |
+| `PartyList` | `public MBBindingList<ArmyManagementItemVM> PartyList { get; set; }` |
+| `PartiesInCart` | `public MBBindingList<ArmyManagementItemVM> PartiesInCart { get; set; }` |
+| `TotalStrengthText` | `public string TotalStrengthText { get; set; }` |
+| `TotalCostText` | `public string TotalCostText { get; set; }` |
+| `TotalCostNumbersText` | `public string TotalCostNumbersText { get; set; }` |
+| `CohesionText` | `public string CohesionText { get; set; }` |
+| `Cohesion` | `public int Cohesion { get; set; }` |
+| `CohesionBoostCost` | `public int CohesionBoostCost { get; set; }` |
+| `PlayerHasArmy` | `public bool PlayerHasArmy { get; set; }` |
+| `MoraleText` | `public string MoraleText { get; set; }` |
+| `FoodText` | `public string FoodText { get; set; }` |
+| `NewCohesion` | `public int NewCohesion { get; set; }` |
+| `CohesionHint` | `public BasicTooltipViewModel CohesionHint { get; set; }` |
+| `MoraleHint` | `public HintViewModel MoraleHint { get; set; }` |
+| `BoostCohesionHint` | `public HintViewModel BoostCohesionHint { get; set; }` |
+| `DisbandArmyHint` | `public HintViewModel DisbandArmyHint { get; set; }` |
+| `DoneHint` | `public HintViewModel DoneHint { get; set; }` |
+| `FoodHint` | `public HintViewModel FoodHint { get; set; }` |
+| `ResetInputKey` | `public InputKeyItemVM ResetInputKey { get; set; }` |
+| `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
+| `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
+| `RemoveInputKey` | `public InputKeyItemVM RemoveInputKey { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteDone
+`public void ExecuteDone()`
 
-```csharp
-public void ExecuteDone()
-```
+**Purpose:** Executes the `done` operation or workflow.
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**Purpose:** Executes the `reset` operation or workflow.
 
 ### ExecuteDisbandArmy
+`public void ExecuteDisbandArmy()`
 
-```csharp
-public void ExecuteDisbandArmy()
-```
+**Purpose:** Executes the `disband army` operation or workflow.
 
 ### ExecuteBoostCohesionManual
+`public void ExecuteBoostCohesionManual()`
 
-```csharp
-public void ExecuteBoostCohesionManual()
-```
+**Purpose:** Executes the `boost cohesion manual` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotKey)`
 
-```csharp
-public void SetResetInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `reset input key`.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetRemoveInputKey
+`public void SetRemoveInputKey(HotKey hotKey)`
 
-```csharp
-public void SetRemoveInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `remove input key`.
 
 ### Compare
+`public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)
+var value = new ArmyManagementVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

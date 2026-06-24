@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 动画系统类参考
 
 # 动画系统 / Animation System
 
+## Mental Model
+
+Treat `动画系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## 概述 / Overview
 
 动画系统管理游戏中的所有动画，包括人物动画、马匹动画、武器动画等。
@@ -359,4 +363,10 @@ rglMorph_anim::vftable
 
 ```cpp
 rglAsset_metadata_morph_anim::vftable
+```
+
+## Usage Example
+
+```csharp
+var example = new 动画系统();
 ```

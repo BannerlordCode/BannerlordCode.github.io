@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `IEntityComponent`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IEntityComponent
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** 接口 interface
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.Core/IEntityComponent.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IEntityComponent` 是 `TaleWorlds.Core` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IEntityComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `IEntityComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IEntityComponent implementation = GetEntityComponentImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

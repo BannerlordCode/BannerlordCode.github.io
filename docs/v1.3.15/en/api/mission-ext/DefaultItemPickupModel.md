@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultItemPickupModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultItemPickupModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultItemPickupModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultItemPickupModel>(new MyDefaultItemPickupModel())` to change how it computes.
+`DefaultItemPickupModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultItemPickupModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetItemScoreForAgent
-```csharp
-public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)
-```
+`public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
+
+**Purpose:** Gets the current value of `item score for agent`.
 
 ### IsItemAvailableForAgent
-```csharp
-public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)
-```
+`public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
+
+**Purpose:** Handles logic related to `is item available for agent`.
 
 ### IsAgentEquipmentSuitableForPickUpAvailability
-```csharp
-public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)
-```
+`public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
+
+**Purpose:** Handles logic related to `is agent equipment suitable for pick up availability`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultItemPickupModel (Model)
 Game.Current.ReplaceModel<DefaultItemPickupModel>(new MyDefaultItemPickupModel());
 ```
 

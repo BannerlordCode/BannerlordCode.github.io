@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CosmeticsManagerHelper`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CosmeticsManagerHelper
@@ -14,65 +15,68 @@
 
 ## Overview
 
-`CosmeticsManagerHelper` is a static utility class providing helper methods.
+`CosmeticsManagerHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `CosmeticsManagerHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetUsedIndicesFromIds
-```csharp
-public static Dictionary<int, List<int>> GetUsedIndicesFromIds(Dictionary<string, List<string>> usedCosmetics)
-```
+`public static Dictionary<int, List<int>> GetUsedIndicesFromIds(Dictionary<string, List<string>> usedCosmetics)`
+
+**Purpose:** Gets the current value of `used indices from ids`.
 
 ### GetSuitableTauntAction
-```csharp
-public static ActionIndexCache GetSuitableTauntAction(Agent agent, int tauntIndex)
-```
+`public static ActionIndexCache GetSuitableTauntAction(Agent agent, int tauntIndex)`
+
+**Purpose:** Gets the current value of `suitable taunt action`.
 
 ### GetActionNotUsableReason
-```csharp
-public static TauntUsageManager.TauntUsage.TauntUsageFlag GetActionNotUsableReason(Agent agent, int tauntIndex)
-```
+`public static TauntUsageManager.TauntUsage.TauntUsageFlag GetActionNotUsableReason(Agent agent, int tauntIndex)`
+
+**Purpose:** Gets the current value of `action not usable reason`.
 
 ### GetSuitableTauntActionForEquipment
-```csharp
-public static string GetSuitableTauntActionForEquipment(Equipment equipment, TauntCosmeticElement taunt)
-```
+`public static string GetSuitableTauntActionForEquipment(Equipment equipment, TauntCosmeticElement taunt)`
+
+**Purpose:** Gets the current value of `suitable taunt action for equipment`.
 
 ### IsWeaponClassOneHanded
-```csharp
-public static bool IsWeaponClassOneHanded(WeaponClass weaponClass)
-```
+`public static bool IsWeaponClassOneHanded(WeaponClass weaponClass)`
+
+**Purpose:** Handles logic related to `is weapon class one handed`.
 
 ### IsWeaponClassTwoHanded
-```csharp
-public static bool IsWeaponClassTwoHanded(WeaponClass weaponClass)
-```
+`public static bool IsWeaponClassTwoHanded(WeaponClass weaponClass)`
+
+**Purpose:** Handles logic related to `is weapon class two handed`.
 
 ### IsWeaponClassShield
-```csharp
-public static bool IsWeaponClassShield(WeaponClass weaponClass)
-```
+`public static bool IsWeaponClassShield(WeaponClass weaponClass)`
+
+**Purpose:** Handles logic related to `is weapon class shield`.
 
 ### IsWeaponClassBow
-```csharp
-public static bool IsWeaponClassBow(WeaponClass weaponClass)
-```
+`public static bool IsWeaponClassBow(WeaponClass weaponClass)`
+
+**Purpose:** Handles logic related to `is weapon class bow`.
 
 ### IsWeaponClassCrossbow
-```csharp
-public static bool IsWeaponClassCrossbow(WeaponClass weaponClass)
-```
+`public static bool IsWeaponClassCrossbow(WeaponClass weaponClass)`
+
+**Purpose:** Handles logic related to `is weapon class crossbow`.
 
 ### GetComplimentaryWeaponClasses
-```csharp
-public static WeaponClass GetComplimentaryWeaponClasses(WeaponClass weaponClass)
-```
+`public static WeaponClass GetComplimentaryWeaponClasses(WeaponClass weaponClass)`
+
+**Purpose:** Gets the current value of `complimentary weapon classes`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CosmeticsManagerHelper (Helper)
-CosmeticsManagerHelper./* static helper method */();;
+CosmeticsManagerHelper.Initialize();
 ```
 
 ## See Also

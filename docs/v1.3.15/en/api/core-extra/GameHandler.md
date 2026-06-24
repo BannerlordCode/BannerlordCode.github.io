@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameHandler`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameHandler
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`GameHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`GameHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `GameHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBeforeSave
-```csharp
-public abstract void OnBeforeSave()
-```
+`public abstract void OnBeforeSave()`
+
+**Purpose:** Called when the `before save` event is raised.
 
 ### OnAfterSave
-```csharp
-public abstract void OnAfterSave()
-```
+`public abstract void OnAfterSave()`
+
+**Purpose:** Called when the `after save` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameHandler (Handler)
-Mission.Current.AddMissionBehavior(new GameHandler());
+var implementation = new CustomGameHandler();
 ```
 
 ## See Also

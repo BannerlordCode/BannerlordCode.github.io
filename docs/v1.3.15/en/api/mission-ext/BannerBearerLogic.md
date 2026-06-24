@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `BannerBearerLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerBearerLogic
@@ -15,6 +17,10 @@
 ## Overview
 
 `BannerBearerLogic` tracks formation banners — which agent carries each, whether a banner is on the ground, and lets you find the active banner for a formation (`GetActiveBanner`, `HasBannerOnGround`). Use it to query or manipulate banner-bearer state in siege/battle missions.
+
+## Mental Model
+
+Treat `BannerBearerLogic` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

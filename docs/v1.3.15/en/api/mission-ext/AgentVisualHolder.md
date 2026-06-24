@@ -2,120 +2,114 @@
 **Home** → **API Index** → **Area** → `AgentVisualHolder`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentVisualHolder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class AgentVisualHolder : IAgentVisual`
+**Base:** `IAgentVisual`
+**File:** `TaleWorlds.MountAndBlade/AgentVisualHolder.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AgentVisualHolder` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AgentVisualHolder` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### SetAction
+`public void SetAction(in ActionIndexCache actionName, float startProgress = 0f, bool forceFaceMorphRestart = true)`
 
-```csharp
-public void SetAction(in ActionIndexCache actionName, float startProgress = 0f, bool forceFaceMorphRestart = true)
-```
+**Purpose:** Sets the value or state of `action`.
 
 ### GetEntity
+`public GameEntity GetEntity()`
 
-```csharp
-public GameEntity GetEntity()
-```
+**Purpose:** Gets the current value of `entity`.
 
 ### GetVisuals
+`public MBAgentVisuals GetVisuals()`
 
-```csharp
-public MBAgentVisuals GetVisuals()
-```
+**Purpose:** Gets the current value of `visuals`.
 
 ### SetFrame
+`public void SetFrame(ref MatrixFrame frame)`
 
-```csharp
-public void SetFrame(ref MatrixFrame frame)
-```
+**Purpose:** Sets the value or state of `frame`.
 
 ### GetFrame
+`public MatrixFrame GetFrame()`
 
-```csharp
-public MatrixFrame GetFrame()
-```
+**Purpose:** Gets the current value of `frame`.
 
 ### GetBodyProperties
+`public BodyProperties GetBodyProperties()`
 
-```csharp
-public BodyProperties GetBodyProperties()
-```
+**Purpose:** Gets the current value of `body properties`.
 
 ### SetBodyProperties
+`public void SetBodyProperties(BodyProperties bodyProperties)`
 
-```csharp
-public void SetBodyProperties(BodyProperties bodyProperties)
-```
+**Purpose:** Sets the value or state of `body properties`.
 
 ### GetIsFemale
+`public bool GetIsFemale()`
 
-```csharp
-public bool GetIsFemale()
-```
+**Purpose:** Gets the current value of `is female`.
 
 ### GetCharacterObjectID
+`public string GetCharacterObjectID()`
 
-```csharp
-public string GetCharacterObjectID()
-```
+**Purpose:** Gets the current value of `character object i d`.
 
 ### SetCharacterObjectID
+`public void SetCharacterObjectID(string id)`
 
-```csharp
-public void SetCharacterObjectID(string id)
-```
+**Purpose:** Sets the value or state of `character object i d`.
 
 ### GetEquipment
+`public Equipment GetEquipment()`
 
-```csharp
-public Equipment GetEquipment()
-```
+**Purpose:** Gets the current value of `equipment`.
 
 ### RefreshWithNewEquipment
+`public void RefreshWithNewEquipment(Equipment equipment)`
 
-```csharp
-public void RefreshWithNewEquipment(Equipment equipment)
-```
+**Purpose:** Refreshes the display or cache of `with new equipment`.
 
 ### SetClothingColors
+`public void SetClothingColors(uint color1, uint color2)`
 
-```csharp
-public void SetClothingColors(uint color1, uint color2)
-```
+**Purpose:** Sets the value or state of `clothing colors`.
 
 ### GetClothingColors
+`public void GetClothingColors(out uint color1, out uint color2)`
 
-```csharp
-public void GetClothingColors(out uint color1, out uint color2)
-```
+**Purpose:** Gets the current value of `clothing colors`.
 
 ### GetCopyAgentVisualsData
+`public AgentVisualsData GetCopyAgentVisualsData()`
 
-```csharp
-public AgentVisualsData GetCopyAgentVisualsData()
-```
+**Purpose:** Gets the current value of `copy agent visuals data`.
 
 ### Refresh
+`public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)`
+
+**Purpose:** Refreshes the display or cache of `refresh`.
+
+## Usage Example
 
 ```csharp
-public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)
+var value = new AgentVisualHolder();
+value.SetAction(actionName, 0, false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

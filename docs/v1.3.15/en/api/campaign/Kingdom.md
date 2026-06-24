@@ -2,240 +2,241 @@
 **Home** → **API Index** → **Area** → `Kingdom`
 - [← Area / Back to campaign](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/Kingdom](/versions/Kingdom)
 <!-- END BREADCRUMB -->
 # Kingdom
 
-**Namespace**: TaleWorlds.CampaignSystem  
-**File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Kingdom.cs`  
-**Purpose**: Represents a kingdom faction in the game
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class Kingdom : MBObjectBase, IFaction`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.CampaignSystem/Kingdom.cs`
 
-## Developer Use Cases
+## Overview
 
-### Use Case 1: Get the kingdom of a clan
+`Kingdom` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-**Scenario**: Determine which kingdom a player or clan currently serves.
+## Mental Model
 
-```csharp
-Clan playerClan = Clan.PlayerClan;
-Kingdom kingdom = playerClan.Kingdom; // null for independent clans
-if (kingdom != null)
-{
-    Hero ruler = kingdom.Leader;
-}
-```
-
-**Key points**: Independent clans (including bandits) have `Kingdom == null`; `Leader` is the current ruler, `RulingClan` is the ruling clan.
-
-### Use Case 2: Create a new kingdom and initialize it
-
-**Scenario**: Player founds their own kingdom, or story requires a new one.
-
-```csharp
-Kingdom newKingdom = Kingdom.CreateKingdom("my_kingdom");
-newKingdom.InitializeKingdom(
-    new TextObject("My Kingdom"),
-    new TextObject("MyKingdom"),
-    culture,
-    banner,
-    0xFF0000FF, 0xFFFFFFFF,
-    homeSettlement,
-    new TextObject("Description"),
-    new TextObject("My Kingdom"),
-    new TextObject("King"));
-newKingdom.RulingClan = myClan;
-```
-
-**Key points**: `CreateKingdom` only creates a shell; you must call `InitializeKingdom` to populate metadata; skipping `RulingClan` breaks later political calculations.
-
-### Use Case 3: List all kingdoms and diplomacy
-
-**Scenario**: Iterate all kingdoms, find those at war with the player.
-
-```csharp
-foreach (Kingdom k in Kingdom.All)
-{
-    if (k.IsAtWarWith(Clan.PlayerClan))
-    {
-        float strength = k.CurrentTotalStrength;
-    }
-}
-```
-
-**Key points**: `Kingdom.All` is a static read-only list; `IsAtWarWith` accepts `IFaction` so you can compare a `Clan` directly; war state is maintained via `StanceLink`, call `UpdateFactionsAtWarWith()` if you need to refresh.
-
-### Use Case 4: Manage kingdom policies
-
-**Scenario**: Enable or disable a kingdom policy.
-
-```csharp
-if (!kingdom.HasPolicy(somePolicy))
-{
-    kingdom.AddPolicy(somePolicy);
-}
-```
-
-**Key points**: `AddPolicy` / `RemovePolicy` immediately affect derived calculations like influence; use `HasPolicy` to avoid double-adding.
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Name` | `TextObject` | Kingdom name |
-| `InformalName` | `TextObject` | Short/informal name |
-| `EncyclopediaText` | `TextObject` | Encyclopedia description |
-| `EncyclopediaTitle` | `TextObject` | Encyclopedia page title |
-| `EncyclopediaRulerTitle` | `TextObject` | Title of the ruler |
-| `EncyclopediaLink` | `string` | Encyclopedia link identifier |
-| `EncyclopediaLinkWithName` | `TextObject` | Hyperlink with name |
-| `Culture` | `CultureObject` | Kingdom culture |
-| `InitialHomeSettlement` | `Settlement` | Starting settlement |
-| `Color` | `uint` | Primary color |
-| `Color2` | `uint` | Secondary color |
-| `PrimaryBannerColor` | `uint` | Primary banner color |
-| `SecondaryBannerColor` | `uint` | Secondary banner color |
-| `Banner` | `Banner` | Kingdom banner |
-| `Leader` | `Hero` | Current ruler/leader |
-| `RulingClan` | `Clan` | The ruling clan |
-| `Clans` | `MBReadOnlyList` | All clans in kingdom |
-| `Armies` | `MBReadOnlyList` | Active armies |
-| `AllParties` | `IEnumerable` | All parties belonging to kingdom |
-| `Fiefs` | `MBReadOnlyList` | Owned towns and castles |
-| `Villages` | `MBReadOnlyList` | Bound villages |
-| `Settlements` | `MBReadOnlyList` | All settlements |
-| `Heroes` | `MBReadOnlyList` | All heroes in kingdom |
-| `AliveLords` | `MBReadOnlyList` | Living lords |
-| `DeadLords` | `MBReadOnlyList` | Dead lords |
-| `WarPartyComponents` | `MBReadOnlyList` | War parties |
-| `UnresolvedDecisions` | `MBReadOnlyList` | Pending decisions |
-| `ActivePolicies` | `IList` | Current policies |
-| `FactionsAtWarWith` | `MBReadOnlyList` | At war with |
-| `AlliedKingdoms` | `MBReadOnlyList` | Allied kingdoms |
-| `CurrentTotalStrength` | `float` | Total military strength |
-| `FactionMidSettlement` | `Settlement` | Central settlement |
-| `IsMapFaction` | `bool` | Is a map faction (always true for Kingdom) |
-| `IsBanditFaction` | `bool` | Is bandit faction |
-| `IsMinorFaction` | `bool` | Is minor faction |
-| `IsRebelClan` | `bool` | Is rebel clan |
-| `IsClan` | `bool` | Is clan (always false for Kingdom) |
-| `IsOutlaw` | `bool` | Is outlaw faction |
-| `IsEliminated` | `bool` | Has been eliminated |
-| `IsKingdomFaction` | `bool` | Is kingdom faction (always true) |
-| `MapFaction` | `IFaction` | Returns this kingdom |
-| `LastArmyCreationDay` | `int` | Last day an army was created |
-| `LastKingdomDecisionConclusionDate` | `CampaignTime` | Last decision conclusion |
-| `LastMercenaryOfferTime` | `CampaignTime` | Last mercenary offer |
-| `NotAttackableByPlayerUntilTime` | `CampaignTime` | Protection from player |
-| `Aggressiveness` | `float` | Kingdom aggressiveness (0-100) |
-| `TributeWallet` | `int` | Available tribute gold |
-| `KingdomBudgetWallet` | `int` | Kingdom budget |
-| `CallToWarWallet` | `int` | War fund |
-| `MercenaryWallet` | `int` | Mercenary payment fund |
-| `PoliticalStagnation` | `int` | Political stagnation level |
-| `MainHeroCrimeRating` | `float` | Hero crime rating |
-| `DailyCrimeRatingChange` | `float` | Daily crime change |
-| `DistanceToClosestNonAllyFortification` | `float` | Distance to nearest enemy fort |
-| `BasicTroop` | `CharacterObject` | Basic troop for culture |
-| `HasNavalNavigationCapability` | `bool` | Can use naval units |
-| `All` | `static MBReadOnlyList` | All kingdoms |
+| Name | Signature |
+|------|-----------|
+| `Name` | `public TextObject Name { get; }` |
+| `InformalName` | `public TextObject InformalName { get; }` |
+| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
+| `EncyclopediaTitle` | `public TextObject EncyclopediaTitle { get; }` |
+| `EncyclopediaRulerTitle` | `public TextObject EncyclopediaRulerTitle { get; }` |
+| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
+| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
+| `UnresolvedDecisions` | `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions { get; }` |
+| `Culture` | `public CultureObject Culture { get; }` |
+| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
+| `IsMapFaction` | `public bool IsMapFaction { get; }` |
+| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; }` |
+| `Color` | `public uint Color { get; }` |
+| `Color2` | `public uint Color2 { get; }` |
+| `PrimaryBannerColor` | `public uint PrimaryBannerColor { get; }` |
+| `SecondaryBannerColor` | `public uint SecondaryBannerColor { get; }` |
+| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
+| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
+| `AlliedKingdoms` | `public MBReadOnlyList<Kingdom> AlliedKingdoms { get; }` |
+| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
+| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
+| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
+| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
+| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
+| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
+| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; }` |
+| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
+| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
+| `BasicTroop` | `public CharacterObject BasicTroop { get; }` |
+| `Leader` | `public Hero Leader { get; set; }` |
+| `Banner` | `public Banner Banner { get; set; }` |
+| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
+| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
+| `IsRebelClan` | `public bool IsRebelClan { get; }` |
+| `IsClan` | `public bool IsClan { get; }` |
+| `IsOutlaw` | `public bool IsOutlaw { get; }` |
+| `Clans` | `public MBReadOnlyList<Clan> Clans { get; set; }` |
+| `RulingClan` | `public Clan RulingClan { get; }` |
+| `LastArmyCreationDay` | `public int LastArmyCreationDay { get; }` |
+| `Armies` | `public MBReadOnlyList<Army> Armies { get; }` |
+| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
+| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; }` |
+| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
+| `ActivePolicies` | `public IList<PolicyObject> ActivePolicies { get; }` |
+| `All` | `public static MBReadOnlyList<Kingdom> All { get; }` |
+| `LastKingdomDecisionConclusionDate` | `public CampaignTime LastKingdomDecisionConclusionDate { get; }` |
+| `IsEliminated` | `public bool IsEliminated { get; set; }` |
+| `LastMercenaryOfferTime` | `public CampaignTime LastMercenaryOfferTime { get; set; }` |
+| `MapFaction` | `public IFaction MapFaction { get; set; }` |
+| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
+| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
+| `AllParties` | `public IEnumerable<MobileParty> AllParties { get; }` |
+| `MercenaryWallet` | `public int MercenaryWallet { get; set; }` |
+| `TributeWallet` | `public int TributeWallet { get; set; }` |
+| `KingdomBudgetWallet` | `public int KingdomBudgetWallet { get; set; }` |
+| `CallToWarWallet` | `public int CallToWarWallet { get; set; }` |
 
 ## Key Methods
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `CreateKingdom` | `static Kingdom CreateKingdom(string stringID)` | Create new kingdom |
-| `InitializeKingdom` | `void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint color1, uint color2, Settlement home, TextObject encText, TextObject encTitle, TextObject encRulerTitle)` | Initialize kingdom data |
-| `ChangeKingdomName` | `void ChangeKingdomName(TextObject name, TextObject informalName)` | Change kingdom name |
-| `CreateArmy` | `void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes type, MBReadOnlyList partiesToCallToArmy = null)` | Create an army |
-| `AddDecision` | `void AddDecision(KingdomDecision decision, bool ignoreInfluenceCost = false)` | Add kingdom decision |
-| `RemoveDecision` | `void RemoveDecision(KingdomDecision decision)` | Remove pending decision |
-| `OnKingdomDecisionConcluded` | `void OnKingdomDecisionConcluded()` | Called when decision concludes |
-| `AddPolicy` | `void AddPolicy(PolicyObject policy)` | Add active policy |
-| `RemovePolicy` | `void RemovePolicy(PolicyObject policy)` | Remove policy |
-| `HasPolicy` | `bool HasPolicy(PolicyObject policy)` | Check if policy is active |
-| `UpdateFactionsAtWarWith` | `void UpdateFactionsAtWarWith()` | Refresh war relations |
-| `UpdateAlliedKingdoms` | `void UpdateAlliedKingdoms()` | Refresh alliances |
-| `IsAllyWith` | `bool IsAllyWith(Kingdom other)` | Check alliance |
-| `HasCalledToWar` | `bool HasCalledToWar(Kingdom other)` | Check war declaration |
-| `IsAtWarWith` | `bool IsAtWarWith(IFaction other)` | Check war state |
-| `IsAtConstantWarWith` | `bool IsAtConstantWarWith(IFaction other)` | Check constant war |
-| `GetStanceWith` | `StanceLink GetStanceWith(IFaction other)` | Get stance link |
-| `OnFortificationAdded` | `void OnFortificationAdded(Town fortification)` | When fief is gained |
-| `OnFortificationRemoved` | `void OnFortificationRemoved(Town fortification)` | When fief is lost |
-| `OnHeroAdded` | `void OnHeroAdded(Hero hero)` | When hero joins |
-| `OnHeroRemoved` | `void OnHeroRemoved(Hero hero)` | When hero leaves |
-| `OnWarPartyAdded` | `void OnWarPartyAdded(WarPartyComponent warParty)` | When war party added |
-| `OnWarPartyRemoved` | `void OnWarPartyRemoved(WarPartyComponent warParty)` | When war party removed |
-| `CalculateMidSettlement` | `void CalculateMidSettlement()` | Calculate central settlement |
-| `ReactivateKingdom` | `void ReactivateKingdom()` | Reactivate eliminated kingdom |
-| `DeactivateKingdom` | `internal void DeactivateKingdom()` | Eliminate kingdom |
+### GetName
+`public override TextObject GetName()`
+
+**Purpose:** Gets the current value of `name`.
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+### UpdateFactionsAtWarWith
+`public void UpdateFactionsAtWarWith()`
+
+**Purpose:** Updates the state or data of `factions at war with`.
+
+### UpdateAlliedKingdoms
+`public void UpdateAlliedKingdoms()`
+
+**Purpose:** Updates the state or data of `allied kingdoms`.
+
+### CreateKingdom
+`public static Kingdom CreateKingdom(string stringID)`
+
+**Purpose:** Creates a new `kingdom` instance or object.
+
+### InitializeKingdom
+`public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
+
+**Purpose:** Initializes the state, resources, or bindings for `kingdom`.
+
+### ChangeKingdomName
+`public void ChangeKingdomName(TextObject name, TextObject informalName)`
+
+**Purpose:** Handles logic related to `change kingdom name`.
+
+### OnHeroChangedState
+`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
+
+**Purpose:** Called when the `hero changed state` event is raised.
+
+### IsAllyWith
+`public bool IsAllyWith(Kingdom other)`
+
+**Purpose:** Handles logic related to `is ally with`.
+
+### HasCalledToWar
+`public bool HasCalledToWar(Kingdom other)`
+
+**Purpose:** Checks whether the current object has/contains `called to war`.
+
+### IsAtWarWith
+`public bool IsAtWarWith(IFaction other)`
+
+**Purpose:** Handles logic related to `is at war with`.
+
+### IsAtConstantWarWith
+`public bool IsAtConstantWarWith(IFaction other)`
+
+**Purpose:** Handles logic related to `is at constant war with`.
+
+### GetStanceWith
+`public StanceLink GetStanceWith(IFaction other)`
+
+**Purpose:** Gets the current value of `stance with`.
+
+### CreateArmy
+`public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
+
+**Purpose:** Creates a new `army` instance or object.
+
+### AddDecision
+`public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
+
+**Purpose:** Adds `decision` to the current collection or state.
+
+### RemoveDecision
+`public void RemoveDecision(KingdomDecision kingdomDecision)`
+
+**Purpose:** Removes `decision` from the current collection or state.
+
+### OnKingdomDecisionConcluded
+`public void OnKingdomDecisionConcluded()`
+
+**Purpose:** Called when the `kingdom decision concluded` event is raised.
+
+### AddPolicy
+`public void AddPolicy(PolicyObject policy)`
+
+**Purpose:** Adds `policy` to the current collection or state.
+
+### RemovePolicy
+`public void RemovePolicy(PolicyObject policy)`
+
+**Purpose:** Removes `policy` from the current collection or state.
+
+### HasPolicy
+`public bool HasPolicy(PolicyObject policy)`
+
+**Purpose:** Checks whether the current object has/contains `policy`.
+
+### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+### OnFortificationAdded
+`public void OnFortificationAdded(Town fortification)`
+
+**Purpose:** Called when the `fortification added` event is raised.
+
+### OnFortificationRemoved
+`public void OnFortificationRemoved(Town fortification)`
+
+**Purpose:** Called when the `fortification removed` event is raised.
+
+### OnHeroAdded
+`public void OnHeroAdded(Hero hero)`
+
+**Purpose:** Called when the `hero added` event is raised.
+
+### OnHeroRemoved
+`public void OnHeroRemoved(Hero hero)`
+
+**Purpose:** Called when the `hero removed` event is raised.
+
+### OnWarPartyAdded
+`public void OnWarPartyAdded(WarPartyComponent warPartyComponent)`
+
+**Purpose:** Called when the `war party added` event is raised.
+
+### OnWarPartyRemoved
+`public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)`
+
+**Purpose:** Called when the `war party removed` event is raised.
+
+### CalculateMidSettlement
+`public void CalculateMidSettlement()`
+
+**Purpose:** Handles logic related to `calculate mid settlement`.
+
+### ReactivateKingdom
+`public void ReactivateKingdom()`
+
+**Purpose:** Handles logic related to `reactivate kingdom`.
 
 ## Usage Example
 
 ```csharp
-// Get all kingdoms
-foreach (Kingdom kingdom in Kingdom.All)
-{
-    Debug.Print("Kingdom: " + kingdom.Name);
-    
-    // Check ruler
-    Hero ruler = kingdom.Leader;
-    if (ruler != null)
-    {
-        Debug.Print("Ruler: " + ruler.Name);
-    }
-    
-    // Check clans
-    foreach (Clan clan in kingdom.Clans)
-    {
-        Debug.Print("  Clan: " + clan.Name);
-    }
-    
-    // Check strength
-    float strength = kingdom.CurrentTotalStrength;
-    
-    // Check diplomacy
-    if (kingdom.IsAtWarWith(Clan.PlayerClan))
-    {
-        Debug.Print("At war with player!");
-    }
-}
-
-// Access player kingdom
-Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
-
-// Create a new kingdom
-Kingdom newKingdom = Kingdom.CreateKingdom("my_kingdom");
-newKingdom.InitializeKingdom(
-    new TextObject("My Kingdom"),
-    new TextObject("MyKingdom"),
-    culture,
-    new Banner(),
-    0xFF0000FF,  // Color
-    0xFFFFFFFF,  // Color2
-    homeTown,
-    new TextObject("Description"),
-    new TextObject("My Kingdom"),
-    new TextObject("King")
-);
-newKingdom.RulingClan = myClan;
-
-// Manage policies
-if (!kingdom.HasPolicy(somePolicy))
-{
-    kingdom.AddPolicy(somePolicy);
-}
+var value = new Kingdom();
+value.GetName();
 ```
 
-## Inheritance
+## See Also
 
-```
-MBObjectBase
-    └── Kingdom (sealed)
-        └── IFaction
-```
-
-## Implemented Interfaces
-
-- `IFaction` - Faction interface
+- [Complete Class Catalog](../catalog)

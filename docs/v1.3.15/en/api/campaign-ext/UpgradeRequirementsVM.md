@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `UpgradeRequirementsVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UpgradeRequirementsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class UpgradeRequirementsVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Party/UpgradeRequirementsVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `UpgradeRequirementsVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Party` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`UpgradeRequirementsVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Party` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,34 +34,35 @@
 | `ItemRequirementHint` | `public HintViewModel ItemRequirementHint { get; set; }` |
 | `PerkRequirementHint` | `public HintViewModel PerkRequirementHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### SetItemRequirement
+`public void SetItemRequirement(ItemCategory category)`
 
-```csharp
-public void SetItemRequirement(ItemCategory category)
-```
+**Purpose:** Sets the value or state of `item requirement`.
 
 ### SetPerkRequirement
+`public void SetPerkRequirement(PerkObject perk)`
 
-```csharp
-public void SetPerkRequirement(PerkObject perk)
-```
+**Purpose:** Sets the value or state of `perk requirement`.
 
 ### SetRequirementsMet
+`public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)`
+
+**Purpose:** Sets the value or state of `requirements met`.
+
+## Usage Example
 
 ```csharp
-public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)
+var value = new UpgradeRequirementsVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

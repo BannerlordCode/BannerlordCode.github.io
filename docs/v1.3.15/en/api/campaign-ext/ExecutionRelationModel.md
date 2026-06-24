@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ExecutionRelationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ExecutionRelationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`ExecutionRelationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ExecutionRelationModel>(new MyExecutionRelationModel())` to change how it computes.
+`ExecutionRelationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ExecutionRelationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -34,15 +39,14 @@
 ## Key Methods
 
 ### GetRelationChangeForExecutingHero
-```csharp
-public abstract int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)
-```
+`public abstract int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
+
+**Purpose:** Gets the current value of `relation change for executing hero`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ExecutionRelationModel (Model)
-Game.Current.ReplaceModel<ExecutionRelationModel>(new MyExecutionRelationModel());
+var implementation = new CustomExecutionRelationModel();
 ```
 
 ## See Also

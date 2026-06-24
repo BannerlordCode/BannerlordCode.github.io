@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ManagedSelectionOptionData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedSelectionOptionData
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`ManagedSelectionOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`ManagedSelectionOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `ManagedSelectionOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSelectableOptionsLimit
-```csharp
-public int GetSelectableOptionsLimit()
-```
+`public int GetSelectableOptionsLimit()`
+
+**Purpose:** Gets the current value of `selectable options limit`.
 
 ### GetSelectableOptionNames
-```csharp
-public IEnumerable<SelectionData> GetSelectableOptionNames()
-```
+`public IEnumerable<SelectionData> GetSelectableOptionNames()`
+
+**Purpose:** Gets the current value of `selectable option names`.
 
 ### GetOptionsLimit
-```csharp
-public static int GetOptionsLimit(ManagedOptions.ManagedOptionsType optionType)
-```
+`public static int GetOptionsLimit(ManagedOptions.ManagedOptionsType optionType)`
+
+**Purpose:** Gets the current value of `options limit`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ManagedSelectionOptionData (Data)
-new ManagedSelectionOptionData { /* fill fields */ };;
+var value = new ManagedSelectionOptionData();
 ```
 
 ## See Also

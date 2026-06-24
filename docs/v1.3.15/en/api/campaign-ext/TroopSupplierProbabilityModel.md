@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TroopSupplierProbabilityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TroopSupplierProbabilityModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`TroopSupplierProbabilityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TroopSupplierProbabilityModel>(new MyTroopSupplierProbabilityModel())` to change how it computes.
+`TroopSupplierProbabilityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TroopSupplierProbabilityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
-```csharp
-public abstract void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)
-```
+`public abstract void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
+
+**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TroopSupplierProbabilityModel (Model)
-Game.Current.ReplaceModel<TroopSupplierProbabilityModel>(new MyTroopSupplierProbabilityModel());
+var implementation = new CustomTroopSupplierProbabilityModel();
 ```
 
 ## See Also

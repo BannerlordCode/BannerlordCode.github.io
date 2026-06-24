@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SallyOutMissionNotificationsHandler`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SallyOutMissionNotificationsHandler
@@ -14,39 +15,42 @@
 
 ## 概述
 
-`SallyOutMissionNotificationsHandler` 是一个任务处理器（反应逻辑）。经 AddMissionBehavior 添加，对特定任务事件作出响应。
+`SallyOutMissionNotificationsHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `SallyOutMissionNotificationsHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### OnBesiegedSideFallsbackToKeep
-```csharp
-public void OnBesiegedSideFallsbackToKeep()
-```
+`public void OnBesiegedSideFallsbackToKeep()`
+
+**用途 / Purpose:** 当 `besieged side fallsback to keep` 事件触发时调用此方法。
 
 ### OnAfterStart
-```csharp
-public void OnAfterStart()
-```
+`public void OnAfterStart()`
+
+**用途 / Purpose:** 当 `after start` 事件触发时调用此方法。
 
 ### OnMissionEnd
-```csharp
-public void OnMissionEnd()
-```
+`public void OnMissionEnd()`
+
+**用途 / Purpose:** 当 `mission end` 事件触发时调用此方法。
 
 ### OnDeploymentFinished
-```csharp
-public void OnDeploymentFinished()
-```
+`public void OnDeploymentFinished()`
+
+**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
 
 ### OnMissionTick
-```csharp
-public void OnMissionTick(float dt)
-```
+`public void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// SallyOutMissionNotificationsHandler (Handler) 的典型用法
 Mission.Current.AddMissionBehavior(new SallyOutMissionNotificationsHandler());
 ```
 

@@ -11,6 +11,10 @@ description: Bannerlord modding best practices
 
 This guide covers best practices and common patterns for Bannerlord modding. Following these patterns makes your mods more stable and maintainable.
 
+## Mental Model
+
+Treat `Common Patterns` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Contents
 
 1. [Code Organization](#code-organization)
@@ -208,3 +212,9 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 - [Game Systems Overview](./game-systems-overview.md) - Learn what can be customized
 - [Troubleshooting](./troubleshooting.md) - Solve problems
+
+## Usage Example
+
+```csharp
+var example = new Common Patterns();
+```

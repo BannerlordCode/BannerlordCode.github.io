@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MatchmakingQueueGameTypeStats`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MatchmakingQueueGameTypeStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MatchmakingQueueGameTypeStats`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueGameTypeStats.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MatchmakingQueueGameTypeStats` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MatchmakingQueueGameTypeStats` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,22 +29,25 @@
 | `Count` | `public int Count { get; set; }` |
 | `TotalWaitTime` | `public int TotalWaitTime { get; set; }` |
 
-
 ## Key Methods
 
 ### HasGameType
+`public bool HasGameType(string gameType)`
 
-```csharp
-public bool HasGameType(string gameType)
-```
+**Purpose:** Checks whether the current object has/contains `game type`.
 
 ### EqualWith
+`public bool EqualWith(string gameTypes)`
+
+**Purpose:** Handles logic related to `equal with`.
+
+## Usage Example
 
 ```csharp
-public bool EqualWith(string gameTypes)
+var value = new MatchmakingQueueGameTypeStats();
+value.HasGameType("example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

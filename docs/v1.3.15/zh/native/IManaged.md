@@ -5,6 +5,10 @@ description: 引用计数和对象生命周期管理接口 / Reference counting 
 
 # IManaged
 
+## 心智模型
+
+先把 `IManaged` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **文件**: `TaleWorlds.DotNet/IManaged.cs`  
 **命名空间**: `TaleWorlds.DotNet`  
 **特性**: `[LibraryInterfaceBase]`

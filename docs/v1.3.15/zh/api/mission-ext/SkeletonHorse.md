@@ -1,17 +1,23 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `SkeletonHorse`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkeletonHorse
 
+## 心智模型
+
+先把 `SkeletonHorse` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 类概述
 
-| 项目 | 说明 |
-|------|------|
-| **命名空间** | TaleWorlds.MountAndBlade (原生引擎) |
-| **文件路径** | 原生引擎类，无 C# 源代码 |
+\| 项目 \| 说明 \|
+\|------\|------\|
+\| **命名空间** \| TaleWorlds.MountAndBlade (原生引擎) \|
+\| **文件路径** \| 原生引擎类，无 C# 源代码 \|
 
 ## 说明
 
@@ -27,3 +33,9 @@
 - `HorseComponent` - 马匹数据组件
 - `Agent` - 代理/单位基类
 - `SkeletonScale` - 骨骼缩放
+
+## 使用示例
+
+```csharp
+var example = new SkeletonHorse();
+```

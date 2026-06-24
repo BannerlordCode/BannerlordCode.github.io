@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ConversationTagHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationTagHelper
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`ConversationTagHelper` is a static utility class providing helper methods.
+`ConversationTagHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `ConversationTagHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### UsesHighRegister
-```csharp
-public static bool UsesHighRegister(CharacterObject character)
-```
+`public static bool UsesHighRegister(CharacterObject character)`
+
+**Purpose:** Handles logic related to `uses high register`.
 
 ### UsesLowRegister
-```csharp
-public static bool UsesLowRegister(CharacterObject character)
-```
+`public static bool UsesLowRegister(CharacterObject character)`
+
+**Purpose:** Handles logic related to `uses low register`.
 
 ### TribalVoiceGroup
-```csharp
-public static bool TribalVoiceGroup(CharacterObject character)
-```
+`public static bool TribalVoiceGroup(CharacterObject character)`
+
+**Purpose:** Handles logic related to `tribal voice group`.
 
 ### EducatedClass
-```csharp
-public static bool EducatedClass(CharacterObject character)
-```
+`public static bool EducatedClass(CharacterObject character)`
+
+**Purpose:** Handles logic related to `educated class`.
 
 ### TraitCompatibility
-```csharp
-public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)
-```
+`public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)`
+
+**Purpose:** Handles logic related to `trait compatibility`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ConversationTagHelper (Helper)
-ConversationTagHelper./* static helper method */();;
+ConversationTagHelper.Initialize();
 ```
 
 ## See Also

@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `MetaData`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MetaData
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
-**Type:** class
-**Area:** Save System
+**Type:** `public class MetaData`
+**Area:** save-system
 
 ## Overview
 
-> This is an auto-generated stub. `MetaData` is a class in the `TaleWorlds.SaveSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MetaData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `MetaData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,31 +28,32 @@
 | `this` | `public string this { get; set; }` |
 | `Keys` | `public Dictionary<string, string>.KeyCollection Keys { get; }` |
 
-
 ## Key Methods
 
 ### Add
+`public void Add(string key, string value)`
 
-```csharp
-public void Add(string key, string value)
-```
+**Purpose:** Adds `add` to the current collection or state.
 
 ### TryGetValue
+`public bool TryGetValue(string key, out string value)`
 
-```csharp
-public bool TryGetValue(string key, out string value)
-```
+**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
 
 ### Serialize
+`public void Serialize(Stream stream)`
 
-```csharp
-public void Serialize(Stream stream)
-```
+**Purpose:** Handles logic related to `serialize`.
 
 ### Deserialize
+`public static MetaData Deserialize(Stream stream)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+## Usage Example
 
 ```csharp
-public static MetaData Deserialize(Stream stream)
+var value = new MetaData();
 ```
 
 ## See Also

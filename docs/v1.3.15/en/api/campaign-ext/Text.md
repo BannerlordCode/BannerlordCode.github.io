@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Text`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Text
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Text : IText`
+**Base:** `IText`
+**File:** `TaleWorlds.TwoDimension/Text.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Text` is a class in the `TaleWorlds.TwoDimension` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Text` lives in `TaleWorlds.TwoDimension` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,34 +39,35 @@
 | `CanBreakWords` | `public bool CanBreakWords { get; set; }` |
 | `ResizeTextOnOverflow` | `public bool ResizeTextOnOverflow { get; set; }` |
 
-
 ## Key Methods
 
 ### GetPreferredSize
+`public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-```csharp
-public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)
-```
+**Purpose:** Gets the current value of `preferred size`.
 
 ### UpdateSize
+`public void UpdateSize(int width, int height)`
 
-```csharp
-public void UpdateSize(int width, int height)
-```
+**Purpose:** Updates the state or data of `size`.
 
 ### SetAllDirty
+`public void SetAllDirty()`
 
-```csharp
-public void SetAllDirty()
-```
+**Purpose:** Sets the value or state of `all dirty`.
 
 ### GetParts
+`public List<TextPart> GetParts()`
+
+**Purpose:** Gets the current value of `parts`.
+
+## Usage Example
 
 ```csharp
-public List<TextPart> GetParts()
+var value = new Text();
+value.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

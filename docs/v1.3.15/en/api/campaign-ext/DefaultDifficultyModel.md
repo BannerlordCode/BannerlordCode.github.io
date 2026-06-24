@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultDifficultyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultDifficultyModel
@@ -14,54 +15,57 @@
 
 ## Overview
 
-`DefaultDifficultyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultDifficultyModel>(new MyDefaultDifficultyModel())` to change how it computes.
+`DefaultDifficultyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultDifficultyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPlayerTroopsReceivedDamageMultiplier
-```csharp
-public override float GetPlayerTroopsReceivedDamageMultiplier()
-```
+`public override float GetPlayerTroopsReceivedDamageMultiplier()`
+
+**Purpose:** Gets the current value of `player troops received damage multiplier`.
 
 ### GetPlayerRecruitSlotBonus
-```csharp
-public override int GetPlayerRecruitSlotBonus()
-```
+`public override int GetPlayerRecruitSlotBonus()`
+
+**Purpose:** Gets the current value of `player recruit slot bonus`.
 
 ### GetPlayerMapMovementSpeedBonusMultiplier
-```csharp
-public override float GetPlayerMapMovementSpeedBonusMultiplier()
-```
+`public override float GetPlayerMapMovementSpeedBonusMultiplier()`
+
+**Purpose:** Gets the current value of `player map movement speed bonus multiplier`.
 
 ### GetStealthDifficultyMultiplier
-```csharp
-public override float GetStealthDifficultyMultiplier()
-```
+`public override float GetStealthDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `stealth difficulty multiplier`.
 
 ### GetDisguiseDifficultyMultiplier
-```csharp
-public override float GetDisguiseDifficultyMultiplier()
-```
+`public override float GetDisguiseDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `disguise difficulty multiplier`.
 
 ### GetCombatAIDifficultyMultiplier
-```csharp
-public override float GetCombatAIDifficultyMultiplier()
-```
+`public override float GetCombatAIDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `combat a i difficulty multiplier`.
 
 ### GetPersuasionBonusChance
-```csharp
-public override float GetPersuasionBonusChance()
-```
+`public override float GetPersuasionBonusChance()`
+
+**Purpose:** Gets the current value of `persuasion bonus chance`.
 
 ### GetClanMemberDeathChanceMultiplier
-```csharp
-public override float GetClanMemberDeathChanceMultiplier()
-```
+`public override float GetClanMemberDeathChanceMultiplier()`
+
+**Purpose:** Gets the current value of `clan member death chance multiplier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultDifficultyModel (Model)
 Game.Current.ReplaceModel<DefaultDifficultyModel>(new MyDefaultDifficultyModel());
 ```
 

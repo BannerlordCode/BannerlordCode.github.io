@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `XmlHelper`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # XmlHelper
@@ -14,45 +15,48 @@
 
 ## Overview
 
-`XmlHelper` is a static utility class providing helper methods.
+`XmlHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `XmlHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### ReadInt
-```csharp
-public static int ReadInt(XmlNode node, string str)
-```
+`public static int ReadInt(XmlNode node, string str)`
+
+**Purpose:** Handles logic related to `read int`.
 
 ### ReadInt
-```csharp
-public static void ReadInt(ref int val, XmlNode node, string str)
-```
+`public static void ReadInt(ref int val, XmlNode node, string str)`
+
+**Purpose:** Handles logic related to `read int`.
 
 ### ReadFloat
-```csharp
-public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)
-```
+`public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)`
+
+**Purpose:** Handles logic related to `read float`.
 
 ### ReadString
-```csharp
-public static string ReadString(XmlNode node, string str)
-```
+`public static string ReadString(XmlNode node, string str)`
+
+**Purpose:** Handles logic related to `read string`.
 
 ### ReadHexCode
-```csharp
-public static void ReadHexCode(ref uint val, XmlNode node, string str)
-```
+`public static void ReadHexCode(ref uint val, XmlNode node, string str)`
+
+**Purpose:** Handles logic related to `read hex code`.
 
 ### ReadBool
-```csharp
-public static bool ReadBool(XmlNode node, string str)
-```
+`public static bool ReadBool(XmlNode node, string str)`
+
+**Purpose:** Handles logic related to `read bool`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of XmlHelper (Helper)
-XmlHelper./* static helper method */();;
+XmlHelper.Initialize();
 ```
 
 ## See Also

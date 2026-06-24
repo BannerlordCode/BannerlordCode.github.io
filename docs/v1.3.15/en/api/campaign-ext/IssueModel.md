@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `IssueModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IssueModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`IssueModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<IssueModel>(new MyIssueModel())` to change how it computes.
+`IssueModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `IssueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,60 +30,59 @@
 ## Key Methods
 
 ### GetIssueDifficultyMultiplier
-```csharp
-public abstract float GetIssueDifficultyMultiplier()
-```
+`public abstract float GetIssueDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `issue difficulty multiplier`.
 
 ### GetIssueEffectsOfSettlement
-```csharp
-public abstract void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)
-```
+`public abstract void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effects of settlement`.
 
 ### GetIssueEffectOfHero
-```csharp
-public abstract void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)
-```
+`public abstract void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effect of hero`.
 
 ### GetIssueEffectOfClan
-```csharp
-public abstract void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)
-```
+`public abstract void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effect of clan`.
 
 ### GetCausalityForHero
-```csharp
-public abstract ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public abstract ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `causality for hero`.
 
 ### GetFailureRiskForHero
-```csharp
-public abstract float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public abstract float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `failure risk for hero`.
 
 ### GetDurationOfResolutionForHero
-```csharp
-public abstract CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public abstract CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `duration of resolution for hero`.
 
 ### GetTroopsRequiredForHero
-```csharp
-public abstract int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public abstract int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `troops required for hero`.
 
 ### CanTroopsReturnFromAlternativeSolution
-```csharp
-public abstract bool CanTroopsReturnFromAlternativeSolution()
-```
+`public abstract bool CanTroopsReturnFromAlternativeSolution()`
+
+**Purpose:** Checks whether the current object can `troops return from alternative solution`.
 
 ### GetIssueAlternativeSolutionSkill
-```csharp
-public abstract ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)
-```
+`public abstract ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `issue alternative solution skill`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of IssueModel (Model)
-Game.Current.ReplaceModel<IssueModel>(new MyIssueModel());
+var implementation = new CustomIssueModel();
 ```
 
 ## See Also

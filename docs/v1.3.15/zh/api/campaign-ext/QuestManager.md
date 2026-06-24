@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `QuestManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QuestManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`QuestManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`QuestManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `QuestManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -27,145 +32,144 @@
 ## 主要方法
 
 ### OnQuestStarted
-```csharp
-public override void OnQuestStarted(QuestBase quest)
-```
+`public override void OnQuestStarted(QuestBase quest)`
+
+**用途 / Purpose:** 当 `quest started` 事件触发时调用此方法。
 
 ### IsThereActiveQuestWithType
-```csharp
-public bool IsThereActiveQuestWithType(Type type)
-```
+`public bool IsThereActiveQuestWithType(Type type)`
+
+**用途 / Purpose:** 处理 `is there active quest with type` 相关逻辑。
 
 ### IsQuestGiver
-```csharp
-public bool IsQuestGiver(Hero offeringHero)
-```
+`public bool IsQuestGiver(Hero offeringHero)`
+
+**用途 / Purpose:** 处理 `is quest giver` 相关逻辑。
 
 ### OnGameLoaded
-```csharp
-public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)
-```
+`public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
+
+**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
 
 ### OnSessionStart
-```csharp
-public override void OnSessionStart(CampaignGameStarter campaignGameStarter)
-```
+`public override void OnSessionStart(CampaignGameStarter campaignGameStarter)`
+
+**用途 / Purpose:** 当 `session start` 事件触发时调用此方法。
 
 ### HourlyTick
-```csharp
-public override void HourlyTick()
-```
+`public override void HourlyTick()`
+
+**用途 / Purpose:** 处理 `hourly tick` 相关逻辑。
 
 ### HourlyTickParty
-```csharp
-public override void HourlyTickParty(MobileParty mobileParty)
-```
+`public override void HourlyTickParty(MobileParty mobileParty)`
+
+**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
 
 ### DailyTick
-```csharp
-public override void DailyTick()
-```
+`public override void DailyTick()`
+
+**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
 
 ### WeeklyTick
-```csharp
-public override void WeeklyTick()
-```
+`public override void WeeklyTick()`
+
+**用途 / Purpose:** 处理 `weekly tick` 相关逻辑。
 
 ### CheckQuestForMenuLocations
-```csharp
-public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)
-```
+`public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)`
+
+**用途 / Purpose:** 处理 `check quest for menu locations` 相关逻辑。
 
 ### OnQuestFinalized
-```csharp
-public void OnQuestFinalized(QuestBase quest)
-```
+`public void OnQuestFinalized(QuestBase quest)`
+
+**用途 / Purpose:** 当 `quest finalized` 事件触发时调用此方法。
 
 ### OnPlayerCharacterChanged
-```csharp
-public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)
-```
+`public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)`
+
+**用途 / Purpose:** 当 `player character changed` 事件触发时调用此方法。
 
 ### CanHaveCampaignIssues
-```csharp
-public override void CanHaveCampaignIssues(Hero hero, ref bool result)
-```
+`public override void CanHaveCampaignIssues(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `have campaign issues`。
 
 ### CanHeroDie
-```csharp
-public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)
-```
+`public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero die`。
 
 ### CanHeroBecomePrisoner
-```csharp
-public override void CanHeroBecomePrisoner(Hero hero, ref bool result)
-```
+`public override void CanHeroBecomePrisoner(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero become prisoner`。
 
 ### CanHeroEquipmentBeChanged
-```csharp
-public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)
-```
+`public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero equipment be changed`。
 
 ### CanHeroLeadParty
-```csharp
-public override void CanHeroLeadParty(Hero hero, ref bool result)
-```
+`public override void CanHeroLeadParty(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero lead party`。
 
 ### CanHeroMarry
-```csharp
-public override void CanHeroMarry(Hero hero, ref bool result)
-```
+`public override void CanHeroMarry(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero marry`。
 
 ### CanMoveToSettlement
-```csharp
-public override void CanMoveToSettlement(Hero hero, ref bool result)
-```
+`public override void CanMoveToSettlement(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `move to settlement`。
 
 ### CanBeGovernorOrHavePartyRole
-```csharp
-public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)
-```
+`public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `be governor or have party role`。
 
 ### AddTrackedObjectForQuest
-```csharp
-public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)
-```
+`public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `tracked object for quest`。
 
 ### RemoveTrackedObjectForQuest
-```csharp
-public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)
-```
+`public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `tracked object for quest`。
 
 ### RemoveAllTrackedObjectsForQuest
-```csharp
-public void RemoveAllTrackedObjectsForQuest(QuestBase quest)
-```
+`public void RemoveAllTrackedObjectsForQuest(QuestBase quest)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `all tracked objects for quest`。
 
 ### GetAllTrackedObjectsOfAQuest
-```csharp
-public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)
-```
+`public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)`
+
+**用途 / Purpose:** 获取 `all tracked objects of a quest` 的当前值。
 
 ### GetQuestGiverQuests
-```csharp
-public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)
-```
+`public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)`
+
+**用途 / Purpose:** 获取 `quest giver quests` 的当前值。
 
 ### QuestExistInSettlementNotables
-```csharp
-public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)
-```
+`public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)`
+
+**用途 / Purpose:** 处理 `quest exist in settlement notables` 相关逻辑。
 
 ### QuestExistInClan
-```csharp
-public static bool QuestExistInClan(QuestBase questBase, Clan clan)
-```
+`public static bool QuestExistInClan(QuestBase questBase, Clan clan)`
+
+**用途 / Purpose:** 处理 `quest exist in clan` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// QuestManager (Manager) 的典型用法
-QuestManager.Current;
+var manager = QuestManager.Current;
 ```
 
 ## 参见

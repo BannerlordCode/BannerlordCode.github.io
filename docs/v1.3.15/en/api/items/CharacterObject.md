@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CharacterObject`
 - [← Area / Back to items](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterObject
@@ -73,6 +75,10 @@ foreach (CharacterObject c in CharacterObject.ConversationCharacters)
 ## Overview
 
 `CharacterObject` extends `BasicCharacterObject` to provide campaign-specific character functionality. It represents characters in the campaign world including heroes, soldiers, and NPCs.
+
+## Mental Model
+
+Treat `CharacterObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

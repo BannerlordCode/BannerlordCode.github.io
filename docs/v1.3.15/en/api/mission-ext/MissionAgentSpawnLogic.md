@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionAgentSpawnLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentSpawnLogic
@@ -14,189 +15,222 @@
 
 ## Overview
 
-`MissionAgentSpawnLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new MissionAgentSpawnLogic())`; subclass it to customize.
+`MissionAgentSpawnLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `MissionAgentSpawnLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `NumberOfAgents` | `public int NumberOfAgents { get { return base.Mission.AllAgents.Count; }` |
-| `NumberOfActiveDefenderTroops` | `public int NumberOfActiveDefenderTroops { get { MissionAgentSpawnLogic.SpawnPhase defenderActivePhase = this.DefenderActivePhase; if (defenderActivePhase == null) { return 0; }` |
-| `NumberOfActiveAttackerTroops` | `public int NumberOfActiveAttackerTroops { get { MissionAgentSpawnLogic.SpawnPhase attackerActivePhase = this.AttackerActivePhase; if (attackerActivePhase == null) { return 0; }` |
-| `NumberOfRemainingDefenderTroops` | `public int NumberOfRemainingDefenderTroops { get { MissionAgentSpawnLogic.SpawnPhase defenderActivePhase = this.DefenderActivePhase; if (defenderActivePhase == null) { return 0; }` |
-| `NumberOfRemainingAttackerTroops` | `public int NumberOfRemainingAttackerTroops { get { MissionAgentSpawnLogic.SpawnPhase attackerActivePhase = this.AttackerActivePhase; if (attackerActivePhase == null) { return 0; }` |
-| `BattleSize` | `public int BattleSize { get { return this._battleSize; }` |
-| `IsInitialSpawnOver` | `public bool IsInitialSpawnOver { get { return this.DefenderActivePhase.InitialSpawnNumber + this.AttackerActivePhase.InitialSpawnNumber == 0; }` |
-| `IsDeploymentOver` | `public bool IsDeploymentOver { get { return base.Mission.Mode != MissionMode.Deployment && this.IsInitialSpawnOver; }` |
-| `ReinforcementSpawnSettings` | `public readonly ref MissionSpawnSettings ReinforcementSpawnSettings { get { return ref this._spawnSettings; }` |
-| `NumTroops` | `public int NumTroops { get { return this.FootTroopCount + this.MountedTroopCount; }` |
+| `MaxNumberOfAgentsForMission` | `public static int MaxNumberOfAgentsForMission { get; }` |
+| `NumberOfAgents` | `public int NumberOfAgents { get; }` |
+| `NumberOfRemainingTroops` | `public int NumberOfRemainingTroops { get; }` |
+| `NumberOfActiveDefenderTroops` | `public int NumberOfActiveDefenderTroops { get; }` |
+| `NumberOfActiveAttackerTroops` | `public int NumberOfActiveAttackerTroops { get; }` |
+| `NumberOfRemainingDefenderTroops` | `public int NumberOfRemainingDefenderTroops { get; }` |
+| `NumberOfRemainingAttackerTroops` | `public int NumberOfRemainingAttackerTroops { get; }` |
+| `BattleSize` | `public int BattleSize { get; }` |
+| `IsInitialSpawnOver` | `public bool IsInitialSpawnOver { get; }` |
+| `IsDeploymentOver` | `public bool IsDeploymentOver { get; }` |
+| `ReinforcementSpawnSettings` | `public readonly ref MissionSpawnSettings ReinforcementSpawnSettings { get; }` |
+| `NumTroops` | `public int NumTroops { get; }` |
+| `TroopSpawnActive` | `public bool TroopSpawnActive { get; }` |
 | `IsPlayerSide` | `public bool IsPlayerSide { get; }` |
-| `SpawnWithHorses` | `public bool SpawnWithHorses { get { return this._spawnWithHorses; }` |
-| `NumberOfActiveTroops` | `public int NumberOfActiveTroops { get { return this._numSpawnedTroops - this._troopSupplier.NumRemovedTroops; }` |
-| `ReinforcementQuotaRequirement` | `public int ReinforcementQuotaRequirement { get { return this._reinforcementQuotaRequirement; }` |
-| `ReinforcementsSpawnedInLastBatch` | `public int ReinforcementsSpawnedInLastBatch { get { return this._reinforcementsSpawnedInLastBatch; }` |
-| `ReinforcementBatchSize` | `public float ReinforcementBatchSize { get { return (float)this._reinforcementBatchSize; }` |
-| `HasReservedTroops` | `public bool HasReservedTroops { get { return this._reservedTroops.Count > 0; }` |
-| `ReinforcementBatchPriority` | `public float ReinforcementBatchPriority { get { return this._reinforcementBatchPriority; }` |
-| `ReservedTroopsCount` | `public int ReservedTroopsCount { get { return this._reservedTroops.Count; }` |
-| `HasSpawnableReinforcements` | `public bool HasSpawnableReinforcements { get { return this.ReinforcementSpawnActive && this.HasReservedTroops && this.ReinforcementBatchSize > 0f; }` |
+| `ReinforcementSpawnActive` | `public bool ReinforcementSpawnActive { get; }` |
+| `SpawnWithHorses` | `public bool SpawnWithHorses { get; }` |
+| `ReinforcementsNotifiedOnLastBatch` | `public bool ReinforcementsNotifiedOnLastBatch { get; }` |
+| `NumberOfActiveTroops` | `public int NumberOfActiveTroops { get; }` |
+| `ReinforcementQuotaRequirement` | `public int ReinforcementQuotaRequirement { get; }` |
+| `ReinforcementsSpawnedInLastBatch` | `public int ReinforcementsSpawnedInLastBatch { get; }` |
+| `ReinforcementBatchSize` | `public float ReinforcementBatchSize { get; }` |
+| `HasReservedTroops` | `public bool HasReservedTroops { get; }` |
+| `ReinforcementBatchPriority` | `public float ReinforcementBatchPriority { get; }` |
+| `ReservedTroopsCount` | `public int ReservedTroopsCount { get; }` |
+| `HasSpawnableReinforcements` | `public bool HasSpawnableReinforcements { get; }` |
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**Purpose:** Gets the current value of `number of player controllable troops`.
 
 ### InitWithSinglePhase
-```csharp
-public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)
-```
+`public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)`
+
+**Purpose:** Initializes the state, resources, or bindings for `with single phase`.
 
 ### GetAllTroopsForSide
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `all troops for side`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### SetCustomReinforcementSpawnTimer
-```csharp
-public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)
-```
+`public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)`
+
+**Purpose:** Sets the value or state of `custom reinforcement spawn timer`.
 
 ### SetSpawnTroops
-```csharp
-public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)
-```
+`public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)`
+
+**Purpose:** Sets the value or state of `spawn troops`.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### SetSpawnHorses
-```csharp
-public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)
-```
+`public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)`
+
+**Purpose:** Sets the value or state of `spawn horses`.
 
 ### StartSpawner
-```csharp
-public void StartSpawner(BattleSideEnum side)
-```
+`public void StartSpawner(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `start spawner`.
 
 ### StopSpawner
-```csharp
-public void StopSpawner(BattleSideEnum side)
-```
+`public void StopSpawner(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `stop spawner`.
 
 ### IsSideSpawnEnabled
-```csharp
-public bool IsSideSpawnEnabled(BattleSideEnum side)
-```
+`public bool IsSideSpawnEnabled(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `is side spawn enabled`.
 
 ### OnSideDeploymentOver
-```csharp
-public void OnSideDeploymentOver(BattleSideEnum battleSide)
-```
+`public void OnSideDeploymentOver(BattleSideEnum battleSide)`
+
+**Purpose:** Called when the `side deployment over` event is raised.
 
 ### GetReinforcementInterval
-```csharp
-public float GetReinforcementInterval()
-```
+`public float GetReinforcementInterval()`
+
+**Purpose:** Gets the current value of `reinforcement interval`.
 
 ### SetReinforcementsSpawnEnabled
-```csharp
-public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)
-```
+`public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)`
+
+**Purpose:** Sets the value or state of `reinforcements spawn enabled`.
 
 ### GetTotalNumberOfTroopsForSide
-```csharp
-public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)
-```
+`public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `total number of troops for side`.
 
 ### GetGeneralCharacterOfSide
-```csharp
-public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)
-```
+`public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `general character of side`.
 
 ### GetSpawnHorses
-```csharp
-public bool GetSpawnHorses(BattleSideEnum side)
-```
+`public bool GetSpawnHorses(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `spawn horses`.
 
 ### IsSideDepleted
-```csharp
-public bool IsSideDepleted(BattleSideEnum side)
-```
+`public bool IsSideDepleted(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `is side depleted`.
 
 ### AddPhaseChangeAction
-```csharp
-public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)
-```
+`public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)`
+
+**Purpose:** Adds `phase change action` to the current collection or state.
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**Purpose:** Gets the current value of `number of player controllable troops`.
 
 ### TryReinforcementSpawn
-```csharp
-public int TryReinforcementSpawn()
-```
+`public int TryReinforcementSpawn()`
+
+**Purpose:** Attempts to get `reinforcement spawn`, usually returning the result in an out parameter.
 
 ### GetTeamFormationsSpawnData
-```csharp
-public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })
-```
+`public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })`
+
+**Purpose:** Gets the current value of `team formations spawn data`.
 
 ### ReserveTroops
-```csharp
-public void ReserveTroops(int number)
-```
+`public void ReserveTroops(int number)`
+
+**Purpose:** Handles logic related to `reserve troops`.
 
 ### GetGeneralCharacter
-```csharp
-public BasicCharacterObject GetGeneralCharacter()
-```
+`public BasicCharacterObject GetGeneralCharacter()`
+
+**Purpose:** Gets the current value of `general character`.
 
 ### CheckReinforcementBatch
-```csharp
-public unsafe bool CheckReinforcementBatch()
-```
+`public unsafe bool CheckReinforcementBatch()`
+
+**Purpose:** Handles logic related to `check reinforcement batch`.
 
 ### GetAllTroops
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroops()
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
+
+**Purpose:** Gets the current value of `all troops`.
 
 ### SpawnTroops
-```csharp
-public int SpawnTroops(int number, bool isReinforcement)
-```
+`public int SpawnTroops(int number, bool isReinforcement)`
+
+**Purpose:** Handles logic related to `spawn troops`.
 
 ### SetSpawnWithHorses
-```csharp
-public void SetSpawnWithHorses(bool spawnWithHorses)
-```
+`public void SetSpawnWithHorses(bool spawnWithHorses)`
+
+**Purpose:** Sets the value or state of `spawn with horses`.
 
 ### SetBannerBearerLogic
-```csharp
-public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)
-```
+`public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
+
+**Purpose:** Sets the value or state of `banner bearer logic`.
+
+### SetReinforcementsNotifiedOnLastBatch
+`public void SetReinforcementsNotifiedOnLastBatch(bool value)`
+
+**Purpose:** Sets the value or state of `reinforcements notified on last batch`.
+
+### SetSpawnTroops
+`public void SetSpawnTroops(bool spawnTroops)`
+
+**Purpose:** Sets the value or state of `spawn troops`.
+
+### OnInitialSpawnOver
+`public void OnInitialSpawnOver()`
+
+**Purpose:** Called when the `initial spawn over` event is raised.
+
+### OnInitialTroopsSpawned
+`public void OnInitialTroopsSpawned()`
+
+**Purpose:** Called when the `initial troops spawned` event is raised.
+
+### OnPhaseChangedDelegate
+`public delegate void OnPhaseChangedDelegate()`
+
+**Purpose:** Called when the `phase changed delegate` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionAgentSpawnLogic (Logic)
 Mission.Current.AddMissionBehavior(new MissionAgentSpawnLogic());
 ```
 

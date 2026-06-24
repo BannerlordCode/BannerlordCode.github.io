@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Team`
+**Home** → **API Index** → **Area** → `Team Class`
 - [← Area / Back to mission](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Team Class
@@ -22,6 +24,10 @@ Each Team contains:
 - Team AI controller
 - OrderController for commands
 - Banner and color information
+
+## Mental Model
+
+Treat `Team Class` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Developer Use Cases
 
@@ -359,3 +365,9 @@ Agent leader = team.Leader;
 3. **OrderController** - Commands are issued and managed through OrderController
 4. **Agent references** - `TeamAgents` and `ActiveAgents` are live updated lists; do not store references long-term
 5. **Team colors** - `Color` and `Color2` are ARGB format color values
+
+## Usage Example
+
+```csharp
+var example = new Team Class();
+```

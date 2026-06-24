@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ThumbnailCreatorView`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ThumbnailCreatorView
@@ -14,65 +15,68 @@
 
 ## 概述
 
-`ThumbnailCreatorView` 是一个引擎视图/表面（渲染、纹理、场景预览等）。经引擎视图系统访问。
+`ThumbnailCreatorView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `ThumbnailCreatorView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CreateThumbnailCreatorView
-```csharp
-public static ThumbnailCreatorView CreateThumbnailCreatorView()
-```
+`public static ThumbnailCreatorView CreateThumbnailCreatorView()`
+
+**用途 / Purpose:** 创建一个 `thumbnail creator view` 实例或对象。
 
 ### RegisterScene
-```csharp
-public void RegisterScene(Scene scene, bool usePostFx = true)
-```
+`public void RegisterScene(Scene scene, bool usePostFx = true)`
+
+**用途 / Purpose:** 处理 `register scene` 相关逻辑。
 
 ### RegisterCachedEntity
-```csharp
-public void RegisterCachedEntity(Scene scene, GameEntity entity, string cacheId)
-```
+`public void RegisterCachedEntity(Scene scene, GameEntity entity, string cacheId)`
+
+**用途 / Purpose:** 处理 `register cached entity` 相关逻辑。
 
 ### UnregisterCachedEntity
-```csharp
-public void UnregisterCachedEntity(string cacheId)
-```
+`public void UnregisterCachedEntity(string cacheId)`
+
+**用途 / Purpose:** 处理 `unregister cached entity` 相关逻辑。
 
 ### RegisterRenderRequest
-```csharp
-public void RegisterRenderRequest(ref ThumbnailRenderRequest request)
-```
+`public void RegisterRenderRequest(ref ThumbnailRenderRequest request)`
+
+**用途 / Purpose:** 处理 `register render request` 相关逻辑。
 
 ### ClearRequests
-```csharp
-public void ClearRequests()
-```
+`public void ClearRequests()`
+
+**用途 / Purpose:** 处理 `clear requests` 相关逻辑。
 
 ### CancelRequest
-```csharp
-public void CancelRequest(string renderID)
-```
+`public void CancelRequest(string renderID)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `cel request`。
 
 ### GetNumberOfPendingRequests
-```csharp
-public int GetNumberOfPendingRequests()
-```
+`public int GetNumberOfPendingRequests()`
+
+**用途 / Purpose:** 获取 `number of pending requests` 的当前值。
 
 ### IsMemoryCleared
-```csharp
-public bool IsMemoryCleared()
-```
+`public bool IsMemoryCleared()`
+
+**用途 / Purpose:** 处理 `is memory cleared` 相关逻辑。
 
 ### OnThumbnailRenderCompleteDelegate
-```csharp
-public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)
-```
+`public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)`
+
+**用途 / Purpose:** 当 `thumbnail render complete delegate` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// ThumbnailCreatorView (View) 的典型用法
-ThumbnailCreatorView /* via engine view system */;
+var view = new ThumbnailCreatorView();
 ```
 
 ## 参见

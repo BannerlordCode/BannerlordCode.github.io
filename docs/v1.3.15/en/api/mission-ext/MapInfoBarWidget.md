@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MapInfoBarWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapInfoBarWidget
@@ -16,6 +17,10 @@
 
 `MapInfoBarWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MapInfoBarWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -26,16 +31,14 @@
 ## Key Methods
 
 ### MapBarExtendStateChangeEvent
-```csharp
-public delegate void MapBarExtendStateChangeEvent(bool newState)
-```
+`public delegate void MapBarExtendStateChangeEvent(bool newState)`
+
+**Purpose:** Handles logic related to `map bar extend state change event`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MapInfoBarWidget (Widget)
-// 声明/访问一个 MapInfoBarWidget
-var widget = root.GetChild("mapInfoBarWidget");;
+var widget = new MapInfoBarWidget(context);
 ```
 
 ## See Also

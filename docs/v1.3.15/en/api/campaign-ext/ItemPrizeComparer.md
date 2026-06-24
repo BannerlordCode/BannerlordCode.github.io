@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ItemPrizeComparer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemPrizeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ItemPrizeComparer : TournamentLeaderboardSortControllerVM.ItemComparerBase`
+**Base:** `TournamentLeaderboardSortControllerVM.ItemComparerBase`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ItemPrizeComparer` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemPrizeComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,67 +34,64 @@
 | `IsPlacementSelected` | `public bool IsPlacementSelected { get; set; }` |
 | `IsVictoriesSelected` | `public bool IsVictoriesSelected { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**Purpose:** Executes the `sort by name` operation or workflow.
 
 ### ExecuteSortByPrize
+`public void ExecuteSortByPrize()`
 
-```csharp
-public void ExecuteSortByPrize()
-```
+**Purpose:** Executes the `sort by prize` operation or workflow.
 
 ### ExecuteSortByPlacement
+`public void ExecuteSortByPlacement()`
 
-```csharp
-public void ExecuteSortByPlacement()
-```
+**Purpose:** Executes the `sort by placement` operation or workflow.
 
 ### ExecuteSortByVictories
+`public void ExecuteSortByVictories()`
 
-```csharp
-public void ExecuteSortByVictories()
-```
+**Purpose:** Executes the `sort by victories` operation or workflow.
 
 ### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public void SetSortMode(bool isAcending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-```csharp
-public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-```csharp
-public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)
+// First obtain a ItemPrizeComparer instance from game state, then call one of its public methods
+var value = new ItemPrizeComparer();
+value.ExecuteSortByName();
 ```
 
 ## See Also

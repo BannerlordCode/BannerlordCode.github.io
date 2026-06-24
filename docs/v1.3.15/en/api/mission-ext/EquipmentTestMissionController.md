@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EquipmentTestMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EquipmentTestMissionController
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`EquipmentTestMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`EquipmentTestMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `EquipmentTestMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EquipmentTestMissionController (Controller)
-Mission.Current.GetMissionBehavior<EquipmentTestMissionController>();
+var controller = Mission.Current.GetMissionBehavior<EquipmentTestMissionController>();
 ```
 
 ## See Also

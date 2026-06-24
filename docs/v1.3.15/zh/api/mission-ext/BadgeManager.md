@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BadgeManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BadgeManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`BadgeManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`BadgeManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `BadgeManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,45 +31,44 @@
 ## 主要方法
 
 ### InitializeWithXML
-```csharp
-public static void InitializeWithXML(string xmlPath)
-```
+`public static void InitializeWithXML(string xmlPath)`
+
+**用途 / Purpose:** 初始化 `with x m l` 的状态、资源或绑定。
 
 ### OnFinalize
-```csharp
-public static void OnFinalize()
-```
+`public static void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### GetByIndex
-```csharp
-public static Badge GetByIndex(int index)
-```
+`public static Badge GetByIndex(int index)`
+
+**用途 / Purpose:** 获取 `by index` 的当前值。
 
 ### GetById
-```csharp
-public static Badge GetById(string id)
-```
+`public static Badge GetById(string id)`
+
+**用途 / Purpose:** 获取 `by id` 的当前值。
 
 ### GetByType
-```csharp
-public static List<Badge> GetByType(BadgeType type)
-```
+`public static List<Badge> GetByType(BadgeType type)`
+
+**用途 / Purpose:** 获取 `by type` 的当前值。
 
 ### GetBadgeConditionValue
-```csharp
-public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)
-```
+`public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
+
+**用途 / Purpose:** 获取 `badge condition value` 的当前值。
 
 ### GetBadgeConditionNumericValue
-```csharp
-public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)
-```
+`public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
+
+**用途 / Purpose:** 获取 `badge condition numeric value` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// BadgeManager (Manager) 的典型用法
-BadgeManager.Current;
+var manager = BadgeManager.Current;
 ```
 
 ## 参见

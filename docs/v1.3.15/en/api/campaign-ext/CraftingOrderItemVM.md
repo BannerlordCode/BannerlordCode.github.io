@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CraftingOrderItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingOrderItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class CraftingOrderItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/WeaponCrafting/WeaponDesign/Order/CraftingOrderItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CraftingOrderItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CraftingOrderItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -38,28 +42,30 @@
 | `Quests` | `public MBBindingList<QuestMarkerVM> Quests { get; set; }` |
 | `WeaponAttributes` | `public MBBindingList<WeaponAttributeVM> WeaponAttributes { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshStats
+`public void RefreshStats()`
 
-```csharp
-public void RefreshStats()
-```
+**Purpose:** Refreshes the display or cache of `stats`.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteSelectOrder
+`public void ExecuteSelectOrder()`
+
+**Purpose:** Executes the `select order` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteSelectOrder()
+var value = new CraftingOrderItemVM();
+value.RefreshStats();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

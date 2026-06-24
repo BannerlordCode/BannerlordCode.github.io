@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyHeaderToggleWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyHeaderToggleWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `PartyHeaderToggleWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `PartyHeaderToggleWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,16 +35,14 @@
 ## Key Methods
 
 ### SetState
-```csharp
-public override void SetState(string stateName)
-```
+`public override void SetState(string stateName)`
+
+**Purpose:** Sets the value or state of `state`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyHeaderToggleWidget (Widget)
-// 声明/访问一个 PartyHeaderToggleWidget
-var widget = root.GetChild("partyHeaderToggleWidget");;
+var widget = new PartyHeaderToggleWidget(context);
 ```
 
 ## See Also

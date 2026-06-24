@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PotentialIssueData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PotentialIssueData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PotentialIssueData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`PotentialIssueData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `PotentialIssueData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,15 +35,14 @@
 ## Key Methods
 
 ### StartIssueDelegate
-```csharp
-public delegate IssueBase StartIssueDelegate(in PotentialIssueData pid, Hero issueOwner)
-```
+`public delegate IssueBase StartIssueDelegate(in PotentialIssueData pid, Hero issueOwner)`
+
+**Purpose:** Handles logic related to `start issue delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PotentialIssueData (Data)
-new PotentialIssueData { /* fill fields */ };;
+var value = new PotentialIssueData();
 ```
 
 ## See Also

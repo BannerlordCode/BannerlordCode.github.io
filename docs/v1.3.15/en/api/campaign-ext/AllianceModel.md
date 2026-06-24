@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AllianceModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AllianceModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`AllianceModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<AllianceModel>(new MyAllianceModel())` to change how it computes.
+`AllianceModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `AllianceModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,40 +33,39 @@
 ## Key Methods
 
 ### GetCallToWarCost
-```csharp
-public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)
-```
+`public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
+
+**Purpose:** Gets the current value of `call to war cost`.
 
 ### GetScoreOfStartingAlliance
-```csharp
-public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanation, bool includeDescription = false)
-```
+`public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanation, bool includeDescription = false)`
+
+**Purpose:** Gets the current value of `score of starting alliance`.
 
 ### GetScoreOfCallingToWar
-```csharp
-public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**Purpose:** Gets the current value of `score of calling to war`.
 
 ### GetScoreOfJoiningWar
-```csharp
-public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**Purpose:** Gets the current value of `score of joining war`.
 
 ### GetInfluenceCostOfProposingStartingAlliance
-```csharp
-public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)
-```
+`public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of proposing starting alliance`.
 
 ### GetInfluenceCostOfCallingToWar
-```csharp
-public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)
-```
+`public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
+
+**Purpose:** Gets the current value of `influence cost of calling to war`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AllianceModel (Model)
-Game.Current.ReplaceModel<AllianceModel>(new MyAllianceModel());
+var implementation = new CustomAllianceModel();
 ```
 
 ## See Also

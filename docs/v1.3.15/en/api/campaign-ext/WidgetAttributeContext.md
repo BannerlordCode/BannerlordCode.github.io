@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `WidgetAttributeContext`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetAttributeContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WidgetAttributeContext`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeContext.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WidgetAttributeContext` is a class in the `TaleWorlds.GauntletUI.PrefabSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WidgetAttributeContext` lives in `TaleWorlds.GauntletUI.PrefabSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,34 +28,35 @@
 | `RegisteredKeyTypes` | `public IEnumerable<WidgetAttributeKeyType> RegisteredKeyTypes { get; }` |
 | `RegisteredValueTypes` | `public IEnumerable<WidgetAttributeValueType> RegisteredValueTypes { get; }` |
 
-
 ## Key Methods
 
 ### RegisterKeyType
+`public void RegisterKeyType(WidgetAttributeKeyType keyType)`
 
-```csharp
-public void RegisterKeyType(WidgetAttributeKeyType keyType)
-```
+**Purpose:** Handles logic related to `register key type`.
 
 ### RegisterValueType
+`public void RegisterValueType(WidgetAttributeValueType valueType)`
 
-```csharp
-public void RegisterValueType(WidgetAttributeValueType valueType)
-```
+**Purpose:** Handles logic related to `register value type`.
 
 ### GetKeyType
+`public WidgetAttributeKeyType GetKeyType(string key)`
 
-```csharp
-public WidgetAttributeKeyType GetKeyType(string key)
-```
+**Purpose:** Gets the current value of `key type`.
 
 ### GetValueType
+`public WidgetAttributeValueType GetValueType(string value)`
+
+**Purpose:** Gets the current value of `value type`.
+
+## Usage Example
 
 ```csharp
-public WidgetAttributeValueType GetValueType(string value)
+var value = new WidgetAttributeContext();
+value.RegisterKeyType(keyType);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

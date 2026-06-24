@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `PsaiResult`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PsaiResult
 
 **Namespace:** psai.net
 **Module:** psai.net
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.PSAI/net/PsaiResult.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PsaiResult` is a enum in the `psai.net` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PsaiResult` lives in `psai.net` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `psai.net` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `none` |
-| `OK` |
-| `alreadyActive` |
-| `badCommand` |
-| `channelAllocFailed` |
-| `channelStolen` |
-| `error_file` |
-| `file_couldNotSeek` |
-| `file_diskEjected` |
-| `file_eof` |
-| `file_notFound` |
-| `format_error` |
-| `initialization_error` |
-| `internal_error` |
-| `invalidHandle` |
-| `invalidParam` |
-| `memory_error` |
-| `notReady` |
-| `error_createBufferFailed` |
-| `output_format_error` |
-| `output_init_failed` |
-| `output_failure` |
-| `update_error` |
-| `error_version` |
-| `unknown_theme` |
-| `essential_segment_missing` |
-| `commandIgnored` |
-| `triggerDenied` |
-| `triggerIgnoredFollowingThemeAlreadySet` |
-| `triggerIgnoredLowPriority` |
+## Usage Example
+
+```csharp
+var value = new PsaiResult();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

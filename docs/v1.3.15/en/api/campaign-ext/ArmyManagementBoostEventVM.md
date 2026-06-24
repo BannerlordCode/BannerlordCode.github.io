@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArmyManagementBoostEventVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArmyManagementBoostEventVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ArmyManagementBoostEventVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ArmyManagement/ArmyManagementBoostEventVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ArmyManagementBoostEventVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArmyManagementBoostEventVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,16 +33,20 @@
 | `SpendText` | `public string SpendText { get; set; }` |
 | `GainText` | `public string GainText { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Refreshes the display or cache of `values`.
+
+## Usage Example
 
 ```csharp
-public override void RefreshValues()
+var value = new ArmyManagementBoostEventVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PeerComponent`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PeerComponent
@@ -14,39 +15,42 @@
 
 ## 概述
 
-`PeerComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<PeerComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`PeerComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `PeerComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `Peer` | `public VirtualPlayer Peer { get { return this._peer; }` |
-| `Name` | `public string Name { get { return this.Peer.UserName; }` |
-| `IsMine` | `public bool IsMine { get { return this.Peer.IsMine; }` |
+| `Peer` | `public VirtualPlayer Peer { get; set; }` |
+| `Name` | `public string Name { get; }` |
+| `IsMine` | `public bool IsMine { get; }` |
 | `TypeId` | `public uint TypeId { get; set; }` |
 
 ## 主要方法
 
 ### Initialize
-```csharp
-public virtual void Initialize()
-```
+`public virtual void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### OnInitialize
-```csharp
-public virtual void OnInitialize()
-```
+`public virtual void OnInitialize()`
+
+**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
 
 ### OnFinalize
-```csharp
-public virtual void OnFinalize()
-```
+`public virtual void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// PeerComponent (Component) 的典型用法
-agent.GetComponent<PeerComponent>();
+var implementation = new CustomPeerComponent();
 ```
 
 ## 参见

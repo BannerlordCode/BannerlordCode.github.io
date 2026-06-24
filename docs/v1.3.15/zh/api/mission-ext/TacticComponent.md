@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TacticComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TacticComponent
@@ -14,36 +15,39 @@
 
 ## 概述
 
-`TacticComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<TacticComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`TacticComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `TacticComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `Team` | `public Team Team { get; protected set; }` |
+| `Team` | `public Team Team { get; set; }` |
 
 ## 主要方法
 
 ### TickOccasionally
-```csharp
-public virtual void TickOccasionally()
-```
+`public virtual void TickOccasionally()`
+
+**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
 
 ### ResetTactic
-```csharp
-public void ResetTactic()
-```
+`public void ResetTactic()`
+
+**用途 / Purpose:** 将 `tactic` 重置为初始状态。
 
 ### SetDefaultBehaviorWeights
-```csharp
-public static void SetDefaultBehaviorWeights(Formation f)
-```
+`public static void SetDefaultBehaviorWeights(Formation f)`
+
+**用途 / Purpose:** 设置 `default behavior weights` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// TacticComponent (Component) 的典型用法
-agent.GetComponent<TacticComponent>();
+var implementation = new CustomTacticComponent();
 ```
 
 ## 参见

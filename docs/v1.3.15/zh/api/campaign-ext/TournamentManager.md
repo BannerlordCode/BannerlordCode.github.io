@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TournamentManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TournamentManager
@@ -14,95 +15,98 @@
 
 ## 概述
 
-`TournamentManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`TournamentManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `TournamentManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### AddTournament
-```csharp
-public void AddTournament(TournamentGame game)
-```
+`public void AddTournament(TournamentGame game)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `tournament`。
 
 ### RemoveTournament
-```csharp
-public void RemoveTournament(TournamentGame game)
-```
+`public void RemoveTournament(TournamentGame game)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `tournament`。
 
 ### GetTournamentGame
-```csharp
-public TournamentGame GetTournamentGame(Town town)
-```
+`public TournamentGame GetTournamentGame(Town town)`
+
+**用途 / Purpose:** 获取 `tournament game` 的当前值。
 
 ### OnPlayerJoinMatch
-```csharp
-public void OnPlayerJoinMatch(Type gameType)
-```
+`public void OnPlayerJoinMatch(Type gameType)`
+
+**用途 / Purpose:** 当 `player join match` 事件触发时调用此方法。
 
 ### OnPlayerJoinTournament
-```csharp
-public void OnPlayerJoinTournament(Type gameType, Settlement settlement)
-```
+`public void OnPlayerJoinTournament(Type gameType, Settlement settlement)`
+
+**用途 / Purpose:** 当 `player join tournament` 事件触发时调用此方法。
 
 ### OnPlayerWatchTournament
-```csharp
-public void OnPlayerWatchTournament(Type gameType, Settlement settlement)
-```
+`public void OnPlayerWatchTournament(Type gameType, Settlement settlement)`
+
+**用途 / Purpose:** 当 `player watch tournament` 事件触发时调用此方法。
 
 ### OnPlayerWinMatch
-```csharp
-public void OnPlayerWinMatch(Type gameType)
-```
+`public void OnPlayerWinMatch(Type gameType)`
+
+**用途 / Purpose:** 当 `player win match` 事件触发时调用此方法。
 
 ### OnPlayerWinTournament
-```csharp
-public void OnPlayerWinTournament(Type gameType)
-```
+`public void OnPlayerWinTournament(Type gameType)`
+
+**用途 / Purpose:** 当 `player win tournament` 事件触发时调用此方法。
 
 ### GetLeaderboard
-```csharp
-public List<KeyValuePair<Hero, int>> GetLeaderboard()
-```
+`public List<KeyValuePair<Hero, int>> GetLeaderboard()`
+
+**用途 / Purpose:** 获取 `leaderboard` 的当前值。
 
 ### GetLeaderBoardRank
-```csharp
-public int GetLeaderBoardRank(Hero hero)
-```
+`public int GetLeaderBoardRank(Hero hero)`
+
+**用途 / Purpose:** 获取 `leader board rank` 的当前值。
 
 ### GetLeaderBoardLeader
-```csharp
-public Hero GetLeaderBoardLeader()
-```
+`public Hero GetLeaderBoardLeader()`
+
+**用途 / Purpose:** 获取 `leader board leader` 的当前值。
 
 ### InitializeLeaderboardEntry
-```csharp
-public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)
-```
+`public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)`
+
+**用途 / Purpose:** 初始化 `leaderboard entry` 的状态、资源或绑定。
 
 ### AddLeaderboardEntry
-```csharp
-public void AddLeaderboardEntry(Hero hero)
-```
+`public void AddLeaderboardEntry(Hero hero)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `leaderboard entry`。
 
 ### DeleteLeaderboardEntry
-```csharp
-public void DeleteLeaderboardEntry(Hero hero)
-```
+`public void DeleteLeaderboardEntry(Hero hero)`
+
+**用途 / Purpose:** 处理 `delete leaderboard entry` 相关逻辑。
 
 ### ResolveTournament
-```csharp
-public void ResolveTournament(TournamentGame tournament, Town town)
-```
+`public void ResolveTournament(TournamentGame tournament, Town town)`
+
+**用途 / Purpose:** 处理 `resolve tournament` 相关逻辑。
 
 ### GivePrizeToWinner
-```csharp
-public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)
-```
+`public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)`
+
+**用途 / Purpose:** 处理 `give prize to winner` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// TournamentManager (Manager) 的典型用法
-TournamentManager.Current;
+var manager = TournamentManager.Current;
 ```
 
 ## 参见

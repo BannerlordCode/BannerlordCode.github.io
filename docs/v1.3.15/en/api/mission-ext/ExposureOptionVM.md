@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ExposureOptionVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ExposureOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class ExposureOptionVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/ExposureOptionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ExposureOptionVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ExposureOptionVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,40 +35,40 @@
 | `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
 | `ConfirmInputKey` | `public InputKeyItemVM ConfirmInputKey { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteConfirm
+`public void ExecuteConfirm()`
 
-```csharp
-public void ExecuteConfirm()
-```
+**Purpose:** Executes the `confirm` operation or workflow.
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetConfirmInputKey
+`public void SetConfirmInputKey(HotKey hotkey)`
+
+**Purpose:** Sets the value or state of `confirm input key`.
+
+## Usage Example
 
 ```csharp
-public void SetConfirmInputKey(HotKey hotkey)
+var value = new ExposureOptionVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionPeer`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionPeer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionPeer : PeerComponent`
+**Base:** `PeerComponent`
+**File:** `TaleWorlds.MountAndBlade/MissionPeer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionPeer` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionPeer` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,174 @@
 | `KillCount` | `public int KillCount { get; set; }` |
 | `AssistCount` | `public int AssistCount { get; set; }` |
 | `DeathCount` | `public int DeathCount { get; set; }` |
-
+| `Score` | `public int Score { get; set; }` |
+| `BotsUnderControlAlive` | `public int BotsUnderControlAlive { get; set; }` |
+| `BotsUnderControlTotal` | `public int BotsUnderControlTotal { get; set; }` |
+| `IsControlledAgentActive` | `public bool IsControlledAgentActive { get; }` |
+| `ControlledAgent` | `public Agent ControlledAgent { get; set; }` |
+| `FollowedAgent` | `public Agent FollowedAgent { get; set; }` |
+| `Team` | `public Team Team { get; set; }` |
+| `Culture` | `public BasicCultureObject Culture { get; set; }` |
+| `ControlledFormation` | `public Formation ControlledFormation { get; set; }` |
+| `IsAgentAliveForChatting` | `public bool IsAgentAliveForChatting { get; }` |
+| `IsMutedFromPlatform` | `public bool IsMutedFromPlatform { get; }` |
+| `IsMuted` | `public bool IsMuted { get; }` |
+| `IsMutedFromGameOrPlatform` | `public bool IsMutedFromGameOrPlatform { get; }` |
 
 ## Key Methods
 
 ### SetMutedFromPlatform
+`public void SetMutedFromPlatform(bool isMuted)`
 
-```csharp
-public void SetMutedFromPlatform(bool isMuted)
-```
+**Purpose:** Sets the value or state of `muted from platform`.
 
 ### SetMuted
+`public void SetMuted(bool isMuted)`
 
-```csharp
-public void SetMuted(bool isMuted)
-```
+**Purpose:** Sets the value or state of `muted`.
 
 ### ResetRequestedKickPollCount
+`public void ResetRequestedKickPollCount()`
 
-```csharp
-public void ResetRequestedKickPollCount()
-```
+**Purpose:** Resets `requested kick poll count` to its initial state.
 
 ### IncrementRequestedKickPollCount
+`public void IncrementRequestedKickPollCount()`
 
-```csharp
-public void IncrementRequestedKickPollCount()
-```
+**Purpose:** Handles logic related to `increment requested kick poll count`.
 
 ### GetSelectedPerkIndexWithPerkListIndex
+`public int GetSelectedPerkIndexWithPerkListIndex(int troopIndex, int perkListIndex)`
 
-```csharp
-public int GetSelectedPerkIndexWithPerkListIndex(int troopIndex, int perkListIndex)
-```
+**Purpose:** Gets the current value of `selected perk index with perk list index`.
 
 ### SelectPerk
+`public bool SelectPerk(int perkListIndex, int perkIndex, int enforcedSelectedTroopIndex = -1)`
 
-```csharp
-public bool SelectPerk(int perkListIndex, int perkIndex, int enforcedSelectedTroopIndex = -1)
-```
+**Purpose:** Handles logic related to `select perk`.
 
 ### HandleVoteChange
+`public void HandleVoteChange(CultureVoteTypes voteType, BasicCultureObject culture)`
 
-```csharp
-public void HandleVoteChange(CultureVoteTypes voteType, BasicCultureObject culture)
-```
+**Purpose:** Handles the `vote change` event or callback.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### OnInitialize
+`public override void OnInitialize()`
 
-```csharp
-public override void OnInitialize()
-```
+**Purpose:** Called when the `initialize` event is raised.
 
 ### GetAmountOfAgentVisualsForPeer
+`public int GetAmountOfAgentVisualsForPeer()`
 
-```csharp
-public int GetAmountOfAgentVisualsForPeer()
-```
+**Purpose:** Gets the current value of `amount of agent visuals for peer`.
 
 ### GetVisuals
+`public PeerVisualsHolder GetVisuals(int visualIndex)`
 
-```csharp
-public PeerVisualsHolder GetVisuals(int visualIndex)
-```
+**Purpose:** Gets the current value of `visuals`.
 
 ### ClearVisuals
+`public void ClearVisuals(int visualIndex)`
 
-```csharp
-public void ClearVisuals(int visualIndex)
-```
+**Purpose:** Handles logic related to `clear visuals`.
 
 ### ClearAllVisuals
+`public void ClearAllVisuals(bool freeResources = false)`
 
-```csharp
-public void ClearAllVisuals(bool freeResources = false)
-```
+**Purpose:** Handles logic related to `clear all visuals`.
 
 ### OnVisualsSpawned
+`public void OnVisualsSpawned(PeerVisualsHolder visualsHolder, int visualIndex)`
 
-```csharp
-public void OnVisualsSpawned(PeerVisualsHolder visualsHolder, int visualIndex)
-```
+**Purpose:** Called when the `visuals spawned` event is raised.
 
 ### GetAllAgentVisualsForPeer
+`public IEnumerable<IAgentVisual> GetAllAgentVisualsForPeer()`
 
-```csharp
-public IEnumerable<IAgentVisual> GetAllAgentVisualsForPeer()
-```
-
-### GetAgentVisualForPeer
-
-```csharp
-public IAgentVisual GetAgentVisualForPeer(int visualsIndex)
-```
+**Purpose:** Gets the current value of `all agent visuals for peer`.
 
 ### GetAgentVisualForPeer
+`public IAgentVisual GetAgentVisualForPeer(int visualsIndex)`
 
-```csharp
-public IAgentVisual GetAgentVisualForPeer(int visualsIndex, out IAgentVisual mountAgentVisuals)
-```
+**Purpose:** Gets the current value of `agent visual for peer`.
+
+### GetAgentVisualForPeer
+`public IAgentVisual GetAgentVisualForPeer(int visualsIndex, out IAgentVisual mountAgentVisuals)`
+
+**Purpose:** Gets the current value of `agent visual for peer`.
 
 ### TickInactivityStatus
+`public void TickInactivityStatus()`
 
-```csharp
-public void TickInactivityStatus()
-```
+**Purpose:** Handles logic related to `tick inactivity status`.
 
 ### OnKillAnotherPeer
+`public void OnKillAnotherPeer(MissionPeer victimPeer)`
 
-```csharp
-public void OnKillAnotherPeer(MissionPeer victimPeer)
-```
+**Purpose:** Called when the `kill another peer` event is raised.
 
 ### OverrideCultureWithTeamCulture
+`public void OverrideCultureWithTeamCulture()`
+
+**Purpose:** Handles logic related to `override culture with team culture`.
+
+### GetNumberOfTimesPeerKilledPeer
+`public int GetNumberOfTimesPeerKilledPeer(MissionPeer killedPeer)`
+
+**Purpose:** Gets the current value of `number of times peer killed peer`.
+
+### ResetKillRegistry
+`public void ResetKillRegistry()`
+
+**Purpose:** Resets `kill registry` to its initial state.
+
+### RefreshSelectedPerks
+`public bool RefreshSelectedPerks()`
+
+**Purpose:** Refreshes the display or cache of `selected perks`.
+
+### OnTeamInitialPerkInfoReceived
+`public void OnTeamInitialPerkInfoReceived(int perks)`
+
+**Purpose:** Called when the `team initial perk info received` event is raised.
+
+### OnUpdateEquipmentSetIndexEventDelegate
+`public delegate void OnUpdateEquipmentSetIndexEventDelegate(MissionPeer lobbyPeer, int equipmentSetIndex)`
+
+**Purpose:** Called when the `update equipment set index event delegate` event is raised.
+
+### OnPerkUpdateEventDelegate
+`public delegate void OnPerkUpdateEventDelegate(MissionPeer peer)`
+
+**Purpose:** Called when the `perk update event delegate` event is raised.
+
+### OnTeamChangedDelegate
+`public delegate void OnTeamChangedDelegate(NetworkCommunicator peer, Team previousTeam, Team newTeam)`
+
+**Purpose:** Called when the `team changed delegate` event is raised.
+
+### OnCultureChangedDelegate
+`public delegate void OnCultureChangedDelegate(BasicCultureObject newCulture)`
+
+**Purpose:** Called when the `culture changed delegate` event is raised.
+
+### OnPlayerKilledDelegate
+`public delegate void OnPlayerKilledDelegate(MissionPeer killerPeer, MissionPeer killedPeer)`
+
+**Purpose:** Called when the `player killed delegate` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OverrideCultureWithTeamCulture()
+var value = new MissionPeer();
+value.SetMutedFromPlatform(false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

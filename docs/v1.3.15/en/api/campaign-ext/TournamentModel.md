@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TournamentModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TournamentModel
@@ -14,70 +15,73 @@
 
 ## Overview
 
-`TournamentModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TournamentModel>(new MyTournamentModel())` to change how it computes.
+`TournamentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TournamentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetTournamentStartChance
-```csharp
-public abstract float GetTournamentStartChance(Town town)
-```
+`public abstract float GetTournamentStartChance(Town town)`
+
+**Purpose:** Gets the current value of `tournament start chance`.
 
 ### CreateTournament
-```csharp
-public abstract TournamentGame CreateTournament(Town town)
-```
+`public abstract TournamentGame CreateTournament(Town town)`
+
+**Purpose:** Creates a new `tournament` instance or object.
 
 ### GetTournamentEndChance
-```csharp
-public abstract float GetTournamentEndChance(TournamentGame tournament)
-```
+`public abstract float GetTournamentEndChance(TournamentGame tournament)`
+
+**Purpose:** Gets the current value of `tournament end chance`.
 
 ### GetNumLeaderboardVictoriesAtGameStart
-```csharp
-public abstract int GetNumLeaderboardVictoriesAtGameStart()
-```
+`public abstract int GetNumLeaderboardVictoriesAtGameStart()`
+
+**Purpose:** Gets the current value of `num leaderboard victories at game start`.
 
 ### GetTournamentSimulationScore
-```csharp
-public abstract float GetTournamentSimulationScore(CharacterObject character)
-```
+`public abstract float GetTournamentSimulationScore(CharacterObject character)`
+
+**Purpose:** Gets the current value of `tournament simulation score`.
 
 ### GetRenownReward
-```csharp
-public abstract int GetRenownReward(Hero winner, Town town)
-```
+`public abstract int GetRenownReward(Hero winner, Town town)`
+
+**Purpose:** Gets the current value of `renown reward`.
 
 ### GetInfluenceReward
-```csharp
-public abstract int GetInfluenceReward(Hero winner, Town town)
-```
+`public abstract int GetInfluenceReward(Hero winner, Town town)`
+
+**Purpose:** Gets the current value of `influence reward`.
 
 ### GetSkillXpGainFromTournament
-```csharp
-public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)
-```
+`public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
+
+**Purpose:** Gets the current value of `skill xp gain from tournament`.
 
 ### GetParticipantArmor
-```csharp
-public abstract Equipment GetParticipantArmor(CharacterObject participant)
-```
+`public abstract Equipment GetParticipantArmor(CharacterObject participant)`
+
+**Purpose:** Gets the current value of `participant armor`.
 
 ### GetRegularRewardItems
-```csharp
-public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**Purpose:** Gets the current value of `regular reward items`.
 
 ### GetEliteRewardItems
-```csharp
-public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**Purpose:** Gets the current value of `elite reward items`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TournamentModel (Model)
-Game.Current.ReplaceModel<TournamentModel>(new MyTournamentModel());
+var implementation = new CustomTournamentModel();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `AvatarData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AvatarData
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class AvatarData`
+**Base:** none
+**File:** `TaleWorlds.PlayerServices/PlayerServices/Avatar/AvatarData.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AvatarData` is a class in the `TaleWorlds.PlayerServices.Avatar` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AvatarData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `AvatarData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,28 +31,29 @@
 | `Type` | `public AvatarData.ImageType Type { get; }` |
 | `Status` | `public AvatarData.DataStatus Status { get; }` |
 
-
 ## Key Methods
 
 ### SetImageData
+`public void SetImageData(byte image, uint width, uint height)`
 
-```csharp
-public void SetImageData(byte image, uint width, uint height)
-```
+**Purpose:** Sets the value or state of `image data`.
 
 ### SetImageData
+`public void SetImageData(byte image)`
 
-```csharp
-public void SetImageData(byte image)
-```
+**Purpose:** Sets the value or state of `image data`.
 
 ### SetFailed
+`public void SetFailed()`
+
+**Purpose:** Sets the value or state of `failed`.
+
+## Usage Example
 
 ```csharp
-public void SetFailed()
+var value = new AvatarData();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DebugAgentTeleporterMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DebugAgentTeleporterMissionController
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`DebugAgentTeleporterMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`DebugAgentTeleporterMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `DebugAgentTeleporterMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DebugAgentTeleporterMissionController (Controller)
-Mission.Current.GetMissionBehavior<DebugAgentTeleporterMissionController>();
+var controller = Mission.Current.GetMissionBehavior<DebugAgentTeleporterMissionController>();
 ```
 
 ## See Also

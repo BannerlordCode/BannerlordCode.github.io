@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `SimpleButton`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SimpleButton
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** class
-**Area:** Engine
+**Type:** `public class SimpleButton`
+**Base:** none
+**File:** `TaleWorlds.Engine/SimpleButton.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SimpleButton` is a class in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SimpleButton` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+var value = new SimpleButton();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)

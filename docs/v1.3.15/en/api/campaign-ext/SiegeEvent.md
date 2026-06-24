@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `SiegeEvent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeEvent
@@ -15,6 +17,10 @@
 ## Overview
 
 `SiegeEvent` represents an ongoing siege of a settlement — the besieger camp, besieged settlement, siege engines, bombardment timing, and blockade state. It is the campaign-scale siege object (distinct from the mission-scale siege battle). Mods query siege progress (`IsReadyToFire`, `NextProjectileCollisionTime`), bombardment, and blockade, or react to siege lifecycle.
+
+## Mental Model
+
+Treat `SiegeEvent` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

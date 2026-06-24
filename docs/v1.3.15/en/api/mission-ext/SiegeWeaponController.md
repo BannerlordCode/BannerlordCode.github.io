@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeWeaponController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeWeaponController
@@ -14,81 +15,84 @@
 
 ## Overview
 
-`SiegeWeaponController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`SiegeWeaponController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `SiegeWeaponController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `SelectedWeapons` | `public MBReadOnlyList<SiegeWeapon> SelectedWeapons { get { return this._selectedWeapons; }` |
+| `SelectedWeapons` | `public MBReadOnlyList<SiegeWeapon> SelectedWeapons { get; }` |
 
 ## Key Methods
 
 ### Select
-```csharp
-public void Select(SiegeWeapon weapon)
-```
+`public void Select(SiegeWeapon weapon)`
+
+**Purpose:** Handles logic related to `select`.
 
 ### ClearSelectedWeapons
-```csharp
-public void ClearSelectedWeapons()
-```
+`public void ClearSelectedWeapons()`
+
+**Purpose:** Handles logic related to `clear selected weapons`.
 
 ### Deselect
-```csharp
-public void Deselect(SiegeWeapon weapon)
-```
+`public void Deselect(SiegeWeapon weapon)`
+
+**Purpose:** Handles logic related to `deselect`.
 
 ### SelectAll
-```csharp
-public void SelectAll()
-```
+`public void SelectAll()`
+
+**Purpose:** Handles logic related to `select all`.
 
 ### IsWeaponSelectable
-```csharp
-public static bool IsWeaponSelectable(SiegeWeapon weapon)
-```
+`public static bool IsWeaponSelectable(SiegeWeapon weapon)`
+
+**Purpose:** Handles logic related to `is weapon selectable`.
 
 ### GetActiveOrderOf
-```csharp
-public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)
-```
+`public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `active order of`.
 
 ### GetActiveMovementOrderOf
-```csharp
-public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)
-```
+`public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `active movement order of`.
 
 ### GetActiveFacingOrderOf
-```csharp
-public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)
-```
+`public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `active facing order of`.
 
 ### GetActiveFiringOrderOf
-```csharp
-public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)
-```
+`public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `active firing order of`.
 
 ### GetActiveAIControlOrderOf
-```csharp
-public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)
-```
+`public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `active a i control order of`.
 
 ### SetOrder
-```csharp
-public void SetOrder(SiegeWeaponOrderType order)
-```
+`public void SetOrder(SiegeWeaponOrderType order)`
+
+**Purpose:** Sets the value or state of `order`.
 
 ### GetShortcutIndexOf
-```csharp
-public int GetShortcutIndexOf(SiegeWeapon weapon)
-```
+`public int GetShortcutIndexOf(SiegeWeapon weapon)`
+
+**Purpose:** Gets the current value of `shortcut index of`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeWeaponController (Controller)
-Mission.Current.GetMissionBehavior<SiegeWeaponController>();
+var controller = Mission.Current.GetMissionBehavior<SiegeWeaponController>();
 ```
 
 ## See Also

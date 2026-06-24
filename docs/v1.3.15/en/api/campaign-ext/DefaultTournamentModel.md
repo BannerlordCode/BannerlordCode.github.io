@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultTournamentModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultTournamentModel
@@ -14,69 +15,72 @@
 
 ## Overview
 
-`DefaultTournamentModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultTournamentModel>(new MyDefaultTournamentModel())` to change how it computes.
+`DefaultTournamentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultTournamentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreateTournament
-```csharp
-public override TournamentGame CreateTournament(Town town)
-```
+`public override TournamentGame CreateTournament(Town town)`
+
+**Purpose:** Creates a new `tournament` instance or object.
 
 ### GetTournamentStartChance
-```csharp
-public override float GetTournamentStartChance(Town town)
-```
+`public override float GetTournamentStartChance(Town town)`
+
+**Purpose:** Gets the current value of `tournament start chance`.
 
 ### GetNumLeaderboardVictoriesAtGameStart
-```csharp
-public override int GetNumLeaderboardVictoriesAtGameStart()
-```
+`public override int GetNumLeaderboardVictoriesAtGameStart()`
+
+**Purpose:** Gets the current value of `num leaderboard victories at game start`.
 
 ### GetTournamentEndChance
-```csharp
-public override float GetTournamentEndChance(TournamentGame tournament)
-```
+`public override float GetTournamentEndChance(TournamentGame tournament)`
+
+**Purpose:** Gets the current value of `tournament end chance`.
 
 ### GetTournamentSimulationScore
-```csharp
-public override float GetTournamentSimulationScore(CharacterObject character)
-```
+`public override float GetTournamentSimulationScore(CharacterObject character)`
+
+**Purpose:** Gets the current value of `tournament simulation score`.
 
 ### GetRenownReward
-```csharp
-public override int GetRenownReward(Hero winner, Town town)
-```
+`public override int GetRenownReward(Hero winner, Town town)`
+
+**Purpose:** Gets the current value of `renown reward`.
 
 ### GetInfluenceReward
-```csharp
-public override int GetInfluenceReward(Hero winner, Town town)
-```
+`public override int GetInfluenceReward(Hero winner, Town town)`
+
+**Purpose:** Gets the current value of `influence reward`.
 
 ### GetSkillXpGainFromTournament
-```csharp
-public override ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)
-```
+`public override ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
+
+**Purpose:** Gets the current value of `skill xp gain from tournament`.
 
 ### GetParticipantArmor
-```csharp
-public override Equipment GetParticipantArmor(CharacterObject participant)
-```
+`public override Equipment GetParticipantArmor(CharacterObject participant)`
+
+**Purpose:** Gets the current value of `participant armor`.
 
 ### GetRegularRewardItems
-```csharp
-public override MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public override MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**Purpose:** Gets the current value of `regular reward items`.
 
 ### GetEliteRewardItems
-```csharp
-public override MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)
-```
+`public override MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
+
+**Purpose:** Gets the current value of `elite reward items`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultTournamentModel (Model)
 Game.Current.ReplaceModel<DefaultTournamentModel>(new MyDefaultTournamentModel());
 ```
 

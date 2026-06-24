@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CharacterCode`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCode
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class CharacterCode`
+**Base:** none
+**File:** `TaleWorlds.Core/CharacterCode.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CharacterCode` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CharacterCode` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,52 +37,50 @@
 | `Color2` | `public uint Color2 { get; }` |
 | `Race` | `public int Race { get; }` |
 
-
 ## Key Methods
 
 ### CalculateEquipment
+`public Equipment CalculateEquipment()`
 
-```csharp
-public Equipment CalculateEquipment()
-```
-
-### CreateFrom
-
-```csharp
-public static CharacterCode CreateFrom(BasicCharacterObject character)
-```
+**Purpose:** Handles logic related to `calculate equipment`.
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-```csharp
-public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)
-```
+**Purpose:** Creates a new `from` instance or object.
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-```csharp
-public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)
-```
+**Purpose:** Creates a new `from` instance or object.
+
+### CreateFrom
+`public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
+
+**Purpose:** Creates a new `from` instance or object.
 
 ### CreateNewCodeString
+`public string CreateNewCodeString()`
 
-```csharp
-public string CreateNewCodeString()
-```
+**Purpose:** Creates a new `new code string` instance or object.
 
 ### CreateEmpty
+`public static CharacterCode CreateEmpty()`
 
-```csharp
-public static CharacterCode CreateEmpty()
-```
+**Purpose:** Creates a new `empty` instance or object.
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(string code)`
+
+**Purpose:** Creates a new `from` instance or object.
+
+## Usage Example
 
 ```csharp
-public static CharacterCode CreateFrom(string code)
+var value = new CharacterCode();
+value.CalculateEquipment();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

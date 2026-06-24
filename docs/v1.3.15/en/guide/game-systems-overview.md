@@ -9,6 +9,10 @@ description: Learn what can be customized in Bannerlord
 
 Bannerlord provides rich systems for mod developers to customize. Understanding these systems helps you plan your mod's feature scope.
 
+## Mental Model
+
+Treat `Game Systems Overview` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Customizable Systems
 
 | System | Customizability | Description |
@@ -125,3 +129,9 @@ MBSubModuleBase
 
 - [Troubleshooting](./troubleshooting.md) - Solve problems
 - [Common Patterns](./common-patterns.md) - Best practices
+
+## Usage Example
+
+```csharp
+var example = new Game Systems Overview();
+```

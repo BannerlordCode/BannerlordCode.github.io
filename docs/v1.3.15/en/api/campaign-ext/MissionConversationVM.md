@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionConversationVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionConversationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MissionConversationVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Conversation/MissionConversationVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionConversationVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionConversationVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,77 +45,81 @@
 | `CurrentCharacterNameLbl` | `public string CurrentCharacterNameLbl { get; set; }` |
 | `AnswerList` | `public MBBindingList<ConversationItemVM> AnswerList { get; set; }` |
 | `DialogText` | `public string DialogText { get; set; }` |
-
+| `IsAggressive` | `public bool IsAggressive { get; set; }` |
+| `SelectedSide` | `public int SelectedSide { get; set; }` |
+| `RelationText` | `public string RelationText { get; set; }` |
+| `IsRelationEnabled` | `public bool IsRelationEnabled { get; set; }` |
+| `IsBannerEnabled` | `public bool IsBannerEnabled { get; set; }` |
+| `CurrentSelectedAnswer` | `public ConversationItemVM CurrentSelectedAnswer { get; set; }` |
+| `ConversedHeroBanner` | `public BannerImageIdentifierVM ConversedHeroBanner { get; set; }` |
+| `RelationHint` | `public HintViewModel RelationHint { get; set; }` |
+| `FactionHint` | `public HintViewModel FactionHint { get; set; }` |
+| `GoldHint` | `public HintViewModel GoldHint { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### OnConversationContinue
+`public void OnConversationContinue()`
 
-```csharp
-public void OnConversationContinue()
-```
+**Purpose:** Called when the `conversation continue` event is raised.
 
 ### ExecuteLink
+`public void ExecuteLink(string link)`
 
-```csharp
-public void ExecuteLink(string link)
-```
+**Purpose:** Executes the `link` operation or workflow.
 
 ### ExecuteConversedHeroLink
+`public void ExecuteConversedHeroLink()`
 
-```csharp
-public void ExecuteConversedHeroLink()
-```
+**Purpose:** Executes the `conversed hero link` operation or workflow.
 
 ### Refresh
+`public void Refresh()`
 
-```csharp
-public void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### ExecuteCloseTooltip
+`public void ExecuteCloseTooltip()`
 
-```csharp
-public void ExecuteCloseTooltip()
-```
+**Purpose:** Executes the `close tooltip` operation or workflow.
 
 ### ExecuteHeroTooltip
+`public void ExecuteHeroTooltip()`
 
-```csharp
-public void ExecuteHeroTooltip()
-```
+**Purpose:** Executes the `hero tooltip` operation or workflow.
 
 ### ExecuteFinalizeSelection
+`public void ExecuteFinalizeSelection()`
 
-```csharp
-public void ExecuteFinalizeSelection()
-```
+**Purpose:** Executes the `finalize selection` operation or workflow.
 
 ### ExecuteContinue
+`public void ExecuteContinue()`
 
-```csharp
-public void ExecuteContinue()
-```
+**Purpose:** Executes the `continue` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var value = new MissionConversationVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

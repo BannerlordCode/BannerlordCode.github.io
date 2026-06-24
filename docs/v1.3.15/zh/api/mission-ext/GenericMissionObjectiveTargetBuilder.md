@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `GenericMissionObjectiveTargetBuilder`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GenericMissionObjectiveTargetBuilder
 
 **命名空间:** TaleWorlds.MountAndBlade.Missions.Objectives
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 结构体 struct struct
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public struct GenericMissionObjectiveTargetBuilder<T>`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`GenericMissionObjectiveTargetBuilder` 是 `TaleWorlds.MountAndBlade.Missions.Objectives` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`GenericMissionObjectiveTargetBuilder` 位于 `TaleWorlds.MountAndBlade.Missions.Objectives`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.Missions.Objectives` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -28,130 +33,115 @@
 | `Mission` | `public Mission Mission { get; }` |
 | `ObjectiveGiver` | `public BasicCharacterObject ObjectiveGiver { get; }` |
 
-
 ## 主要方法
 
 ### GetCurrentProgress
+`public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-```csharp
-public virtual MissionObjectiveProgressInfo GetCurrentProgress()
-```
+**用途 / Purpose:** 获取 `current progress` 的当前值。
 
 ### SetObjectiveGiver
+`public void SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-```csharp
-public void SetObjectiveGiver(BasicCharacterObject objectiveGiver)
-```
+**用途 / Purpose:** 设置 `objective giver` 的值或状态。
 
 ### AddTarget
+`public void AddTarget(MissionObjectiveTarget target)`
 
-```csharp
-public void AddTarget(MissionObjectiveTarget target)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `target`。
 
 ### RemoveTarget
+`public void RemoveTarget(MissionObjectiveTarget target)`
 
-```csharp
-public void RemoveTarget(MissionObjectiveTarget target)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `target`。
 
 ### ClearTargets
+`public void ClearTargets()`
 
-```csharp
-public void ClearTargets()
-```
+**用途 / Purpose:** 处理 `clear targets` 相关逻辑。
 
 ### GetTargetsCopy
+`public MBReadOnlyList<MissionObjectiveTarget> GetTargetsCopy()`
 
-```csharp
-public MBReadOnlyList<MissionObjectiveTarget> GetTargetsCopy()
-```
+**用途 / Purpose:** 获取 `targets copy` 的当前值。
 
 ### CreateGenericObjectiveBuilder
+`public static MissionObjective.GenericMissionObjectiveBuilder CreateGenericObjectiveBuilder(Mission mission, string id, TextObject name = null, TextObject description = null)`
 
-```csharp
-public static MissionObjective.GenericMissionObjectiveBuilder CreateGenericObjectiveBuilder(Mission mission, string id, TextObject name = null, TextObject description = null)
-```
+**用途 / Purpose:** 创建一个 `generic objective builder` 实例或对象。
 
 ### SetName
+`public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)
-```
+**用途 / Purpose:** 设置 `name` 的值或状态。
 
 ### SetDescription
+`public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)
-```
+**用途 / Purpose:** 设置 `description` 的值或状态。
 
 ### SetObjectiveGiver
+`public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)
-```
+**用途 / Purpose:** 设置 `objective giver` 的值或状态。
 
 ### SetInitialTargets
+`public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)
-```
+**用途 / Purpose:** 设置 `initial targets` 的值或状态。
 
 ### SetIsActivationRequirementsMetCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)
-```
+**用途 / Purpose:** 设置 `is activation requirements met callback` 的值或状态。
 
 ### SetIsCompletionRequirementsMetCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)
-```
+**用途 / Purpose:** 设置 `is completion requirements met callback` 的值或状态。
 
 ### SetOnStartCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)
-```
+**用途 / Purpose:** 设置 `on start callback` 的值或状态。
 
 ### SetOnCompleteCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)
-```
+**用途 / Purpose:** 设置 `on complete callback` 的值或状态。
 
 ### SetOnTickCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)
-```
+**用途 / Purpose:** 设置 `on tick callback` 的值或状态。
 
 ### SetProgressCallback
+`public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)
-```
+**用途 / Purpose:** 设置 `progress callback` 的值或状态。
 
 ### Build
+`public MissionObjective Build()`
 
-```csharp
-public MissionObjective Build()
-```
+**用途 / Purpose:** 处理 `build` 相关逻辑。
 
 ### SetIsActiveCallback
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-```csharp
-public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)
-```
+**用途 / Purpose:** 设置 `is active callback` 的值或状态。
 
 ### SetGetGlobalPositionCallback
+`public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
+
+**用途 / Purpose:** 设置 `get global position callback` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)
+// 先从游戏状态中拿到一个 GenericMissionObjectiveTargetBuilder 实例，再调用它的公开方法
+var value = new GenericMissionObjectiveTargetBuilder();
+value.GetCurrentProgress();
 ```
-
-贡献文档。
 
 ## 参见
 

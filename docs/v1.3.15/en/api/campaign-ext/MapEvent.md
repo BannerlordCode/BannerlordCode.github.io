@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapEvent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public sealed class MapEvent : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapEvent` is a class in the `TaleWorlds.CampaignSystem.MapEvents` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapEvent` lives in `TaleWorlds.CampaignSystem.MapEvents` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,177 @@
 | `IsFieldBattle` | `public bool IsFieldBattle { get; }` |
 | `IsRaid` | `public bool IsRaid { get; }` |
 | `IsForcingVolunteers` | `public bool IsForcingVolunteers { get; }` |
-
+| `IsForcingSupplies` | `public bool IsForcingSupplies { get; }` |
+| `IsSiegeAssault` | `public bool IsSiegeAssault { get; }` |
+| `IsHideoutBattle` | `public bool IsHideoutBattle { get; }` |
+| `IsSallyOut` | `public bool IsSallyOut { get; }` |
+| `IsSiegeOutside` | `public bool IsSiegeOutside { get; }` |
+| `IsBlockade` | `public bool IsBlockade { get; }` |
+| `IsBlockadeSallyOut` | `public bool IsBlockadeSallyOut { get; }` |
+| `IsSiegeAmbush` | `public bool IsSiegeAmbush { get; }` |
+| `IsVisible` | `public bool IsVisible { get; }` |
+| `IsPlayerMapEvent` | `public bool IsPlayerMapEvent { get; set; }` |
+| `BattleState` | `public BattleState BattleState { get; set; }` |
+| `Winner` | `public MapEventSide Winner { get; }` |
+| `WinningSide` | `public BattleSideEnum WinningSide { get; }` |
+| `DefeatedSide` | `public BattleSideEnum DefeatedSide { get; }` |
+| `BattleResultExplainers` | `public MapEventResultExplainer BattleResultExplainers { get; }` |
+| `IsFinalized` | `public bool IsFinalized { get; }` |
+| `BattleStartTime` | `public CampaignTime BattleStartTime { get; }` |
+| `HasWinner` | `public bool HasWinner { get; set; }` |
+| `IsPlayerSimulation` | `public bool IsPlayerSimulation { get; set; }` |
+| `IsNavalMapEvent` | `public bool IsNavalMapEvent { get; }` |
+| `WonRounds` | `public MBList<BattleSideEnum> WonRounds { get; }` |
 
 ## Key Methods
 
 ### BeginWait
+`public void BeginWait()`
 
-```csharp
-public void BeginWait()
-```
+**Purpose:** Handles logic related to `begin wait`.
 
 ### GetMapEventSide
+`public MapEventSide GetMapEventSide(BattleSideEnum side)`
 
-```csharp
-public MapEventSide GetMapEventSide(BattleSideEnum side)
-```
+**Purpose:** Gets the current value of `map event side`.
 
 ### PartiesOnSide
+`public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)`
 
-```csharp
-public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)
-```
+**Purpose:** Handles logic related to `parties on side`.
 
 ### GetBattleRewards
+`public void GetBattleRewards(PartyBase party, out float renownChange, out float influenceChange, out float moraleChange, out float goldChange, out float playerEarnedLootPercentage)`
 
-```csharp
-public void GetBattleRewards(PartyBase party, out float renownChange, out float influenceChange, out float moraleChange, out float goldChange, out float playerEarnedLootPercentage)
-```
+**Purpose:** Gets the current value of `battle rewards`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
-
-### GetNumberOfInvolvedMen
-
-```csharp
-public int GetNumberOfInvolvedMen()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### GetNumberOfInvolvedMen
+`public int GetNumberOfInvolvedMen()`
 
-```csharp
-public int GetNumberOfInvolvedMen(BattleSideEnum side)
-```
+**Purpose:** Gets the current value of `number of involved men`.
+
+### GetNumberOfInvolvedMen
+`public int GetNumberOfInvolvedMen(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `number of involved men`.
 
 ### FinishBattleAndKeepSiegeEvent
+`public void FinishBattleAndKeepSiegeEvent()`
 
-```csharp
-public void FinishBattleAndKeepSiegeEvent()
-```
+**Purpose:** Handles logic related to `finish battle and keep siege event`.
 
 ### SimulateBattleSetup
+`public void SimulateBattleSetup(FlattenedTroopRoster priorTroops)`
 
-```csharp
-public void SimulateBattleSetup(FlattenedTroopRoster priorTroops)
-```
+**Purpose:** Handles logic related to `simulate battle setup`.
 
 ### SimulateBattleRound
+`public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)`
 
-```csharp
-public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)
-```
+**Purpose:** Handles logic related to `simulate battle round`.
 
 ### SetOverrideWinner
+`public void SetOverrideWinner(BattleSideEnum winner)`
 
-```csharp
-public void SetOverrideWinner(BattleSideEnum winner)
-```
+**Purpose:** Sets the value or state of `override winner`.
 
 ### SetDefenderPulledBack
+`public void SetDefenderPulledBack()`
 
-```csharp
-public void SetDefenderPulledBack()
-```
+**Purpose:** Sets the value or state of `defender pulled back`.
 
 ### ResetBattleState
+`public void ResetBattleState()`
 
-```csharp
-public void ResetBattleState()
-```
+**Purpose:** Resets `battle state` to its initial state.
 
 ### IsPlayerSergeant
+`public bool IsPlayerSergeant()`
 
-```csharp
-public bool IsPlayerSergeant()
-```
+**Purpose:** Handles logic related to `is player sergeant`.
 
 ### FinalizeEvent
+`public void FinalizeEvent()`
 
-```csharp
-public void FinalizeEvent()
-```
+**Purpose:** Handles logic related to `finalize event`.
 
 ### HasTroopsOnBothSides
+`public bool HasTroopsOnBothSides()`
 
-```csharp
-public bool HasTroopsOnBothSides()
-```
+**Purpose:** Checks whether the current object has/contains `troops on both sides`.
 
 ### GetLeaderParty
+`public PartyBase GetLeaderParty(BattleSideEnum side)`
 
-```csharp
-public PartyBase GetLeaderParty(BattleSideEnum side)
-```
+**Purpose:** Gets the current value of `leader party`.
 
 ### GetRenownValue
+`public float GetRenownValue(BattleSideEnum side)`
 
-```csharp
-public float GetRenownValue(BattleSideEnum side)
-```
+**Purpose:** Gets the current value of `renown value`.
 
 ### RecalculateRenownAndInfluenceValues
+`public void RecalculateRenownAndInfluenceValues(PartyBase party)`
 
-```csharp
-public void RecalculateRenownAndInfluenceValues(PartyBase party)
-```
+**Purpose:** Handles logic related to `recalculate renown and influence values`.
 
 ### RecalculateStrengthOfSides
+`public void RecalculateStrengthOfSides()`
+
+**Purpose:** Handles logic related to `recalculate strength of sides`.
+
+### DoSurrender
+`public void DoSurrender(BattleSideEnum side)`
+
+**Purpose:** Handles logic related to `do surrender`.
+
+### EndByRunAway
+`public void EndByRunAway()`
+
+**Purpose:** Handles logic related to `end by run away`.
+
+### GetOtherSide
+`public BattleSideEnum GetOtherSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `other side`.
+
+### CanPartyJoinBattle
+`public bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)`
+
+**Purpose:** Checks whether the current object can `party join battle`.
+
+### GetStrengthsRelativeToParty
+`public void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)`
+
+**Purpose:** Gets the current value of `strengths relative to party`.
+
+### CheckIfBattleShouldContinueAfterBattleMission
+`public bool CheckIfBattleShouldContinueAfterBattleMission(CampaignBattleResult campaignBattleResult)`
+
+**Purpose:** Handles logic related to `check if battle should continue after battle mission`.
+
+### SetPositionAfterMapChange
+`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
+
+**Purpose:** Sets the value or state of `position after map change`.
+
+### CheckPositionsForMapChangeAndUpdateIfNeeded
+`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
+
+**Purpose:** Handles logic related to `check positions for map change and update if needed`.
+
+## Usage Example
 
 ```csharp
-public void RecalculateStrengthOfSides()
+var value = new MapEvent();
+value.BeginWait();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

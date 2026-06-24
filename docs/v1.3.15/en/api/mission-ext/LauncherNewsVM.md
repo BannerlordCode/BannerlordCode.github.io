@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `LauncherNewsVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherNewsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class LauncherNewsVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherNewsVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `LauncherNewsVM` is a class in the `TaleWorlds.MountAndBlade.Launcher.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LauncherNewsVM` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,16 +29,20 @@
 | `MainNews` | `public LauncherNewsItemVM MainNews { get; set; }` |
 | `NewsItems` | `public MBBindingList<LauncherNewsItemVM> NewsItems { get; set; }` |
 
-
 ## Key Methods
 
 ### Refresh
+`public void Refresh(bool isMultiplayer)`
+
+**Purpose:** Refreshes the display or cache of `refresh`.
+
+## Usage Example
 
 ```csharp
-public void Refresh(bool isMultiplayer)
+var value = new LauncherNewsVM();
+value.Refresh(false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

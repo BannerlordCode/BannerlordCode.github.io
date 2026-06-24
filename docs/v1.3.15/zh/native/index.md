@@ -5,6 +5,10 @@ description: 与原生 C++ 引擎交互的接口文档 / Documentation for inter
 
 # 原生接口 / Native Reference
 
+## 心智模型
+
+先把 `原生接口` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 通过 P/Invoke 与原生 C++ 引擎交互的完整文档。
 
 Complete documentation for interacting with the native C++ engine via P/Invoke.

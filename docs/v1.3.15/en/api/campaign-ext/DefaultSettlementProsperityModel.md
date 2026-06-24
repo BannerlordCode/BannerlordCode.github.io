@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementProsperityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementProsperityModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultSettlementProsperityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementProsperityModel>(new MyDefaultSettlementProsperityModel())` to change how it computes.
+`DefaultSettlementProsperityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementProsperityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateProsperityChange
-```csharp
-public override ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate prosperity change`.
 
 ### CalculateHearthChange
-```csharp
-public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate hearth change`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementProsperityModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementProsperityModel>(new MyDefaultSettlementProsperityModel());
 ```
 

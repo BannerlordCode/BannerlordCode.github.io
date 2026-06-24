@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `AttackCollisionData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AttackCollisionData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`AttackCollisionData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`AttackCollisionData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `AttackCollisionData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -60,29 +65,30 @@
 | `MissileStartingPosition` | `public Vec3 MissileStartingPosition { get; }` |
 | `VictimAgentCurVelocity` | `public Vec3 VictimAgentCurVelocity { get; }` |
 | `CollisionGlobalNormal` | `public Vec3 CollisionGlobalNormal { get; }` |
+| `LastBoneSegmentRotUp` | `public Vec3 LastBoneSegmentRotUp { get; }` |
+| `LastBoneSegmentSwingDir` | `public Vec3 LastBoneSegmentSwingDir { get; }` |
 
 ## 主要方法
 
 ### SetCollisionBoneIndexForAreaDamage
-```csharp
-public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)
-```
+`public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)`
+
+**用途 / Purpose:** 设置 `collision bone index for area damage` 的值或状态。
 
 ### UpdateCollisionPositionAndBoneForReflect
-```csharp
-public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)
-```
+`public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)`
+
+**用途 / Purpose:** 更新 `collision position and bone for reflect` 的状态或数据。
 
 ### GetAttackCollisionDataForDebugPurpose
-```csharp
-public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)
-```
+`public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)`
+
+**用途 / Purpose:** 获取 `attack collision data for debug purpose` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// AttackCollisionData (Data) 的典型用法
-new AttackCollisionData { /* fill fields */ };;
+var value = new AttackCollisionData();
 ```
 
 ## 参见

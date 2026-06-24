@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartySizeLimitModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartySizeLimitModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultPartySizeLimitModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartySizeLimitModel>(new MyDefaultPartySizeLimitModel())` to change how it computes.
+`DefaultPartySizeLimitModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartySizeLimitModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,54 +30,53 @@
 ## Key Methods
 
 ### GetPartyMemberSizeLimit
-```csharp
-public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `party member size limit`.
 
 ### GetPartyPrisonerSizeLimit
-```csharp
-public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `party prisoner size limit`.
 
 ### CalculateGarrisonPartySizeLimit
-```csharp
-public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate garrison party size limit`.
 
 ### GetNextClanTierPartySizeEffectChangeForHero
-```csharp
-public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)
-```
+`public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `next clan tier party size effect change for hero`.
 
 ### GetAssumedPartySizeForLordParty
-```csharp
-public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)
-```
+`public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
+
+**Purpose:** Gets the current value of `assumed party size for lord party`.
 
 ### GetClanTierPartySizeEffectForHero
-```csharp
-public override int GetClanTierPartySizeEffectForHero(Hero hero)
-```
+`public override int GetClanTierPartySizeEffectForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `clan tier party size effect for hero`.
 
 ### GetIdealVillagerPartySize
-```csharp
-public override int GetIdealVillagerPartySize(Village village)
-```
+`public override int GetIdealVillagerPartySize(Village village)`
+
+**Purpose:** Gets the current value of `ideal villager party size`.
 
 ### FindAppropriateInitialRosterForMobileParty
-```csharp
-public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
-```
+`public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
+
+**Purpose:** Handles logic related to `find appropriate initial roster for mobile party`.
 
 ### FindAppropriateInitialShipsForMobileParty
-```csharp
-public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
-```
+`public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
+
+**Purpose:** Handles logic related to `find appropriate initial ships for mobile party`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartySizeLimitModel (Model)
 Game.Current.ReplaceModel<DefaultPartySizeLimitModel>(new MyDefaultPartySizeLimitModel());
 ```
 

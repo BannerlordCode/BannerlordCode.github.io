@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `DefaultDeploymentPlan`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class DefaultDeploymentPlan`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `DefaultDeploymentPlan` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefaultDeploymentPlan` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,91 +36,83 @@
 | `TroopCount` | `public int TroopCount { get; }` |
 | `MeanPosition` | `public Vec3 MeanPosition { get; }` |
 
-
 ## Key Methods
 
 ### CreateInitialPlan
+`public static DefaultDeploymentPlan CreateInitialPlan(Mission mission, Team team)`
 
-```csharp
-public static DefaultDeploymentPlan CreateInitialPlan(Mission mission, Team team)
-```
+**Purpose:** Creates a new `initial plan` instance or object.
 
 ### CreateReinforcementPlan
+`public static DefaultDeploymentPlan CreateReinforcementPlan(Mission mission, Team team)`
 
-```csharp
-public static DefaultDeploymentPlan CreateReinforcementPlan(Mission mission, Team team)
-```
+**Purpose:** Creates a new `reinforcement plan` instance or object.
 
 ### CreateReinforcementPlanWithSpawnPath
+`public static DefaultDeploymentPlan CreateReinforcementPlanWithSpawnPath(Mission mission, Team team, SpawnPathData spawnPathData)`
 
-```csharp
-public static DefaultDeploymentPlan CreateReinforcementPlanWithSpawnPath(Mission mission, Team team, SpawnPathData spawnPathData)
-```
+**Purpose:** Creates a new `reinforcement plan with spawn path` instance or object.
 
 ### SetSpawnWithHorses
+`public void SetSpawnWithHorses(bool value)`
 
-```csharp
-public void SetSpawnWithHorses(bool value)
-```
+**Purpose:** Sets the value or state of `spawn with horses`.
 
 ### ClearAddedTroops
+`public void ClearAddedTroops()`
 
-```csharp
-public void ClearAddedTroops()
-```
+**Purpose:** Handles logic related to `clear added troops`.
 
 ### ClearPlan
+`public void ClearPlan()`
 
-```csharp
-public void ClearPlan()
-```
+**Purpose:** Handles logic related to `clear plan`.
 
 ### AddTroops
+`public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount)`
 
-```csharp
-public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount)
-```
+**Purpose:** Adds `troops` to the current collection or state.
 
 ### PlanBattleDeployment
+`public void PlanBattleDeployment(FormationSceneSpawnEntry formationSceneSpawnEntries, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
-```csharp
-public void PlanBattleDeployment(FormationSceneSpawnEntry formationSceneSpawnEntries, float spawnPathOffset = 0f, float targetOffset = 0f)
-```
+**Purpose:** Handles logic related to `plan battle deployment`.
 
 ### GetFormationPlan
+`public DefaultFormationDeploymentPlan GetFormationPlan(FormationClass fClass)`
 
-```csharp
-public DefaultFormationDeploymentPlan GetFormationPlan(FormationClass fClass)
-```
+**Purpose:** Gets the current value of `formation plan`.
 
 ### GetFormationDeploymentFrame
+`public bool GetFormationDeploymentFrame(FormationClass fClass, out MatrixFrame frame)`
 
-```csharp
-public bool GetFormationDeploymentFrame(FormationClass fClass, out MatrixFrame frame)
-```
+**Purpose:** Gets the current value of `formation deployment frame`.
 
 ### IsPlanSuitableForFormations
+`public bool IsPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)`
 
-```csharp
-public bool IsPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)
-```
+**Purpose:** Handles logic related to `is plan suitable for formations`.
 
 ### UpdateSafetyScore
+`public void UpdateSafetyScore()`
 
-```csharp
-public void UpdateSafetyScore()
-```
+**Purpose:** Updates the state or data of `safety score`.
 
 ### GetFrameFromFormationSpawnEntity
+`public WorldFrame GetFrameFromFormationSpawnEntity(GameEntity formationSpawnEntity, float depthOffset = 0f)`
 
-```csharp
-public WorldFrame GetFrameFromFormationSpawnEntity(GameEntity formationSpawnEntity, float depthOffset = 0f)
-```
+**Purpose:** Gets the current value of `frame from formation spawn entity`.
 
 ### GetFormationSpawnWidthAndDepth
+`public ValueTuple<float, float> GetFormationSpawnWidthAndDepth(FormationClass formationNo, int troopCount, bool hasMountedTroops, bool considerCavalryAsInfantry = false)`
+
+**Purpose:** Gets the current value of `formation spawn width and depth`.
+
+## Usage Example
 
 ```csharp
-public ValueTuple<float, float> GetFormationSpawnWidthAndDepth(FormationClass formationNo, int troopCount, bool hasMountedTroops, bool considerCavalryAsInfantry = false)
+// Prepare the required context, then call the static entry point directly
+DefaultDeploymentPlan.CreateInitialPlan(mission, team);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerRoundController`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerRoundController
@@ -14,50 +15,56 @@
 
 ## 概述
 
-`MultiplayerRoundController` 是一个任务控制器，驱动某个任务子系统（部署、高光、援兵等）。经 Mission.Current 或作为任务行为访问。
+`MultiplayerRoundController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `MultiplayerRoundController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `RoundCount` | `public int RoundCount { get { return this._roundCount; }` |
-| `RoundWinner` | `public BattleSideEnum RoundWinner { get { return this._roundWinner; }` |
-| `RoundEndReason` | `public RoundEndReason RoundEndReason { get { return this._roundEndReason; }` |
-| `RemainingRoundTime` | `public float RemainingRoundTime { get { return this._gameModeServer.TimerComponent.GetRemainingTime(false); }` |
-| `IsRoundInProgress` | `public bool IsRoundInProgress { get { return this.CurrentRoundState == MultiplayerRoundState.InProgress; }` |
+| `RoundCount` | `public int RoundCount { get; set; }` |
+| `RoundWinner` | `public BattleSideEnum RoundWinner { get; set; }` |
+| `RoundEndReason` | `public RoundEndReason RoundEndReason { get; set; }` |
+| `IsMatchEnding` | `public bool IsMatchEnding { get; }` |
+| `LastRoundEndRemainingTime` | `public float LastRoundEndRemainingTime { get; }` |
+| `RemainingRoundTime` | `public float RemainingRoundTime { get; }` |
+| `CurrentRoundState` | `public MultiplayerRoundState CurrentRoundState { get; }` |
+| `IsRoundInProgress` | `public bool IsRoundInProgress { get; }` |
 
 ## 主要方法
 
 ### EnableEquipmentUpdate
-```csharp
-public void EnableEquipmentUpdate()
-```
+`public void EnableEquipmentUpdate()`
+
+**用途 / Purpose:** 处理 `enable equipment update` 相关逻辑。
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
 
 ### OnPreDisplayMissionTick
-```csharp
-public override void OnPreDisplayMissionTick(float dt)
-```
+`public override void OnPreDisplayMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
 
 ### HandleClientEventCultureSelect
-```csharp
-public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)
-```
+`public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
+
+**用途 / Purpose:** 处理 `client event culture select` 事件或回调。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerRoundController (Controller) 的典型用法
-Mission.Current.GetMissionBehavior<MultiplayerRoundController>();
+var controller = Mission.Current.GetMissionBehavior<MultiplayerRoundController>();
 ```
 
 ## 参见

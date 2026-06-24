@@ -2,28 +2,37 @@
 **首页** → **API 目录** → **本领域** → `ItemCollectionElementMissionExtensions`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemCollectionElementMissionExtensions
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public static class ItemCollectionElementMissionExtensions`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ItemCollectionElementMissionExtensions` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ItemCollectionElementMissionExtensions` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### GetItemHolsterIndices
+`public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)`
+
+**用途 / Purpose:** 获取 `item holster indices` 的当前值。
+
+## 使用示例
 
 ```csharp
-public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)
+// 先准备该类型需要的上下文，然后直接调用静态入口
+ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
 ```
-
-献文档。
 
 ## 参见
 

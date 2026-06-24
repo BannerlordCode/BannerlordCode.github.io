@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ManagedNumericOptionData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ManagedNumericOptionData
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`ManagedNumericOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`ManagedNumericOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `ManagedNumericOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMinValue
-```csharp
-public float GetMinValue()
-```
+`public float GetMinValue()`
+
+**Purpose:** Gets the current value of `min value`.
 
 ### GetMaxValue
-```csharp
-public float GetMaxValue()
-```
+`public float GetMaxValue()`
+
+**Purpose:** Gets the current value of `max value`.
 
 ### GetIsDiscrete
-```csharp
-public bool GetIsDiscrete()
-```
+`public bool GetIsDiscrete()`
+
+**Purpose:** Gets the current value of `is discrete`.
 
 ### GetDiscreteIncrementInterval
-```csharp
-public int GetDiscreteIncrementInterval()
-```
+`public int GetDiscreteIncrementInterval()`
+
+**Purpose:** Gets the current value of `discrete increment interval`.
 
 ### GetShouldUpdateContinuously
-```csharp
-public bool GetShouldUpdateContinuously()
-```
+`public bool GetShouldUpdateContinuously()`
+
+**Purpose:** Gets the current value of `should update continuously`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ManagedNumericOptionData (Data)
-new ManagedNumericOptionData { /* fill fields */ };;
+var value = new ManagedNumericOptionData();
 ```
 
 ## See Also

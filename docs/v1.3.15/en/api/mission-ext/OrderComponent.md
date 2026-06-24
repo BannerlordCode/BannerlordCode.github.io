@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `OrderComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`OrderComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<OrderComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`OrderComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `OrderComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### GetDirection
-```csharp
-public Vec2 GetDirection(Formation f)
-```
+`public Vec2 GetDirection(Formation f)`
+
+**Purpose:** Gets the current value of `direction`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of OrderComponent (Component)
-agent.GetComponent<OrderComponent>();
+var implementation = new CustomOrderComponent();
 ```
 
 ## See Also

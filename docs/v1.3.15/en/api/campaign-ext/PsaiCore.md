@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `PsaiCore`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PsaiCore
 
 **Namespace:** psai.net
 **Module:** psai.net
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PsaiCore`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `PsaiCore` is a class in the `psai.net` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PsaiCore` lives in `psai.net`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `psai.net` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,127 +26,113 @@
 |------|-----------|
 | `Instance` | `public static PsaiCore Instance { get; set; }` |
 
-
 ## Key Methods
 
 ### IsInstanceInitialized
+`public static bool IsInstanceInitialized()`
 
-```csharp
-public static bool IsInstanceInitialized()
-```
+**Purpose:** Handles logic related to `is instance initialized`.
 
 ### SetMaximumLatencyNeededByPlatformToBufferSounddata
+`public PsaiResult SetMaximumLatencyNeededByPlatformToBufferSounddata(int latencyInMilliseconds)`
 
-```csharp
-public PsaiResult SetMaximumLatencyNeededByPlatformToBufferSounddata(int latencyInMilliseconds)
-```
+**Purpose:** Sets the value or state of `maximum latency needed by platform to buffer sounddata`.
 
 ### SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata
+`public PsaiResult SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(int latencyInMilliseconds)`
 
-```csharp
-public PsaiResult SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(int latencyInMilliseconds)
-```
+**Purpose:** Sets the value or state of `maximum latency needed by platform to play back buffered sounddata`.
 
 ### LoadSoundtrackFromProjectFile
+`public PsaiResult LoadSoundtrackFromProjectFile(List<string> pathToProjectFiles)`
 
-```csharp
-public PsaiResult LoadSoundtrackFromProjectFile(List<string> pathToProjectFiles)
-```
-
-### TriggerMusicTheme
-
-```csharp
-public PsaiResult TriggerMusicTheme(int themeId, float intensity)
-```
+**Purpose:** Loads `soundtrack from project file` data.
 
 ### TriggerMusicTheme
+`public PsaiResult TriggerMusicTheme(int themeId, float intensity)`
 
-```csharp
-public PsaiResult TriggerMusicTheme(int themeId, float intensity, int musicDurationInSeconds)
-```
+**Purpose:** Handles logic related to `trigger music theme`.
+
+### TriggerMusicTheme
+`public PsaiResult TriggerMusicTheme(int themeId, float intensity, int musicDurationInSeconds)`
+
+**Purpose:** Handles logic related to `trigger music theme`.
 
 ### AddToCurrentIntensity
+`public PsaiResult AddToCurrentIntensity(float deltaIntensity)`
 
-```csharp
-public PsaiResult AddToCurrentIntensity(float deltaIntensity)
-```
-
-### StopMusic
-
-```csharp
-public PsaiResult StopMusic(bool immediately)
-```
+**Purpose:** Adds `to current intensity` to the current collection or state.
 
 ### StopMusic
+`public PsaiResult StopMusic(bool immediately)`
 
-```csharp
-public PsaiResult StopMusic(bool immediately, float fadeOutSeconds)
-```
+**Purpose:** Handles logic related to `stop music`.
+
+### StopMusic
+`public PsaiResult StopMusic(bool immediately, float fadeOutSeconds)`
+
+**Purpose:** Handles logic related to `stop music`.
 
 ### ReturnToLastBasicMood
+`public PsaiResult ReturnToLastBasicMood(bool immediately)`
 
-```csharp
-public PsaiResult ReturnToLastBasicMood(bool immediately)
-```
-
-### GoToRest
-
-```csharp
-public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)
-```
+**Purpose:** Handles logic related to `return to last basic mood`.
 
 ### GoToRest
+`public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)`
 
-```csharp
-public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)
-```
+**Purpose:** Handles logic related to `go to rest`.
+
+### GoToRest
+`public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)`
+
+**Purpose:** Handles logic related to `go to rest`.
 
 ### HoldCurrentIntensity
+`public PsaiResult HoldCurrentIntensity(bool hold)`
 
-```csharp
-public PsaiResult HoldCurrentIntensity(bool hold)
-```
+**Purpose:** Handles logic related to `hold current intensity`.
 
 ### GetVersion
+`public string GetVersion()`
 
-```csharp
-public string GetVersion()
-```
+**Purpose:** Gets the current value of `version`.
 
 ### Update
+`public PsaiResult Update()`
 
-```csharp
-public PsaiResult Update()
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### GetVolume
+`public float GetVolume()`
 
-```csharp
-public float GetVolume()
-```
+**Purpose:** Gets the current value of `volume`.
 
 ### SetVolume
+`public void SetVolume(float volume)`
 
-```csharp
-public void SetVolume(float volume)
-```
+**Purpose:** Sets the value or state of `volume`.
 
 ### SetPaused
+`public void SetPaused(bool setPaused)`
 
-```csharp
-public void SetPaused(bool setPaused)
-```
+**Purpose:** Sets the value or state of `paused`.
 
 ### GetCurrentIntensity
+`public float GetCurrentIntensity()`
 
-```csharp
-public float GetCurrentIntensity()
-```
+**Purpose:** Gets the current value of `current intensity`.
 
 ### GetPsaiInfo
+`public PsaiInfo GetPsaiInfo()`
+
+**Purpose:** Gets the current value of `psai info`.
+
+## Usage Example
 
 ```csharp
-public PsaiInfo GetPsaiInfo()
+// Prepare the required context, then call the static entry point directly
+PsaiCore.IsInstanceInitialized();
 ```
 
 ## See Also

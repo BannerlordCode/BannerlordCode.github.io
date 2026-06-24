@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `PartyTroopManagerVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTroopManagerVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class PartyTroopManagerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Party/PartyTroopManagerPopUp/PartyTroopManagerVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`PartyTroopManagerVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`PartyTroopManagerVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,97 +45,89 @@
 | `NameText` | `public string NameText { get; set; }` |
 | `CountText` | `public string CountText { get; set; }` |
 | `GoldChangeText` | `public string GoldChangeText { get; set; }` |
-
+| `HorseChangeText` | `public string HorseChangeText { get; set; }` |
+| `MoraleChangeText` | `public string MoraleChangeText { get; set; }` |
+| `DoneLbl` | `public string DoneLbl { get; set; }` |
+| `CancelLbl` | `public string CancelLbl { get; set; }` |
 
 ## 主要方法
 
 ### ExecuteItemPrimaryAction
+`public virtual void ExecuteItemPrimaryAction()`
 
-```csharp
-public virtual void ExecuteItemPrimaryAction()
-```
+**用途 / Purpose:** 执行 `item primary action` 操作或流程。
 
 ### ExecuteItemSecondaryAction
+`public virtual void ExecuteItemSecondaryAction()`
 
-```csharp
-public virtual void ExecuteItemSecondaryAction()
-```
+**用途 / Purpose:** 执行 `item secondary action` 操作或流程。
 
 ### ExecuteItemTertiaryAction
+`public virtual void ExecuteItemTertiaryAction()`
 
-```csharp
-public virtual void ExecuteItemTertiaryAction()
-```
+**用途 / Purpose:** 执行 `item tertiary action` 操作或流程。
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### OpenPopUp
+`public virtual void OpenPopUp()`
 
-```csharp
-public virtual void OpenPopUp()
-```
+**用途 / Purpose:** 处理 `open pop up` 相关逻辑。
 
 ### ExecuteDone
+`public virtual void ExecuteDone()`
 
-```csharp
-public virtual void ExecuteDone()
-```
+**用途 / Purpose:** 执行 `done` 操作或流程。
 
 ### UpdateOpenButtonHint
+`public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-```csharp
-public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)
-```
+**用途 / Purpose:** 更新 `open button hint` 的状态或数据。
 
 ### ExecuteCancel
+`public abstract void ExecuteCancel()`
 
-```csharp
-public abstract void ExecuteCancel()
-```
+**用途 / Purpose:** 执行 `cancel` 操作或流程。
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `done input key` 的值或状态。
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
 
 ### SetPrimaryActionInputKey
+`public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-```csharp
-public void SetPrimaryActionInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `primary action input key` 的值或状态。
 
 ### SetSecondaryActionInputKey
+`public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-```csharp
-public void SetSecondaryActionInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `secondary action input key` 的值或状态。
 
 ### SetTertiaryActionInputKey
+`public void SetTertiaryActionInputKey(HotKey hotKey)`
+
+**用途 / Purpose:** 设置 `tertiary action input key` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetTertiaryActionInputKey(HotKey hotKey)
+var implementation = new CustomPartyTroopManagerVM();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

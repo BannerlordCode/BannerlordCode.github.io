@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultLocationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultLocationModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultLocationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel())` to change how it computes.
+`DefaultLocationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultLocationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSettlementUpgradeLevel
-```csharp
-public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)
-```
+`public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
+
+**Purpose:** Gets the current value of `settlement upgrade level`.
 
 ### GetCivilianSceneLevel
-```csharp
-public override string GetCivilianSceneLevel(Settlement settlement)
-```
+`public override string GetCivilianSceneLevel(Settlement settlement)`
+
+**Purpose:** Gets the current value of `civilian scene level`.
 
 ### GetCivilianUpgradeLevelTag
-```csharp
-public override string GetCivilianUpgradeLevelTag(int upgradeLevel)
-```
+`public override string GetCivilianUpgradeLevelTag(int upgradeLevel)`
+
+**Purpose:** Gets the current value of `civilian upgrade level tag`.
 
 ### GetUpgradeLevelTag
-```csharp
-public override string GetUpgradeLevelTag(int upgradeLevel)
-```
+`public override string GetUpgradeLevelTag(int upgradeLevel)`
+
+**Purpose:** Gets the current value of `upgrade level tag`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultLocationModel (Model)
 Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel());
 ```
 

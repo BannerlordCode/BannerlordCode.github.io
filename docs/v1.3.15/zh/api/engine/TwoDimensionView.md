@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TwoDimensionView`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TwoDimensionView
@@ -14,55 +15,58 @@
 
 ## 概述
 
-`TwoDimensionView` 是一个引擎视图/表面（渲染、纹理、场景预览等）。经引擎视图系统访问。
+`TwoDimensionView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `TwoDimensionView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CreateTwoDimension
-```csharp
-public static TwoDimensionView CreateTwoDimension(string viewName)
-```
+`public static TwoDimensionView CreateTwoDimension(string viewName)`
+
+**用途 / Purpose:** 创建一个 `two dimension` 实例或对象。
 
 ### BeginFrame
-```csharp
-public void BeginFrame()
-```
+`public void BeginFrame()`
+
+**用途 / Purpose:** 处理 `begin frame` 相关逻辑。
 
 ### EndFrame
-```csharp
-public void EndFrame()
-```
+`public void EndFrame()`
+
+**用途 / Purpose:** 处理 `end frame` 相关逻辑。
 
 ### Clear
-```csharp
-public void Clear()
-```
+`public void Clear()`
+
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
 
 ### CreateMeshFromDescription
-```csharp
-public void CreateMeshFromDescription(WeakMaterial material, TwoDimensionMeshDrawData meshDrawData)
-```
+`public void CreateMeshFromDescription(WeakMaterial material, TwoDimensionMeshDrawData meshDrawData)`
+
+**用途 / Purpose:** 创建一个 `mesh from description` 实例或对象。
 
 ### CreateTextMeshFromCache
-```csharp
-public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)
-```
+`public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)`
+
+**用途 / Purpose:** 创建一个 `text mesh from cache` 实例或对象。
 
 ### CreateTextMeshFromDescription
-```csharp
-public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)
-```
+`public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)`
+
+**用途 / Purpose:** 创建一个 `text mesh from description` 实例或对象。
 
 ### GetOrCreateMaterial
-```csharp
-public WeakMaterial GetOrCreateMaterial(Texture mainTexture, Texture overlayTexture)
-```
+`public WeakMaterial GetOrCreateMaterial(Texture mainTexture, Texture overlayTexture)`
+
+**用途 / Purpose:** 获取 `or create material` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// TwoDimensionView (View) 的典型用法
-TwoDimensionView /* via engine view system */;
+var view = new TwoDimensionView();
 ```
 
 ## 参见

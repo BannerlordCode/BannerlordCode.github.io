@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementSecurityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementSecurityModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultSettlementSecurityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementSecurityModel>(new MyDefaultSettlementSecurityModel())` to change how it computes.
+`DefaultSettlementSecurityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementSecurityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -40,34 +45,33 @@
 ## Key Methods
 
 ### CalculateSecurityChange
-```csharp
-public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate security change`.
 
 ### GetLootedNearbyPartySecurityEffect
-```csharp
-public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)
-```
+`public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+
+**Purpose:** Gets the current value of `looted nearby party security effect`.
 
 ### GetNearbyBanditPartyDefeatedSecurityEffect
-```csharp
-public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)
-```
+`public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+
+**Purpose:** Gets the current value of `nearby bandit party defeated security effect`.
 
 ### CalculateGoldGainDueToHighSecurity
-```csharp
-public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)
-```
+`public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold gain due to high security`.
 
 ### CalculateGoldCutDueToLowSecurity
-```csharp
-public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)
-```
+`public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold cut due to low security`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementSecurityModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementSecurityModel>(new MyDefaultSettlementSecurityModel());
 ```
 

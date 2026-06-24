@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ImageFit`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ImageFit
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ImageFit`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/ImageFit.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ImageFit` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ImageFit` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,16 +31,20 @@
 | `OffsetX` | `public float OffsetX { get; set; }` |
 | `OffsetY` | `public float OffsetY { get; set; }` |
 
-
 ## Key Methods
 
 ### GetFittedRectangle
+`public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)`
+
+**Purpose:** Gets the current value of `fitted rectangle`.
+
+## Usage Example
 
 ```csharp
-public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)
+var value = new ImageFit();
+value.GetFittedRectangle(containerSize, imageSize);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

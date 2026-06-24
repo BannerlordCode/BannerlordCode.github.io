@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SettlementComponent`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementComponent
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`SettlementComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<SettlementComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`SettlementComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `SettlementComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -37,75 +42,74 @@
 ## 主要方法
 
 ### GetProsperityLevel
-```csharp
-public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()
-```
+`public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()`
+
+**用途 / Purpose:** 获取 `prosperity level` 的当前值。
 
 ### GetDefaultComponentBanner
-```csharp
-public virtual Banner GetDefaultComponentBanner()
-```
+`public virtual Banner GetDefaultComponentBanner()`
+
+**用途 / Purpose:** 获取 `default component banner` 的当前值。
 
 ### OnPartyEntered
-```csharp
-public virtual void OnPartyEntered(MobileParty mobileParty)
-```
+`public virtual void OnPartyEntered(MobileParty mobileParty)`
+
+**用途 / Purpose:** 当 `party entered` 事件触发时调用此方法。
 
 ### OnPartyLeft
-```csharp
-public virtual void OnPartyLeft(MobileParty mobileParty)
-```
+`public virtual void OnPartyLeft(MobileParty mobileParty)`
+
+**用途 / Purpose:** 当 `party left` 事件触发时调用此方法。
 
 ### OnInit
-```csharp
-public virtual void OnInit()
-```
+`public virtual void OnInit()`
+
+**用途 / Purpose:** 当 `init` 事件触发时调用此方法。
 
 ### OnSessionStart
-```csharp
-public virtual void OnSessionStart()
-```
+`public virtual void OnSessionStart()`
+
+**用途 / Purpose:** 当 `session start` 事件触发时调用此方法。
 
 ### ChangeGold
-```csharp
-public void ChangeGold(int changeAmount)
-```
+`public void ChangeGold(int changeAmount)`
+
+**用途 / Purpose:** 处理 `change gold` 相关逻辑。
 
 ### GetNumberOfTroops
-```csharp
-public int GetNumberOfTroops()
-```
+`public int GetNumberOfTroops()`
+
+**用途 / Purpose:** 获取 `number of troops` 的当前值。
 
 ### Deserialize
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
 
 ### GetItemPrice
-```csharp
-public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)
-```
+`public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
+
+**用途 / Purpose:** 获取 `item price` 的当前值。
 
 ### GetItemPrice
-```csharp
-public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)
-```
+`public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
+
+**用途 / Purpose:** 获取 `item price` 的当前值。
 
 ### OnRelatedPartyRemoved
-```csharp
-public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)
-```
+`public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)`
+
+**用途 / Purpose:** 当 `related party removed` 事件触发时调用此方法。
 
 ### GetPrisonerHeroes
-```csharp
-public List<CharacterObject> GetPrisonerHeroes()
-```
+`public List<CharacterObject> GetPrisonerHeroes()`
+
+**用途 / Purpose:** 获取 `prisoner heroes` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// SettlementComponent (Component) 的典型用法
-agent.GetComponent<SettlementComponent>();
+var implementation = new CustomSettlementComponent();
 ```
 
 ## 参见

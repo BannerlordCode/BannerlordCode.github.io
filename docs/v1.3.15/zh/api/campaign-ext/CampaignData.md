@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CampaignData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CampaignData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`CampaignData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `CampaignData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,8 +30,7 @@
 ## 使用示例
 
 ```csharp
-// CampaignData (Data) 的典型用法
-new CampaignData { /* fill fields */ };;
+var value = new CampaignData();
 ```
 
 ## 参见

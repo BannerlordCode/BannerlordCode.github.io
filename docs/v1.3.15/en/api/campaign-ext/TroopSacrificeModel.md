@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TroopSacrificeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TroopSacrificeModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`TroopSacrificeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TroopSacrificeModel>(new MyTroopSacrificeModel())` to change how it computes.
+`TroopSacrificeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TroopSacrificeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,35 +31,34 @@
 ## Key Methods
 
 ### GetLostTroopCountForBreakingInBesiegedSettlement
-```csharp
-public abstract ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)
-```
+`public abstract ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
+
+**Purpose:** Gets the current value of `lost troop count for breaking in besieged settlement`.
 
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
-```csharp
-public abstract ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)
-```
+`public abstract ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
+
+**Purpose:** Gets the current value of `lost troop count for breaking out of besieged settlement`.
 
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
-```csharp
-public abstract int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)
-```
+`public abstract int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
+
+**Purpose:** Gets the current value of `number of troops sacrificed for trying to get away`.
 
 ### GetShipsToSacrificeForTryingToGetAway
-```csharp
-public abstract void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)
-```
+`public abstract void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
+
+**Purpose:** Gets the current value of `ships to sacrifice for trying to get away`.
 
 ### CanPlayerGetAwayFromEncounter
-```csharp
-public abstract bool CanPlayerGetAwayFromEncounter(out TextObject explanation)
-```
+`public abstract bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `player get away from encounter`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TroopSacrificeModel (Model)
-Game.Current.ReplaceModel<TroopSacrificeModel>(new MyTroopSacrificeModel());
+var implementation = new CustomTroopSacrificeModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BannerData`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerData
@@ -14,40 +15,43 @@
 
 ## 概述
 
-`BannerData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`BannerData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `BannerData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `LocalVersion` | `public int LocalVersion { get { return this._localVersion; }` |
-| `MeshId` | `public int MeshId { get { return this._meshId; }` |
-| `ColorId` | `public int ColorId { get { return this._colorId; }` |
-| `ColorId2` | `public int ColorId2 { get { return this._colorId2; }` |
-| `Size` | `public Vec2 Size { get { return this._size; }` |
-| `Position` | `public Vec2 Position { get { return this._position; }` |
-| `DrawStroke` | `public bool DrawStroke { get { return this._drawStroke; }` |
-| `Mirror` | `public bool Mirror { get { return this._mirror; }` |
-| `RotationValue` | `public float RotationValue { get { return this._rotationValue; }` |
-| `Rotation` | `public float Rotation { get { return 6.2831855f * this.RotationValue; }` |
+| `LocalVersion` | `public int LocalVersion { get; set; }` |
+| `MeshId` | `public int MeshId { get; set; }` |
+| `ColorId` | `public int ColorId { get; set; }` |
+| `ColorId2` | `public int ColorId2 { get; set; }` |
+| `Size` | `public Vec2 Size { get; set; }` |
+| `Position` | `public Vec2 Position { get; set; }` |
+| `DrawStroke` | `public bool DrawStroke { get; set; }` |
+| `Mirror` | `public bool Mirror { get; set; }` |
+| `RotationValue` | `public float RotationValue { get; set; }` |
+| `Rotation` | `public float Rotation { get; }` |
 
 ## 主要方法
 
 ### Equals
-```csharp
-public override bool Equals(object obj)
-```
+`public override bool Equals(object obj)`
+
+**用途 / Purpose:** 处理 `equals` 相关逻辑。
 
 ### GetHashCode
-```csharp
-public override int GetHashCode()
-```
+`public override int GetHashCode()`
+
+**用途 / Purpose:** 获取 `hash code` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// BannerData (Data) 的典型用法
-new BannerData { /* fill fields */ };;
+var value = new BannerData();
 ```
 
 ## 参见

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `StandaloneUIDomain`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StandaloneUIDomain
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class StandaloneUIDomain : FrameworkDomain`
+**Base:** `FrameworkDomain`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/StandaloneUIDomain.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StandaloneUIDomain` is a class in the `TaleWorlds.MountAndBlade.Launcher.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StandaloneUIDomain` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,22 +29,25 @@
 | `AdditionalArgs` | `public string AdditionalArgs { get; }` |
 | `HasUnofficialModulesSelected` | `public bool HasUnofficialModulesSelected { get; }` |
 
-
 ## Key Methods
 
 ### Update
+`public override void Update()`
 
-```csharp
-public override void Update()
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### Destroy
+`public override void Destroy()`
+
+**Purpose:** Handles logic related to `destroy`.
+
+## Usage Example
 
 ```csharp
-public override void Destroy()
+var value = new StandaloneUIDomain();
+value.Update();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

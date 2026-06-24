@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PeerComponent`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PeerComponent
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`PeerComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<PeerComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`PeerComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `PeerComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `Peer` | `public VirtualPlayer Peer { get { return this._peer; }` |
-| `Name` | `public string Name { get { return this.Peer.UserName; }` |
-| `IsMine` | `public bool IsMine { get { return this.Peer.IsMine; }` |
+| `Peer` | `public VirtualPlayer Peer { get; set; }` |
+| `Name` | `public string Name { get; }` |
+| `IsMine` | `public bool IsMine { get; }` |
 | `TypeId` | `public uint TypeId { get; set; }` |
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public virtual void Initialize()
-```
+`public virtual void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### OnInitialize
-```csharp
-public virtual void OnInitialize()
-```
+`public virtual void OnInitialize()`
+
+**Purpose:** Called when the `initialize` event is raised.
 
 ### OnFinalize
-```csharp
-public virtual void OnFinalize()
-```
+`public virtual void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PeerComponent (Component)
-agent.GetComponent<PeerComponent>();
+var implementation = new CustomPeerComponent();
 ```
 
 ## See Also

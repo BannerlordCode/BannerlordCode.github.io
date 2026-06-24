@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CharacterCreationManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCreationManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CharacterCreationManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`CharacterCreationManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `CharacterCreationManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -29,115 +34,114 @@
 ## 主要方法
 
 ### RegisterCharacterCreationContentHandler
-```csharp
-public void RegisterCharacterCreationContentHandler(ICharacterCreationContentHandler characterCreationContentHandler, int priority)
-```
+`public void RegisterCharacterCreationContentHandler(ICharacterCreationContentHandler characterCreationContentHandler, int priority)`
+
+**用途 / Purpose:** 处理 `register character creation content handler` 相关逻辑。
 
 ### AddStage
-```csharp
-public void AddStage(CharacterCreationStageBase stage)
-```
+`public void AddStage(CharacterCreationStageBase stage)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `stage`。
 
 ### NextStage
-```csharp
-public void NextStage()
-```
+`public void NextStage()`
+
+**用途 / Purpose:** 处理 `next stage` 相关逻辑。
 
 ### PreviousStage
-```csharp
-public void PreviousStage()
-```
+`public void PreviousStage()`
+
+**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
 
 ### GoToStage
-```csharp
-public void GoToStage(int stageIndex)
-```
+`public void GoToStage(int stageIndex)`
+
+**用途 / Purpose:** 处理 `go to stage` 相关逻辑。
 
 ### GetIndexOfCurrentStage
-```csharp
-public int GetIndexOfCurrentStage()
-```
+`public int GetIndexOfCurrentStage()`
+
+**用途 / Purpose:** 获取 `index of current stage` 的当前值。
 
 ### GetTotalStagesCount
-```csharp
-public int GetTotalStagesCount()
-```
+`public int GetTotalStagesCount()`
+
+**用途 / Purpose:** 获取 `total stages count` 的当前值。
 
 ### GetFurthestIndex
-```csharp
-public int GetFurthestIndex()
-```
+`public int GetFurthestIndex()`
+
+**用途 / Purpose:** 获取 `furthest index` 的当前值。
 
 ### AddNewMenu
-```csharp
-public void AddNewMenu(NarrativeMenu menu)
-```
+`public void AddNewMenu(NarrativeMenu menu)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `new menu`。
 
 ### GetCurrentMenu
-```csharp
-public NarrativeMenu GetCurrentMenu(int index)
-```
+`public NarrativeMenu GetCurrentMenu(int index)`
+
+**用途 / Purpose:** 获取 `current menu` 的当前值。
 
 ### GetCurrentMenuOptions
-```csharp
-public IEnumerable<NarrativeMenuOption> GetCurrentMenuOptions(int index)
-```
+`public IEnumerable<NarrativeMenuOption> GetCurrentMenuOptions(int index)`
+
+**用途 / Purpose:** 获取 `current menu options` 的当前值。
 
 ### GetNarrativeMenuWithId
-```csharp
-public NarrativeMenu GetNarrativeMenuWithId(string stringId)
-```
+`public NarrativeMenu GetNarrativeMenuWithId(string stringId)`
+
+**用途 / Purpose:** 获取 `narrative menu with id` 的当前值。
 
 ### DeleteNarrativeMenuWithId
-```csharp
-public void DeleteNarrativeMenuWithId(string stringId)
-```
+`public void DeleteNarrativeMenuWithId(string stringId)`
+
+**用途 / Purpose:** 处理 `delete narrative menu with id` 相关逻辑。
 
 ### ResetNarrativeMenus
-```csharp
-public void ResetNarrativeMenus()
-```
+`public void ResetNarrativeMenus()`
+
+**用途 / Purpose:** 将 `narrative menus` 重置为初始状态。
 
 ### ResetMenuOptions
-```csharp
-public void ResetMenuOptions()
-```
+`public void ResetMenuOptions()`
+
+**用途 / Purpose:** 将 `menu options` 重置为初始状态。
 
 ### StartNarrativeStage
-```csharp
-public void StartNarrativeStage()
-```
+`public void StartNarrativeStage()`
+
+**用途 / Purpose:** 处理 `start narrative stage` 相关逻辑。
 
 ### TrySwitchToNextMenu
-```csharp
-public bool TrySwitchToNextMenu()
-```
+`public bool TrySwitchToNextMenu()`
+
+**用途 / Purpose:** 尝试获取 `switch to next menu`，通常以 out 参数返回结果。
 
 ### TrySwitchToPreviousMenu
-```csharp
-public bool TrySwitchToPreviousMenu()
-```
+`public bool TrySwitchToPreviousMenu()`
+
+**用途 / Purpose:** 尝试获取 `switch to previous menu`，通常以 out 参数返回结果。
 
 ### OnNarrativeMenuOptionSelected
-```csharp
-public void OnNarrativeMenuOptionSelected(NarrativeMenuOption option)
-```
+`public void OnNarrativeMenuOptionSelected(NarrativeMenuOption option)`
+
+**用途 / Purpose:** 当 `narrative menu option selected` 事件触发时调用此方法。
 
 ### GetSuitableNarrativeMenuOptions
-```csharp
-public IEnumerable<NarrativeMenuOption> GetSuitableNarrativeMenuOptions()
-```
+`public IEnumerable<NarrativeMenuOption> GetSuitableNarrativeMenuOptions()`
+
+**用途 / Purpose:** 获取 `suitable narrative menu options` 的当前值。
 
 ### ApplyFinalEffects
-```csharp
-public void ApplyFinalEffects()
-```
+`public void ApplyFinalEffects()`
+
+**用途 / Purpose:** 将 `final effects` 应用到当前对象。
 
 ## 使用示例
 
 ```csharp
-// CharacterCreationManager (Manager) 的典型用法
-CharacterCreationManager.Current;
+var manager = CharacterCreationManager.Current;
 ```
 
 ## 参见

@@ -5,7 +5,11 @@ sidebar: auto
 
 # 基础库 Library 类目录
 
-本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **201** 个类型，其中 **201** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `基础库 Library 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **201** 个类型，其中 **192** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -41,7 +45,7 @@ sidebar: auto
 | C | [ConfigurationManager](./core-extra/ConfigurationManager.md) | 🔗 |
 | S | [Corners](./core-extra/Corners.md) | 🔗 |
 | C | [CubicBezier](./core-extra/CubicBezier.md) | 🔗 |
-| C | [DataSourceProperty](./viewmodel/DataSourceProperty.md) | 🔗 |
+| C | DataSourceProperty | — |
 | C | [Debug](./core-extra/Debug.md) | 🔗 |
 | E | [DebugColor](./core-extra/DebugColor.md) | 🔗 |
 | E | [DebugSystemFilter](./core-extra/DebugSystemFilter.md) | 🔗 |
@@ -52,7 +56,7 @@ sidebar: auto
 | C | [EngineMethod](./core-extra/EngineMethod.md) | 🔗 |
 | E | [EngineType](./core-extra/EngineType.md) | 🔗 |
 | C | [EnumHelper](./core-extra/EnumHelper.md) | 🔗 |
-| C | [Extensions](./engine/Extensions.md) | 🔗 |
+| C | Extensions | — |
 | C | [FileHelper](./core-extra/FileHelper.md) | 🔗 |
 | C | [FileHelperExtensions](./core-extra/FileHelperExtensions.md) | 🔗 |
 | S | [FogInformation](./core-extra/FogInformation.md) | 🔗 |
@@ -87,17 +91,17 @@ sidebar: auto
 | S | [ManagedArray](./core-extra/ManagedArray.md) | 🔗 |
 | C | [ManagedDllFolder](./core-extra/ManagedDllFolder.md) | 🔗 |
 | S | [Mat2](./core-extra/Mat2.md) | 🔗 |
-| S | [Mat3](./core-extra/Mat3.md) | 🔗 |
+| S | Mat3 | — |
 | C | [MathF](./core-extra/MathF.md) | 🔗 |
 | S | [MatrixFrame](./core-extra/MatrixFrame.md) | 🔗 |
 | C | [MBArrayList](./core-extra/MBArrayList.md) | 🔗 |
 | C | [MBBindingList](./core-extra/MBBindingList.md) | 🔗 |
-| C | [MBList](./core-extra/MBList.md) | 🔗 |
+| C | MBList | — |
 | C | [MBList2D](./core-extra/MBList2D.md) | 🔗 |
 | C | [MBMath](./core-extra/MBMath.md) | 🔗 |
 | C | [MBQueue](./core-extra/MBQueue.md) | 🔗 |
 | C | [MBReadOnlyDictionary](./core-extra/MBReadOnlyDictionary.md) | 🔗 |
-| C | [MBReadOnlyList](./core-extra/MBReadOnlyList.md) | 🔗 |
+| C | MBReadOnlyList | — |
 | C | [MBReadOnlyQueue](./core-extra/MBReadOnlyQueue.md) | 🔗 |
 | C | [MBSortedMultiList](./core-extra/MBSortedMultiList.md) | 🔗 |
 | S | [MBStringBuilder](./core-extra/MBStringBuilder.md) | 🔗 |
@@ -110,7 +114,7 @@ sidebar: auto
 | C | [ParameterContainer](./core-extra/ParameterContainer.md) | 🔗 |
 | C | [ParameterFile](./core-extra/ParameterFile.md) | 🔗 |
 | C | [ParameterLoader](./core-extra/ParameterLoader.md) | 🔗 |
-| C | [Parameters](./mission-ext/Parameters.md) | 🔗 |
+| C | [Parameters](./core-extra/Parameters.md) | 🔗 |
 | S | [PathFaceRecord](./core-extra/PathFaceRecord.md) | 🔗 |
 | C | [PathFinder](./core-extra/PathFinder.md) | 🔗 |
 | C | [PerformanceTestBlock](./core-extra/PerformanceTestBlock.md) | 🔗 |
@@ -173,11 +177,11 @@ sidebar: auto
 | C | [TWXmlLoadException](./core-extra/TWXmlLoadException.md) | 🔗 |
 | C | [UiStringHelper](./core-extra/UiStringHelper.md) | 🔗 |
 | C | [UniqueSceneId](./core-extra/UniqueSceneId.md) | 🔗 |
-| S | [Vec2](./core-extra/Vec2.md) | 🔗 |
+| S | Vec2 | — |
 | S | [Vec2i](./core-extra/Vec2i.md) | 🔗 |
-| S | [Vec3](./core-extra/Vec3.md) | 🔗 |
+| S | Vec3 | — |
 | S | [Vec3i](./core-extra/Vec3i.md) | 🔗 |
-| C | [ViewModel](./viewmodel/ViewModel.md) | 🔗 |
+| C | ViewModel | — |
 | C | [VirtualDirectoryAttribute](./core-extra/VirtualDirectoryAttribute.md) | 🔗 |
 | C | [VirtualFileAttribute](./core-extra/VirtualFileAttribute.md) | 🔗 |
 | C | [VirtualFolders](./core-extra/VirtualFolders.md) | 🔗 |
@@ -208,7 +212,7 @@ sidebar: auto
 |---|---|---|
 | C | [DictionaryByType](./core-extra/DictionaryByType.md) | 🔗 |
 | C | [EventBase](./core-extra/EventBase.md) | 🔗 |
-| C | [EventManager](./campaign-ext/EventManager.md) | 🔗 |
+| C | EventManager | — |
 
 ## TaleWorlds.Library.Graph (3)
 

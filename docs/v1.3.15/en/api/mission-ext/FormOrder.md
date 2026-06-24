@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `FormOrder`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FormOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct FormOrder`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `FormOrder` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FormOrder` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,49 +27,48 @@
 | `CustomFlankWidth` | `public float CustomFlankWidth { get; set; }` |
 | `OrderType` | `public OrderType OrderType { get; }` |
 
-
 ## Key Methods
 
 ### FormOrderCustom
+`public static FormOrder FormOrderCustom(float customWidth)`
 
-```csharp
-public static FormOrder FormOrderCustom(float customWidth)
-```
+**Purpose:** Handles logic related to `form order custom`.
 
 ### OnApply
+`public void OnApply(Formation formation)`
 
-```csharp
-public void OnApply(Formation formation)
-```
+**Purpose:** Called when the `apply` event is raised.
 
 ### GetUnitCountOf
+`public static int GetUnitCountOf(Formation formation)`
 
-```csharp
-public static int GetUnitCountOf(Formation formation)
-```
+**Purpose:** Gets the current value of `unit count of`.
 
 ### OnApplyToCustomArrangement
+`public bool OnApplyToCustomArrangement(Formation formation, IFormationArrangement arrangement)`
 
-```csharp
-public bool OnApplyToCustomArrangement(Formation formation, IFormationArrangement arrangement)
-```
+**Purpose:** Called when the `apply to custom arrangement` event is raised.
 
 ### GetMaxFileCountStatic
+`public static int? GetMaxFileCountStatic(FormOrder.FormOrderEnum order, int unitCount)`
 
-```csharp
-public static int? GetMaxFileCountStatic(FormOrder.FormOrderEnum order, int unitCount)
-```
+**Purpose:** Gets the current value of `max file count static`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
+
+## Usage Example
 
 ```csharp
-public override int GetHashCode()
+// Prepare the required context, then call the static entry point directly
+FormOrder.FormOrderCustom(0);
 ```
 
 ## See Also

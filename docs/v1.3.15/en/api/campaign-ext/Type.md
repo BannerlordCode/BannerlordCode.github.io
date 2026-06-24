@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `Type`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Type
 
-**Namespace:** TaleWorlds.GauntletUI
-**Module:** TaleWorlds.GauntletUI
-**Type:** enum
-**Area:** Campaign System
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public enum Type`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Type` is a enum in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Type` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -31,6 +34,12 @@
 | `Unannounced` |
 | `16` |
 | `Max` |
+
+## Usage Example
+
+```csharp
+Type example = Type.None;
+```
 
 ## See Also
 

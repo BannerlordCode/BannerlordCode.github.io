@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SelectorItemVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SelectorItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Selector
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class SelectorItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Selector/SelectorItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SelectorItemVM` is a class in the `TaleWorlds.Core.ViewModelCollection.Selector` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SelectorItemVM` lives in `TaleWorlds.Core.ViewModelCollection.Selector` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection.Selector` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,16 +30,20 @@
 | `Hint` | `public HintViewModel Hint { get; set; }` |
 | `IsSelected` | `public bool IsSelected { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Refreshes the display or cache of `values`.
+
+## Usage Example
 
 ```csharp
-public override void RefreshValues()
+var value = new SelectorItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionReinforcementsHelper`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionReinforcementsHelper
@@ -14,55 +15,58 @@
 
 ## Overview
 
-`MissionReinforcementsHelper` is a static utility class providing helper methods.
+`MissionReinforcementsHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `MissionReinforcementsHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnMissionStart
-```csharp
-public static void OnMissionStart()
-```
+`public static void OnMissionStart()`
+
+**Purpose:** Called when the `mission start` event is raised.
 
 ### GetReinforcementAssignments
-```csharp
-public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
-```
+`public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**Purpose:** Gets the current value of `reinforcement assignments`.
 
 ### OnMissionEnd
-```csharp
-public static void OnMissionEnd()
-```
+`public static void OnMissionEnd()`
+
+**Purpose:** Called when the `mission end` event is raised.
 
 ### Compare
-```csharp
-public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)
-```
+`public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
+
+**Purpose:** Handles logic related to `compare`.
 
 ### Initialize
-```csharp
-public void Initialize(Formation formation, uint initTime)
-```
+`public void Initialize(Formation formation, uint initTime)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### AddProspectiveTroop
-```csharp
-public void AddProspectiveTroop(FormationClass troopClass)
-```
+`public void AddProspectiveTroop(FormationClass troopClass)`
+
+**Purpose:** Adds `prospective troop` to the current collection or state.
 
 ### IsInitialized
-```csharp
-public bool IsInitialized(uint initTime)
-```
+`public bool IsInitialized(uint initTime)`
+
+**Purpose:** Handles logic related to `is initialized`.
 
 ### GetPriority
-```csharp
-public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)
-```
+`public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
+
+**Purpose:** Gets the current value of `priority`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionReinforcementsHelper (Helper)
-MissionReinforcementsHelper./* static helper method */();;
+MissionReinforcementsHelper.Initialize();
 ```
 
 ## See Also

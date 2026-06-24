@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BattleEndLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleEndLogic
@@ -14,62 +15,65 @@
 
 ## 概述
 
-`BattleEndLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new BattleEndLogic())` 添加；继承它可定制。
+`BattleEndLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `BattleEndLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `PlayerVictory` | `public bool PlayerVictory { get { return (this._isEnemySideRetreating || this._isEnemySideDepleted) && !this._isEnemyDefenderPulledBack; }` |
-| `EnemyVictory` | `public bool EnemyVictory { get { return this._isPlayerSideRetreating || this._isPlayerSideDepleted; }` |
-| `IsEnemySideRetreating` | `public bool IsEnemySideRetreating { get { return this._isEnemySideRetreating; }` |
+| `PlayerVictory` | `public bool PlayerVictory { get; }` |
+| `EnemyVictory` | `public bool EnemyVictory { get; }` |
+| `IsEnemySideRetreating` | `public bool IsEnemySideRetreating { get; set; }` |
 
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
 
 ### ChangeCanCheckForEndCondition
-```csharp
-public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)
-```
+`public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
+
+**用途 / Purpose:** 处理 `change can check for end condition` 相关逻辑。
 
 ### TryExit
-```csharp
-public BattleEndLogic.ExitResult TryExit()
-```
+`public BattleEndLogic.ExitResult TryExit()`
+
+**用途 / Purpose:** 尝试获取 `exit`，通常以 out 参数返回结果。
 
 ### EnableEnemyDefenderPullBack
-```csharp
-public void EnableEnemyDefenderPullBack(int neededTroopNumber)
-```
+`public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
+
+**用途 / Purpose:** 处理 `enable enemy defender pull back` 相关逻辑。
 
 ### SetNotificationDisabled
-```csharp
-public void SetNotificationDisabled(bool value)
-```
+`public void SetNotificationDisabled(bool value)`
+
+**用途 / Purpose:** 设置 `notification disabled` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// BattleEndLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new BattleEndLogic());
 ```
 

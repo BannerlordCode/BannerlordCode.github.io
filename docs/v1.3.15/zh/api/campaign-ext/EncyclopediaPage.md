@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `EncyclopediaPage`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaPage
 
-**命名空间:** TaleWorlds.CampaignSystem.Encyclopedia
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class EncyclopediaPage`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Encyclopedia/EncyclopediaPage.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`EncyclopediaPage` 是 `TaleWorlds.CampaignSystem.Encyclopedia` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`EncyclopediaPage` 位于 `TaleWorlds.CampaignSystem.Encyclopedia`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Encyclopedia` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,96 +28,84 @@
 | `HomePageOrderIndex` | `public int HomePageOrderIndex { get; set; }` |
 | `Parent` | `public EncyclopediaPage Parent { get; }` |
 
-
 ## 主要方法
 
 ### IsRelevant
+`public virtual bool IsRelevant()`
 
-```csharp
-public virtual bool IsRelevant()
-```
+**用途 / Purpose:** 处理 `is relevant` 相关逻辑。
 
 ### HasIdentifierType
+`public bool HasIdentifierType(Type identifierType)`
 
-```csharp
-public bool HasIdentifierType(Type identifierType)
-```
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `identifier type`。
 
 ### GetIdentifier
+`public string GetIdentifier(Type identifierType)`
 
-```csharp
-public string GetIdentifier(Type identifierType)
-```
+**用途 / Purpose:** 获取 `identifier` 的当前值。
 
 ### GetIdentifierNames
+`public string GetIdentifierNames()`
 
-```csharp
-public string GetIdentifierNames()
-```
+**用途 / Purpose:** 获取 `identifier names` 的当前值。
 
 ### IsFiltered
+`public bool IsFiltered(object o)`
 
-```csharp
-public bool IsFiltered(object o)
-```
+**用途 / Purpose:** 处理 `is filtered` 相关逻辑。
 
 ### GetViewFullyQualifiedName
+`public virtual string GetViewFullyQualifiedName()`
 
-```csharp
-public virtual string GetViewFullyQualifiedName()
-```
+**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
 
 ### GetStringID
+`public virtual string GetStringID()`
 
-```csharp
-public virtual string GetStringID()
-```
+**用途 / Purpose:** 获取 `string i d` 的当前值。
 
 ### GetName
+`public virtual TextObject GetName()`
 
-```csharp
-public virtual TextObject GetName()
-```
+**用途 / Purpose:** 获取 `name` 的当前值。
 
 ### GetObject
+`public virtual MBObjectBase GetObject(string typeName, string stringID)`
 
-```csharp
-public virtual MBObjectBase GetObject(string typeName, string stringID)
-```
+**用途 / Purpose:** 获取 `object` 的当前值。
 
 ### IsValidEncyclopediaItem
+`public virtual bool IsValidEncyclopediaItem(object o)`
 
-```csharp
-public virtual bool IsValidEncyclopediaItem(object o)
-```
+**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
 
 ### GetDescriptionText
+`public virtual TextObject GetDescriptionText()`
 
-```csharp
-public virtual TextObject GetDescriptionText()
-```
+**用途 / Purpose:** 获取 `description text` 的当前值。
 
 ### GetListItems
+`public IEnumerable<EncyclopediaListItem> GetListItems()`
 
-```csharp
-public IEnumerable<EncyclopediaListItem> GetListItems()
-```
+**用途 / Purpose:** 获取 `list items` 的当前值。
 
 ### GetFilterItems
+`public IEnumerable<EncyclopediaFilterGroup> GetFilterItems()`
 
-```csharp
-public IEnumerable<EncyclopediaFilterGroup> GetFilterItems()
-```
+**用途 / Purpose:** 获取 `filter items` 的当前值。
 
 ### GetSortControllers
+`public IEnumerable<EncyclopediaSortController> GetSortControllers()`
+
+**用途 / Purpose:** 获取 `sort controllers` 的当前值。
+
+## 使用示例
 
 ```csharp
-public IEnumerable<EncyclopediaSortController> GetSortControllers()
+var implementation = new CustomEncyclopediaPage();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

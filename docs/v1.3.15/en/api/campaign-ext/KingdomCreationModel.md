@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `KingdomCreationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomCreationModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`KingdomCreationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<KingdomCreationModel>(new MyKingdomCreationModel())` to change how it computes.
+`KingdomCreationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `KingdomCreationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,25 +33,24 @@
 ## Key Methods
 
 ### IsPlayerKingdomCreationPossible
-```csharp
-public abstract bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)
-```
+`public abstract bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
+
+**Purpose:** Handles logic related to `is player kingdom creation possible`.
 
 ### IsPlayerKingdomAbdicationPossible
-```csharp
-public abstract bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)
-```
+`public abstract bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
+
+**Purpose:** Handles logic related to `is player kingdom abdication possible`.
 
 ### GetAvailablePlayerKingdomCultures
-```csharp
-public abstract IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()
-```
+`public abstract IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
+
+**Purpose:** Gets the current value of `available player kingdom cultures`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of KingdomCreationModel (Model)
-Game.Current.ReplaceModel<KingdomCreationModel>(new MyKingdomCreationModel());
+var implementation = new CustomKingdomCreationModel();
 ```
 
 ## See Also

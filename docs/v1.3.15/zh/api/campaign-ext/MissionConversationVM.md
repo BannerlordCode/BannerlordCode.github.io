@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `MissionConversationVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionConversationVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class MissionConversationVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Conversation/MissionConversationVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MissionConversationVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MissionConversationVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,79 +45,81 @@
 | `CurrentCharacterNameLbl` | `public string CurrentCharacterNameLbl { get; set; }` |
 | `AnswerList` | `public MBBindingList<ConversationItemVM> AnswerList { get; set; }` |
 | `DialogText` | `public string DialogText { get; set; }` |
-
+| `IsAggressive` | `public bool IsAggressive { get; set; }` |
+| `SelectedSide` | `public int SelectedSide { get; set; }` |
+| `RelationText` | `public string RelationText { get; set; }` |
+| `IsRelationEnabled` | `public bool IsRelationEnabled { get; set; }` |
+| `IsBannerEnabled` | `public bool IsBannerEnabled { get; set; }` |
+| `CurrentSelectedAnswer` | `public ConversationItemVM CurrentSelectedAnswer { get; set; }` |
+| `ConversedHeroBanner` | `public BannerImageIdentifierVM ConversedHeroBanner { get; set; }` |
+| `RelationHint` | `public HintViewModel RelationHint { get; set; }` |
+| `FactionHint` | `public HintViewModel FactionHint { get; set; }` |
+| `GoldHint` | `public HintViewModel GoldHint { get; set; }` |
 
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**用途 / Purpose:** 处理 `tick` 相关逻辑。
 
 ### OnConversationContinue
+`public void OnConversationContinue()`
 
-```csharp
-public void OnConversationContinue()
-```
+**用途 / Purpose:** 当 `conversation continue` 事件触发时调用此方法。
 
 ### ExecuteLink
+`public void ExecuteLink(string link)`
 
-```csharp
-public void ExecuteLink(string link)
-```
+**用途 / Purpose:** 执行 `link` 操作或流程。
 
 ### ExecuteConversedHeroLink
+`public void ExecuteConversedHeroLink()`
 
-```csharp
-public void ExecuteConversedHeroLink()
-```
+**用途 / Purpose:** 执行 `conversed hero link` 操作或流程。
 
 ### Refresh
+`public void Refresh()`
 
-```csharp
-public void Refresh()
-```
+**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
 
 ### ExecuteCloseTooltip
+`public void ExecuteCloseTooltip()`
 
-```csharp
-public void ExecuteCloseTooltip()
-```
+**用途 / Purpose:** 执行 `close tooltip` 操作或流程。
 
 ### ExecuteHeroTooltip
+`public void ExecuteHeroTooltip()`
 
-```csharp
-public void ExecuteHeroTooltip()
-```
+**用途 / Purpose:** 执行 `hero tooltip` 操作或流程。
 
 ### ExecuteFinalizeSelection
+`public void ExecuteFinalizeSelection()`
 
-```csharp
-public void ExecuteFinalizeSelection()
-```
+**用途 / Purpose:** 执行 `finalize selection` 操作或流程。
 
 ### ExecuteContinue
+`public void ExecuteContinue()`
 
-```csharp
-public void ExecuteContinue()
-```
+**用途 / Purpose:** 执行 `continue` 操作或流程。
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public override void OnFinalize()
+var value = new MissionConversationVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

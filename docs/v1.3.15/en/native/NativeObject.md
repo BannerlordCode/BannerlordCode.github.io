@@ -5,6 +5,10 @@ description: Complete documentation for native object wrapper class
 
 # NativeObject
 
+## Mental Model
+
+Treat `NativeObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **File**: `TaleWorlds.DotNet/NativeObject.cs`  
 **Namespace**: `TaleWorlds.DotNet`  
 **Inheritance**: None / Base class for all native object wrappers

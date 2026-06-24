@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SpawnerEntityMissionHelper`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpawnerEntityMissionHelper
@@ -14,13 +15,16 @@
 
 ## 概述
 
-`SpawnerEntityMissionHelper` 是一个静态工具类，提供辅助方法。
+`SpawnerEntityMissionHelper` 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。
+
+## 心智模型
+
+把 `SpawnerEntityMissionHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 使用示例
 
 ```csharp
-// SpawnerEntityMissionHelper (Helper) 的典型用法
-SpawnerEntityMissionHelper./* static helper method */();;
+SpawnerEntityMissionHelper.Initialize();
 ```
 
 ## 参见

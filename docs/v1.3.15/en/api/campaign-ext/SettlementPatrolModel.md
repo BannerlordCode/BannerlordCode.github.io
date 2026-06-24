@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementPatrolModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementPatrolModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`SettlementPatrolModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementPatrolModel>(new MySettlementPatrolModel())` to change how it computes.
+`SettlementPatrolModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementPatrolModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPatrolPartySpawnDuration
-```csharp
-public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)
-```
+`public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
+
+**Purpose:** Gets the current value of `patrol party spawn duration`.
 
 ### CanSettlementHavePatrolParties
-```csharp
-public abstract bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)
-```
+`public abstract bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
+
+**Purpose:** Checks whether the current object can `settlement have patrol parties`.
 
 ### GetPartyTemplateForPatrolParty
-```csharp
-public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)
-```
+`public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
+
+**Purpose:** Gets the current value of `party template for patrol party`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementPatrolModel (Model)
-Game.Current.ReplaceModel<SettlementPatrolModel>(new MySettlementPatrolModel());
+var implementation = new CustomSettlementPatrolModel();
 ```
 
 ## See Also

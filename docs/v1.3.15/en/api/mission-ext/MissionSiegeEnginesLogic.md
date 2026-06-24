@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionSiegeEnginesLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionSiegeEnginesLogic
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`MissionSiegeEnginesLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new MissionSiegeEnginesLogic())`; subclass it to customize.
+`MissionSiegeEnginesLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `MissionSiegeEnginesLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSiegeWeaponsController
-```csharp
-public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)
-```
+`public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege weapons controller`.
 
 ### GetMissionSiegeWeapons
-```csharp
-public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)
-```
+`public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)`
+
+**Purpose:** Gets the current value of `mission siege weapons`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionSiegeEnginesLogic (Logic)
 Mission.Current.AddMissionBehavior(new MissionSiegeEnginesLogic());
 ```
 

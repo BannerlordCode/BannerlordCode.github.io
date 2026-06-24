@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultVillageProductionCalculatorModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultVillageProductionCalculatorModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultVillageProductionCalculatorModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultVillageProductionCalculatorModel>(new MyDefaultVillageProductionCalculatorModel())` to change how it computes.
+`DefaultVillageProductionCalculatorModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultVillageProductionCalculatorModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateDailyProductionAmount
-```csharp
-public override ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)
-```
+`public override ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate daily production amount`.
 
 ### CalculateDailyFoodProductionAmount
-```csharp
-public override float CalculateDailyFoodProductionAmount(Village village)
-```
+`public override float CalculateDailyFoodProductionAmount(Village village)`
+
+**Purpose:** Handles logic related to `calculate daily food production amount`.
 
 ### CalculateProductionSpeedOfItemCategory
-```csharp
-public override float CalculateProductionSpeedOfItemCategory(ItemCategory item)
-```
+`public override float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
+
+**Purpose:** Handles logic related to `calculate production speed of item category`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultVillageProductionCalculatorModel (Model)
 Game.Current.ReplaceModel<DefaultVillageProductionCalculatorModel>(new MyDefaultVillageProductionCalculatorModel());
 ```
 

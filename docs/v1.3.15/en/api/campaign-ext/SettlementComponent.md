@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SettlementComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<SettlementComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`SettlementComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `SettlementComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -37,75 +42,74 @@
 ## Key Methods
 
 ### GetProsperityLevel
-```csharp
-public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()
-```
+`public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()`
+
+**Purpose:** Gets the current value of `prosperity level`.
 
 ### GetDefaultComponentBanner
-```csharp
-public virtual Banner GetDefaultComponentBanner()
-```
+`public virtual Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### OnPartyEntered
-```csharp
-public virtual void OnPartyEntered(MobileParty mobileParty)
-```
+`public virtual void OnPartyEntered(MobileParty mobileParty)`
+
+**Purpose:** Called when the `party entered` event is raised.
 
 ### OnPartyLeft
-```csharp
-public virtual void OnPartyLeft(MobileParty mobileParty)
-```
+`public virtual void OnPartyLeft(MobileParty mobileParty)`
+
+**Purpose:** Called when the `party left` event is raised.
 
 ### OnInit
-```csharp
-public virtual void OnInit()
-```
+`public virtual void OnInit()`
+
+**Purpose:** Called when the `init` event is raised.
 
 ### OnSessionStart
-```csharp
-public virtual void OnSessionStart()
-```
+`public virtual void OnSessionStart()`
+
+**Purpose:** Called when the `session start` event is raised.
 
 ### ChangeGold
-```csharp
-public void ChangeGold(int changeAmount)
-```
+`public void ChangeGold(int changeAmount)`
+
+**Purpose:** Handles logic related to `change gold`.
 
 ### GetNumberOfTroops
-```csharp
-public int GetNumberOfTroops()
-```
+`public int GetNumberOfTroops()`
+
+**Purpose:** Gets the current value of `number of troops`.
 
 ### Deserialize
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
 
 ### GetItemPrice
-```csharp
-public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)
-```
+`public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
+
+**Purpose:** Gets the current value of `item price`.
 
 ### GetItemPrice
-```csharp
-public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)
-```
+`public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
+
+**Purpose:** Gets the current value of `item price`.
 
 ### OnRelatedPartyRemoved
-```csharp
-public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)
-```
+`public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)`
+
+**Purpose:** Called when the `related party removed` event is raised.
 
 ### GetPrisonerHeroes
-```csharp
-public List<CharacterObject> GetPrisonerHeroes()
-```
+`public List<CharacterObject> GetPrisonerHeroes()`
+
+**Purpose:** Gets the current value of `prisoner heroes`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementComponent (Component)
-agent.GetComponent<SettlementComponent>();
+var implementation = new CustomSettlementComponent();
 ```
 
 ## See Also

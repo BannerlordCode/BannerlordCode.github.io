@@ -5,6 +5,10 @@ description: Reference counting and object lifecycle management interface
 
 # IManaged
 
+## Mental Model
+
+Treat `IManaged` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **File**: `TaleWorlds.DotNet/IManaged.cs`  
 **Namespace**: `TaleWorlds.DotNet`  
 **Attribute**: `[LibraryInterfaceBase]`

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ArcherPosition`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArcherPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class ArcherPosition`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/ArcherPosition.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ArcherPosition` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ArcherPosition` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,40 +29,40 @@
 | `TacticalArcherPosition` | `public TacticalPosition TacticalArcherPosition { get; }` |
 | `ConnectedSides` | `public int ConnectedSides { get; }` |
 
-
 ## Key Methods
 
 ### GetLastAssignedFormation
+`public Formation GetLastAssignedFormation(int teamIndex)`
 
-```csharp
-public Formation GetLastAssignedFormation(int teamIndex)
-```
+**Purpose:** Gets the current value of `last assigned formation`.
 
 ### IsArcherPositionRelatedToSide
+`public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)`
 
-```csharp
-public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)
-```
+**Purpose:** Handles logic related to `is archer position related to side`.
 
 ### GetArcherPositionClosestSide
+`public FormationAI.BehaviorSide GetArcherPositionClosestSide()`
 
-```csharp
-public FormationAI.BehaviorSide GetArcherPositionClosestSide()
-```
+**Purpose:** Gets the current value of `archer position closest side`.
 
 ### OnDeploymentFinished
+`public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)`
 
-```csharp
-public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)
-```
+**Purpose:** Called when the `deployment finished` event is raised.
 
 ### SetLastAssignedFormation
+`public void SetLastAssignedFormation(int teamIndex, Formation formation)`
+
+**Purpose:** Sets the value or state of `last assigned formation`.
+
+## Usage Example
 
 ```csharp
-public void SetLastAssignedFormation(int teamIndex, Formation formation)
+var value = new ArcherPosition();
+value.GetLastAssignedFormation(0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PrisonerDonationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PrisonerDonationModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`PrisonerDonationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PrisonerDonationModel>(new MyPrisonerDonationModel())` to change how it computes.
+`PrisonerDonationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PrisonerDonationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateRelationGainAfterHeroPrisonerDonate
-```csharp
-public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)
-```
+`public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
+
+**Purpose:** Handles logic related to `calculate relation gain after hero prisoner donate`.
 
 ### CalculateInfluenceGainAfterPrisonerDonation
-```csharp
-public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)
-```
+`public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
+
+**Purpose:** Handles logic related to `calculate influence gain after prisoner donation`.
 
 ### CalculateInfluenceGainAfterTroopDonation
-```csharp
-public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)
-```
+`public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)`
+
+**Purpose:** Handles logic related to `calculate influence gain after troop donation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PrisonerDonationModel (Model)
-Game.Current.ReplaceModel<PrisonerDonationModel>(new MyPrisonerDonationModel());
+var implementation = new CustomPrisonerDonationModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MobilePartyFoodConsumptionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MobilePartyFoodConsumptionModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MobilePartyFoodConsumptionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MobilePartyFoodConsumptionModel>(new MyMobilePartyFoodConsumptionModel())` to change how it computes.
+`MobilePartyFoodConsumptionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MobilePartyFoodConsumptionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,25 +30,24 @@
 ## Key Methods
 
 ### CalculateDailyBaseFoodConsumptionf
-```csharp
-public abstract ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)
-```
+`public abstract ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
+
+**Purpose:** Handles logic related to `calculate daily base food consumptionf`.
 
 ### CalculateDailyFoodConsumptionf
-```csharp
-public abstract ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)
-```
+`public abstract ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
+
+**Purpose:** Handles logic related to `calculate daily food consumptionf`.
 
 ### DoesPartyConsumeFood
-```csharp
-public abstract bool DoesPartyConsumeFood(MobileParty mobileParty)
-```
+`public abstract bool DoesPartyConsumeFood(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `does party consume food`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MobilePartyFoodConsumptionModel (Model)
-Game.Current.ReplaceModel<MobilePartyFoodConsumptionModel>(new MyMobilePartyFoodConsumptionModel());
+var implementation = new CustomMobilePartyFoodConsumptionModel();
 ```
 
 ## See Also

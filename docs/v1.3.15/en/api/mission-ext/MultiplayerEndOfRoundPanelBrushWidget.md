@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerEndOfRoundPanelBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerEndOfRoundPanelBrushWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerEndOfRoundPanelBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerEndOfRoundPanelBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -26,9 +31,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerEndOfRoundPanelBrushWidget (Widget)
-// 声明/访问一个 MultiplayerEndOfRoundPanelBrushWidget
-var widget = root.GetChild("multiplayerEndOfRoundPanelBrushWidget");;
+var widget = new MultiplayerEndOfRoundPanelBrushWidget(context);
 ```
 
 ## See Also

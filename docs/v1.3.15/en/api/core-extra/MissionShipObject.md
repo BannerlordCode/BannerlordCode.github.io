@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionShipObject`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionShipObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class MissionShipObject : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.Core/MissionShipObject.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionShipObject` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionShipObject` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,23 +45,40 @@
 | `Sails` | `public MBReadOnlyList<ShipSail> Sails { get; }` |
 | `OarCount` | `public int OarCount { get; }` |
 | `RudderBladeLength` | `public float RudderBladeLength { get; }` |
-
+| `RudderBladeHeight` | `public float RudderBladeHeight { get; }` |
+| `RudderDeflectionCoef` | `public float RudderDeflectionCoef { get; }` |
+| `RudderRotationMax` | `public float RudderRotationMax { get; }` |
+| `RudderRotationRate` | `public float RudderRotationRate { get; }` |
+| `RudderForceMax` | `public float RudderForceMax { get; }` |
+| `MaxLinearSpeed` | `public float MaxLinearSpeed { get; }` |
+| `MaxLinearAccel` | `public float MaxLinearAccel { get; }` |
+| `MaxAngularSpeed` | `public float MaxAngularSpeed { get; }` |
+| `MaxAngularAccel` | `public float MaxAngularAccel { get; }` |
+| `PartialHitPointsRatio` | `public float PartialHitPointsRatio { get; }` |
+| `HasSails` | `public bool HasSails { get; }` |
+| `HasValidRudderStockPosition` | `public bool HasValidRudderStockPosition { get; }` |
+| `ShipPhysicsReferenceId` | `public string ShipPhysicsReferenceId { get; }` |
+| `BowAngleLimitFromCenterline` | `public float BowAngleLimitFromCenterline { get; }` |
 
 ## Key Methods
 
 ### SetPhysicsReference
+`public void SetPhysicsReference(ShipPhysicsReference physicsReference)`
 
-```csharp
-public void SetPhysicsReference(ShipPhysicsReference physicsReference)
-```
+**Purpose:** Sets the value or state of `physics reference`.
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+## Usage Example
 
 ```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+var value = new MissionShipObject();
+value.SetPhysicsReference(physicsReference);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

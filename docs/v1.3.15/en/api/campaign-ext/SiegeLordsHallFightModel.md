@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SiegeLordsHallFightModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeLordsHallFightModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SiegeLordsHallFightModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SiegeLordsHallFightModel>(new MySiegeLordsHallFightModel())` to change how it computes.
+`SiegeLordsHallFightModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SiegeLordsHallFightModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,15 +36,14 @@
 ## Key Methods
 
 ### GetPriorityListForLordsHallFightMission
-```csharp
-public abstract FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)
-```
+`public abstract FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
+
+**Purpose:** Gets the current value of `priority list for lords hall fight mission`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SiegeLordsHallFightModel (Model)
-Game.Current.ReplaceModel<SiegeLordsHallFightModel>(new MySiegeLordsHallFightModel());
+var implementation = new CustomSiegeLordsHallFightModel();
 ```
 
 ## See Also

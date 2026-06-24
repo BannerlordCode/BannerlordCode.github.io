@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameMenuItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GameMenuItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/GameMenuItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameMenuItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameMenuItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -39,46 +43,45 @@
 | `ShortcutKey` | `public InputKeyItemVM ShortcutKey { get; set; }` |
 | `OptionID` | `public string OptionID { get; }` |
 
-
 ## Key Methods
 
 ### InitializeWith
+`public void InitializeWith(in GameMenuItemVM.GameMenuItemCreationData data)`
 
-```csharp
-public void InitializeWith(in GameMenuItemVM.GameMenuItemCreationData data)
-```
+**Purpose:** Initializes the state, resources, or bindings for `with`.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Refresh
+`public void Refresh()`
 
-```csharp
-public void Refresh()
-```
+**Purpose:** Refreshes the display or cache of `refresh`.
 
 ### UpdateWith
+`public void UpdateWith(GameMenuItemVM newItem)`
+
+**Purpose:** Updates the state or data of `with`.
+
+## Usage Example
 
 ```csharp
-public void UpdateWith(GameMenuItemVM newItem)
+var value = new GameMenuItemVM();
+value.InitializeWith(data);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

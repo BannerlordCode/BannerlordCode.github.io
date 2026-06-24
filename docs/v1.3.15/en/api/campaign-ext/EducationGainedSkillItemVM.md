@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EducationGainedSkillItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EducationGainedSkillItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EducationGainedSkillItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Education/EducationGainedSkillItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EducationGainedSkillItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Education` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EducationGainedSkillItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Education` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,22 +33,25 @@
 | `HasSkillValueIncreasedInCurrentStage` | `public bool HasSkillValueIncreasedInCurrentStage { get; set; }` |
 | `FocusPointGainList` | `public MBBindingList<BoolItemWithActionVM> FocusPointGainList { get; set; }` |
 
-
 ## Key Methods
 
 ### SetFocusValue
+`public void SetFocusValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-```csharp
-public void SetFocusValue(int gainedFromOtherStages, int gainedFromCurrentStage)
-```
+**Purpose:** Sets the value or state of `focus value`.
 
 ### SetSkillValue
+`public void SetSkillValue(int gaintedFromOtherStages, int gainedFromCurrentStage)`
+
+**Purpose:** Sets the value or state of `skill value`.
+
+## Usage Example
 
 ```csharp
-public void SetSkillValue(int gaintedFromOtherStages, int gainedFromCurrentStage)
+var value = new EducationGainedSkillItemVM();
+value.SetFocusValue(0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

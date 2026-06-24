@@ -2,131 +2,163 @@
 **Home** → **API Index** → **Area** → `Module`
 - [← Area / Back to core](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# Module / Module
+# Module
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.15/TaleWorlds.MountAndBlade/Module.cs`
-**Purpose**: Singleton class managing module loading, game state, and module information / 单例类，管理模组加载、游戏状态和模块信息
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public sealed class Module : DotNetObject, IGameStateManagerOwner`
+**Base:** `DotNetObject`
+**File:** `TaleWorlds.MountAndBlade/Module.cs`
 
-## Overview / 概述
+## Overview
 
-`Module` is the core singleton class responsible for managing all module loading, initialization, and game state. It is created at game startup and is the main entry point for accessing current module information.
+`Module` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-`Module` 是游戏的核心单例类，负责管理所有模组的加载、初始化和游戏状态。它在游戏启动时创建，是访问当前模组信息的主要入口。
+## Mental Model
 
-## Developer Use Cases
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-### Use Case 1: Get current module and list loaded SubModules
+## Key Properties
 
-**Scenario**: At runtime enumerate all loaded SubModules for dependency detection or conflict reporting.
+| Name | Signature |
+|------|-----------|
+| `CurrentModule` | `public static Module CurrentModule { get; }` |
+| `GlobalGameStateManager` | `public GameStateManager GlobalGameStateManager { get; }` |
+| `MultiplayerRequested` | `public bool MultiplayerRequested { get; }` |
+| `ReturnToEditorState` | `public bool ReturnToEditorState { get; }` |
+| `LoadingFinished` | `public bool LoadingFinished { get; }` |
+| `GlobalTextManager` | `public GameTextManager GlobalTextManager { get; }` |
+| `IsOnlyCoreContentEnabled` | `public bool IsOnlyCoreContentEnabled { get; }` |
+| `JobManager` | `public JobManager JobManager { get; }` |
+| `StartupInfo` | `public GameStartupInfo StartupInfo { get; }` |
+
+## Key Methods
+
+### CollectSubModules
+`public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`
+
+**Purpose:** Handles logic related to `collect sub modules`.
+
+### GetMetaMeshPackageMapping
+`public static void GetMetaMeshPackageMapping(Dictionary<string, string> metaMeshPackageMappings)`
+
+**Purpose:** Gets the current value of `meta mesh package mapping`.
+
+### GetItemMeshNames
+`public static void GetItemMeshNames(HashSet<string> itemMeshNames)`
+
+**Purpose:** Gets the current value of `item mesh names`.
+
+### GetCraftedItemMeshNames
+`public static string GetCraftedItemMeshNames(List<string> arguments)`
+
+**Purpose:** Gets the current value of `crafted item mesh names`.
+
+### SetInitialModuleScreenAsRootScreen
+`public void SetInitialModuleScreenAsRootScreen()`
+
+**Purpose:** Sets the value or state of `initial module screen as root screen`.
+
+### GetSubModuleType
+`public Type GetSubModuleType(string name)`
+
+**Purpose:** Gets the current value of `sub module type`.
+
+### CheckIfSubmoduleCanBeLoadable
+`public bool CheckIfSubmoduleCanBeLoadable(SubModuleInfo subModuleInfo)`
+
+**Purpose:** Handles logic related to `check if submodule can be loadable`.
+
+### ClearStateOptions
+`public void ClearStateOptions()`
+
+**Purpose:** Handles logic related to `clear state options`.
+
+### AddInitialStateOption
+`public void AddInitialStateOption(InitialStateOption initialStateOption)`
+
+**Purpose:** Adds `initial state option` to the current collection or state.
+
+### OverrideInitialStateOption
+`public void OverrideInitialStateOption(string id, InitialStateOption newInitialStateOption)`
+
+**Purpose:** Handles logic related to `override initial state option`.
+
+### GetInitialStateOptions
+`public IEnumerable<InitialStateOption> GetInitialStateOptions()`
+
+**Purpose:** Gets the current value of `initial state options`.
+
+### GetInitialStateOptionWithId
+`public InitialStateOption GetInitialStateOptionWithId(string id)`
+
+**Purpose:** Gets the current value of `initial state option with id`.
+
+### ExecuteInitialStateOptionWithId
+`public void ExecuteInitialStateOptionWithId(string id)`
+
+**Purpose:** Executes the `initial state option with id` operation or workflow.
+
+### SetCanLoadModules
+`public void SetCanLoadModules(bool canLoadModules)`
+
+**Purpose:** Sets the value or state of `can load modules`.
+
+### SetEditorMissionTester
+`public void SetEditorMissionTester(IEditorMissionTester editorMissionTester)`
+
+**Purpose:** Sets the value or state of `editor mission tester`.
+
+### StartMissionForEditorAux
+`public void StartMissionForEditorAux(string missionName, string sceneName, string levels, bool forReplay, string replayFileName, bool isRecord)`
+
+**Purpose:** Handles logic related to `start mission for editor aux`.
+
+### GetMultiplayerGameMode
+`public MultiplayerGameMode GetMultiplayerGameMode(string gameType)`
+
+**Purpose:** Gets the current value of `multiplayer game mode`.
+
+### AddMultiplayerGameMode
+`public void AddMultiplayerGameMode(MultiplayerGameMode multiplayerGameMode)`
+
+**Purpose:** Adds `multiplayer game mode` to the current collection or state.
+
+### GetMultiplayerGameTypes
+`public MBReadOnlyList<MultiplayerGameTypeInfo> GetMultiplayerGameTypes()`
+
+**Purpose:** Gets the current value of `multiplayer game types`.
+
+### StartMultiplayerGame
+`public bool StartMultiplayerGame(string multiplayerGameType, string scene)`
+
+**Purpose:** Handles logic related to `start multiplayer game`.
+
+### ShutDownWithDelay
+`public void ShutDownWithDelay(string reason, int seconds)`
+
+**Purpose:** Handles logic related to `shut down with delay`.
+
+### DeactiveModule
+`public void DeactiveModule(string moduleId)`
+
+**Purpose:** Handles logic related to `deactive module`.
+
+### ActivateModule
+`public void ActivateModule(string moduleId)`
+
+**Purpose:** Handles logic related to `activate module`.
+
+## Usage Example
 
 ```csharp
-Module module = Module.CurrentModule;
-MBReadOnlyList<MBSubModuleBase> subs = module.CollectSubModules();
-foreach (var sub in subs) { /* check */ }
+var value = new Module();
+value.CollectSubModules();
 ```
 
-**Key points**: `CurrentModule` is the singleton access point; `CollectSubModules` returns a read-only snapshot — do not assume ordering matches SubModule.xml exactly (it is affected by dependency sorting).
+## See Also
 
-### Use Case 2: Look up a SubModule type by name
-
-**Scenario**: Reflectively locate a SubModule to invoke its methods.
-
-```csharp
-Type t = module.GetSubModuleType("MyMod");
-```
-
-**Key points**: The name corresponds to `AssemblyName` in `SubModule.xml`; returns `null` if not found.
-
-### Use Case 3: Access global text and state managers
-
-**Scenario**: Register custom localization strings or read the current game state.
-
-```csharp
-GameTextManager text = module.GlobalTextManager;
-GameStateManager states = module.GlobalGameStateManager;
-```
-
-**Key points**: `GlobalTextManager` is the entry point for registering `GameText`; `GlobalGameStateManager` is accessible even when the game is not running (for main-menu state).
-
-### Use Case 4: Detect multiplayer vs single-player mode
-
-**Scenario**: Branch behavior by multiplayer/single-player.
-
-```csharp
-if (module.MultiplayerRequested) { /* multiplayer logic */ }
-```
-
-**Key points**: `MultiplayerRequested` is set after the player picks multiplayer; to check whether a mission is actually running use `Mission.Current != null`.
-
-## Important Properties / 重要属性
-
-| Property | Type | Description |
-|----------|------|-------------|
-| CurrentModule | `static Module` | Current module instance, singleton access point / 当前模组实例，单例访问点 |
-| GlobalGameStateManager | `GameStateManager` | Global game state manager / 全局游戏状态管理器 |
-| GlobalTextManager | `GameTextManager` | Global text manager / 全局文本管理器 |
-| LoadingFinished | `bool` | Whether loading has finished / 加载是否完成 |
-| MultiplayerRequested | `bool` | Whether multiplayer is requested / 是否请求多人游戏 |
-
-## Important Methods / 重要方法
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetInstance | `public static Module GetInstance()` | Get Module singleton / 获取 Module 单例 |
-| CollectSubModules | `public MBReadOnlyList CollectSubModules()` | Get all loaded SubModules / 获取所有已加载的 SubModule |
-| LoadSingleModule | `internal void LoadSingleModule(string modulePath)` | Load a single module / 加载单个模组 |
-| Initialize | `internal void Initialize()` | Initialize module system / 初始化模组系统 |
-| GetSubModuleType | `public Type GetSubModuleType(string name)` | Get SubModule type by name / 通过名称获取 SubModule 类型 |
-| OnApplicationTick | `internal void OnApplicationTick(float dt)` | Main game loop tick / 游戏循环主 tick |
-
-## Usage Example / 使用示例
-
-```csharp
-// Get current module
-// 获取当前模组
-Module module = Module.CurrentModule;
-
-// Get all SubModules
-// 获取所有 SubModule
-MBReadOnlyList<MBSubModuleBase> subModules = module.CollectSubModules();
-
-// Check if multiplayer
-// 检查是否多人游戏
-if (module.MultiplayerRequested)
-{
-    // Handle multiplayer logic
-    // 处理多人游戏逻辑
-}
-
-// Access global text manager
-// 访问全局文本管理器
-GameTextManager textManager = module.GlobalTextManager;
-
-// Access game state manager
-// 访问游戏状态管理器
-GameStateManager stateManager = module.GlobalGameStateManager;
-```
-
-## Internal Loading Flow / 内部加载流程
-
-```
-1. CreateModule() - Create Module singleton / 创建 Module 单例
-2. Module.Initialize() - Initialize module system / 初始化模块系统
-3. LoadSubModules() - Load all SubModule DLLs / 加载所有 SubModule 的 DLL
-4. AddSubModule() - Create MBSubModuleBase instance for each SubModuleInfo / 为每个 SubModuleInfo 创建 MBSubModuleBase 实例
-5. InitializeSubModuleBases() - Call OnSubModuleLoad() for all SubModules / 调用所有 SubModule 的 OnSubModuleLoad()
-6. OnNewModuleLoaded() - Call OnNewModuleLoad() for all SubModules / 调用所有 SubModule 的 OnNewModuleLoad()
-7. SetInitialModuleScreenAsRootScreen() - Show main screen / 显示主界面
-```
-
-## Notes / 注意事项
-
-- `Module.CurrentModule` is the main entry point for accessing module information
-- `Module.CurrentModule` 是访问模组信息的主要入口
-- Do not try to create a Module instance, it is a singleton
-- 不要尝试创建 Module 实例，它是一个单例
-- SubModule loading order is affected by declaration order in SubModule.xml
-- SubModule 的加载顺序受 SubModule.xml 中声明顺序影响
+- [Complete Class Catalog](../catalog)

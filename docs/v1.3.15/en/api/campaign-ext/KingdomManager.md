@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `KingdomManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/KingdomManager](/versions/KingdomManager)
 <!-- END BREADCRUMB -->
@@ -15,60 +16,63 @@
 
 ## Overview
 
-`KingdomManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`KingdomManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `KingdomManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnSessionStart
-```csharp
-public void OnSessionStart()
-```
+`public void OnSessionStart()`
+
+**Purpose:** Called when the `session start` event is raised.
 
 ### CreateKingdom
-```csharp
-public void CreateKingdom(TextObject kingdomName, TextObject informalName, CultureObject culture, Clan founderClan, MBReadOnlyList<PolicyObject> initialPolicies = null, TextObject encyclopediaText = null, TextObject encyclopediaTitle = null, TextObject encyclopediaRulerTitle = null)
-```
+`public void CreateKingdom(TextObject kingdomName, TextObject informalName, CultureObject culture, Clan founderClan, MBReadOnlyList<PolicyObject> initialPolicies = null, TextObject encyclopediaText = null, TextObject encyclopediaTitle = null, TextObject encyclopediaRulerTitle = null)`
+
+**Purpose:** Creates a new `kingdom` instance or object.
 
 ### AbdicateTheThrone
-```csharp
-public void AbdicateTheThrone(Kingdom kingdom)
-```
+`public void AbdicateTheThrone(Kingdom kingdom)`
+
+**Purpose:** Handles logic related to `abdicate the throne`.
 
 ### RaidCompleted
-```csharp
-public void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)
-```
+`public void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
+
+**Purpose:** Handles logic related to `raid completed`.
 
 ### SiegeCompleted
-```csharp
-public void SiegeCompleted(Settlement settlement, MobileParty capturerParty, bool isWin, MapEvent.BattleTypes battleType)
-```
+`public void SiegeCompleted(Settlement settlement, MobileParty capturerParty, bool isWin, MapEvent.BattleTypes battleType)`
+
+**Purpose:** Handles logic related to `siege completed`.
 
 ### RelinquishSettlementOwnership
-```csharp
-public void RelinquishSettlementOwnership(Settlement settlement)
-```
+`public void RelinquishSettlementOwnership(Settlement settlement)`
+
+**Purpose:** Handles logic related to `relinquish settlement ownership`.
 
 ### GiftSettlementOwnership
-```csharp
-public void GiftSettlementOwnership(Settlement settlement, Clan receiverClan)
-```
+`public void GiftSettlementOwnership(Settlement settlement, Clan receiverClan)`
+
+**Purpose:** Handles logic related to `gift settlement ownership`.
 
 ### GetEligibleClansForSettlementOwnershipGift
-```csharp
-public IEnumerable<Clan> GetEligibleClansForSettlementOwnershipGift(Settlement settlement)
-```
+`public IEnumerable<Clan> GetEligibleClansForSettlementOwnershipGift(Settlement settlement)`
+
+**Purpose:** Gets the current value of `eligible clans for settlement ownership gift`.
 
 ### GetMercenaryWageAmount
-```csharp
-public int GetMercenaryWageAmount(Hero hero)
-```
+`public int GetMercenaryWageAmount(Hero hero)`
+
+**Purpose:** Gets the current value of `mercenary wage amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of KingdomManager (Manager)
-KingdomManager.Current;
+var manager = KingdomManager.Current;
 ```
 
 ## See Also

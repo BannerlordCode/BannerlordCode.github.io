@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ClanFiefsSortControllerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanFiefsSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ClanFiefsSortControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanFiefsSortControllerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ClanFiefsSortControllerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ClanFiefsSortControllerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,70 +35,65 @@
 | `GovernorText` | `public string GovernorText { get; set; }` |
 | `ProfitText` | `public string ProfitText { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**Purpose:** Executes the `sort by name` operation or workflow.
 
 ### ExecuteSortByGovernor
+`public void ExecuteSortByGovernor()`
 
-```csharp
-public void ExecuteSortByGovernor()
-```
+**Purpose:** Executes the `sort by governor` operation or workflow.
 
 ### ExecuteSortByProfit
+`public void ExecuteSortByProfit()`
 
-```csharp
-public void ExecuteSortByProfit()
-```
+**Purpose:** Executes the `sort by profit` operation or workflow.
 
 ### ResetAllStates
+`public void ResetAllStates()`
 
-```csharp
-public void ResetAllStates()
-```
+**Purpose:** Resets `all states` to its initial state.
 
 ### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public void SetSortMode(bool isAcending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)`
 
-```csharp
-public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)
+var value = new ClanFiefsSortControllerVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

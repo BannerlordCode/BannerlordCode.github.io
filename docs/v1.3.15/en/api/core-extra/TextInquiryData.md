@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TextInquiryData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextInquiryData
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`TextInquiryData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`TextInquiryData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `TextInquiryData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### HasSameContentWith
-```csharp
-public bool HasSameContentWith(object other)
-```
+`public bool HasSameContentWith(object other)`
+
+**Purpose:** Checks whether the current object has/contains `same content with`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TextInquiryData (Data)
-new TextInquiryData { /* fill fields */ };;
+var value = new TextInquiryData();
 ```
 
 ## See Also

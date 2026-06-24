@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CombatLogManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatLogManager
@@ -15,6 +17,10 @@
 ## Overview
 
 `CombatLogManager` produces combat log entries — the kill/damage feed shown in-mission. Mods call `GenerateCombatLog` to emit custom notifications and subscribe to `OnPrintCombatLogHandler` to react to or transform log output. Use `PrintDebugLogForInfo` for diagnostics.
+
+## Mental Model
+
+Treat `CombatLogManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Methods
 

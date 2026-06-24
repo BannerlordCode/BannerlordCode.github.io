@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PartyAgentOrigin`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyAgentOrigin
 
 **Namespace:** TaleWorlds.CampaignSystem.AgentOrigins
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PartyAgentOrigin : IAgentOriginBase`
+**Base:** `IAgentOriginBase`
+**File:** `TaleWorlds.CampaignSystem/AgentOrigins/PartyAgentOrigin.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PartyAgentOrigin` is a class in the `TaleWorlds.CampaignSystem.AgentOrigins` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PartyAgentOrigin` lives in `TaleWorlds.CampaignSystem.AgentOrigins` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.AgentOrigins` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,40 +36,40 @@
 | `Seed` | `public int Seed { get; }` |
 | `UniqueSeed` | `public int UniqueSeed { get; }` |
 
-
 ## Key Methods
 
 ### SetWounded
+`public void SetWounded()`
 
-```csharp
-public void SetWounded()
-```
+**Purpose:** Sets the value or state of `wounded`.
 
 ### SetKilled
+`public void SetKilled()`
 
-```csharp
-public void SetKilled()
-```
+**Purpose:** Sets the value or state of `killed`.
 
 ### SetRouted
+`public void SetRouted(bool isOrderRetreat)`
 
-```csharp
-public void SetRouted(bool isOrderRetreat)
-```
+**Purpose:** Sets the value or state of `routed`.
 
 ### OnAgentRemoved
+`public void OnAgentRemoved(float agentHealth)`
 
-```csharp
-public void OnAgentRemoved(float agentHealth)
-```
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### SetBanner
+`public void SetBanner(Banner banner)`
+
+**Purpose:** Sets the value or state of `banner`.
+
+## Usage Example
 
 ```csharp
-public void SetBanner(Banner banner)
+var value = new PartyAgentOrigin();
+value.SetWounded();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

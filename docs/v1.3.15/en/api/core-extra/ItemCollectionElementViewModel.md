@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ItemCollectionElementViewModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemCollectionElementViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class ItemCollectionElementViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/ItemCollectionElementViewModel.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ItemCollectionElementViewModel` is a class in the `TaleWorlds.Core.ViewModelCollection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemCollectionElementViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and UI. Mods typically use it to expose state, commands, and list items to the screen.
 
+## Mental Model
+
+Treat `ItemCollectionElementViewModel` as a ViewModel-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,22 +32,25 @@
 | `BannerCode` | `public string BannerCode { get; set; }` |
 | `InitialPanRotation` | `public float InitialPanRotation { get; set; }` |
 
-
 ## Key Methods
 
 ### FillFrom
+`public void FillFrom(EquipmentElement item, Banner banner = null)`
 
-```csharp
-public void FillFrom(EquipmentElement item, Banner banner = null)
-```
+**Purpose:** Handles logic related to `fill from`.
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var vm = new ItemCollectionElementViewModel();
+movie.SetViewModel(vm);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultTradeItemPriceFactorModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultTradeItemPriceFactorModel
@@ -14,34 +15,37 @@
 
 ## 概述
 
-`DefaultTradeItemPriceFactorModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultTradeItemPriceFactorModel>(new MyDefaultTradeItemPriceFactorModel())` 注册，以改变其计算逻辑。
+`DefaultTradeItemPriceFactorModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultTradeItemPriceFactorModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetTradePenalty
-```csharp
-public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)
-```
+`public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
+
+**用途 / Purpose:** 获取 `trade penalty` 的当前值。
 
 ### GetBasePriceFactor
-```csharp
-public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)
-```
+`public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
+
+**用途 / Purpose:** 获取 `base price factor` 的当前值。
 
 ### GetPrice
-```csharp
-public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)
-```
+`public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
+
+**用途 / Purpose:** 获取 `price` 的当前值。
 
 ### GetTheoreticalMaxItemMarketValue
-```csharp
-public override int GetTheoreticalMaxItemMarketValue(ItemObject item)
-```
+`public override int GetTheoreticalMaxItemMarketValue(ItemObject item)`
+
+**用途 / Purpose:** 获取 `theoretical max item market value` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultTradeItemPriceFactorModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultTradeItemPriceFactorModel>(new MyDefaultTradeItemPriceFactorModel());
 ```
 

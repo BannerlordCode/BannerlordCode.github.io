@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DeploymentMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DeploymentMissionController
@@ -14,40 +15,49 @@
 
 ## Overview
 
-`DeploymentMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`DeploymentMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `DeploymentMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `TeamSetupOver` | `public bool TeamSetupOver { get; }` |
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### FinishDeployment
-```csharp
-public void FinishDeployment()
-```
+`public void FinishDeployment()`
+
+**Purpose:** Handles logic related to `finish deployment`.
 
 ### OnAgentControllerSetToPlayer
-```csharp
-public override void OnAgentControllerSetToPlayer(Agent agent)
-```
+`public override void OnAgentControllerSetToPlayer(Agent agent)`
+
+**Purpose:** Called when the `agent controller set to player` event is raised.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DeploymentMissionController (Controller)
-Mission.Current.GetMissionBehavior<DeploymentMissionController>();
+var implementation = new CustomDeploymentMissionController();
 ```
 
 ## See Also

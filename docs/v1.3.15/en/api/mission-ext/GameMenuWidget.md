@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameMenuWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `GameMenuWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `GameMenuWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -43,21 +48,19 @@
 ## Key Methods
 
 ### UpdateOverlayState
-```csharp
-public void UpdateOverlayState()
-```
+`public void UpdateOverlayState()`
+
+**Purpose:** Updates the state or data of `overlay state`.
 
 ### OnOptionStateChanged
-```csharp
-public void OnOptionStateChanged()
-```
+`public void OnOptionStateChanged()`
+
+**Purpose:** Called when the `option state changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameMenuWidget (Widget)
-// 声明/访问一个 GameMenuWidget
-var widget = root.GetChild("gameMenuWidget");;
+var widget = new GameMenuWidget(context);
 ```
 
 ## See Also

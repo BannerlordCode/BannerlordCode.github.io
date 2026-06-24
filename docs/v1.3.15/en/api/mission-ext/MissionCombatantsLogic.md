@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionCombatantsLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionCombatantsLogic
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`MissionCombatantsLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new MissionCombatantsLogic())`; subclass it to customize.
+`MissionCombatantsLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `MissionCombatantsLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `PlayerSide` | `public BattleSideEnum PlayerSide { get { if (this.PlayerBattleCombatant == null) { return BattleSideEnum.None; }` |
+| `PlayerSide` | `public BattleSideEnum PlayerSide { get; }` |
 
 ## Key Methods
 
 ### GetBannerForSide
-```csharp
-public Banner GetBannerForSide(BattleSideEnum side)
-```
+`public Banner GetBannerForSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `banner for side`.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### GetAllCombatants
-```csharp
-public IEnumerable<IBattleCombatant> GetAllCombatants()
-```
+`public IEnumerable<IBattleCombatant> GetAllCombatants()`
+
+**Purpose:** Gets the current value of `all combatants`.
 
 ### SupportsAllyTeamOnPlayerSide
-```csharp
-public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, out IBattleCombatant allyCombatant)
-```
+`public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, out IBattleCombatant allyCombatant)`
+
+**Purpose:** Handles logic related to `supports ally team on player side`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionCombatantsLogic (Logic)
 Mission.Current.AddMissionBehavior(new MissionCombatantsLogic());
 ```
 

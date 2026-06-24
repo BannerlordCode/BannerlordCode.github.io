@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSiegeStrategyActionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSiegeStrategyActionModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultSiegeStrategyActionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSiegeStrategyActionModel>(new MyDefaultSiegeStrategyActionModel())` to change how it computes.
+`DefaultSiegeStrategyActionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSiegeStrategyActionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetLogicalActionForStrategy
-```csharp
-public override void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeStrategyActionModel.SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)
-```
+`public override void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeStrategyActionModel.SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)`
+
+**Purpose:** Gets the current value of `logical action for strategy`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSiegeStrategyActionModel (Model)
 Game.Current.ReplaceModel<DefaultSiegeStrategyActionModel>(new MyDefaultSiegeStrategyActionModel());
 ```
 

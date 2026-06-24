@@ -2,30 +2,38 @@
 **Home** → **API Index** → **Area** → `EquipmentHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EquipmentHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class EquipmentHelper`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Helpers/EquipmentHelper.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EquipmentHelper` is a class in the `Helpers` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EquipmentHelper` is a helper class that usually provides static logic which does not depend on instance state.
 
+## Mental Model
+
+Treat `EquipmentHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AssignHeroEquipmentFromEquipment
+`public static void AssignHeroEquipmentFromEquipment(Hero hero, Equipment equipment)`
+
+**Purpose:** Handles logic related to `assign hero equipment from equipment`.
+
+## Usage Example
 
 ```csharp
-public static void AssignHeroEquipmentFromEquipment(Hero hero, Equipment equipment)
+EquipmentHelper.Initialize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

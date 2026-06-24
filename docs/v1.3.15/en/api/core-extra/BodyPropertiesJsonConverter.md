@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BodyPropertiesJsonConverter`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BodyPropertiesJsonConverter
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class BodyPropertiesJsonConverter : JsonConverter`
+**Base:** `JsonConverter`
+**File:** `TaleWorlds.Core/BodyPropertiesJsonConverter.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BodyPropertiesJsonConverter` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BodyPropertiesJsonConverter` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,28 +27,30 @@
 |------|-----------|
 | `CanWrite` | `public override bool CanWrite { get; }` |
 
-
 ## Key Methods
 
 ### CanConvert
+`public override bool CanConvert(Type objectType)`
 
-```csharp
-public override bool CanConvert(Type objectType)
-```
+**Purpose:** Checks whether the current object can `convert`.
 
 ### ReadJson
+`public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-```csharp
-public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-```
+**Purpose:** Handles logic related to `read json`.
 
 ### WriteJson
+`public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
+
+**Purpose:** Handles logic related to `write json`.
+
+## Usage Example
 
 ```csharp
-public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+var value = new BodyPropertiesJsonConverter();
+value.CanConvert(objectType);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

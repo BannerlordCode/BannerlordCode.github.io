@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `CharacterCode`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCode
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public class CharacterCode`
+**Base:** 无
+**File:** `TaleWorlds.Core/CharacterCode.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CharacterCode` 是 `TaleWorlds.Core` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`CharacterCode` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -31,54 +37,50 @@
 | `Color2` | `public uint Color2 { get; }` |
 | `Race` | `public int Race { get; }` |
 
-
 ## 主要方法
 
 ### CalculateEquipment
+`public Equipment CalculateEquipment()`
 
-```csharp
-public Equipment CalculateEquipment()
-```
-
-### CreateFrom
-
-```csharp
-public static CharacterCode CreateFrom(BasicCharacterObject character)
-```
+**用途 / Purpose:** 处理 `calculate equipment` 相关逻辑。
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-```csharp
-public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)
-```
+**用途 / Purpose:** 创建一个 `from` 实例或对象。
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-```csharp
-public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)
-```
+**用途 / Purpose:** 创建一个 `from` 实例或对象。
+
+### CreateFrom
+`public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
+
+**用途 / Purpose:** 创建一个 `from` 实例或对象。
 
 ### CreateNewCodeString
+`public string CreateNewCodeString()`
 
-```csharp
-public string CreateNewCodeString()
-```
+**用途 / Purpose:** 创建一个 `new code string` 实例或对象。
 
 ### CreateEmpty
+`public static CharacterCode CreateEmpty()`
 
-```csharp
-public static CharacterCode CreateEmpty()
-```
+**用途 / Purpose:** 创建一个 `empty` 实例或对象。
 
 ### CreateFrom
+`public static CharacterCode CreateFrom(string code)`
+
+**用途 / Purpose:** 创建一个 `from` 实例或对象。
+
+## 使用示例
 
 ```csharp
-public static CharacterCode CreateFrom(string code)
+var value = new CharacterCode();
+value.CalculateEquipment();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

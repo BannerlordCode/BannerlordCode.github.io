@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CircularFormation`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CircularFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class CircularFormation : LineFormation`
+**Base:** `LineFormation`
+**File:** `TaleWorlds.MountAndBlade/CircularFormation.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CircularFormation` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CircularFormation` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,34 +30,35 @@
 | `MinimumWidth` | `public override float MinimumWidth { get; }` |
 | `MaximumWidth` | `public override float MaximumWidth { get; }` |
 
-
 ## Key Methods
 
 ### Clone
+`public override IFormationArrangement Clone(IFormation formation)`
 
-```csharp
-public override IFormationArrangement Clone(IFormation formation)
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### GetLocalDirectionOfUnitOrDefault
+`public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-```csharp
-public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)
-```
+**Purpose:** Gets the current value of `local direction of unit or default`.
 
 ### GetCircumferenceFromRankCount
+`public float GetCircumferenceFromRankCount(int rankCount)`
 
-```csharp
-public float GetCircumferenceFromRankCount(int rankCount)
-```
+**Purpose:** Gets the current value of `circumference from rank count`.
 
 ### FormFromCircumference
+`public void FormFromCircumference(float circumference)`
+
+**Purpose:** Handles logic related to `form from circumference`.
+
+## Usage Example
 
 ```csharp
-public void FormFromCircumference(float circumference)
+var value = new CircularFormation();
+value.Clone(formation);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

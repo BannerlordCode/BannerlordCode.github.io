@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `RecruitmentVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RecruitmentVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class RecruitmentVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Recruitment/RecruitmentVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`RecruitmentVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`RecruitmentVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,91 +45,98 @@
 | `ResetAllText` | `public string ResetAllText { get; set; }` |
 | `CancelText` | `public string CancelText { get; set; }` |
 | `RemainingFoodText` | `public string RemainingFoodText { get; set; }` |
-
+| `TotalCostText` | `public string TotalCostText { get; set; }` |
+| `Enabled` | `public bool Enabled { get; set; }` |
+| `IsDoneEnabled` | `public bool IsDoneEnabled { get; set; }` |
+| `IsPartyCapacityWarningEnabled` | `public bool IsPartyCapacityWarningEnabled { get; set; }` |
+| `TitleText` | `public string TitleText { get; set; }` |
+| `DoneText` | `public string DoneText { get; set; }` |
+| `CanRecruitAll` | `public bool CanRecruitAll { get; set; }` |
+| `TotalWealth` | `public int TotalWealth { get; set; }` |
+| `PartyCapacity` | `public int PartyCapacity { get; set; }` |
+| `InitialPartySize` | `public int InitialPartySize { get; set; }` |
+| `CurrentPartySize` | `public int CurrentPartySize { get; set; }` |
+| `VolunteerList` | `public MBBindingList<RecruitVolunteerVM> VolunteerList { get; set; }` |
+| `TroopsInCart` | `public MBBindingList<RecruitVolunteerTroopVM> TroopsInCart { get; set; }` |
+| `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
+| `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
+| `ResetInputKey` | `public InputKeyItemVM ResetInputKey { get; set; }` |
+| `RecruitAllInputKey` | `public InputKeyItemVM RecruitAllInputKey { get; set; }` |
 
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### RefreshScreen
+`public void RefreshScreen()`
 
-```csharp
-public void RefreshScreen()
-```
+**用途 / Purpose:** 刷新 `screen` 的显示或缓存。
 
 ### ExecuteDone
+`public void ExecuteDone()`
 
-```csharp
-public void ExecuteDone()
-```
+**用途 / Purpose:** 执行 `done` 操作或流程。
 
 ### ExecuteForceQuit
+`public void ExecuteForceQuit()`
 
-```csharp
-public void ExecuteForceQuit()
-```
+**用途 / Purpose:** 执行 `force quit` 操作或流程。
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**用途 / Purpose:** 执行 `reset` 操作或流程。
 
 ### ExecuteRecruitAll
+`public void ExecuteRecruitAll()`
 
-```csharp
-public void ExecuteRecruitAll()
-```
+**用途 / Purpose:** 执行 `recruit all` 操作或流程。
 
 ### Deactivate
+`public void Deactivate()`
 
-```csharp
-public void Deactivate()
-```
+**用途 / Purpose:** 处理 `deactivate` 相关逻辑。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### SetGetKeyTextFromKeyIDFunc
+`public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-```csharp
-public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)
-```
+**用途 / Purpose:** 设置 `get key text from key i d func` 的值或状态。
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `done input key` 的值或状态。
 
 ### SetRecruitAllInputKey
+`public void SetRecruitAllInputKey(HotKey hotKey)`
 
-```csharp
-public void SetRecruitAllInputKey(HotKey hotKey)
-```
+**用途 / Purpose:** 设置 `recruit all input key` 的值或状态。
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotKey)`
+
+**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetResetInputKey(HotKey hotKey)
+var value = new RecruitmentVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

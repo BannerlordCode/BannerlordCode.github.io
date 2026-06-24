@@ -2,72 +2,73 @@
 **Home** → **API Index** → **Area** → `RangedSiegeWeaponAi`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RangedSiegeWeaponAi
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class RangedSiegeWeaponAi : UsableMachineAIBase`
+**Base:** `UsableMachineAIBase`
+**File:** `TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `RangedSiegeWeaponAi` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`RangedSiegeWeaponAi` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### FindNextTarget
+`public void FindNextTarget()`
 
-```csharp
-public void FindNextTarget()
-```
+**Purpose:** Handles logic related to `find next target`.
 
 ### PrepareTargetFromTask
+`public Threat PrepareTargetFromTask()`
 
-```csharp
-public Threat PrepareTargetFromTask()
-```
+**Purpose:** Handles logic related to `prepare target from task`.
 
 ### UpdateThreatSeekerTask
+`public bool UpdateThreatSeekerTask()`
 
-```csharp
-public bool UpdateThreatSeekerTask()
-```
+**Purpose:** Updates the state or data of `threat seeker task`.
 
 ### PrepareThreatSeekerTask
+`public void PrepareThreatSeekerTask(Action lastAction)`
 
-```csharp
-public void PrepareThreatSeekerTask(Action lastAction)
-```
+**Purpose:** Handles logic related to `prepare threat seeker task`.
 
 ### Release
+`public void Release()`
 
-```csharp
-public void Release()
-```
+**Purpose:** Handles logic related to `release`.
 
 ### GetAllThreats
+`public List<Threat> GetAllThreats()`
 
-```csharp
-public List<Threat> GetAllThreats()
-```
+**Purpose:** Gets the current value of `all threats`.
 
 ### GetTargetFlagsOfFormation
+`public static TargetFlags GetTargetFlagsOfFormation()`
 
-```csharp
-public static TargetFlags GetTargetFlagsOfFormation()
-```
+**Purpose:** Gets the current value of `target flags of formation`.
 
 ### GetMaxThreat
+`public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
+
+**Purpose:** Gets the current value of `max threat`.
+
+## Usage Example
 
 ```csharp
-public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)
+var implementation = new CustomRangedSiegeWeaponAi();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

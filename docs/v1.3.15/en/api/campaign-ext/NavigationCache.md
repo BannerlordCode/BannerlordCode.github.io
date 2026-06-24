@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `NavigationCache`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NavigationCache
 
 **Namespace:** TaleWorlds.CampaignSystem.Map.DistanceCache
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class NavigationCache<T>`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Map/DistanceCache/NavigationCache.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `NavigationCache` is a class in the `TaleWorlds.CampaignSystem.Map.DistanceCache` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`NavigationCache` lives in `TaleWorlds.CampaignSystem.Map.DistanceCache` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Map.DistanceCache` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,52 +27,49 @@
 |------|-----------|
 | `MaximumDistanceBetweenTwoConnectedSettlements` | `public float MaximumDistanceBetweenTwoConnectedSettlements { get; }` |
 
-
 ## Key Methods
 
 ### GetNeighbors
+`public MBReadOnlyList<T> GetNeighbors(T settlement)`
 
-```csharp
-public MBReadOnlyList<T> GetNeighbors(T settlement)
-```
+**Purpose:** Gets the current value of `neighbors`.
 
 ### GetClosestSettlementToFaceIndex
+`public T GetClosestSettlementToFaceIndex(int faceId, out bool isAtSea)`
 
-```csharp
-public T GetClosestSettlementToFaceIndex(int faceId, out bool isAtSea)
-```
+**Purpose:** Gets the current value of `closest settlement to face index`.
 
 ### GenerateCacheData
+`public void GenerateCacheData()`
 
-```csharp
-public void GenerateCacheData()
-```
+**Purpose:** Handles logic related to `generate cache data`.
 
 ### GetSceneXmlCrcValues
+`public abstract void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-```csharp
-public abstract void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)
-```
+**Purpose:** Gets the current value of `scene xml crc values`.
 
 ### GetSettlementsDistanceCacheFileForCapability
+`public bool GetSettlementsDistanceCacheFileForCapability(string moduleId, out string filePath)`
 
-```csharp
-public bool GetSettlementsDistanceCacheFileForCapability(string moduleId, out string filePath)
-```
+**Purpose:** Gets the current value of `settlements distance cache file for capability`.
 
 ### Serialize
+`public void Serialize(string path)`
 
-```csharp
-public void Serialize(string path)
-```
+**Purpose:** Handles logic related to `serialize`.
 
 ### Deserialize
+`public void Deserialize(string path)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+## Usage Example
 
 ```csharp
-public void Deserialize(string path)
+var implementation = new CustomNavigationCache();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

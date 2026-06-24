@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `PerkObject`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PerkObject
@@ -16,6 +18,10 @@
 ## Overview
 
 Mods usually do not `new PerkObject`; instead reference existing perks via the `DefaultPerks` static fields (e.g. `DefaultPerks.OneHanded.Pugilist`), or enumerate all with `PerkObject.All`. To check whether a hero has a perk, use `Hero.GetPerkValue(perk)`.
+
+## Mental Model
+
+Treat `PerkObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -73,3 +79,9 @@ foreach (PerkObject p in PerkObject.All)
 - [SkillObject](../core-extra/SkillObject.md)
 - [TraitObject](./TraitObject.md)
 - [Campaign](./Campaign.md)
+
+## Usage Example
+
+```csharp
+var example = new PerkObject();
+```

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CommonAIComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CommonAIComponent
@@ -14,73 +15,79 @@
 
 ## Overview
 
-`CommonAIComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<CommonAIComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`CommonAIComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `CommonAIComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `InitialMorale` | `public float InitialMorale { get { return this._initialMorale; }` |
-| `RecoveryMorale` | `public float RecoveryMorale { get { return this._recoveryMorale; }` |
-| `Morale` | `public float Morale { get { return this._morale; }` |
+| `IsPanicked` | `public bool IsPanicked { get; }` |
+| `IsRetreating` | `public bool IsRetreating { get; }` |
+| `ReservedRiderAgentIndex` | `public int ReservedRiderAgentIndex { get; }` |
+| `InitialMorale` | `public float InitialMorale { get; set; }` |
+| `RecoveryMorale` | `public float RecoveryMorale { get; set; }` |
+| `Morale` | `public float Morale { get; set; }` |
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public override void Initialize()
-```
+`public override void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### OnTickParallel
-```csharp
-public override void OnTickParallel(float dt)
-```
+`public override void OnTickParallel(float dt)`
+
+**Purpose:** Called when the `tick parallel` event is raised.
 
 ### OnTick
-```csharp
-public override void OnTick(float dt)
-```
+`public override void OnTick(float dt)`
+
+**Purpose:** Called when the `tick` event is raised.
 
 ### Panic
-```csharp
-public void Panic()
-```
+`public void Panic()`
+
+**Purpose:** Handles logic related to `panic`.
 
 ### Retreat
-```csharp
-public void Retreat(bool useCachingSystem = false)
-```
+`public void Retreat(bool useCachingSystem = false)`
+
+**Purpose:** Handles logic related to `retreat`.
 
 ### StopRetreating
-```csharp
-public void StopRetreating()
-```
+`public void StopRetreating()`
+
+**Purpose:** Handles logic related to `stop retreating`.
 
 ### CanPanic
-```csharp
-public bool CanPanic()
-```
+`public bool CanPanic()`
+
+**Purpose:** Checks whether the current object can `panic`.
 
 ### OnHit
-```csharp
-public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)
-```
+`public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
+
+**Purpose:** Called when the `hit` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved()
-```
+`public override void OnAgentRemoved()`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnComponentRemoved
-```csharp
-public override void OnComponentRemoved()
-```
+`public override void OnComponentRemoved()`
+
+**Purpose:** Called when the `component removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CommonAIComponent (Component)
-agent.GetComponent<CommonAIComponent>();
+var component = agent.GetComponent<CommonAIComponent>();
 ```
 
 ## See Also

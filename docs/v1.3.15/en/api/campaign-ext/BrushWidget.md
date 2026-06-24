@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BrushWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushWidget
@@ -16,41 +17,45 @@
 
 `BrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `BrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `ReadOnlyBrush` | `public Brush ReadOnlyBrush { get { if (this._clonedBrush != null) { return this._clonedBrush; }` |
-| `Sprite` | `public new Sprite Sprite { get { return this.ReadOnlyBrush.DefaultStyle.GetLayer("Default").Sprite; }` |
+| `Brush` | `public Brush Brush { get; }` |
+| `ReadOnlyBrush` | `public Brush ReadOnlyBrush { get; }` |
+| `Sprite` | `public new Sprite Sprite { get; set; }` |
+| `BrushRenderer` | `public BrushRenderer BrushRenderer { get; }` |
 
 ## Key Methods
 
 ### UpdateBrushes
-```csharp
-public override void UpdateBrushes(float dt)
-```
+`public override void UpdateBrushes(float dt)`
+
+**Purpose:** Updates the state or data of `brushes`.
 
 ### SetState
-```csharp
-public override void SetState(string stateName)
-```
+`public override void SetState(string stateName)`
+
+**Purpose:** Sets the value or state of `state`.
 
 ### UpdateAnimationPropertiesSubTask
-```csharp
-public override void UpdateAnimationPropertiesSubTask(float alphaFactor)
-```
+`public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
+
+**Purpose:** Updates the state or data of `animation properties sub task`.
 
 ### OnBrushChanged
-```csharp
-public virtual void OnBrushChanged()
-```
+`public virtual void OnBrushChanged()`
+
+**Purpose:** Called when the `brush changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BrushWidget (Widget)
-// 声明/访问一个 BrushWidget
-var widget = root.GetChild("brushWidget");;
+var widget = new BrushWidget(context);
 ```
 
 ## See Also

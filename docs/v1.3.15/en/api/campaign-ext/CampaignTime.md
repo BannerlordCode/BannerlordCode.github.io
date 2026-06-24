@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CampaignTime`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignTime
@@ -16,6 +18,10 @@
 ## Overview
 
 `CampaignTime` is immutable, storing milliseconds internally. Common entry points are the static `Now` (current moment), `Never` (never), and `DeltaTime` (this frame's delta). Durations are created via static factories (e.g. `CampaignTime.HoursFromNow(24)`), or converted via the `Elapsed*UntilNow` / `Remaining*FromNow` / `To*` properties. All comparison operators are supported.
+
+## Mental Model
+
+Treat `CampaignTime` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Static members
 
@@ -84,3 +90,9 @@ The source also provides static factories `HoursFromNow` / `DaysFromNow` / `Seco
 - [Hero](../campaign/Hero.md)
 - [Campaign](./Campaign.md)
 - [Town](./Town.md)
+
+## Usage Example
+
+```csharp
+var example = new CampaignTime();
+```

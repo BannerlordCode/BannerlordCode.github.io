@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionMainAgentEquipmentControllerVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionMainAgentEquipmentControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionMainAgentEquipmentControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/MissionMainAgentEquipmentControllerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionMainAgentEquipmentControllerVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionMainAgentEquipmentControllerVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,52 +34,50 @@
 | `DropActions` | `public MBBindingList<EquipmentActionItemVM> DropActions { get; set; }` |
 | `EquipActions` | `public MBBindingList<EquipmentActionItemVM> EquipActions { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnDropControllerToggle
+`public void OnDropControllerToggle(bool isActive)`
 
-```csharp
-public void OnDropControllerToggle(bool isActive)
-```
+**Purpose:** Called when the `drop controller toggle` event is raised.
 
 ### SetCurrentFocusedWeaponEntity
+`public void SetCurrentFocusedWeaponEntity(SpawnedItemEntity weaponEntity)`
 
-```csharp
-public void SetCurrentFocusedWeaponEntity(SpawnedItemEntity weaponEntity)
-```
+**Purpose:** Sets the value or state of `current focused weapon entity`.
 
 ### OnEquipControllerToggle
+`public void OnEquipControllerToggle(bool isActive)`
 
-```csharp
-public void OnEquipControllerToggle(bool isActive)
-```
+**Purpose:** Called when the `equip controller toggle` event is raised.
 
 ### OnCancelEquipController
+`public void OnCancelEquipController()`
 
-```csharp
-public void OnCancelEquipController()
-```
+**Purpose:** Called when the `cancel equip controller` event is raised.
 
 ### OnCancelDropController
+`public void OnCancelDropController()`
 
-```csharp
-public void OnCancelDropController()
-```
+**Purpose:** Called when the `cancel drop controller` event is raised.
 
 ### GetItemTypeAsString
+`public static string GetItemTypeAsString(ItemObject item)`
+
+**Purpose:** Gets the current value of `item type as string`.
+
+## Usage Example
 
 ```csharp
-public static string GetItemTypeAsString(ItemObject item)
+var value = new MissionMainAgentEquipmentControllerVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

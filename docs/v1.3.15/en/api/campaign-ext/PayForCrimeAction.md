@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `PayForCrimeAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PayForCrimeAction
+
+## Mental Model
+
+Treat `PayForCrimeAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +35,7 @@ public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod
 public static void Apply(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ## Usage Example
 

@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `GatherArmyAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GatherArmyAction
+
+## Mental Model
+
+Treat `GatherArmyAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ GatherArmyAction is a set of static methods that trigger "GatherArmy" in the cam
 public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ## Usage Example
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MatchHistoryData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MatchHistoryData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MatchHistoryData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`MatchHistoryData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `MatchHistoryData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -35,25 +40,24 @@
 ## Key Methods
 
 ### HasSameContentWith
-```csharp
-public override bool HasSameContentWith(MultiplayerLocalData other)
-```
+`public override bool HasSameContentWith(MultiplayerLocalData other)`
+
+**Purpose:** Checks whether the current object has/contains `same content with`.
 
 ### AddOrUpdatePlayer
-```csharp
-public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)
-```
+`public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)`
+
+**Purpose:** Adds `or update player` to the current collection or state.
 
 ### TryUpdatePlayerStats
-```csharp
-public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)
-```
+`public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)`
+
+**Purpose:** Attempts to get `update player stats`, usually returning the result in an out parameter.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MatchHistoryData (Data)
-new MatchHistoryData { /* fill fields */ };;
+var value = new MatchHistoryData();
 ```
 
 ## See Also

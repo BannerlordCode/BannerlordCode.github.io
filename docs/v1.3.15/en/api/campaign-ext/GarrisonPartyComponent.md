@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GarrisonPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GarrisonPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`GarrisonPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<GarrisonPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`GarrisonPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `GarrisonPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,40 +35,39 @@
 ## Key Methods
 
 ### CreateGarrisonParty
-```csharp
-public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)
-```
+`public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)`
+
+**Purpose:** Creates a new `garrison party` instance or object.
 
 ### ConvertPartyToGarrisonParty
-```csharp
-public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)
-```
+`public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)`
+
+**Purpose:** Handles logic related to `convert party to garrison party`.
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### SetWagePaymentLimit
-```csharp
-public override void SetWagePaymentLimit(int newLimit)
-```
+`public override void SetWagePaymentLimit(int newLimit)`
+
+**Purpose:** Sets the value or state of `wage payment limit`.
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### InitializeGarrisonPartyProperties
-```csharp
-public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)
-```
+`public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)`
+
+**Purpose:** Initializes the state, resources, or bindings for `garrison party properties`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GarrisonPartyComponent (Component)
-agent.GetComponent<GarrisonPartyComponent>();
+var component = agent.GetComponent<GarrisonPartyComponent>();
 ```
 
 ## See Also

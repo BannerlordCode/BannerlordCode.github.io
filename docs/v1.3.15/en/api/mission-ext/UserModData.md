@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `UserModData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UserModData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`UserModData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`UserModData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `UserModData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,15 +32,14 @@
 ## Key Methods
 
 ### IsUpdatedToBeDefault
-```csharp
-public bool IsUpdatedToBeDefault(ModuleInfo module)
-```
+`public bool IsUpdatedToBeDefault(ModuleInfo module)`
+
+**Purpose:** Handles logic related to `is updated to be default`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of UserModData (Data)
-new UserModData { /* fill fields */ };;
+var value = new UserModData();
 ```
 
 ## See Also

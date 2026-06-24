@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SiegeWeaponMovementComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeWeaponMovementComponent
@@ -14,104 +15,109 @@
 
 ## 概述
 
-`SiegeWeaponMovementComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<SiegeWeaponMovementComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`SiegeWeaponMovementComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `SiegeWeaponMovementComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `HasApproachedTarget` | `public bool HasApproachedTarget { get { return !this._pathTracker.PathExists() || this._pathTracker.PathTraveledPercentage > 0.7f; }` |
-| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get { return !this._pathTracker.PathExists() || this._pathTracker.HasReachedEnd; }` |
+| `HasApproachedTarget` | `public bool HasApproachedTarget { get; }` |
+| `Velocity` | `public Vec3 Velocity { get; }` |
+| `HasArrivedAtTarget` | `public bool HasArrivedAtTarget { get; }` |
+| `CurrentSpeed` | `public float CurrentSpeed { get; }` |
 | `MovementSoundCodeID` | `public int MovementSoundCodeID { get; set; }` |
 | `MinSpeed` | `public float MinSpeed { get; set; }` |
 | `MaxSpeed` | `public float MaxSpeed { get; set; }` |
 | `PathEntityName` | `public string PathEntityName { get; set; }` |
 | `GhostEntitySpeedMultiplier` | `public float GhostEntitySpeedMultiplier { get; set; }` |
-| `WheelDiameter` | `public float WheelDiameter { set { this._wheelDiameter = value; this._wheelCircumference = this._wheelDiameter * 3.1415927f; }` |
+| `WheelDiameter` | `public float WheelDiameter { get; set; }` |
 | `MainObject` | `public SynchedMissionObject MainObject { get; set; }` |
 
 ## 主要方法
 
 ### HighlightPath
-```csharp
-public void HighlightPath()
-```
+`public void HighlightPath()`
+
+**用途 / Purpose:** 处理 `highlight path` 相关逻辑。
 
 ### SetupGhostEntity
-```csharp
-public void SetupGhostEntity()
-```
+`public void SetupGhostEntity()`
+
+**用途 / Purpose:** 设置 `up ghost entity` 的值或状态。
 
 ### SetGhostVisibility
-```csharp
-public void SetGhostVisibility(bool isVisible)
-```
+`public void SetGhostVisibility(bool isVisible)`
+
+**用途 / Purpose:** 设置 `ghost visibility` 的值或状态。
 
 ### OnEditorInit
-```csharp
-public void OnEditorInit()
-```
+`public void OnEditorInit()`
+
+**用途 / Purpose:** 当 `editor init` 事件触发时调用此方法。
 
 ### SetDistanceTraveledAsClient
-```csharp
-public void SetDistanceTraveledAsClient(float distance)
-```
+`public void SetDistanceTraveledAsClient(float distance)`
+
+**用途 / Purpose:** 设置 `distance traveled as client` 的值或状态。
 
 ### IsOnTickRequired
-```csharp
-public override bool IsOnTickRequired()
-```
+`public override bool IsOnTickRequired()`
+
+**用途 / Purpose:** 处理 `is on tick required` 相关逻辑。
 
 ### TickParallelManually
-```csharp
-public void TickParallelManually(float dt)
-```
+`public void TickParallelManually(float dt)`
+
+**用途 / Purpose:** 处理 `tick parallel manually` 相关逻辑。
 
 ### GetInitialFrame
-```csharp
-public MatrixFrame GetInitialFrame()
-```
+`public MatrixFrame GetInitialFrame()`
+
+**用途 / Purpose:** 获取 `initial frame` 的当前值。
 
 ### GetTargetFrame
-```csharp
-public MatrixFrame GetTargetFrame()
-```
+`public MatrixFrame GetTargetFrame()`
+
+**用途 / Purpose:** 获取 `target frame` 的当前值。
 
 ### SetDestinationNavMeshIdState
-```csharp
-public void SetDestinationNavMeshIdState(bool enabled)
-```
+`public void SetDestinationNavMeshIdState(bool enabled)`
+
+**用途 / Purpose:** 设置 `destination nav mesh id state` 的值或状态。
 
 ### MoveToTargetAsClient
-```csharp
-public void MoveToTargetAsClient()
-```
+`public void MoveToTargetAsClient()`
+
+**用途 / Purpose:** 处理 `move to target as client` 相关逻辑。
 
 ### GetTotalDistanceTraveledForPathTracker
-```csharp
-public float GetTotalDistanceTraveledForPathTracker()
-```
+`public float GetTotalDistanceTraveledForPathTracker()`
+
+**用途 / Purpose:** 获取 `total distance traveled for path tracker` 的当前值。
 
 ### SetTotalDistanceTraveledForPathTracker
-```csharp
-public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)
-```
+`public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)`
+
+**用途 / Purpose:** 设置 `total distance traveled for path tracker` 的值或状态。
 
 ### SetTargetFrameForPathTracker
-```csharp
-public void SetTargetFrameForPathTracker()
-```
+`public void SetTargetFrameForPathTracker()`
+
+**用途 / Purpose:** 设置 `target frame for path tracker` 的值或状态。
 
 ### FindGroundFrameForWheelsStatic
-```csharp
-public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)
-```
+`public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)`
+
+**用途 / Purpose:** 处理 `find ground frame for wheels static` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// SiegeWeaponMovementComponent (Component) 的典型用法
-agent.GetComponent<SiegeWeaponMovementComponent>();
+var component = agent.GetComponent<SiegeWeaponMovementComponent>();
 ```
 
 ## 参见

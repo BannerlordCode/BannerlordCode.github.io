@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `SellLog`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SellLog
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** struct
-**Area:** Campaign System
+**Type:** `public struct SellLog`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `SellLog` is a struct in the `TaleWorlds.CampaignSystem.Settlements` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SellLog` lives in `TaleWorlds.CampaignSystem.Settlements`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,109 +45,99 @@
 | `TradeBoundVillages` | `public MBReadOnlyList<Village> TradeBoundVillages { get; }` |
 | `Workshops` | `public Workshop Workshops { get; set; }` |
 
-
 ## Key Methods
 
 ### GetDefenderParties
+`public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-```csharp
-public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)
-```
+**Purpose:** Gets the current value of `defender parties`.
 
 ### GetNextDefenderParty
+`public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-```csharp
-public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)
-```
+**Purpose:** Gets the current value of `next defender party`.
 
 ### FoodStocksUpperLimit
+`public int FoodStocksUpperLimit()`
 
-```csharp
-public int FoodStocksUpperLimit()
-```
+**Purpose:** Handles logic related to `food stocks upper limit`.
 
 ### OnInit
+`public override void OnInit()`
 
-```csharp
-public override void OnInit()
-```
+**Purpose:** Called when the `init` event is raised.
 
 ### OnSessionStart
+`public override void OnSessionStart()`
 
-```csharp
-public override void OnSessionStart()
-```
+**Purpose:** Called when the `session start` event is raised.
 
 ### InitializeWorkshops
+`public void InitializeWorkshops(int count)`
 
-```csharp
-public void InitializeWorkshops(int count)
-```
+**Purpose:** Initializes the state, resources, or bindings for `workshops`.
 
 ### AddEffectOfBuildings
+`public void AddEffectOfBuildings(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
-```csharp
-public void AddEffectOfBuildings(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)
-```
+**Purpose:** Adds `effect of buildings` to the current collection or state.
 
 ### GetWallLevel
+`public int GetWallLevel()`
 
-```csharp
-public int GetWallLevel()
-```
+**Purpose:** Gets the current value of `wall level`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+**Purpose:** Handles logic related to `deserialize`.
 
 ### SetSoldItems
+`public void SetSoldItems(IEnumerable<Town.SellLog> logList)`
 
-```csharp
-public void SetSoldItems(IEnumerable<Town.SellLog> logList)
-```
-
-### GetItemPrice
-
-```csharp
-public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)
-```
+**Purpose:** Sets the value or state of `sold items`.
 
 ### GetItemPrice
+`public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-```csharp
-public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)
-```
+**Purpose:** Gets the current value of `item price`.
+
+### GetItemPrice
+`public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
+
+**Purpose:** Gets the current value of `item price`.
 
 ### GetProsperityLevel
+`public override SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-```csharp
-public override SettlementComponent.ProsperityLevel GetProsperityLevel()
-```
+**Purpose:** Gets the current value of `prosperity level`.
 
 ### GetItemCategoryPriceIndex
+`public float GetItemCategoryPriceIndex(ItemCategory itemCategory)`
 
-```csharp
-public float GetItemCategoryPriceIndex(ItemCategory itemCategory)
-```
+**Purpose:** Gets the current value of `item category price index`.
 
 ### GetNeighborFortifications
+`public MBReadOnlyList<Settlement> GetNeighborFortifications(MobileParty.NavigationType navigationType)`
 
-```csharp
-public MBReadOnlyList<Settlement> GetNeighborFortifications(MobileParty.NavigationType navigationType)
-```
+**Purpose:** Gets the current value of `neighbor fortifications`.
 
 ### AutoGeneratedStaticCollectObjectsSellLog
+`public static void AutoGeneratedStaticCollectObjectsSellLog(object o, List<object> collectedObjects)`
+
+**Purpose:** Handles logic related to `auto generated static collect objects sell log`.
+
+## Usage Example
 
 ```csharp
-public static void AutoGeneratedStaticCollectObjectsSellLog(object o, List<object> collectedObjects)
+// First obtain a SellLog instance from game state, then call one of its public methods
+var value = new SellLog();
+value.GetDefenderParties(battleType);
 ```
 
 ## See Also

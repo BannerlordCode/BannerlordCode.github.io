@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ChatLogWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ChatLogWidget
@@ -15,6 +16,10 @@
 ## 概述
 
 `ChatLogWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 心智模型
+
+把 `ChatLogWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -37,21 +42,19 @@
 ## 主要方法
 
 ### RegisterMultiLineElement
-```csharp
-public void RegisterMultiLineElement(ChatCollapsableListPanel element)
-```
+`public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
+
+**用途 / Purpose:** 处理 `register multi line element` 相关逻辑。
 
 ### RemoveMultiLineElement
-```csharp
-public void RemoveMultiLineElement(ChatCollapsableListPanel element)
-```
+`public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `multi line element`。
 
 ## 使用示例
 
 ```csharp
-// ChatLogWidget (Widget) 的典型用法
-// 声明/访问一个 ChatLogWidget
-var widget = root.GetChild("chatLogWidget");;
+var widget = new ChatLogWidget(context);
 ```
 
 ## 参见

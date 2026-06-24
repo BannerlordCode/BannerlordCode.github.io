@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderSiegeMachineVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OrderSiegeMachineVM : OrderSubjectVM`
+**Base:** `OrderSubjectVM`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/OrderSiegeMachineVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderSiegeMachineVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Order` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderSiegeMachineVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Order` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,22 +33,25 @@
 | `IsInside` | `public bool IsInside { get; set; }` |
 | `Position` | `public Vec2 Position { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshSiegeWeapon
+`public void RefreshSiegeWeapon()`
 
-```csharp
-public void RefreshSiegeWeapon()
-```
+**Purpose:** Refreshes the display or cache of `siege weapon`.
 
 ### GetSiegeType
+`public static SiegeEngineType GetSiegeType(Type t, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `siege type`.
+
+## Usage Example
 
 ```csharp
-public static SiegeEngineType GetSiegeType(Type t, BattleSideEnum side)
+var value = new OrderSiegeMachineVM();
+value.RefreshSiegeWeapon();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

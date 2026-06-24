@@ -2,165 +2,226 @@
 **Home** → **API Index** → **Area** → `PartyBase`
 - [← Area / Back to campaign](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyBase
 
-**Namespace**: TaleWorlds.CampaignSystem.Party  
-**File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/PartyBase.cs`  
-**Purpose**: Base class for all parties (both mobile and static settlements)
+**Namespace:** TaleWorlds.CampaignSystem.Party
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`
+**Base:** `IBattleCombatant`
+**File:** `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 
-## Developer Use Cases
+## Overview
 
-### Use Case 1: Distinguish MobileParty vs Settlement
+`PartyBase` lives in `TaleWorlds.CampaignSystem.Party` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-**Scenario**: Handle an object that may be either a `MobileParty` or a `Settlement` behind the same interface.
+## Mental Model
 
-```csharp
-PartyBase p = someParty;
-if (p.IsMobile)
-{
-    MobileParty mobile = p.MobileParty;
-}
-else if (p.IsSettlement)
-{
-    Settlement set = p.Settlement;
-}
-```
-
-**Key points**: `IsMobile` / `IsSettlement` are mutually exclusive but neither guarantees non-null; always pair the check with the `MobileParty` or `Settlement` property.
-
-### Use Case 2: Get the party position on the map
-
-**Scenario**: Read party coordinates inside a campaign behavior for distance checks.
-
-```csharp
-CampaignVec2 pos = party.Position;
-```
-
-**Key points**: `Position` is `CampaignVec2` (map coordinates, not 3D world coordinates); settlements also expose this property with their map location.
-
-### Use Case 3: Add members or prisoners
-
-**Scenario**: After recruiting or capturing, modify the party rosters.
-
-```csharp
-CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
-party.AddMember(troop, 10);
-party.AddPrisoner(capturedTroop, 5);
-```
-
-**Key points**: `AddMember` / `AddPrisoner` directly mutate `MemberRoster` / `PrisonRoster`; for bulk operations use `AddMembers(TroopRoster)` to reduce recalculation.
-
-### Use Case 4: Set a custom party name
-
-**Scenario**: Show a temporary name on the player or a custom party.
-
-```csharp
-party.SetCustomName(new TextObject("{=my_party}My Raiders"));
-```
-
-**Key points**: `SetCustomName` overrides the default name; pass `null` to clear and revert to default. `TextObject` supports the `{=id}` localization format.
+Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `Settlement` | `Settlement` | The settlement this party is attached to (if any) |
-| `MobileParty` | `MobileParty` | The mobile party this party is attached to (if any) |
-| `MemberRoster` | `TroopRoster` | Troops in this party |
-| `PrisonRoster` | `TroopRoster` | Prisoners in this party |
-| `ItemRoster` | `ItemRoster` | Items/goods carried by this party |
-| `Position` | `CampaignVec2` | Current position on the map |
-| `IsSettlement` | `bool` | True if this party is a settlement |
-| `IsMobile` | `bool` | True if this party is a mobile party |
-| `IsActive` | `bool` | Whether the party is active |
-| `IsVisible` | `bool` | Whether the party is visible on the map |
-| `Owner` | `Hero` | Owner of this party |
-| `LeaderHero` | `Hero` | Leader hero of the party |
-| `MapFaction` | `IFaction` | The faction this party belongs to |
-| `Culture` | `CultureObject` | Culture of the party |
-| `Banner` | `Banner` | Banner of the party |
-| `CustomName` | `TextObject` | Custom name set for the party |
-| `CustomBanner` | `Banner` | Custom banner for the party |
-| `MapEvent` | `MapEvent` | Current map event (battle/raid) |
-| `Side` | `BattleSideEnum` | Battle side (Attacker/Defender/None) |
-| `PartySizeLimit` | `int` | Maximum party size |
-| `PrisonerSizeLimit` | `int` | Maximum prisoner capacity |
-| `NumberOfHealthyMembers` | `int` | Count of healthy troops |
-| `NumberOfAllMembers` | `int` | Total count of all troops |
-| `NumberOfPrisoners` | `int` | Total count of prisoners |
-| `NumberOfMenWithHorse` | `int` | Mounted troop count |
-| `EstimatedStrength` | `float` | Estimated military strength |
-| `IsStarving` | `bool` | Whether party is starving |
-| `DaysStarving` | `float` | Days since last food consumption |
-| `Ships` | `MBReadOnlyList` | Ships belonging to this party |
-| `FlagShip` | `Ship` | The flagship of naval parties |
-| `MainParty` | `static PartyBase` | The player's main party |
+| Name | Signature |
+|------|-----------|
+| `Position` | `public CampaignVec2 Position { get; }` |
+| `IsVisible` | `public bool IsVisible { get; }` |
+| `IsActive` | `public bool IsActive { get; }` |
+| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; }` |
+| `Settlement` | `public Settlement Settlement { get; }` |
+| `MobileParty` | `public MobileParty MobileParty { get; }` |
+| `IsSettlement` | `public bool IsSettlement { get; }` |
+| `IsMobile` | `public bool IsMobile { get; }` |
+| `MemberRoster` | `public TroopRoster MemberRoster { get; }` |
+| `PrisonRoster` | `public TroopRoster PrisonRoster { get; }` |
+| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
+| `Name` | `public TextObject Name { get; }` |
+| `DaysStarving` | `public float DaysStarving { get; }` |
+| `RemainingFoodPercentage` | `public int RemainingFoodPercentage { get; set; }` |
+| `IsStarving` | `public bool IsStarving { get; }` |
+| `Id` | `public string Id { get; }` |
+| `HealingRateForMemberRegulars` | `public float HealingRateForMemberRegulars { get; }` |
+| `HealingRateForMemberRegularsExplained` | `public ExplainedNumber HealingRateForMemberRegularsExplained { get; }` |
+| `HealingRateForMemberHeroes` | `public float HealingRateForMemberHeroes { get; }` |
+| `HealingRateForMemberHeroesExplained` | `public ExplainedNumber HealingRateForMemberHeroesExplained { get; }` |
+| `Owner` | `public Hero Owner { get; }` |
+| `LeaderHero` | `public Hero LeaderHero { get; }` |
+| `MainParty` | `public static PartyBase MainParty { get; }` |
+| `LevelMaskIsDirty` | `public bool LevelMaskIsDirty { get; }` |
+| `Index` | `public int Index { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `MapFaction` | `public IFaction MapFaction { get; }` |
+| `RandomValue` | `public int RandomValue { get; }` |
+| `Culture` | `public CultureObject Culture { get; }` |
+| `PrimaryColorPair` | `public Tuple<uint, uint> PrimaryColorPair { get; }` |
+| `CustomName` | `public TextObject CustomName { get; }` |
+| `CustomBanner` | `public Banner CustomBanner { get; }` |
+| `Banner` | `public Banner Banner { get; }` |
+| `MapEvent` | `public MapEvent MapEvent { get; }` |
+| `MapEventSide` | `public MapEventSide MapEventSide { get; set; }` |
+| `Side` | `public BattleSideEnum Side { get; }` |
+| `OpponentSide` | `public BattleSideEnum OpponentSide { get; }` |
+| `PartySizeLimit` | `public int PartySizeLimit { get; }` |
+| `PrisonerSizeLimit` | `public int PrisonerSizeLimit { get; }` |
+| `PartySizeLimitExplainer` | `public ExplainedNumber PartySizeLimitExplainer { get; }` |
+| `PrisonerSizeLimitExplainer` | `public ExplainedNumber PrisonerSizeLimitExplainer { get; }` |
+| `NumberOfHealthyMembers` | `public int NumberOfHealthyMembers { get; }` |
+| `NumberOfRegularMembers` | `public int NumberOfRegularMembers { get; }` |
+| `NumberOfWoundedTotalMembers` | `public int NumberOfWoundedTotalMembers { get; }` |
+| `NumberOfAllMembers` | `public int NumberOfAllMembers { get; }` |
+| `NumberOfPrisoners` | `public int NumberOfPrisoners { get; }` |
+| `NumberOfMounts` | `public int NumberOfMounts { get; }` |
+| `NumberOfPackAnimals` | `public int NumberOfPackAnimals { get; }` |
+| `PrisonerHeroes` | `public IEnumerable<CharacterObject> PrisonerHeroes { get; }` |
+| `NumberOfMenWithHorse` | `public int NumberOfMenWithHorse { get; }` |
+| `NumberOfMenWithoutHorse` | `public int NumberOfMenWithoutHorse { get; }` |
+| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
+| `Ships` | `public MBReadOnlyList<Ship> Ships { get; }` |
+| `FlagShip` | `public Ship FlagShip { get; }` |
+| `BasicCulture` | `public BasicCultureObject BasicCulture { get; }` |
+| `General` | `public BasicCharacterObject General { get; }` |
+| `IsVisualDirty` | `public bool IsVisualDirty { get; }` |
 
 ## Key Methods
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `AddMember` | `int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)` | Add troops to party |
-| `AddPrisoner` | `int AddPrisoner(CharacterObject element, int numberToAdd)` | Add prisoners |
-| `AddMembers` | `void AddMembers(TroopRoster roster)` | Add multiple troops |
-| `AddPrisoners` | `void AddPrisoners(TroopRoster roster)` | Add multiple prisoners |
-| `WoundMemberRosterElements` | `void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)` | Wound troops |
-| `SetCustomName` | `void SetCustomName(TextObject name)` | Set party custom name |
-| `SetCustomBanner` | `void SetCustomBanner(Banner banner)` | Set party custom banner |
-| `SetCustomOwner` | `void SetCustomOwner(Hero customOwner)` | Set party owner |
-| `SetAsCameraFollowParty` | `void SetAsCameraFollowParty()` | Make this the camera-follow party |
-| `UpdateVisibilityAndInspected` | `void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)` | Update visibility |
-| `OnConsumedFood` | `void OnConsumedFood()` | Called when food is consumed |
-| `GetNumberOfHealthyMenOfTier` | `int GetNumberOfHealthyMenOfTier(int tier)` | Get healthy troops by tier |
-| `GetNumberOfMenWith` | `int GetNumberOfMenWith(TraitObject trait)` | Get troops with specific trait |
-| `CalculateCurrentStrength` | `float CalculateCurrentStrength()` | Calculate actual strength |
-| `GetCustomStrength` | `float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)` | Get custom strength calculation |
+### OnVisibilityChanged
+`public void OnVisibilityChanged(bool value)`
+
+**Purpose:** Called when the `visibility changed` event is raised.
+
+### OnConsumedFood
+`public void OnConsumedFood()`
+
+**Purpose:** Called when the `consumed food` event is raised.
+
+### SetCustomOwner
+`public void SetCustomOwner(Hero customOwner)`
+
+**Purpose:** Sets the value or state of `custom owner`.
+
+### IsPartyUnderPlayerCommand
+`public static bool IsPartyUnderPlayerCommand(PartyBase party)`
+
+**Purpose:** Handles logic related to `is party under player command`.
+
+### SetLevelMaskIsDirty
+`public void SetLevelMaskIsDirty()`
+
+**Purpose:** Sets the value or state of `level mask is dirty`.
+
+### OnLevelMaskUpdated
+`public void OnLevelMaskUpdated()`
+
+**Purpose:** Called when the `level mask updated` event is raised.
+
+### SetCustomName
+`public void SetCustomName(TextObject name)`
+
+**Purpose:** Sets the value or state of `custom name`.
+
+### SetCustomBanner
+`public void SetCustomBanner(Banner banner)`
+
+**Purpose:** Sets the value or state of `custom banner`.
+
+### GetNumberOfHealthyMenOfTier
+`public int GetNumberOfHealthyMenOfTier(int tier)`
+
+**Purpose:** Gets the current value of `number of healthy men of tier`.
+
+### CalculateCurrentStrength
+`public float CalculateCurrentStrength()`
+
+**Purpose:** Handles logic related to `calculate current strength`.
+
+### GetCustomStrength
+`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
+
+**Purpose:** Gets the current value of `custom strength`.
+
+### GetShipsVersion
+`public int GetShipsVersion()`
+
+**Purpose:** Gets the current value of `ships version`.
+
+### GetNumberOfMenWith
+`public int GetNumberOfMenWith(TraitObject trait)`
+
+**Purpose:** Gets the current value of `number of men with`.
+
+### AddPrisoner
+`public int AddPrisoner(CharacterObject element, int numberToAdd)`
+
+**Purpose:** Adds `prisoner` to the current collection or state.
+
+### AddMember
+`public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)`
+
+**Purpose:** Adds `member` to the current collection or state.
+
+### AddPrisoners
+`public void AddPrisoners(TroopRoster roster)`
+
+**Purpose:** Adds `prisoners` to the current collection or state.
+
+### AddMembers
+`public void AddMembers(TroopRoster roster)`
+
+**Purpose:** Adds `members` to the current collection or state.
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+### AddElementToMemberRoster
+`public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
+
+**Purpose:** Adds `element to member roster` to the current collection or state.
+
+### AddToMemberRosterElementAtIndex
+`public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)`
+
+**Purpose:** Adds `to member roster element at index` to the current collection or state.
+
+### WoundMemberRosterElements
+`public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
+
+**Purpose:** Handles logic related to `wound member roster elements`.
+
+### WoundMemberRosterElementsWithIndex
+`public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
+
+**Purpose:** Handles logic related to `wound member roster elements with index`.
+
+### UpdateVisibilityAndInspected
+`public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)`
+
+**Purpose:** Updates the state or data of `visibility and inspected`.
+
+### SetAsCameraFollowParty
+`public void SetAsCameraFollowParty()`
+
+**Purpose:** Sets the value or state of `as camera follow party`.
+
+### SetVisualAsDirty
+`public void SetVisualAsDirty()`
+
+**Purpose:** Sets the value or state of `visual as dirty`.
+
+### OnVisualsUpdated
+`public void OnVisualsUpdated()`
+
+**Purpose:** Called when the `visuals updated` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Access main party
-PartyBase mainParty = PartyBase.MainParty;
-
-// Check party properties
-if (mainParty.IsMobile)
-{
-    MobileParty mobile = mainParty.MobileParty;
-    Debug.Print("Party Position: " + mobile.Position);
-}
-
-// Add troops to party
-CharacterObject militiaType = Campaign.Current.ObjectManager.GetObject<CharacterObject>("town_militia");
-mainParty.AddMember(militiaType, 10, 0);
-
-// Check prisoner count
-int prisoners = mainParty.NumberOfPrisoners;
-
-// Get party strength
-float strength = mainParty.EstimatedStrength;
-
-// Set custom name
-TextObject customName = new TextObject("My Custom Party");
-mainParty.SetCustomName(customName);
-
-// Check if starving
-if (mainParty.IsStarving)
-{
-    Debug.Print("Party has been starving for " + mainParty.DaysStarving + " days");
-}
+var value = new PartyBase();
+value.OnVisibilityChanged(false);
 ```
 
-## Inheritance
+## See Also
 
-```
-MBObjectBase
-    └── PartyBase (sealed)
-```
-
-## Implemented Interfaces
-
-- `IBattleCombatant` - Battle participation
-- `IRandomOwner` - Random value generation
-- `IInteractablePoint` - Map interaction
+- [Complete Class Catalog](../catalog)

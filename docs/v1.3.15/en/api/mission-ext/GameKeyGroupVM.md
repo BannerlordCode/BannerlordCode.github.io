@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameKeyGroupVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameKeyGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GameKeyGroupVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/GameKeys/GameKeyGroupVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameKeyGroupVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameKeyGroupVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,40 +28,40 @@
 | `GameKeys` | `public MBBindingList<GameKeyOptionVM> GameKeys { get; set; }` |
 | `Description` | `public string Description { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnDone
+`public void OnDone()`
 
-```csharp
-public void OnDone()
-```
+**Purpose:** Called when the `done` event is raised.
 
 ### OnGamepadActiveStateChanged
+`public void OnGamepadActiveStateChanged()`
 
-```csharp
-public void OnGamepadActiveStateChanged()
-```
+**Purpose:** Called when the `gamepad active state changed` event is raised.
 
 ### Cancel
+`public void Cancel()`
 
-```csharp
-public void Cancel()
-```
+**Purpose:** Checks whether the current object can `cel`.
 
 ### ApplyValues
+`public void ApplyValues()`
+
+**Purpose:** Applies `values` to the current object.
+
+## Usage Example
 
 ```csharp
-public void ApplyValues()
+var value = new GameKeyGroupVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

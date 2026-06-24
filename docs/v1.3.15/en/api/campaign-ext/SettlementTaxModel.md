@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementTaxModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementTaxModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SettlementTaxModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementTaxModel>(new MySettlementTaxModel())` to change how it computes.
+`SettlementTaxModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementTaxModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,35 +33,34 @@
 ## Key Methods
 
 ### GetTownTaxRatio
-```csharp
-public abstract float GetTownTaxRatio(Town town)
-```
+`public abstract float GetTownTaxRatio(Town town)`
+
+**Purpose:** Gets the current value of `town tax ratio`.
 
 ### GetVillageTaxRatio
-```csharp
-public abstract float GetVillageTaxRatio(Village village)
-```
+`public abstract float GetVillageTaxRatio(Village village)`
+
+**Purpose:** Gets the current value of `village tax ratio`.
 
 ### GetTownCommissionChangeBasedOnSecurity
-```csharp
-public abstract float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)
-```
+`public abstract float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
+
+**Purpose:** Gets the current value of `town commission change based on security`.
 
 ### CalculateTownTax
-```csharp
-public abstract ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate town tax`.
 
 ### CalculateVillageTaxFromIncome
-```csharp
-public abstract int CalculateVillageTaxFromIncome(Village village, int marketIncome)
-```
+`public abstract int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
+
+**Purpose:** Handles logic related to `calculate village tax from income`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementTaxModel (Model)
-Game.Current.ReplaceModel<SettlementTaxModel>(new MySettlementTaxModel());
+var implementation = new CustomSettlementTaxModel();
 ```
 
 ## See Also

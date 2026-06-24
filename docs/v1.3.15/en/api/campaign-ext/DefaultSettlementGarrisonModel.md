@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementGarrisonModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementGarrisonModel
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`DefaultSettlementGarrisonModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementGarrisonModel>(new MyDefaultSettlementGarrisonModel())` to change how it computes.
+`DefaultSettlementGarrisonModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementGarrisonModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMaximumDailyAutoRecruitmentCount
-```csharp
-public override int GetMaximumDailyAutoRecruitmentCount(Town town)
-```
+`public override int GetMaximumDailyAutoRecruitmentCount(Town town)`
+
+**Purpose:** Gets the current value of `maximum daily auto recruitment count`.
 
 ### CalculateBaseGarrisonChange
-```csharp
-public override ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate base garrison change`.
 
 ### FindNumberOfTroopsToTakeFromGarrison
-```csharp
-public override int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float defaultIdealGarrisonStrengthPerWalledCenter = 0f)
-```
+`public override int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float defaultIdealGarrisonStrengthPerWalledCenter = 0f)`
+
+**Purpose:** Handles logic related to `find number of troops to take from garrison`.
 
 ### FindNumberOfTroopsToLeaveToGarrison
-```csharp
-public override int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)
-```
+`public override int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
+
+**Purpose:** Handles logic related to `find number of troops to leave to garrison`.
 
 ### GetMaximumDailyRepairAmount
-```csharp
-public override float GetMaximumDailyRepairAmount(Settlement settlement)
-```
+`public override float GetMaximumDailyRepairAmount(Settlement settlement)`
+
+**Purpose:** Gets the current value of `maximum daily repair amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementGarrisonModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementGarrisonModel>(new MyDefaultSettlementGarrisonModel());
 ```
 

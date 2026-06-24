@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Segment`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Segment
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Segment : PsaiMusicEntity, ICloneable`
+**Base:** `PsaiMusicEntity`
+**File:** `TaleWorlds.PSAI/Editor/Segment.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Segment` is a class in the `psai.Editor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Segment` lives in `psai.Editor` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `psai.Editor` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,155 @@
 | `Serialization_ManuallyBlockedSegmentIds` | `public List<int> Serialization_ManuallyBlockedSegmentIds { get; set; }` |
 | `Serialization_ManuallyLinkedSegmentIds` | `public List<int> Serialization_ManuallyLinkedSegmentIds { get; set; }` |
 | `DefaultCompatibiltyAsFollower` | `public CompatibilityType DefaultCompatibiltyAsFollower { get; set; }` |
-
+| `Group` | `public Group Group { get; set; }` |
+| `ManuallyLinkedSnippets` | `public HashSet<Segment> ManuallyLinkedSnippets { get; set; }` |
+| `ManuallyBlockedSnippets` | `public HashSet<Segment> ManuallyBlockedSnippets { get; set; }` |
+| `CompatibleSnippetsIds` | `public Dictionary<int, float> CompatibleSnippetsIds { get; }` |
 
 ## Key Methods
 
 ### GetChildren
+`public override List<PsaiMusicEntity> GetChildren()`
 
-```csharp
-public override List<PsaiMusicEntity> GetChildren()
-```
+**Purpose:** Gets the current value of `children`.
 
 ### GetClassString
+`public override string GetClassString()`
 
-```csharp
-public override string GetClassString()
-```
+**Purpose:** Gets the current value of `class string`.
 
 ### Clone
+`public override object Clone()`
 
-```csharp
-public override object Clone()
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### AddCompatibleSnippet
+`public bool AddCompatibleSnippet(Segment snippet, float compatibility)`
 
-```csharp
-public bool AddCompatibleSnippet(Segment snippet, float compatibility)
-```
+**Purpose:** Adds `compatible snippet` to the current collection or state.
 
 ### PropertyDifferencesAffectCompatibilities
+`public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-```csharp
-public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)
-```
+**Purpose:** Handles logic related to `property differences affect compatibilities`.
 
 ### BuildCompatibleSegmentsSet
+`public void BuildCompatibleSegmentsSet(PsaiProject project)`
 
-```csharp
-public void BuildCompatibleSegmentsSet(PsaiProject project)
-```
+**Purpose:** Handles logic related to `build compatible segments set`.
 
 ### SetStartMiddleEndPropertiesFromBitfield
+`public void SetStartMiddleEndPropertiesFromBitfield(int bitfield)`
 
-```csharp
-public void SetStartMiddleEndPropertiesFromBitfield(int bitfield)
-```
+**Purpose:** Sets the value or state of `start middle end properties from bitfield`.
 
 ### CreateSegmentSuitabilityBitfield
+`public int CreateSegmentSuitabilityBitfield(PsaiProject parentProject)`
 
-```csharp
-public int CreateSegmentSuitabilityBitfield(PsaiProject parentProject)
-```
+**Purpose:** Creates a new `segment suitability bitfield` instance or object.
 
 ### CreatePsaiDotNetVersion
+`public Segment CreatePsaiDotNetVersion(PsaiProject parentProject)`
 
-```csharp
-public Segment CreatePsaiDotNetVersion(PsaiProject parentProject)
-```
+**Purpose:** Creates a new `psai dot net version` instance or object.
 
 ### HasOnlyStartSuitability
+`public bool HasOnlyStartSuitability()`
 
-```csharp
-public bool HasOnlyStartSuitability()
-```
+**Purpose:** Checks whether the current object has/contains `only start suitability`.
 
 ### HasOnlyMiddleSuitability
+`public bool HasOnlyMiddleSuitability()`
 
-```csharp
-public bool HasOnlyMiddleSuitability()
-```
+**Purpose:** Checks whether the current object has/contains `only middle suitability`.
 
 ### HasOnlyEndSuitability
+`public bool HasOnlyEndSuitability()`
 
-```csharp
-public bool HasOnlyEndSuitability()
-```
+**Purpose:** Checks whether the current object has/contains `only end suitability`.
 
 ### ReadOutSegmentSuitabilityFlag
+`public static bool ReadOutSegmentSuitabilityFlag(int bitfield, SegmentSuitability suitability)`
 
-```csharp
-public static bool ReadOutSegmentSuitabilityFlag(int bitfield, SegmentSuitability suitability)
-```
+**Purpose:** Handles logic related to `read out segment suitability flag`.
 
 ### SetSegmentSuitabilityFlag
+`public static void SetSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-```csharp
-public static void SetSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)
-```
+**Purpose:** Sets the value or state of `segment suitability flag`.
 
 ### ClearSegmentSuitabilityFlag
+`public static void ClearSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-```csharp
-public static void ClearSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)
-```
+**Purpose:** Handles logic related to `clear segment suitability flag`.
 
 ### IsBridgeSnippetToAnyGroup
+`public bool IsBridgeSnippetToAnyGroup(PsaiProject project)`
 
-```csharp
-public bool IsBridgeSnippetToAnyGroup(PsaiProject project)
-```
+**Purpose:** Handles logic related to `is bridge snippet to any group`.
 
 ### IsManualBridgeSnippetForAnyGroup
+`public bool IsManualBridgeSnippetForAnyGroup(PsaiProject project)`
 
-```csharp
-public bool IsManualBridgeSnippetForAnyGroup(PsaiProject project)
-```
+**Purpose:** Handles logic related to `is manual bridge snippet for any group`.
 
 ### IsManualBridgeSegmentForSourceGroup
+`public bool IsManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-```csharp
-public bool IsManualBridgeSegmentForSourceGroup(Group sourceGroup)
-```
+**Purpose:** Handles logic related to `is manual bridge segment for source group`.
 
 ### GetCompatibilitySetting
+`public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
+
+**Purpose:** Gets the current value of `compatibility setting`.
+
+### GetCompatibilityType
+`public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
+
+**Purpose:** Gets the current value of `compatibility type`.
+
+### GetParent
+`public override PsaiMusicEntity GetParent()`
+
+**Purpose:** Gets the current value of `parent`.
+
+### GetIndexPositionWithinParentEntity
+`public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
+
+**Purpose:** Gets the current value of `index position within parent entity`.
+
+### GetExampleSnippet1
+`public static Segment GetExampleSnippet1()`
+
+**Purpose:** Gets the current value of `example snippet1`.
+
+### GetExampleSnippet2
+`public static Segment GetExampleSnippet2()`
+
+**Purpose:** Gets the current value of `example snippet2`.
+
+### GetExampleSnippet3
+`public static Segment GetExampleSnippet3()`
+
+**Purpose:** Gets the current value of `example snippet3`.
+
+### GetExampleSnippet4
+`public static Segment GetExampleSnippet4()`
+
+**Purpose:** Gets the current value of `example snippet4`.
+
+## Usage Example
 
 ```csharp
-public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)
+var value = new Segment();
+value.GetChildren();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BarterItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BarterItemVM : EncyclopediaLinkVM`
+**Base:** `EncyclopediaLinkVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Barter/BarterItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BarterItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BarterItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,46 +39,45 @@
 | `IsItemTransferrable` | `public bool IsItemTransferrable { get; set; }` |
 | `IsOffered` | `public bool IsOffered { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshCompabilityWithItem
+`public void RefreshCompabilityWithItem(BarterItemVM item, bool isItemGotOffered)`
 
-```csharp
-public void RefreshCompabilityWithItem(BarterItemVM item, bool isItemGotOffered)
-```
+**Purpose:** Refreshes the display or cache of `compability with item`.
 
 ### ExecuteAddOffered
+`public void ExecuteAddOffered()`
 
-```csharp
-public void ExecuteAddOffered()
-```
+**Purpose:** Executes the `add offered` operation or workflow.
 
 ### ExecuteRemoveOffered
+`public void ExecuteRemoveOffered()`
 
-```csharp
-public void ExecuteRemoveOffered()
-```
+**Purpose:** Executes the `remove offered` operation or workflow.
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### BarterTransferEventDelegate
+`public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)`
+
+**Purpose:** Handles logic related to `barter transfer event delegate`.
+
+## Usage Example
 
 ```csharp
-public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)
+var value = new BarterItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

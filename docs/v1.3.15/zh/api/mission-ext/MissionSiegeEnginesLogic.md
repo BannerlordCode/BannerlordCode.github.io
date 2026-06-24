@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionSiegeEnginesLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionSiegeEnginesLogic
@@ -14,24 +15,27 @@
 
 ## 概述
 
-`MissionSiegeEnginesLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new MissionSiegeEnginesLogic())` 添加；继承它可定制。
+`MissionSiegeEnginesLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `MissionSiegeEnginesLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetSiegeWeaponsController
-```csharp
-public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)
-```
+`public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `siege weapons controller` 的当前值。
 
 ### GetMissionSiegeWeapons
-```csharp
-public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)
-```
+`public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)`
+
+**用途 / Purpose:** 获取 `mission siege weapons` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MissionSiegeEnginesLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new MissionSiegeEnginesLogic());
 ```
 

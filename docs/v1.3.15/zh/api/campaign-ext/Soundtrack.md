@@ -2,72 +2,74 @@
 **首页** → **API 目录** → **本领域** → `Soundtrack`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Soundtrack
 
-**命名空间:** psai.net
-**模块:** psai.net
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** psai.net
+**Module:** psai.net
+**Type:** `public class Soundtrack`
+**Base:** 无
+**File:** `TaleWorlds.PSAI/net/Soundtrack.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Soundtrack` 是 `psai.net` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`Soundtrack` 位于 `psai.net`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `psai.net` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
 
 ### Clear
+`public void Clear()`
 
-```csharp
-public void Clear()
-```
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
 
 ### getThemeById
+`public Theme getThemeById(int id)`
 
-```csharp
-public Theme getThemeById(int id)
-```
+**用途 / Purpose:** 处理 `get theme by id` 相关逻辑。
 
 ### GetSegmentById
+`public Segment GetSegmentById(int id)`
 
-```csharp
-public Segment GetSegmentById(int id)
-```
+**用途 / Purpose:** 获取 `segment by id` 的当前值。
 
 ### getSoundtrackInfo
+`public SoundtrackInfo getSoundtrackInfo()`
 
-```csharp
-public SoundtrackInfo getSoundtrackInfo()
-```
+**用途 / Purpose:** 处理 `get soundtrack info` 相关逻辑。
 
 ### getThemeInfo
+`public ThemeInfo getThemeInfo(int themeId)`
 
-```csharp
-public ThemeInfo getThemeInfo(int themeId)
-```
+**用途 / Purpose:** 处理 `get theme info` 相关逻辑。
 
 ### getSegmentInfo
+`public SegmentInfo getSegmentInfo(int snippetId)`
 
-```csharp
-public SegmentInfo getSegmentInfo(int snippetId)
-```
+**用途 / Purpose:** 处理 `get segment info` 相关逻辑。
 
 ### UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets
+`public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()`
 
-```csharp
-public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()
-```
+**用途 / Purpose:** 更新 `max pre beat ms of compatible middle or bridge snippets` 的状态或数据。
 
 ### BuildAllIndirectionSequences
+`public void BuildAllIndirectionSequences()`
+
+**用途 / Purpose:** 处理 `build all indirection sequences` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void BuildAllIndirectionSequences()
+var value = new Soundtrack();
+value.Clear();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

@@ -2,42 +2,49 @@
 **Home** → **API Index** → **Area** → `MissionGenericInteractionItemVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionGenericInteractionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionGenericInteractionItemVM : MissionInteractionItemBaseVM`
+**Base:** `MissionInteractionItemBaseVM`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Missions/Interaction/InteractionItems/MissionGenericInteractionItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionGenericInteractionItemVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionGenericInteractionItemVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### SetData
+`public void SetData(TextObject message, bool isDisabled = false)`
 
-```csharp
-public void SetData(TextObject message, bool isDisabled = false)
-```
+**Purpose:** Sets the value or state of `data`.
 
 ### ResetData
+`public void ResetData()`
+
+**Purpose:** Resets `data` to its initial state.
+
+## Usage Example
 
 ```csharp
-public void ResetData()
+var value = new MissionGenericInteractionItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

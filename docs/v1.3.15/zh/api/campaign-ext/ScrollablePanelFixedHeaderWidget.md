@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ScrollablePanelFixedHeaderWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScrollablePanelFixedHeaderWidget
@@ -16,6 +17,10 @@
 
 `ScrollablePanelFixedHeaderWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `ScrollablePanelFixedHeaderWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,17 +28,15 @@
 | `FixedHeader` | `public Widget FixedHeader { get; set; }` |
 | `TopOffset` | `public float TopOffset { get; set; }` |
 | `BottomOffset` | `public float BottomOffset { get; set; }` |
-| `HeaderHeight` | `public float HeaderHeight { get { return this._headerHeight; }` |
-| `AdditionalTopOffset` | `public float AdditionalTopOffset { get { return this._additionalTopOffset; }` |
-| `AdditionalBottomOffset` | `public float AdditionalBottomOffset { get { return this._additionalBottomOffset; }` |
-| `IsRelevant` | `public bool IsRelevant { get { return this._isRelevant; }` |
+| `HeaderHeight` | `public float HeaderHeight { get; set; }` |
+| `AdditionalTopOffset` | `public float AdditionalTopOffset { get; set; }` |
+| `AdditionalBottomOffset` | `public float AdditionalBottomOffset { get; set; }` |
+| `IsRelevant` | `public bool IsRelevant { get; set; }` |
 
 ## 使用示例
 
 ```csharp
-// ScrollablePanelFixedHeaderWidget (Widget) 的典型用法
-// 声明/访问一个 ScrollablePanelFixedHeaderWidget
-var widget = root.GetChild("scrollablePanelFixedHeaderWidget");;
+var widget = new ScrollablePanelFixedHeaderWidget(context);
 ```
 
 ## 参见

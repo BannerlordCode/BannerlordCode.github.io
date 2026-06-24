@@ -2,165 +2,226 @@
 **首页** → **API 目录** → **本领域** → `PartyBase`
 - [← 本领域 / 返回 campaign](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# PartyBase / 派对基类
+# PartyBase
 
-**Namespace**: TaleWorlds.CampaignSystem.Party  
-**File**: `bannerlord-1.3.15/TaleWorlds.CampaignSystem/Party/PartyBase.cs`  
-**Purpose**: Base class for all parties (both mobile and static settlements)
+**Namespace:** TaleWorlds.CampaignSystem.Party
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`
+**Base:** `IBattleCombatant`
+**File:** `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 
-## 开发用例 / Developer Use Cases
+## 概述
 
-### 用例 1: 区分移动队伍与定居点
+`PartyBase` 位于 `TaleWorlds.CampaignSystem.Party`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-**场景**: 处理同一接口下既可能是 `MobileParty` 也可能是 `Settlement` 的对象。
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Party` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Position` | `public CampaignVec2 Position { get; }` |
+| `IsVisible` | `public bool IsVisible { get; }` |
+| `IsActive` | `public bool IsActive { get; }` |
+| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; }` |
+| `Settlement` | `public Settlement Settlement { get; }` |
+| `MobileParty` | `public MobileParty MobileParty { get; }` |
+| `IsSettlement` | `public bool IsSettlement { get; }` |
+| `IsMobile` | `public bool IsMobile { get; }` |
+| `MemberRoster` | `public TroopRoster MemberRoster { get; }` |
+| `PrisonRoster` | `public TroopRoster PrisonRoster { get; }` |
+| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
+| `Name` | `public TextObject Name { get; }` |
+| `DaysStarving` | `public float DaysStarving { get; }` |
+| `RemainingFoodPercentage` | `public int RemainingFoodPercentage { get; set; }` |
+| `IsStarving` | `public bool IsStarving { get; }` |
+| `Id` | `public string Id { get; }` |
+| `HealingRateForMemberRegulars` | `public float HealingRateForMemberRegulars { get; }` |
+| `HealingRateForMemberRegularsExplained` | `public ExplainedNumber HealingRateForMemberRegularsExplained { get; }` |
+| `HealingRateForMemberHeroes` | `public float HealingRateForMemberHeroes { get; }` |
+| `HealingRateForMemberHeroesExplained` | `public ExplainedNumber HealingRateForMemberHeroesExplained { get; }` |
+| `Owner` | `public Hero Owner { get; }` |
+| `LeaderHero` | `public Hero LeaderHero { get; }` |
+| `MainParty` | `public static PartyBase MainParty { get; }` |
+| `LevelMaskIsDirty` | `public bool LevelMaskIsDirty { get; }` |
+| `Index` | `public int Index { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `MapFaction` | `public IFaction MapFaction { get; }` |
+| `RandomValue` | `public int RandomValue { get; }` |
+| `Culture` | `public CultureObject Culture { get; }` |
+| `PrimaryColorPair` | `public Tuple<uint, uint> PrimaryColorPair { get; }` |
+| `CustomName` | `public TextObject CustomName { get; }` |
+| `CustomBanner` | `public Banner CustomBanner { get; }` |
+| `Banner` | `public Banner Banner { get; }` |
+| `MapEvent` | `public MapEvent MapEvent { get; }` |
+| `MapEventSide` | `public MapEventSide MapEventSide { get; set; }` |
+| `Side` | `public BattleSideEnum Side { get; }` |
+| `OpponentSide` | `public BattleSideEnum OpponentSide { get; }` |
+| `PartySizeLimit` | `public int PartySizeLimit { get; }` |
+| `PrisonerSizeLimit` | `public int PrisonerSizeLimit { get; }` |
+| `PartySizeLimitExplainer` | `public ExplainedNumber PartySizeLimitExplainer { get; }` |
+| `PrisonerSizeLimitExplainer` | `public ExplainedNumber PrisonerSizeLimitExplainer { get; }` |
+| `NumberOfHealthyMembers` | `public int NumberOfHealthyMembers { get; }` |
+| `NumberOfRegularMembers` | `public int NumberOfRegularMembers { get; }` |
+| `NumberOfWoundedTotalMembers` | `public int NumberOfWoundedTotalMembers { get; }` |
+| `NumberOfAllMembers` | `public int NumberOfAllMembers { get; }` |
+| `NumberOfPrisoners` | `public int NumberOfPrisoners { get; }` |
+| `NumberOfMounts` | `public int NumberOfMounts { get; }` |
+| `NumberOfPackAnimals` | `public int NumberOfPackAnimals { get; }` |
+| `PrisonerHeroes` | `public IEnumerable<CharacterObject> PrisonerHeroes { get; }` |
+| `NumberOfMenWithHorse` | `public int NumberOfMenWithHorse { get; }` |
+| `NumberOfMenWithoutHorse` | `public int NumberOfMenWithoutHorse { get; }` |
+| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
+| `Ships` | `public MBReadOnlyList<Ship> Ships { get; }` |
+| `FlagShip` | `public Ship FlagShip { get; }` |
+| `BasicCulture` | `public BasicCultureObject BasicCulture { get; }` |
+| `General` | `public BasicCharacterObject General { get; }` |
+| `IsVisualDirty` | `public bool IsVisualDirty { get; }` |
+
+## 主要方法
+
+### OnVisibilityChanged
+`public void OnVisibilityChanged(bool value)`
+
+**用途 / Purpose:** 当 `visibility changed` 事件触发时调用此方法。
+
+### OnConsumedFood
+`public void OnConsumedFood()`
+
+**用途 / Purpose:** 当 `consumed food` 事件触发时调用此方法。
+
+### SetCustomOwner
+`public void SetCustomOwner(Hero customOwner)`
+
+**用途 / Purpose:** 设置 `custom owner` 的值或状态。
+
+### IsPartyUnderPlayerCommand
+`public static bool IsPartyUnderPlayerCommand(PartyBase party)`
+
+**用途 / Purpose:** 处理 `is party under player command` 相关逻辑。
+
+### SetLevelMaskIsDirty
+`public void SetLevelMaskIsDirty()`
+
+**用途 / Purpose:** 设置 `level mask is dirty` 的值或状态。
+
+### OnLevelMaskUpdated
+`public void OnLevelMaskUpdated()`
+
+**用途 / Purpose:** 当 `level mask updated` 事件触发时调用此方法。
+
+### SetCustomName
+`public void SetCustomName(TextObject name)`
+
+**用途 / Purpose:** 设置 `custom name` 的值或状态。
+
+### SetCustomBanner
+`public void SetCustomBanner(Banner banner)`
+
+**用途 / Purpose:** 设置 `custom banner` 的值或状态。
+
+### GetNumberOfHealthyMenOfTier
+`public int GetNumberOfHealthyMenOfTier(int tier)`
+
+**用途 / Purpose:** 获取 `number of healthy men of tier` 的当前值。
+
+### CalculateCurrentStrength
+`public float CalculateCurrentStrength()`
+
+**用途 / Purpose:** 处理 `calculate current strength` 相关逻辑。
+
+### GetCustomStrength
+`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
+
+**用途 / Purpose:** 获取 `custom strength` 的当前值。
+
+### GetShipsVersion
+`public int GetShipsVersion()`
+
+**用途 / Purpose:** 获取 `ships version` 的当前值。
+
+### GetNumberOfMenWith
+`public int GetNumberOfMenWith(TraitObject trait)`
+
+**用途 / Purpose:** 获取 `number of men with` 的当前值。
+
+### AddPrisoner
+`public int AddPrisoner(CharacterObject element, int numberToAdd)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `prisoner`。
+
+### AddMember
+`public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `member`。
+
+### AddPrisoners
+`public void AddPrisoners(TroopRoster roster)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `prisoners`。
+
+### AddMembers
+`public void AddMembers(TroopRoster roster)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `members`。
+
+### ToString
+`public override string ToString()`
+
+**用途 / Purpose:** 处理 `to string` 相关逻辑。
+
+### AddElementToMemberRoster
+`public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `element to member roster`。
+
+### AddToMemberRosterElementAtIndex
+`public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `to member roster element at index`。
+
+### WoundMemberRosterElements
+`public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
+
+**用途 / Purpose:** 处理 `wound member roster elements` 相关逻辑。
+
+### WoundMemberRosterElementsWithIndex
+`public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
+
+**用途 / Purpose:** 处理 `wound member roster elements with index` 相关逻辑。
+
+### UpdateVisibilityAndInspected
+`public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)`
+
+**用途 / Purpose:** 更新 `visibility and inspected` 的状态或数据。
+
+### SetAsCameraFollowParty
+`public void SetAsCameraFollowParty()`
+
+**用途 / Purpose:** 设置 `as camera follow party` 的值或状态。
+
+### SetVisualAsDirty
+`public void SetVisualAsDirty()`
+
+**用途 / Purpose:** 设置 `visual as dirty` 的值或状态。
+
+### OnVisualsUpdated
+`public void OnVisualsUpdated()`
+
+**用途 / Purpose:** 当 `visuals updated` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-PartyBase p = someParty;
-if (p.IsMobile)
-{
-    MobileParty mobile = p.MobileParty;
-}
-else if (p.IsSettlement)
-{
-    Settlement set = p.Settlement;
-}
+var value = new PartyBase();
+value.OnVisibilityChanged(false);
 ```
 
-**要点**: `IsMobile` / `IsSettlement` 互斥但都不保证非空，必须配对检查 `MobileParty` 或 `Settlement` 属性。
+## 参见
 
-### 用例 2: 获取队伍在地图上的位置
-
-**场景**: 在地图行为中读取队伍坐标用于距离判断。
-
-```csharp
-CampaignVec2 pos = party.Position;
-```
-
-**要点**: `Position` 是 `CampaignVec2`（地图坐标，非 3D 世界坐标）；定居点也有此属性返回其地图位置。
-
-### 用例 3: 添加成员或囚犯
-
-**场景**: 招募、俘获后修改队伍名册。
-
-```csharp
-CharacterObject troop = Campaign.Current.ObjectManager.GetObject<CharacterObject>("vlandian_recruit");
-party.AddMember(troop, 10);
-party.AddPrisoner(capturedTroop, 5);
-```
-
-**要点**: `AddMember` / `AddPrisoner` 直接修改 `MemberRoster` / `PrisonRoster`；批量操作用 `AddMembers(TroopRoster)` 减少重算。
-
-### 用例 4: 设置自定义队伍名
-
-**场景**: 给玩家队伍或自定义队伍显示一个临时名称。
-
-```csharp
-party.SetCustomName(new TextObject("{=my_party}My Raiders"));
-```
-
-**要点**: `SetCustomName` 覆盖默认名称；传 `null` 可清除自定义名恢复默认。`TextObject` 支持 `{=id}` 本地化格式。
-
-## 关键属性 / Key Properties
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `Settlement` | `Settlement` | The settlement this party is attached to (if any) |
-| `MobileParty` | `MobileParty` | The mobile party this party is attached to (if any) |
-| `MemberRoster` | `TroopRoster` | Troops in this party |
-| `PrisonRoster` | `TroopRoster` | Prisoners in this party |
-| `ItemRoster` | `ItemRoster` | Items/goods carried by this party |
-| `Position` | `CampaignVec2` | Current position on the map |
-| `IsSettlement` | `bool` | True if this party is a settlement |
-| `IsMobile` | `bool` | True if this party is a mobile party |
-| `IsActive` | `bool` | Whether the party is active |
-| `IsVisible` | `bool` | Whether the party is visible on the map |
-| `Owner` | `Hero` | Owner of this party |
-| `LeaderHero` | `Hero` | Leader hero of the party |
-| `MapFaction` | `IFaction` | The faction this party belongs to |
-| `Culture` | `CultureObject` | Culture of the party |
-| `Banner` | `Banner` | Banner of the party |
-| `CustomName` | `TextObject` | Custom name set for the party |
-| `CustomBanner` | `Banner` | Custom banner for the party |
-| `MapEvent` | `MapEvent` | Current map event (battle/raid) |
-| `Side` | `BattleSideEnum` | Battle side (Attacker/Defender/None) |
-| `PartySizeLimit` | `int` | Maximum party size |
-| `PrisonerSizeLimit` | `int` | Maximum prisoner capacity |
-| `NumberOfHealthyMembers` | `int` | Count of healthy troops |
-| `NumberOfAllMembers` | `int` | Total count of all troops |
-| `NumberOfPrisoners` | `int` | Total count of prisoners |
-| `NumberOfMenWithHorse` | `int` | Mounted troop count |
-| `EstimatedStrength` | `float` | Estimated military strength |
-| `IsStarving` | `bool` | Whether party is starving |
-| `DaysStarving` | `float` | Days since last food consumption |
-| `Ships` | `MBReadOnlyList` | Ships belonging to this party |
-| `FlagShip` | `Ship` | The flagship of naval parties |
-| `MainParty` | `static PartyBase` | The player's main party |
-
-## 关键方法 / Key Methods
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `AddMember` | `int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)` | Add troops to party |
-| `AddPrisoner` | `int AddPrisoner(CharacterObject element, int numberToAdd)` | Add prisoners |
-| `AddMembers` | `void AddMembers(TroopRoster roster)` | Add multiple troops |
-| `AddPrisoners` | `void AddPrisoners(TroopRoster roster)` | Add multiple prisoners |
-| `WoundMemberRosterElements` | `void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)` | Wound troops |
-| `SetCustomName` | `void SetCustomName(TextObject name)` | Set party custom name |
-| `SetCustomBanner` | `void SetCustomBanner(Banner banner)` | Set party custom banner |
-| `SetCustomOwner` | `void SetCustomOwner(Hero customOwner)` | Set party owner |
-| `SetAsCameraFollowParty` | `void SetAsCameraFollowParty()` | Make this the camera-follow party |
-| `UpdateVisibilityAndInspected` | `void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)` | Update visibility |
-| `OnConsumedFood` | `void OnConsumedFood()` | Called when food is consumed |
-| `GetNumberOfHealthyMenOfTier` | `int GetNumberOfHealthyMenOfTier(int tier)` | Get healthy troops by tier |
-| `GetNumberOfMenWith` | `int GetNumberOfMenWith(TraitObject trait)` | Get troops with specific trait |
-| `CalculateCurrentStrength` | `float CalculateCurrentStrength()` | Calculate actual strength |
-| `GetCustomStrength` | `float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)` | Get custom strength calculation |
-
-## 使用示例 / Usage Example
-
-```csharp
-// Access main party
-PartyBase mainParty = PartyBase.MainParty;
-
-// Check party properties
-if (mainParty.IsMobile)
-{
-    MobileParty mobile = mainParty.MobileParty;
-    Debug.Print("Party Position: " + mobile.Position);
-}
-
-// Add troops to party
-CharacterObject militiaType = Campaign.Current.ObjectManager.GetObject<CharacterObject>("town_militia");
-mainParty.AddMember(militiaType, 10, 0);
-
-// Check prisoner count
-int prisoners = mainParty.NumberOfPrisoners;
-
-// Get party strength
-float strength = mainParty.EstimatedStrength;
-
-// Set custom name
-TextObject customName = new TextObject("My Custom Party");
-mainParty.SetCustomName(customName);
-
-// Check if starving
-if (mainParty.IsStarving)
-{
-    Debug.Print("Party has been starving for " + mainParty.DaysStarving + " days");
-}
-```
-
-## 继承关系 / Inheritance
-
-```
-MBObjectBase
-    └── PartyBase (sealed)
-```
-
-## 实现接口 / Implemented Interfaces
-
-- `IBattleCombatant` - Battle participation
-- `IRandomOwner` - Random value generation
-- `IInteractablePoint` - Map interaction
+- [完整类目录](../catalog)

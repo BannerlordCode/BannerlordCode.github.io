@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ItemTemplateUsage`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemTemplateUsage
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ItemTemplateUsage`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI.Data/ItemTemplateUsage.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ItemTemplateUsage` is a class in the `TaleWorlds.GauntletUI.Data` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemTemplateUsage` lives in `TaleWorlds.GauntletUI.Data` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,7 +29,12 @@
 | `FirstItemTemplate` | `public WidgetTemplate FirstItemTemplate { get; set; }` |
 | `LastItemTemplate` | `public WidgetTemplate LastItemTemplate { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new ItemTemplateUsage();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

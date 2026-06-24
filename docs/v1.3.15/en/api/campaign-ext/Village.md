@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Village`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/Village](/versions/Village)
 <!-- END BREADCRUMB -->
@@ -15,6 +17,10 @@
 ## Overview
 
 Village represents a village attached to a town or castle Settlement. It produces goods according to its `VillageType`, accumulates hearth (population) and militia, and trades through its `TradeBound`. A village is one of the `SettlementComponent` subclasses stored on a `Settlement` (alongside `Town`, `Hideout`, etc.) and is exposed via `Settlement.Village`.
+
+## Mental Model
+
+Treat `Village` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Constants
 

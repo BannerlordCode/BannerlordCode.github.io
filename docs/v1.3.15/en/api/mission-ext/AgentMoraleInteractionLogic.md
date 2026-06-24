@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AgentMoraleInteractionLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentMoraleInteractionLogic
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`AgentMoraleInteractionLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new AgentMoraleInteractionLogic())`; subclass it to customize.
+`AgentMoraleInteractionLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `AgentMoraleInteractionLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnAgentFleeing
-```csharp
-public override void OnAgentFleeing(Agent affectedAgent)
-```
+`public override void OnAgentFleeing(Agent affectedAgent)`
+
+**Purpose:** Called when the `agent fleeing` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AgentMoraleInteractionLogic (Logic)
 Mission.Current.AddMissionBehavior(new AgentMoraleInteractionLogic());
 ```
 

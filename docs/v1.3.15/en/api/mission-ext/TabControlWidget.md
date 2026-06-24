@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TabControlWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TabControlWidget
@@ -16,6 +17,10 @@
 
 `TabControlWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `TabControlWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,21 +33,19 @@
 ## Key Methods
 
 ### OnFirstButtonClick
-```csharp
-public void OnFirstButtonClick(Widget widget)
-```
+`public void OnFirstButtonClick(Widget widget)`
+
+**Purpose:** Called when the `first button click` event is raised.
 
 ### OnSecondButtonClick
-```csharp
-public void OnSecondButtonClick(Widget widget)
-```
+`public void OnSecondButtonClick(Widget widget)`
+
+**Purpose:** Called when the `second button click` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TabControlWidget (Widget)
-// 声明/访问一个 TabControlWidget
-var widget = root.GetChild("tabControlWidget");;
+var widget = new TabControlWidget(context);
 ```
 
 ## See Also

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `OrderController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderController
@@ -15,6 +17,10 @@
 ## Overview
 
 `OrderController` manages formation selection and order issuance during a mission. It tracks `SelectedFormations` and gates whether formations are listening/selectable (`IsFormationListening`, `IsFormationSelectable`). Used by the command UI and by mods that issue orders programmatically. It can also back up and disable gesture-based ordering temporarily.
+
+## Mental Model
+
+Treat `OrderController` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

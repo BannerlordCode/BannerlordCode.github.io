@@ -11,6 +11,10 @@ description: Adding custom meshes, textures, sounds
 
 Bannerlord's asset system is based on XML definitions and native asset management. Understanding how to add custom meshes, textures, and sounds is essential for creating complete mods.
 
+## Mental Model
+
+Treat `Asset Pipeline` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Contents
 
 1. [Asset Types](#asset-types)
@@ -135,3 +139,9 @@ entity.SetMeshWithMaterial("my_mesh", "my_material");
 
 - [Localization](./localization.md) - Multi-language support
 - [Common Patterns](./common-patterns.md) - Best practices
+
+## Usage Example
+
+```csharp
+var example = new Asset Pipeline();
+```

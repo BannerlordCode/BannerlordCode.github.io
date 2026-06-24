@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `QueryData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QueryData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`QueryData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`QueryData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `QueryData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,50 +30,49 @@
 ## Key Methods
 
 ### Evaluate
-```csharp
-public void Evaluate(float currentTime)
-```
+`public void Evaluate(float currentTime)`
+
+**Purpose:** Handles logic related to `evaluate`.
 
 ### SetValue
-```csharp
-public void SetValue(T value, float currentTime)
-```
+`public void SetValue(T value, float currentTime)`
+
+**Purpose:** Sets the value or state of `value`.
 
 ### GetCachedValue
-```csharp
-public T GetCachedValue()
-```
+`public T GetCachedValue()`
+
+**Purpose:** Gets the current value of `cached value`.
 
 ### GetCachedValueUnlessTooOld
-```csharp
-public T GetCachedValueUnlessTooOld()
-```
+`public T GetCachedValueUnlessTooOld()`
+
+**Purpose:** Gets the current value of `cached value unless too old`.
 
 ### GetCachedValueWithMaxAge
-```csharp
-public T GetCachedValueWithMaxAge(float age)
-```
+`public T GetCachedValueWithMaxAge(float age)`
+
+**Purpose:** Gets the current value of `cached value with max age`.
 
 ### Expire
-```csharp
-public void Expire()
-```
+`public void Expire()`
+
+**Purpose:** Handles logic related to `expire`.
 
 ### SetupSyncGroup
-```csharp
-public static void SetupSyncGroup(params IQueryData groupItems)
-```
+`public static void SetupSyncGroup(params IQueryData groupItems)`
+
+**Purpose:** Sets the value or state of `up sync group`.
 
 ### SetSyncGroup
-```csharp
-public void SetSyncGroup(IQueryData syncGroup)
-```
+`public void SetSyncGroup(IQueryData syncGroup)`
+
+**Purpose:** Sets the value or state of `sync group`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of QueryData (Data)
-new QueryData { /* fill fields */ };;
+var value = new QueryData();
 ```
 
 ## See Also

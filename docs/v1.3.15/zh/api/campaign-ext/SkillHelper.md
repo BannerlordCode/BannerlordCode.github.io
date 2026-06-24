@@ -2,60 +2,63 @@
 **首页** → **API 目录** → **本领域** → `SkillHelper`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkillHelper
 
-**命名空间:** Helpers
-**模块:** Helpers
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** Helpers
+**Module:** Helpers
+**Type:** `public static class SkillHelper`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Helpers/SkillHelper.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SkillHelper` 是 `Helpers` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SkillHelper` 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。
+
+## 心智模型
+
+把 `SkillHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### AddSkillBonusForSkillLevel
+`public static void AddSkillBonusForSkillLevel(SkillEffect skillEffect, ref ExplainedNumber explainedNumber, int skillLevel)`
 
-```csharp
-public static void AddSkillBonusForSkillLevel(SkillEffect skillEffect, ref ExplainedNumber explainedNumber, int skillLevel)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `skill bonus for skill level`。
 
 ### AddSkillBonusForParty
+`public static void AddSkillBonusForParty(SkillEffect skillEffect, MobileParty party, ref ExplainedNumber explainedNumber)`
 
-```csharp
-public static void AddSkillBonusForParty(SkillEffect skillEffect, MobileParty party, ref ExplainedNumber explainedNumber)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `skill bonus for party`。
 
 ### AddSkillBonusForTown
+`public static void AddSkillBonusForTown(SkillEffect skillEffect, Town town, ref ExplainedNumber explainedNumber)`
 
-```csharp
-public static void AddSkillBonusForTown(SkillEffect skillEffect, Town town, ref ExplainedNumber explainedNumber)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `skill bonus for town`。
 
 ### AddSkillBonusForCharacter
+`public static void AddSkillBonusForCharacter(SkillEffect skillEffect, CharacterObject character, ref ExplainedNumber explainedNumber)`
 
-```csharp
-public static void AddSkillBonusForCharacter(SkillEffect skillEffect, CharacterObject character, ref ExplainedNumber explainedNumber)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `skill bonus for character`。
 
 ### GetEffectDescriptionForSkillLevel
+`public static TextObject GetEffectDescriptionForSkillLevel(SkillEffect effect, int level)`
 
-```csharp
-public static TextObject GetEffectDescriptionForSkillLevel(SkillEffect effect, int level)
-```
+**用途 / Purpose:** 获取 `effect description for skill level` 的当前值。
 
 ### GetEffectivePartyLeaderForSkill
+`public static CharacterObject GetEffectivePartyLeaderForSkill(PartyBase party)`
+
+**用途 / Purpose:** 获取 `effective party leader for skill` 的当前值。
+
+## 使用示例
 
 ```csharp
-public static CharacterObject GetEffectivePartyLeaderForSkill(PartyBase party)
+SkillHelper.Initialize();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

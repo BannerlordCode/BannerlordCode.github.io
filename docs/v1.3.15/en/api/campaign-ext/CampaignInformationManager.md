@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignInformationManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignInformationManager
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`CampaignInformationManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CampaignInformationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CampaignInformationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnGameLoaded
-```csharp
-public void OnGameLoaded()
-```
+`public void OnGameLoaded()`
+
+**Purpose:** Called when the `game loaded` event is raised.
 
 ### NewMapNoticeAdded
-```csharp
-public void NewMapNoticeAdded(InformationData informationData)
-```
+`public void NewMapNoticeAdded(InformationData informationData)`
+
+**Purpose:** Handles logic related to `new map notice added`.
 
 ### AddDialogLine
-```csharp
-public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)
-```
+`public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)`
+
+**Purpose:** Adds `dialog line` to the current collection or state.
 
 ### GetStatusOfDialogNotification
-```csharp
-public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)
-```
+`public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
+
+**Purpose:** Gets the current value of `status of dialog notification`.
 
 ### ClearDialogNotification
-```csharp
-public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)
-```
+`public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)`
+
+**Purpose:** Handles logic related to `clear dialog notification`.
 
 ### GetIsAnyDialogNotificationActiveOrQueued
-```csharp
-public static bool GetIsAnyDialogNotificationActiveOrQueued()
-```
+`public static bool GetIsAnyDialogNotificationActiveOrQueued()`
+
+**Purpose:** Gets the current value of `is any dialog notification active or queued`.
 
 ### ClearAllDialogNotifications
-```csharp
-public static void ClearAllDialogNotifications(bool fadeOut)
-```
+`public static void ClearAllDialogNotifications(bool fadeOut)`
+
+**Purpose:** Handles logic related to `clear all dialog notifications`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignInformationManager (Manager)
-CampaignInformationManager.Current;
+var manager = CampaignInformationManager.Current;
 ```
 
 ## See Also

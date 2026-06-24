@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SallyOutEndLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SallyOutEndLogic
@@ -14,24 +15,33 @@
 
 ## Overview
 
-`SallyOutEndLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new SallyOutEndLogic())`; subclass it to customize.
+`SallyOutEndLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `SallyOutEndLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsSallyOutOver` | `public bool IsSallyOutOver { get; }` |
 
 ## Key Methods
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**Purpose:** Handles logic related to `mission ended`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SallyOutEndLogic (Logic)
 Mission.Current.AddMissionBehavior(new SallyOutEndLogic());
 ```
 

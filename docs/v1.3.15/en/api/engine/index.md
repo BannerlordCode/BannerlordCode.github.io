@@ -5,6 +5,10 @@ description: TaleWorlds.Engine native engine bridge / Native engine bridge
 
 # Engine / Engine 引擎
 
+## Mental Model
+
+Treat `Engine` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 Engine module documentation.
 
 引擎模块文档。

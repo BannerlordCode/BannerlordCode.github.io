@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 场景系统类参考
 
 # 场景系统 / Scene System
 
+## 心智模型
+
+先把 `场景系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 场景系统管理游戏世界中的场景加载、场景对象和场景控制器。
@@ -967,4 +971,10 @@ rglIO_Output_text_file_stream::vftable
 
 ```cpp
 rglOutput_text_file_stream::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 场景系统();
 ```

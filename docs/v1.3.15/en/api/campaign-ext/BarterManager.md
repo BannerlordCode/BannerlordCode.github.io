@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BarterManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BarterManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`BarterManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `BarterManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,105 +31,104 @@
 ## Key Methods
 
 ### BeginPlayerBarter
-```csharp
-public void BeginPlayerBarter(BarterData args)
-```
+`public void BeginPlayerBarter(BarterData args)`
+
+**Purpose:** Handles logic related to `begin player barter`.
 
 ### StartBarterOffer
-```csharp
-public void StartBarterOffer(Hero offerer, Hero other, PartyBase offererParty, PartyBase otherParty, Hero beneficiaryOfOtherHero = null, BarterManager.BarterContextInitializer InitContext = null, int persuasionCostReduction = 0, bool isAIBarter = false, IEnumerable<Barterable> defaultBarterables = null)
-```
+`public void StartBarterOffer(Hero offerer, Hero other, PartyBase offererParty, PartyBase otherParty, Hero beneficiaryOfOtherHero = null, BarterManager.BarterContextInitializer InitContext = null, int persuasionCostReduction = 0, bool isAIBarter = false, IEnumerable<Barterable> defaultBarterables = null)`
+
+**Purpose:** Handles logic related to `start barter offer`.
 
 ### ExecuteAiBarter
-```csharp
-public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, Barterable barterable)
-```
+`public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, Barterable barterable)`
+
+**Purpose:** Executes the `ai barter` operation or workflow.
 
 ### ExecuteAiBarter
-```csharp
-public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, IEnumerable<Barterable> baseBarterables)
-```
+`public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, IEnumerable<Barterable> baseBarterables)`
+
+**Purpose:** Executes the `ai barter` operation or workflow.
 
 ### ExecuteAIBarter
-```csharp
-public void ExecuteAIBarter(BarterData barterData, IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero)
-```
+`public void ExecuteAIBarter(BarterData barterData, IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero)`
+
+**Purpose:** Executes the `a i barter` operation or workflow.
 
 ### Close
-```csharp
-public void Close()
-```
+`public void Close()`
+
+**Purpose:** Handles logic related to `close`.
 
 ### IsOfferAcceptable
-```csharp
-public bool IsOfferAcceptable(BarterData args, Hero hero, PartyBase party)
-```
+`public bool IsOfferAcceptable(BarterData args, Hero hero, PartyBase party)`
+
+**Purpose:** Handles logic related to `is offer acceptable`.
 
 ### GetOfferValueForFaction
-```csharp
-public float GetOfferValueForFaction(BarterData barterData, IFaction faction)
-```
+`public float GetOfferValueForFaction(BarterData barterData, IFaction faction)`
+
+**Purpose:** Gets the current value of `offer value for faction`.
 
 ### GetOfferValue
-```csharp
-public float GetOfferValue(Hero selfHero, PartyBase selfParty, PartyBase offererParty, IEnumerable<Barterable> offeredBarters)
-```
+`public float GetOfferValue(Hero selfHero, PartyBase selfParty, PartyBase offererParty, IEnumerable<Barterable> offeredBarters)`
+
+**Purpose:** Gets the current value of `offer value`.
 
 ### ApplyAndFinalizePlayerBarter
-```csharp
-public void ApplyAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)
-```
+`public void ApplyAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
+
+**Purpose:** Applies `and finalize player barter` to the current object.
 
 ### CancelAndFinalizePlayerBarter
-```csharp
-public void CancelAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)
-```
+`public void CancelAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
+
+**Purpose:** Checks whether the current object can `cel and finalize player barter`.
 
 ### CanPlayerBarterWithHero
-```csharp
-public bool CanPlayerBarterWithHero(Hero hero)
-```
+`public bool CanPlayerBarterWithHero(Hero hero)`
+
+**Purpose:** Checks whether the current object can `player barter with hero`.
 
 ### InitializeMarriageBarterContext
-```csharp
-public bool InitializeMarriageBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeMarriageBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**Purpose:** Initializes the state, resources, or bindings for `marriage barter context`.
 
 ### InitializeJoinFactionBarterContext
-```csharp
-public bool InitializeJoinFactionBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeJoinFactionBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**Purpose:** Initializes the state, resources, or bindings for `join faction barter context`.
 
 ### InitializeMakePeaceBarterContext
-```csharp
-public bool InitializeMakePeaceBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeMakePeaceBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**Purpose:** Initializes the state, resources, or bindings for `make peace barter context`.
 
 ### InitializeSafePassageBarterContext
-```csharp
-public bool InitializeSafePassageBarterContext(Barterable barterable, BarterData args, object obj)
-```
+`public bool InitializeSafePassageBarterContext(Barterable barterable, BarterData args, object obj)`
+
+**Purpose:** Initializes the state, resources, or bindings for `safe passage barter context`.
 
 ### BarterContextInitializer
-```csharp
-public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)
-```
+`public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)`
+
+**Purpose:** Handles logic related to `barter context initializer`.
 
 ### BarterCloseEventDelegate
-```csharp
-public delegate void BarterCloseEventDelegate()
-```
+`public delegate void BarterCloseEventDelegate()`
+
+**Purpose:** Handles logic related to `barter close event delegate`.
 
 ### BarterBeginEventDelegate
-```csharp
-public delegate void BarterBeginEventDelegate(BarterData args)
-```
+`public delegate void BarterBeginEventDelegate(BarterData args)`
+
+**Purpose:** Handles logic related to `barter begin event delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BarterManager (Manager)
-BarterManager.Current;
+var manager = BarterManager.Current;
 ```
 
 ## See Also

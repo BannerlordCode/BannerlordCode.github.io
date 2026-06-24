@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `QuestItemSortControllerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QuestItemSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class QuestItemSortControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Quests/QuestItemSortControllerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `QuestItemSortControllerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`QuestItemSortControllerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,40 +28,40 @@
 | `CurrentSortOption` | `public QuestItemSortControllerVM.QuestItemSortOption? CurrentSortOption { get; }` |
 | `IsThereAnyQuest` | `public bool IsThereAnyQuest { get; set; }` |
 
-
 ## Key Methods
 
 ### SortByOption
+`public void SortByOption(QuestItemSortControllerVM.QuestItemSortOption sortOption)`
 
-```csharp
-public void SortByOption(QuestItemSortControllerVM.QuestItemSortOption sortOption)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(QuestItemVM x, QuestItemVM y)
-```
+**Purpose:** Handles logic related to `sort by option`.
 
 ### Compare
+`public abstract int Compare(QuestItemVM x, QuestItemVM y)`
 
-```csharp
-public override int Compare(QuestItemVM first, QuestItemVM second)
-```
-
-### Compare
-
-```csharp
-public override int Compare(QuestItemVM first, QuestItemVM second)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(QuestItemVM first, QuestItemVM second)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(QuestItemVM first, QuestItemVM second)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(QuestItemVM first, QuestItemVM second)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(QuestItemVM first, QuestItemVM second)
+var value = new QuestItemSortControllerVM();
+value.SortByOption(sortOption);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `RansomValueCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RansomValueCalculationModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`RansomValueCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<RansomValueCalculationModel>(new MyRansomValueCalculationModel())` to change how it computes.
+`RansomValueCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `RansomValueCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### PrisonerRansomValue
-```csharp
-public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)
-```
+`public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
+
+**Purpose:** Handles logic related to `prisoner ransom value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of RansomValueCalculationModel (Model)
-Game.Current.ReplaceModel<RansomValueCalculationModel>(new MyRansomValueCalculationModel());
+var implementation = new CustomRansomValueCalculationModel();
 ```
 
 ## See Also

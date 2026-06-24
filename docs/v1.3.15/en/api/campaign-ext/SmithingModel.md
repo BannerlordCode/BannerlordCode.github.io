@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SmithingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SmithingModel
@@ -14,100 +15,103 @@
 
 ## Overview
 
-`SmithingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SmithingModel>(new MySmithingModel())` to change how it computes.
+`SmithingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SmithingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetCraftingPartDifficulty
-```csharp
-public abstract int GetCraftingPartDifficulty(CraftingPiece craftingPiece)
-```
+`public abstract int GetCraftingPartDifficulty(CraftingPiece craftingPiece)`
+
+**Purpose:** Gets the current value of `crafting part difficulty`.
 
 ### CalculateWeaponDesignDifficulty
-```csharp
-public abstract int CalculateWeaponDesignDifficulty(WeaponDesign weaponDesign)
-```
+`public abstract int CalculateWeaponDesignDifficulty(WeaponDesign weaponDesign)`
+
+**Purpose:** Handles logic related to `calculate weapon design difficulty`.
 
 ### GetCraftedWeaponModifier
-```csharp
-public abstract ItemModifier GetCraftedWeaponModifier(WeaponDesign weaponDesign, Hero weaponsmith)
-```
+`public abstract ItemModifier GetCraftedWeaponModifier(WeaponDesign weaponDesign, Hero weaponsmith)`
+
+**Purpose:** Gets the current value of `crafted weapon modifier`.
 
 ### GetRefiningFormulas
-```csharp
-public abstract IEnumerable<Crafting.RefiningFormula> GetRefiningFormulas(Hero weaponsmith)
-```
+`public abstract IEnumerable<Crafting.RefiningFormula> GetRefiningFormulas(Hero weaponsmith)`
+
+**Purpose:** Gets the current value of `refining formulas`.
 
 ### GetCraftingMaterialItem
-```csharp
-public abstract ItemObject GetCraftingMaterialItem(CraftingMaterials craftingMaterial)
-```
+`public abstract ItemObject GetCraftingMaterialItem(CraftingMaterials craftingMaterial)`
+
+**Purpose:** Gets the current value of `crafting material item`.
 
 ### GetSmeltingOutputForItem
-```csharp
-public abstract int GetSmeltingOutputForItem(ItemObject item)
-```
+`public abstract int GetSmeltingOutputForItem(ItemObject item)`
+
+**Purpose:** Gets the current value of `smelting output for item`.
 
 ### GetSkillXpForRefining
-```csharp
-public abstract int GetSkillXpForRefining(ref Crafting.RefiningFormula refineFormula)
-```
+`public abstract int GetSkillXpForRefining(ref Crafting.RefiningFormula refineFormula)`
+
+**Purpose:** Gets the current value of `skill xp for refining`.
 
 ### GetSkillXpForSmelting
-```csharp
-public abstract int GetSkillXpForSmelting(ItemObject item)
-```
+`public abstract int GetSkillXpForSmelting(ItemObject item)`
+
+**Purpose:** Gets the current value of `skill xp for smelting`.
 
 ### GetSkillXpForSmithingInFreeBuildMode
-```csharp
-public abstract int GetSkillXpForSmithingInFreeBuildMode(ItemObject item)
-```
+`public abstract int GetSkillXpForSmithingInFreeBuildMode(ItemObject item)`
+
+**Purpose:** Gets the current value of `skill xp for smithing in free build mode`.
 
 ### GetSkillXpForSmithingInCraftingOrderMode
-```csharp
-public abstract int GetSkillXpForSmithingInCraftingOrderMode(ItemObject item)
-```
+`public abstract int GetSkillXpForSmithingInCraftingOrderMode(ItemObject item)`
+
+**Purpose:** Gets the current value of `skill xp for smithing in crafting order mode`.
 
 ### GetSmithingCostsForWeaponDesign
-```csharp
-public abstract int GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign)
-```
+`public abstract int GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign)`
+
+**Purpose:** Gets the current value of `smithing costs for weapon design`.
 
 ### GetEnergyCostForRefining
-```csharp
-public abstract int GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero)
-```
+`public abstract int GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero)`
+
+**Purpose:** Gets the current value of `energy cost for refining`.
 
 ### GetEnergyCostForSmithing
-```csharp
-public abstract int GetEnergyCostForSmithing(ItemObject item, Hero hero)
-```
+`public abstract int GetEnergyCostForSmithing(ItemObject item, Hero hero)`
+
+**Purpose:** Gets the current value of `energy cost for smithing`.
 
 ### GetEnergyCostForSmelting
-```csharp
-public abstract int GetEnergyCostForSmelting(ItemObject item, Hero hero)
-```
+`public abstract int GetEnergyCostForSmelting(ItemObject item, Hero hero)`
+
+**Purpose:** Gets the current value of `energy cost for smelting`.
 
 ### ResearchPointsNeedForNewPart
-```csharp
-public abstract float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)
-```
+`public abstract float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)`
+
+**Purpose:** Handles logic related to `research points need for new part`.
 
 ### GetPartResearchGainForSmeltingItem
-```csharp
-public abstract int GetPartResearchGainForSmeltingItem(ItemObject item, Hero hero)
-```
+`public abstract int GetPartResearchGainForSmeltingItem(ItemObject item, Hero hero)`
+
+**Purpose:** Gets the current value of `part research gain for smelting item`.
 
 ### GetPartResearchGainForSmithingItem
-```csharp
-public abstract int GetPartResearchGainForSmithingItem(ItemObject item, Hero hero, bool isFreeBuildMode)
-```
+`public abstract int GetPartResearchGainForSmithingItem(ItemObject item, Hero hero, bool isFreeBuildMode)`
+
+**Purpose:** Gets the current value of `part research gain for smithing item`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SmithingModel (Model)
-Game.Current.ReplaceModel<SmithingModel>(new MySmithingModel());
+var implementation = new CustomSmithingModel();
 ```
 
 ## See Also

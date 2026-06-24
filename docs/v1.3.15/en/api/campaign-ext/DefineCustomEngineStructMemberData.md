@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DefineCustomEngineStructMemberData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefineCustomEngineStructMemberData
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class DefineCustomEngineStructMemberData : Attribute`
+**Base:** `Attribute`
+**File:** `TaleWorlds.DotNet/DefineCustomEngineStructMemberData.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DefineCustomEngineStructMemberData` is a class in the `TaleWorlds.DotNet` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefineCustomEngineStructMemberData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `DefineCustomEngineStructMemberData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,7 +29,12 @@
 | `MemberName` | `public string MemberName { get; set; }` |
 | `ManagedMemberName` | `public string ManagedMemberName { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new DefineCustomEngineStructMemberData();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

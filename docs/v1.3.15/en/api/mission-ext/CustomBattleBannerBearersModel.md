@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleBannerBearersModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleBannerBearersModel
@@ -14,59 +15,62 @@
 
 ## Overview
 
-`CustomBattleBannerBearersModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CustomBattleBannerBearersModel>(new MyCustomBattleBannerBearersModel())` to change how it computes.
+`CustomBattleBannerBearersModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CustomBattleBannerBearersModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMinimumFormationTroopCountToBearBanners
-```csharp
-public override int GetMinimumFormationTroopCountToBearBanners()
-```
+`public override int GetMinimumFormationTroopCountToBearBanners()`
+
+**Purpose:** Gets the current value of `minimum formation troop count to bear banners`.
 
 ### GetBannerInteractionDistance
-```csharp
-public override float GetBannerInteractionDistance(Agent interactingAgent)
-```
+`public override float GetBannerInteractionDistance(Agent interactingAgent)`
+
+**Purpose:** Gets the current value of `banner interaction distance`.
 
 ### CanBannerBearerProvideEffectToFormation
-```csharp
-public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)
-```
+`public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
+
+**Purpose:** Checks whether the current object can `banner bearer provide effect to formation`.
 
 ### CanAgentPickUpAnyBanner
-```csharp
-public override bool CanAgentPickUpAnyBanner(Agent agent)
-```
+`public override bool CanAgentPickUpAnyBanner(Agent agent)`
+
+**Purpose:** Checks whether the current object can `agent pick up any banner`.
 
 ### CanAgentBecomeBannerBearer
-```csharp
-public override bool CanAgentBecomeBannerBearer(Agent agent)
-```
+`public override bool CanAgentBecomeBannerBearer(Agent agent)`
+
+**Purpose:** Checks whether the current object can `agent become banner bearer`.
 
 ### GetAgentBannerBearingPriority
-```csharp
-public override int GetAgentBannerBearingPriority(Agent agent)
-```
+`public override int GetAgentBannerBearingPriority(Agent agent)`
+
+**Purpose:** Gets the current value of `agent banner bearing priority`.
 
 ### CanFormationDeployBannerBearers
-```csharp
-public override bool CanFormationDeployBannerBearers(Formation formation)
-```
+`public override bool CanFormationDeployBannerBearers(Formation formation)`
+
+**Purpose:** Checks whether the current object can `formation deploy banner bearers`.
 
 ### GetDesiredNumberOfBannerBearersForFormation
-```csharp
-public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)
-```
+`public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
+
+**Purpose:** Gets the current value of `desired number of banner bearers for formation`.
 
 ### GetBannerBearerReplacementWeapon
-```csharp
-public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)
-```
+`public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
+
+**Purpose:** Gets the current value of `banner bearer replacement weapon`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleBannerBearersModel (Model)
 Game.Current.ReplaceModel<CustomBattleBannerBearersModel>(new MyCustomBattleBannerBearersModel());
 ```
 

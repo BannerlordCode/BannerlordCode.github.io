@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `FactionManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FactionManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`FactionManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`FactionManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `FactionManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,40 +30,39 @@
 ## Key Methods
 
 ### DeclareWar
-```csharp
-public static void DeclareWar(IFaction faction1, IFaction faction2)
-```
+`public static void DeclareWar(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Handles logic related to `declare war`.
 
 ### SetNeutral
-```csharp
-public static void SetNeutral(IFaction faction1, IFaction faction2)
-```
+`public static void SetNeutral(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Sets the value or state of `neutral`.
 
 ### IsAtWarAgainstFaction
-```csharp
-public static bool IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)
-```
+`public static bool IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Handles logic related to `is at war against faction`.
 
 ### IsAtConstantWarAgainstFaction
-```csharp
-public static bool IsAtConstantWarAgainstFaction(IFaction faction1, IFaction faction2)
-```
+`public static bool IsAtConstantWarAgainstFaction(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Handles logic related to `is at constant war against faction`.
 
 ### IsNeutralWithFaction
-```csharp
-public static bool IsNeutralWithFaction(IFaction faction1, IFaction faction2)
-```
+`public static bool IsNeutralWithFaction(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Handles logic related to `is neutral with faction`.
 
 ### GetRelationBetweenClans
-```csharp
-public static int GetRelationBetweenClans(Clan clan1, Clan clan2)
-```
+`public static int GetRelationBetweenClans(Clan clan1, Clan clan2)`
+
+**Purpose:** Gets the current value of `relation between clans`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of FactionManager (Manager)
-FactionManager.Current;
+var manager = FactionManager.Current;
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VictoryComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VictoryComponent
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`VictoryComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<VictoryComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`VictoryComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `VictoryComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CheckTimer
-```csharp
-public bool CheckTimer()
-```
+`public bool CheckTimer()`
+
+**Purpose:** Handles logic related to `check timer`.
 
 ### ChangeTimerDuration
-```csharp
-public void ChangeTimerDuration(float min, float max)
-```
+`public void ChangeTimerDuration(float min, float max)`
+
+**Purpose:** Handles logic related to `change timer duration`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VictoryComponent (Component)
-agent.GetComponent<VictoryComponent>();
+var component = agent.GetComponent<VictoryComponent>();
 ```
 
 ## See Also

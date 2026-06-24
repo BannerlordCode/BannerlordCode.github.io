@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `InformationManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InformationManager
@@ -17,6 +19,10 @@ The primary entry point for showing on-screen messages, inquiry dialogs (yes/no)
 InformationManager is a pure forwarder: each public method checks whether its corresponding internal event/delegate has been subscribed and invokes it, otherwise it silently returns (a no-op). These events are hooked by the game's active screens (such as the map screen or quest screens) when they become active. This means calling these methods when no screen is handling them produces no visible effect and throws no exception.
 
 For modders, the most common entry points are `DisplayMessage` (show an on-screen message), `ShowInquiry` (show a yes/no dialog), `ShowTextInquiry` (show a dialog with a text input), and `ShowTooltip` / `HideTooltip` (show/hide a tooltip).
+
+## Mental Model
+
+Treat `InformationManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Static Properties
 

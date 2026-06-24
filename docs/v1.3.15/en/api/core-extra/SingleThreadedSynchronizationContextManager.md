@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SingleThreadedSynchronizationContextManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SingleThreadedSynchronizationContextManager
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`SingleThreadedSynchronizationContextManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`SingleThreadedSynchronizationContextManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `SingleThreadedSynchronizationContextManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Tick
-```csharp
-public static void Tick()
-```
+`public static void Tick()`
+
+**Purpose:** Handles logic related to `tick`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SingleThreadedSynchronizationContextManager (Manager)
-SingleThreadedSynchronizationContextManager.Current;
+var manager = SingleThreadedSynchronizationContextManager.Current;
 ```
 
 ## See Also

@@ -2,52 +2,31 @@
 **Home** → **API Index** → **Area** → `TerrainType`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TerrainType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** enum
-**Area:** Core
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.Core/TerrainType.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TerrainType` is a enum in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TerrainType` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `Plain` |
-| `1` |
-| `Desert` |
-| `Snow` |
-| `Forest` |
-| `Steppe` |
-| `Fording` |
-| `Mountain` |
-| `Lake` |
-| `Water` |
-| `10` |
-| `River` |
-| `Canyon` |
-| `13` |
-| `RuralArea` |
-| `Swamp` |
-| `Dune` |
-| `Bridge` |
-| `CoastalSea` |
-| `OpenSea` |
-| `Beach` |
-| `Cliff` |
-| `NonNavigableRiver` |
-| `LandRestriction` |
-| `SeaRestriction` |
+## Usage Example
+
+```csharp
+var value = new TerrainType();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

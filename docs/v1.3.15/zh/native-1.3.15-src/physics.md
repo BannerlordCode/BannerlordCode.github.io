@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 物理引擎类参考
 
 # 物理引擎 / Physics Engine
 
+## 心智模型
+
+先把 `物理引擎` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 物理引擎使用 NVIDIA PhysX 实现刚体物理、碰撞检测和约束系统。
@@ -564,4 +568,10 @@ object_shaker::vftable
 
 ```cpp
 trajectory_visualizer::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 物理引擎();
 ```

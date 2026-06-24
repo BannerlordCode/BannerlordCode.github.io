@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Vec2`
+**Home** → **API Index** → **Area** → `Vec2 / 2D Vector`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Vec2 / 2D Vector
@@ -13,6 +15,10 @@
 ## Overview
 
 `Vec2` is a 2D vector struct for positions, directions, and scaling in 2D game development.
+
+## Mental Model
+
+Treat `Vec2` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Properties
 

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BesiegerCamp`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BesiegerCamp
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BesiegerCamp : ISiegeEventSide`
+**Base:** `ISiegeEventSide`
+**File:** `TaleWorlds.CampaignSystem/Siege/BesiegerCamp.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BesiegerCamp` is a class in the `TaleWorlds.CampaignSystem.Siege` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BesiegerCamp` lives in `TaleWorlds.CampaignSystem.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,100 +36,90 @@
 | `IsPreparationComplete` | `public bool IsPreparationComplete { get; }` |
 | `IsReadyToBesiege` | `public bool IsReadyToBesiege { get; }` |
 
-
 ## Key Methods
 
 ### GetInvolvedPartiesForEventType
+`public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-```csharp
-public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
-```
+**Purpose:** Gets the current value of `involved parties for event type`.
 
 ### GetNextInvolvedPartyForEventType
+`public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-```csharp
-public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
-```
+**Purpose:** Gets the current value of `next involved party for event type`.
 
 ### HasInvolvedPartyForEventType
+`public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-```csharp
-public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)
-```
+**Purpose:** Checks whether the current object has/contains `involved party for event type`.
 
 ### IsBesiegerSideParty
+`public bool IsBesiegerSideParty(MobileParty mobileParty)`
 
-```csharp
-public bool IsBesiegerSideParty(MobileParty mobileParty)
-```
+**Purpose:** Handles logic related to `is besieger side party`.
 
 ### InitializeSiegeEventSide
+`public void InitializeSiegeEventSide()`
 
-```csharp
-public void InitializeSiegeEventSide()
-```
+**Purpose:** Initializes the state, resources, or bindings for `siege event side`.
 
 ### OnTroopsKilledOnSide
+`public void OnTroopsKilledOnSide(int killCount)`
 
-```csharp
-public void OnTroopsKilledOnSide(int killCount)
-```
+**Purpose:** Called when the `troops killed on side` event is raised.
 
 ### SetSiegeStrategy
+`public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-```csharp
-public void SetSiegeStrategy(SiegeStrategy strategy)
-```
+**Purpose:** Sets the value or state of `siege strategy`.
 
 ### RemoveAllSiegeParties
+`public void RemoveAllSiegeParties()`
 
-```csharp
-public void RemoveAllSiegeParties()
-```
+**Purpose:** Removes `all siege parties` from the current collection or state.
 
 ### AddSiegeEngineMissile
+`public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
 
-```csharp
-public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)
-```
+**Purpose:** Adds `siege engine missile` to the current collection or state.
 
 ### RemoveDeprecatedMissiles
+`public void RemoveDeprecatedMissiles()`
 
-```csharp
-public void RemoveDeprecatedMissiles()
-```
+**Purpose:** Removes `deprecated missiles` from the current collection or state.
 
 ### BombardHitWalls
+`public void BombardHitWalls(SiegeEngineType attackerEngineType, int wallIndex)`
 
-```csharp
-public void BombardHitWalls(SiegeEngineType attackerEngineType, int wallIndex)
-```
+**Purpose:** Handles logic related to `bombard hit walls`.
 
 ### GetAttackTarget
+`public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
 
-```csharp
-public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)
-```
+**Purpose:** Gets the current value of `attack target`.
 
 ### FinalizeSiegeEvent
+`public void FinalizeSiegeEvent()`
 
-```csharp
-public void FinalizeSiegeEvent()
-```
+**Purpose:** Handles logic related to `finalize siege event`.
 
 ### OnAfterLoad
+`public void OnAfterLoad()`
 
-```csharp
-public void OnAfterLoad()
-```
+**Purpose:** Called when the `after load` event is raised.
 
 ### SetPositionAfterMapChange
+`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
+
+**Purpose:** Sets the value or state of `position after map change`.
+
+## Usage Example
 
 ```csharp
-public void SetPositionAfterMapChange(CampaignVec2 newPosition)
+var value = new BesiegerCamp();
+value.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

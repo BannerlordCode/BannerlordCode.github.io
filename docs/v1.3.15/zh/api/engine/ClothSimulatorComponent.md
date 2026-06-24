@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ClothSimulatorComponent`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClothSimulatorComponent
@@ -14,80 +15,83 @@
 
 ## 概述
 
-`ClothSimulatorComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<ClothSimulatorComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`ClothSimulatorComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `ClothSimulatorComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### SetMaxDistanceMultiplier
-```csharp
-public void SetMaxDistanceMultiplier(float multiplier)
-```
+`public void SetMaxDistanceMultiplier(float multiplier)`
+
+**用途 / Purpose:** 设置 `max distance multiplier` 的值或状态。
 
 ### SetForcedWind
-```csharp
-public void SetForcedWind(Vec3 windVector, bool isLocal)
-```
+`public void SetForcedWind(Vec3 windVector, bool isLocal)`
+
+**用途 / Purpose:** 设置 `forced wind` 的值或状态。
 
 ### DisableForcedWind
-```csharp
-public void DisableForcedWind()
-```
+`public void DisableForcedWind()`
+
+**用途 / Purpose:** 处理 `disable forced wind` 相关逻辑。
 
 ### SetForcedGustStrength
-```csharp
-public void SetForcedGustStrength(float gustStrength)
-```
+`public void SetForcedGustStrength(float gustStrength)`
+
+**用途 / Purpose:** 设置 `forced gust strength` 的值或状态。
 
 ### SetResetRequired
-```csharp
-public void SetResetRequired()
-```
+`public void SetResetRequired()`
+
+**用途 / Purpose:** 设置 `reset required` 的值或状态。
 
 ### DisableMorphAnimation
-```csharp
-public void DisableMorphAnimation()
-```
+`public void DisableMorphAnimation()`
+
+**用途 / Purpose:** 处理 `disable morph animation` 相关逻辑。
 
 ### SetMorphBuffer
-```csharp
-public void SetMorphBuffer(float morphKey)
-```
+`public void SetMorphBuffer(float morphKey)`
+
+**用途 / Purpose:** 设置 `morph buffer` 的值或状态。
 
 ### GetNumberOfMorphKeys
-```csharp
-public int GetNumberOfMorphKeys()
-```
+`public int GetNumberOfMorphKeys()`
+
+**用途 / Purpose:** 获取 `number of morph keys` 的当前值。
 
 ### SetVectorArgument
-```csharp
-public void SetVectorArgument(float x, float y, float z, float w)
-```
+`public void SetVectorArgument(float x, float y, float z, float w)`
+
+**用途 / Purpose:** 设置 `vector argument` 的值或状态。
 
 ### GetMorphAnimLeftPoints
-```csharp
-public void GetMorphAnimLeftPoints(Vec3 leftPoints)
-```
+`public void GetMorphAnimLeftPoints(Vec3 leftPoints)`
+
+**用途 / Purpose:** 获取 `morph anim left points` 的当前值。
 
 ### GetMorphAnimRightPoints
-```csharp
-public void GetMorphAnimRightPoints(Vec3 rightPoints)
-```
+`public void GetMorphAnimRightPoints(Vec3 rightPoints)`
+
+**用途 / Purpose:** 获取 `morph anim right points` 的当前值。
 
 ### GetMorphAnimCenterPoints
-```csharp
-public void GetMorphAnimCenterPoints(Vec3 centerPoints)
-```
+`public void GetMorphAnimCenterPoints(Vec3 centerPoints)`
+
+**用途 / Purpose:** 获取 `morph anim center points` 的当前值。
 
 ### SetForcedVelocity
-```csharp
-public void SetForcedVelocity(in Vec3 forcedVelocity)
-```
+`public void SetForcedVelocity(in Vec3 forcedVelocity)`
+
+**用途 / Purpose:** 设置 `forced velocity` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// ClothSimulatorComponent (Component) 的典型用法
-agent.GetComponent<ClothSimulatorComponent>();
+var component = agent.GetComponent<ClothSimulatorComponent>();
 ```
 
 ## 参见

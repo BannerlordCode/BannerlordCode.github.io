@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `DetachmentManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DetachmentManager
@@ -15,6 +17,10 @@
 ## Overview
 
 `DetachmentManager` owns detachments — special task slots like siege ladders, towers, and ranged positions that formations can man. It creates/destroys detachments (`MakeDetachment`/`DestroyDetachment`), tracks which formations join/leave, and ticks them. Mods query `Detachments` or create custom detachments for new siege engines.
+
+## Mental Model
+
+Treat `DetachmentManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

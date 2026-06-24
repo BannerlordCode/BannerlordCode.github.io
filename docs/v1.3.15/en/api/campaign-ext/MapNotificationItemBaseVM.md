@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapNotificationItemBaseVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapNotificationItemBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MapNotificationItemBaseVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/MapNotificationTypes/MapNotificationItemBaseVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapNotificationItemBaseVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapNotificationItemBaseVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,64 +35,60 @@
 | `DescriptionText` | `public string DescriptionText { get; set; }` |
 | `SoundId` | `public string SoundId { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### SetNavigationHandler
+`public void SetNavigationHandler(INavigationHandler navigationHandler)`
 
-```csharp
-public void SetNavigationHandler(INavigationHandler navigationHandler)
-```
+**Purpose:** Sets the value or state of `navigation handler`.
 
 ### SetFastMoveCameraToPosition
+`public void SetFastMoveCameraToPosition(Action<CampaignVec2> fastMoveCameraToPosition)`
 
-```csharp
-public void SetFastMoveCameraToPosition(Action<CampaignVec2> fastMoveCameraToPosition)
-```
+**Purpose:** Sets the value or state of `fast move camera to position`.
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**Purpose:** Executes the `action` operation or workflow.
 
 ### ExecuteRemove
+`public void ExecuteRemove()`
 
-```csharp
-public void ExecuteRemove()
-```
+**Purpose:** Executes the `remove` operation or workflow.
 
 ### ExecuteSetFocused
+`public void ExecuteSetFocused()`
 
-```csharp
-public void ExecuteSetFocused()
-```
+**Purpose:** Executes the `set focused` operation or workflow.
 
 ### ExecuteSetUnfocused
+`public void ExecuteSetUnfocused()`
 
-```csharp
-public void ExecuteSetUnfocused()
-```
+**Purpose:** Executes the `set unfocused` operation or workflow.
 
 ### ManualRefreshRelevantStatus
+`public virtual void ManualRefreshRelevantStatus()`
 
-```csharp
-public virtual void ManualRefreshRelevantStatus()
-```
+**Purpose:** Handles logic related to `manual refresh relevant status`.
 
 ### SetRemoveInputKey
+`public void SetRemoveInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `remove input key`.
+
+## Usage Example
 
 ```csharp
-public void SetRemoveInputKey(HotKey hotKey)
+var value = new MapNotificationItemBaseVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

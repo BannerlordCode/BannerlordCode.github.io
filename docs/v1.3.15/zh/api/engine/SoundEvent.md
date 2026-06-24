@@ -2,151 +2,175 @@
 **首页** → **API 目录** → **本领域** → `SoundEvent`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SoundEvent
 
-**命名空间:** TaleWorlds.Engine
-**模块:** TaleWorlds.Engine
-**类型:** 类 class class
-**领域:** 引擎 Engine
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public class SoundEvent`
+**Base:** 无
+**File:** `TaleWorlds.Engine/SoundEvent.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SoundEvent` 是 `TaleWorlds.Engine` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SoundEvent` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `IsValid` | `public bool IsValid { get; }` |
 
-
 ## 主要方法
 
 ### GetSoundId
+`public int GetSoundId()`
 
-```csharp
-public int GetSoundId()
-```
+**用途 / Purpose:** 获取 `sound id` 的当前值。
 
 ### CreateEventFromString
+`public static SoundEvent CreateEventFromString(string eventId, Scene scene)`
 
-```csharp
-public static SoundEvent CreateEventFromString(string eventId, Scene scene)
-```
+**用途 / Purpose:** 创建一个 `event from string` 实例或对象。
 
 ### SetEventMinMaxDistance
+`public void SetEventMinMaxDistance(Vec3 newRadius)`
 
-```csharp
-public void SetEventMinMaxDistance(Vec3 newRadius)
-```
+**用途 / Purpose:** 设置 `event min max distance` 的值或状态。
 
 ### GetEventIdFromString
+`public static int GetEventIdFromString(string name)`
 
-```csharp
-public static int GetEventIdFromString(string name)
-```
-
-### PlaySound2D
-
-```csharp
-public static bool PlaySound2D(int soundCodeId)
-```
+**用途 / Purpose:** 获取 `event id from string` 的当前值。
 
 ### PlaySound2D
+`public static bool PlaySound2D(int soundCodeId)`
 
-```csharp
-public static bool PlaySound2D(string soundName)
-```
+**用途 / Purpose:** 处理 `play sound2 d` 相关逻辑。
+
+### PlaySound2D
+`public static bool PlaySound2D(string soundName)`
+
+**用途 / Purpose:** 处理 `play sound2 d` 相关逻辑。
 
 ### GetTotalEventCount
+`public static int GetTotalEventCount()`
 
-```csharp
-public static int GetTotalEventCount()
-```
+**用途 / Purpose:** 获取 `total event count` 的当前值。
 
 ### CreateEvent
+`public static SoundEvent CreateEvent(int soundCodeId, Scene scene)`
 
-```csharp
-public static SoundEvent CreateEvent(int soundCodeId, Scene scene)
-```
+**用途 / Purpose:** 创建一个 `event` 实例或对象。
 
 ### IsNullSoundEvent
+`public bool IsNullSoundEvent()`
 
-```csharp
-public bool IsNullSoundEvent()
-```
+**用途 / Purpose:** 处理 `is null sound event` 相关逻辑。
 
 ### Play
+`public bool Play()`
 
-```csharp
-public bool Play()
-```
+**用途 / Purpose:** 处理 `play` 相关逻辑。
 
 ### Pause
+`public void Pause()`
 
-```csharp
-public void Pause()
-```
+**用途 / Purpose:** 处理 `pause` 相关逻辑。
 
 ### Resume
+`public void Resume()`
 
-```csharp
-public void Resume()
-```
+**用途 / Purpose:** 处理 `resume` 相关逻辑。
 
 ### PlayExtraEvent
+`public void PlayExtraEvent(string eventName)`
 
-```csharp
-public void PlayExtraEvent(string eventName)
-```
+**用途 / Purpose:** 处理 `play extra event` 相关逻辑。
 
 ### SetSwitch
+`public void SetSwitch(string switchGroupName, string newSwitchStateName)`
 
-```csharp
-public void SetSwitch(string switchGroupName, string newSwitchStateName)
-```
+**用途 / Purpose:** 设置 `switch` 的值或状态。
 
 ### TriggerCue
+`public void TriggerCue()`
 
-```csharp
-public void TriggerCue()
-```
+**用途 / Purpose:** 处理 `trigger cue` 相关逻辑。
 
 ### PlayInPosition
+`public bool PlayInPosition(Vec3 position)`
 
-```csharp
-public bool PlayInPosition(Vec3 position)
-```
+**用途 / Purpose:** 处理 `play in position` 相关逻辑。
 
 ### Stop
+`public void Stop()`
 
-```csharp
-public void Stop()
-```
-
-### SetParameter
-
-```csharp
-public void SetParameter(string parameterName, float value)
-```
+**用途 / Purpose:** 处理 `stop` 相关逻辑。
 
 ### SetParameter
+`public void SetParameter(string parameterName, float value)`
 
-```csharp
-public void SetParameter(int parameterIndex, float value)
-```
+**用途 / Purpose:** 设置 `parameter` 的值或状态。
+
+### SetParameter
+`public void SetParameter(int parameterIndex, float value)`
+
+**用途 / Purpose:** 设置 `parameter` 的值或状态。
 
 ### GetEventMinMaxDistance
+`public Vec3 GetEventMinMaxDistance()`
+
+**用途 / Purpose:** 获取 `event min max distance` 的当前值。
+
+### SetPosition
+`public void SetPosition(Vec3 vec)`
+
+**用途 / Purpose:** 设置 `position` 的值或状态。
+
+### SetVelocity
+`public void SetVelocity(Vec3 vec)`
+
+**用途 / Purpose:** 设置 `velocity` 的值或状态。
+
+### Release
+`public void Release()`
+
+**用途 / Purpose:** 处理 `release` 相关逻辑。
+
+### IsPlaying
+`public bool IsPlaying()`
+
+**用途 / Purpose:** 处理 `is playing` 相关逻辑。
+
+### IsPaused
+`public bool IsPaused()`
+
+**用途 / Purpose:** 处理 `is paused` 相关逻辑。
+
+### CreateEventFromSoundBuffer
+`public static SoundEvent CreateEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
+
+**用途 / Purpose:** 创建一个 `event from sound buffer` 实例或对象。
+
+### CreateEventFromExternalFile
+`public static SoundEvent CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
+
+**用途 / Purpose:** 创建一个 `event from external file` 实例或对象。
+
+## 使用示例
 
 ```csharp
-public Vec3 GetEventMinMaxDistance()
+var value = new SoundEvent();
+value.GetSoundId();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-engine)

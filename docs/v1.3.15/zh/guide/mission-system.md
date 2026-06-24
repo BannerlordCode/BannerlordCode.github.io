@@ -5,6 +5,10 @@ description: Mission、MissionBehavior、Agent、Formation、Team 详解 / Compl
 
 # 任务系统 / Mission System
 
+## 心智模型
+
+先把 `任务系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: TaleWorlds.MountAndBlade
 **Key Classes**: `Mission`, `MissionBehavior`, `Agent`, `Formation`, `Team`, `AgentComponent`
 
@@ -390,3 +394,9 @@ public class MySubModule : MBSubModuleBase
 
 - [战役系统](./campaign-system.md) - 学习 Campaign 世界地图玩法
 - [Gauntlet UI](./gauntlet-ui.md) - 创建自定义界面
+
+## 使用示例
+
+```csharp
+var example = new 任务系统();
+```

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HeroViewModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroViewModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HeroViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and a Gauntlet UI. Bind properties with `[DataSourceProperty]`, override OnPropertyChanged to react.
+`HeroViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and UI. Mods typically use it to expose state, commands, and list items to the screen.
+
+## Mental Model
+
+Treat `HeroViewModel` as a ViewModel-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,27 +30,25 @@
 ## Key Methods
 
 ### SetEquipment
-```csharp
-public override void SetEquipment(Equipment equipment)
-```
+`public override void SetEquipment(Equipment equipment)`
+
+**Purpose:** Sets the value or state of `equipment`.
 
 ### FillFrom
-```csharp
-public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)
-```
+`public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
+
+**Purpose:** Handles logic related to `fill from`.
 
 ### OnFinalize
-```csharp
-public override void OnFinalize()
-```
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HeroViewModel (ViewModel)
-// 绑定一个 HeroViewModel 到 Gauntlet UI
 var vm = new HeroViewModel();
-movie.SetViewModel(vm);;
+movie.SetViewModel(vm);
 ```
 
 ## See Also

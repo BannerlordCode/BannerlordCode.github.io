@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyDesertionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyDesertionModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`PartyDesertionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyDesertionModel>(new MyPartyDesertionModel())` to change how it computes.
+`PartyDesertionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyDesertionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetTroopsToDesert
-```csharp
-public abstract TroopRoster GetTroopsToDesert(MobileParty mobileParty)
-```
+`public abstract TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `troops to desert`.
 
 ### GetDesertionChanceForTroop
-```csharp
-public abstract float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)
-```
+`public abstract float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
+
+**Purpose:** Gets the current value of `desertion chance for troop`.
 
 ### GetMoraleThresholdForTroopDesertion
-```csharp
-public abstract int GetMoraleThresholdForTroopDesertion()
-```
+`public abstract int GetMoraleThresholdForTroopDesertion()`
+
+**Purpose:** Gets the current value of `morale threshold for troop desertion`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyDesertionModel (Model)
-Game.Current.ReplaceModel<PartyDesertionModel>(new MyPartyDesertionModel());
+var implementation = new CustomPartyDesertionModel();
 ```
 
 ## See Also

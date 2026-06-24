@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BaseNetworkComponentData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BaseNetworkComponentData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BaseNetworkComponentData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BaseNetworkComponentData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BaseNetworkComponentData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### UpdateCurrentBattleIndex
-```csharp
-public void UpdateCurrentBattleIndex(int currentBattleIndex)
-```
+`public void UpdateCurrentBattleIndex(int currentBattleIndex)`
+
+**Purpose:** Updates the state or data of `current battle index`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BaseNetworkComponentData (Data)
-new BaseNetworkComponentData { /* fill fields */ };;
+var value = new BaseNetworkComponentData();
 ```
 
 ## See Also

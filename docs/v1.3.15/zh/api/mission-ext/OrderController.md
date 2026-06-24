@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `OrderController`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderController
@@ -9,175 +10,452 @@
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** public class OrderController
-**Base:** 无
-**File:** `TaleWorlds.MountAndBlade/OrderController.cs`
+**Base:** ?**File:** 
+
+`TaleWorlds.MountAndBlade/OrderController.cs
+
+`
 
 ## 概述
 
-`OrderController` 管理任务中的队形选择与下令。它跟踪 `SelectedFormations`，并控制队形是否在监听/可选（`IsFormationListening`、`IsFormationSelectable`）。指令 UI 与程序化下令的 mod 都用它。可临时备份并禁用手势下令。
+`OrderController
 
-## 主要属性
+` 管理任务中的队形选择与下令。它跟踪 
 
-| Name | Signature |
-|------|-----------|
-| `SelectedFormations` | `public MBReadOnlyList<Formation> SelectedFormations { get { return this._selectedFormations; }` |
-| `FormationUpdateEnabledAfterSetOrder` | `public bool FormationUpdateEnabledAfterSetOrder { get { return this._formationUpdateEnabledAfterSetOrder; }` |
+`SelectedFormations
+
+`，并控制队形是否在监?可选（
+
+`IsFormationListening
+
+`、`IsFormationSelectable
+
+`）。指?UI 与程序化下令?mod 都用它。可临时备份并禁用手势下令?
+## 
+## 心智模型
+
+先把 `OrderController` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+主要属?
+\| Name \| Signature \|
+\|------\|-----------\|
+\| 
+
+`SelectedFormations
+
+` \| 
+
+`public MBReadOnlyList&lt;Formation&gt; SelectedFormations { get { return this._selectedFormations; }
+
+` \|
+\| 
+
+`FormationUpdateEnabledAfterSetOrder
+
+` \| 
+
+`public bool FormationUpdateEnabledAfterSetOrder { get { return this._formationUpdateEnabledAfterSetOrder; }
+
+` \|
 
 ## 主要方法
 
 ### SelectFormation
-```csharp
+`
+
+`
+
+`csharp
 public void SelectFormation(Formation formation)
-```
+`
+
+`
+
+`
 
 ### DeselectFormation
-```csharp
+`
+
+`
+
+`csharp
 public void DeselectFormation(Formation formation)
-```
+`
+
+`
+
+`
 
 ### IsFormationListening
-```csharp
+`
+
+`
+
+`csharp
 public bool IsFormationListening(Formation formation)
-```
+`
+
+`
+
+`
 
 ### IsFormationSelectable
-```csharp
+`
+
+`
+
+`csharp
 public bool IsFormationSelectable(Formation formation)
-```
+`
+
+`
+
+`
 
 ### BackupAndDisableGesturesEnabled
-```csharp
+`
+
+`
+
+`csharp
 public bool BackupAndDisableGesturesEnabled()
-```
+`
+
+`
+
+`
 
 ### RestoreGesturesEnabled
-```csharp
+`
+
+`
+
+`csharp
 public void RestoreGesturesEnabled(bool oldValue)
-```
+`
+
+`
+
+`
 
 ### SelectAllFormations
-```csharp
+`
+
+`
+
+`csharp
 public void SelectAllFormations(bool uiFeedback = false)
-```
+`
+
+`
+
+`
 
 ### ClearSelectedFormations
-```csharp
+`
+
+`
+
+`csharp
 public void ClearSelectedFormations()
-```
+`
+
+`
+
+`
 
 ### SetOrder
-```csharp
+`
+
+`
+
+`csharp
 public unsafe virtual void SetOrder(OrderType orderType)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithAgent
-```csharp
+`
+
+`
+
+`csharp
 public virtual void SetOrderWithAgent(OrderType orderType, Agent agent)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithPosition
-```csharp
+`
+
+`
+
+`csharp
 public virtual void SetOrderWithPosition(OrderType orderType, WorldPosition orderPosition)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithFormation
-```csharp
+`
+
+`
+
+`csharp
 public virtual void SetOrderWithFormation(OrderType orderType, Formation orderFormation)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithFormationAndPercentage
-```csharp
+`
+
+`
+
+`csharp
 public void SetOrderWithFormationAndPercentage(OrderType orderType, Formation orderFormation, float percentage)
-```
+`
+
+`
+
+`
 
 ### TransferUnitWithPriorityFunction
-```csharp
-public void TransferUnitWithPriorityFunction(Formation orderFormation, int number, bool hasShield, bool hasSpear, bool hasThrown, bool isHeavy, bool isRanged, bool isMounted, bool excludeBannerman, List<Agent> excludedAgents)
-```
+`
+
+`
+
+`csharp
+public void TransferUnitWithPriorityFunction(Formation orderFormation, int number, bool hasShield, bool hasSpear, bool hasThrown, bool isHeavy, bool isRanged, bool isMounted, bool excludeBannerman, List&lt;Agent&gt; excludedAgents)
+`
+
+`
+
+`
 
 ### RearrangeFormationsAccordingToFilters
-```csharp
+`
+
+`
+
+`csharp
 public void RearrangeFormationsAccordingToFilters(Team team, { "formation", "troopCount", "troopFilter", "excludedAgents" })
-```
+`
+
+`
+
+`
 
 ### SetOrderWithFormationAndNumber
-```csharp
+`
+
+`
+
+`csharp
 public void SetOrderWithFormationAndNumber(OrderType orderType, Formation orderFormation, int number)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithTwoPositions
-```csharp
+`
+
+`
+
+`csharp
 public virtual void SetOrderWithTwoPositions(OrderType orderType, WorldPosition position1, WorldPosition position2)
-```
+`
+
+`
+
+`
 
 ### SetOrderWithOrderableObject
-```csharp
+`
+
+`
+
+`csharp
 public virtual void SetOrderWithOrderableObject(IOrderable target)
-```
+`
+
+`
+
+`
 
 ### GetActiveMovementOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public unsafe static OrderType GetActiveMovementOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveFacingOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveFacingOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveRidingOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveRidingOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveArrangementOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveArrangementOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveFormOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveFormOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveFiringOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveFiringOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### GetActiveAIControlOrderOf
-```csharp
+`
+
+`
+
+`csharp
 public static OrderType GetActiveAIControlOrderOf(Formation formation)
-```
+`
+
+`
+
+`
 
 ### SimulateNewOrderWithPositionAndDirection
-```csharp
-public void SimulateNewOrderWithPositionAndDirection(WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical)
-```
+`
+
+`
+
+`csharp
+public void SimulateNewOrderWithPositionAndDirection(WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List&lt;WorldPosition&gt; simulationAgentFrames, bool isFormationLayoutVertical)
+`
+
+`
+
+`
 
 ### SimulateNewFacingOrder
-```csharp
-public void SimulateNewFacingOrder(Vec2 direction, out List<WorldPosition> simulationAgentFrames)
-```
+`
+
+`
+
+`csharp
+public void SimulateNewFacingOrder(Vec2 direction, out List&lt;WorldPosition&gt; simulationAgentFrames)
+`
+
+`
+
+`
 
 ### SimulateNewCustomWidthOrder
-```csharp
-public void SimulateNewCustomWidthOrder(float width, out List<WorldPosition> simulationAgentFrames)
-```
+`
+
+`
+
+`csharp
+public void SimulateNewCustomWidthOrder(float width, out List&lt;WorldPosition&gt; simulationAgentFrames)
+`
+
+`
+
+`
 
 ### SimulateNewOrderWithPositionAndDirection
-```csharp
-public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical = true)
-```
+`
+
+`
+
+`csharp
+public static void SimulateNewOrderWithPositionAndDirection(IEnumerable&lt;Formation&gt; formations, Dictionary&lt;Formation, Formation&gt; simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List&lt;WorldPosition&gt; simulationAgentFrames, bool isFormationLayoutVertical = true)
+`
+
+`
+
+`
 
 ### SimulateNewOrderWithPositionAndDirection
-```csharp
-public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<ValueTuple<Formation, int, float, WorldPosition, Vec2>> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)
-```
+`
+
+`
+
+`csharp
+public static void SimulateNewOrderWithPositionAndDirection(IEnumerable&lt;Formation&gt; formations, Dictionary&lt;Formation, Formation&gt; simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List&lt;ValueTuple&lt;Formation, int, float, WorldPosition, Vec2&gt;&gt; formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)
+`
+
+`
+
+`
 
 ## 使用示例
 
-```csharp
+`
+
+`
+
+`csharp
 // 选中玩家所有队形，下令期间禁用手势
 OrderController oc = Mission.Current.PlayerOrderController;
 oc.BackupAndDisableGesturesEnabled();
@@ -186,7 +464,11 @@ foreach (Formation f in Mission.Current.PlayerTeam.Formations)
         oc.SelectFormation(f);
 // ...通过 formation.SetMovementOrder(...) 下令...
 oc.RestoreGesturesEnabled();
-```
+`
+
+`
+
+`
 
 ## 参见
 

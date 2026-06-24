@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultStrikeMagnitudeModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultStrikeMagnitudeModel
@@ -14,49 +15,52 @@
 
 ## Overview
 
-`DefaultStrikeMagnitudeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultStrikeMagnitudeModel>(new MyDefaultStrikeMagnitudeModel())` to change how it computes.
+`DefaultStrikeMagnitudeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultStrikeMagnitudeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateStrikeMagnitudeForMissile
-```csharp
-public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)
-```
+`public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
+
+**Purpose:** Handles logic related to `calculate strike magnitude for missile`.
 
 ### CalculateStrikeMagnitudeForSwing
-```csharp
-public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)
-```
+`public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
+
+**Purpose:** Handles logic related to `calculate strike magnitude for swing`.
 
 ### CalculateStrikeMagnitudeForUnarmedAttack
-```csharp
-public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)
-```
+`public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
+
+**Purpose:** Handles logic related to `calculate strike magnitude for unarmed attack`.
 
 ### CalculateStrikeMagnitudeForThrust
-```csharp
-public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)
-```
+`public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
+
+**Purpose:** Handles logic related to `calculate strike magnitude for thrust`.
 
 ### ComputeRawDamage
-```csharp
-public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)
-```
+`public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
+
+**Purpose:** Handles logic related to `compute raw damage`.
 
 ### GetBluntDamageFactorByDamageType
-```csharp
-public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)
-```
+`public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
+
+**Purpose:** Gets the current value of `blunt damage factor by damage type`.
 
 ### CalculateHorseArcheryFactor
-```csharp
-public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)
-```
+`public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
+
+**Purpose:** Handles logic related to `calculate horse archery factor`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultStrikeMagnitudeModel (Model)
 Game.Current.ReplaceModel<DefaultStrikeMagnitudeModel>(new MyDefaultStrikeMagnitudeModel());
 ```
 

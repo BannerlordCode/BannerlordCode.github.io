@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EscapeMenuVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EscapeMenuVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class EscapeMenuVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/EscapeMenu/EscapeMenuVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EscapeMenuVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EscapeMenuVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,28 +29,30 @@
 | `MenuItems` | `public MBBindingList<EscapeMenuItemVM> MenuItems { get; set; }` |
 | `Tips` | `public GameTipsVM Tips { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Tick
+`public virtual void Tick(float dt)`
 
-```csharp
-public virtual void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### RefreshItems
+`public void RefreshItems(IEnumerable<EscapeMenuItemVM> items)`
+
+**Purpose:** Refreshes the display or cache of `items`.
+
+## Usage Example
 
 ```csharp
-public void RefreshItems(IEnumerable<EscapeMenuItemVM> items)
+var value = new EscapeMenuVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

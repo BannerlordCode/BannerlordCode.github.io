@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Threat`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Threat
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class Threat`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Threat.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Threat` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Threat` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,40 +28,40 @@
 | `Name` | `public string Name { get; }` |
 | `TargetingPosition` | `public Vec3 TargetingPosition { get; }` |
 
-
 ## Key Methods
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**Purpose:** Gets the current value of `hash code`.
 
 ### ComputeGlobalTargetingBoundingBoxMinMax
+`public ValueTuple<Vec3, Vec3> ComputeGlobalTargetingBoundingBoxMinMax()`
 
-```csharp
-public ValueTuple<Vec3, Vec3> ComputeGlobalTargetingBoundingBoxMinMax()
-```
+**Purpose:** Handles logic related to `compute global targeting bounding box min max`.
 
 ### GetGlobalVelocity
+`public Vec3 GetGlobalVelocity()`
 
-```csharp
-public Vec3 GetGlobalVelocity()
-```
+**Purpose:** Gets the current value of `global velocity`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### DisplayDebugInfo
+`public void DisplayDebugInfo()`
+
+**Purpose:** Handles logic related to `display debug info`.
+
+## Usage Example
 
 ```csharp
-public void DisplayDebugInfo()
+var value = new Threat();
+value.GetHashCode();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

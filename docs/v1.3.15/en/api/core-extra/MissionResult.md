@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `MissionResult`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionResult
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class MissionResult`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `MissionResult` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionResult` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,25 +30,28 @@
 | `PlayerDefeated` | `public bool PlayerDefeated { get; }` |
 | `EnemyRetreated` | `public bool EnemyRetreated { get; }` |
 
-
 ## Key Methods
 
 ### CreateSuccessful
+`public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)`
 
-```csharp
-public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)
-```
+**Purpose:** Creates a new `successful` instance or object.
 
 ### CreateDefeated
+`public static MissionResult CreateDefeated(IMission mission)`
 
-```csharp
-public static MissionResult CreateDefeated(IMission mission)
-```
+**Purpose:** Creates a new `defeated` instance or object.
 
 ### CreateDefenderPushedBack
+`public static MissionResult CreateDefenderPushedBack()`
+
+**Purpose:** Creates a new `defender pushed back` instance or object.
+
+## Usage Example
 
 ```csharp
-public static MissionResult CreateDefenderPushedBack()
+// Prepare the required context, then call the static entry point directly
+MissionResult.CreateSuccessful(mission, false);
 ```
 
 ## See Also

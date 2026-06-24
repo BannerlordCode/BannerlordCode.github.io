@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HttpHelper`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HttpHelper
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`HttpHelper` is a static utility class providing helper methods.
+`HttpHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `HttpHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### DownloadStringTaskAsync
-```csharp
-public static Task<string> DownloadStringTaskAsync(string url)
-```
+`public static Task<string> DownloadStringTaskAsync(string url)`
+
+**Purpose:** Handles logic related to `download string task async`.
 
 ### DownloadDataTaskAsync
-```csharp
-public static Task<byte > DownloadDataTaskAsync(string url)
-```
+`public static Task<byte > DownloadDataTaskAsync(string url)`
+
+**Purpose:** Handles logic related to `download data task async`.
 
 ### PostStringAsync
-```csharp
-public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")
-```
+`public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")`
+
+**Purpose:** Handles logic related to `post string async`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HttpHelper (Helper)
-HttpHelper./* static helper method */();;
+HttpHelper.Initialize();
 ```
 
 ## See Also

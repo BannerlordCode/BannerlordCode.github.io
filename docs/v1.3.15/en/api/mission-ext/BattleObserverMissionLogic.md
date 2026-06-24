@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleObserverMissionLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleObserverMissionLogic
@@ -14,49 +15,58 @@
 
 ## Overview
 
-`BattleObserverMissionLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new BattleObserverMissionLogic())`; subclass it to customize.
+`BattleObserverMissionLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `BattleObserverMissionLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `BattleObserver` | `public IBattleObserver BattleObserver { get; }` |
 
 ## Key Methods
 
 ### SetObserver
-```csharp
-public void SetObserver(IBattleObserver observer)
-```
+`public void SetObserver(IBattleObserver observer)`
+
+**Purpose:** Sets the value or state of `observer`.
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### OnAgentBuild
-```csharp
-public override void OnAgentBuild(Agent agent, Banner banner)
-```
+`public override void OnAgentBuild(Agent agent, Banner banner)`
+
+**Purpose:** Called when the `agent build` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnAgentTeamChanged
-```csharp
-public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)
-```
+`public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
+
+**Purpose:** Called when the `agent team changed` event is raised.
 
 ### OnMissionResultReady
-```csharp
-public override void OnMissionResultReady(MissionResult missionResult)
-```
+`public override void OnMissionResultReady(MissionResult missionResult)`
+
+**Purpose:** Called when the `mission result ready` event is raised.
 
 ### GetDeathToBuiltAgentRatioForSide
-```csharp
-public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)
-```
+`public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `death to built agent ratio for side`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleObserverMissionLogic (Logic)
 Mission.Current.AddMissionBehavior(new BattleObserverMissionLogic());
 ```
 

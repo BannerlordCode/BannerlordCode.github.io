@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `HeroCreationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroCreationModel
@@ -14,90 +15,93 @@
 
 ## 概述
 
-`HeroCreationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<HeroCreationModel>(new MyHeroCreationModel())` 注册，以改变其计算逻辑。
+`HeroCreationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `HeroCreationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetBirthAndDeathDay
-```csharp
-public abstract ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)
-```
+`public abstract ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)`
+
+**用途 / Purpose:** 获取 `birth and death day` 的当前值。
 
 ### GetBornSettlement
-```csharp
-public abstract Settlement GetBornSettlement(Hero character)
-```
+`public abstract Settlement GetBornSettlement(Hero character)`
+
+**用途 / Purpose:** 获取 `born settlement` 的当前值。
 
 ### GetStaticBodyProperties
-```csharp
-public abstract StaticBodyProperties GetStaticBodyProperties(Hero character, bool isOffspring, float variationAmount = 0.35f)
-```
+`public abstract StaticBodyProperties GetStaticBodyProperties(Hero character, bool isOffspring, float variationAmount = 0.35f)`
+
+**用途 / Purpose:** 获取 `static body properties` 的当前值。
 
 ### GetPreferredUpgradeFormation
-```csharp
-public abstract FormationClass GetPreferredUpgradeFormation(Hero character)
-```
+`public abstract FormationClass GetPreferredUpgradeFormation(Hero character)`
+
+**用途 / Purpose:** 获取 `preferred upgrade formation` 的当前值。
 
 ### GetClan
-```csharp
-public abstract Clan GetClan(Hero character)
-```
+`public abstract Clan GetClan(Hero character)`
+
+**用途 / Purpose:** 获取 `clan` 的当前值。
 
 ### GetCulture
-```csharp
-public abstract CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)
-```
+`public abstract CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)`
+
+**用途 / Purpose:** 获取 `culture` 的当前值。
 
 ### GetRandomTemplateByOccupation
-```csharp
-public abstract CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)
-```
+`public abstract CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)`
+
+**用途 / Purpose:** 获取 `random template by occupation` 的当前值。
 
 ### GetTraitsForHero
-```csharp
-public abstract List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `traits for hero` 的当前值。
 
 ### GetCivilianEquipment
-```csharp
-public abstract Equipment GetCivilianEquipment(Hero hero)
-```
+`public abstract Equipment GetCivilianEquipment(Hero hero)`
+
+**用途 / Purpose:** 获取 `civilian equipment` 的当前值。
 
 ### GetBattleEquipment
-```csharp
-public abstract Equipment GetBattleEquipment(Hero hero)
-```
+`public abstract Equipment GetBattleEquipment(Hero hero)`
+
+**用途 / Purpose:** 获取 `battle equipment` 的当前值。
 
 ### GetCharacterTemplateForOffspring
-```csharp
-public abstract CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)
-```
+`public abstract CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)`
+
+**用途 / Purpose:** 获取 `character template for offspring` 的当前值。
 
 ### GenerateFirstAndFullName
-```csharp
-public abstract ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)
-```
+`public abstract ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)`
+
+**用途 / Purpose:** 处理 `generate first and full name` 相关逻辑。
 
 ### GetDefaultSkillsForHero
-```csharp
-public abstract List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `default skills for hero` 的当前值。
 
 ### GetInheritedSkillsForHero
-```csharp
-public abstract List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)
-```
+`public abstract List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `inherited skills for hero` 的当前值。
 
 ### IsHeroCombatant
-```csharp
-public abstract bool IsHeroCombatant(Hero hero)
-```
+`public abstract bool IsHeroCombatant(Hero hero)`
+
+**用途 / Purpose:** 处理 `is hero combatant` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// HeroCreationModel (Model) 的典型用法
-Game.Current.ReplaceModel<HeroCreationModel>(new MyHeroCreationModel());
+var implementation = new CustomHeroCreationModel();
 ```
 
 ## 参见

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `PolicyObject`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PolicyObject
@@ -15,6 +17,10 @@
 ## Overview
 
 `PolicyObject` represents a kingdom policy (an active/inactive law affecting kingdom mechanics). All policies are available via the static `All` list and are typically referenced from XML. Mods query active policies on a kingdom (`Kingdom.ActivePolicies`) and add/remove them to change kingdom behavior.
+
+## Mental Model
+
+Treat `PolicyObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

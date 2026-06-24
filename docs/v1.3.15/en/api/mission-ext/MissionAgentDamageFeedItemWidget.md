@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionAgentDamageFeedItemWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentDamageFeedItemWidget
@@ -16,6 +17,10 @@
 
 `MissionAgentDamageFeedItemWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MissionAgentDamageFeedItemWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,21 +33,19 @@
 ## Key Methods
 
 ### ShowFeed
-```csharp
-public void ShowFeed()
-```
+`public void ShowFeed()`
+
+**Purpose:** Handles logic related to `show feed`.
 
 ### SetSpeedModifier
-```csharp
-public void SetSpeedModifier(float newSpeed)
-```
+`public void SetSpeedModifier(float newSpeed)`
+
+**Purpose:** Sets the value or state of `speed modifier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionAgentDamageFeedItemWidget (Widget)
-// 声明/访问一个 MissionAgentDamageFeedItemWidget
-var widget = root.GetChild("missionAgentDamageFeedItemWidget");;
+var widget = new MissionAgentDamageFeedItemWidget(context);
 ```
 
 ## See Also

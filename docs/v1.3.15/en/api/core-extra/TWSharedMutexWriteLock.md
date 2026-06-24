@@ -2,30 +2,39 @@
 **Home** → **API Index** → **Area** → `TWSharedMutexWriteLock`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TWSharedMutexWriteLock
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** struct
-**Area:** Core
+**Type:** `public struct TWSharedMutexWriteLock : IDisposable`
+**Base:** `IDisposable`
+**File:** `TaleWorlds.Library/TWSharedMutexWriteLock.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TWSharedMutexWriteLock` is a struct in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TWSharedMutexWriteLock` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Dispose
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
+
+## Usage Example
 
 ```csharp
-public void Dispose()
+var value = new TWSharedMutexWriteLock();
+value.Dispose();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

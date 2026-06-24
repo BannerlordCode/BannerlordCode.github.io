@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SiegeTowerSpawner`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeTowerSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SiegeTowerSpawner : SpawnerBase`
+**Base:** `SpawnerBase`
+**File:** `TaleWorlds.MountAndBlade/Objects/Siege/SiegeTowerSpawner.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeTowerSpawner` is a class in the `TaleWorlds.MountAndBlade.Objects.Siege` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeTowerSpawner` lives in `TaleWorlds.MountAndBlade.Objects.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,16 +27,20 @@
 |------|-----------|
 | `RampRotationRadian` | `public float RampRotationRadian { get; }` |
 
-
 ## Key Methods
 
 ### AssignParameters
+`public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
+
+**Purpose:** Handles logic related to `assign parameters`.
+
+## Usage Example
 
 ```csharp
-public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)
+var value = new SiegeTowerSpawner();
+value.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

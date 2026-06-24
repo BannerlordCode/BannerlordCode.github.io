@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `KingdomDecision`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomDecision
@@ -15,6 +17,10 @@
 ## Overview
 
 `KingdomDecision` is the abstract base for kingdom-level decisions put to a vote (policies, war declarations, annexations, king selection, etc.). A decision has a `ProposerClan`, a `Kingdom`, a `TriggerTime`, and tracks whether it's been `IsEnforced` / `PlayerExamined`. Mods subclass it to add custom kingdom decisions and override `IsKingsVoteAllowed`, `DetermineCalculators`, and `OnDecisionConcluded`.
+
+## Mental Model
+
+Treat `KingdomDecision` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 
@@ -184,17 +190,7 @@ public virtual KingdomDecision GetFollowUpDecision()
 ## Usage Example
 
 ```csharp
-// Submit a custom kingdom decision for vote
-public class MyKingdomDecision : KingdomDecision
-{
-    public MyKingdomDecision(Clan proposerClan) : base(proposerClan) { }
-    public override bool IsKingsVoteAllowed => false;
-    // override DetermineCalculators(...) and OnDecisionConcluded(...)
-}
-
-// Trigger it:
-if (Clan.PlayerClan.Kingdom != null)
-    Clan.PlayerClan.Kingdom.AddDecision(new MyKingdomDecision(Clan.PlayerClan), notifyPlayer: true);
+var implementation = new CustomKingdomDecision();
 ```
 
 ## See Also

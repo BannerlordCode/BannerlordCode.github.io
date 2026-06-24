@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `CampaignBehaviorBase`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/CampaignBehaviorBase](/versions/CampaignBehaviorBase)
 <!-- END BREADCRUMB -->
@@ -20,6 +22,10 @@ The abstract base class for all campaign behaviors and the primary entry point f
 The base class itself exposes only one readonly field (`StringId`), two constructors, two abstract methods that must be overridden (`RegisterEvents`, `SyncData`), and one static lookup helper (`GetCampaignBehavior<T>`). Behavior instances are registered into the campaign via `CampaignGameStarter.AddBehavior` / `CampaignBehaviorManager.AddBehavior`, and retrieved via `Campaign.Current.GetCampaignBehavior<T>()`.
 
 > Note: `OnNewGameCreated` and `OnGameLoaded` are **not** virtual override points on the base class. They are event handler methods that the mod defines and subscribes to inside `RegisterEvents` via `CampaignEvents.OnNewGameCreatedEvent` / `CampaignEvents.OnGameLoadedEvent`. The only abstract members you must override on the base class are `RegisterEvents` and `SyncData`.
+
+## Mental Model
+
+Treat `CampaignBehaviorBase` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Fields
 
@@ -91,65 +97,7 @@ The typical lifecycle of a mod behavior is:
 ## Usage Example
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-
-// A minimal campaign behavior: increments a counter on each daily tick
-// and persists that counter with the save.
-public class MyTickCounterBehavior : CampaignBehaviorBase
-{
-    private int _tickCount;
-    private Dictionary<Settlement, int> _visitsPerSettlement;
-
-    public MyTickCounterBehavior() : base()
-    {
-        _tickCount = 0;
-        _visitsPerSettlement = new Dictionary<Settlement, int>();
-    }
-
-    // Must override: wire up campaign events here.
-    public override void RegisterEvents()
-    {
-        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, new Action(OnDailyTick));
-        CampaignEvents.OnNewGameCreatedEvent.AddNonSerializedListener(
-            this, new Action<CampaignGameStarter>(OnNewGameCreated));
-        CampaignEvents.OnGameLoadedEvent.AddNonSerializedListener(
-            this, new Action<CampaignGameStarter>(OnGameLoaded));
-    }
-
-    // Must override: read/write the fields that need to be saved here.
-    public override void SyncData(IDataStore dataStore)
-    {
-        dataStore.SyncData<int>("_tickCount", ref _tickCount);
-
-        // SyncData returns true when loading a save; use that to null-correct the result.
-        if (dataStore.SyncData<Dictionary<Settlement, int>>(
-                "_visitsPerSettlement", ref _visitsPerSettlement)
-            && _visitsPerSettlement == null)
-        {
-            _visitsPerSettlement = new Dictionary<Settlement, int>();
-        }
-    }
-
-    private void OnDailyTick()
-    {
-        _tickCount++;
-    }
-
-    private void OnNewGameCreated(CampaignGameStarter starter)
-    {
-        _tickCount = 0;
-        _visitsPerSettlement = new Dictionary<Settlement, int>();
-    }
-
-    private void OnGameLoaded(CampaignGameStarter starter)
-    {
-        // Rebuild runtime references after a load here if needed.
-    }
-
-    public int CurrentTickCount => _tickCount;
-}
+var implementation = new CustomCampaignBehaviorBase();
 ```
 
 Registering the behavior (during game initialization, e.g. when your mod's module callback has a `CampaignGameStarter`):

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PlayerData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PlayerData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PlayerData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`PlayerData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `PlayerData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -52,35 +57,34 @@
 ## Key Methods
 
 ### FillWith
-```csharp
-public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)
-```
+`public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
+
+**Purpose:** Handles logic related to `fill with`.
 
 ### FillWithNewPlayer
-```csharp
-public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)
-```
+`public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
+
+**Purpose:** Handles logic related to `fill with new player`.
 
 ### HasGameStats
-```csharp
-public bool HasGameStats(string gameType)
-```
+`public bool HasGameStats(string gameType)`
+
+**Purpose:** Checks whether the current object has/contains `game stats`.
 
 ### GetGameStats
-```csharp
-public PlayerStatsBase GetGameStats(string gameType)
-```
+`public PlayerStatsBase GetGameStats(string gameType)`
+
+**Purpose:** Gets the current value of `game stats`.
 
 ### UpdateGameStats
-```csharp
-public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)
-```
+`public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)`
+
+**Purpose:** Updates the state or data of `game stats`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PlayerData (Data)
-new PlayerData { /* fill fields */ };;
+var value = new PlayerData();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ConversationManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ConversationManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`ConversationManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`ConversationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ConversationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -38,160 +43,239 @@
 ## Key Methods
 
 ### CreateConversationSentenceIndex
-```csharp
-public int CreateConversationSentenceIndex()
-```
+`public int CreateConversationSentenceIndex()`
+
+**Purpose:** Creates a new `conversation sentence index` instance or object.
 
 ### StartNew
-```csharp
-public void StartNew(int startingToken, bool setActionsInstantly)
-```
+`public void StartNew(int startingToken, bool setActionsInstantly)`
+
+**Purpose:** Handles logic related to `start new`.
 
 ### ProcessSentence
-```csharp
-public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)
-```
+`public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
+
+**Purpose:** Handles logic related to `process sentence`.
 
 ### UpdateCurrentSentenceText
-```csharp
-public void UpdateCurrentSentenceText()
-```
+`public void UpdateCurrentSentenceText()`
+
+**Purpose:** Updates the state or data of `current sentence text`.
 
 ### IsConversationEnded
-```csharp
-public bool IsConversationEnded()
-```
+`public bool IsConversationEnded()`
+
+**Purpose:** Handles logic related to `is conversation ended`.
 
 ### ClearCurrentOptions
-```csharp
-public void ClearCurrentOptions()
-```
+`public void ClearCurrentOptions()`
+
+**Purpose:** Handles logic related to `clear current options`.
 
 ### AddToCurrentOptions
-```csharp
-public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)
-```
+`public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)`
+
+**Purpose:** Adds `to current options` to the current collection or state.
 
 ### GetPlayerSentenceOptions
-```csharp
-public void GetPlayerSentenceOptions()
-```
+`public void GetPlayerSentenceOptions()`
+
+**Purpose:** Gets the current value of `player sentence options`.
 
 ### GetStateIndex
-```csharp
-public int GetStateIndex(string str)
-```
+`public int GetStateIndex(string str)`
+
+**Purpose:** Gets the current value of `state index`.
 
 ### DisableSentenceSort
-```csharp
-public void DisableSentenceSort()
-```
+`public void DisableSentenceSort()`
+
+**Purpose:** Handles logic related to `disable sentence sort`.
 
 ### EnableSentenceSort
-```csharp
-public void EnableSentenceSort()
-```
+`public void EnableSentenceSort()`
+
+**Purpose:** Handles logic related to `enable sentence sort`.
 
 ### AddDialogFlow
-```csharp
-public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)
-```
+`public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
+
+**Purpose:** Adds `dialog flow` to the current collection or state.
 
 ### AddDialogLineMultiAgent
-```csharp
-public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)
-```
+`public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
+
+**Purpose:** Adds `dialog line multi agent` to the current collection or state.
 
 ### IsAgentInConversation
-```csharp
-public bool IsAgentInConversation(IAgent agent)
-```
+`public bool IsAgentInConversation(IAgent agent)`
+
+**Purpose:** Handles logic related to `is agent in conversation`.
 
 ### BeginConversation
-```csharp
-public void BeginConversation()
-```
+`public void BeginConversation()`
+
+**Purpose:** Handles logic related to `begin conversation`.
 
 ### EndConversation
-```csharp
-public void EndConversation()
-```
+`public void EndConversation()`
+
+**Purpose:** Handles logic related to `end conversation`.
 
 ### DoOption
-```csharp
-public void DoOption(int optionIndex)
-```
+`public void DoOption(int optionIndex)`
+
+**Purpose:** Handles logic related to `do option`.
 
 ### DoOption
-```csharp
-public void DoOption(string optionID)
-```
+`public void DoOption(string optionID)`
+
+**Purpose:** Handles logic related to `do option`.
 
 ### DoConversationContinuedCallback
-```csharp
-public void DoConversationContinuedCallback()
-```
+`public void DoConversationContinuedCallback()`
+
+**Purpose:** Handles logic related to `do conversation continued callback`.
 
 ### DoOptionContinue
-```csharp
-public void DoOptionContinue()
-```
+`public void DoOptionContinue()`
+
+**Purpose:** Handles logic related to `do option continue`.
 
 ### ContinueConversation
-```csharp
-public void ContinueConversation()
-```
+`public void ContinueConversation()`
+
+**Purpose:** Handles logic related to `continue conversation`.
 
 ### SetupAndStartMissionConversation
-```csharp
-public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)
-```
+`public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)`
+
+**Purpose:** Sets the value or state of `up and start mission conversation`.
 
 ### SetupAndStartMissionConversationWithMultipleAgents
-```csharp
-public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)
-```
+`public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)`
+
+**Purpose:** Sets the value or state of `up and start mission conversation with multiple agents`.
 
 ### SetupAndStartMapConversation
-```csharp
-public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)
-```
+`public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)`
+
+**Purpose:** Sets the value or state of `up and start map conversation`.
 
 ### AddConversationAgents
-```csharp
-public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)
-```
+`public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)`
+
+**Purpose:** Adds `conversation agents` to the current collection or state.
 
 ### RemoveConversationAgent
-```csharp
-public void RemoveConversationAgent(IAgent agent)
-```
+`public void RemoveConversationAgent(IAgent agent)`
+
+**Purpose:** Removes `conversation agent` from the current collection or state.
 
 ### IsConversationAgent
-```csharp
-public bool IsConversationAgent(IAgent agent)
-```
+`public bool IsConversationAgent(IAgent agent)`
+
+**Purpose:** Handles logic related to `is conversation agent`.
 
 ### RemoveRelatedLines
-```csharp
-public void RemoveRelatedLines(object o)
-```
+`public void RemoveRelatedLines(object o)`
+
+**Purpose:** Removes `related lines` from the current collection or state.
 
 ### OnConversationDeactivate
-```csharp
-public void OnConversationDeactivate()
-```
+`public void OnConversationDeactivate()`
+
+**Purpose:** Called when the `conversation deactivate` event is raised.
 
 ### OnConversationActivate
-```csharp
-public void OnConversationActivate()
-```
+`public void OnConversationActivate()`
+
+**Purpose:** Called when the `conversation activate` event is raised.
+
+### FindMatchingTextOrNull
+`public TextObject FindMatchingTextOrNull(string id, CharacterObject character)`
+
+**Purpose:** Handles logic related to `find matching text or null`.
+
+### GetApplicableTagNames
+`public IEnumerable<string> GetApplicableTagNames(CharacterObject character)`
+
+**Purpose:** Gets the current value of `applicable tag names`.
+
+### IsTagApplicable
+`public bool IsTagApplicable(string tagId, CharacterObject character)`
+
+**Purpose:** Handles logic related to `is tag applicable`.
+
+### OpenMapConversation
+`public void OpenMapConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
+
+**Purpose:** Handles logic related to `open map conversation`.
+
+### StartPersuasion
+`public static void StartPersuasion(float goalValue, float successValue, float failValue, float criticalSuccessValue, float criticalFailValue, float initialProgress = -1f, PersuasionDifficulty difficulty = PersuasionDifficulty.Medium)`
+
+**Purpose:** Handles logic related to `start persuasion`.
+
+### EndPersuasion
+`public static void EndPersuasion()`
+
+**Purpose:** Handles logic related to `end persuasion`.
+
+### PersuasionCommitProgress
+`public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
+
+**Purpose:** Handles logic related to `persuasion commit progress`.
+
+### Clear
+`public static void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+### GetPersuasionChanceValues
+`public void GetPersuasionChanceValues(out float successValue, out float critSuccessValue, out float critFailValue)`
+
+**Purpose:** Gets the current value of `persuasion chance values`.
+
+### GetPersuasionIsActive
+`public static bool GetPersuasionIsActive()`
+
+**Purpose:** Gets the current value of `persuasion is active`.
+
+### GetPersuasionProgressSatisfied
+`public static bool GetPersuasionProgressSatisfied()`
+
+**Purpose:** Gets the current value of `persuasion progress satisfied`.
+
+### GetPersuasionIsFailure
+`public static bool GetPersuasionIsFailure()`
+
+**Purpose:** Gets the current value of `persuasion is failure`.
+
+### GetPersuasionProgress
+`public static float GetPersuasionProgress()`
+
+**Purpose:** Gets the current value of `persuasion progress`.
+
+### GetPersuasionGoalValue
+`public static float GetPersuasionGoalValue()`
+
+**Purpose:** Gets the current value of `persuasion goal value`.
+
+### GetPersuasionChosenOptions
+`public static IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetPersuasionChosenOptions()`
+
+**Purpose:** Gets the current value of `persuasion chosen options`.
+
+### GetPersuasionChances
+`public void GetPersuasionChances(ConversationSentenceOption conversationSentenceOption, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance)`
+
+**Purpose:** Gets the current value of `persuasion chances`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ConversationManager (Manager)
-ConversationManager.Current;
+var manager = ConversationManager.Current;
 ```
 
 ## See Also

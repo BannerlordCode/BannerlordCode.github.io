@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PersuasionOptionVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PersuasionOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PersuasionOptionVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Conversation/PersuasionOptionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PersuasionOptionVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PersuasionOptionVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -40,28 +44,30 @@
 | `BlockingOptionHint` | `public HintViewModel BlockingOptionHint { get; set; }` |
 | `ProgressingOptionHint` | `public HintViewModel ProgressingOptionHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### GetPersuasionAdditionalText
+`public string GetPersuasionAdditionalText()`
 
-```csharp
-public string GetPersuasionAdditionalText()
-```
+**Purpose:** Gets the current value of `persuasion additional text`.
 
 ### ExecuteReadyToContinue
+`public void ExecuteReadyToContinue()`
+
+**Purpose:** Executes the `ready to continue` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteReadyToContinue()
+var value = new PersuasionOptionVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameKeyOptionVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameKeyOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GameKeyOptionVM : KeyOptionVM`
+**Base:** `KeyOptionVM`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/GameKeys/GameKeyOptionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameKeyOptionVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameKeyOptionVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,46 +27,45 @@
 |------|-----------|
 | `CurrentGameKey` | `public GameKey CurrentGameKey { get; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### Set
+`public override void Set(InputKey newKey)`
 
-```csharp
-public override void Set(InputKey newKey)
-```
+**Purpose:** Sets the value or state of `set`.
 
 ### Update
+`public override void Update()`
 
-```csharp
-public override void Update()
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### OnDone
+`public override void OnDone()`
 
-```csharp
-public override void OnDone()
-```
+**Purpose:** Called when the `done` event is raised.
 
 ### Revert
+`public void Revert()`
 
-```csharp
-public void Revert()
-```
+**Purpose:** Handles logic related to `revert`.
 
 ### Apply
+`public void Apply()`
+
+**Purpose:** Applies `apply` to the current object.
+
+## Usage Example
 
 ```csharp
-public void Apply()
+var value = new GameKeyOptionVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

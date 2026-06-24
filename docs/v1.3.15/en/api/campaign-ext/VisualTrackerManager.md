@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VisualTrackerManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VisualTrackerManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`VisualTrackerManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`VisualTrackerManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `VisualTrackerManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,30 +30,29 @@
 ## Key Methods
 
 ### RegisterObject
-```csharp
-public void RegisterObject(ITrackableCampaignObject trackableObject)
-```
+`public void RegisterObject(ITrackableCampaignObject trackableObject)`
+
+**Purpose:** Handles logic related to `register object`.
 
 ### CheckTracked
-```csharp
-public bool CheckTracked(ITrackableBase trackableObject)
-```
+`public bool CheckTracked(ITrackableBase trackableObject)`
+
+**Purpose:** Handles logic related to `check tracked`.
 
 ### RemoveTrackedObject
-```csharp
-public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)
-```
+`public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)`
+
+**Purpose:** Removes `tracked object` from the current collection or state.
 
 ### SetDirty
-```csharp
-public void SetDirty()
-```
+`public void SetDirty()`
+
+**Purpose:** Sets the value or state of `dirty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VisualTrackerManager (Manager)
-VisualTrackerManager.Current;
+var manager = VisualTrackerManager.Current;
 ```
 
 ## See Also

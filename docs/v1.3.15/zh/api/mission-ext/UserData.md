@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `UserData`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UserData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`UserData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`UserData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `UserData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,45 +33,44 @@
 ## 主要方法
 
 ### GetUserModData
-```csharp
-public UserModData GetUserModData(bool isMultiplayer, string id)
-```
+`public UserModData GetUserModData(bool isMultiplayer, string id)`
+
+**用途 / Purpose:** 获取 `user mod data` 的当前值。
 
 ### GetDLLLatestSizeInBytes
-```csharp
-public uint? GetDLLLatestSizeInBytes(string dllName)
-```
+`public uint? GetDLLLatestSizeInBytes(string dllName)`
+
+**用途 / Purpose:** 获取 `d l l latest size in bytes` 的当前值。
 
 ### GetDLLLatestIsDangerous
-```csharp
-public bool GetDLLLatestIsDangerous(string dllName)
-```
+`public bool GetDLLLatestIsDangerous(string dllName)`
+
+**用途 / Purpose:** 获取 `d l l latest is dangerous` 的当前值。
 
 ### GetDLLLatestVerifyInformation
-```csharp
-public string GetDLLLatestVerifyInformation(string dllName)
-```
+`public string GetDLLLatestVerifyInformation(string dllName)`
+
+**用途 / Purpose:** 获取 `d l l latest verify information` 的当前值。
 
 ### SetDLLLatestSizeInBytes
-```csharp
-public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)
-```
+`public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
+
+**用途 / Purpose:** 设置 `d l l latest size in bytes` 的值或状态。
 
 ### SetDLLLatestVerifyInformation
-```csharp
-public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)
-```
+`public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
+
+**用途 / Purpose:** 设置 `d l l latest verify information` 的值或状态。
 
 ### SetDLLLatestIsDangerous
-```csharp
-public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)
-```
+`public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
+
+**用途 / Purpose:** 设置 `d l l latest is dangerous` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// UserData (Data) 的典型用法
-new UserData { /* fill fields */ };;
+var value = new UserData();
 ```
 
 ## 参见

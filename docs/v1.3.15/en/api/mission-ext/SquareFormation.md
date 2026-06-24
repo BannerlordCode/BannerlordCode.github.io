@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SquareFormation`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SquareFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SquareFormation : LineFormation`
+**Base:** `LineFormation`
+**File:** `TaleWorlds.MountAndBlade/SquareFormation.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SquareFormation` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SquareFormation` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,58 +30,55 @@
 | `MinimumWidth` | `public override float MinimumWidth { get; }` |
 | `MaximumWidth` | `public override float MaximumWidth { get; }` |
 
-
 ## Key Methods
 
 ### Clone
+`public override IFormationArrangement Clone(IFormation formation)`
 
-```csharp
-public override IFormationArrangement Clone(IFormation formation)
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### DeepCopyFrom
+`public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-```csharp
-public override void DeepCopyFrom(IFormationArrangement arrangement)
-```
+**Purpose:** Handles logic related to `deep copy from`.
 
 ### FormFromBorderSideWidth
+`public void FormFromBorderSideWidth(float borderSideWidth)`
 
-```csharp
-public void FormFromBorderSideWidth(float borderSideWidth)
-```
+**Purpose:** Handles logic related to `form from border side width`.
 
 ### FormFromBorderUnitCountPerSide
+`public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-```csharp
-public void FormFromBorderUnitCountPerSide(int unitCountPerSide)
-```
+**Purpose:** Handles logic related to `form from border unit count per side`.
 
 ### GetUnitsPerSideFromRankCount
+`public int GetUnitsPerSideFromRankCount(int rankCount)`
 
-```csharp
-public int GetUnitsPerSideFromRankCount(int rankCount)
-```
+**Purpose:** Gets the current value of `units per side from rank count`.
 
 ### FormFromRankCount
+`public void FormFromRankCount(int rankCount)`
 
-```csharp
-public void FormFromRankCount(int rankCount)
-```
+**Purpose:** Handles logic related to `form from rank count`.
 
 ### GetLocalDirectionOfUnitOrDefault
+`public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-```csharp
-public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)
-```
+**Purpose:** Gets the current value of `local direction of unit or default`.
 
 ### TurnBackwards
+`public override void TurnBackwards()`
+
+**Purpose:** Handles logic related to `turn backwards`.
+
+## Usage Example
 
 ```csharp
-public override void TurnBackwards()
+var value = new SquareFormation();
+value.Clone(formation);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBribeCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBribeCalculationModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultBribeCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBribeCalculationModel>(new MyDefaultBribeCalculationModel())` to change how it computes.
+`DefaultBribeCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBribeCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsBribeNotNeededToEnterKeep
-```csharp
-public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)
-```
+`public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
+
+**Purpose:** Handles logic related to `is bribe not needed to enter keep`.
 
 ### IsBribeNotNeededToEnterDungeon
-```csharp
-public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)
-```
+`public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
+
+**Purpose:** Handles logic related to `is bribe not needed to enter dungeon`.
 
 ### GetBribeToEnterLordsHall
-```csharp
-public override int GetBribeToEnterLordsHall(Settlement settlement)
-```
+`public override int GetBribeToEnterLordsHall(Settlement settlement)`
+
+**Purpose:** Gets the current value of `bribe to enter lords hall`.
 
 ### GetBribeToEnterDungeon
-```csharp
-public override int GetBribeToEnterDungeon(Settlement settlement)
-```
+`public override int GetBribeToEnterDungeon(Settlement settlement)`
+
+**Purpose:** Gets the current value of `bribe to enter dungeon`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBribeCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultBribeCalculationModel>(new MyDefaultBribeCalculationModel());
 ```
 

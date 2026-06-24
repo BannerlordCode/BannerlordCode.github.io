@@ -5,7 +5,11 @@ description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 
 # 完整函数目录 / Complete Function Catalog
 
-本页整理 `TaleWorlds.Native.dll.c` 中已索引的 11,095 个反编译函数。完整地址列表保存在 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt)，每行一个 `FUN_` 符号，按地址升序排列。
+## 心智模型
+
+先把 `完整函数目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页整理 `TaleWorlds.Native.dll.c` 中已索引的 11,095 个反编译函数。完整地址列表见本页与索引导航，每行一个 `FUN_` 符号按地址升序整理。
 
 > 重要：`FUN_180...` 是反编译工具生成的函数名，并不代表原始函数名。下方分类主要用于缩小搜索范围；具体语义必须结合字符串引用、调用关系、vftable、导出表和托管 `[EngineMethod]` 映射确认。
 
@@ -16,7 +20,7 @@ description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 | 已索引函数 | 11,095 |
 | 首个函数 | `FUN_180001000` |
 | 最后函数 | `FUN_180a21db0` |
-| 完整列表 | [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt) |
+| 完整列表 | [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS) |
 | 源码文件 | `TaleWorlds.Native.dll.c` |
 | 头文件声明 | `TaleWorlds.Native.dll.h` |
 
@@ -102,7 +106,7 @@ FUN_180a21db0
 
 ## 如何使用完整地址列表 / How To Use The Address List
 
-1. 打开 [ALL-FUNCTIONS-LIST.txt](./ALL-FUNCTIONS-LIST.txt)。
+1. 打开 [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS)。
 2. 用地址前缀缩小范围，例如搜索 `FUN_180746` 或 `FUN_180a21`。
 3. 回到 `TaleWorlds.Native.dll.c` 中搜索同名函数。
 4. 查看函数附近的字符串、全局变量、vftable 写入和被调用函数。
@@ -131,3 +135,9 @@ FUN_180a21db0
 **最后更新:** 2026-05-14  
 **源码版本:** TaleWorlds.Native.dll v1.3.15  
 **总函数数:** 11,095
+
+## 使用示例
+
+```csharp
+var example = new 完整函数目录();
+```

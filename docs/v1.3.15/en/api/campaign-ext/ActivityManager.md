@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ActivityManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ActivityManager
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ActivityManager`
+**Base:** none
+**File:** `TaleWorlds.ActivitySystem/ActivityManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ActivityManager` is a class in the `TaleWorlds.ActivitySystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ActivityManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
+## Mental Model
+
+Treat `ActivityManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -23,40 +27,39 @@
 |------|-----------|
 | `ActivityService` | `public static IActivityService ActivityService { get; set; }` |
 
-
 ## Key Methods
 
 ### StartActivity
+`public static bool StartActivity(string activityId)`
 
-```csharp
-public static bool StartActivity(string activityId)
-```
+**Purpose:** Handles logic related to `start activity`.
 
 ### EndActivity
+`public static bool EndActivity(string activityId, ActivityOutcome outcome)`
 
-```csharp
-public static bool EndActivity(string activityId, ActivityOutcome outcome)
-```
+**Purpose:** Handles logic related to `end activity`.
 
 ### SetActivityAvailability
+`public static bool SetActivityAvailability(string activityId, bool isAvailable)`
 
-```csharp
-public static bool SetActivityAvailability(string activityId, bool isAvailable)
-```
+**Purpose:** Sets the value or state of `activity availability`.
 
 ### GetActivity
+`public static Task<Activity> GetActivity(string activityId)`
 
-```csharp
-public static Task<Activity> GetActivity(string activityId)
-```
+**Purpose:** Gets the current value of `activity`.
 
 ### GetActivityTransition
+`public static ActivityTransition GetActivityTransition(string activityId)`
+
+**Purpose:** Gets the current value of `activity transition`.
+
+## Usage Example
 
 ```csharp
-public static ActivityTransition GetActivityTransition(string activityId)
+var manager = ActivityManager.Current;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

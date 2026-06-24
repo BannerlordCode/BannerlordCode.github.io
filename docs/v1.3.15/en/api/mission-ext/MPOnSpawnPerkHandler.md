@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `MPOnSpawnPerkHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPOnSpawnPerkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `class MPOnSpawnPerkHandler`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `MPOnSpawnPerkHandler` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MPOnSpawnPerkHandler` is a handler used to run agreed response logic when a specific event occurs.
 
+## Mental Model
+
+Treat `MPOnSpawnPerkHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -35,127 +38,112 @@
 | `IsWarmup` | `public bool IsWarmup { get; }` |
 | `IsWarmup` | `public bool IsWarmup { get; }` |
 
-
 ## Key Methods
 
 ### Clone
+`public MPPerkObject Clone(MissionPeer peer)`
 
-```csharp
-public MPPerkObject Clone(MissionPeer peer)
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### Reset
+`public void Reset()`
 
-```csharp
-public void Reset()
-```
+**Purpose:** Resets `reset` to its initial state.
 
 ### GetExtraTroopCount
+`public int GetExtraTroopCount(bool isWarmup)`
 
-```csharp
-public int GetExtraTroopCount(bool isWarmup)
-```
+**Purpose:** Gets the current value of `extra troop count`.
 
 ### GetAlternativeEquipments
+`public List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isWarmup, bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAllEquipments = false)`
 
-```csharp
-public List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isWarmup, bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAllEquipments = false)
-```
+**Purpose:** Gets the current value of `alternative equipments`.
 
 ### GetDrivenPropertyBonusOnSpawn
+`public float GetDrivenPropertyBonusOnSpawn(bool isWarmup, bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-```csharp
-public float GetDrivenPropertyBonusOnSpawn(bool isWarmup, bool isPlayer, DrivenProperty drivenProperty, float baseValue)
-```
+**Purpose:** Gets the current value of `driven property bonus on spawn`.
 
 ### GetHitpoints
+`public float GetHitpoints(bool isWarmup, bool isPlayer)`
 
-```csharp
-public float GetHitpoints(bool isWarmup, bool isPlayer)
-```
+**Purpose:** Gets the current value of `hitpoints`.
 
 ### GetTroopCount
+`public static int GetTroopCount(MultiplayerClassDivisions.MPHeroClass heroClass, int botsPerFormation, MPPerkObject.MPOnSpawnPerkHandler onSpawnPerkHandler)`
 
-```csharp
-public static int GetTroopCount(MultiplayerClassDivisions.MPHeroClass heroClass, int botsPerFormation, MPPerkObject.MPOnSpawnPerkHandler onSpawnPerkHandler)
-```
+**Purpose:** Gets the current value of `troop count`.
 
 ### Deserialize
+`public static IReadOnlyPerkObject Deserialize(XmlNode node)`
 
-```csharp
-public static IReadOnlyPerkObject Deserialize(XmlNode node)
-```
-
-### GetPerkHandler
-
-```csharp
-public static MPPerkObject.MPPerkHandler GetPerkHandler(Agent agent)
-```
+**Purpose:** Handles logic related to `deserialize`.
 
 ### GetPerkHandler
+`public static MPPerkObject.MPPerkHandler GetPerkHandler(Agent agent)`
 
-```csharp
-public static MPPerkObject.MPPerkHandler GetPerkHandler(MissionPeer peer)
-```
+**Purpose:** Gets the current value of `perk handler`.
+
+### GetPerkHandler
+`public static MPPerkObject.MPPerkHandler GetPerkHandler(MissionPeer peer)`
+
+**Purpose:** Gets the current value of `perk handler`.
 
 ### GetCombatPerkHandler
+`public static MPPerkObject.MPCombatPerkHandler GetCombatPerkHandler(Agent attacker, Agent defender)`
 
-```csharp
-public static MPPerkObject.MPCombatPerkHandler GetCombatPerkHandler(Agent attacker, Agent defender)
-```
-
-### GetOnSpawnPerkHandler
-
-```csharp
-public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(MissionPeer peer)
-```
+**Purpose:** Gets the current value of `combat perk handler`.
 
 ### GetOnSpawnPerkHandler
+`public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(MissionPeer peer)`
 
-```csharp
-public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(IEnumerable<IReadOnlyPerkObject> perks)
-```
+**Purpose:** Gets the current value of `on spawn perk handler`.
+
+### GetOnSpawnPerkHandler
+`public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(IEnumerable<IReadOnlyPerkObject> perks)`
+
+**Purpose:** Gets the current value of `on spawn perk handler`.
 
 ### RaiseEventForAllPeers
+`public static void RaiseEventForAllPeers(MPPerkCondition.PerkEventFlags flags)`
 
-```csharp
-public static void RaiseEventForAllPeers(MPPerkCondition.PerkEventFlags flags)
-```
+**Purpose:** Handles logic related to `raise event for all peers`.
 
 ### RaiseEventForAllPeersOnTeam
+`public static void RaiseEventForAllPeersOnTeam(Team side, MPPerkCondition.PerkEventFlags flags)`
 
-```csharp
-public static void RaiseEventForAllPeersOnTeam(Team side, MPPerkCondition.PerkEventFlags flags)
-```
+**Purpose:** Handles logic related to `raise event for all peers on team`.
 
 ### TickAllPeerPerks
+`public static void TickAllPeerPerks(int tickCount)`
 
-```csharp
-public static void TickAllPeerPerks(int tickCount)
-```
+**Purpose:** Handles logic related to `tick all peer perks`.
 
 ### RaiseEventForAllPeersCommand
+`public static string RaiseEventForAllPeersCommand(List<string> strings)`
 
-```csharp
-public static string RaiseEventForAllPeersCommand(List<string> strings)
-```
+**Purpose:** Handles logic related to `raise event for all peers command`.
 
 ### TickAllPeerPerksCommand
+`public static string TickAllPeerPerksCommand(List<string> strings)`
 
-```csharp
-public static string TickAllPeerPerksCommand(List<string> strings)
-```
+**Purpose:** Handles logic related to `tick all peer perks command`.
 
 ### GetExtraTroopCount
+`public float GetExtraTroopCount()`
 
-```csharp
-public float GetExtraTroopCount()
-```
+**Purpose:** Gets the current value of `extra troop count`.
 
 ### GetAlternativeEquipments
+`public IEnumerable<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer)`
+
+**Purpose:** Gets the current value of `alternative equipments`.
+
+## Usage Example
 
 ```csharp
-public IEnumerable<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer)
+Mission.Current.AddMissionBehavior(new MPOnSpawnPerkHandler());
 ```
 
 ## See Also

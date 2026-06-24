@@ -5,6 +5,10 @@ description: Complete English documentation for Bannerlord modding SDK v1.3.15
 
 # Bannerlord v1.3.15
 
+## Mental Model
+
+Treat `Bannerlord v1.3.15` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Welcome to the Bannerlord v1.3.15 modding documentation (English).
 
 ## Navigation
@@ -35,3 +39,9 @@ New here? Start with the [SDK Overview — module map & layered architecture](./
 | [Campaign](./api/campaign/) | PartyBase, MobileParty, Kingdom, Clan |
 | [Native](./native/) | NativeObject, INativeArray, EngineMethod |
 | [Native 1.3.15 Source](./native-1.3.15-src/) | TaleWorlds.Native.dll exports, type tables, decompiled source index |
+
+## Usage Example
+
+```csharp
+var example = new Bannerlord v1.3.15();
+```

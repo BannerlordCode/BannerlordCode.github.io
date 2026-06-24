@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `VideoPlaybackVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VideoPlaybackVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class VideoPlaybackVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/VideoPlayback/VideoPlaybackVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `VideoPlaybackVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`VideoPlaybackVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,28 +27,30 @@
 |------|-----------|
 | `SubtitleText` | `public string SubtitleText { get; set; }` |
 
-
 ## Key Methods
 
 ### Tick
+`public void Tick(float totalElapsedTimeInVideoInSeconds)`
 
-```csharp
-public void Tick(float totalElapsedTimeInVideoInSeconds)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### GetItemInTimeframe
+`public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)`
 
-```csharp
-public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)
-```
+**Purpose:** Gets the current value of `item in timeframe`.
 
 ### SetSubtitles
+`public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)`
+
+**Purpose:** Sets the value or state of `subtitles`.
+
+## Usage Example
 
 ```csharp
-public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)
+var value = new VideoPlaybackVM();
+value.Tick(0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

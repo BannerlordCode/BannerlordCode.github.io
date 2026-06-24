@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VideoPlayerView`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VideoPlayerView
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`VideoPlayerView` is an engine view/surface (render, texture, scene preview, etc.). Accessed via the engine view system.
+`VideoPlayerView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `VideoPlayerView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreateVideoPlayerView
-```csharp
-public static VideoPlayerView CreateVideoPlayerView()
-```
+`public static VideoPlayerView CreateVideoPlayerView()`
+
+**Purpose:** Creates a new `video player view` instance or object.
 
 ### PlayVideo
-```csharp
-public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)
-```
+`public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
+
+**Purpose:** Handles logic related to `play video`.
 
 ### StopVideo
-```csharp
-public void StopVideo()
-```
+`public void StopVideo()`
+
+**Purpose:** Handles logic related to `stop video`.
 
 ### IsVideoFinished
-```csharp
-public bool IsVideoFinished()
-```
+`public bool IsVideoFinished()`
+
+**Purpose:** Handles logic related to `is video finished`.
 
 ### FinalizePlayer
-```csharp
-public void FinalizePlayer()
-```
+`public void FinalizePlayer()`
+
+**Purpose:** Handles logic related to `finalize player`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VideoPlayerView (View)
-VideoPlayerView /* via engine view system */;
+var view = new VideoPlayerView();
 ```
 
 ## See Also

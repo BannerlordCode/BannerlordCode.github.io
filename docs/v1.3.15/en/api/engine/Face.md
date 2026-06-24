@@ -2,63 +2,67 @@
 **Home** → **API Index** → **Area** → `Face`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Face
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** struct
-**Area:** Engine
+**Type:** `public struct Face`
+**Area:** engine
 
 ## Overview
 
-> This is an auto-generated stub. `Face` is a struct in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Face` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### AddFaceCorner
+`public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color)`
 
-```csharp
-public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color)
-```
+**Purpose:** Adds `face corner` to the current collection or state.
 
 ### AddFace
+`public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
-```csharp
-public int AddFace(int patchNode0, int patchNode1, int patchNode2)
-```
+**Purpose:** Adds `face` to the current collection or state.
 
 ### Clear
+`public void Clear()`
 
-```csharp
-public void Clear()
-```
+**Purpose:** Handles logic related to `clear`.
 
 ### Finalize
+`public new Mesh Finalize()`
 
-```csharp
-public new Mesh Finalize()
-```
+**Purpose:** Handles logic related to `finalize`.
 
 ### CreateUnitMesh
+`public static Mesh CreateUnitMesh()`
 
-```csharp
-public static Mesh CreateUnitMesh()
-```
+**Purpose:** Creates a new `unit mesh` instance or object.
 
 ### CreateTilingWindowMesh
+`public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)`
 
-```csharp
-public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)
-```
+**Purpose:** Creates a new `tiling window mesh` instance or object.
 
 ### CreateTilingButtonMesh
+`public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)`
+
+**Purpose:** Creates a new `tiling button mesh` instance or object.
+
+## Usage Example
 
 ```csharp
-public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)
+// First obtain a Face instance from game state, then call one of its public methods
+var value = new Face();
+value.AddFaceCorner(position, normal, uvCoord, 0);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SpawnComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpawnComponent
@@ -14,100 +15,110 @@
 
 ## 概述
 
-`SpawnComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<SpawnComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`SpawnComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `SpawnComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `SpawnFrameBehavior` | `public SpawnFrameBehaviorBase SpawnFrameBehavior { get; }` |
+| `SpawningBehavior` | `public SpawningBehaviorBase SpawningBehavior { get; }` |
 
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### AreAgentsSpawning
-```csharp
-public bool AreAgentsSpawning()
-```
+`public bool AreAgentsSpawning()`
+
+**用途 / Purpose:** 处理 `are agents spawning` 相关逻辑。
 
 ### SetNewSpawnFrameBehavior
-```csharp
-public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)
-```
+`public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)`
+
+**用途 / Purpose:** 设置 `new spawn frame behavior` 的值或状态。
 
 ### SetNewSpawningBehavior
-```csharp
-public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)
-```
+`public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)`
+
+**用途 / Purpose:** 设置 `new spawning behavior` 的值或状态。
 
 ### SetSiegeSpawningBehavior
-```csharp
-public static void SetSiegeSpawningBehavior()
-```
+`public static void SetSiegeSpawningBehavior()`
+
+**用途 / Purpose:** 设置 `siege spawning behavior` 的值或状态。
 
 ### SetFlagDominationSpawningBehavior
-```csharp
-public static void SetFlagDominationSpawningBehavior()
-```
+`public static void SetFlagDominationSpawningBehavior()`
+
+**用途 / Purpose:** 设置 `flag domination spawning behavior` 的值或状态。
 
 ### SetWarmupSpawningBehavior
-```csharp
-public static void SetWarmupSpawningBehavior()
-```
+`public static void SetWarmupSpawningBehavior()`
+
+**用途 / Purpose:** 设置 `warmup spawning behavior` 的值或状态。
 
 ### SetSpawningBehaviorForCurrentGameType
-```csharp
-public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)
-```
+`public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)`
+
+**用途 / Purpose:** 设置 `spawning behavior for current game type` 的值或状态。
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ### GetSpawnFrame
-```csharp
-public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)
-```
+`public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)`
+
+**用途 / Purpose:** 获取 `spawn frame` 的当前值。
 
 ### SetEarlyAgentVisualsDespawning
-```csharp
-public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)
-```
+`public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)`
+
+**用途 / Purpose:** 设置 `early agent visuals despawning` 的值或状态。
 
 ### ToggleUpdatingSpawnEquipment
-```csharp
-public void ToggleUpdatingSpawnEquipment(bool canUpdate)
-```
+`public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
+
+**用途 / Purpose:** 处理 `toggle updating spawn equipment` 相关逻辑。
 
 ### AllowEarlyAgentVisualsDespawning
-```csharp
-public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)
-```
+`public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
+
+**用途 / Purpose:** 处理 `allow early agent visuals despawning` 相关逻辑。
 
 ### GetMaximumReSpawnPeriodForPeer
-```csharp
-public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)
-```
+`public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)`
+
+**用途 / Purpose:** 获取 `maximum re spawn period for peer` 的当前值。
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// SpawnComponent (Component) 的典型用法
-agent.GetComponent<SpawnComponent>();
+var component = agent.GetComponent<SpawnComponent>();
 ```
 
 ## 参见

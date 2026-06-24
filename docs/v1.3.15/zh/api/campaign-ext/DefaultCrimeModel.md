@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultCrimeModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCrimeModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultCrimeModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultCrimeModel>(new MyDefaultCrimeModel())` 注册，以改变其计算逻辑。
+`DefaultCrimeModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultCrimeModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,54 +30,53 @@
 ## 主要方法
 
 ### DoesPlayerHaveAnyCrimeRating
-```csharp
-public override bool DoesPlayerHaveAnyCrimeRating(IFaction faction)
-```
+`public override bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
+
+**用途 / Purpose:** 处理 `does player have any crime rating` 相关逻辑。
 
 ### IsPlayerCrimeRatingSevere
-```csharp
-public override bool IsPlayerCrimeRatingSevere(IFaction faction)
-```
+`public override bool IsPlayerCrimeRatingSevere(IFaction faction)`
+
+**用途 / Purpose:** 处理 `is player crime rating severe` 相关逻辑。
 
 ### IsPlayerCrimeRatingModerate
-```csharp
-public override bool IsPlayerCrimeRatingModerate(IFaction faction)
-```
+`public override bool IsPlayerCrimeRatingModerate(IFaction faction)`
+
+**用途 / Purpose:** 处理 `is player crime rating moderate` 相关逻辑。
 
 ### IsPlayerCrimeRatingMild
-```csharp
-public override bool IsPlayerCrimeRatingMild(IFaction faction)
-```
+`public override bool IsPlayerCrimeRatingMild(IFaction faction)`
+
+**用途 / Purpose:** 处理 `is player crime rating mild` 相关逻辑。
 
 ### GetCost
-```csharp
-public override float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)
-```
+`public override float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
+
+**用途 / Purpose:** 获取 `cost` 的当前值。
 
 ### GetDailyCrimeRatingChange
-```csharp
-public override ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 获取 `daily crime rating change` 的当前值。
 
 ### GetMaxCrimeRating
-```csharp
-public override float GetMaxCrimeRating()
-```
+`public override float GetMaxCrimeRating()`
+
+**用途 / Purpose:** 获取 `max crime rating` 的当前值。
 
 ### GetMinAcceptableCrimeRating
-```csharp
-public override float GetMinAcceptableCrimeRating(IFaction faction)
-```
+`public override float GetMinAcceptableCrimeRating(IFaction faction)`
+
+**用途 / Purpose:** 获取 `min acceptable crime rating` 的当前值。
 
 ### GetCrimeRatingAfterPunishment
-```csharp
-public override float GetCrimeRatingAfterPunishment()
-```
+`public override float GetCrimeRatingAfterPunishment()`
+
+**用途 / Purpose:** 获取 `crime rating after punishment` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultCrimeModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultCrimeModel>(new MyDefaultCrimeModel());
 ```
 

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `KingdomClanVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomClanVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class KingdomClanVM : KingdomCategoryVM`
+**Base:** `KingdomCategoryVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Clans/KingdomClanVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `KingdomClanVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`KingdomClanVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,34 +45,35 @@
 | `ExpelHint` | `public HintViewModel ExpelHint { get; set; }` |
 | `SupportHint` | `public HintViewModel SupportHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshClan
+`public void RefreshClan()`
 
-```csharp
-public void RefreshClan()
-```
+**Purpose:** Refreshes the display or cache of `clan`.
 
 ### SelectClan
+`public void SelectClan(Clan clan)`
 
-```csharp
-public void SelectClan(Clan clan)
-```
+**Purpose:** Handles logic related to `select clan`.
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var value = new KingdomClanVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

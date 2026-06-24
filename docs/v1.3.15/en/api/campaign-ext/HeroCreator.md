@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `HeroCreator`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroCreator
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class HeroCreator`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `HeroCreator` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`HeroCreator` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,127 +45,113 @@
 | `HasBornSettlementBeenSet` | `public bool HasBornSettlementBeenSet { get; }` |
 | `HasClanBeenSet` | `public bool HasClanBeenSet { get; }` |
 
-
 ## Key Methods
 
 ### CreateNotable
+`public static Hero CreateNotable(Occupation occupation, Settlement settlement = null)`
 
-```csharp
-public static Hero CreateNotable(Occupation occupation, Settlement settlement = null)
-```
+**Purpose:** Creates a new `notable` instance or object.
 
 ### CreateSpecialHero
+`public static Hero CreateSpecialHero(CharacterObject template, Settlement bornSettlement = null, Clan faction = null, Clan supporterOfClan = null, int age = -1)`
 
-```csharp
-public static Hero CreateSpecialHero(CharacterObject template, Settlement bornSettlement = null, Clan faction = null, Clan supporterOfClan = null, int age = -1)
-```
+**Purpose:** Creates a new `special hero` instance or object.
 
 ### CreateChild
+`public static Hero CreateChild(CharacterObject template, Settlement bornSettlement, Clan clan, int age)`
 
-```csharp
-public static Hero CreateChild(CharacterObject template, Settlement bornSettlement, Clan clan, int age)
-```
+**Purpose:** Creates a new `child` instance or object.
 
 ### CreateRelativeNotableHero
+`public static Hero CreateRelativeNotableHero(Hero relative)`
 
-```csharp
-public static Hero CreateRelativeNotableHero(Hero relative)
-```
+**Purpose:** Creates a new `relative notable hero` instance or object.
 
 ### CreateBasicHero
+`public static bool CreateBasicHero(string stringId, CharacterObject character, out Hero hero, bool isAlive = true)`
 
-```csharp
-public static bool CreateBasicHero(string stringId, CharacterObject character, out Hero hero, bool isAlive = true)
-```
+**Purpose:** Creates a new `basic hero` instance or object.
 
 ### DeliverOffSpring
+`public static Hero DeliverOffSpring(Hero mother, Hero father, bool isOffspringFemale)`
 
-```csharp
-public static Hero DeliverOffSpring(Hero mother, Hero father, bool isOffspringFemale)
-```
+**Purpose:** Handles logic related to `deliver off spring`.
 
 ### SetGenerateFirstAndFullName
+`public HeroCreator.HeroInitializationArgs SetGenerateFirstAndFullName(bool value)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetGenerateFirstAndFullName(bool value)
-```
+**Purpose:** Sets the value or state of `generate first and full name`.
 
 ### SetName
+`public HeroCreator.HeroInitializationArgs SetName(TextObject name)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetName(TextObject name)
-```
+**Purpose:** Sets the value or state of `name`.
 
 ### SetFirstName
+`public HeroCreator.HeroInitializationArgs SetFirstName(TextObject firstName)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetFirstName(TextObject firstName)
-```
+**Purpose:** Sets the value or state of `first name`.
 
 ### SetMother
+`public HeroCreator.HeroInitializationArgs SetMother(Hero mother)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetMother(Hero mother)
-```
+**Purpose:** Sets the value or state of `mother`.
 
 ### SetFather
+`public HeroCreator.HeroInitializationArgs SetFather(Hero father)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetFather(Hero father)
-```
+**Purpose:** Sets the value or state of `father`.
 
 ### SetIsFemale
+`public HeroCreator.HeroInitializationArgs SetIsFemale(bool isFemale)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetIsFemale(bool isFemale)
-```
+**Purpose:** Sets the value or state of `is female`.
 
 ### SetBornSettlement
+`public HeroCreator.HeroInitializationArgs SetBornSettlement(Settlement bornSettlement)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetBornSettlement(Settlement bornSettlement)
-```
+**Purpose:** Sets the value or state of `born settlement`.
 
 ### SetLevel
+`public HeroCreator.HeroInitializationArgs SetLevel(int level)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetLevel(int level)
-```
+**Purpose:** Sets the value or state of `level`.
 
 ### SetAppearance
+`public HeroCreator.HeroInitializationArgs SetAppearance(StaticBodyProperties? staticBodyProperties, float weight = -1f, float build = -1f, int hair = -1, int beard = -1, int tattoo = -1)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetAppearance(StaticBodyProperties? staticBodyProperties, float weight = -1f, float build = -1f, int hair = -1, int beard = -1, int tattoo = -1)
-```
+**Purpose:** Sets the value or state of `appearance`.
 
 ### SetPreferredUpgradeFormation
+`public HeroCreator.HeroInitializationArgs SetPreferredUpgradeFormation(FormationClass preferredUpgradeFormation)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetPreferredUpgradeFormation(FormationClass preferredUpgradeFormation)
-```
+**Purpose:** Sets the value or state of `preferred upgrade formation`.
 
 ### SetClan
+`public HeroCreator.HeroInitializationArgs SetClan(Clan clan)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetClan(Clan clan)
-```
+**Purpose:** Sets the value or state of `clan`.
 
 ### SetCulture
+`public HeroCreator.HeroInitializationArgs SetCulture(CultureObject culture)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetCulture(CultureObject culture)
-```
+**Purpose:** Sets the value or state of `culture`.
 
 ### SetSupporterOf
+`public HeroCreator.HeroInitializationArgs SetSupporterOf(Clan supporterOf)`
 
-```csharp
-public HeroCreator.HeroInitializationArgs SetSupporterOf(Clan supporterOf)
-```
+**Purpose:** Sets the value or state of `supporter of`.
 
 ### SetOccupation
+`public HeroCreator.HeroInitializationArgs SetOccupation(Occupation occupation)`
+
+**Purpose:** Sets the value or state of `occupation`.
+
+## Usage Example
 
 ```csharp
-public HeroCreator.HeroInitializationArgs SetOccupation(Occupation occupation)
+// Prepare the required context, then call the static entry point directly
+HeroCreator.CreateNotable(occupation, null);
 ```
 
 ## See Also

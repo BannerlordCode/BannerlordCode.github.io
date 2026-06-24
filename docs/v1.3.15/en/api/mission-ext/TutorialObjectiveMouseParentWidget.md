@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TutorialObjectiveMouseParentWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TutorialObjectiveMouseParentWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `TutorialObjectiveMouseParentWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `TutorialObjectiveMouseParentWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,9 +35,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of TutorialObjectiveMouseParentWidget (Widget)
-// 声明/访问一个 TutorialObjectiveMouseParentWidget
-var widget = root.GetChild("tutorialObjectiveMouseParentWidget");;
+var widget = new TutorialObjectiveMouseParentWidget(context);
 ```
 
 ## See Also

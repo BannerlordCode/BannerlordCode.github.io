@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `InventoryEquippedItemControlsBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryEquippedItemControlsBrushWidget
@@ -16,6 +17,10 @@
 
 `InventoryEquippedItemControlsBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `InventoryEquippedItemControlsBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -27,26 +32,24 @@
 ## Key Methods
 
 ### ShowPanel
-```csharp
-public void ShowPanel()
-```
+`public void ShowPanel()`
+
+**Purpose:** Handles logic related to `show panel`.
 
 ### HidePanel
-```csharp
-public void HidePanel()
-```
+`public void HidePanel()`
+
+**Purpose:** Handles logic related to `hide panel`.
 
 ### ButtonClickEventHandler
-```csharp
-public delegate void ButtonClickEventHandler(Widget itemWidget)
-```
+`public delegate void ButtonClickEventHandler(Widget itemWidget)`
+
+**Purpose:** Handles logic related to `button click event handler`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of InventoryEquippedItemControlsBrushWidget (Widget)
-// 声明/访问一个 InventoryEquippedItemControlsBrushWidget
-var widget = root.GetChild("inventoryEquippedItemControlsBrushWidget");;
+var widget = new InventoryEquippedItemControlsBrushWidget(context);
 ```
 
 ## See Also

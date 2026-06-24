@@ -5,6 +5,10 @@ description: TaleWorlds.MountAndBlade extended components / Mission extended com
 
 # Mission-Ext / Mission-Ext 战斗扩展
 
+## Mental Model
+
+Treat `Mission-Ext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 v1.3.15 Mission extended module documentation.
 
 战斗扩展模块文档。

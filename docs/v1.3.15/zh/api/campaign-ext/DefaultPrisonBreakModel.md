@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPrisonBreakModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPrisonBreakModel
@@ -14,39 +15,42 @@
 
 ## 概述
 
-`DefaultPrisonBreakModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel())` 注册，以改变其计算逻辑。
+`DefaultPrisonBreakModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPrisonBreakModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetNumberOfGuardsToSpawn
-```csharp
-public override int GetNumberOfGuardsToSpawn(Settlement settlement)
-```
+`public override int GetNumberOfGuardsToSpawn(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `number of guards to spawn` 的当前值。
 
 ### CanPlayerStagePrisonBreak
-```csharp
-public override bool CanPlayerStagePrisonBreak(Settlement settlement)
-```
+`public override bool CanPlayerStagePrisonBreak(Settlement settlement)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player stage prison break`。
 
 ### GetPrisonBreakStartCost
-```csharp
-public override int GetPrisonBreakStartCost(Hero prisonerHero)
-```
+`public override int GetPrisonBreakStartCost(Hero prisonerHero)`
+
+**用途 / Purpose:** 获取 `prison break start cost` 的当前值。
 
 ### GetRelationRewardOnPrisonBreak
-```csharp
-public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)
-```
+`public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
+
+**用途 / Purpose:** 获取 `relation reward on prison break` 的当前值。
 
 ### GetRogueryRewardOnPrisonBreak
-```csharp
-public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)
-```
+`public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
+
+**用途 / Purpose:** 获取 `roguery reward on prison break` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultPrisonBreakModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel());
 ```
 

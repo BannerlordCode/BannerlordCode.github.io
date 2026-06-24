@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `IssueManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IssueManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`IssueManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`IssueManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `IssueManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,160 +30,194 @@
 ## 主要方法
 
 ### InitializeForSavedGame
-```csharp
-public void InitializeForSavedGame()
-```
+`public void InitializeForSavedGame()`
+
+**用途 / Purpose:** 初始化 `for saved game` 的状态、资源或绑定。
 
 ### CreateNewIssue
-```csharp
-public bool CreateNewIssue(in PotentialIssueData pid, Hero issueOwner)
-```
+`public bool CreateNewIssue(in PotentialIssueData pid, Hero issueOwner)`
+
+**用途 / Purpose:** 创建一个 `new issue` 实例或对象。
 
 ### StartIssueQuest
-```csharp
-public bool StartIssueQuest(Hero issueOwner)
-```
+`public bool StartIssueQuest(Hero issueOwner)`
+
+**用途 / Purpose:** 处理 `start issue quest` 相关逻辑。
 
 ### DeactivateIssue
-```csharp
-public void DeactivateIssue(IssueBase issue)
-```
+`public void DeactivateIssue(IssueBase issue)`
+
+**用途 / Purpose:** 处理 `deactivate issue` 相关逻辑。
 
 ### ChangeIssueOwner
-```csharp
-public void ChangeIssueOwner(IssueBase issue, Hero newOwner)
-```
+`public void ChangeIssueOwner(IssueBase issue, Hero newOwner)`
+
+**用途 / Purpose:** 处理 `change issue owner` 相关逻辑。
 
 ### AddPotentialIssueData
-```csharp
-public void AddPotentialIssueData(Hero hero, PotentialIssueData issueData)
-```
+`public void AddPotentialIssueData(Hero hero, PotentialIssueData issueData)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `potential issue data`。
 
 ### CheckForIssues
-```csharp
-public List<PotentialIssueData> CheckForIssues(Hero issueOwner)
-```
+`public List<PotentialIssueData> CheckForIssues(Hero issueOwner)`
+
+**用途 / Purpose:** 处理 `check for issues` 相关逻辑。
 
 ### DailyTick
-```csharp
-public override void DailyTick()
-```
+`public override void DailyTick()`
+
+**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
 
 ### HourlyTick
-```csharp
-public override void HourlyTick()
-```
+`public override void HourlyTick()`
+
+**用途 / Purpose:** 处理 `hourly tick` 相关逻辑。
 
 ### TryToMakeTroopsReturn
-```csharp
-public void TryToMakeTroopsReturn(IssueBase issue)
-```
+`public void TryToMakeTroopsReturn(IssueBase issue)`
+
+**用途 / Purpose:** 尝试获取 `to make troops return`，通常以 out 参数返回结果。
 
 ### IsThereActiveIssueWithTypeInSettlement
-```csharp
-public bool IsThereActiveIssueWithTypeInSettlement(Type type, Settlement settlement)
-```
+`public bool IsThereActiveIssueWithTypeInSettlement(Type type, Settlement settlement)`
+
+**用途 / Purpose:** 处理 `is there active issue with type in settlement` 相关逻辑。
 
 ### GetNumOfAvailableIssuesInSettlement
-```csharp
-public int GetNumOfAvailableIssuesInSettlement(Settlement settlement)
-```
+`public int GetNumOfAvailableIssuesInSettlement(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `num of available issues in settlement` 的当前值。
 
 ### GetNumOfActiveIssuesInSettlement
-```csharp
-public int GetNumOfActiveIssuesInSettlement(Settlement settlement, bool includeQuests)
-```
+`public int GetNumOfActiveIssuesInSettlement(Settlement settlement, bool includeQuests)`
+
+**用途 / Purpose:** 获取 `num of active issues in settlement` 的当前值。
 
 ### CheckIssueForMenuLocations
-```csharp
-public GameMenuOption.IssueQuestFlags CheckIssueForMenuLocations(List<Location> currentLocations, bool getIssuesWithoutAQuest = false)
-```
+`public GameMenuOption.IssueQuestFlags CheckIssueForMenuLocations(List<Location> currentLocations, bool getIssuesWithoutAQuest = false)`
+
+**用途 / Purpose:** 处理 `check issue for menu locations` 相关逻辑。
 
 ### OnQuestCompleted
-```csharp
-public override void OnQuestCompleted(QuestBase quest, QuestBase.QuestCompleteDetails detail)
-```
+`public override void OnQuestCompleted(QuestBase quest, QuestBase.QuestCompleteDetails detail)`
+
+**用途 / Purpose:** 当 `quest completed` 事件触发时调用此方法。
 
 ### OnHeroUnregistered
-```csharp
-public override void OnHeroUnregistered(Hero hero)
-```
+`public override void OnHeroUnregistered(Hero hero)`
+
+**用途 / Purpose:** 当 `hero unregistered` 事件触发时调用此方法。
 
 ### OnSettlementEntered
-```csharp
-public override void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)
-```
+`public override void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)`
+
+**用途 / Purpose:** 当 `settlement entered` 事件触发时调用此方法。
 
 ### OnSettlementLeft
-```csharp
-public override void OnSettlementLeft(MobileParty party, Settlement settlement)
-```
+`public override void OnSettlementLeft(MobileParty party, Settlement settlement)`
+
+**用途 / Purpose:** 当 `settlement left` 事件触发时调用此方法。
 
 ### OnCharacterPortraitPopUpOpened
-```csharp
-public override void OnCharacterPortraitPopUpOpened(CharacterObject character)
-```
+`public override void OnCharacterPortraitPopUpOpened(CharacterObject character)`
+
+**用途 / Purpose:** 当 `character portrait pop up opened` 事件触发时调用此方法。
 
 ### OnHeroKilled
-```csharp
-public override void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
-```
+`public override void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)`
+
+**用途 / Purpose:** 当 `hero killed` 事件触发时调用此方法。
 
 ### OnSettlementOwnerChanged
-```csharp
-public override void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)
-```
+`public override void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
+
+**用途 / Purpose:** 当 `settlement owner changed` 事件触发时调用此方法。
 
 ### ToggleAllIssueTracks
-```csharp
-public void ToggleAllIssueTracks(bool enableTrack)
-```
+`public void ToggleAllIssueTracks(bool enableTrack)`
+
+**用途 / Purpose:** 处理 `toggle all issue tracks` 相关逻辑。
 
 ### AddIssueCoolDownData
-```csharp
-public void AddIssueCoolDownData(Type type, IssueCoolDownData data)
-```
+`public void AddIssueCoolDownData(Type type, IssueCoolDownData data)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `issue cool down data`。
 
 ### HasIssueCoolDown
-```csharp
-public bool HasIssueCoolDown(Type type, Hero hero)
-```
+`public bool HasIssueCoolDown(Type type, Hero hero)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `issue cool down`。
 
 ### CanHaveCampaignIssues
-```csharp
-public override void CanHaveCampaignIssues(Hero hero, ref bool result)
-```
+`public override void CanHaveCampaignIssues(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `have campaign issues`。
 
 ### CanHeroDie
-```csharp
-public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)
-```
+`public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero die`。
 
 ### CanHeroBecomePrisoner
-```csharp
-public override void CanHeroBecomePrisoner(Hero hero, ref bool result)
-```
+`public override void CanHeroBecomePrisoner(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero become prisoner`。
 
 ### CanHeroMarry
-```csharp
-public override void CanHeroMarry(Hero hero, ref bool result)
-```
+`public override void CanHeroMarry(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero marry`。
 
 ### CanHeroEquipmentBeChanged
-```csharp
-public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)
-```
+`public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero equipment be changed`。
 
 ### CanHeroLeadParty
-```csharp
-public override void CanHeroLeadParty(Hero hero, ref bool result)
-```
+`public override void CanHeroLeadParty(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `hero lead party`。
+
+### CanMoveToSettlement
+`public override void CanMoveToSettlement(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `move to settlement`。
+
+### CanBeGovernorOrHavePartyRole
+`public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `be governor or have party role`。
+
+### IsSettlementBusy
+`public override void IsSettlementBusy(Settlement settlement, object asker, ref int priority)`
+
+**用途 / Purpose:** 处理 `is settlement busy` 相关逻辑。
+
+### FillIssueCountsPerSettlement
+`public static void FillIssueCountsPerSettlement(Dictionary<Settlement, int> issueCountPerSettlement)`
+
+**用途 / Purpose:** 处理 `fill issue counts per settlement` 相关逻辑。
+
+### GetIssuesInSettlement
+`public static IEnumerable<IssueBase> GetIssuesInSettlement(Settlement settlement, bool onlyNotables = true)`
+
+**用途 / Purpose:** 获取 `issues in settlement` 的当前值。
+
+### GetIssueOfQuest
+`public static IssueBase GetIssueOfQuest(QuestBase quest)`
+
+**用途 / Purpose:** 获取 `issue of quest` 的当前值。
+
+### FillIssueCountsPerClan
+`public static void FillIssueCountsPerClan(Dictionary<Clan, int> issueCountPerClan, IEnumerable<Clan> clans)`
+
+**用途 / Purpose:** 处理 `fill issue counts per clan` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// IssueManager (Manager) 的典型用法
-IssueManager.Current;
+var manager = IssueManager.Current;
 ```
 
 ## 参见

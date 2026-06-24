@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CircleActionSelectorWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CircleActionSelectorWidget
@@ -16,36 +17,38 @@
 
 `CircleActionSelectorWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `CircleActionSelectorWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `AllowInvalidSelection` | `public bool AllowInvalidSelection { get { return this._allowInvalidSelection; }` |
-| `ActivateOnlyWithController` | `public bool ActivateOnlyWithController { get { return this._activateOnlyWithController; }` |
-| `IsCircularInputEnabled` | `public bool IsCircularInputEnabled { get { return !this.IsCircularInputDisabled; }` |
-| `IsCircularInputDisabled` | `public bool IsCircularInputDisabled { get { return this._isCircularInputDisabled; }` |
-| `DistanceFromCenterModifier` | `public float DistanceFromCenterModifier { get { return this._distanceFromCenterModifier; }` |
-| `DirectionWidgetDistanceMultiplier` | `public float DirectionWidgetDistanceMultiplier { get { return this._directionWidgetDistanceMultiplier; }` |
-| `DirectionWidget` | `public Widget DirectionWidget { get { return this._directionWidget; }` |
+| `AllowInvalidSelection` | `public bool AllowInvalidSelection { get; set; }` |
+| `ActivateOnlyWithController` | `public bool ActivateOnlyWithController { get; set; }` |
+| `IsCircularInputEnabled` | `public bool IsCircularInputEnabled { get; set; }` |
+| `IsCircularInputDisabled` | `public bool IsCircularInputDisabled { get; set; }` |
+| `DistanceFromCenterModifier` | `public float DistanceFromCenterModifier { get; set; }` |
+| `DirectionWidgetDistanceMultiplier` | `public float DirectionWidgetDistanceMultiplier { get; set; }` |
+| `DirectionWidget` | `public Widget DirectionWidget { get; set; }` |
 
 ## Key Methods
 
 ### AnimateDistanceFromCenterTo
-```csharp
-public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)
-```
+`public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
+
+**Purpose:** Handles logic related to `animate distance from center to`.
 
 ### TrySetSelectedIndex
-```csharp
-public bool TrySetSelectedIndex(int index)
-```
+`public bool TrySetSelectedIndex(int index)`
+
+**Purpose:** Attempts to get `set selected index`, usually returning the result in an out parameter.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CircleActionSelectorWidget (Widget)
-// 声明/访问一个 CircleActionSelectorWidget
-var widget = root.GetChild("circleActionSelectorWidget");;
+var widget = new CircleActionSelectorWidget(context);
 ```
 
 ## See Also

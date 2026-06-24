@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DiamondDebugManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DiamondDebugManager
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`DiamondDebugManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`DiamondDebugManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `DiamondDebugManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetLogLevel
-```csharp
-public int GetLogLevel()
-```
+`public int GetLogLevel()`
+
+**Purpose:** Gets the current value of `log level`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DiamondDebugManager (Manager)
-DiamondDebugManager.Current;
+var manager = DiamondDebugManager.Current;
 ```
 
 ## See Also

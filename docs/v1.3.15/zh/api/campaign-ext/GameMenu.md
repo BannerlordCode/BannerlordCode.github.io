@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `GameMenu`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenu
 
-**命名空间:** TaleWorlds.CampaignSystem.GameMenus
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.GameMenus
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class GameMenu`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/GameMenus/GameMenu.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`GameMenu` 是 `TaleWorlds.CampaignSystem.GameMenus` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`GameMenu` 位于 `TaleWorlds.CampaignSystem.GameMenus`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.GameMenus` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -40,132 +46,135 @@
 | `MenuOptions` | `public IEnumerable<GameMenuOption> MenuOptions { get; }` |
 | `AutoSelectFirst` | `public bool AutoSelectFirst { get; }` |
 
-
 ## 主要方法
 
 ### SetMenuRepeatObjects
+`public void SetMenuRepeatObjects(IEnumerable<object> list)`
 
-```csharp
-public void SetMenuRepeatObjects(IEnumerable<object> list)
-```
+**用途 / Purpose:** 设置 `menu repeat objects` 的值或状态。
 
 ### GetMenuOptionConditionsHold
+`public bool GetMenuOptionConditionsHold(Game game, MenuContext menuContext, int menuItemNumber)`
 
-```csharp
-public bool GetMenuOptionConditionsHold(Game game, MenuContext menuContext, int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option conditions hold` 的当前值。
 
 ### GetMenuOptionText
+`public TextObject GetMenuOptionText(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionText(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option text` 的当前值。
 
 ### GetGameMenuOption
+`public GameMenuOption GetGameMenuOption(int menuItemNumber)`
 
-```csharp
-public GameMenuOption GetGameMenuOption(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `game menu option` 的当前值。
 
 ### GetMenuOptionText2
+`public TextObject GetMenuOptionText2(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionText2(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option text2` 的当前值。
 
 ### GetMenuOptionIdString
+`public string GetMenuOptionIdString(int menuItemNumber)`
 
-```csharp
-public string GetMenuOptionIdString(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option id string` 的当前值。
 
 ### GetMenuOptionTooltip
+`public TextObject GetMenuOptionTooltip(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionTooltip(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option tooltip` 的当前值。
 
 ### GetMenuOptionIsLeave
+`public bool GetMenuOptionIsLeave(int menuItemNumber)`
 
-```csharp
-public bool GetMenuOptionIsLeave(int menuItemNumber)
-```
+**用途 / Purpose:** 获取 `menu option is leave` 的当前值。
 
 ### SetProgressOfWaitingInMenu
+`public void SetProgressOfWaitingInMenu(float progress)`
 
-```csharp
-public void SetProgressOfWaitingInMenu(float progress)
-```
+**用途 / Purpose:** 设置 `progress of waiting in menu` 的值或状态。
 
 ### SetTargetedWaitingTimeAndInitialProgress
+`public void SetTargetedWaitingTimeAndInitialProgress(float targetedWaitingTime, float initialProgress)`
 
-```csharp
-public void SetTargetedWaitingTimeAndInitialProgress(float targetedWaitingTime, float initialProgress)
-```
+**用途 / Purpose:** 设置 `targeted waiting time and initial progress` 的值或状态。
 
 ### GetLeaveMenuOption
+`public GameMenuOption GetLeaveMenuOption(Game game, MenuContext menuContext)`
 
-```csharp
-public GameMenuOption GetLeaveMenuOption(Game game, MenuContext menuContext)
-```
+**用途 / Purpose:** 获取 `leave menu option` 的当前值。
 
 ### RunOnTick
+`public void RunOnTick(MenuContext menuContext, float dt)`
 
-```csharp
-public void RunOnTick(MenuContext menuContext, float dt)
-```
+**用途 / Purpose:** 处理 `run on tick` 相关逻辑。
 
 ### RunWaitMenuCondition
+`public bool RunWaitMenuCondition(MenuContext menuContext)`
 
-```csharp
-public bool RunWaitMenuCondition(MenuContext menuContext)
-```
+**用途 / Purpose:** 处理 `run wait menu condition` 相关逻辑。
 
 ### RunWaitMenuConsequence
+`public void RunWaitMenuConsequence(MenuContext menuContext)`
 
-```csharp
-public void RunWaitMenuConsequence(MenuContext menuContext)
-```
+**用途 / Purpose:** 处理 `run wait menu consequence` 相关逻辑。
 
 ### RunMenuOptionConsequence
+`public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)`
 
-```csharp
-public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)
-```
+**用途 / Purpose:** 处理 `run menu option consequence` 相关逻辑。
 
 ### StartWait
+`public void StartWait()`
 
-```csharp
-public void StartWait()
-```
+**用途 / Purpose:** 处理 `start wait` 相关逻辑。
 
 ### EndWait
+`public void EndWait()`
 
-```csharp
-public void EndWait()
-```
+**用途 / Purpose:** 处理 `end wait` 相关逻辑。
 
 ### RunOnInit
+`public void RunOnInit(Game game, MenuContext menuContext)`
 
-```csharp
-public void RunOnInit(Game game, MenuContext menuContext)
-```
+**用途 / Purpose:** 处理 `run on init` 相关逻辑。
 
 ### PreInit
+`public void PreInit(MenuContext menuContext)`
 
-```csharp
-public void PreInit(MenuContext menuContext)
-```
+**用途 / Purpose:** 处理 `pre init` 相关逻辑。
 
 ### AfterInit
+`public void AfterInit(MenuContext menuContext)`
+
+**用途 / Purpose:** 处理 `after init` 相关逻辑。
+
+### GetText
+`public TextObject GetText()`
+
+**用途 / Purpose:** 获取 `text` 的当前值。
+
+### ActivateGameMenu
+`public static void ActivateGameMenu(string menuId)`
+
+**用途 / Purpose:** 处理 `activate game menu` 相关逻辑。
+
+### SwitchToMenu
+`public static void SwitchToMenu(string menuId)`
+
+**用途 / Purpose:** 处理 `switch to menu` 相关逻辑。
+
+### ExitToLast
+`public static void ExitToLast()`
+
+**用途 / Purpose:** 处理 `exit to last` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void AfterInit(MenuContext menuContext)
+var value = new GameMenu();
+value.SetMenuRepeatObjects(list);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

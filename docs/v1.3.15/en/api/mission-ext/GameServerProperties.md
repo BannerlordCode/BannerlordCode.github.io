@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameServerProperties`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameServerProperties
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GameServerProperties`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/GameServerProperties.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameServerProperties` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameServerProperties` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,16 +46,20 @@
 | `LoadedModules` | `public List<ModuleInfoModel> LoadedModules { get; set; }` |
 | `AllowsOptionalModules` | `public bool AllowsOptionalModules { get; set; }` |
 
-
 ## Key Methods
 
 ### CheckAndReplaceProxyAddress
+`public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)`
+
+**Purpose:** Handles logic related to `check and replace proxy address`.
+
+## Usage Example
 
 ```csharp
-public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)
+var value = new GameServerProperties();
+value.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

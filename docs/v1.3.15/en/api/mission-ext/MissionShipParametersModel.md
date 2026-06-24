@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionShipParametersModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionShipParametersModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`MissionShipParametersModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MissionShipParametersModel>(new MyMissionShipParametersModel())` to change how it computes.
+`MissionShipParametersModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MissionShipParametersModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateMainDeckCrewSize
-```csharp
-public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)
-```
+`public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)`
+
+**Purpose:** Handles logic related to `calculate main deck crew size`.
 
 ### CalculateWindBonus
-```csharp
-public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)
-```
+`public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)`
+
+**Purpose:** Handles logic related to `calculate wind bonus`.
 
 ### CalculateOarForceMultiplier
-```csharp
-public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)
-```
+`public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)`
+
+**Purpose:** Handles logic related to `calculate oar force multiplier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionShipParametersModel (Model)
-Game.Current.ReplaceModel<MissionShipParametersModel>(new MyMissionShipParametersModel());
+var implementation = new CustomMissionShipParametersModel();
 ```
 
 ## See Also

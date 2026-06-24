@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `StringReader`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StringReader
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class StringReader : IReader`
+**Base:** `IReader`
+**File:** `TaleWorlds.Library/StringReader.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StringReader` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StringReader` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,118 +27,105 @@
 |------|-----------|
 | `Data` | `public string Data { get; }` |
 
-
 ## Key Methods
 
 ### ReadSerializableObject
+`public ISerializableObject ReadSerializableObject()`
 
-```csharp
-public ISerializableObject ReadSerializableObject()
-```
+**Purpose:** Handles logic related to `read serializable object`.
 
 ### ReadInt
+`public int ReadInt()`
 
-```csharp
-public int ReadInt()
-```
+**Purpose:** Handles logic related to `read int`.
 
 ### ReadShort
+`public short ReadShort()`
 
-```csharp
-public short ReadShort()
-```
+**Purpose:** Handles logic related to `read short`.
 
 ### ReadString
+`public string ReadString()`
 
-```csharp
-public string ReadString()
-```
+**Purpose:** Handles logic related to `read string`.
 
 ### ReadColor
+`public Color ReadColor()`
 
-```csharp
-public Color ReadColor()
-```
+**Purpose:** Handles logic related to `read color`.
 
 ### ReadBool
+`public bool ReadBool()`
 
-```csharp
-public bool ReadBool()
-```
+**Purpose:** Handles logic related to `read bool`.
 
 ### ReadFloat
+`public float ReadFloat()`
 
-```csharp
-public float ReadFloat()
-```
+**Purpose:** Handles logic related to `read float`.
 
 ### ReadUInt
+`public uint ReadUInt()`
 
-```csharp
-public uint ReadUInt()
-```
+**Purpose:** Handles logic related to `read u int`.
 
 ### ReadULong
+`public ulong ReadULong()`
 
-```csharp
-public ulong ReadULong()
-```
+**Purpose:** Handles logic related to `read u long`.
 
 ### ReadLong
+`public long ReadLong()`
 
-```csharp
-public long ReadLong()
-```
+**Purpose:** Handles logic related to `read long`.
 
 ### ReadByte
+`public byte ReadByte()`
 
-```csharp
-public byte ReadByte()
-```
+**Purpose:** Handles logic related to `read byte`.
 
 ### ReadBytes
+`public byte ReadBytes(int length)`
 
-```csharp
-public byte ReadBytes(int length)
-```
+**Purpose:** Handles logic related to `read bytes`.
 
 ### ReadVec2
+`public Vec2 ReadVec2()`
 
-```csharp
-public Vec2 ReadVec2()
-```
+**Purpose:** Handles logic related to `read vec2`.
 
 ### ReadVec3
+`public Vec3 ReadVec3()`
 
-```csharp
-public Vec3 ReadVec3()
-```
+**Purpose:** Handles logic related to `read vec3`.
 
 ### ReadVec3Int
+`public Vec3i ReadVec3Int()`
 
-```csharp
-public Vec3i ReadVec3Int()
-```
+**Purpose:** Handles logic related to `read vec3 int`.
 
 ### ReadSByte
+`public sbyte ReadSByte()`
 
-```csharp
-public sbyte ReadSByte()
-```
+**Purpose:** Handles logic related to `read s byte`.
 
 ### ReadUShort
+`public ushort ReadUShort()`
 
-```csharp
-public ushort ReadUShort()
-```
+**Purpose:** Handles logic related to `read u short`.
 
 ### ReadDouble
+`public double ReadDouble()`
+
+**Purpose:** Handles logic related to `read double`.
+
+## Usage Example
 
 ```csharp
-public double ReadDouble()
+var value = new StringReader();
+value.ReadSerializableObject();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

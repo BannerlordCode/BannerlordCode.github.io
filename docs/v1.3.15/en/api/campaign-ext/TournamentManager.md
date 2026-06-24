@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TournamentManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TournamentManager
@@ -14,95 +15,98 @@
 
 ## Overview
 
-`TournamentManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`TournamentManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `TournamentManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AddTournament
-```csharp
-public void AddTournament(TournamentGame game)
-```
+`public void AddTournament(TournamentGame game)`
+
+**Purpose:** Adds `tournament` to the current collection or state.
 
 ### RemoveTournament
-```csharp
-public void RemoveTournament(TournamentGame game)
-```
+`public void RemoveTournament(TournamentGame game)`
+
+**Purpose:** Removes `tournament` from the current collection or state.
 
 ### GetTournamentGame
-```csharp
-public TournamentGame GetTournamentGame(Town town)
-```
+`public TournamentGame GetTournamentGame(Town town)`
+
+**Purpose:** Gets the current value of `tournament game`.
 
 ### OnPlayerJoinMatch
-```csharp
-public void OnPlayerJoinMatch(Type gameType)
-```
+`public void OnPlayerJoinMatch(Type gameType)`
+
+**Purpose:** Called when the `player join match` event is raised.
 
 ### OnPlayerJoinTournament
-```csharp
-public void OnPlayerJoinTournament(Type gameType, Settlement settlement)
-```
+`public void OnPlayerJoinTournament(Type gameType, Settlement settlement)`
+
+**Purpose:** Called when the `player join tournament` event is raised.
 
 ### OnPlayerWatchTournament
-```csharp
-public void OnPlayerWatchTournament(Type gameType, Settlement settlement)
-```
+`public void OnPlayerWatchTournament(Type gameType, Settlement settlement)`
+
+**Purpose:** Called when the `player watch tournament` event is raised.
 
 ### OnPlayerWinMatch
-```csharp
-public void OnPlayerWinMatch(Type gameType)
-```
+`public void OnPlayerWinMatch(Type gameType)`
+
+**Purpose:** Called when the `player win match` event is raised.
 
 ### OnPlayerWinTournament
-```csharp
-public void OnPlayerWinTournament(Type gameType)
-```
+`public void OnPlayerWinTournament(Type gameType)`
+
+**Purpose:** Called when the `player win tournament` event is raised.
 
 ### GetLeaderboard
-```csharp
-public List<KeyValuePair<Hero, int>> GetLeaderboard()
-```
+`public List<KeyValuePair<Hero, int>> GetLeaderboard()`
+
+**Purpose:** Gets the current value of `leaderboard`.
 
 ### GetLeaderBoardRank
-```csharp
-public int GetLeaderBoardRank(Hero hero)
-```
+`public int GetLeaderBoardRank(Hero hero)`
+
+**Purpose:** Gets the current value of `leader board rank`.
 
 ### GetLeaderBoardLeader
-```csharp
-public Hero GetLeaderBoardLeader()
-```
+`public Hero GetLeaderBoardLeader()`
+
+**Purpose:** Gets the current value of `leader board leader`.
 
 ### InitializeLeaderboardEntry
-```csharp
-public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)
-```
+`public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)`
+
+**Purpose:** Initializes the state, resources, or bindings for `leaderboard entry`.
 
 ### AddLeaderboardEntry
-```csharp
-public void AddLeaderboardEntry(Hero hero)
-```
+`public void AddLeaderboardEntry(Hero hero)`
+
+**Purpose:** Adds `leaderboard entry` to the current collection or state.
 
 ### DeleteLeaderboardEntry
-```csharp
-public void DeleteLeaderboardEntry(Hero hero)
-```
+`public void DeleteLeaderboardEntry(Hero hero)`
+
+**Purpose:** Handles logic related to `delete leaderboard entry`.
 
 ### ResolveTournament
-```csharp
-public void ResolveTournament(TournamentGame tournament, Town town)
-```
+`public void ResolveTournament(TournamentGame tournament, Town town)`
+
+**Purpose:** Handles logic related to `resolve tournament`.
 
 ### GivePrizeToWinner
-```csharp
-public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)
-```
+`public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)`
+
+**Purpose:** Handles logic related to `give prize to winner`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TournamentManager (Manager)
-TournamentManager.Current;
+var manager = TournamentManager.Current;
 ```
 
 ## See Also

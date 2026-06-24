@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `StackArray8Vec3`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StackArray8Vec3
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** struct
-**Area:** Core
+**Type:** `public struct StackArray8Vec3`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `StackArray8Vec3` is a struct in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StackArray8Vec3` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -37,127 +40,113 @@
 | `RotationX` | `public float RotationX { get; }` |
 | `this` | `public Vec3 this { get; }` |
 
-
 ## Key Methods
 
 ### Abs
+`public static Vec3 Abs(Vec3 vec)`
 
-```csharp
-public static Vec3 Abs(Vec3 vec)
-```
+**Purpose:** Handles logic related to `abs`.
 
 ### Vector3
+`public static explicit operator Vector3(Vec3 vec3)`
 
-```csharp
-public static explicit operator Vector3(Vec3 vec3)
-```
+**Purpose:** Handles logic related to `vector3`.
 
 ### DotProduct
+`public static float DotProduct(Vec3 v1, Vec3 v2)`
 
-```csharp
-public static float DotProduct(Vec3 v1, Vec3 v2)
-```
+**Purpose:** Handles logic related to `dot product`.
 
 ### Lerp
+`public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)`
 
-```csharp
-public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)
-```
+**Purpose:** Handles logic related to `lerp`.
 
 ### Slerp
+`public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)`
 
-```csharp
-public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)
-```
+**Purpose:** Handles logic related to `slerp`.
 
 ### Vec3Max
+`public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)`
 
-```csharp
-public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)
-```
+**Purpose:** Handles logic related to `vec3 max`.
 
 ### Vec3Min
+`public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)`
 
-```csharp
-public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)
-```
+**Purpose:** Handles logic related to `vec3 min`.
 
 ### CrossProduct
+`public static Vec3 CrossProduct(Vec3 va, Vec3 vb)`
 
-```csharp
-public static Vec3 CrossProduct(Vec3 va, Vec3 vb)
-```
+**Purpose:** Handles logic related to `cross product`.
 
 ### ElementWiseProduct
+`public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)`
 
-```csharp
-public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)
-```
+**Purpose:** Handles logic related to `element wise product`.
 
 ### ElementWiseDivision
+`public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)`
 
-```csharp
-public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)
-```
+**Purpose:** Handles logic related to `element wise division`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**Purpose:** Gets the current value of `hash code`.
 
 ### NormalizedCopy
+`public Vec3 NormalizedCopy()`
 
-```csharp
-public Vec3 NormalizedCopy()
-```
+**Purpose:** Handles logic related to `normalized copy`.
 
 ### Normalize
+`public float Normalize()`
 
-```csharp
-public float Normalize()
-```
+**Purpose:** Handles logic related to `normalize`.
 
 ### ClampMagnitude
+`public void ClampMagnitude(float min, float max)`
 
-```csharp
-public void ClampMagnitude(float min, float max)
-```
-
-### ClampedCopy
-
-```csharp
-public Vec3 ClampedCopy(float min, float max)
-```
+**Purpose:** Handles logic related to `clamp magnitude`.
 
 ### ClampedCopy
+`public Vec3 ClampedCopy(float min, float max)`
 
-```csharp
-public Vec3 ClampedCopy(float min, float max, out bool valueClamped)
-```
+**Purpose:** Handles logic related to `clamped copy`.
+
+### ClampedCopy
+`public Vec3 ClampedCopy(float min, float max, out bool valueClamped)`
+
+**Purpose:** Handles logic related to `clamped copy`.
 
 ### NormalizeWithoutChangingZ
+`public void NormalizeWithoutChangingZ()`
 
-```csharp
-public void NormalizeWithoutChangingZ()
-```
+**Purpose:** Handles logic related to `normalize without changing z`.
 
 ### CrossProductWithUp
+`public Vec3 CrossProductWithUp()`
 
-```csharp
-public Vec3 CrossProductWithUp()
-```
+**Purpose:** Handles logic related to `cross product with up`.
 
 ### CrossProductWithUpAsLeftParameter
+`public Vec3 CrossProductWithUpAsLeftParameter()`
+
+**Purpose:** Handles logic related to `cross product with up as left parameter`.
+
+## Usage Example
 
 ```csharp
-public Vec3 CrossProductWithUpAsLeftParameter()
+// Prepare the required context, then call the static entry point directly
+StackArray8Vec3.Abs(vec);
 ```
 
 ## See Also

@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 网络系统类参考
 
 # 网络系统 / Network System
 
+## Mental Model
+
+Treat `网络系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## 概述 / Overview
 
 网络系统处理多人游戏中的网络通信，包括 UDP 套接字、服务器/客户端会话等。
@@ -112,4 +116,10 @@ Windows 看门狗。
 
 ```cpp
 WindowsWatchdog::vftable
+```
+
+## Usage Example
+
+```csharp
+var example = new 网络系统();
 ```

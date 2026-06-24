@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionRadialButtonWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionRadialButtonWidget
@@ -16,24 +17,26 @@
 
 `MissionRadialButtonWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `MissionRadialButtonWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### ExecuteFocused
-```csharp
-public void ExecuteFocused()
-```
+`public void ExecuteFocused()`
+
+**用途 / Purpose:** 执行 `focused` 操作或流程。
 
 ### ExecuteUnfocused
-```csharp
-public void ExecuteUnfocused()
-```
+`public void ExecuteUnfocused()`
+
+**用途 / Purpose:** 执行 `unfocused` 操作或流程。
 
 ## 使用示例
 
 ```csharp
-// MissionRadialButtonWidget (Widget) 的典型用法
-// 声明/访问一个 MissionRadialButtonWidget
-var widget = root.GetChild("missionRadialButtonWidget");;
+var widget = new MissionRadialButtonWidget(context);
 ```
 
 ## 参见

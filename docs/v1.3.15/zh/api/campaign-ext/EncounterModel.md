@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `EncounterModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncounterModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`EncounterModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<EncounterModel>(new MyEncounterModel())` 注册，以改变其计算逻辑。
+`EncounterModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `EncounterModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -32,80 +37,79 @@
 ## 主要方法
 
 ### IsEncounterExemptFromHostileActions
-```csharp
-public abstract bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)
-```
+`public abstract bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
+
+**用途 / Purpose:** 处理 `is encounter exempt from hostile actions` 相关逻辑。
 
 ### CanMainHeroDoParleyWithParty
-```csharp
-public abstract bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)
-```
+`public abstract bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `main hero do parley with party`。
 
 ### GetLeaderOfSiegeEvent
-```csharp
-public abstract Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)
-```
+`public abstract Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `leader of siege event` 的当前值。
 
 ### GetLeaderOfMapEvent
-```csharp
-public abstract Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)
-```
+`public abstract Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `leader of map event` 的当前值。
 
 ### GetCharacterSergeantScore
-```csharp
-public abstract int GetCharacterSergeantScore(Hero hero)
-```
+`public abstract int GetCharacterSergeantScore(Hero hero)`
+
+**用途 / Purpose:** 获取 `character sergeant score` 的当前值。
 
 ### GetDefenderPartiesOfSettlement
-```csharp
-public abstract IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)
-```
+`public abstract IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
+
+**用途 / Purpose:** 获取 `defender parties of settlement` 的当前值。
 
 ### GetNextDefenderPartyOfSettlement
-```csharp
-public abstract PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)
-```
+`public abstract PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
+
+**用途 / Purpose:** 获取 `next defender party of settlement` 的当前值。
 
 ### CreateMapEventComponentForEncounter
-```csharp
-public abstract MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)
-```
+`public abstract MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
+
+**用途 / Purpose:** 创建一个 `map event component for encounter` 实例或对象。
 
 ### GetBribeChance
-```csharp
-public abstract ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public abstract ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**用途 / Purpose:** 获取 `bribe chance` 的当前值。
 
 ### GetSurrenderChance
-```csharp
-public abstract float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public abstract float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**用途 / Purpose:** 获取 `surrender chance` 的当前值。
 
 ### GetMapEventSideRunAwayChance
-```csharp
-public abstract float GetMapEventSideRunAwayChance(MapEventSide mapEventside)
-```
+`public abstract float GetMapEventSideRunAwayChance(MapEventSide mapEventside)`
+
+**用途 / Purpose:** 获取 `map event side run away chance` 的当前值。
 
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
-```csharp
-public abstract void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)
-```
+`public abstract void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
+
+**用途 / Purpose:** 处理 `find non attached npc parties who will join player encounter` 相关逻辑。
 
 ### CanPlayerForceBanditsToJoin
-```csharp
-public abstract bool CanPlayerForceBanditsToJoin(out TextObject explanation)
-```
+`public abstract bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player force bandits to join`。
 
 ### IsPartyUnderPlayerCommand
-```csharp
-public abstract bool IsPartyUnderPlayerCommand(PartyBase party)
-```
+`public abstract bool IsPartyUnderPlayerCommand(PartyBase party)`
+
+**用途 / Purpose:** 处理 `is party under player command` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// EncounterModel (Model) 的典型用法
-Game.Current.ReplaceModel<EncounterModel>(new MyEncounterModel());
+var implementation = new CustomEncounterModel();
 ```
 
 ## 参见

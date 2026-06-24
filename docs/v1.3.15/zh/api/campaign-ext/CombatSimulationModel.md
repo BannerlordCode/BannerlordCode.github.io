@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CombatSimulationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatSimulationModel
@@ -14,65 +15,68 @@
 
 ## 概述
 
-`CombatSimulationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<CombatSimulationModel>(new MyCombatSimulationModel())` 注册，以改变其计算逻辑。
+`CombatSimulationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `CombatSimulationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### SimulateHit
-```csharp
-public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)
-```
+`public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
+
+**用途 / Purpose:** 处理 `simulate hit` 相关逻辑。
 
 ### SimulateHit
-```csharp
-public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)
-```
+`public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
+
+**用途 / Purpose:** 处理 `simulate hit` 相关逻辑。
 
 ### GetSimulationTicksForBattleRound
-```csharp
-public abstract ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)
-```
+`public abstract ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
+
+**用途 / Purpose:** 获取 `simulation ticks for battle round` 的当前值。
 
 ### GetNumberOfEquipmentsBuilt
-```csharp
-public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)
-```
+`public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `number of equipments built` 的当前值。
 
 ### GetMaximumSiegeEquipmentProgress
-```csharp
-public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)
-```
+`public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `maximum siege equipment progress` 的当前值。
 
 ### GetSettlementAdvantage
-```csharp
-public abstract float GetSettlementAdvantage(Settlement settlement)
-```
+`public abstract float GetSettlementAdvantage(Settlement settlement)`
+
+**用途 / Purpose:** 获取 `settlement advantage` 的当前值。
 
 ### GetBattleAdvantage
-```csharp
-public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)
-```
+`public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
+
+**用途 / Purpose:** 获取 `battle advantage` 的当前值。
 
 ### GetShipSiegeEngineHitChance
-```csharp
-public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)
-```
+`public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 获取 `ship siege engine hit chance` 的当前值。
 
 ### GetPursuitRoundCount
-```csharp
-public abstract int GetPursuitRoundCount(MapEvent mapEvent)
-```
+`public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
+
+**用途 / Purpose:** 获取 `pursuit round count` 的当前值。
 
 ### GetBluntDamageChance
-```csharp
-public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)
-```
+`public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
+
+**用途 / Purpose:** 获取 `blunt damage chance` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// CombatSimulationModel (Model) 的典型用法
-Game.Current.ReplaceModel<CombatSimulationModel>(new MyCombatSimulationModel());
+var implementation = new CustomCombatSimulationModel();
 ```
 
 ## 参见

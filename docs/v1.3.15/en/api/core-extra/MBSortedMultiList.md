@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MBSortedMultiList`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBSortedMultiList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class MBSortedMultiList<TKey, TValue> : IReadOnlyList<TValue>, IEnumerable<TValue>, IEnumerable, IReadOnlyCollection<TValue>, IMBCollection where TKey : IComparable<TKey>`
+**Base:** `IReadOnlyList<TValue>`
+**File:** `TaleWorlds.Library/MBSortedMultiList.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MBSortedMultiList` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBSortedMultiList` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,130 +33,174 @@
 | `Current` | `public TValue Current { get; }` |
 | `Current` | `public TValue Current { get; }` |
 
-
 ## Key Methods
 
 ### Contains
+`public bool Contains(TKey key)`
 
-```csharp
-public bool Contains(TKey key)
-```
+**Purpose:** Handles logic related to `contains`.
 
 ### Contains
+`public bool Contains(TKey key, TValue value)`
 
-```csharp
-public bool Contains(TKey key, TValue value)
-```
+**Purpose:** Handles logic related to `contains`.
 
 ### Get
+`public KeyValuePair<TKey, TValue> Get(int index)`
 
-```csharp
-public KeyValuePair<TKey, TValue> Get(int index)
-```
-
-### FirstIndexOf
-
-```csharp
-public int FirstIndexOf(TKey key)
-```
+**Purpose:** Gets the current value of `get`.
 
 ### FirstIndexOf
+`public int FirstIndexOf(TKey key)`
 
-```csharp
-public int FirstIndexOf(TKey key, TValue value)
-```
+**Purpose:** Handles logic related to `first index of`.
 
-### LastIndexOf
+### FirstIndexOf
+`public int FirstIndexOf(TKey key, TValue value)`
 
-```csharp
-public int LastIndexOf(TKey key)
-```
+**Purpose:** Handles logic related to `first index of`.
 
 ### LastIndexOf
+`public int LastIndexOf(TKey key)`
 
-```csharp
-public int LastIndexOf(TKey key, TValue value)
-```
+**Purpose:** Handles logic related to `last index of`.
+
+### LastIndexOf
+`public int LastIndexOf(TKey key, TValue value)`
+
+**Purpose:** Handles logic related to `last index of`.
 
 ### All
+`public bool All(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-```csharp
-public bool All(Predicate<KeyValuePair<TKey, TValue>> predicate)
-```
+**Purpose:** Handles logic related to `all`.
 
 ### Any
+`public bool Any(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-```csharp
-public bool Any(Predicate<KeyValuePair<TKey, TValue>> predicate)
-```
+**Purpose:** Handles logic related to `any`.
 
 ### GetValues
+`public IEnumerator<TValue> GetValues(TKey key)`
 
-```csharp
-public IEnumerator<TValue> GetValues(TKey key)
-```
+**Purpose:** Gets the current value of `values`.
 
 ### Find
+`public bool Find(Predicate<KeyValuePair<TKey, TValue>> predicate, out KeyValuePair<TKey, TValue> found, bool searchForward = true)`
 
-```csharp
-public bool Find(Predicate<KeyValuePair<TKey, TValue>> predicate, out KeyValuePair<TKey, TValue> found, bool searchForward = true)
-```
+**Purpose:** Handles logic related to `find`.
 
 ### FindIndex
+`public int FindIndex(Predicate<KeyValuePair<TKey, TValue>> predicate, bool searchForward = true)`
 
-```csharp
-public int FindIndex(Predicate<KeyValuePair<TKey, TValue>> predicate, bool searchForward = true)
-```
+**Purpose:** Handles logic related to `find index`.
 
 ### FindAll
+`public MBList<KeyValuePair<TKey, TValue>> FindAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-```csharp
-public MBList<KeyValuePair<TKey, TValue>> FindAll(Predicate<KeyValuePair<TKey, TValue>> predicate)
-```
+**Purpose:** Handles logic related to `find all`.
 
 ### Add
+`public void Add(TKey key, TValue value)`
 
-```csharp
-public void Add(TKey key, TValue value)
-```
+**Purpose:** Adds `add` to the current collection or state.
 
 ### AddRange
+`public void AddRange(IEnumerable<KeyValuePair<TKey, TValue>> items)`
 
-```csharp
-public void AddRange(IEnumerable<KeyValuePair<TKey, TValue>> items)
-```
-
-### Remove
-
-```csharp
-public bool Remove(TKey key, TValue value)
-```
+**Purpose:** Adds `range` to the current collection or state.
 
 ### Remove
+`public bool Remove(TKey key, TValue value)`
 
-```csharp
-public bool Remove(TKey key)
-```
+**Purpose:** Removes `remove` from the current collection or state.
+
+### Remove
+`public bool Remove(TKey key)`
+
+**Purpose:** Removes `remove` from the current collection or state.
 
 ### RemoveAll
+`public int RemoveAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-```csharp
-public int RemoveAll(Predicate<KeyValuePair<TKey, TValue>> predicate)
-```
+**Purpose:** Removes `all` from the current collection or state.
 
 ### RemoveAt
+`public void RemoveAt(int index)`
 
-```csharp
-public void RemoveAt(int index)
-```
+**Purpose:** Removes `at` from the current collection or state.
 
 ### RemoveLast
+`public void RemoveLast()`
+
+**Purpose:** Removes `last` from the current collection or state.
+
+### Clear
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+### SetCustomComparer
+`public void SetCustomComparer(IComparer<TKey> customComparer)`
+
+**Purpose:** Sets the value or state of `custom comparer`.
+
+### SetDefaultComparer
+`public void SetDefaultComparer(bool isAscending = true)`
+
+**Purpose:** Sets the value or state of `default comparer`.
+
+### Reverse
+`public void Reverse()`
+
+**Purpose:** Handles logic related to `reverse`.
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+### GetEnumerator
+`public IEnumerator<TValue> GetEnumerator()`
+
+**Purpose:** Gets the current value of `enumerator`.
+
+### MoveNext
+`public bool MoveNext()`
+
+**Purpose:** Handles logic related to `move next`.
+
+### Dispose
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
+
+### Reset
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
+
+### MoveNext
+`public bool MoveNext()`
+
+**Purpose:** Handles logic related to `move next`.
+
+### Dispose
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
+
+### Reset
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
+
+## Usage Example
 
 ```csharp
-public void RemoveLast()
+MBSortedMultiList example = MBSortedMultiList.Comparer;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

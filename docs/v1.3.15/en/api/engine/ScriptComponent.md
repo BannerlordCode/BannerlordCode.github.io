@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ScriptComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScriptComponent
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`ScriptComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<ScriptComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`ScriptComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `ScriptComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetName
-```csharp
-public string GetName()
-```
+`public string GetName()`
+
+**Purpose:** Gets the current value of `name`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ScriptComponent (Component)
-agent.GetComponent<ScriptComponent>();
+var implementation = new CustomScriptComponent();
 ```
 
 ## See Also

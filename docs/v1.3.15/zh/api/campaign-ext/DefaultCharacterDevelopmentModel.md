@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultCharacterDevelopmentModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCharacterDevelopmentModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultCharacterDevelopmentModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharacterDevelopmentModel())` 注册，以改变其计算逻辑。
+`DefaultCharacterDevelopmentModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultCharacterDevelopmentModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -32,79 +37,78 @@
 ## 主要方法
 
 ### InitializeSkillsRequiredForLevel
-```csharp
-public void InitializeSkillsRequiredForLevel()
-```
+`public void InitializeSkillsRequiredForLevel()`
+
+**用途 / Purpose:** 初始化 `skills required for level` 的状态、资源或绑定。
 
 ### InitializeXpRequiredForSkillLevel
-```csharp
-public void InitializeXpRequiredForSkillLevel()
-```
+`public void InitializeXpRequiredForSkillLevel()`
+
+**用途 / Purpose:** 初始化 `xp required for skill level` 的状态、资源或绑定。
 
 ### SkillsRequiredForLevel
-```csharp
-public override int SkillsRequiredForLevel(int level)
-```
+`public override int SkillsRequiredForLevel(int level)`
+
+**用途 / Purpose:** 处理 `skills required for level` 相关逻辑。
 
 ### GetMaxSkillPoint
-```csharp
-public override int GetMaxSkillPoint()
-```
+`public override int GetMaxSkillPoint()`
+
+**用途 / Purpose:** 获取 `max skill point` 的当前值。
 
 ### GetXpRequiredForSkillLevel
-```csharp
-public override int GetXpRequiredForSkillLevel(int skillLevel)
-```
+`public override int GetXpRequiredForSkillLevel(int skillLevel)`
+
+**用途 / Purpose:** 获取 `xp required for skill level` 的当前值。
 
 ### GetSkillLevelChange
-```csharp
-public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)
-```
+`public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
+
+**用途 / Purpose:** 获取 `skill level change` 的当前值。
 
 ### GetXpAmountForSkillLevelChange
-```csharp
-public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)
-```
+`public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
+
+**用途 / Purpose:** 获取 `xp amount for skill level change` 的当前值。
 
 ### GetTraitLevelForTraitXp
-```csharp
-public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)
-```
+`public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)`
+
+**用途 / Purpose:** 获取 `trait level for trait xp` 的当前值。
 
 ### GetTraitXpRequiredForTraitLevel
-```csharp
-public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)
-```
+`public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
+
+**用途 / Purpose:** 获取 `trait xp required for trait level` 的当前值。
 
 ### CalculateLearningLimit
-```csharp
-public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate learning limit` 相关逻辑。
 
 ### CalculateLearningRate
-```csharp
-public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate learning rate` 相关逻辑。
 
 ### GetNextSkillToAddFocus
-```csharp
-public override SkillObject GetNextSkillToAddFocus(Hero hero)
-```
+`public override SkillObject GetNextSkillToAddFocus(Hero hero)`
+
+**用途 / Purpose:** 获取 `next skill to add focus` 的当前值。
 
 ### GetNextAttributeToUpgrade
-```csharp
-public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)
-```
+`public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
+
+**用途 / Purpose:** 获取 `next attribute to upgrade` 的当前值。
 
 ### GetNextPerkToChoose
-```csharp
-public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)
-```
+`public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
+
+**用途 / Purpose:** 获取 `next perk to choose` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultCharacterDevelopmentModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharacterDevelopmentModel());
 ```
 

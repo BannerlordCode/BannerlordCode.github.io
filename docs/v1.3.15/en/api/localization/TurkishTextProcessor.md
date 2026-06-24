@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `TurkishTextProcessor`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TurkishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
-**Type:** class
-**Area:** Localization
+**Type:** `public class TurkishTextProcessor : LanguageSpecificTextProcessor`
+**Base:** `LanguageSpecificTextProcessor`
+**Area:** localization
 
 ## Overview
 
-> This is an auto-generated stub. `TurkishTextProcessor` is a class in the `TaleWorlds.Localization.TextProcessor.LanguageProcessors` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TurkishTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,19 +28,24 @@
 | `LinkList` | `public static List<string> LinkList { get; }` |
 | `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
-
 ## Key Methods
 
 ### ProcessToken
+`public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-```csharp
-public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)
-```
+**Purpose:** Handles logic related to `process token`.
 
 ### ClearTemporaryData
+`public override void ClearTemporaryData()`
+
+**Purpose:** Handles logic related to `clear temporary data`.
+
+## Usage Example
 
 ```csharp
-public override void ClearTemporaryData()
+// First obtain a TurkishTextProcessor instance from game state, then call one of its public methods
+var value = new TurkishTextProcessor();
+value.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also

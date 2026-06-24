@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `GameType`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameType
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class enum
-**领域:** 战斗系统 MountAndBlade
+**命名空间:** TaleWorlds.Core
+**模块:** TaleWorlds.Core
+**类型:** `public abstract class GameType`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`GameType` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个枚举 enum。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献
+`GameType` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -36,40 +41,38 @@
 | `RequiresTutorial` | `public virtual bool RequiresTutorial { get; }` |
 | `GameTypeStringId` | `public virtual string GameTypeStringId { get; }` |
 
-
 ## 主要方法
 
 ### OnStateChanged
+`public abstract void OnStateChanged(GameState oldState)`
 
-```csharp
-public abstract void OnStateChanged(GameState oldState)
-```
+**用途 / Purpose:** 当 `state changed` 事件触发时调用此方法。
 
 ### DoLoadingForGameType
+`public bool DoLoadingForGameType()`
 
-```csharp
-public bool DoLoadingForGameType()
-```
+**用途 / Purpose:** 处理 `do loading for game type` 相关逻辑。
 
 ### OnDestroy
+`public abstract void OnDestroy()`
 
-```csharp
-public abstract void OnDestroy()
-```
+**用途 / Purpose:** 当 `destroy` 事件触发时调用此方法。
 
 ### OnMissionIsStarting
+`public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-```csharp
-public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)
-```
+**用途 / Purpose:** 当 `mission is starting` 事件触发时调用此方法。
 
 ### InitializeParameters
+`public virtual void InitializeParameters()`
+
+**用途 / Purpose:** 初始化 `parameters` 的状态、资源或绑定。
+
+## 使用示例
 
 ```csharp
-public virtual void InitializeParameters()
+var implementation = new CustomGameType();
 ```
-
-文档。
 
 ## 参见
 

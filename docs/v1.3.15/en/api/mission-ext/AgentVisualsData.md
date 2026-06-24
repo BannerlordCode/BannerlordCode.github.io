@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AgentVisualsData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentVisualsData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`AgentVisualsData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`AgentVisualsData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `AgentVisualsData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -54,145 +59,144 @@
 ## Key Methods
 
 ### Equipment
-```csharp
-public AgentVisualsData Equipment(Equipment equipment)
-```
+`public AgentVisualsData Equipment(Equipment equipment)`
+
+**Purpose:** Handles logic related to `equipment`.
 
 ### BodyProperties
-```csharp
-public AgentVisualsData BodyProperties(BodyProperties bodyProperties)
-```
+`public AgentVisualsData BodyProperties(BodyProperties bodyProperties)`
+
+**Purpose:** Handles logic related to `body properties`.
 
 ### Frame
-```csharp
-public AgentVisualsData Frame(MatrixFrame frame)
-```
+`public AgentVisualsData Frame(MatrixFrame frame)`
+
+**Purpose:** Handles logic related to `frame`.
 
 ### ActionSet
-```csharp
-public AgentVisualsData ActionSet(MBActionSet actionSet)
-```
+`public AgentVisualsData ActionSet(MBActionSet actionSet)`
+
+**Purpose:** Handles logic related to `action set`.
 
 ### Scene
-```csharp
-public AgentVisualsData Scene(Scene scene)
-```
+`public AgentVisualsData Scene(Scene scene)`
+
+**Purpose:** Handles logic related to `scene`.
 
 ### Monster
-```csharp
-public AgentVisualsData Monster(Monster monster)
-```
+`public AgentVisualsData Monster(Monster monster)`
+
+**Purpose:** Handles logic related to `monster`.
 
 ### PrepareImmediately
-```csharp
-public AgentVisualsData PrepareImmediately(bool prepareImmediately)
-```
+`public AgentVisualsData PrepareImmediately(bool prepareImmediately)`
+
+**Purpose:** Handles logic related to `prepare immediately`.
 
 ### UseScaledWeapons
-```csharp
-public AgentVisualsData UseScaledWeapons(bool useScaledWeapons)
-```
+`public AgentVisualsData UseScaledWeapons(bool useScaledWeapons)`
+
+**Purpose:** Handles logic related to `use scaled weapons`.
 
 ### SkeletonType
-```csharp
-public AgentVisualsData SkeletonType(SkeletonType skeletonType)
-```
+`public AgentVisualsData SkeletonType(SkeletonType skeletonType)`
+
+**Purpose:** Handles logic related to `skeleton type`.
 
 ### UseMorphAnims
-```csharp
-public AgentVisualsData UseMorphAnims(bool useMorphAnims)
-```
+`public AgentVisualsData UseMorphAnims(bool useMorphAnims)`
+
+**Purpose:** Handles logic related to `use morph anims`.
 
 ### ClothColor1
-```csharp
-public AgentVisualsData ClothColor1(uint clothColor1)
-```
+`public AgentVisualsData ClothColor1(uint clothColor1)`
+
+**Purpose:** Handles logic related to `cloth color1`.
 
 ### ClothColor2
-```csharp
-public AgentVisualsData ClothColor2(uint clothColor2)
-```
+`public AgentVisualsData ClothColor2(uint clothColor2)`
+
+**Purpose:** Handles logic related to `cloth color2`.
 
 ### Banner
-```csharp
-public AgentVisualsData Banner(Banner banner)
-```
+`public AgentVisualsData Banner(Banner banner)`
+
+**Purpose:** Handles logic related to `banner`.
 
 ### Race
-```csharp
-public AgentVisualsData Race(int race)
-```
+`public AgentVisualsData Race(int race)`
+
+**Purpose:** Handles logic related to `race`.
 
 ### GetCachedWeaponEntity
-```csharp
-public GameEntity GetCachedWeaponEntity(EquipmentIndex slotIndex)
-```
+`public GameEntity GetCachedWeaponEntity(EquipmentIndex slotIndex)`
+
+**Purpose:** Gets the current value of `cached weapon entity`.
 
 ### CachedWeaponEntity
-```csharp
-public AgentVisualsData CachedWeaponEntity(EquipmentIndex slotIndex, GameEntity cachedWeaponEntity)
-```
+`public AgentVisualsData CachedWeaponEntity(EquipmentIndex slotIndex, GameEntity cachedWeaponEntity)`
+
+**Purpose:** Handles logic related to `cached weapon entity`.
 
 ### Entity
-```csharp
-public AgentVisualsData Entity(GameEntity entity)
-```
+`public AgentVisualsData Entity(GameEntity entity)`
+
+**Purpose:** Handles logic related to `entity`.
 
 ### UseTranslucency
-```csharp
-public AgentVisualsData UseTranslucency(bool useTranslucency)
-```
+`public AgentVisualsData UseTranslucency(bool useTranslucency)`
+
+**Purpose:** Handles logic related to `use translucency`.
 
 ### UseTesselation
-```csharp
-public AgentVisualsData UseTesselation(bool useTesselation)
-```
+`public AgentVisualsData UseTesselation(bool useTesselation)`
+
+**Purpose:** Handles logic related to `use tesselation`.
 
 ### ActionCode
-```csharp
-public AgentVisualsData ActionCode(in ActionIndexCache actionCode)
-```
+`public AgentVisualsData ActionCode(in ActionIndexCache actionCode)`
+
+**Purpose:** Handles logic related to `action code`.
 
 ### RightWieldedItemIndex
-```csharp
-public AgentVisualsData RightWieldedItemIndex(int rightWieldedItemIndex)
-```
+`public AgentVisualsData RightWieldedItemIndex(int rightWieldedItemIndex)`
+
+**Purpose:** Handles logic related to `right wielded item index`.
 
 ### LeftWieldedItemIndex
-```csharp
-public AgentVisualsData LeftWieldedItemIndex(int leftWieldedItemIndex)
-```
+`public AgentVisualsData LeftWieldedItemIndex(int leftWieldedItemIndex)`
+
+**Purpose:** Handles logic related to `left wielded item index`.
 
 ### Scale
-```csharp
-public AgentVisualsData Scale(float scale)
-```
+`public AgentVisualsData Scale(float scale)`
+
+**Purpose:** Handles logic related to `scale`.
 
 ### CharacterObjectStringId
-```csharp
-public AgentVisualsData CharacterObjectStringId(string characterObjectStringId)
-```
+`public AgentVisualsData CharacterObjectStringId(string characterObjectStringId)`
+
+**Purpose:** Handles logic related to `character object string id`.
 
 ### HasClippingPlane
-```csharp
-public AgentVisualsData HasClippingPlane(bool hasClippingPlane)
-```
+`public AgentVisualsData HasClippingPlane(bool hasClippingPlane)`
+
+**Purpose:** Checks whether the current object has/contains `clipping plane`.
 
 ### MountCreationKey
-```csharp
-public AgentVisualsData MountCreationKey(string mountCreationKey)
-```
+`public AgentVisualsData MountCreationKey(string mountCreationKey)`
+
+**Purpose:** Handles logic related to `mount creation key`.
 
 ### AddColorRandomness
-```csharp
-public AgentVisualsData AddColorRandomness(bool addColorRandomness)
-```
+`public AgentVisualsData AddColorRandomness(bool addColorRandomness)`
+
+**Purpose:** Adds `color randomness` to the current collection or state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AgentVisualsData (Data)
-new AgentVisualsData { /* fill fields */ };;
+var value = new AgentVisualsData();
 ```
 
 ## See Also

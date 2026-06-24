@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameSceneDataManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameSceneDataManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`GameSceneDataManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`GameSceneDataManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `GameSceneDataManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,25 +33,24 @@
 ## Key Methods
 
 ### LoadSPBattleScenes
-```csharp
-public void LoadSPBattleScenes(string path)
-```
+`public void LoadSPBattleScenes(string path)`
+
+**Purpose:** Loads `s p battle scenes` data.
 
 ### LoadConversationScenes
-```csharp
-public void LoadConversationScenes(string path)
-```
+`public void LoadConversationScenes(string path)`
+
+**Purpose:** Loads `conversation scenes` data.
 
 ### LoadMeetingScenes
-```csharp
-public void LoadMeetingScenes(string path)
-```
+`public void LoadMeetingScenes(string path)`
+
+**Purpose:** Loads `meeting scenes` data.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameSceneDataManager (Manager)
-GameSceneDataManager.Current;
+var manager = GameSceneDataManager.Current;
 ```
 
 ## See Also

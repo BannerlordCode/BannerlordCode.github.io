@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBarterModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBarterModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultBarterModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBarterModel>(new MyDefaultBarterModel())` to change how it computes.
+`DefaultBarterModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBarterModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,19 +31,18 @@
 ## Key Methods
 
 ### CalculateOverpayRelationIncreaseCosts
-```csharp
-public override int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)
-```
+`public override int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
+
+**Purpose:** Handles logic related to `calculate overpay relation increase costs`.
 
 ### GetBarterPenalty
-```csharp
-public override ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)
-```
+`public override ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
+
+**Purpose:** Gets the current value of `barter penalty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBarterModel (Model)
 Game.Current.ReplaceModel<DefaultBarterModel>(new MyDefaultBarterModel());
 ```
 

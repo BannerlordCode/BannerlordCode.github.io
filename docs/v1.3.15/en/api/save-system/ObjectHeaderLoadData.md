@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `ObjectHeaderLoadData`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ObjectHeaderLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
-**Type:** class
-**Area:** Save System
+**Type:** `public class ObjectHeaderLoadData`
+**Area:** save-system
 
 ## Overview
 
-> This is an auto-generated stub. `ObjectHeaderLoadData` is a class in the `TaleWorlds.SaveSystem.Load` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ObjectHeaderLoadData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `ObjectHeaderLoadData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,31 +33,32 @@
 | `Context` | `public LoadContext Context { get; }` |
 | `SaveId` | `public SaveId SaveId { get; }` |
 
-
 ## Key Methods
 
 ### InitialieReaders
+`public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-```csharp
-public void InitialieReaders(SaveEntryFolder saveEntryFolder)
-```
+**Purpose:** Initializes the state, resources, or bindings for `ialie readers`.
 
 ### CreateObject
+`public void CreateObject()`
 
-```csharp
-public void CreateObject()
-```
+**Purpose:** Creates a new `object` instance or object.
 
 ### AdvancedResolveObject
+`public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
 
-```csharp
-public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)
-```
+**Purpose:** Handles logic related to `advanced resolve object`.
 
 ### ResolveObject
+`public void ResolveObject()`
+
+**Purpose:** Handles logic related to `resolve object`.
+
+## Usage Example
 
 ```csharp
-public void ResolveObject()
+var value = new ObjectHeaderLoadData();
 ```
 
 ## See Also

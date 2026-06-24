@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `IViewModelGetterInterface`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IViewModelGetterInterface
 
 **命名空间:** TaleWorlds.Library
 **模块:** TaleWorlds.Library
-**类型:** 接口 interface interface
-**领域:** 核心数据 Core
+**类型:** `public interface IViewModelGetterInterface`
+**领域:** core-extra
 
 ## 概述
 
-> 本页为自动生成的存根。`IViewModelGetterInterface` 是 `TaleWorlds.Library` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考
+`IViewModelGetterInterface` 位于 `TaleWorlds.Library`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -31,118 +36,103 @@
 | `Properties` | `public Dictionary<string, PropertyInfo> Properties { get; set; }` |
 | `Methods` | `public Dictionary<string, MethodInfo> Methods { get; set; }` |
 
-
 ## 主要方法
 
 ### OnPropertyChanged
+`public void OnPropertyChanged( string propertyName = null)`
 
-```csharp
-public void OnPropertyChanged( string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(bool value, string propertyName = null)
-```
+**用途 / Purpose:** 当 `property changed` 事件触发时调用此方法。
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(int value, string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(float value, string propertyName = null)
-```
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(int value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(uint value, string propertyName = null)
-```
-
-### OnPropertyChangedWithValue
-
-```csharp
-public void OnPropertyChangedWithValue(Color value, string propertyName = null)
-```
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(float value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(double value, string propertyName = null)
-```
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
 
 ### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
 
-```csharp
-public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)
-```
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
+
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(double value, string propertyName = null)`
+
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
+
+### OnPropertyChangedWithValue
+`public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
+
+**用途 / Purpose:** 当 `property changed with value` 事件触发时调用此方法。
 
 ### GetViewModelAtPath
+`public object GetViewModelAtPath(BindingPath path, bool isList)`
 
-```csharp
-public object GetViewModelAtPath(BindingPath path, bool isList)
-```
+**用途 / Purpose:** 获取 `view model at path` 的当前值。
 
 ### GetViewModelAtPath
+`public object GetViewModelAtPath(BindingPath path)`
 
-```csharp
-public object GetViewModelAtPath(BindingPath path)
-```
-
-### GetPropertyValue
-
-```csharp
-public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)
-```
+**用途 / Purpose:** 获取 `view model at path` 的当前值。
 
 ### GetPropertyValue
+`public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
 
-```csharp
-public object GetPropertyValue(string name)
-```
+**用途 / Purpose:** 获取 `property value` 的当前值。
+
+### GetPropertyValue
+`public object GetPropertyValue(string name)`
+
+**用途 / Purpose:** 获取 `property value` 的当前值。
 
 ### GetPropertyType
+`public Type GetPropertyType(string name)`
 
-```csharp
-public Type GetPropertyType(string name)
-```
+**用途 / Purpose:** 获取 `property type` 的当前值。
 
 ### SetPropertyValue
+`public void SetPropertyValue(string name, object value)`
 
-```csharp
-public void SetPropertyValue(string name, object value)
-```
+**用途 / Purpose:** 设置 `property value` 的值或状态。
 
 ### OnFinalize
+`public virtual void OnFinalize()`
 
-```csharp
-public virtual void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### ExecuteCommand
+`public void ExecuteCommand(string commandName, object parameters)`
 
-```csharp
-public void ExecuteCommand(string commandName, object parameters)
-```
+**用途 / Purpose:** 执行 `command` 操作或流程。
 
 ### RefreshValues
+`public virtual void RefreshValues()`
 
-```csharp
-public virtual void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### RefreshPropertyAndMethodInfos
+`public static void RefreshPropertyAndMethodInfos()`
+
+**用途 / Purpose:** 刷新 `property and method infos` 的显示或缓存。
+
+## 使用示例
 
 ```csharp
-public static void RefreshPropertyAndMethodInfos()
+IViewModelGetterInterface implementation = GetViewModelGetterInterfaceImplementation();
 ```
-
-源码或贡献文档。
 
 ## 参见
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignEntityComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignEntityComponent
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`CampaignEntityComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<CampaignEntityComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`CampaignEntityComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `CampaignEntityComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnTick
-```csharp
-public virtual void OnTick(float realDt, float dt)
-```
+`public virtual void OnTick(float realDt, float dt)`
+
+**Purpose:** Called when the `tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignEntityComponent (Component)
-agent.GetComponent<CampaignEntityComponent>();
+var component = agent.GetComponent<CampaignEntityComponent>();
 ```
 
 ## See Also

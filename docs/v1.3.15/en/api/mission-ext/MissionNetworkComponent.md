@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionNetworkComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionNetworkComponent
@@ -14,55 +15,58 @@
 
 ## Overview
 
-`MissionNetworkComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MissionNetworkComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MissionNetworkComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MissionNetworkComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnPlayerDisconnectedFromServer
-```csharp
-public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)
-```
+`public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
+
+**Purpose:** Called when the `player disconnected from server` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### OnAddTeam
-```csharp
-public override void OnAddTeam(Team team)
-```
+`public override void OnAddTeam(Team team)`
+
+**Purpose:** Called when the `add team` event is raised.
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ### OnPeerSelectedTeam
-```csharp
-public void OnPeerSelectedTeam(MissionPeer missionPeer)
-```
+`public void OnPeerSelectedTeam(MissionPeer missionPeer)`
+
+**Purpose:** Called when the `peer selected team` event is raised.
 
 ### OnClientSynchronized
-```csharp
-public void OnClientSynchronized(NetworkCommunicator networkPeer)
-```
+`public void OnClientSynchronized(NetworkCommunicator networkPeer)`
+
+**Purpose:** Called when the `client synchronized` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionNetworkComponent (Component)
-agent.GetComponent<MissionNetworkComponent>();
+var component = agent.GetComponent<MissionNetworkComponent>();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementValueModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementValueModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultSettlementValueModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementValueModel>(new MyDefaultSettlementValueModel())` to change how it computes.
+`DefaultSettlementValueModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementValueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### FindMostSuitableHomeSettlement
-```csharp
-public override Settlement FindMostSuitableHomeSettlement(Clan clan)
-```
+`public override Settlement FindMostSuitableHomeSettlement(Clan clan)`
+
+**Purpose:** Handles logic related to `find most suitable home settlement`.
 
 ### CalculateSettlementBaseValue
-```csharp
-public override float CalculateSettlementBaseValue(Settlement settlement)
-```
+`public override float CalculateSettlementBaseValue(Settlement settlement)`
+
+**Purpose:** Handles logic related to `calculate settlement base value`.
 
 ### CalculateSettlementValueForFaction
-```csharp
-public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)
-```
+`public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
+
+**Purpose:** Handles logic related to `calculate settlement value for faction`.
 
 ### CalculateSettlementValueForEnemyHero
-```csharp
-public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)
-```
+`public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
+
+**Purpose:** Handles logic related to `calculate settlement value for enemy hero`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementValueModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementValueModel>(new MyDefaultSettlementValueModel());
 ```
 

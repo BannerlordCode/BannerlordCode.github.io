@@ -5,7 +5,11 @@ description: Complete API reference for Bannerlord SDK
 
 # API Reference
 
-Complete API reference for v1.3.15 — **4819** public types, **4819** documented (100%).
+## Mental Model
+
+Treat `API Reference` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
+Complete API reference for v1.3.15 — **4819** public types. Catalog pages provide the full index, while deep-reference pages provide developer-facing explanations and examples.
 
 ---
 
@@ -14,7 +18,7 @@ Complete API reference for v1.3.15 — **4819** public types, **4819** documente
 - [🏠 Home](../../../) — Version picker
 - [🏗️ Architecture](../architecture/) — SDK big picture, module map, layered architecture
 - [⭐ SDK Overview](../architecture/sdk-overview) — Layered map of all 54 modules & mod entry cheatsheet
-- [🗂️ Full Catalog](./catalog) — All 4819 types (100% documented)
+- [🗂️ Full Catalog](./catalog) — The complete entry index for all 4819 types
 
 ## 🌳 Tree Navigation
 

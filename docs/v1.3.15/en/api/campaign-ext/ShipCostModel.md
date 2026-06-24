@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ShipCostModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ShipCostModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`ShipCostModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ShipCostModel>(new MyShipCostModel())` to change how it computes.
+`ShipCostModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ShipCostModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetShipTradeValue
-```csharp
-public abstract float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)
-```
+`public abstract float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
+
+**Purpose:** Gets the current value of `ship trade value`.
 
 ### GetShipRepairCost
-```csharp
-public abstract float GetShipRepairCost(Ship ship, PartyBase owner)
-```
+`public abstract float GetShipRepairCost(Ship ship, PartyBase owner)`
+
+**Purpose:** Gets the current value of `ship repair cost`.
 
 ### GetShipUpgradePieceCost
-```csharp
-public abstract int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)
-```
+`public abstract int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
+
+**Purpose:** Gets the current value of `ship upgrade piece cost`.
 
 ### GetShipSellingPenalty
-```csharp
-public abstract float GetShipSellingPenalty()
-```
+`public abstract float GetShipSellingPenalty()`
+
+**Purpose:** Gets the current value of `ship selling penalty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ShipCostModel (Model)
-Game.Current.ReplaceModel<ShipCostModel>(new MyShipCostModel());
+var implementation = new CustomShipCostModel();
 ```
 
 ## See Also

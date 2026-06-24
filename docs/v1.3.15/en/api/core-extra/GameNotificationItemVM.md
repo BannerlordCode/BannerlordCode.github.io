@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameNotificationItemVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameNotificationItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class GameNotificationItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/GameNotificationItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameNotificationItemVM` is a class in the `TaleWorlds.Core.ViewModelCollection.Information` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameNotificationItemVM` lives in `TaleWorlds.Core.ViewModelCollection.Information` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,7 +32,12 @@
 | `DialogSoundPath` | `public string DialogSoundPath { get; set; }` |
 | `Announcer` | `public CharacterImageIdentifierVM Announcer { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new GameNotificationItemVM();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

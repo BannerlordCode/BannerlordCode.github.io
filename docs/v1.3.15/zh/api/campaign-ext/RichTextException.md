@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `RichTextException`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RichTextException
 
-**命名空间:** TaleWorlds.TwoDimension
-**模块:** TaleWorlds.TwoDimension
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.TwoDimension
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public class RichTextException : Exception`
+**Base:** `Exception`
+**File:** `TaleWorlds.TwoDimension/RichTextException.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`RichTextException` 是 `TaleWorlds.TwoDimension` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`RichTextException` 是一个异常类型，用来表达某种明确的错误条件；调用方需要决定是捕获、转换还是让它继续向上抛出。
+
+## 心智模型
+
+把 `RichTextException` 当作一个 Exception 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+try { CallRichTextException(); } catch (RichTextException exception) { Handle(exception); }
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

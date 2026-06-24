@@ -2,176 +2,800 @@
 **首页** → **API 目录** → **本领域** → `Utilities`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# Utilities / Utilities
+# Utilities
 
-**Namespace**: TaleWorlds.Engine
-**File**: `bannerlord-1.3.15/TaleWorlds.Engine/Utilities.cs`
-**Purpose**: 静态工具类，提供应用程序级功能和系统信息 / Static utility class providing application-level functionality and system information
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public static class Utilities`
+**Base:** 无
+**File:** `TaleWorlds.Engine/Utilities.cs`
 
-## 概述 / Overview
+## 概述
 
-`Utilities` 是 TaleWorlds.Engine 中的一个静态工具类，提供大量静态方法用于访问应用程序信息、性能指标、渲染设置、文件路径管理等。它有 1100+ 行代码，所有方法都通过 `EngineApplicationInterface.IUtil` 调用原生实现。
+`Utilities` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`Utilities` is a static utility class in TaleWorlds.Engine providing extensive static methods for accessing application information, performance metrics, rendering settings, file path management, and more. It has 1100+ lines of code, and all methods call native implementation via `EngineApplicationInterface.IUtil`.
+## 心智模型
 
-## 性能监控方法 / Performance Monitoring Methods
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetFps | `public static float GetFps()` | 获取帧率 / Get frames per second |
-| GetMainFps | `public static float GetMainFps()` | 获取主线程帧率 / Get main thread FPS |
-| GetRendererFps | `public static float GetRendererFps()` | 获取渲染器帧率 / Get renderer FPS |
-| GetDeltaTime | `public static float GetDeltaTime(int timerId)` | 获取指定计时器的增量时间 / Get delta time for specific timer |
-| GetApplicationMemory | `public static float GetApplicationMemory()` | 获取应用程序内存使用 / Get application memory usage |
-| GetApplicationMemoryStatistics | `public static string GetApplicationMemoryStatistics()` | 获取应用程序内存统计 / Get application memory statistics |
-| GetNativeMemoryStatistics | `public static string GetNativeMemoryStatistics()` | 获取原生内存统计 / Get native memory statistics |
-| GetCurrentCpuMemoryUsageMB | `public static ulong GetCurrentCpuMemoryUsageMB()` | 获取当前 CPU 内存使用 / Get current CPU memory usage |
-| GetGPUMemoryMB | `public static int GetGPUMemoryMB()` | 获取 GPU 内存 / Get GPU memory |
-| GetGpuMemoryOfAllocationGroup | `public static ulong GetGpuMemoryOfAllocationGroup(string name)` | 获取分配组的 GPU 内存 / Get GPU memory of allocation group |
-| GetGPUMemoryStats | `public static void GetGPUMemoryStats(ref float totalMemory, ref float renderTargetMemory, ref float depthTargetMemory, ref float srvMemory, ref float bufferMemory)` | 获取 GPU 内存统计 / Get GPU memory stats |
+## 主要属性
 
-## 路径和文件方法 / Path and File Methods
+| Name | Signature |
+|------|-----------|
+| `EngineFrameNo` | `public static int EngineFrameNo { get; }` |
+| `EditModeEnabled` | `public static bool EditModeEnabled { get; }` |
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetBasePath | `public static string GetBasePath()` | 获取基础路径 / Get base path |
-| GetExecutableWorkingDirectory | `public static string GetExecutableWorkingDirectory()` | 获取可执行文件工作目录 / Get executable working directory |
-| GetFullFilePathOfScene | `public static string GetFullFilePathOfScene(string sceneName)` | 获取场景文件的完整路径 / Get full file path of scene |
-| GetLocalOutputPath | `public static string GetLocalOutputPath()` | 获取本地输出路径 / Get local output path |
-| GetAttachmentsPath | `public static string GetAttachmentsPath()` | 获取附件路径 / Get attachments path |
-| GetModulesNames | `public static string[] GetModulesNames()` | 获取所有模块名称 / Get all module names |
-| GetSingleModuleScenesOfModule | `public static string[] GetSingleModuleScenesOfModule(string moduleName)` | 获取模块的场景列表 / Get scenes of a module |
-| SetDumpFolderPath | `public static void SetDumpFolderPath(string path)` | 设置转储文件夹路径 / Set dump folder path |
+## 主要方法
 
-## 并行处理方法 / Parallel Processing Methods
+### ConstructMainThreadJob
+`public static void ConstructMainThreadJob(Delegate function, params object parameters)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ParallelFor | `public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)` | 并行执行 for 循环 / Execute for loop in parallel |
-| ParallelForWithoutRenderThread | `public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)` | 在渲染线程外并行执行 / Execute parallel without render thread |
-| ParallelForWithDt | `public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)` | 带时间增量并行执行 / Execute parallel with delta time |
-| GetMainThreadId | `public static ulong GetMainThreadId()` | 获取主线程 ID / Get main thread ID |
-| GetCurrentThreadId | `public static ulong GetCurrentThreadId()` | 获取当前线程 ID / Get current thread ID |
-| IsAsyncPhysicsThread | `public static bool IsAsyncPhysicsThread()` | 检查是否是异步物理线程 / Check if async physics thread |
+**用途 / Purpose:** 处理 `construct main thread job` 相关逻辑。
 
-## 主线程作业方法 / Main Thread Job Methods
+### ConstructMainThreadJob
+`public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object parameters)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ConstructMainThreadJob | `public static void ConstructMainThreadJob(Delegate function, params object[] parameters)` | 构造主线程作业 / Construct main thread job |
-| ConstructMainThreadJob | `public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object[] parameters)` | 带信号量构造主线程作业 / Construct main thread job with semaphore |
-| RunJobs | `public static void RunJobs()` | 执行所有主线程作业 / Run all main thread jobs |
-| WaitJobs | `public static void WaitJobs()` | 等待所有作业完成 / Wait for all jobs to complete |
+**用途 / Purpose:** 处理 `construct main thread job` 相关逻辑。
 
-## 渲染控制方法 / Rendering Control Methods
+### RunJobs
+`public static void RunJobs()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ToggleRender | `public static void ToggleRender()` | 切换渲染状态 / Toggle render state |
-| SetRenderAgents | `public static void SetRenderAgents(bool value)` | 设置是否渲染 Agent / Set render agents |
-| SetRenderMode | `public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)` | 设置渲染模式 / Set render mode |
-| SetForceDrawEntityID | `public static void SetForceDrawEntityID(bool value)` | 设置强制绘制实体 ID / Set force draw entity ID |
-| SetForceVsync | `public static void SetForceVsync(bool value)` | 设置强制垂直同步 / Set force VSync |
-| EnableSingleGPUQueryPerFrame | `public static void EnableSingleGPUQueryPerFrame()` | 启用单 GPU 每帧查询 / Enable single GPU query per frame |
+**用途 / Purpose:** 处理 `run jobs` 相关逻辑。
 
-## 着色器相关方法 / Shader Related Methods
+### WaitJobs
+`public static void WaitJobs()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| CheckShaderCompilation | `public static bool CheckShaderCompilation()` | 检查着色器编译状态 / Check shader compilation |
-| CompileAllShaders | `public static void CompileAllShaders(string targetPlatform)` | 编译所有着色器 / Compile all shaders |
-| ClearShaderMemory | `public static void ClearShaderMemory()` | 清除着色器内存 / Clear shader memory |
-| GetNumberOfShaderCompilationsInProgress | `public static int GetNumberOfShaderCompilationsInProgress()` | 获取正在编译的着色器数量 / Get number of shader compilations in progress |
+**用途 / Purpose:** 处理 `wait jobs` 相关逻辑。
 
-## 截图方法 / Screenshot Methods
+### OutputBenchmarkValuesToPerformanceReporter
+`public static void OutputBenchmarkValuesToPerformanceReporter()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| TakeScreenshot | `public static void TakeScreenshot(string path)` | 拍摄截图 / Take screenshot |
-| TakeScreenshot | `public static void TakeScreenshot(PlatformFilePath path)` | 拍摄截图（平台路径）/ Take screenshot with platform path |
-| TakeSSFromTop | `public static string TakeSSFromTop(string file_name)` | 从顶部拍摄截图 / Take screenshot from top |
+**用途 / Purpose:** 处理 `output benchmark values to performance reporter` 相关逻辑。
 
-## 系统信息方法 / System Information Methods
+### SetLoadingScreenPercentage
+`public static void SetLoadingScreenPercentage(float value)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetSystemLanguage | `public static string GetSystemLanguage()` | 获取系统语言 / Get system language |
-| GetPCInfo | `public static string GetPCInfo()` | 获取 PC 信息 / Get PC info |
-| GetApplicationName | `public static string GetApplicationName()` | 获取应用程序名称 / Get application name |
-| GetSteamAppId | `public static int GetSteamAppId()` | 获取 Steam App ID / Get Steam App ID |
-| GetBuildNumber | `public static int GetBuildNumber()` | 获取构建号 / Get build number |
-| GetCurrentProcessID | `public static uint GetCurrentProcessID()` | 获取当前进程 ID / Get current process ID |
-| CommandLineArgumentExists | `public static bool CommandLineArgumentExists(string str)` | 检查命令行参数是否存在 / Check if command line argument exists |
-| GetFullCommandLineString | `public static string GetFullCommandLineString()` | 获取完整命令行字符串 / Get full command line string |
+**用途 / Purpose:** 设置 `loading screen percentage` 的值或状态。
 
-## 编辑器方法 / Editor Methods
+### SetFixedDt
+`public static void SetFixedDt(bool enabled, float dt)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetSelectedEntities | `public static void GetSelectedEntities(ref List<GameEntity> gameEntities)` | 获取选中的实体 / Get selected entities |
-| SelectEntities | `public static void SelectEntities(List<GameEntity> gameEntities)` | 选中实体 / Select entities |
-| DeleteEntitiesInEditorScene | `public static void DeleteEntitiesInEditorScene(List<GameEntity> gameEntities)` | 删除编辑器场景中的实体 / Delete entities in editor scene |
-| CreateSelectionInEditor | `public static void CreateSelectionInEditor(List<GameEntity> gameEntities, string name)` | 在编辑器中创建选择集 / Create selection in editor |
+**用途 / Purpose:** 设置 `fixed dt` 的值或状态。
 
-## 游戏状态方法 / Game State Methods
+### SetBenchmarkStatus
+`public static void SetBenchmarkStatus(int status, string def)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| QuitGame | `public static void QuitGame()` | 退出游戏 / Quit game |
-| ExitProcess | `public static void ExitProcess(int exitCode)` | 退出进程 / Exit process |
-| DisableCoreGame | `public static void DisableCoreGame()` | 禁用核心游戏 / Disable core game |
-| SetCoreGameState | `public static void SetCoreGameState(int state)` | 设置核心游戏状态 / Set core game state |
-| GetCoreGameState | `public static int GetCoreGameState()` | 获取核心游戏状态 / Get core game state |
-| IsOnlyCoreContentEnabled | `public static bool IsOnlyCoreContentEnabled()` | 检查是否仅启用核心内容 / Check if only core content enabled |
+**用途 / Purpose:** 设置 `benchmark status` 的值或状态。
 
-## 重要属性 / Important Properties
+### GetBenchmarkStatus
+`public static int GetBenchmarkStatus()`
 
-| Property | Type | Description |
-|----------|------|-------------|
-| EngineFrameNo | `int` | 获取当前引擎帧号 / Get current engine frame number |
-| EditModeEnabled | `bool` | 检查编辑器模式是否启用 / Check if edit mode is enabled |
-| renderingActive | `bool` | 渲染是否活跃 / Whether rendering is active |
+**用途 / Purpose:** 获取 `benchmark status` 的当前值。
 
-## 重要枚举 / Important Enums
+### GetApplicationMemoryStatistics
+`public static string GetApplicationMemoryStatistics()`
 
-| Enum | Description |
-|------|-------------|
-| EngineRenderDisplayMode | 渲染显示模式枚举，包含 40+ 种渲染调试模式（如 ShowAlbedo, ShowNormals, ShowDepth 等）/ Engine render display mode enum with 40+ debug render modes |
+**用途 / Purpose:** 获取 `application memory statistics` 的当前值。
 
-## 使用示例 / Usage Example
+### IsBenchmarkQuited
+`public static bool IsBenchmarkQuited()`
+
+**用途 / Purpose:** 处理 `is benchmark quited` 相关逻辑。
+
+### GetNativeMemoryStatistics
+`public static string GetNativeMemoryStatistics()`
+
+**用途 / Purpose:** 获取 `native memory statistics` 的当前值。
+
+### CommandLineArgumentExists
+`public static bool CommandLineArgumentExists(string str)`
+
+**用途 / Purpose:** 处理 `command line argument exists` 相关逻辑。
+
+### GetConsoleHostMachine
+`public static string GetConsoleHostMachine()`
+
+**用途 / Purpose:** 获取 `console host machine` 的当前值。
+
+### ExportNavMeshFaceMarks
+`public static string ExportNavMeshFaceMarks(string file_name)`
+
+**用途 / Purpose:** 处理 `export nav mesh face marks` 相关逻辑。
+
+### TakeSSFromTop
+`public static string TakeSSFromTop(string file_name)`
+
+**用途 / Purpose:** 处理 `take s s from top` 相关逻辑。
+
+### CheckIfAssetsAndSourcesAreSame
+`public static void CheckIfAssetsAndSourcesAreSame()`
+
+**用途 / Purpose:** 处理 `check if assets and sources are same` 相关逻辑。
+
+### DisableCoreGame
+`public static void DisableCoreGame()`
+
+**用途 / Purpose:** 处理 `disable core game` 相关逻辑。
+
+### GetApplicationMemory
+`public static float GetApplicationMemory()`
+
+**用途 / Purpose:** 获取 `application memory` 的当前值。
+
+### GatherCoreGameReferences
+`public static void GatherCoreGameReferences(string scene_names)`
+
+**用途 / Purpose:** 处理 `gather core game references` 相关逻辑。
+
+### IsOnlyCoreContentEnabled
+`public static bool IsOnlyCoreContentEnabled()`
+
+**用途 / Purpose:** 处理 `is only core content enabled` 相关逻辑。
+
+### FindMeshesWithoutLods
+`public static void FindMeshesWithoutLods(string module_name)`
+
+**用途 / Purpose:** 处理 `find meshes without lods` 相关逻辑。
+
+### SetDisableDumpGeneration
+`public static void SetDisableDumpGeneration(bool value)`
+
+**用途 / Purpose:** 设置 `disable dump generation` 的值或状态。
+
+### SetPrintCallstackAtCrahses
+`public static void SetPrintCallstackAtCrahses(bool value)`
+
+**用途 / Purpose:** 设置 `print callstack at crahses` 的值或状态。
+
+### GetModulesNames
+`public static string GetModulesNames()`
+
+**用途 / Purpose:** 获取 `modules names` 的当前值。
+
+### GetFullFilePathOfScene
+`public static string GetFullFilePathOfScene(string sceneName)`
+
+**用途 / Purpose:** 获取 `full file path of scene` 的当前值。
+
+### TryGetFullFilePathOfScene
+`public static bool TryGetFullFilePathOfScene(string sceneName, out string fullPath)`
+
+**用途 / Purpose:** 尝试获取 `get full file path of scene`，通常以 out 参数返回结果。
+
+### TryGetUniqueIdentifiersForScene
+`public static bool TryGetUniqueIdentifiersForScene(string sceneName, out UniqueSceneId identifiers)`
+
+**用途 / Purpose:** 尝试获取 `get unique identifiers for scene`，通常以 out 参数返回结果。
+
+### TryGetUniqueIdentifiersForSceneFile
+`public static bool TryGetUniqueIdentifiersForSceneFile(string xsceneFilePath, out UniqueSceneId identifiers)`
+
+**用途 / Purpose:** 尝试获取 `get unique identifiers for scene file`，通常以 out 参数返回结果。
+
+### PairSceneNameToModuleName
+`public static void PairSceneNameToModuleName(string sceneName, string moduleName)`
+
+**用途 / Purpose:** 处理 `pair scene name to module name` 相关逻辑。
+
+### GetSingleModuleScenesOfModule
+`public static string GetSingleModuleScenesOfModule(string moduleName)`
+
+**用途 / Purpose:** 获取 `single module scenes of module` 的当前值。
+
+### GetFullCommandLineString
+`public static string GetFullCommandLineString()`
+
+**用途 / Purpose:** 获取 `full command line string` 的当前值。
+
+### SetScreenTextRenderingState
+`public static void SetScreenTextRenderingState(bool state)`
+
+**用途 / Purpose:** 设置 `screen text rendering state` 的值或状态。
+
+### SetMessageLineRenderingState
+`public static void SetMessageLineRenderingState(bool state)`
+
+**用途 / Purpose:** 设置 `message line rendering state` 的值或状态。
+
+### CheckIfTerrainShaderHeaderGenerationFinished
+`public static bool CheckIfTerrainShaderHeaderGenerationFinished()`
+
+**用途 / Purpose:** 处理 `check if terrain shader header generation finished` 相关逻辑。
+
+### GenerateTerrainShaderHeaders
+`public static void GenerateTerrainShaderHeaders(string targetPlatform, string targetConfig, string output_path)`
+
+**用途 / Purpose:** 处理 `generate terrain shader headers` 相关逻辑。
+
+### CompileTerrainShadersDist
+`public static void CompileTerrainShadersDist(string targetPlatform, string targetConfig, string output_path)`
+
+**用途 / Purpose:** 处理 `compile terrain shaders dist` 相关逻辑。
+
+### SetCrashOnAsserts
+`public static void SetCrashOnAsserts(bool val)`
+
+**用途 / Purpose:** 设置 `crash on asserts` 的值或状态。
+
+### SetCrashOnWarnings
+`public static void SetCrashOnWarnings(bool val)`
+
+**用途 / Purpose:** 设置 `crash on warnings` 的值或状态。
+
+### SetCreateDumpOnWarnings
+`public static void SetCreateDumpOnWarnings(bool val)`
+
+**用途 / Purpose:** 设置 `create dump on warnings` 的值或状态。
+
+### ToggleRender
+`public static void ToggleRender()`
+
+**用途 / Purpose:** 处理 `toggle render` 相关逻辑。
+
+### SetRenderAgents
+`public static void SetRenderAgents(bool value)`
+
+**用途 / Purpose:** 设置 `render agents` 的值或状态。
+
+### CheckShaderCompilation
+`public static bool CheckShaderCompilation()`
+
+**用途 / Purpose:** 处理 `check shader compilation` 相关逻辑。
+
+### CompileAllShaders
+`public static void CompileAllShaders(string targetPlatform)`
+
+**用途 / Purpose:** 处理 `compile all shaders` 相关逻辑。
+
+### GetExecutableWorkingDirectory
+`public static string GetExecutableWorkingDirectory()`
+
+**用途 / Purpose:** 获取 `executable working directory` 的当前值。
+
+### SetDumpFolderPath
+`public static void SetDumpFolderPath(string path)`
+
+**用途 / Purpose:** 设置 `dump folder path` 的值或状态。
+
+### CheckSceneForProblems
+`public static void CheckSceneForProblems(string sceneName)`
+
+**用途 / Purpose:** 处理 `check scene for problems` 相关逻辑。
+
+### SetCoreGameState
+`public static void SetCoreGameState(int state)`
+
+**用途 / Purpose:** 设置 `core game state` 的值或状态。
+
+### GetCoreGameState
+`public static int GetCoreGameState()`
+
+**用途 / Purpose:** 获取 `core game state` 的当前值。
+
+### ExecuteCommandLineCommand
+`public static string ExecuteCommandLineCommand(string command)`
+
+**用途 / Purpose:** 执行 `command line command` 操作或流程。
+
+### QuitGame
+`public static void QuitGame()`
+
+**用途 / Purpose:** 处理 `quit game` 相关逻辑。
+
+### ExitProcess
+`public static void ExitProcess(int exitCode)`
+
+**用途 / Purpose:** 处理 `exit process` 相关逻辑。
+
+### GetBasePath
+`public static string GetBasePath()`
+
+**用途 / Purpose:** 获取 `base path` 的当前值。
+
+### GetVisualTestsValidatePath
+`public static string GetVisualTestsValidatePath()`
+
+**用途 / Purpose:** 获取 `visual tests validate path` 的当前值。
+
+### GetVisualTestsTestFilesPath
+`public static string GetVisualTestsTestFilesPath()`
+
+**用途 / Purpose:** 获取 `visual tests test files path` 的当前值。
+
+### GetAttachmentsPath
+`public static string GetAttachmentsPath()`
+
+**用途 / Purpose:** 获取 `attachments path` 的当前值。
+
+### StartScenePerformanceReport
+`public static void StartScenePerformanceReport(string folderPath)`
+
+**用途 / Purpose:** 处理 `start scene performance report` 相关逻辑。
+
+### IsSceneReportFinished
+`public static bool IsSceneReportFinished()`
+
+**用途 / Purpose:** 处理 `is scene report finished` 相关逻辑。
+
+### GetFps
+`public static float GetFps()`
+
+**用途 / Purpose:** 获取 `fps` 的当前值。
+
+### GetMainFps
+`public static float GetMainFps()`
+
+**用途 / Purpose:** 获取 `main fps` 的当前值。
+
+### GetRendererFps
+`public static float GetRendererFps()`
+
+**用途 / Purpose:** 获取 `renderer fps` 的当前值。
+
+### EnableSingleGPUQueryPerFrame
+`public static void EnableSingleGPUQueryPerFrame()`
+
+**用途 / Purpose:** 处理 `enable single g p u query per frame` 相关逻辑。
+
+### ClearDecalAtlas
+`public static void ClearDecalAtlas(DecalAtlasGroup atlasGroup)`
+
+**用途 / Purpose:** 处理 `clear decal atlas` 相关逻辑。
+
+### FlushManagedObjectsMemory
+`public static void FlushManagedObjectsMemory()`
+
+**用途 / Purpose:** 处理 `flush managed objects memory` 相关逻辑。
+
+### OnLoadingWindowEnabled
+`public static void OnLoadingWindowEnabled()`
+
+**用途 / Purpose:** 当 `loading window enabled` 事件触发时调用此方法。
+
+### DebugSetGlobalLoadingWindowState
+`public static void DebugSetGlobalLoadingWindowState(bool newState)`
+
+**用途 / Purpose:** 处理 `debug set global loading window state` 相关逻辑。
+
+### OnLoadingWindowDisabled
+`public static void OnLoadingWindowDisabled()`
+
+**用途 / Purpose:** 当 `loading window disabled` 事件触发时调用此方法。
+
+### DisableGlobalLoadingWindow
+`public static void DisableGlobalLoadingWindow()`
+
+**用途 / Purpose:** 处理 `disable global loading window` 相关逻辑。
+
+### EnableGlobalLoadingWindow
+`public static void EnableGlobalLoadingWindow()`
+
+**用途 / Purpose:** 处理 `enable global loading window` 相关逻辑。
+
+### EnableGlobalEditDataCacher
+`public static void EnableGlobalEditDataCacher()`
+
+**用途 / Purpose:** 处理 `enable global edit data cacher` 相关逻辑。
+
+### DoFullBakeAllLevelsAutomated
+`public static void DoFullBakeAllLevelsAutomated(string module, string scene)`
+
+**用途 / Purpose:** 处理 `do full bake all levels automated` 相关逻辑。
+
+### GetReturnCode
+`public static int GetReturnCode()`
+
+**用途 / Purpose:** 获取 `return code` 的当前值。
+
+### DisableGlobalEditDataCacher
+`public static void DisableGlobalEditDataCacher()`
+
+**用途 / Purpose:** 处理 `disable global edit data cacher` 相关逻辑。
+
+### DoFullBakeSingleLevelAutomated
+`public static void DoFullBakeSingleLevelAutomated(string module, string scene)`
+
+**用途 / Purpose:** 处理 `do full bake single level automated` 相关逻辑。
+
+### DoLightOnlyBakeSingleLevelAutomated
+`public static void DoLightOnlyBakeSingleLevelAutomated(string module, string scene)`
+
+**用途 / Purpose:** 处理 `do light only bake single level automated` 相关逻辑。
+
+### DoLightOnlyBakeAllLevelsAutomated
+`public static void DoLightOnlyBakeAllLevelsAutomated(string module, string scene)`
+
+**用途 / Purpose:** 处理 `do light only bake all levels automated` 相关逻辑。
+
+### DidAutomatedGIBakeFinished
+`public static bool DidAutomatedGIBakeFinished()`
+
+**用途 / Purpose:** 处理 `did automated g i bake finished` 相关逻辑。
+
+### GetSelectedEntities
+`public static void GetSelectedEntities(ref List<GameEntity> gameEntities)`
+
+**用途 / Purpose:** 获取 `selected entities` 的当前值。
+
+### DeleteEntitiesInEditorScene
+`public static void DeleteEntitiesInEditorScene(List<GameEntity> gameEntities)`
+
+**用途 / Purpose:** 处理 `delete entities in editor scene` 相关逻辑。
+
+### CreateSelectionInEditor
+`public static void CreateSelectionInEditor(List<GameEntity> gameEntities, string name)`
+
+**用途 / Purpose:** 创建一个 `selection in editor` 实例或对象。
+
+### SelectEntities
+`public static void SelectEntities(List<GameEntity> gameEntities)`
+
+**用途 / Purpose:** 处理 `select entities` 相关逻辑。
+
+### GetEntitiesOfSelectionSet
+`public static void GetEntitiesOfSelectionSet(string selectionSetName, ref List<GameEntity> gameEntities)`
+
+**用途 / Purpose:** 获取 `entities of selection set` 的当前值。
+
+### AddCommandLineFunction
+`public static void AddCommandLineFunction(string concatName)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `command line function`。
+
+### GetNumberOfShaderCompilationsInProgress
+`public static int GetNumberOfShaderCompilationsInProgress()`
+
+**用途 / Purpose:** 获取 `number of shader compilations in progress` 的当前值。
+
+### IsDetailedSoundLogOn
+`public static int IsDetailedSoundLogOn()`
+
+**用途 / Purpose:** 处理 `is detailed sound log on` 相关逻辑。
+
+### GetCurrentCpuMemoryUsageMB
+`public static ulong GetCurrentCpuMemoryUsageMB()`
+
+**用途 / Purpose:** 获取 `current cpu memory usage m b` 的当前值。
+
+### GetGpuMemoryOfAllocationGroup
+`public static ulong GetGpuMemoryOfAllocationGroup(string name)`
+
+**用途 / Purpose:** 获取 `gpu memory of allocation group` 的当前值。
+
+### GetGPUMemoryStats
+`public static void GetGPUMemoryStats(ref float totalMemory, ref float renderTargetMemory, ref float depthTargetMemory, ref float srvMemory, ref float bufferMemory)`
+
+**用途 / Purpose:** 获取 `g p u memory stats` 的当前值。
+
+### GetDetailedGPUMemoryData
+`public static void GetDetailedGPUMemoryData(ref int totalMemoryAllocated, ref int totalMemoryUsed, ref int emptyChunkTotalSize)`
+
+**用途 / Purpose:** 获取 `detailed g p u memory data` 的当前值。
+
+### SetRenderMode
+`public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)`
+
+**用途 / Purpose:** 设置 `render mode` 的值或状态。
+
+### SetForceDrawEntityID
+`public static void SetForceDrawEntityID(bool value)`
+
+**用途 / Purpose:** 设置 `force draw entity i d` 的值或状态。
+
+### AddPerformanceReportToken
+`public static void AddPerformanceReportToken(string performance_type, string name, float loading_time)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `performance report token`。
+
+### AddSceneObjectReport
+`public static void AddSceneObjectReport(string scene_name, string report_name, float report_value)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `scene object report`。
+
+### OutputPerformanceReports
+`public static void OutputPerformanceReports()`
+
+**用途 / Purpose:** 处理 `output performance reports` 相关逻辑。
+
+### TakeScreenshot
+`public static void TakeScreenshot(PlatformFilePath path)`
+
+**用途 / Purpose:** 处理 `take screenshot` 相关逻辑。
+
+### TakeScreenshot
+`public static void TakeScreenshot(string path)`
+
+**用途 / Purpose:** 处理 `take screenshot` 相关逻辑。
+
+### SetAllocationAlwaysValidScene
+`public static void SetAllocationAlwaysValidScene(Scene scene)`
+
+**用途 / Purpose:** 设置 `allocation always valid scene` 的值或状态。
+
+### CheckResourceModifications
+`public static void CheckResourceModifications()`
+
+**用途 / Purpose:** 处理 `check resource modifications` 相关逻辑。
+
+### SetGraphicsPreset
+`public static void SetGraphicsPreset(int preset)`
+
+**用途 / Purpose:** 设置 `graphics preset` 的值或状态。
+
+### GetLocalOutputPath
+`public static string GetLocalOutputPath()`
+
+**用途 / Purpose:** 获取 `local output path` 的当前值。
+
+### GetPCInfo
+`public static string GetPCInfo()`
+
+**用途 / Purpose:** 获取 `p c info` 的当前值。
+
+### GetGPUMemoryMB
+`public static int GetGPUMemoryMB()`
+
+**用途 / Purpose:** 获取 `g p u memory m b` 的当前值。
+
+### GetCurrentEstimatedGPUMemoryCostMB
+`public static int GetCurrentEstimatedGPUMemoryCostMB()`
+
+**用途 / Purpose:** 获取 `current estimated g p u memory cost m b` 的当前值。
+
+### DumpGPUMemoryStatistics
+`public static void DumpGPUMemoryStatistics(string filePath)`
+
+**用途 / Purpose:** 处理 `dump g p u memory statistics` 相关逻辑。
+
+### SaveDataAsTexture
+`public static int SaveDataAsTexture(string path, int width, int height, float data)`
+
+**用途 / Purpose:** 保存 `data as texture` 数据。
+
+### ClearOldResourcesAndObjects
+`public static void ClearOldResourcesAndObjects()`
+
+**用途 / Purpose:** 处理 `clear old resources and objects` 相关逻辑。
+
+### LoadVirtualTextureTileset
+`public static void LoadVirtualTextureTileset(string name)`
+
+**用途 / Purpose:** 加载 `virtual texture tileset` 数据。
+
+### GetDeltaTime
+`public static float GetDeltaTime(int timerId)`
+
+**用途 / Purpose:** 获取 `delta time` 的当前值。
+
+### LoadSkyBoxes
+`public static void LoadSkyBoxes()`
+
+**用途 / Purpose:** 加载 `sky boxes` 数据。
+
+### GetApplicationName
+`public static string GetApplicationName()`
+
+**用途 / Purpose:** 获取 `application name` 的当前值。
+
+### OpenNavalDlcPurchasePage
+`public static void OpenNavalDlcPurchasePage()`
+
+**用途 / Purpose:** 处理 `open naval dlc purchase page` 相关逻辑。
+
+### SetWindowTitle
+`public static void SetWindowTitle(string title)`
+
+**用途 / Purpose:** 设置 `window title` 的值或状态。
+
+### ProcessWindowTitle
+`public static string ProcessWindowTitle(string title)`
+
+**用途 / Purpose:** 处理 `process window title` 相关逻辑。
+
+### GetCurrentProcessID
+`public static uint GetCurrentProcessID()`
+
+**用途 / Purpose:** 获取 `current process i d` 的当前值。
+
+### DoDelayedexit
+`public static void DoDelayedexit(int returnCode)`
+
+**用途 / Purpose:** 处理 `do delayedexit` 相关逻辑。
+
+### SetAssertionsAndWarningsSetExitCode
+`public static void SetAssertionsAndWarningsSetExitCode(bool value)`
+
+**用途 / Purpose:** 设置 `assertions and warnings set exit code` 的值或状态。
+
+### SetReportMode
+`public static void SetReportMode(bool reportMode)`
+
+**用途 / Purpose:** 设置 `report mode` 的值或状态。
+
+### SetAssertionAtShaderCompile
+`public static void SetAssertionAtShaderCompile(bool value)`
+
+**用途 / Purpose:** 设置 `assertion at shader compile` 的值或状态。
+
+### SetCrashReportCustomString
+`public static void SetCrashReportCustomString(string customString)`
+
+**用途 / Purpose:** 设置 `crash report custom string` 的值或状态。
+
+### SetCrashReportCustomStack
+`public static void SetCrashReportCustomStack(string customStack)`
+
+**用途 / Purpose:** 设置 `crash report custom stack` 的值或状态。
+
+### GetSteamAppId
+`public static int GetSteamAppId()`
+
+**用途 / Purpose:** 获取 `steam app id` 的当前值。
+
+### SetForceVsync
+`public static void SetForceVsync(bool value)`
+
+**用途 / Purpose:** 设置 `force vsync` 的值或状态。
+
+### LoadBannerlordConfigFile
+`public static string LoadBannerlordConfigFile()`
+
+**用途 / Purpose:** 加载 `bannerlord config file` 数据。
+
+### SaveConfigFile
+`public static SaveResult SaveConfigFile(string configProperties)`
+
+**用途 / Purpose:** 保存 `config file` 数据。
+
+### OpenOnscreenKeyboard
+`public static void OpenOnscreenKeyboard(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
+
+**用途 / Purpose:** 处理 `open onscreen keyboard` 相关逻辑。
+
+### GetSystemLanguage
+`public static string GetSystemLanguage()`
+
+**用途 / Purpose:** 获取 `system language` 的当前值。
+
+### RegisterGPUAllocationGroup
+`public static int RegisterGPUAllocationGroup(string name)`
+
+**用途 / Purpose:** 处理 `register g p u allocation group` 相关逻辑。
+
+### GetMemoryUsageOfCategory
+`public static int GetMemoryUsageOfCategory(int category)`
+
+**用途 / Purpose:** 获取 `memory usage of category` 的当前值。
+
+### GetDetailedXBOXMemoryInfo
+`public static string GetDetailedXBOXMemoryInfo()`
+
+**用途 / Purpose:** 获取 `detailed x b o x memory info` 的当前值。
+
+### SetFrameLimiterWithSleep
+`public static void SetFrameLimiterWithSleep(bool value)`
+
+**用途 / Purpose:** 设置 `frame limiter with sleep` 的值或状态。
+
+### GetFrameLimiterWithSleep
+`public static bool GetFrameLimiterWithSleep()`
+
+**用途 / Purpose:** 获取 `frame limiter with sleep` 的当前值。
+
+### GetPossibleCommandLineStartingWith
+`public static string GetPossibleCommandLineStartingWith(string command, int index)`
+
+**用途 / Purpose:** 获取 `possible command line starting with` 的当前值。
+
+### IsDevkit
+`public static bool IsDevkit()`
+
+**用途 / Purpose:** 处理 `is devkit` 相关逻辑。
+
+### IsLockhartPlatform
+`public static bool IsLockhartPlatform()`
+
+**用途 / Purpose:** 处理 `is lockhart platform` 相关逻辑。
+
+### GetVertexBufferChunkSystemMemoryUsage
+`public static int GetVertexBufferChunkSystemMemoryUsage()`
+
+**用途 / Purpose:** 获取 `vertex buffer chunk system memory usage` 的当前值。
+
+### GetBuildNumber
+`public static int GetBuildNumber()`
+
+**用途 / Purpose:** 获取 `build number` 的当前值。
+
+### GetApplicationVersionWithBuildNumber
+`public static ApplicationVersion GetApplicationVersionWithBuildNumber()`
+
+**用途 / Purpose:** 获取 `application version with build number` 的当前值。
+
+### ParallelFor
+`public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**用途 / Purpose:** 处理 `parallel for` 相关逻辑。
+
+### ParallelForWithoutRenderThread
+`public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**用途 / Purpose:** 处理 `parallel for without render thread` 相关逻辑。
+
+### ClearShaderMemory
+`public static void ClearShaderMemory()`
+
+**用途 / Purpose:** 处理 `clear shader memory` 相关逻辑。
+
+### RegisterMeshForGPUMorph
+`public static void RegisterMeshForGPUMorph(string metaMeshName)`
+
+**用途 / Purpose:** 处理 `register mesh for g p u morph` 相关逻辑。
+
+### ParallelForWithDt
+`public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**用途 / Purpose:** 处理 `parallel for with dt` 相关逻辑。
+
+### GetMainThreadId
+`public static ulong GetMainThreadId()`
+
+**用途 / Purpose:** 获取 `main thread id` 的当前值。
+
+### GetCurrentThreadId
+`public static ulong GetCurrentThreadId()`
+
+**用途 / Purpose:** 获取 `current thread id` 的当前值。
+
+### SetWatchdogValue
+`public static void SetWatchdogValue(string fileName, string groupName, string key, string value)`
+
+**用途 / Purpose:** 设置 `watchdog value` 的值或状态。
+
+### SetWatchdogAutoreport
+`public static void SetWatchdogAutoreport(bool enabled)`
+
+**用途 / Purpose:** 设置 `watchdog autoreport` 的值或状态。
+
+### DetachWatchdog
+`public static void DetachWatchdog()`
+
+**用途 / Purpose:** 处理 `detach watchdog` 相关逻辑。
+
+### GetPlatformModulePaths
+`public static string GetPlatformModulePaths()`
+
+**用途 / Purpose:** 获取 `platform module paths` 的当前值。
+
+### IsAsyncPhysicsThread
+`public static bool IsAsyncPhysicsThread()`
+
+**用途 / Purpose:** 处理 `is async physics thread` 相关逻辑。
+
+### StartLoadingStuckCheckState
+`public static void StartLoadingStuckCheckState(float timeoutThresholdSeconds)`
+
+**用途 / Purpose:** 处理 `start loading stuck check state` 相关逻辑。
+
+### EndLoadingStuckCheckState
+`public static void EndLoadingStuckCheckState()`
+
+**用途 / Purpose:** 处理 `end loading stuck check state` 相关逻辑。
+
+### Dispose
+`public void Dispose()`
+
+**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-// 获取性能信息
-// Get performance info
-float fps = Utilities.GetFps();
-float memory = Utilities.GetApplicationMemory();
-
-// 获取路径
-// Get paths
-string basePath = Utilities.GetBasePath();
-string scenePath = Utilities.GetFullFilePathOfScene("battle_scene");
-
-// 截图
-// Take screenshot
-Utilities.TakeScreenshot("screenshot.png");
-
-// 并行处理
-// Parallel processing
-Utilities.ParallelFor(0, 100, 0, 10, (int i) => {
-    // 并行执行的工作
-    // Work to be done in parallel
-});
+Utilities.ConstructMainThreadJob(function, parameters);
 ```
 
-## 注意事项 / Notes
+## 参见
 
-- Utilities 是一个静态类，所有方法都是静态方法
-- Utilities is a static class and all methods are static methods
-- 所有方法都通过 `EngineApplicationInterface.IUtil` 调用原生实现
-- All methods call native implementation via `EngineApplicationInterface.IUtil`
-- 某些方法（如 ParallelFor）接受委托参数用于并行执行
-- Some methods (like ParallelFor) accept delegate parameters for parallel execution
-- 渲染模式枚举 EngineRenderDisplayMode 包含大量调试可视化选项
-- The render mode enum EngineRenderDisplayMode contains many debug visualization options
+- [完整类目录](../catalog)

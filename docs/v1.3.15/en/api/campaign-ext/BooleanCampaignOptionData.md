@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BooleanCampaignOptionData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BooleanCampaignOptionData
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`BooleanCampaignOptionData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BooleanCampaignOptionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BooleanCampaignOptionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetDataType
-```csharp
-public override CampaignOptionDataType GetDataType()
-```
+`public override CampaignOptionDataType GetDataType()`
+
+**Purpose:** Gets the current value of `data type`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BooleanCampaignOptionData (Data)
-new BooleanCampaignOptionData { /* fill fields */ };;
+var value = new BooleanCampaignOptionData();
 ```
 
 ## See Also

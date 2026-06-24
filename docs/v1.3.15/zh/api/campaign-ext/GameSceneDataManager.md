@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `GameSceneDataManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameSceneDataManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`GameSceneDataManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`GameSceneDataManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `GameSceneDataManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,25 +33,24 @@
 ## 主要方法
 
 ### LoadSPBattleScenes
-```csharp
-public void LoadSPBattleScenes(string path)
-```
+`public void LoadSPBattleScenes(string path)`
+
+**用途 / Purpose:** 加载 `s p battle scenes` 数据。
 
 ### LoadConversationScenes
-```csharp
-public void LoadConversationScenes(string path)
-```
+`public void LoadConversationScenes(string path)`
+
+**用途 / Purpose:** 加载 `conversation scenes` 数据。
 
 ### LoadMeetingScenes
-```csharp
-public void LoadMeetingScenes(string path)
-```
+`public void LoadMeetingScenes(string path)`
+
+**用途 / Purpose:** 加载 `meeting scenes` 数据。
 
 ## 使用示例
 
 ```csharp
-// GameSceneDataManager (Manager) 的典型用法
-GameSceneDataManager.Current;
+var manager = GameSceneDataManager.Current;
 ```
 
 ## 参见

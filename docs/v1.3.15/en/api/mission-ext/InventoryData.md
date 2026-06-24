@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `InventoryData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`InventoryData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`InventoryData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `InventoryData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,20 +30,19 @@
 ## Key Methods
 
 ### GetItemWithIndex
-```csharp
-public ItemData GetItemWithIndex(int itemIndex)
-```
+`public ItemData GetItemWithIndex(int itemIndex)`
+
+**Purpose:** Gets the current value of `item with index`.
 
 ### DebugPrint
-```csharp
-public void DebugPrint()
-```
+`public void DebugPrint()`
+
+**Purpose:** Handles logic related to `debug print`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of InventoryData (Data)
-new InventoryData { /* fill fields */ };;
+var value = new InventoryData();
 ```
 
 ## See Also

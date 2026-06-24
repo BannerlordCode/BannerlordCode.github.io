@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `HeroExecutionSceneNotificationData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroExecutionSceneNotificationData
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`HeroExecutionSceneNotificationData` 是一个数据结构/DTO，持有结构化字段。构造它以传递或序列化数据。
+`HeroExecutionSceneNotificationData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `HeroExecutionSceneNotificationData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -37,35 +42,34 @@
 ## 主要方法
 
 ### GetSceneNotificationCharacters
-```csharp
-public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()
-```
+`public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
+
+**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
 
 ### OnCloseAction
-```csharp
-public override void OnCloseAction()
-```
+`public override void OnCloseAction()`
+
+**用途 / Purpose:** 当 `close action` 事件触发时调用此方法。
 
 ### OnAffirmativeAction
-```csharp
-public override void OnAffirmativeAction()
-```
+`public override void OnAffirmativeAction()`
+
+**用途 / Purpose:** 当 `affirmative action` 事件触发时调用此方法。
 
 ### CreateForPlayerExecutingHero
-```csharp
-public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any, bool showNegativeOption = true)
-```
+`public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any, bool showNegativeOption = true)`
+
+**用途 / Purpose:** 创建一个 `for player executing hero` 实例或对象。
 
 ### CreateForInformingPlayer
-```csharp
-public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any)
-```
+`public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any)`
+
+**用途 / Purpose:** 创建一个 `for informing player` 实例或对象。
 
 ## 使用示例
 
 ```csharp
-// HeroExecutionSceneNotificationData (Data) 的典型用法
-new HeroExecutionSceneNotificationData { /* fill fields */ };;
+var value = new HeroExecutionSceneNotificationData();
 ```
 
 ## 参见

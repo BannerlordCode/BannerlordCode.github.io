@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `TextToken`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextToken
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class TextToken`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `TextToken` is a class in the `TaleWorlds.TwoDimension` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TextToken` lives in `TaleWorlds.TwoDimension`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,73 +30,68 @@
 | `CannotStartLineWithCharacter` | `public bool CannotStartLineWithCharacter { get; set; }` |
 | `CannotEndLineWithCharacter` | `public bool CannotEndLineWithCharacter { get; set; }` |
 
-
 ## Key Methods
 
 ### CreateEmptyCharacter
+`public static TextToken CreateEmptyCharacter()`
 
-```csharp
-public static TextToken CreateEmptyCharacter()
-```
+**Purpose:** Creates a new `empty character` instance or object.
 
 ### CreateZeroWidthSpaceCharacter
+`public static TextToken CreateZeroWidthSpaceCharacter()`
 
-```csharp
-public static TextToken CreateZeroWidthSpaceCharacter()
-```
+**Purpose:** Creates a new `zero width space character` instance or object.
 
 ### CreateNonBreakingSpaceCharacter
+`public static TextToken CreateNonBreakingSpaceCharacter()`
 
-```csharp
-public static TextToken CreateNonBreakingSpaceCharacter()
-```
+**Purpose:** Creates a new `non breaking space character` instance or object.
 
 ### CreateWordJoinerCharacter
+`public static TextToken CreateWordJoinerCharacter()`
 
-```csharp
-public static TextToken CreateWordJoinerCharacter()
-```
+**Purpose:** Creates a new `word joiner character` instance or object.
 
 ### CreateNewLine
+`public static TextToken CreateNewLine()`
 
-```csharp
-public static TextToken CreateNewLine()
-```
+**Purpose:** Creates a new `new line` instance or object.
 
 ### CreateTab
+`public static TextToken CreateTab()`
 
-```csharp
-public static TextToken CreateTab()
-```
+**Purpose:** Creates a new `tab` instance or object.
 
 ### CreateCharacter
+`public static TextToken CreateCharacter(char character)`
 
-```csharp
-public static TextToken CreateCharacter(char character)
-```
+**Purpose:** Creates a new `character` instance or object.
 
 ### CreateTag
+`public static TextToken CreateTag(RichTextTag tag)`
 
-```csharp
-public static TextToken CreateTag(RichTextTag tag)
-```
+**Purpose:** Creates a new `tag` instance or object.
 
 ### CreateCharacterCannotEndLineWith
+`public static TextToken CreateCharacterCannotEndLineWith(char character)`
 
-```csharp
-public static TextToken CreateCharacterCannotEndLineWith(char character)
-```
+**Purpose:** Creates a new `character cannot end line with` instance or object.
 
 ### CreateCharacterCannotStartLineWith
+`public static TextToken CreateCharacterCannotStartLineWith(char character)`
 
-```csharp
-public static TextToken CreateCharacterCannotStartLineWith(char character)
-```
+**Purpose:** Creates a new `character cannot start line with` instance or object.
 
 ### CreateTokenArrayFromWord
+`public static List<TextToken> CreateTokenArrayFromWord(string word)`
+
+**Purpose:** Creates a new `token array from word` instance or object.
+
+## Usage Example
 
 ```csharp
-public static List<TextToken> CreateTokenArrayFromWord(string word)
+// Prepare the required context, then call the static entry point directly
+TextToken.CreateEmptyCharacter();
 ```
 
 ## See Also

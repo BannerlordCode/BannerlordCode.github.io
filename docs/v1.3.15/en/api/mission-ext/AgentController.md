@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `AgentController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentController
@@ -15,6 +17,10 @@
 ## Overview
 
 `AgentController` is the base for per-agent controllers (movement, AI, etc.) attached to an `Agent`. Each controller has an `Owner` agent and a `Mission`. Mods define custom controller types (via `AgentControllerType`) and add them to agents to run per-tick logic. Controllers are initialized via `OnInitialize`.
+
+## Mental Model
+
+Treat `AgentController` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

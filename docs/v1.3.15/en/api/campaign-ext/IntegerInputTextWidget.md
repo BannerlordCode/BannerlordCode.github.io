@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `IntegerInputTextWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IntegerInputTextWidget
@@ -16,33 +17,35 @@
 
 `IntegerInputTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `IntegerInputTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `EnableClamp` | `public bool EnableClamp { get; set; }` |
-| `IntText` | `public int IntText { get { return this._intText; }` |
-| `MaxInt` | `public int MaxInt { get { return this._maxInt; }` |
-| `MinInt` | `public int MinInt { get { return this._minInt; }` |
+| `IntText` | `public int IntText { get; set; }` |
+| `MaxInt` | `public int MaxInt { get; set; }` |
+| `MinInt` | `public int MinInt { get; set; }` |
 
 ## Key Methods
 
 ### HandleInput
-```csharp
-public override void HandleInput(IReadOnlyList<int> lastKeysPressed)
-```
+`public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
+
+**Purpose:** Handles the `input` event or callback.
 
 ### SetAllText
-```csharp
-public override void SetAllText(string text)
-```
+`public override void SetAllText(string text)`
+
+**Purpose:** Sets the value or state of `all text`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of IntegerInputTextWidget (Widget)
-// 声明/访问一个 IntegerInputTextWidget
-var widget = root.GetChild("integerInputTextWidget");;
+var widget = new IntegerInputTextWidget(context);
 ```
 
 ## See Also

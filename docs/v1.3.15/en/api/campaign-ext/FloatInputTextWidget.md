@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `FloatInputTextWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FloatInputTextWidget
@@ -16,33 +17,35 @@
 
 `FloatInputTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `FloatInputTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
 | `EnableClamp` | `public bool EnableClamp { get; set; }` |
-| `FloatText` | `public float FloatText { get { return this._floatText; }` |
-| `MaxFloat` | `public float MaxFloat { get { return this._maxFloat; }` |
-| `MinFloat` | `public float MinFloat { get { return this._minFloat; }` |
+| `FloatText` | `public float FloatText { get; set; }` |
+| `MaxFloat` | `public float MaxFloat { get; set; }` |
+| `MinFloat` | `public float MinFloat { get; set; }` |
 
 ## Key Methods
 
 ### HandleInput
-```csharp
-public override void HandleInput(IReadOnlyList<int> lastKeysPressed)
-```
+`public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
+
+**Purpose:** Handles the `input` event or callback.
 
 ### SetAllText
-```csharp
-public override void SetAllText(string text)
-```
+`public override void SetAllText(string text)`
+
+**Purpose:** Sets the value or state of `all text`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of FloatInputTextWidget (Widget)
-// 声明/访问一个 FloatInputTextWidget
-var widget = root.GetChild("floatInputTextWidget");;
+var widget = new FloatInputTextWidget(context);
 ```
 
 ## See Also

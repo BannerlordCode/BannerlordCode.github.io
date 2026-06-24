@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BrushRenderer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushRenderer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BrushRenderer`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushRenderer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BrushRenderer` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BrushRenderer` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,46 +31,45 @@
 | `Brush` | `public Brush Brush { get; set; }` |
 | `CurrentState` | `public string CurrentState { get; set; }` |
 
-
 ## Key Methods
 
 ### Update
+`public void Update(ulong frameNumber, float globalAnimTime, float dt)`
 
-```csharp
-public void Update(ulong frameNumber, float globalAnimTime, float dt)
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### IsUpdateNeeded
+`public bool IsUpdateNeeded()`
 
-```csharp
-public bool IsUpdateNeeded()
-```
+**Purpose:** Handles logic related to `is update needed`.
 
 ### Render
+`public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2), Vector2 overlaySize = default(Vector2))`
 
-```csharp
-public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2), Vector2 overlaySize = default(Vector2))
-```
+**Purpose:** Handles logic related to `render`.
 
 ### CreateTextMaterial
+`public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-```csharp
-public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)
-```
+**Purpose:** Creates a new `text material` instance or object.
 
 ### RestartAnimation
+`public void RestartAnimation()`
 
-```csharp
-public void RestartAnimation()
-```
+**Purpose:** Handles logic related to `restart animation`.
 
 ### SetSeed
+`public void SetSeed(int seed)`
+
+**Purpose:** Sets the value or state of `seed`.
+
+## Usage Example
 
 ```csharp
-public void SetSeed(int seed)
+var value = new BrushRenderer();
+value.Update(0, 0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

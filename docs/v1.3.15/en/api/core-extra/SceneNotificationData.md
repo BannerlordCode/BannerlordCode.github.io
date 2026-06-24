@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SceneNotificationData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SceneNotificationData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SceneNotificationData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`SceneNotificationData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `SceneNotificationData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -40,40 +45,39 @@
 ## Key Methods
 
 ### OnAffirmativeAction
-```csharp
-public virtual void OnAffirmativeAction()
-```
+`public virtual void OnAffirmativeAction()`
+
+**Purpose:** Called when the `affirmative action` event is raised.
 
 ### OnNegativeAction
-```csharp
-public virtual void OnNegativeAction()
-```
+`public virtual void OnNegativeAction()`
+
+**Purpose:** Called when the `negative action` event is raised.
 
 ### OnCloseAction
-```csharp
-public virtual void OnCloseAction()
-```
+`public virtual void OnCloseAction()`
+
+**Purpose:** Called when the `close action` event is raised.
 
 ### GetBanners
-```csharp
-public virtual Banner GetBanners()
-```
+`public virtual Banner GetBanners()`
+
+**Purpose:** Gets the current value of `banners`.
 
 ### GetSceneNotificationCharacters
-```csharp
-public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()
-```
+`public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
+
+**Purpose:** Gets the current value of `scene notification characters`.
 
 ### GetShips
-```csharp
-public virtual SceneNotificationData.SceneNotificationShip GetShips()
-```
+`public virtual SceneNotificationData.SceneNotificationShip GetShips()`
+
+**Purpose:** Gets the current value of `ships`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SceneNotificationData (Data)
-new SceneNotificationData { /* fill fields */ };;
+var value = new SceneNotificationData();
 ```
 
 ## See Also

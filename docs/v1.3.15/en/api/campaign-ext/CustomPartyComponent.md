@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CustomPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<CustomPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`CustomPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `CustomPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,55 +37,54 @@
 ## Key Methods
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### CreateCustomPartyWithPartyTemplate
-```csharp
-public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)
-```
+`public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
+
+**Purpose:** Creates a new `custom party with party template` instance or object.
 
 ### CreateCustomPartyWithPartyTemplate
-```csharp
-public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, Hero leader, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)
-```
+`public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, Hero leader, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
+
+**Purpose:** Creates a new `custom party with party template` instance or object.
 
 ### CreateCustomPartyWithTroopRoster
-```csharp
-public static MobileParty CreateCustomPartyWithTroopRoster(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, TroopRoster troopRoster, TroopRoster prisonerRoster, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)
-```
+`public static MobileParty CreateCustomPartyWithTroopRoster(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, TroopRoster troopRoster, TroopRoster prisonerRoster, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
+
+**Purpose:** Creates a new `custom party with troop roster` instance or object.
 
 ### ConvertPartyToCustomParty
-```csharp
-public static void ConvertPartyToCustomParty(MobileParty mobileParty, Settlement homeSettlement, TextObject name, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)
-```
+`public static void ConvertPartyToCustomParty(MobileParty mobileParty, Settlement homeSettlement, TextObject name, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
+
+**Purpose:** Handles logic related to `convert party to custom party`.
 
 ### SetBaseSpeed
-```csharp
-public void SetBaseSpeed(float speed)
-```
+`public void SetBaseSpeed(float speed)`
+
+**Purpose:** Sets the value or state of `base speed`.
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
-```csharp
-public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)
-```
+`public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
+
+**Purpose:** Gets the current value of `mount and harness visual ids for party icon`.
 
 ### InitializeCustomPartyPropertiesWithPartyTemplate
-```csharp
-public void InitializeCustomPartyPropertiesWithPartyTemplate(MobileParty mobileParty)
-```
+`public void InitializeCustomPartyPropertiesWithPartyTemplate(MobileParty mobileParty)`
+
+**Purpose:** Initializes the state, resources, or bindings for `custom party properties with party template`.
 
 ### InitializeCustomPartyPropertiesWithTroopRoster
-```csharp
-public void InitializeCustomPartyPropertiesWithTroopRoster(MobileParty mobileParty)
-```
+`public void InitializeCustomPartyPropertiesWithTroopRoster(MobileParty mobileParty)`
+
+**Purpose:** Initializes the state, resources, or bindings for `custom party properties with troop roster`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomPartyComponent (Component)
-agent.GetComponent<CustomPartyComponent>();
+var component = agent.GetComponent<CustomPartyComponent>();
 ```
 
 ## See Also

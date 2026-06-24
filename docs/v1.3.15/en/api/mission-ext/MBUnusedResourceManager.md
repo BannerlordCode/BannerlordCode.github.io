@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBUnusedResourceManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBUnusedResourceManager
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`MBUnusedResourceManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MBUnusedResourceManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MBUnusedResourceManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetMeshUsed
-```csharp
-public static void SetMeshUsed(string meshName)
-```
+`public static void SetMeshUsed(string meshName)`
+
+**Purpose:** Sets the value or state of `mesh used`.
 
 ### SetMaterialUsed
-```csharp
-public static void SetMaterialUsed(string meshName)
-```
+`public static void SetMaterialUsed(string meshName)`
+
+**Purpose:** Sets the value or state of `material used`.
 
 ### SetBodyUsed
-```csharp
-public static void SetBodyUsed(string bodyName)
-```
+`public static void SetBodyUsed(string bodyName)`
+
+**Purpose:** Sets the value or state of `body used`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBUnusedResourceManager (Manager)
-MBUnusedResourceManager.Current;
+var manager = MBUnusedResourceManager.Current;
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TimedDictionaryCache`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TimedDictionaryCache
@@ -14,7 +15,11 @@
 
 ## Overview
 
-> TODO: add this class's responsibility and typical use-cases from a developer perspective.
+`TimedDictionaryCache` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,39 +30,40 @@
 ## Key Methods
 
 ### PruneExpiredItems
-```csharp
-public void PruneExpiredItems()
-```
+`public void PruneExpiredItems()`
+
+**Purpose:** Handles logic related to `prune expired items`.
 
 ### Clear
-```csharp
-public void Clear()
-```
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
 
 ### ContainsKey
-```csharp
-public bool ContainsKey(TKey key)
-```
+`public bool ContainsKey(TKey key)`
+
+**Purpose:** Handles logic related to `contains key`.
 
 ### Remove
-```csharp
-public bool Remove(TKey key)
-```
+`public bool Remove(TKey key)`
+
+**Purpose:** Removes `remove` from the current collection or state.
 
 ### TryGetValue
-```csharp
-public bool TryGetValue(TKey key, out TValue value)
-```
+`public bool TryGetValue(TKey key, out TValue value)`
+
+**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
 
 ### AsReadOnlyDictionary
-```csharp
-public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()
-```
+`public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
+
+**Purpose:** Handles logic related to `as read only dictionary`.
 
 ## Usage Example
 
 ```csharp
-// TODO: add a typical use-case
+var value = new TimedDictionaryCache();
+value.PruneExpiredItems();
 ```
 
 ## See Also

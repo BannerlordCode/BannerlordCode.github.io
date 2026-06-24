@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultVolunteerModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultVolunteerModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultVolunteerModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultVolunteerModel>(new MyDefaultVolunteerModel())` to change how it computes.
+`DefaultVolunteerModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultVolunteerModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,34 +30,33 @@
 ## Key Methods
 
 ### MaximumIndexHeroCanRecruitFromHero
-```csharp
-public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)
-```
+`public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
+
+**Purpose:** Handles logic related to `maximum index hero can recruit from hero`.
 
 ### MaximumIndexGarrisonCanRecruitFromHero
-```csharp
-public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)
-```
+`public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
+
+**Purpose:** Handles logic related to `maximum index garrison can recruit from hero`.
 
 ### GetDailyVolunteerProductionProbability
-```csharp
-public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)
-```
+`public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
+
+**Purpose:** Gets the current value of `daily volunteer production probability`.
 
 ### GetBasicVolunteer
-```csharp
-public override CharacterObject GetBasicVolunteer(Hero sellerHero)
-```
+`public override CharacterObject GetBasicVolunteer(Hero sellerHero)`
+
+**Purpose:** Gets the current value of `basic volunteer`.
 
 ### CanHaveRecruits
-```csharp
-public override bool CanHaveRecruits(Hero hero)
-```
+`public override bool CanHaveRecruits(Hero hero)`
+
+**Purpose:** Checks whether the current object can `have recruits`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultVolunteerModel (Model)
 Game.Current.ReplaceModel<DefaultVolunteerModel>(new MyDefaultVolunteerModel());
 ```
 

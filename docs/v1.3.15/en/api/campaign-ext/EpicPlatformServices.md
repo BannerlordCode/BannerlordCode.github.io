@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EpicPlatformServices`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EpicPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.Epic
 **Module:** TaleWorlds.PlatformService
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EpicPlatformServices : IPlatformServices`
+**Base:** `IPlatformServices`
+**File:** `TaleWorlds.PlatformService.Epic/EpicPlatformServices.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EpicPlatformServices` is a class in the `TaleWorlds.PlatformService.Epic` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EpicPlatformServices` lives in `TaleWorlds.PlatformService.Epic` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,41 +45,45 @@
 | `InternalClient` | `public bool InternalClient { get; set; }` |
 | `ClientService` | `public string ClientService { get; set; }` |
 | `DisplayName` | `public string DisplayName { get; set; }` |
-
+| `App` | `public string App { get; set; }` |
+| `InAppId` | `public string InAppId { get; set; }` |
+| `DeviceId` | `public string DeviceId { get; set; }` |
+| `ProductId` | `public string ProductId { get; set; }` |
 
 ## Key Methods
 
 ### Initialize
+`public bool Initialize(IFriendListService additionalFriendListServices)`
 
-```csharp
-public bool Initialize(IFriendListService additionalFriendListServices)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Terminate
+`public void Terminate()`
 
-```csharp
-public void Terminate()
-```
+**Purpose:** Handles logic related to `terminate`.
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### QueryDefinitions
+`public void QueryDefinitions()`
 
-```csharp
-public void QueryDefinitions()
-```
+**Purpose:** Handles logic related to `query definitions`.
 
 ### ShowGamepadTextInput
+`public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)`
+
+**Purpose:** Handles logic related to `show gamepad text input`.
+
+## Usage Example
 
 ```csharp
-public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)
+var value = new EpicPlatformServices();
+value.Initialize(additionalFriendListServices);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

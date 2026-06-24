@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSiegeLordsHallFightModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSiegeLordsHallFightModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultSiegeLordsHallFightModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSiegeLordsHallFightModel>(new MyDefaultSiegeLordsHallFightModel())` to change how it computes.
+`DefaultSiegeLordsHallFightModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSiegeLordsHallFightModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,14 +36,13 @@
 ## Key Methods
 
 ### GetPriorityListForLordsHallFightMission
-```csharp
-public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)
-```
+`public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
+
+**Purpose:** Gets the current value of `priority list for lords hall fight mission`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSiegeLordsHallFightModel (Model)
 Game.Current.ReplaceModel<DefaultSiegeLordsHallFightModel>(new MyDefaultSiegeLordsHallFightModel());
 ```
 

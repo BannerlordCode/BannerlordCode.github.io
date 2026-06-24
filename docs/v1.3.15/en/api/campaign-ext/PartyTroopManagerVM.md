@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PartyTroopManagerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyTroopManagerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class PartyTroopManagerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Party/PartyTroopManagerPopUp/PartyTroopManagerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PartyTroopManagerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PartyTroopManagerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,95 +45,89 @@
 | `NameText` | `public string NameText { get; set; }` |
 | `CountText` | `public string CountText { get; set; }` |
 | `GoldChangeText` | `public string GoldChangeText { get; set; }` |
-
+| `HorseChangeText` | `public string HorseChangeText { get; set; }` |
+| `MoraleChangeText` | `public string MoraleChangeText { get; set; }` |
+| `DoneLbl` | `public string DoneLbl { get; set; }` |
+| `CancelLbl` | `public string CancelLbl { get; set; }` |
 
 ## Key Methods
 
 ### ExecuteItemPrimaryAction
+`public virtual void ExecuteItemPrimaryAction()`
 
-```csharp
-public virtual void ExecuteItemPrimaryAction()
-```
+**Purpose:** Executes the `item primary action` operation or workflow.
 
 ### ExecuteItemSecondaryAction
+`public virtual void ExecuteItemSecondaryAction()`
 
-```csharp
-public virtual void ExecuteItemSecondaryAction()
-```
+**Purpose:** Executes the `item secondary action` operation or workflow.
 
 ### ExecuteItemTertiaryAction
+`public virtual void ExecuteItemTertiaryAction()`
 
-```csharp
-public virtual void ExecuteItemTertiaryAction()
-```
+**Purpose:** Executes the `item tertiary action` operation or workflow.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### OpenPopUp
+`public virtual void OpenPopUp()`
 
-```csharp
-public virtual void OpenPopUp()
-```
+**Purpose:** Handles logic related to `open pop up`.
 
 ### ExecuteDone
+`public virtual void ExecuteDone()`
 
-```csharp
-public virtual void ExecuteDone()
-```
+**Purpose:** Executes the `done` operation or workflow.
 
 ### UpdateOpenButtonHint
+`public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-```csharp
-public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)
-```
+**Purpose:** Updates the state or data of `open button hint`.
 
 ### ExecuteCancel
+`public abstract void ExecuteCancel()`
 
-```csharp
-public abstract void ExecuteCancel()
-```
+**Purpose:** Executes the `cancel` operation or workflow.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetPrimaryActionInputKey
+`public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-```csharp
-public void SetPrimaryActionInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `primary action input key`.
 
 ### SetSecondaryActionInputKey
+`public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-```csharp
-public void SetSecondaryActionInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `secondary action input key`.
 
 ### SetTertiaryActionInputKey
+`public void SetTertiaryActionInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `tertiary action input key`.
+
+## Usage Example
 
 ```csharp
-public void SetTertiaryActionInputKey(HotKey hotKey)
+var implementation = new CustomPartyTroopManagerVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

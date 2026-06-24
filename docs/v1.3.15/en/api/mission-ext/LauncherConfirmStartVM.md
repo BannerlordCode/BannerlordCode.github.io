@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `LauncherConfirmStartVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherConfirmStartVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class LauncherConfirmStartVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherConfirmStartVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `LauncherConfirmStartVM` is a class in the `TaleWorlds.MountAndBlade.Launcher.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LauncherConfirmStartVM` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,16 +29,20 @@
 | `Description` | `public string Description { get; set; }` |
 | `Title` | `public string Title { get; set; }` |
 
-
 ## Key Methods
 
 ### EnableWith
+`public void EnableWith(List<SubModuleInfo> unverifiedSubModules, List<DependentVersionMissmatchItem> missmatchedDependentModules)`
+
+**Purpose:** Handles logic related to `enable with`.
+
+## Usage Example
 
 ```csharp
-public void EnableWith(List<SubModuleInfo> unverifiedSubModules, List<DependentVersionMissmatchItem> missmatchedDependentModules)
+var value = new LauncherConfirmStartVM();
+value.EnableWith(unverifiedSubModules, missmatchedDependentModules);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

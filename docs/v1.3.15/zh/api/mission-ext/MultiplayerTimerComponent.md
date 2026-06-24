@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerTimerComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerTimerComponent
@@ -14,40 +15,49 @@
 
 ## 概述
 
-`MultiplayerTimerComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MultiplayerTimerComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MultiplayerTimerComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MultiplayerTimerComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsTimerRunning` | `public bool IsTimerRunning { get; }` |
 
 ## 主要方法
 
 ### StartTimerAsServer
-```csharp
-public void StartTimerAsServer(float duration)
-```
+`public void StartTimerAsServer(float duration)`
+
+**用途 / Purpose:** 处理 `start timer as server` 相关逻辑。
 
 ### StartTimerAsClient
-```csharp
-public void StartTimerAsClient(float startTime, float duration)
-```
+`public void StartTimerAsClient(float startTime, float duration)`
+
+**用途 / Purpose:** 处理 `start timer as client` 相关逻辑。
 
 ### GetRemainingTime
-```csharp
-public float GetRemainingTime(bool isSynched)
-```
+`public float GetRemainingTime(bool isSynched)`
+
+**用途 / Purpose:** 获取 `remaining time` 的当前值。
 
 ### CheckIfTimerPassed
-```csharp
-public bool CheckIfTimerPassed()
-```
+`public bool CheckIfTimerPassed()`
+
+**用途 / Purpose:** 处理 `check if timer passed` 相关逻辑。
 
 ### GetCurrentTimerStartTime
-```csharp
-public MissionTime GetCurrentTimerStartTime()
-```
+`public MissionTime GetCurrentTimerStartTime()`
+
+**用途 / Purpose:** 获取 `current timer start time` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerTimerComponent (Component) 的典型用法
-agent.GetComponent<MultiplayerTimerComponent>();
+var component = agent.GetComponent<MultiplayerTimerComponent>();
 ```
 
 ## 参见

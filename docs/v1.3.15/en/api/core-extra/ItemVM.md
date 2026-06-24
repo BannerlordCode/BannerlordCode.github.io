@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ItemVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class ItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/ItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ItemVM` is a class in the `TaleWorlds.Core.ViewModelCollection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ItemVM` lives in `TaleWorlds.Core.ViewModelCollection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -40,70 +44,65 @@
 | `BuyHint` | `public BasicTooltipViewModel BuyHint { get; set; }` |
 | `LockHint` | `public HintViewModel LockHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecutePreviewItem
+`public void ExecutePreviewItem()`
 
-```csharp
-public void ExecutePreviewItem()
-```
+**Purpose:** Executes the `preview item` operation or workflow.
 
 ### ExecuteUnequipItem
+`public void ExecuteUnequipItem()`
 
-```csharp
-public void ExecuteUnequipItem()
-```
+**Purpose:** Executes the `unequip item` operation or workflow.
 
 ### ExecuteEquipItem
+`public void ExecuteEquipItem()`
 
-```csharp
-public void ExecuteEquipItem()
-```
+**Purpose:** Executes the `equip item` operation or workflow.
 
 ### ReleaseStaticContent
+`public static void ReleaseStaticContent()`
 
-```csharp
-public static void ReleaseStaticContent()
-```
+**Purpose:** Handles logic related to `release static content`.
 
 ### ExecuteRefreshTooltip
+`public void ExecuteRefreshTooltip()`
 
-```csharp
-public void ExecuteRefreshTooltip()
-```
+**Purpose:** Executes the `refresh tooltip` operation or workflow.
 
 ### ExecuteCancelTooltip
+`public void ExecuteCancelTooltip()`
 
-```csharp
-public void ExecuteCancelTooltip()
-```
+**Purpose:** Executes the `cancel tooltip` operation or workflow.
 
 ### ExecuteBuyItem
+`public void ExecuteBuyItem()`
 
-```csharp
-public void ExecuteBuyItem()
-```
+**Purpose:** Executes the `buy item` operation or workflow.
 
 ### ExecuteSelectItem
+`public void ExecuteSelectItem()`
 
-```csharp
-public void ExecuteSelectItem()
-```
+**Purpose:** Executes the `select item` operation or workflow.
 
 ### GetItemTypeWithItemObject
+`public EquipmentIndex GetItemTypeWithItemObject()`
+
+**Purpose:** Gets the current value of `item type with item object`.
+
+## Usage Example
 
 ```csharp
-public EquipmentIndex GetItemTypeWithItemObject()
+var value = new ItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `OverlayPopupWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OverlayPopupWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `OverlayPopupWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `OverlayPopupWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,21 +37,19 @@
 ## Key Methods
 
 ### SetCurrentCharacter
-```csharp
-public void SetCurrentCharacter(GameMenuPartyItemButtonWidget item)
-```
+`public void SetCurrentCharacter(GameMenuPartyItemButtonWidget item)`
+
+**Purpose:** Sets the value or state of `current character`.
 
 ### OnCloseButtonClick
-```csharp
-public void OnCloseButtonClick(Widget widget)
-```
+`public void OnCloseButtonClick(Widget widget)`
+
+**Purpose:** Called when the `close button click` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of OverlayPopupWidget (Widget)
-// 声明/访问一个 OverlayPopupWidget
-var widget = root.GetChild("overlayPopupWidget");;
+var widget = new OverlayPopupWidget(context);
 ```
 
 ## See Also

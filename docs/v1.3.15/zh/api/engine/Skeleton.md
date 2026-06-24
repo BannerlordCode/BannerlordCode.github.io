@@ -2,148 +2,314 @@
 **首页** → **API 目录** → **本领域** → `Skeleton`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# Skeleton / Skeleton
+# Skeleton
 
-**Namespace**: TaleWorlds.Engine
-**File**: `bannerlord-1.3.15/TaleWorlds.Engine/Skeleton.cs`
-**Purpose**: 原生骨骼/动画包装类 / Native skeleton/animation wrapper class
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public sealed class Skeleton : NativeObject`
+**Base:** `NativeObject`
+**File:** `TaleWorlds.Engine/Skeleton.cs`
 
-## 概述 / Overview
+## 概述
 
-`Skeleton` 是游戏引擎中用于表示骨骼和动画的原生包装类。它继承自 `NativeObject`，通过 `[EngineClass("rglSkeleton")]` 特性映射到 C++ 原生骨骼系统。
+`Skeleton` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`Skeleton` is a native wrapper class representing skeletons and animations in the game engine. It inherits from `NativeObject` and is mapped to the C++ native skeleton system via the `[EngineClass("rglSkeleton")]` attribute.
+## 心智模型
 
-## 重要常量 / Important Constants
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-| Constant | Type | Value | Description |
-|----------|------|-------|-------------|
-| MaxBoneCount | `sbyte` | 64 | 最大骨骼数量 / Maximum bone count |
+## 主要属性
 
-## 重要属性 / Important Properties
+| Name | Signature |
+|------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
 
-| Property | Type | Description |
-|----------|------|-------------|
-| IsValid | `bool` | 骨骼指针是否有效（不等于 UIntPtr.Zero）/ Whether skeleton pointer is valid (not equal to UIntPtr.Zero) |
-| Pointer | `UIntPtr` | 原生骨骼对象指针（继承自 NativeObject）/ Native skeleton object pointer (inherited from NativeObject) |
+## 主要方法
 
-## 重要方法 / Important Methods
+### CreateFromModel
+`public static Skeleton CreateFromModel(string modelName)`
 
-### 创建方法 / Creation Methods
+**用途 / Purpose:** 创建一个 `from model` 实例或对象。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| CreateFromModel | `public static Skeleton CreateFromModel(string modelName)` | 从模型名称创建骨骼 / Create skeleton from model name |
-| CreateFromModelWithNullAnimTree | `public static Skeleton CreateFromModelWithNullAnimTree(GameEntity entity, string modelName, float boneScale = 1f)` | 创建骨骼并指定空动画树 / Create skeleton with null anim tree |
-| SkeletonModelExist | `public static bool SkeletonModelExist(string skeletonModelName)` | 检查骨骼模型是否存在 / Check if skeleton model exists |
+### CreateFromModelWithNullAnimTree
+`public static Skeleton CreateFromModelWithNullAnimTree(GameEntity entity, string modelName, float boneScale = 1f)`
 
-### 骨骼查询方法 / Bone Query Methods
+**用途 / Purpose:** 创建一个 `from model with null anim tree` 实例或对象。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetBoneCount | `public sbyte GetBoneCount()` | 获取骨骼数量 / Get bone count |
-| GetBoneName | `public string GetBoneName(sbyte boneIndex)` | 获取指定骨骼索引的名称 / Get bone name at index |
-| GetParentBoneIndex | `public sbyte GetParentBoneIndex(sbyte boneIndex)` | 获取父骨骼索引 / Get parent bone index |
-| GetBoneChildCount | `public sbyte GetBoneChildCount(sbyte boneIndex)` | 获取子骨骼数量 / Get child bone count |
-| GetBoneChildAtIndex | `public sbyte GetBoneChildAtIndex(sbyte boneIndex, sbyte childIndex)` | 获取指定索引的子骨骼 / Get child bone at index |
-| GetSkeletonBoneMapping | `public sbyte GetSkeletonBoneMapping(sbyte boneIndex)` | 获取骨骼映射 / Get skeleton bone mapping |
-| GetBoneIndexFromName | `public static sbyte GetBoneIndexFromName(string skeletonModelName, string boneName)` | 从名称获取骨骼索引 / Get bone index from name |
+### GetName
+`public string GetName()`
 
-### 骨骼变换方法 / Bone Transform Methods
+**用途 / Purpose:** 获取 `name` 的当前值。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetBoneEntitialFrame | `public MatrixFrame GetBoneEntitialFrame(sbyte boneIndex)` | 获取骨骼实体帧 / Get bone entity frame |
-| GetBoneEntitialFrameWithIndex | `public MatrixFrame GetBoneEntitialFrameWithIndex(sbyte boneIndex)` | 通过索引获取骨骼实体帧 / Get bone entity frame with index |
-| GetBoneEntitialFrameWithName | `public MatrixFrame GetBoneEntitialFrameWithName(string boneName)` | 通过名称获取骨骼实体帧 / Get bone entity frame with name |
-| GetBoneEntitialRestFrame | `public MatrixFrame GetBoneEntitialRestFrame(sbyte boneIndex)` | 获取骨骼实体休息帧 / Get bone entity rest frame |
-| GetBoneLocalRestFrame | `public MatrixFrame GetBoneLocalRestFrame(sbyte boneIndex, bool useBoneMapping = true)` | 获取骨骼本地休息帧 / Get bone local rest frame |
-| GetBoneEntitialFrameAtChannel | `public MatrixFrame GetBoneEntitialFrameAtChannel(int channelNo, sbyte boneIndex)` | 获取通道骨骼实体帧 / Get bone entity frame at channel |
-| SetBoneLocalFrame | `public void SetBoneLocalFrame(sbyte boneIndex, MatrixFrame localFrame)` | 设置骨骼本地帧 / Set bone local frame |
-| UpdateEntitialFramesFromLocalFrames | `public void UpdateEntitialFramesFromLocalFrames()` | 从本地帧更新实体帧 / Update entity frames from local frames |
-| ResetFrames | `public void ResetFrames()` | 重置所有帧 / Reset all frames |
-| ForceUpdateBoneFrames | `public void ForceUpdateBoneFrames()` | 强制更新骨骼帧 / Force update bone frames |
+### GetBoneName
+`public string GetBoneName(sbyte boneIndex)`
 
-### 动画方法 / Animation Methods
+**用途 / Purpose:** 获取 `bone name` 的当前值。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| TickAnimations | `public void TickAnimations(float dt, MatrixFrame globalFrame, bool tickAnimsForChildren)` | 更新动画 / Tick animations |
-| TickAnimationsAndForceUpdate | `public void TickAnimationsAndForceUpdate(float dt, MatrixFrame globalFrame, bool tickAnimsForChildren)` | 更新动画并强制更新 / Tick animations and force update |
-| GetAnimationAtChannel | `public string GetAnimationAtChannel(int channelNo)` | 获取通道动画名称 / Get animation name at channel |
-| GetAnimationIndexAtChannel | `public int GetAnimationIndexAtChannel(int channelNo)` | 获取通道动画索引 / Get animation index at channel |
-| GetAnimationParameterAtChannel | `public float GetAnimationParameterAtChannel(int channelNo)` | 获取通道动画参数 / Get animation parameter at channel |
-| SetAnimationParameterAtChannel | `public void SetAnimationParameterAtChannel(int channelNo, float parameter)` | 设置通道动画参数 / Set animation parameter at channel |
-| GetAnimationSpeedAtChannel | `public float GetAnimationSpeedAtChannel(int channelNo)` | 获取通道动画速度 / Get animation speed at channel |
-| SetAnimationSpeedAtChannel | `public void SetAnimationSpeedAtChannel(int channelNo, float speed)` | 设置通道动画速度 / Set animation speed at channel |
+### GetBoneChildAtIndex
+`public sbyte GetBoneChildAtIndex(sbyte boneIndex, sbyte childIndex)`
 
-### 组件管理方法 / Component Management Methods
+**用途 / Purpose:** 获取 `bone child at index` 的当前值。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| AddMesh | `public void AddMesh(Mesh mesh)` | 添加网格 / Add mesh |
-| AddMeshToBone | `public void AddMeshToBone(UIntPtr mesh, sbyte boneIndex)` | 添加网格到骨骼 / Add mesh to bone |
-| ClearMeshes | `public void ClearMeshes(bool clearBoneComponents = true)` | 清除所有网格 / Clear all meshes |
-| ClearMeshesAtBone | `public void ClearMeshesAtBone(sbyte boneIndex)` | 清除骨骼上的网格 / Clear meshes at bone |
-| GetAllMeshes | `public IEnumerable<Mesh> GetAllMeshes()` | 获取所有网格 / Get all meshes |
-| AddComponent | `public void AddComponent(GameEntityComponent component)` | 添加组件 / Add component |
-| RemoveComponent | `public void RemoveComponent(GameEntityComponent component)` | 移除组件 / Remove component |
-| GetComponentAtIndex | `public GameEntityComponent GetComponentAtIndex(GameEntity.ComponentType componentType, int index)` | 获取指定索引组件 / Get component at index |
-| GetComponentCount | `public int GetComponentCount(GameEntity.ComponentType componentType)` | 获取组件数量 / Get component count |
+### GetBoneChildCount
+`public sbyte GetBoneChildCount(sbyte boneIndex)`
 
-### 状态控制方法 / State Control Methods
+**用途 / Purpose:** 获取 `bone child count` 的当前值。
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| Freeze | `public void Freeze(bool p)` | 冻结骨骼 / Freeze skeleton |
-| IsFrozen | `public bool IsFrozen()` | 检查是否冻结 / Check if frozen |
-| ActivateRagdoll | `public void ActivateRagdoll()` | 激活布娃娃系统 / Activate ragdoll |
-| GetCurrentRagdollState | `public RagdollState GetCurrentRagdollState()` | 获取当前布娃娃状态 / Get current ragdoll state |
-| ResetCloths | `public void ResetCloths()` | 重置布料模拟 / Reset cloth simulation |
-| EnableScriptDrivenPostIntegrateCallback | `public void EnableScriptDrivenPostIntegrateCallback()` | 启用脚本驱动后集成回调 / Enable script driven post-integrate callback |
+### GetParentBoneIndex
+`public sbyte GetParentBoneIndex(sbyte boneIndex)`
 
-## 使用示例 / Usage Example
+**用途 / Purpose:** 获取 `parent bone index` 的当前值。
+
+### AddMeshToBone
+`public void AddMeshToBone(UIntPtr mesh, sbyte boneIndex)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `mesh to bone`。
+
+### Freeze
+`public void Freeze(bool p)`
+
+**用途 / Purpose:** 处理 `freeze` 相关逻辑。
+
+### IsFrozen
+`public bool IsFrozen()`
+
+**用途 / Purpose:** 处理 `is frozen` 相关逻辑。
+
+### SetBoneLocalFrame
+`public void SetBoneLocalFrame(sbyte boneIndex, MatrixFrame localFrame)`
+
+**用途 / Purpose:** 设置 `bone local frame` 的值或状态。
+
+### GetBoneCount
+`public sbyte GetBoneCount()`
+
+**用途 / Purpose:** 获取 `bone count` 的当前值。
+
+### GetBoneBody
+`public void GetBoneBody(sbyte boneIndex, ref CapsuleData data)`
+
+**用途 / Purpose:** 获取 `bone body` 的当前值。
+
+### SkeletonModelExist
+`public static bool SkeletonModelExist(string skeletonModelName)`
+
+**用途 / Purpose:** 处理 `skeleton model exist` 相关逻辑。
+
+### ForceUpdateBoneFrames
+`public void ForceUpdateBoneFrames()`
+
+**用途 / Purpose:** 处理 `force update bone frames` 相关逻辑。
+
+### GetBoneEntitialFrameWithIndex
+`public MatrixFrame GetBoneEntitialFrameWithIndex(sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `bone entitial frame with index` 的当前值。
+
+### GetBoneEntitialFrameWithName
+`public MatrixFrame GetBoneEntitialFrameWithName(string boneName)`
+
+**用途 / Purpose:** 获取 `bone entitial frame with name` 的当前值。
+
+### GetCurrentRagdollState
+`public RagdollState GetCurrentRagdollState()`
+
+**用途 / Purpose:** 获取 `current ragdoll state` 的当前值。
+
+### ActivateRagdoll
+`public void ActivateRagdoll()`
+
+**用途 / Purpose:** 处理 `activate ragdoll` 相关逻辑。
+
+### GetSkeletonBoneMapping
+`public sbyte GetSkeletonBoneMapping(sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `skeleton bone mapping` 的当前值。
+
+### AddMesh
+`public void AddMesh(Mesh mesh)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `mesh`。
+
+### ClearComponents
+`public void ClearComponents()`
+
+**用途 / Purpose:** 处理 `clear components` 相关逻辑。
+
+### AddComponent
+`public void AddComponent(GameEntityComponent component)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+
+### HasComponent
+`public bool HasComponent(GameEntityComponent component)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `component`。
+
+### RemoveComponent
+`public void RemoveComponent(GameEntityComponent component)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `component`。
+
+### ClearMeshes
+`public void ClearMeshes(bool clearBoneComponents = true)`
+
+**用途 / Purpose:** 处理 `clear meshes` 相关逻辑。
+
+### GetComponentCount
+`public int GetComponentCount(GameEntity.ComponentType componentType)`
+
+**用途 / Purpose:** 获取 `component count` 的当前值。
+
+### UpdateEntitialFramesFromLocalFrames
+`public void UpdateEntitialFramesFromLocalFrames()`
+
+**用途 / Purpose:** 更新 `entitial frames from local frames` 的状态或数据。
+
+### ResetFrames
+`public void ResetFrames()`
+
+**用途 / Purpose:** 将 `frames` 重置为初始状态。
+
+### GetComponentAtIndex
+`public GameEntityComponent GetComponentAtIndex(GameEntity.ComponentType componentType, int index)`
+
+**用途 / Purpose:** 获取 `component at index` 的当前值。
+
+### SetUsePreciseBoundingVolume
+`public void SetUsePreciseBoundingVolume(bool value)`
+
+**用途 / Purpose:** 设置 `use precise bounding volume` 的值或状态。
+
+### GetBoneEntitialRestFrame
+`public MatrixFrame GetBoneEntitialRestFrame(sbyte boneIndex, bool useBoneMapping)`
+
+**用途 / Purpose:** 获取 `bone entitial rest frame` 的当前值。
+
+### GetBoneLocalRestFrame
+`public MatrixFrame GetBoneLocalRestFrame(sbyte boneIndex, bool useBoneMapping = true)`
+
+**用途 / Purpose:** 获取 `bone local rest frame` 的当前值。
+
+### GetBoneEntitialRestFrame
+`public MatrixFrame GetBoneEntitialRestFrame(sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `bone entitial rest frame` 的当前值。
+
+### GetBoneEntitialFrameAtChannel
+`public MatrixFrame GetBoneEntitialFrameAtChannel(int channelNo, sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `bone entitial frame at channel` 的当前值。
+
+### GetBoneEntitialFrame
+`public MatrixFrame GetBoneEntitialFrame(sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `bone entitial frame` 的当前值。
+
+### GetBoneComponentCount
+`public int GetBoneComponentCount(sbyte boneIndex)`
+
+**用途 / Purpose:** 获取 `bone component count` 的当前值。
+
+### GetBoneComponentAtIndex
+`public GameEntityComponent GetBoneComponentAtIndex(sbyte boneIndex, int componentIndex)`
+
+**用途 / Purpose:** 获取 `bone component at index` 的当前值。
+
+### HasBoneComponent
+`public bool HasBoneComponent(sbyte boneIndex, GameEntityComponent component)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `bone component`。
+
+### AddComponentToBone
+`public void AddComponentToBone(sbyte boneIndex, GameEntityComponent component)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `component to bone`。
+
+### RemoveBoneComponent
+`public void RemoveBoneComponent(sbyte boneIndex, GameEntityComponent component)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `bone component`。
+
+### ClearMeshesAtBone
+`public void ClearMeshesAtBone(sbyte boneIndex)`
+
+**用途 / Purpose:** 处理 `clear meshes at bone` 相关逻辑。
+
+### TickAnimations
+`public void TickAnimations(float dt, MatrixFrame globalFrame, bool tickAnimsForChildren)`
+
+**用途 / Purpose:** 处理 `tick animations` 相关逻辑。
+
+### TickAnimationsAndForceUpdate
+`public void TickAnimationsAndForceUpdate(float dt, MatrixFrame globalFrame, bool tickAnimsForChildren)`
+
+**用途 / Purpose:** 处理 `tick animations and force update` 相关逻辑。
+
+### GetAnimationParameterAtChannel
+`public float GetAnimationParameterAtChannel(int channelNo)`
+
+**用途 / Purpose:** 获取 `animation parameter at channel` 的当前值。
+
+### SetAnimationParameterAtChannel
+`public void SetAnimationParameterAtChannel(int channelNo, float parameter)`
+
+**用途 / Purpose:** 设置 `animation parameter at channel` 的值或状态。
+
+### GetAnimationSpeedAtChannel
+`public float GetAnimationSpeedAtChannel(int channelNo)`
+
+**用途 / Purpose:** 获取 `animation speed at channel` 的当前值。
+
+### SetAnimationSpeedAtChannel
+`public void SetAnimationSpeedAtChannel(int channelNo, float speed)`
+
+**用途 / Purpose:** 设置 `animation speed at channel` 的值或状态。
+
+### SetUptoDate
+`public void SetUptoDate(bool value)`
+
+**用途 / Purpose:** 设置 `upto date` 的值或状态。
+
+### GetAnimationAtChannel
+`public string GetAnimationAtChannel(int channelNo)`
+
+**用途 / Purpose:** 获取 `animation at channel` 的当前值。
+
+### GetAnimationIndexAtChannel
+`public int GetAnimationIndexAtChannel(int channelNo)`
+
+**用途 / Purpose:** 获取 `animation index at channel` 的当前值。
+
+### EnableScriptDrivenPostIntegrateCallback
+`public void EnableScriptDrivenPostIntegrateCallback()`
+
+**用途 / Purpose:** 处理 `enable script driven post integrate callback` 相关逻辑。
+
+### ResetCloths
+`public void ResetCloths()`
+
+**用途 / Purpose:** 将 `cloths` 重置为初始状态。
+
+### GetAllMeshes
+`public IEnumerable<Mesh> GetAllMeshes()`
+
+**用途 / Purpose:** 获取 `all meshes` 的当前值。
+
+### GetBoneIndexFromName
+`public static sbyte GetBoneIndexFromName(string skeletonModelName, string boneName)`
+
+**用途 / Purpose:** 获取 `bone index from name` 的当前值。
+
+## 使用示例
 
 ```csharp
-// 从模型创建骨骼
-// Create skeleton from model
-Skeleton skeleton = Skeleton.CreateFromModel("human_skeleton");
-if (skeleton.IsValid)
-{
-    // 获取骨骼数量
-    // Get bone count
-    sbyte boneCount = skeleton.GetBoneCount();
-    
-    // 遍历骨骼
-    // Iterate through bones
-    for (sbyte i = 0; i < boneCount; i++)
-    {
-        string boneName = skeleton.GetBoneName(i);
-        MatrixFrame frame = skeleton.GetBoneEntitialFrame(i);
-    }
-    
-    // 添加网格到骨骼
-    // Add mesh to bone
-    skeleton.AddMesh(mesh);
-}
+Skeleton.CreateFromModel("example");
 ```
 
-```csharp
-// 动画更新
-// Animation update
-MatrixFrame entityFrame = entity.GetGlobalFrame();
-skeleton.TickAnimations(deltaTime, entityFrame, true);
-```
+## 参见
 
-## 注意事项 / Notes
-
-- Skeleton 继承自 NativeObject，不可直接实例化
-- Skeleton inherits from NativeObject and cannot be instantiated directly
-- 所有方法都通过 `EngineApplicationInterface.ISkeleton` 调用原生实现
-- All methods call native implementation via `EngineApplicationInterface.ISkeleton`
-- 骨骼索引范围是 0 到 MaxBoneCount - 1
-- Bone index range is 0 to MaxBoneCount - 1
-- GetAllMeshes 返回 IEnumerable，需要使用 yield return 实现
-- GetAllMeshes returns IEnumerable and uses yield return implementation
+- [完整类目录](../catalog)

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ArmyManagementCalculationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ArmyManagementCalculationModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`ArmyManagementCalculationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<ArmyManagementCalculationModel>(new MyArmyManagementCalculationModel())` 注册，以改变其计算逻辑。
+`ArmyManagementCalculationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `ArmyManagementCalculationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -32,65 +37,64 @@
 ## 主要方法
 
 ### CanPlayerCreateArmy
-```csharp
-public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)
-```
+`public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player create army`。
 
 ### CalculatePartyInfluenceCost
-```csharp
-public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)
-```
+`public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
+
+**用途 / Purpose:** 处理 `calculate party influence cost` 相关逻辑。
 
 ### DailyBeingAtArmyInfluenceAward
-```csharp
-public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)
-```
+`public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
+
+**用途 / Purpose:** 处理 `daily being at army influence award` 相关逻辑。
 
 ### GetMobilePartiesToCallToArmy
-```csharp
-public abstract List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)
-```
+`public abstract List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
+
+**用途 / Purpose:** 获取 `mobile parties to call to army` 的当前值。
 
 ### CalculateTotalInfluenceCost
-```csharp
-public abstract int CalculateTotalInfluenceCost(Army army, float percentage)
-```
+`public abstract int CalculateTotalInfluenceCost(Army army, float percentage)`
+
+**用途 / Purpose:** 处理 `calculate total influence cost` 相关逻辑。
 
 ### GetPartySizeScore
-```csharp
-public abstract float GetPartySizeScore(MobileParty party)
-```
+`public abstract float GetPartySizeScore(MobileParty party)`
+
+**用途 / Purpose:** 获取 `party size score` 的当前值。
 
 ### CheckPartyEligibility
-```csharp
-public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)
-```
+`public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
+
+**用途 / Purpose:** 处理 `check party eligibility` 相关逻辑。
 
 ### GetPartyRelation
-```csharp
-public abstract int GetPartyRelation(Hero hero)
-```
+`public abstract int GetPartyRelation(Hero hero)`
+
+**用途 / Purpose:** 获取 `party relation` 的当前值。
 
 ### CalculateDailyCohesionChange
-```csharp
-public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate daily cohesion change` 相关逻辑。
 
 ### CalculateNewCohesion
-```csharp
-public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)
-```
+`public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
+
+**用途 / Purpose:** 处理 `calculate new cohesion` 相关逻辑。
 
 ### GetCohesionBoostInfluenceCost
-```csharp
-public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)
-```
+`public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
+
+**用途 / Purpose:** 获取 `cohesion boost influence cost` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// ArmyManagementCalculationModel (Model) 的典型用法
-Game.Current.ReplaceModel<ArmyManagementCalculationModel>(new MyArmyManagementCalculationModel());
+var implementation = new CustomArmyManagementCalculationModel();
 ```
 
 ## 参见

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MatchmakingQueueRegionStats`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MatchmakingQueueRegionStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MatchmakingQueueRegionStats`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MatchmakingQueueRegionStats` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MatchmakingQueueRegionStats` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,34 +32,35 @@
 | `MedianWaitTime` | `public int MedianWaitTime { get; set; }` |
 | `AverageWaitTime` | `public int AverageWaitTime { get; set; }` |
 
-
 ## Key Methods
 
 ### GetQueueCountObjectOf
+`public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)`
 
-```csharp
-public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)
-```
+**Purpose:** Gets the current value of `queue count object of`.
 
 ### AddStats
+`public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)`
 
-```csharp
-public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)
-```
+**Purpose:** Adds `stats` to the current collection or state.
 
 ### GetQueueCountOf
+`public int GetQueueCountOf(string gameTypes)`
 
-```csharp
-public int GetQueueCountOf(string gameTypes)
-```
+**Purpose:** Gets the current value of `queue count of`.
 
 ### SetWaitTimeStats
+`public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)`
+
+**Purpose:** Sets the value or state of `wait time stats`.
+
+## Usage Example
 
 ```csharp
-public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)
+var value = new MatchmakingQueueRegionStats();
+value.GetQueueCountObjectOf("example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

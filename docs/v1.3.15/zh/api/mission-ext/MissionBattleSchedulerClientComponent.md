@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionBattleSchedulerClientComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionBattleSchedulerClientComponent
@@ -14,20 +15,23 @@
 
 ## 概述
 
-`MissionBattleSchedulerClientComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MissionBattleSchedulerClientComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MissionBattleSchedulerClientComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MissionBattleSchedulerClientComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### QuitMission
-```csharp
-public override void QuitMission()
-```
+`public override void QuitMission()`
+
+**用途 / Purpose:** 处理 `quit mission` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MissionBattleSchedulerClientComponent (Component) 的典型用法
-agent.GetComponent<MissionBattleSchedulerClientComponent>();
+var component = agent.GetComponent<MissionBattleSchedulerClientComponent>();
 ```
 
 ## 参见

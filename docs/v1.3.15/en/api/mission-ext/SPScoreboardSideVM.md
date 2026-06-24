@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SPScoreboardSideVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SPScoreboardSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SPScoreboardSideVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Scoreboard/SPScoreboardSideVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SPScoreboardSideVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SPScoreboardSideVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,58 +36,55 @@
 | `Morale` | `public float Morale { get; set; }` |
 | `MoraleHint` | `public BasicTooltipViewModel MoraleHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### UpdateScores
+`public void UpdateScores(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-```csharp
-public void UpdateScores(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)
-```
+**Purpose:** Updates the state or data of `scores`.
 
 ### UpdateHeroSkills
+`public void UpdateHeroSkills(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-```csharp
-public void UpdateHeroSkills(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)
-```
+**Purpose:** Updates the state or data of `hero skills`.
 
 ### GetPartyAddIfNotExists
+`public SPScoreboardPartyVM GetPartyAddIfNotExists(IBattleCombatant battleCombatant, bool isPlayerParty)`
 
-```csharp
-public SPScoreboardPartyVM GetPartyAddIfNotExists(IBattleCombatant battleCombatant, bool isPlayerParty)
-```
+**Purpose:** Gets the current value of `party add if not exists`.
 
 ### GetParty
+`public SPScoreboardPartyVM GetParty(IBattleCombatant battleCombatant)`
 
-```csharp
-public SPScoreboardPartyVM GetParty(IBattleCombatant battleCombatant)
-```
+**Purpose:** Gets the current value of `party`.
 
 ### RemoveTroop
+`public SPScoreboardStatsVM RemoveTroop(IBattleCombatant battleCombatant, BasicCharacterObject troop)`
 
-```csharp
-public SPScoreboardStatsVM RemoveTroop(IBattleCombatant battleCombatant, BasicCharacterObject troop)
-```
+**Purpose:** Removes `troop` from the current collection or state.
 
 ### AddTroop
+`public void AddTroop(IBattleCombatant battleCombatant, BasicCharacterObject currentTroop, SPScoreboardStatsVM scoreToBringOver)`
 
-```csharp
-public void AddTroop(IBattleCombatant battleCombatant, BasicCharacterObject currentTroop, SPScoreboardStatsVM scoreToBringOver)
-```
+**Purpose:** Adds `troop` to the current collection or state.
 
 ### GetShipAddIfNotExists
+`public SPScoreboardShipVM GetShipAddIfNotExists(IShipOrigin ship, string shipType, IBattleCombatant owner, TeamSideEnum teamSideEnum)`
+
+**Purpose:** Gets the current value of `ship add if not exists`.
+
+## Usage Example
 
 ```csharp
-public SPScoreboardShipVM GetShipAddIfNotExists(IShipOrigin ship, string shipType, IBattleCombatant owner, TeamSideEnum teamSideEnum)
+var value = new SPScoreboardSideVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

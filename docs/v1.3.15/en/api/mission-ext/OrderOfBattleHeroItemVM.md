@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `OrderOfBattleHeroItemVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderOfBattleHeroItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class OrderOfBattleHeroItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/OrderOfBattle/OrderOfBattleHeroItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `OrderOfBattleHeroItemVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`OrderOfBattleHeroItemVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -38,46 +42,45 @@
 | `Tooltip` | `public BasicTooltipViewModel Tooltip { get; set; }` |
 | `IsHighlightActive` | `public bool IsHighlightActive { get; set; }` |
 
-
 ## Key Methods
 
 ### SetInitialFormation
+`public void SetInitialFormation(OrderOfBattleFormationItemVM formation)`
 
-```csharp
-public void SetInitialFormation(OrderOfBattleFormationItemVM formation)
-```
+**Purpose:** Sets the value or state of `initial formation`.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnAssignmentRemoved
+`public void OnAssignmentRemoved()`
 
-```csharp
-public void OnAssignmentRemoved()
-```
+**Purpose:** Called when the `assignment removed` event is raised.
 
 ### RefreshInformation
+`public void RefreshInformation()`
 
-```csharp
-public void RefreshInformation()
-```
+**Purpose:** Refreshes the display or cache of `information`.
 
 ### RefreshAssignmentInfo
+`public void RefreshAssignmentInfo()`
 
-```csharp
-public void RefreshAssignmentInfo()
-```
+**Purpose:** Refreshes the display or cache of `assignment info`.
 
 ### SetIsPreAssigned
+`public void SetIsPreAssigned(bool isPreAssigned)`
+
+**Purpose:** Sets the value or state of `is pre assigned`.
+
+## Usage Example
 
 ```csharp
-public void SetIsPreAssigned(bool isPreAssigned)
+var value = new OrderOfBattleHeroItemVM();
+value.SetInitialFormation(formation);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CosmeticsManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CosmeticsManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CosmeticsManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CosmeticsManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CosmeticsManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,20 +30,19 @@
 ## Key Methods
 
 ### GetCosmeticElement
-```csharp
-public static CosmeticElement GetCosmeticElement(string cosmeticId)
-```
+`public static CosmeticElement GetCosmeticElement(string cosmeticId)`
+
+**Purpose:** Gets the current value of `cosmetic element`.
 
 ### LoadFromXml
-```csharp
-public static void LoadFromXml(string path)
-```
+`public static void LoadFromXml(string path)`
+
+**Purpose:** Loads `from xml` data.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CosmeticsManager (Manager)
-CosmeticsManager.Current;
+var manager = CosmeticsManager.Current;
 ```
 
 ## See Also

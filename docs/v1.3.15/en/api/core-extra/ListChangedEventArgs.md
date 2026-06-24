@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ListChangedEventArgs`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ListChangedEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class ListChangedEventArgs : EventArgs`
+**Base:** `EventArgs`
+**File:** `TaleWorlds.Library/ListChangedEventArgs.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ListChangedEventArgs` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ListChangedEventArgs` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,7 +29,12 @@
 | `NewIndex` | `public int NewIndex { get; }` |
 | `OldIndex` | `public int OldIndex { get; }` |
 
+## Usage Example
+
+```csharp
+var value = new ListChangedEventArgs();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

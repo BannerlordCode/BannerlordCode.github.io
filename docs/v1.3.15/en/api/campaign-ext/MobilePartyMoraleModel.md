@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MobilePartyMoraleModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MobilePartyMoraleModel
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`MobilePartyMoraleModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MobilePartyMoraleModel>(new MyMobilePartyMoraleModel())` to change how it computes.
+`MobilePartyMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MobilePartyMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateMoraleChange
-```csharp
-public abstract float CalculateMoraleChange(MobileParty party)
-```
+`public abstract float CalculateMoraleChange(MobileParty party)`
+
+**Purpose:** Handles logic related to `calculate morale change`.
 
 ### GetMoraleTooltipText
-```csharp
-public abstract TextObject GetMoraleTooltipText(MobileParty party)
-```
+`public abstract TextObject GetMoraleTooltipText(MobileParty party)`
+
+**Purpose:** Gets the current value of `morale tooltip text`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MobilePartyMoraleModel (Model)
-Game.Current.ReplaceModel<MobilePartyMoraleModel>(new MyMobilePartyMoraleModel());
+var implementation = new CustomMobilePartyMoraleModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CircleItemPlacerWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CircleItemPlacerWidget
@@ -16,6 +17,10 @@
 
 `CircleItemPlacerWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `CircleItemPlacerWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,16 +33,14 @@
 ## Key Methods
 
 ### AnimateDistanceFromCenterTo
-```csharp
-public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)
-```
+`public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
+
+**Purpose:** Handles logic related to `animate distance from center to`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CircleItemPlacerWidget (Widget)
-// 声明/访问一个 CircleItemPlacerWidget
-var widget = root.GetChild("circleItemPlacerWidget");;
+var widget = new CircleItemPlacerWidget(context);
 ```
 
 ## See Also

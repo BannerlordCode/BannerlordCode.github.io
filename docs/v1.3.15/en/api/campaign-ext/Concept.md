@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Concept`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Concept
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Concept : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.CampaignSystem/Concept.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Concept` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Concept` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,28 +33,30 @@
 | `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
 | `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
 
-
 ## Key Methods
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+**Purpose:** Handles logic related to `deserialize`.
 
 ### IsGroupMember
+`public static bool IsGroupMember(string groupName, Concept c)`
 
-```csharp
-public static bool IsGroupMember(string groupName, Concept c)
-```
+**Purpose:** Handles logic related to `is group member`.
 
 ### SetConceptTextLinks
+`public static void SetConceptTextLinks()`
+
+**Purpose:** Sets the value or state of `concept text links`.
+
+## Usage Example
 
 ```csharp
-public static void SetConceptTextLinks()
+var value = new Concept();
+value.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

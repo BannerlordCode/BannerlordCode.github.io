@@ -2,19 +2,29 @@
 **首页** → **API 目录** → **本领域** → `ITexture`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ITexture
 
-**命名空间:** TaleWorlds.TwoDimension
-**模块:** TaleWorlds.TwoDimension
-**类型:** 接口 interface
-**领域:** 战役系统 Campaign
+**命名空间:** TaleWorlds.Engine
+**模块:** TaleWorlds.Engine
+**类型:** `internal interface ITexture`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ITexture` 是 `TaleWorlds.TwoDimension` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`ITexture` 位于 `TaleWorlds.Engine`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 使用示例
+
+```csharp
+ITexture implementation = GetTextureImplementation();
+```
 
 ## 参见
 

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `UiStringHelper`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UiStringHelper
@@ -14,20 +15,23 @@
 
 ## 概述
 
-`UiStringHelper` 是一个静态工具类，提供辅助方法。
+`UiStringHelper` 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。
+
+## 心智模型
+
+把 `UiStringHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### IsStringNoneOrEmptyForUi
-```csharp
-public static bool IsStringNoneOrEmptyForUi(string str)
-```
+`public static bool IsStringNoneOrEmptyForUi(string str)`
+
+**用途 / Purpose:** 处理 `is string none or empty for ui` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// UiStringHelper (Helper) 的典型用法
-UiStringHelper./* static helper method */();;
+UiStringHelper.Initialize();
 ```
 
 ## 参见

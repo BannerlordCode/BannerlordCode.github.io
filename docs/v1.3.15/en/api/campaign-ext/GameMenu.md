@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameMenu`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenu
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GameMenu`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/GameMenus/GameMenu.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameMenu` is a class in the `TaleWorlds.CampaignSystem.GameMenus` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameMenu` lives in `TaleWorlds.CampaignSystem.GameMenus` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,130 +46,135 @@
 | `MenuOptions` | `public IEnumerable<GameMenuOption> MenuOptions { get; }` |
 | `AutoSelectFirst` | `public bool AutoSelectFirst { get; }` |
 
-
 ## Key Methods
 
 ### SetMenuRepeatObjects
+`public void SetMenuRepeatObjects(IEnumerable<object> list)`
 
-```csharp
-public void SetMenuRepeatObjects(IEnumerable<object> list)
-```
+**Purpose:** Sets the value or state of `menu repeat objects`.
 
 ### GetMenuOptionConditionsHold
+`public bool GetMenuOptionConditionsHold(Game game, MenuContext menuContext, int menuItemNumber)`
 
-```csharp
-public bool GetMenuOptionConditionsHold(Game game, MenuContext menuContext, int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option conditions hold`.
 
 ### GetMenuOptionText
+`public TextObject GetMenuOptionText(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionText(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option text`.
 
 ### GetGameMenuOption
+`public GameMenuOption GetGameMenuOption(int menuItemNumber)`
 
-```csharp
-public GameMenuOption GetGameMenuOption(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `game menu option`.
 
 ### GetMenuOptionText2
+`public TextObject GetMenuOptionText2(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionText2(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option text2`.
 
 ### GetMenuOptionIdString
+`public string GetMenuOptionIdString(int menuItemNumber)`
 
-```csharp
-public string GetMenuOptionIdString(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option id string`.
 
 ### GetMenuOptionTooltip
+`public TextObject GetMenuOptionTooltip(int menuItemNumber)`
 
-```csharp
-public TextObject GetMenuOptionTooltip(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option tooltip`.
 
 ### GetMenuOptionIsLeave
+`public bool GetMenuOptionIsLeave(int menuItemNumber)`
 
-```csharp
-public bool GetMenuOptionIsLeave(int menuItemNumber)
-```
+**Purpose:** Gets the current value of `menu option is leave`.
 
 ### SetProgressOfWaitingInMenu
+`public void SetProgressOfWaitingInMenu(float progress)`
 
-```csharp
-public void SetProgressOfWaitingInMenu(float progress)
-```
+**Purpose:** Sets the value or state of `progress of waiting in menu`.
 
 ### SetTargetedWaitingTimeAndInitialProgress
+`public void SetTargetedWaitingTimeAndInitialProgress(float targetedWaitingTime, float initialProgress)`
 
-```csharp
-public void SetTargetedWaitingTimeAndInitialProgress(float targetedWaitingTime, float initialProgress)
-```
+**Purpose:** Sets the value or state of `targeted waiting time and initial progress`.
 
 ### GetLeaveMenuOption
+`public GameMenuOption GetLeaveMenuOption(Game game, MenuContext menuContext)`
 
-```csharp
-public GameMenuOption GetLeaveMenuOption(Game game, MenuContext menuContext)
-```
+**Purpose:** Gets the current value of `leave menu option`.
 
 ### RunOnTick
+`public void RunOnTick(MenuContext menuContext, float dt)`
 
-```csharp
-public void RunOnTick(MenuContext menuContext, float dt)
-```
+**Purpose:** Handles logic related to `run on tick`.
 
 ### RunWaitMenuCondition
+`public bool RunWaitMenuCondition(MenuContext menuContext)`
 
-```csharp
-public bool RunWaitMenuCondition(MenuContext menuContext)
-```
+**Purpose:** Handles logic related to `run wait menu condition`.
 
 ### RunWaitMenuConsequence
+`public void RunWaitMenuConsequence(MenuContext menuContext)`
 
-```csharp
-public void RunWaitMenuConsequence(MenuContext menuContext)
-```
+**Purpose:** Handles logic related to `run wait menu consequence`.
 
 ### RunMenuOptionConsequence
+`public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)`
 
-```csharp
-public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)
-```
+**Purpose:** Handles logic related to `run menu option consequence`.
 
 ### StartWait
+`public void StartWait()`
 
-```csharp
-public void StartWait()
-```
+**Purpose:** Handles logic related to `start wait`.
 
 ### EndWait
+`public void EndWait()`
 
-```csharp
-public void EndWait()
-```
+**Purpose:** Handles logic related to `end wait`.
 
 ### RunOnInit
+`public void RunOnInit(Game game, MenuContext menuContext)`
 
-```csharp
-public void RunOnInit(Game game, MenuContext menuContext)
-```
+**Purpose:** Handles logic related to `run on init`.
 
 ### PreInit
+`public void PreInit(MenuContext menuContext)`
 
-```csharp
-public void PreInit(MenuContext menuContext)
-```
+**Purpose:** Handles logic related to `pre init`.
 
 ### AfterInit
+`public void AfterInit(MenuContext menuContext)`
+
+**Purpose:** Handles logic related to `after init`.
+
+### GetText
+`public TextObject GetText()`
+
+**Purpose:** Gets the current value of `text`.
+
+### ActivateGameMenu
+`public static void ActivateGameMenu(string menuId)`
+
+**Purpose:** Handles logic related to `activate game menu`.
+
+### SwitchToMenu
+`public static void SwitchToMenu(string menuId)`
+
+**Purpose:** Handles logic related to `switch to menu`.
+
+### ExitToLast
+`public static void ExitToLast()`
+
+**Purpose:** Handles logic related to `exit to last`.
+
+## Usage Example
 
 ```csharp
-public void AfterInit(MenuContext menuContext)
+var value = new GameMenu();
+value.SetMenuRepeatObjects(list);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

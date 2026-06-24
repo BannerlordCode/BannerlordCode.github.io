@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HitParticleResultData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HitParticleResultData
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`HitParticleResultData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`HitParticleResultData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `HitParticleResultData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HitParticleResultData (Data)
-new HitParticleResultData { /* fill fields */ };;
+var value = new HitParticleResultData();
 ```
 
 ## See Also

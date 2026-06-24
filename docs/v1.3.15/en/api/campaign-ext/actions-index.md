@@ -1,15 +1,21 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Campaign Actions Reference`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
 ---
 title: Campaign Actions Reference
 sidebar: auto
 ---
 
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `actions-index`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
+
 # Campaign Actions Reference
+
+## Mental Model
+
+Treat `Campaign Actions Reference` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 Every static action class that mutates campaign game state (61 total). Each class's `Apply*` methods correspond to a trigger reason. Mods call these to mutate state safely instead of touching fields directly.
 
@@ -98,6 +104,12 @@ Every static action class that mutates campaign game state (61 total). Each clas
 | [`DestroyPartyAction`](./DestroyPartyAction) | Destroy Party |
 | [`DisbandPartyAction`](./DisbandPartyAction) | Disband Party |
 | [`SetPartyAiAction`](./SetPartyAiAction) | Set Party Ai |
+
+## Usage Example
+
+```csharp
+var example = new Campaign Actions Reference();
+```
 
 ## See Also
 

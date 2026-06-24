@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyMoraleModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyMoraleModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyMoraleModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyMoraleModel>(new MyPartyMoraleModel())` to change how it computes.
+`PartyMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,40 +30,39 @@
 ## Key Methods
 
 ### GetDailyStarvationMoralePenalty
-```csharp
-public abstract int GetDailyStarvationMoralePenalty(PartyBase party)
-```
+`public abstract int GetDailyStarvationMoralePenalty(PartyBase party)`
+
+**Purpose:** Gets the current value of `daily starvation morale penalty`.
 
 ### GetDailyNoWageMoralePenalty
-```csharp
-public abstract int GetDailyNoWageMoralePenalty(MobileParty party)
-```
+`public abstract int GetDailyNoWageMoralePenalty(MobileParty party)`
+
+**Purpose:** Gets the current value of `daily no wage morale penalty`.
 
 ### GetStandardBaseMorale
-```csharp
-public abstract float GetStandardBaseMorale(PartyBase party)
-```
+`public abstract float GetStandardBaseMorale(PartyBase party)`
+
+**Purpose:** Gets the current value of `standard base morale`.
 
 ### GetVictoryMoraleChange
-```csharp
-public abstract float GetVictoryMoraleChange(PartyBase party)
-```
+`public abstract float GetVictoryMoraleChange(PartyBase party)`
+
+**Purpose:** Gets the current value of `victory morale change`.
 
 ### GetDefeatMoraleChange
-```csharp
-public abstract float GetDefeatMoraleChange(PartyBase party)
-```
+`public abstract float GetDefeatMoraleChange(PartyBase party)`
+
+**Purpose:** Gets the current value of `defeat morale change`.
 
 ### GetEffectivePartyMorale
-```csharp
-public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)
-```
+`public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)`
+
+**Purpose:** Gets the current value of `effective party morale`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyMoraleModel (Model)
-Game.Current.ReplaceModel<PartyMoraleModel>(new MyPartyMoraleModel());
+var implementation = new CustomPartyMoraleModel();
 ```
 
 ## See Also

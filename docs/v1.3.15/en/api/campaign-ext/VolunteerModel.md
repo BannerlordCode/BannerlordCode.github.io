@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VolunteerModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VolunteerModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`VolunteerModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<VolunteerModel>(new MyVolunteerModel())` to change how it computes.
+`VolunteerModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `VolunteerModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,35 +30,34 @@
 ## Key Methods
 
 ### MaximumIndexHeroCanRecruitFromHero
-```csharp
-public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)
-```
+`public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
+
+**Purpose:** Handles logic related to `maximum index hero can recruit from hero`.
 
 ### MaximumIndexGarrisonCanRecruitFromHero
-```csharp
-public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)
-```
+`public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
+
+**Purpose:** Handles logic related to `maximum index garrison can recruit from hero`.
 
 ### GetDailyVolunteerProductionProbability
-```csharp
-public abstract float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)
-```
+`public abstract float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
+
+**Purpose:** Gets the current value of `daily volunteer production probability`.
 
 ### GetBasicVolunteer
-```csharp
-public abstract CharacterObject GetBasicVolunteer(Hero hero)
-```
+`public abstract CharacterObject GetBasicVolunteer(Hero hero)`
+
+**Purpose:** Gets the current value of `basic volunteer`.
 
 ### CanHaveRecruits
-```csharp
-public abstract bool CanHaveRecruits(Hero hero)
-```
+`public abstract bool CanHaveRecruits(Hero hero)`
+
+**Purpose:** Checks whether the current object can `have recruits`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VolunteerModel (Model)
-Game.Current.ReplaceModel<VolunteerModel>(new MyVolunteerModel());
+var implementation = new CustomVolunteerModel();
 ```
 
 ## See Also

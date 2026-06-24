@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `VillageProductionCalculatorModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VillageProductionCalculatorModel
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`VillageProductionCalculatorModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<VillageProductionCalculatorModel>(new MyVillageProductionCalculatorModel())` 注册，以改变其计算逻辑。
+`VillageProductionCalculatorModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `VillageProductionCalculatorModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CalculateProductionSpeedOfItemCategory
-```csharp
-public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)
-```
+`public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
+
+**用途 / Purpose:** 处理 `calculate production speed of item category` 相关逻辑。
 
 ### CalculateDailyProductionAmount
-```csharp
-public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)
-```
+`public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
+
+**用途 / Purpose:** 处理 `calculate daily production amount` 相关逻辑。
 
 ### CalculateDailyFoodProductionAmount
-```csharp
-public abstract float CalculateDailyFoodProductionAmount(Village village)
-```
+`public abstract float CalculateDailyFoodProductionAmount(Village village)`
+
+**用途 / Purpose:** 处理 `calculate daily food production amount` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// VillageProductionCalculatorModel (Model) 的典型用法
-Game.Current.ReplaceModel<VillageProductionCalculatorModel>(new MyVillageProductionCalculatorModel());
+var implementation = new CustomVillageProductionCalculatorModel();
 ```
 
 ## 参见

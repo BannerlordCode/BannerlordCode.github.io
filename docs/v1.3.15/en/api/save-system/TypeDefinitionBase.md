@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `TypeDefinitionBase`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TypeDefinitionBase
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
-**Type:** class
-**Area:** Save System
+**Type:** `public class TypeDefinitionBase`
+**Area:** save-system
 
 ## Overview
 
-> This is an auto-generated stub. `TypeDefinitionBase` is a class in the `TaleWorlds.SaveSystem.Definition` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TypeDefinitionBase` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,13 +28,18 @@
 | `Type` | `public Type Type { get; }` |
 | `TypeLevel` | `public byte TypeLevel { get; }` |
 
-
 ## Key Methods
 
 ### GetClassLevel
+`public static byte GetClassLevel(Type type)`
+
+**Purpose:** Gets the current value of `class level`.
+
+## Usage Example
 
 ```csharp
-public static byte GetClassLevel(Type type)
+// Prepare the required context, then call the static entry point directly
+TypeDefinitionBase.GetClassLevel(type);
 ```
 
 ## See Also

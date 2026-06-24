@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SallyOutEndLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SallyOutEndLogic
@@ -14,24 +15,33 @@
 
 ## 概述
 
-`SallyOutEndLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new SallyOutEndLogic())` 添加；继承它可定制。
+`SallyOutEndLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `SallyOutEndLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsSallyOutOver` | `public bool IsSallyOutOver { get; }` |
 
 ## 主要方法
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// SallyOutEndLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new SallyOutEndLogic());
 ```
 

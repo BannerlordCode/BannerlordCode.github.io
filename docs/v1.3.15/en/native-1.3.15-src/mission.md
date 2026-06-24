@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 任务/战斗系统类参考
 
 # 任务系统 / Mission System
 
+## Mental Model
+
+Treat `任务系统` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## 概述 / Overview
 
 任务系统管理战斗场景中的实体、导航和寻路。
@@ -127,4 +131,10 @@ mass_selection::vftable
 
 ```cpp
 worldmap_budget_checker::vftable
+```
+
+## Usage Example
+
+```csharp
+var example = new 任务系统();
 ```

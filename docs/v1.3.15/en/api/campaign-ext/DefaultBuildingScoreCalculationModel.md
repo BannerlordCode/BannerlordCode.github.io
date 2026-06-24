@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBuildingScoreCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBuildingScoreCalculationModel
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`DefaultBuildingScoreCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBuildingScoreCalculationModel>(new MyDefaultBuildingScoreCalculationModel())` to change how it computes.
+`DefaultBuildingScoreCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBuildingScoreCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetNextDailyBuilding
-```csharp
-public override Building GetNextDailyBuilding(Town town)
-```
+`public override Building GetNextDailyBuilding(Town town)`
+
+**Purpose:** Gets the current value of `next daily building`.
 
 ### GetNextBuilding
-```csharp
-public override Building GetNextBuilding(Town town)
-```
+`public override Building GetNextBuilding(Town town)`
+
+**Purpose:** Gets the current value of `next building`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBuildingScoreCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultBuildingScoreCalculationModel>(new MyDefaultBuildingScoreCalculationModel());
 ```
 

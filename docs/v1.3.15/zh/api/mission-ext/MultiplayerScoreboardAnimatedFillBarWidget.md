@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerScoreboardAnimatedFillBarWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerScoreboardAnimatedFillBarWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerScoreboardAnimatedFillBarWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `MultiplayerScoreboardAnimatedFillBarWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -29,26 +34,24 @@
 ## 主要方法
 
 ### StartAnimation
-```csharp
-public void StartAnimation()
-```
+`public void StartAnimation()`
+
+**用途 / Purpose:** 处理 `start animation` 相关逻辑。
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
 
 ### FullFillFinishedHandler
-```csharp
-public delegate void FullFillFinishedHandler()
-```
+`public delegate void FullFillFinishedHandler()`
+
+**用途 / Purpose:** 处理 `full fill finished handler` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerScoreboardAnimatedFillBarWidget (Widget) 的典型用法
-// 声明/访问一个 MultiplayerScoreboardAnimatedFillBarWidget
-var widget = root.GetChild("multiplayerScoreboardAnimatedFillBarWidget");;
+var widget = new MultiplayerScoreboardAnimatedFillBarWidget(context);
 ```
 
 ## 参见

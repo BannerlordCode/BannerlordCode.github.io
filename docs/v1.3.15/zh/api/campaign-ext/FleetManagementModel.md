@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `FleetManagementModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FleetManagementModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`FleetManagementModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<FleetManagementModel>(new MyFleetManagementModel())` 注册，以改变其计算逻辑。
+`FleetManagementModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `FleetManagementModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,25 +30,24 @@
 ## 主要方法
 
 ### CanTroopsReturn
-```csharp
-public abstract bool CanTroopsReturn()
-```
+`public abstract bool CanTroopsReturn()`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `troops return`。
 
 ### GetReturnTimeForTroops
-```csharp
-public abstract CampaignTime GetReturnTimeForTroops(Ship ship)
-```
+`public abstract CampaignTime GetReturnTimeForTroops(Ship ship)`
+
+**用途 / Purpose:** 获取 `return time for troops` 的当前值。
 
 ### CanSendShipToPlayerClan
-```csharp
-public abstract bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)
-```
+`public abstract bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `send ship to player clan`。
 
 ## 使用示例
 
 ```csharp
-// FleetManagementModel (Model) 的典型用法
-Game.Current.ReplaceModel<FleetManagementModel>(new MyFleetManagementModel());
+var implementation = new CustomFleetManagementModel();
 ```
 
 ## 参见

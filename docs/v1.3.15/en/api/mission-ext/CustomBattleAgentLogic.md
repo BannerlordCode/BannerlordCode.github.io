@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleAgentLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleAgentLogic
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`CustomBattleAgentLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new CustomBattleAgentLogic())`; subclass it to customize.
+`CustomBattleAgentLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `CustomBattleAgentLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAgentHit
-```csharp
-public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)
-```
+`public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
+
+**Purpose:** Called when the `agent hit` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleAgentLogic (Logic)
 Mission.Current.AddMissionBehavior(new CustomBattleAgentLogic());
 ```
 

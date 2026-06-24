@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `AddHeroToPartyAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AddHeroToPartyAction
+
+## Mental Model
+
+Treat `AddHeroToPartyAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ AddHeroToPartyAction is a set of static methods that trigger "AddHeroToParty" in
 public static void Apply(Hero hero, MobileParty party, bool showNotification = true)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ## Usage Example
 

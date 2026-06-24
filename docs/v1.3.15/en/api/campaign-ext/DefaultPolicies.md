@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DefaultPolicies`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPolicies
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class DefaultPolicies`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/DefaultPolicies.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DefaultPolicies` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefaultPolicies` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,8 +45,25 @@
 | `NobleRetinues` | `public static PolicyObject NobleRetinues { get; }` |
 | `CastleCharters` | `public static PolicyObject CastleCharters { get; }` |
 | `Bailiffs` | `public static PolicyObject Bailiffs { get; }` |
+| `HuntingRights` | `public static PolicyObject HuntingRights { get; }` |
+| `RoadTolls` | `public static PolicyObject RoadTolls { get; }` |
+| `Marshals` | `public static PolicyObject Marshals { get; }` |
+| `CouncilOfTheCommons` | `public static PolicyObject CouncilOfTheCommons { get; }` |
+| `ForgivenessOfDebts` | `public static PolicyObject ForgivenessOfDebts { get; }` |
+| `Citizenship` | `public static PolicyObject Citizenship { get; }` |
+| `TribunesOfThePeople` | `public static PolicyObject TribunesOfThePeople { get; }` |
+| `GrazingRights` | `public static PolicyObject GrazingRights { get; }` |
+| `Lawspeakers` | `public static PolicyObject Lawspeakers { get; }` |
+| `TrialByJury` | `public static PolicyObject TrialByJury { get; }` |
+| `Cantons` | `public static PolicyObject Cantons { get; }` |
+| `LandGrantsForVeteran` | `public static PolicyObject LandGrantsForVeteran { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new DefaultPolicies();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

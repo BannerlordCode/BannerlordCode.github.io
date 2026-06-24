@@ -2,42 +2,49 @@
 **首页** → **API 目录** → **本领域** → `WidgetAttributeKeyTypeAttribute`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeAttribute
 
-**命名空间:** TaleWorlds.GauntletUI.PrefabSystem
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI.PrefabSystem
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class WidgetAttributeKeyTypeAttribute : WidgetAttributeKeyType`
+**Base:** `WidgetAttributeKeyType`
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyTypeAttribute.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`WidgetAttributeKeyTypeAttribute` 是 `TaleWorlds.GauntletUI.PrefabSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`WidgetAttributeKeyTypeAttribute` 是一个 .NET 特性，用来给类型或成员打标签，让运行时或工具链按约定识别它。
+
+## 心智模型
+
+把 `WidgetAttributeKeyTypeAttribute` 当作一个 Attribute 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### CheckKeyType
+`public override bool CheckKeyType(string key)`
 
-```csharp
-public override bool CheckKeyType(string key)
-```
+**用途 / Purpose:** 处理 `check key type` 相关逻辑。
 
 ### GetKeyName
+`public override string GetKeyName(string key)`
 
-```csharp
-public override string GetKeyName(string key)
-```
+**用途 / Purpose:** 获取 `key name` 的当前值。
 
 ### GetSerializedKey
+`public override string GetSerializedKey(string key)`
+
+**用途 / Purpose:** 获取 `serialized key` 的当前值。
+
+## 使用示例
 
 ```csharp
-public override string GetSerializedKey(string key)
+[WidgetAttributeKeyTypeAttribute]
+public class Example { }
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionBoundaryCrossingHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionBoundaryCrossingHandler
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`MissionBoundaryCrossingHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`MissionBoundaryCrossingHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `MissionBoundaryCrossingHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### OnClearScene
-```csharp
-public override void OnClearScene()
-```
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionBoundaryCrossingHandler (Handler)
 Mission.Current.AddMissionBehavior(new MissionBoundaryCrossingHandler());
 ```
 

@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `Ray`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Ray
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** 结构体 struct struct
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public struct Ray`
+**Base:** 无
+**File:** `TaleWorlds.Library/Ray.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`Ray` 是 `TaleWorlds.Library` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`Ray` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -24,18 +30,20 @@
 | `MaxDistance` | `public float MaxDistance { get; }` |
 | `EndPoint` | `public Vec3 EndPoint { get; }` |
 
-
 ## 主要方法
 
 ### Reset
+`public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
+
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
+
+## 使用示例
 
 ```csharp
-public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)
+var value = new Ray();
+value.Reset(origin, direction, 0);
 ```
-
-贡献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

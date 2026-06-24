@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBattleRewardModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBattleRewardModel
@@ -14,134 +15,137 @@
 
 ## Overview
 
-`DefaultBattleRewardModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBattleRewardModel>(new MyDefaultBattleRewardModel())` to change how it computes.
+`DefaultBattleRewardModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBattleRewardModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPlayerGainedRelationAmount
-```csharp
-public override int GetPlayerGainedRelationAmount(MapEvent mapEvent, Hero hero)
-```
+`public override int GetPlayerGainedRelationAmount(MapEvent mapEvent, Hero hero)`
+
+**Purpose:** Gets the current value of `player gained relation amount`.
 
 ### CalculateRenownGain
-```csharp
-public override ExplainedNumber CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare)
-```
+`public override ExplainedNumber CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare)`
+
+**Purpose:** Handles logic related to `calculate renown gain`.
 
 ### CalculateInfluenceGain
-```csharp
-public override ExplainedNumber CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare)
-```
+`public override ExplainedNumber CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare)`
+
+**Purpose:** Handles logic related to `calculate influence gain`.
 
 ### CalculateMoraleGainVictory
-```csharp
-public override ExplainedNumber CalculateMoraleGainVictory(PartyBase party, float renownValueOfBattle, float contributionShare, MapEvent battle)
-```
+`public override ExplainedNumber CalculateMoraleGainVictory(PartyBase party, float renownValueOfBattle, float contributionShare, MapEvent battle)`
+
+**Purpose:** Handles logic related to `calculate morale gain victory`.
 
 ### CalculateGoldLossAfterDefeat
-```csharp
-public override int CalculateGoldLossAfterDefeat(Hero partyLeaderHero)
-```
+`public override int CalculateGoldLossAfterDefeat(Hero partyLeaderHero)`
+
+**Purpose:** Handles logic related to `calculate gold loss after defeat`.
 
 ### GetLootedItemFromTroop
-```csharp
-public override EquipmentElement GetLootedItemFromTroop(CharacterObject character, float targetValue)
-```
+`public override EquipmentElement GetLootedItemFromTroop(CharacterObject character, float targetValue)`
+
+**Purpose:** Gets the current value of `looted item from troop`.
 
 ### GetExpectedLootedItemValueFromCasualty
-```csharp
-public override float GetExpectedLootedItemValueFromCasualty(Hero winnerPartyLeaderHero, CharacterObject casualtyCharacter)
-```
+`public override float GetExpectedLootedItemValueFromCasualty(Hero winnerPartyLeaderHero, CharacterObject casualtyCharacter)`
+
+**Purpose:** Gets the current value of `expected looted item value from casualty`.
 
 ### GetAITradePenalty
-```csharp
-public override float GetAITradePenalty()
-```
+`public override float GetAITradePenalty()`
+
+**Purpose:** Gets the current value of `a i trade penalty`.
 
 ### GetMainPartyMemberScatterChance
-```csharp
-public override float GetMainPartyMemberScatterChance()
-```
+`public override float GetMainPartyMemberScatterChance()`
+
+**Purpose:** Gets the current value of `main party member scatter chance`.
 
 ### CalculatePlunderedGoldAmountFromDefeatedParty
-```csharp
-public override int CalculatePlunderedGoldAmountFromDefeatedParty(PartyBase defeatedParty)
-```
+`public override int CalculatePlunderedGoldAmountFromDefeatedParty(PartyBase defeatedParty)`
+
+**Purpose:** Handles logic related to `calculate plundered gold amount from defeated party`.
 
 ### GetLootGoldChances
-```csharp
-public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootGoldChances(MBReadOnlyList<MapEventParty> winnerParties)
-```
+`public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootGoldChances(MBReadOnlyList<MapEventParty> winnerParties)`
+
+**Purpose:** Gets the current value of `loot gold chances`.
 
 ### GetLootMemberChancesForWinnerParties
-```csharp
-public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootMemberChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties)
-```
+`public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootMemberChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties)`
+
+**Purpose:** Gets the current value of `loot member chances for winner parties`.
 
 ### GetLootPrisonerChances
-```csharp
-public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootPrisonerChances(MBReadOnlyList<MapEventParty> winnerParties, TroopRosterElement prisonerElement)
-```
+`public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootPrisonerChances(MBReadOnlyList<MapEventParty> winnerParties, TroopRosterElement prisonerElement)`
+
+**Purpose:** Gets the current value of `loot prisoner chances`.
 
 ### GetLootItemChancesForWinnerParties
-```csharp
-public override MBList<KeyValuePair<MapEventParty, float>> GetLootItemChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)
-```
+`public override MBList<KeyValuePair<MapEventParty, float>> GetLootItemChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
+
+**Purpose:** Gets the current value of `loot item chances for winner parties`.
 
 ### GetLootCasualtyChances
-```csharp
-public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootCasualtyChances(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)
-```
+`public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootCasualtyChances(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
+
+**Purpose:** Gets the current value of `loot casualty chances`.
 
 ### CalculateShipDamageAfterDefeat
-```csharp
-public override float CalculateShipDamageAfterDefeat(Ship ship)
-```
+`public override float CalculateShipDamageAfterDefeat(Ship ship)`
+
+**Purpose:** Handles logic related to `calculate ship damage after defeat`.
 
 ### DistributeDefeatedPartyShipsAmongWinners
-```csharp
-public override MBReadOnlyList<KeyValuePair<Ship, MapEventParty>> DistributeDefeatedPartyShipsAmongWinners(MapEvent mapEvent, MBReadOnlyList<Ship> shipsToLoot, MBReadOnlyList<MapEventParty> winnerParties)
-```
+`public override MBReadOnlyList<KeyValuePair<Ship, MapEventParty>> DistributeDefeatedPartyShipsAmongWinners(MapEvent mapEvent, MBReadOnlyList<Ship> shipsToLoot, MBReadOnlyList<MapEventParty> winnerParties)`
+
+**Purpose:** Handles logic related to `distribute defeated party ships among winners`.
 
 ### GetBannerLootChanceFromDefeatedHero
-```csharp
-public override float GetBannerLootChanceFromDefeatedHero(Hero defeatedHero)
-```
+`public override float GetBannerLootChanceFromDefeatedHero(Hero defeatedHero)`
+
+**Purpose:** Gets the current value of `banner loot chance from defeated hero`.
 
 ### GetBannerRewardForWinningMapEvent
-```csharp
-public override ItemObject GetBannerRewardForWinningMapEvent(MapEvent mapEvent)
-```
+`public override ItemObject GetBannerRewardForWinningMapEvent(MapEvent mapEvent)`
+
+**Purpose:** Gets the current value of `banner reward for winning map event`.
 
 ### GetSunkenShipMoraleEffect
-```csharp
-public override float GetSunkenShipMoraleEffect(PartyBase shipOwner, Ship ship)
-```
+`public override float GetSunkenShipMoraleEffect(PartyBase shipOwner, Ship ship)`
+
+**Purpose:** Gets the current value of `sunken ship morale effect`.
 
 ### CalculateMoraleChangeOnRoundVictory
-```csharp
-public override ExplainedNumber CalculateMoraleChangeOnRoundVictory(PartyBase party, MapEventSide partySide, BattleSideEnum roundWinner)
-```
+`public override ExplainedNumber CalculateMoraleChangeOnRoundVictory(PartyBase party, MapEventSide partySide, BattleSideEnum roundWinner)`
+
+**Purpose:** Handles logic related to `calculate morale change on round victory`.
 
 ### GetShipSiegeEngineHitMoraleEffect
-```csharp
-public override float GetShipSiegeEngineHitMoraleEffect(Ship ship, SiegeEngineType siegeEngineType)
-```
+`public override float GetShipSiegeEngineHitMoraleEffect(Ship ship, SiegeEngineType siegeEngineType)`
+
+**Purpose:** Gets the current value of `ship siege engine hit morale effect`.
 
 ### GetFigureheadLoot
-```csharp
-public override Figurehead GetFigureheadLoot(MBReadOnlyList<MapEventParty> defeatedParties, PartyBase defeatedSideLeaderParty)
-```
+`public override Figurehead GetFigureheadLoot(MBReadOnlyList<MapEventParty> defeatedParties, PartyBase defeatedSideLeaderParty)`
+
+**Purpose:** Gets the current value of `figurehead loot`.
 
 ### GetWinnerPartiesThatCanPlunderGoldFromShips
-```csharp
-public override MBReadOnlyList<MapEventParty> GetWinnerPartiesThatCanPlunderGoldFromShips(MBReadOnlyList<MapEventParty> winnerParties)
-```
+`public override MBReadOnlyList<MapEventParty> GetWinnerPartiesThatCanPlunderGoldFromShips(MBReadOnlyList<MapEventParty> winnerParties)`
+
+**Purpose:** Gets the current value of `winner parties that can plunder gold from ships`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBattleRewardModel (Model)
 Game.Current.ReplaceModel<DefaultBattleRewardModel>(new MyDefaultBattleRewardModel());
 ```
 

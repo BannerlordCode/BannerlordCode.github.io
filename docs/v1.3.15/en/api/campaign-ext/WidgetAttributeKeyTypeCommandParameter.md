@@ -2,42 +2,49 @@
 **Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeCommandParameter`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeCommandParameter
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WidgetAttributeKeyTypeCommandParameter : WidgetAttributeKeyType`
+**Base:** `WidgetAttributeKeyType`
+**File:** `TaleWorlds.GauntletUI.Data/WidgetAttributeKeyTypeCommandParameter.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WidgetAttributeKeyTypeCommandParameter` is a class in the `TaleWorlds.GauntletUI.Data` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WidgetAttributeKeyTypeCommandParameter` lives in `TaleWorlds.GauntletUI.Data` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### CheckKeyType
+`public override bool CheckKeyType(string key)`
 
-```csharp
-public override bool CheckKeyType(string key)
-```
+**Purpose:** Handles logic related to `check key type`.
 
 ### GetKeyName
+`public override string GetKeyName(string key)`
 
-```csharp
-public override string GetKeyName(string key)
-```
+**Purpose:** Gets the current value of `key name`.
 
 ### GetSerializedKey
+`public override string GetSerializedKey(string key)`
+
+**Purpose:** Gets the current value of `serialized key`.
+
+## Usage Example
 
 ```csharp
-public override string GetSerializedKey(string key)
+var value = new WidgetAttributeKeyTypeCommandParameter();
+value.CheckKeyType("example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

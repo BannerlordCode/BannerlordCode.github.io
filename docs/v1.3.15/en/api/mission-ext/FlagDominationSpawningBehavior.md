@@ -2,60 +2,64 @@
 **Home** → **API Index** → **Area** → `FlagDominationSpawningBehavior`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FlagDominationSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class FlagDominationSpawningBehavior : SpawningBehaviorBase`
+**Base:** `SpawningBehaviorBase`
+**File:** `TaleWorlds.MountAndBlade/FlagDominationSpawningBehavior.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `FlagDominationSpawningBehavior` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FlagDominationSpawningBehavior` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Initialize
+`public override void Initialize(SpawnComponent spawnComponent)`
 
-```csharp
-public override void Initialize(SpawnComponent spawnComponent)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Clear
+`public override void Clear()`
 
-```csharp
-public override void Clear()
-```
+**Purpose:** Handles logic related to `clear`.
 
 ### OnTick
+`public override void OnTick(float dt)`
 
-```csharp
-public override void OnTick(float dt)
-```
+**Purpose:** Called when the `tick` event is raised.
 
 ### RequestStartSpawnSession
+`public override void RequestStartSpawnSession()`
 
-```csharp
-public override void RequestStartSpawnSession()
-```
+**Purpose:** Handles logic related to `request start spawn session`.
 
 ### AllowEarlyAgentVisualsDespawning
+`public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-```csharp
-public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)
-```
+**Purpose:** Handles logic related to `allow early agent visuals despawning`.
 
 ### OnClearScene
+`public override void OnClearScene()`
+
+**Purpose:** Called when the `clear scene` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnClearScene()
+var value = new FlagDominationSpawningBehavior();
+value.Initialize(spawnComponent);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

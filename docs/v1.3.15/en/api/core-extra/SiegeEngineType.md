@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SiegeEngineType`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeEngineType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public sealed class SiegeEngineType : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.Core/SiegeEngineType.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeEngineType` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeEngineType` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -37,22 +41,25 @@
 | `Name` | `public TextObject Name { get; }` |
 | `Description` | `public TextObject Description { get; }` |
 
-
 ## Key Methods
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+## Usage Example
 
 ```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+var value = new SiegeEngineType();
+value.ToString();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

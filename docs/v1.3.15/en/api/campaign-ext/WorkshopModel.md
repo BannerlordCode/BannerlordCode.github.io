@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `WorkshopModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WorkshopModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`WorkshopModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<WorkshopModel>(new MyWorkshopModel())` to change how it computes.
+`WorkshopModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `WorkshopModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,50 +36,49 @@
 ## Key Methods
 
 ### GetMaxWorkshopCountForClanTier
-```csharp
-public abstract int GetMaxWorkshopCountForClanTier(int tier)
-```
+`public abstract int GetMaxWorkshopCountForClanTier(int tier)`
+
+**Purpose:** Gets the current value of `max workshop count for clan tier`.
 
 ### GetCostForPlayer
-```csharp
-public abstract int GetCostForPlayer(Workshop workshop)
-```
+`public abstract int GetCostForPlayer(Workshop workshop)`
+
+**Purpose:** Gets the current value of `cost for player`.
 
 ### GetCostForNotable
-```csharp
-public abstract int GetCostForNotable(Workshop workshop)
-```
+`public abstract int GetCostForNotable(Workshop workshop)`
+
+**Purpose:** Gets the current value of `cost for notable`.
 
 ### GetNotableOwnerForWorkshop
-```csharp
-public abstract Hero GetNotableOwnerForWorkshop(Workshop workshop)
-```
+`public abstract Hero GetNotableOwnerForWorkshop(Workshop workshop)`
+
+**Purpose:** Gets the current value of `notable owner for workshop`.
 
 ### GetEffectiveConversionSpeedOfProduction
-```csharp
-public abstract ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescriptions)
-```
+`public abstract ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescriptions)`
+
+**Purpose:** Gets the current value of `effective conversion speed of production`.
 
 ### GetConvertProductionCost
-```csharp
-public abstract int GetConvertProductionCost(WorkshopType workshopType)
-```
+`public abstract int GetConvertProductionCost(WorkshopType workshopType)`
+
+**Purpose:** Gets the current value of `convert production cost`.
 
 ### CanPlayerSellWorkshop
-```csharp
-public abstract bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)
-```
+`public abstract bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `player sell workshop`.
 
 ### GetTradeXpPerWarehouseProduction
-```csharp
-public abstract float GetTradeXpPerWarehouseProduction(EquipmentElement production)
-```
+`public abstract float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
+
+**Purpose:** Gets the current value of `trade xp per warehouse production`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of WorkshopModel (Model)
-Game.Current.ReplaceModel<WorkshopModel>(new MyWorkshopModel());
+var implementation = new CustomWorkshopModel();
 ```
 
 ## See Also

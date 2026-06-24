@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SPItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SPItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SPItemVM : ItemVM`
+**Base:** `ItemVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Inventory/SPItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SPItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SPItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,113 +45,103 @@
 | `ItemLevel` | `public int ItemLevel { get; set; }` |
 | `ProfitType` | `public int ProfitType { get; set; }` |
 | `TransactionCount` | `public int TransactionCount { get; set; }` |
-
+| `TotalCost` | `public int TotalCost { get; set; }` |
+| `TradeData` | `public InventoryTradeVM TradeData { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshWith
+`public void RefreshWith(SPItemVM itemVM, InventoryLogic.InventorySide inventorySide)`
 
-```csharp
-public void RefreshWith(SPItemVM itemVM, InventoryLogic.InventorySide inventorySide)
-```
+**Purpose:** Refreshes the display or cache of `with`.
 
 ### ExecuteBuySingle
+`public void ExecuteBuySingle()`
 
-```csharp
-public void ExecuteBuySingle()
-```
+**Purpose:** Executes the `buy single` operation or workflow.
 
 ### ExecuteBuy
+`public void ExecuteBuy(int amount)`
 
-```csharp
-public void ExecuteBuy(int amount)
-```
+**Purpose:** Executes the `buy` operation or workflow.
 
 ### ExecuteSellSingle
+`public void ExecuteSellSingle()`
 
-```csharp
-public void ExecuteSellSingle()
-```
+**Purpose:** Executes the `sell single` operation or workflow.
 
 ### ExecuteSell
+`public void ExecuteSell(int amount)`
 
-```csharp
-public void ExecuteSell(int amount)
-```
+**Purpose:** Executes the `sell` operation or workflow.
 
 ### ExecuteSellItem
+`public void ExecuteSellItem()`
 
-```csharp
-public void ExecuteSellItem()
-```
+**Purpose:** Executes the `sell item` operation or workflow.
 
 ### ExecuteConcept
+`public void ExecuteConcept()`
 
-```csharp
-public void ExecuteConcept()
-```
+**Purpose:** Executes the `concept` operation or workflow.
 
 ### ExecuteResetTrade
+`public void ExecuteResetTrade()`
 
-```csharp
-public void ExecuteResetTrade()
-```
+**Purpose:** Executes the `reset trade` operation or workflow.
 
 ### UpdateTradeData
+`public void UpdateTradeData(bool forceUpdateAmounts)`
 
-```csharp
-public void UpdateTradeData(bool forceUpdateAmounts)
-```
+**Purpose:** Updates the state or data of `trade data`.
 
 ### ExecuteSlaughterItem
+`public void ExecuteSlaughterItem()`
 
-```csharp
-public void ExecuteSlaughterItem()
-```
+**Purpose:** Executes the `slaughter item` operation or workflow.
 
 ### ExecuteDonateItem
+`public void ExecuteDonateItem()`
 
-```csharp
-public void ExecuteDonateItem()
-```
+**Purpose:** Executes the `donate item` operation or workflow.
 
 ### ExecuteSetFocused
+`public void ExecuteSetFocused()`
 
-```csharp
-public void ExecuteSetFocused()
-```
+**Purpose:** Executes the `set focused` operation or workflow.
 
 ### ExecuteSetUnfocused
+`public void ExecuteSetUnfocused()`
 
-```csharp
-public void ExecuteSetUnfocused()
-```
+**Purpose:** Executes the `set unfocused` operation or workflow.
 
 ### UpdateCanBeSlaughtered
+`public void UpdateCanBeSlaughtered()`
 
-```csharp
-public void UpdateCanBeSlaughtered()
-```
+**Purpose:** Updates the state or data of `can be slaughtered`.
 
 ### UpdateHintTexts
+`public void UpdateHintTexts()`
 
-```csharp
-public void UpdateHintTexts()
-```
+**Purpose:** Updates the state or data of `hint texts`.
 
 ### GetProfitTypeFromDiff
+`public static SPItemVM.ProfitTypes GetProfitTypeFromDiff(float averageValue, float currentValue)`
+
+**Purpose:** Gets the current value of `profit type from diff`.
+
+## Usage Example
 
 ```csharp
-public static SPItemVM.ProfitTypes GetProfitTypeFromDiff(float averageValue, float currentValue)
+var value = new SPItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

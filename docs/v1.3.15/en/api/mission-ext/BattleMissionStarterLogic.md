@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleMissionStarterLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleMissionStarterLogic
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`BattleMissionStarterLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new BattleMissionStarterLogic())`; subclass it to customize.
+`BattleMissionStarterLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `BattleMissionStarterLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleMissionStarterLogic (Logic)
 Mission.Current.AddMissionBehavior(new BattleMissionStarterLogic());
 ```
 

@@ -2,42 +2,49 @@
 **Home** → **API Index** → **Area** → `AgentPathNavMeshChecker`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentPathNavMeshChecker
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects.Siege
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class AgentPathNavMeshChecker`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Source/Objects/Siege/AgentPathNavMeshChecker.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AgentPathNavMeshChecker` is a class in the `TaleWorlds.MountAndBlade.Source.Objects.Siege` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AgentPathNavMeshChecker` lives in `TaleWorlds.MountAndBlade.Source.Objects.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Source.Objects.Siege` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### TickOccasionally
+`public void TickOccasionally(float dt)`
 
-```csharp
-public void TickOccasionally(float dt)
-```
+**Purpose:** Handles logic related to `tick occasionally`.
 
 ### HasAgentsUsingPath
+`public bool HasAgentsUsingPath()`
+
+**Purpose:** Checks whether the current object has/contains `agents using path`.
+
+## Usage Example
 
 ```csharp
-public bool HasAgentsUsingPath()
+var value = new AgentPathNavMeshChecker();
+value.Tick(0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

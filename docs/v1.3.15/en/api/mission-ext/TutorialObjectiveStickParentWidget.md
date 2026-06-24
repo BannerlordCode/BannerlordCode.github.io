@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TutorialObjectiveStickParentWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TutorialObjectiveStickParentWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `TutorialObjectiveStickParentWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `TutorialObjectiveStickParentWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,16 +36,14 @@
 ## Key Methods
 
 ### Tick
-```csharp
-public void Tick(float dt)
-```
+`public void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TutorialObjectiveStickParentWidget (Widget)
-// 声明/访问一个 TutorialObjectiveStickParentWidget
-var widget = root.GetChild("tutorialObjectiveStickParentWidget");;
+var widget = new TutorialObjectiveStickParentWidget(context);
 ```
 
 ## See Also

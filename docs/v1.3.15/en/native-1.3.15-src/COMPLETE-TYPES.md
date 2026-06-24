@@ -18,6 +18,10 @@ This file contains type definitions extracted from TaleWorlds.Native.dll - a nat
 
 ---
 
+## Mental Model
+
+Treat `TaleWorlds.Native.dll.h - Complete Type Reference` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Statistics
 
 | Category | Count |
@@ -1074,3 +1078,9 @@ These managed assemblies contain C# classes with virtual methods, and their vfta
 ---
 
 *Generated from TaleWorlds.Native.dll.h (IDA Pro/Ghidra decompiler output)*
+
+## Usage Example
+
+```csharp
+var example = new TaleWorlds.Native.dll.h - Complete Type Reference();
+```

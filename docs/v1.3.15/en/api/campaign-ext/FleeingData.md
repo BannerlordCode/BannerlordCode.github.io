@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `FleeingData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FleeingData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class FleeingData`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `FleeingData` is a class in the `TaleWorlds.CampaignSystem.Party` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FleeingData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
 
+## Mental Model
+
+Treat `FleeingData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,79 +34,72 @@
 | `AiBehaviorPartyBase` | `public PartyBase AiBehaviorPartyBase { get; }` |
 | `AiBehaviorInteractable` | `public IInteractablePoint AiBehaviorInteractable { get; set; }` |
 
-
 ## Key Methods
 
 ### CacheAiBehaviorPartyBase
+`public void CacheAiBehaviorPartyBase()`
 
-```csharp
-public void CacheAiBehaviorPartyBase()
-```
+**Purpose:** Handles logic related to `cache ai behavior party base`.
 
 ### CheckPartyNeedsUpdate
+`public void CheckPartyNeedsUpdate()`
 
-```csharp
-public void CheckPartyNeedsUpdate()
-```
+**Purpose:** Handles logic related to `check party needs update`.
 
 ### CalculateFleePosition
+`public void CalculateFleePosition(out CampaignVec2 fleeTargetPoint, MobileParty partyToFleeFrom, Vec2 averageEnemyVec)`
 
-```csharp
-public void CalculateFleePosition(out CampaignVec2 fleeTargetPoint, MobileParty partyToFleeFrom, Vec2 averageEnemyVec)
-```
+**Purpose:** Handles logic related to `calculate flee position`.
 
 ### GetNearbyPartyDataWhileDefendingSettlement
+`public bool GetNearbyPartyDataWhileDefendingSettlement(Settlement targetSettlement, out bool shouldConsiderJoiningNearbyAllyParties, out bool shouldJoinLandSide, out bool shouldEngage, out MobileParty mostPowerfulLandAlly, out MobileParty mostPowerfulNavalAlly)`
 
-```csharp
-public bool GetNearbyPartyDataWhileDefendingSettlement(Settlement targetSettlement, out bool shouldConsiderJoiningNearbyAllyParties, out bool shouldJoinLandSide, out bool shouldEngage, out MobileParty mostPowerfulLandAlly, out MobileParty mostPowerfulNavalAlly)
-```
+**Purpose:** Gets the current value of `nearby party data while defending settlement`.
 
 ### DisableForHours
+`public void DisableForHours(int hours)`
 
-```csharp
-public void DisableForHours(int hours)
-```
+**Purpose:** Handles logic related to `disable for hours`.
 
 ### DisableAi
+`public void DisableAi()`
 
-```csharp
-public void DisableAi()
-```
+**Purpose:** Handles logic related to `disable ai`.
 
 ### EnableAi
+`public void EnableAi()`
 
-```csharp
-public void EnableAi()
-```
+**Purpose:** Handles logic related to `enable ai`.
 
 ### EnableAgainAtHourIsPast
+`public bool EnableAgainAtHourIsPast()`
 
-```csharp
-public bool EnableAgainAtHourIsPast()
-```
+**Purpose:** Handles logic related to `enable again at hour is past`.
 
 ### SetDoNotAttackMainParty
+`public void SetDoNotAttackMainParty(int hours)`
 
-```csharp
-public void SetDoNotAttackMainParty(int hours)
-```
+**Purpose:** Sets the value or state of `do not attack main party`.
 
 ### SetInitiative
+`public void SetInitiative(float attackInitiative, float avoidInitiative, float hoursUntilReset)`
 
-```csharp
-public void SetInitiative(float attackInitiative, float avoidInitiative, float hoursUntilReset)
-```
+**Purpose:** Sets the value or state of `initiative`.
 
 ### SetDoNotMakeNewDecisions
+`public void SetDoNotMakeNewDecisions(bool doNotMakeNewDecisions)`
 
-```csharp
-public void SetDoNotMakeNewDecisions(bool doNotMakeNewDecisions)
-```
+**Purpose:** Sets the value or state of `do not make new decisions`.
 
 ### Clear
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+## Usage Example
 
 ```csharp
-public void Clear()
+var value = new FleeingData();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBannerItemModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBannerItemModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultBannerItemModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBannerItemModel>(new MyDefaultBannerItemModel())` to change how it computes.
+`DefaultBannerItemModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBannerItemModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPossibleRewardBannerItems
-```csharp
-public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()
-```
+`public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
+
+**Purpose:** Gets the current value of `possible reward banner items`.
 
 ### GetPossibleRewardBannerItemsForHero
-```csharp
-public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)
-```
+`public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `possible reward banner items for hero`.
 
 ### GetBannerItemLevelForHero
-```csharp
-public override int GetBannerItemLevelForHero(Hero hero)
-```
+`public override int GetBannerItemLevelForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `banner item level for hero`.
 
 ### CanBannerBeUpdated
-```csharp
-public override bool CanBannerBeUpdated(ItemObject item)
-```
+`public override bool CanBannerBeUpdated(ItemObject item)`
+
+**Purpose:** Checks whether the current object can `banner be updated`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBannerItemModel (Model)
 Game.Current.ReplaceModel<DefaultBannerItemModel>(new MyDefaultBannerItemModel());
 ```
 

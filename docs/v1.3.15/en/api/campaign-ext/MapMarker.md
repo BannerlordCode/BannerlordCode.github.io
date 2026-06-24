@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapMarker`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapMarker
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MapMarker : ITrackableCampaignObject, ITrackableBase`
+**Base:** `ITrackableCampaignObject`
+**File:** `TaleWorlds.CampaignSystem/Map/MapMarker.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapMarker` is a class in the `TaleWorlds.CampaignSystem.Map` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapMarker` lives in `TaleWorlds.CampaignSystem.Map` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,28 +32,30 @@
 | `QuestId` | `public string QuestId { get; }` |
 | `IsReady` | `public bool IsReady { get; }` |
 
-
 ## Key Methods
 
 ### GetBanner
+`public Banner GetBanner()`
 
-```csharp
-public Banner GetBanner()
-```
+**Purpose:** Gets the current value of `banner`.
 
 ### GetName
+`public TextObject GetName()`
 
-```csharp
-public TextObject GetName()
-```
+**Purpose:** Gets the current value of `name`.
 
 ### GetPosition
+`public Vec3 GetPosition()`
+
+**Purpose:** Gets the current value of `position`.
+
+## Usage Example
 
 ```csharp
-public Vec3 GetPosition()
+var value = new MapMarker();
+value.GetBanner();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `ImpactSoundModifier`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ImpactSoundModifier
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 结构体 struct struct
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public struct ImpactSoundModifier`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ImpactSoundModifier` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`ImpactSoundModifier` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,130 +44,115 @@
 | `IsEmpty` | `public bool IsEmpty { get; }` |
 | `Value` | `public MissionWeapon Value { get; }` |
 
-
 ## 主要方法
 
 ### GetModifiedItemName
+`public TextObject GetModifiedItemName()`
 
-```csharp
-public TextObject GetModifiedItemName()
-```
+**用途 / Purpose:** 获取 `modified item name` 的当前值。
 
 ### IsEqualTo
+`public bool IsEqualTo(MissionWeapon other)`
 
-```csharp
-public bool IsEqualTo(MissionWeapon other)
-```
+**用途 / Purpose:** 处理 `is equal to` 相关逻辑。
 
 ### IsSameType
+`public bool IsSameType(MissionWeapon other)`
 
-```csharp
-public bool IsSameType(MissionWeapon other)
-```
+**用途 / Purpose:** 处理 `is same type` 相关逻辑。
 
 ### GetWeight
+`public float GetWeight()`
 
-```csharp
-public float GetWeight()
-```
+**用途 / Purpose:** 获取 `weight` 的当前值。
 
 ### GetWeaponComponentDataForUsage
+`public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)`
 
-```csharp
-public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)
-```
+**用途 / Purpose:** 获取 `weapon component data for usage` 的当前值。
 
 ### GetGetModifiedArmorForCurrentUsage
+`public int GetGetModifiedArmorForCurrentUsage()`
 
-```csharp
-public int GetGetModifiedArmorForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `get modified armor for current usage` 的当前值。
 
 ### GetModifiedThrustDamageForCurrentUsage
+`public int GetModifiedThrustDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedThrustDamageForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified thrust damage for current usage` 的当前值。
 
 ### GetModifiedSwingDamageForCurrentUsage
+`public int GetModifiedSwingDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedSwingDamageForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified swing damage for current usage` 的当前值。
 
 ### GetModifiedMissileDamageForCurrentUsage
+`public int GetModifiedMissileDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedMissileDamageForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified missile damage for current usage` 的当前值。
 
 ### GetModifiedThrustSpeedForCurrentUsage
+`public int GetModifiedThrustSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedThrustSpeedForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified thrust speed for current usage` 的当前值。
 
 ### GetModifiedSwingSpeedForCurrentUsage
+`public int GetModifiedSwingSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedSwingSpeedForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified swing speed for current usage` 的当前值。
 
 ### GetModifiedMissileSpeedForCurrentUsage
+`public int GetModifiedMissileSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedMissileSpeedForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified missile speed for current usage` 的当前值。
 
 ### GetModifiedMissileSpeedForUsage
+`public int GetModifiedMissileSpeedForUsage(int usageIndex)`
 
-```csharp
-public int GetModifiedMissileSpeedForUsage(int usageIndex)
-```
+**用途 / Purpose:** 获取 `modified missile speed for usage` 的当前值。
 
 ### GetModifiedHandlingForCurrentUsage
+`public int GetModifiedHandlingForCurrentUsage()`
 
-```csharp
-public int GetModifiedHandlingForCurrentUsage()
-```
+**用途 / Purpose:** 获取 `modified handling for current usage` 的当前值。
 
 ### GetWeaponData
+`public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)`
 
-```csharp
-public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)
-```
+**用途 / Purpose:** 获取 `weapon data` 的当前值。
 
 ### GetWeaponStatsData
+`public WeaponStatsData GetWeaponStatsData()`
 
-```csharp
-public WeaponStatsData GetWeaponStatsData()
-```
+**用途 / Purpose:** 获取 `weapon stats data` 的当前值。
 
 ### GetWeaponStatsDataForUsage
+`public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)`
 
-```csharp
-public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)
-```
+**用途 / Purpose:** 获取 `weapon stats data for usage` 的当前值。
 
 ### GetAmmoWeaponData
+`public WeaponData GetAmmoWeaponData(bool needBatchedVersion)`
 
-```csharp
-public WeaponData GetAmmoWeaponData(bool needBatchedVersion)
-```
+**用途 / Purpose:** 获取 `ammo weapon data` 的当前值。
 
 ### GetAmmoWeaponStatsData
+`public WeaponStatsData GetAmmoWeaponStatsData()`
 
-```csharp
-public WeaponStatsData GetAmmoWeaponStatsData()
-```
+**用途 / Purpose:** 获取 `ammo weapon stats data` 的当前值。
 
 ### GetAttachedWeaponsCount
+`public int GetAttachedWeaponsCount()`
+
+**用途 / Purpose:** 获取 `attached weapons count` 的当前值。
+
+## 使用示例
 
 ```csharp
-public int GetAttachedWeaponsCount()
+// 先从游戏状态中拿到一个 ImpactSoundModifier 实例，再调用它的公开方法
+var value = new ImpactSoundModifier();
+value.GetModifiedItemName();
 ```
-
-贡献文档。
 
 ## 参见
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `VillageProductionCalculatorModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VillageProductionCalculatorModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`VillageProductionCalculatorModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<VillageProductionCalculatorModel>(new MyVillageProductionCalculatorModel())` to change how it computes.
+`VillageProductionCalculatorModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `VillageProductionCalculatorModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateProductionSpeedOfItemCategory
-```csharp
-public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)
-```
+`public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
+
+**Purpose:** Handles logic related to `calculate production speed of item category`.
 
 ### CalculateDailyProductionAmount
-```csharp
-public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)
-```
+`public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
+
+**Purpose:** Handles logic related to `calculate daily production amount`.
 
 ### CalculateDailyFoodProductionAmount
-```csharp
-public abstract float CalculateDailyFoodProductionAmount(Village village)
-```
+`public abstract float CalculateDailyFoodProductionAmount(Village village)`
+
+**Purpose:** Handles logic related to `calculate daily food production amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of VillageProductionCalculatorModel (Model)
-Game.Current.ReplaceModel<VillageProductionCalculatorModel>(new MyVillageProductionCalculatorModel());
+var implementation = new CustomVillageProductionCalculatorModel();
 ```
 
 ## See Also

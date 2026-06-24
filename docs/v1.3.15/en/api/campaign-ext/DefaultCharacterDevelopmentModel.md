@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCharacterDevelopmentModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCharacterDevelopmentModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultCharacterDevelopmentModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharacterDevelopmentModel())` to change how it computes.
+`DefaultCharacterDevelopmentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCharacterDevelopmentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,79 +37,78 @@
 ## Key Methods
 
 ### InitializeSkillsRequiredForLevel
-```csharp
-public void InitializeSkillsRequiredForLevel()
-```
+`public void InitializeSkillsRequiredForLevel()`
+
+**Purpose:** Initializes the state, resources, or bindings for `skills required for level`.
 
 ### InitializeXpRequiredForSkillLevel
-```csharp
-public void InitializeXpRequiredForSkillLevel()
-```
+`public void InitializeXpRequiredForSkillLevel()`
+
+**Purpose:** Initializes the state, resources, or bindings for `xp required for skill level`.
 
 ### SkillsRequiredForLevel
-```csharp
-public override int SkillsRequiredForLevel(int level)
-```
+`public override int SkillsRequiredForLevel(int level)`
+
+**Purpose:** Handles logic related to `skills required for level`.
 
 ### GetMaxSkillPoint
-```csharp
-public override int GetMaxSkillPoint()
-```
+`public override int GetMaxSkillPoint()`
+
+**Purpose:** Gets the current value of `max skill point`.
 
 ### GetXpRequiredForSkillLevel
-```csharp
-public override int GetXpRequiredForSkillLevel(int skillLevel)
-```
+`public override int GetXpRequiredForSkillLevel(int skillLevel)`
+
+**Purpose:** Gets the current value of `xp required for skill level`.
 
 ### GetSkillLevelChange
-```csharp
-public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)
-```
+`public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
+
+**Purpose:** Gets the current value of `skill level change`.
 
 ### GetXpAmountForSkillLevelChange
-```csharp
-public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)
-```
+`public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
+
+**Purpose:** Gets the current value of `xp amount for skill level change`.
 
 ### GetTraitLevelForTraitXp
-```csharp
-public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)
-```
+`public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)`
+
+**Purpose:** Gets the current value of `trait level for trait xp`.
 
 ### GetTraitXpRequiredForTraitLevel
-```csharp
-public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)
-```
+`public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
+
+**Purpose:** Gets the current value of `trait xp required for trait level`.
 
 ### CalculateLearningLimit
-```csharp
-public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate learning limit`.
 
 ### CalculateLearningRate
-```csharp
-public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate learning rate`.
 
 ### GetNextSkillToAddFocus
-```csharp
-public override SkillObject GetNextSkillToAddFocus(Hero hero)
-```
+`public override SkillObject GetNextSkillToAddFocus(Hero hero)`
+
+**Purpose:** Gets the current value of `next skill to add focus`.
 
 ### GetNextAttributeToUpgrade
-```csharp
-public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)
-```
+`public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
+
+**Purpose:** Gets the current value of `next attribute to upgrade`.
 
 ### GetNextPerkToChoose
-```csharp
-public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)
-```
+`public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
+
+**Purpose:** Gets the current value of `next perk to choose`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCharacterDevelopmentModel (Model)
 Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharacterDevelopmentModel());
 ```
 

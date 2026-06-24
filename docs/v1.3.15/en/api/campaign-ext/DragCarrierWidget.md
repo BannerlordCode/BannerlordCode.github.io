@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DragCarrierWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DragCarrierWidget
@@ -16,12 +17,14 @@
 
 `DragCarrierWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `DragCarrierWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Usage Example
 
 ```csharp
-// Typical usage of DragCarrierWidget (Widget)
-// 声明/访问一个 DragCarrierWidget
-var widget = root.GetChild("dragCarrierWidget");;
+var widget = new DragCarrierWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `FieldBattleEventComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FieldBattleEventComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`FieldBattleEventComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<FieldBattleEventComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`FieldBattleEventComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `FieldBattleEventComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,20 +30,19 @@
 ## Key Methods
 
 ### CreateFieldBattleEvent
-```csharp
-public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Creates a new `field battle event` instance or object.
 
 ### CreateComponentForOldSaves
-```csharp
-public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)
-```
+`public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
+
+**Purpose:** Creates a new `component for old saves` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of FieldBattleEventComponent (Component)
-agent.GetComponent<FieldBattleEventComponent>();
+var component = agent.GetComponent<FieldBattleEventComponent>();
 ```
 
 ## See Also

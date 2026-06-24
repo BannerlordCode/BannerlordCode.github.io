@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionObjectiveVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionObjectiveVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionObjectiveVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Missions/Objective/MissionObjectiveVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionObjectiveVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionObjectiveVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -35,34 +39,35 @@
 | `ObjectiveGiverIdentifier` | `public CharacterImageIdentifierVM ObjectiveGiverIdentifier { get; set; }` |
 | `Markers` | `public MissionObjectiveMarkersVM Markers { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### UpdateObjective
+`public void UpdateObjective(MissionObjective objective)`
 
-```csharp
-public void UpdateObjective(MissionObjective objective)
-```
+**Purpose:** Updates the state or data of `objective`.
 
 ### Tick
+`public void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
+
+## Usage Example
 
 ```csharp
-public void Tick(float dt)
+var value = new MissionObjectiveVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

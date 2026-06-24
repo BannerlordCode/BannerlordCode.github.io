@@ -2,42 +2,48 @@
 **Home** → **API Index** → **Area** → `MessageContractHandlerManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MessageContractHandlerManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MessageContractHandlerManager`
+**Base:** none
+**File:** `TaleWorlds.Network/MessageContractHandlerManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MessageContractHandlerManager` is a class in the `TaleWorlds.Network` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MessageContractHandlerManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
+## Mental Model
+
+Treat `MessageContractHandlerManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### HandleMessage
+`public void HandleMessage(MessageContract messageContract)`
 
-```csharp
-public void HandleMessage(MessageContract messageContract)
-```
+**Purpose:** Handles the `message` event or callback.
 
 ### HandleNetworkMessage
+`public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-```csharp
-public void HandleNetworkMessage(NetworkMessage networkMessage)
-```
+**Purpose:** Handles the `network message` event or callback.
 
 ### ContainsMessageHandler
+`public bool ContainsMessageHandler(byte id)`
+
+**Purpose:** Handles logic related to `contains message handler`.
+
+## Usage Example
 
 ```csharp
-public bool ContainsMessageHandler(byte id)
+var manager = MessageContractHandlerManager.Current;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

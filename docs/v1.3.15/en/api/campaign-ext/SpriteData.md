@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SpriteData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpriteData
@@ -14,35 +15,47 @@
 
 ## Overview
 
-`SpriteData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`SpriteData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `SpriteData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `SpriteParts` | `public Dictionary<string, SpritePart> SpriteParts { get; }` |
+| `Sprites` | `public Dictionary<string, Sprite> Sprites { get; }` |
+| `SpriteCategories` | `public Dictionary<string, SpriteCategory> SpriteCategories { get; }` |
+| `Name` | `public string Name { get; }` |
 
 ## Key Methods
 
 ### GetSprite
-```csharp
-public Sprite GetSprite(string name)
-```
+`public Sprite GetSprite(string name)`
+
+**Purpose:** Gets the current value of `sprite`.
 
 ### SpriteExists
-```csharp
-public bool SpriteExists(string spriteName)
-```
+`public bool SpriteExists(string spriteName)`
+
+**Purpose:** Handles logic related to `sprite exists`.
 
 ### Load
-```csharp
-public void Load(ResourceDepot resourceDepot)
-```
+`public void Load(ResourceDepot resourceDepot)`
+
+**Purpose:** Loads `load` data.
 
 ### Reload
-```csharp
-public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)
-```
+`public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
+
+**Purpose:** Handles logic related to `reload`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SpriteData (Data)
-new SpriteData { /* fill fields */ };;
+var value = new SpriteData();
 ```
 
 ## See Also

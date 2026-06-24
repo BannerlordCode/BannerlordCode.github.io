@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DummyCommunicator`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DummyCommunicator
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class DummyCommunicator : ICommunicator`
+**Base:** `ICommunicator`
+**File:** `TaleWorlds.Core/DummyCommunicator.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DummyCommunicator` is a class in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DummyCommunicator` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,40 +31,40 @@
 | `IsServerPeer` | `public bool IsServerPeer { get; set; }` |
 | `IsSynchronized` | `public bool IsSynchronized { get; set; }` |
 
-
 ## Key Methods
 
 ### OnSynchronizeComponentTo
+`public void OnSynchronizeComponentTo(VirtualPlayer peer, PeerComponent component)`
 
-```csharp
-public void OnSynchronizeComponentTo(VirtualPlayer peer, PeerComponent component)
-```
+**Purpose:** Called when the `synchronize component to` event is raised.
 
 ### OnAddComponent
+`public void OnAddComponent(PeerComponent component)`
 
-```csharp
-public void OnAddComponent(PeerComponent component)
-```
+**Purpose:** Called when the `add component` event is raised.
 
 ### OnRemoveComponent
+`public void OnRemoveComponent(PeerComponent component)`
 
-```csharp
-public void OnRemoveComponent(PeerComponent component)
-```
+**Purpose:** Called when the `remove component` event is raised.
 
 ### CreateAsServer
+`public static DummyCommunicator CreateAsServer(int index, string name)`
 
-```csharp
-public static DummyCommunicator CreateAsServer(int index, string name)
-```
+**Purpose:** Creates a new `as server` instance or object.
 
 ### CreateAsClient
+`public static DummyCommunicator CreateAsClient(string name, int index)`
+
+**Purpose:** Creates a new `as client` instance or object.
+
+## Usage Example
 
 ```csharp
-public static DummyCommunicator CreateAsClient(string name, int index)
+var value = new DummyCommunicator();
+value.OnSynchronizeComponentTo(peer, component);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

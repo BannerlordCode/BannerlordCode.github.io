@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionAgentDamageFeedWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentDamageFeedWidget
@@ -16,12 +17,14 @@
 
 `MissionAgentDamageFeedWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MissionAgentDamageFeedWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionAgentDamageFeedWidget (Widget)
-// 声明/访问一个 MissionAgentDamageFeedWidget
-var widget = root.GetChild("missionAgentDamageFeedWidget");;
+var widget = new MissionAgentDamageFeedWidget(context);
 ```
 
 ## See Also

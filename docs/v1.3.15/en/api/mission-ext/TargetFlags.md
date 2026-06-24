@@ -2,48 +2,31 @@
 **Home** → **API Index** → **Area** → `TargetFlags`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TargetFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/TargetFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TargetFlags` is a enum in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TargetFlags` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `None` |
-| `0` |
-| `IsMoving` |
-| `1` |
-| `IsFlammable` |
-| `2` |
-| `IsStructure` |
-| `4` |
-| `IsSiegeEngine` |
-| `8` |
-| `IsAttacker` |
-| `16` |
-| `IsSmall` |
-| `32` |
-| `NotAThreat` |
-| `64` |
-| `DebugThreat` |
-| `128` |
-| `IsSiegeTower` |
-| `256` |
-| `IsShip` |
+## Usage Example
+
+```csharp
+var value = new TargetFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

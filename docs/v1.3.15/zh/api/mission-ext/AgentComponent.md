@@ -2,98 +2,128 @@
 **首页** → **API 目录** → **本领域** → `AgentComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentComponent
 
-## 类概述
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class AgentComponent`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/AgentComponent.cs`
 
-| 项目 | 说明 |
-|------|------|
-| **命名空间** | TaleWorlds.MountAndBlade |
-| **文件路径** | TaleWorlds.MountAndBlade/AgentComponent.cs |
-| **类型** | 抽象类 |
+## 概述
 
-## 说明
+`AgentComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
 
-`AgentComponent` 是可扩展的 Agent 行为系统基类。通过继承此类，可以为 Agent 添加自定义行为，如特殊状态、计时器、事件处理等。
+## 心智模型
 
-## 关键属性
+把 `AgentComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-| 属性 | 类型 | 说明 |
-|------|------|------|
-| Agent | Agent | 所属 Agent 实例 |
+## 主要方法
 
-## 关键方法
+### Initialize
+`public virtual void Initialize()`
 
-### 生命周期方法
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| Initialize() | void | 初始化 |
-| OnTick(float dt) | void | 每帧更新 |
-| OnTickParallel(float dt) | void | 并行更新 |
+### OnTick
+`public virtual void OnTick(float dt)`
 
-### 事件方法
+**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| OnItemPickup(SpawnedItemEntity item) | void | 捡起物品时 |
-| OnWeaponDrop(MissionWeapon droppedWeapon) | void | 丢弃武器时 |
-| OnStopUsingGameObject() | void | 停止使用游戏对象时 |
-| OnWeaponHPChanged(ItemObject item, int hitPoints) | void | 武器耐久度改变时 |
-| OnRetreating() | void | 撤退时 |
-| OnMount(Agent mount) | void | 骑乘时 |
-| OnDismount(Agent mount) | void | 下马时 |
-| OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData) | void | 受到伤害时 |
-| OnDisciplineChanged() | void | 纪律改变时 |
-| OnAgentRemoved() | void | Agent 被移除时 |
-| OnAgentTeleported() | void | Agent 传送时 |
-| OnFormationSet() | void | 编队设置时 |
+### OnTickParallel
+`public virtual void OnTickParallel(float dt)`
 
-### 士气相关方法
+**用途 / Purpose:** 当 `tick parallel` 事件触发时调用此方法。
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| GetMoraleAddition() | float | 获取士气增加值 |
-| GetMoraleDecreaseConstant() | float | 获取士气下降常数 |
+### GetMoraleAddition
+`public virtual float GetMoraleAddition()`
+
+**用途 / Purpose:** 获取 `morale addition` 的当前值。
+
+### GetMoraleDecreaseConstant
+`public virtual float GetMoraleDecreaseConstant()`
+
+**用途 / Purpose:** 获取 `morale decrease constant` 的当前值。
+
+### OnItemPickup
+`public virtual void OnItemPickup(SpawnedItemEntity item)`
+
+**用途 / Purpose:** 当 `item pickup` 事件触发时调用此方法。
+
+### OnWeaponDrop
+`public virtual void OnWeaponDrop(MissionWeapon droppedWeapon)`
+
+**用途 / Purpose:** 当 `weapon drop` 事件触发时调用此方法。
+
+### OnStopUsingGameObject
+`public virtual void OnStopUsingGameObject()`
+
+**用途 / Purpose:** 当 `stop using game object` 事件触发时调用此方法。
+
+### OnWeaponHPChanged
+`public virtual void OnWeaponHPChanged(ItemObject item, int hitPoints)`
+
+**用途 / Purpose:** 当 `weapon h p changed` 事件触发时调用此方法。
+
+### OnRetreating
+`public virtual void OnRetreating()`
+
+**用途 / Purpose:** 当 `retreating` 事件触发时调用此方法。
+
+### OnMount
+`public virtual void OnMount(Agent mount)`
+
+**用途 / Purpose:** 当 `mount` 事件触发时调用此方法。
+
+### OnDismount
+`public virtual void OnDismount(Agent mount)`
+
+**用途 / Purpose:** 当 `dismount` 事件触发时调用此方法。
+
+### OnHit
+`public virtual void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
+
+**用途 / Purpose:** 当 `hit` 事件触发时调用此方法。
+
+### OnDisciplineChanged
+`public virtual void OnDisciplineChanged()`
+
+**用途 / Purpose:** 当 `discipline changed` 事件触发时调用此方法。
+
+### OnAgentRemoved
+`public virtual void OnAgentRemoved()`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+
+### OnAgentTeleported
+`public virtual void OnAgentTeleported()`
+
+**用途 / Purpose:** 当 `agent teleported` 事件触发时调用此方法。
+
+### OnAIInputSet
+`public virtual void OnAIInputSet(ref Agent.EventControlFlag eventFlag, ref Agent.MovementControlFlag movementFlag, ref Vec2 inputVector)`
+
+**用途 / Purpose:** 当 `a i input set` 事件触发时调用此方法。
+
+### OnComponentRemoved
+`public virtual void OnComponentRemoved()`
+
+**用途 / Purpose:** 当 `component removed` 事件触发时调用此方法。
+
+### OnFormationSet
+`public virtual void OnFormationSet()`
+
+**用途 / Purpose:** 当 `formation set` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// 创建自定义 Agent 组件
-public class MyAgentComponent : AgentComponent
-{
-    private float _customTimer;
-
-    public MyAgentComponent(Agent agent) : base(agent)
-    {
-        _customTimer = 0f;
-    }
-
-    public override void Initialize()
-    {
-        // 初始化逻辑
-    }
-
-    public override void OnTick(float dt)
-    {
-        _customTimer += dt;
-        if (_customTimer > 5f)
-        {
-            // 每5秒执行一次
-            _customTimer = 0f;
-        }
-    }
-
-    public override void OnHit(Agent affectorAgent, int damage, 
-        in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)
-    {
-        // 受到伤害时的逻辑
-    }
-}
-
-// 将组件附加到 Agent
-Agent agent = // 获取 Agent;
-agent.AddComponent(new MyAgentComponent(agent));
+var implementation = new CustomAgentComponent();
 ```
+
+## 参见
+
+- [完整类目录](../catalog)

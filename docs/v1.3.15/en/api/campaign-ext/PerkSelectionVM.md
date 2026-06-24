@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PerkSelectionVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PerkSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PerkSelectionVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CharacterDeveloper/PerkSelection/PerkSelectionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PerkSelectionVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PerkSelectionVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,46 +28,45 @@
 | `IsActive` | `public bool IsActive { get; set; }` |
 | `AvailablePerks` | `public MBBindingList<PerkSelectionItemVM> AvailablePerks { get; set; }` |
 
-
 ## Key Methods
 
 ### SetCurrentSelectionPerk
+`public void SetCurrentSelectionPerk(PerkVM perk)`
 
-```csharp
-public void SetCurrentSelectionPerk(PerkVM perk)
-```
+**Purpose:** Sets the value or state of `current selection perk`.
 
 ### ResetSelectedPerks
+`public void ResetSelectedPerks()`
 
-```csharp
-public void ResetSelectedPerks()
-```
+**Purpose:** Resets `selected perks` to its initial state.
 
 ### ApplySelectedPerks
+`public void ApplySelectedPerks()`
 
-```csharp
-public void ApplySelectedPerks()
-```
+**Purpose:** Applies `selected perks` to the current object.
 
 ### IsPerkSelected
+`public bool IsPerkSelected(PerkObject perk)`
 
-```csharp
-public bool IsPerkSelected(PerkObject perk)
-```
+**Purpose:** Handles logic related to `is perk selected`.
 
 ### IsAnyPerkSelected
+`public bool IsAnyPerkSelected()`
 
-```csharp
-public bool IsAnyPerkSelected()
-```
+**Purpose:** Handles logic related to `is any perk selected`.
 
 ### ExecuteDeactivate
+`public void ExecuteDeactivate()`
+
+**Purpose:** Executes the `deactivate` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteDeactivate()
+var value = new PerkSelectionVM();
+value.SetCurrentSelectionPerk(perk);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

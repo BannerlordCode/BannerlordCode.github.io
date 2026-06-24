@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Workshop`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Workshop
@@ -13,6 +15,10 @@
 ## Overview
 
 Workshop represents a player-owned or NPC-owned workshop in a settlement. Workshops produce goods based on their type, consume resources, and generate profit. They are an important part of the game's economic system.
+
+## Mental Model
+
+Treat `Workshop` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

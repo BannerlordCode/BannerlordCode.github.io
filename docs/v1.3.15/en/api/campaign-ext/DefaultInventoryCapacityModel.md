@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultInventoryCapacityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultInventoryCapacityModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultInventoryCapacityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryCapacityModel())` to change how it computes.
+`DefaultInventoryCapacityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultInventoryCapacityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetItemAverageWeight
-```csharp
-public override int GetItemAverageWeight()
-```
+`public override int GetItemAverageWeight()`
+
+**Purpose:** Gets the current value of `item average weight`.
 
 ### GetItemEffectiveWeight
-```csharp
-public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)
-```
+`public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
+
+**Purpose:** Gets the current value of `item effective weight`.
 
 ### CalculateInventoryCapacity
-```csharp
-public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)
-```
+`public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
+
+**Purpose:** Handles logic related to `calculate inventory capacity`.
 
 ### CalculateTotalWeightCarried
-```csharp
-public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate total weight carried`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultInventoryCapacityModel (Model)
 Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryCapacityModel());
 ```
 

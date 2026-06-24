@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `ISkillLevelingManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ISkillLevelingManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
-**Type:** interface
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/ISkillLevelingManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ISkillLevelingManager` is a interface in the `TaleWorlds.CampaignSystem.CharacterDevelopment` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ISkillLevelingManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ISkillLevelingManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+ISkillLevelingManager implementation = GetSkillLevelingManagerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

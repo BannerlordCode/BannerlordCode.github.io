@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SelectorWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SelectorWidget
@@ -16,6 +17,10 @@
 
 `SelectorWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `SelectorWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -27,26 +32,24 @@
 ## 主要方法
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget widget)
-```
+`public void OnListChanged(Widget widget)`
+
+**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
 
 ### OnListChanged
-```csharp
-public void OnListChanged(Widget parentWidget, Widget addedWidget)
-```
+`public void OnListChanged(Widget parentWidget, Widget addedWidget)`
+
+**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
 
 ### OnSelectionChanged
-```csharp
-public void OnSelectionChanged(Widget widget)
-```
+`public void OnSelectionChanged(Widget widget)`
+
+**用途 / Purpose:** 当 `selection changed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// SelectorWidget (Widget) 的典型用法
-// 声明/访问一个 SelectorWidget
-var widget = root.GetChild("selectorWidget");;
+var widget = new SelectorWidget(context);
 ```
 
 ## 参见

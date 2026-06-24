@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `BarterVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class BarterVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Barter/BarterVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`BarterVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`BarterVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Barter`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -39,133 +45,132 @@
 | `RightFiefList` | `public MBBindingList<BarterItemVM> RightFiefList { get; set; }` |
 | `LeftPrisonerList` | `public MBBindingList<BarterItemVM> LeftPrisonerList { get; set; }` |
 | `RightPrisonerList` | `public MBBindingList<BarterItemVM> RightPrisonerList { get; set; }` |
-
+| `LeftItemList` | `public MBBindingList<BarterItemVM> LeftItemList { get; set; }` |
+| `RightItemList` | `public MBBindingList<BarterItemVM> RightItemList { get; set; }` |
+| `LeftOtherList` | `public MBBindingList<BarterItemVM> LeftOtherList { get; set; }` |
+| `RightOtherList` | `public MBBindingList<BarterItemVM> RightOtherList { get; set; }` |
+| `LeftDiplomaticList` | `public MBBindingList<BarterItemVM> LeftDiplomaticList { get; set; }` |
+| `RightDiplomaticList` | `public MBBindingList<BarterItemVM> RightDiplomaticList { get; set; }` |
+| `LeftOfferList` | `public MBBindingList<BarterItemVM> LeftOfferList { get; set; }` |
+| `RightOfferList` | `public MBBindingList<BarterItemVM> RightOfferList { get; set; }` |
+| `RightGoldList` | `public MBBindingList<BarterItemVM> RightGoldList { get; set; }` |
+| `LeftGoldList` | `public MBBindingList<BarterItemVM> LeftGoldList { get; set; }` |
+| `InitializationIsOver` | `public bool InitializationIsOver { get; set; }` |
+| `ResultBarOtherPercentage` | `public int ResultBarOtherPercentage { get; set; }` |
+| `ResultBarOffererPercentage` | `public int ResultBarOffererPercentage { get; set; }` |
+| `ResetInputKey` | `public InputKeyItemVM ResetInputKey { get; set; }` |
+| `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
+| `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
 
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### OnInitialized
+`public void OnInitialized()`
 
-```csharp
-public void OnInitialized()
-```
+**用途 / Purpose:** 当 `initialized` 事件触发时调用此方法。
 
 ### ExecuteTransferAllLeftFief
+`public void ExecuteTransferAllLeftFief()`
 
-```csharp
-public void ExecuteTransferAllLeftFief()
-```
+**用途 / Purpose:** 执行 `transfer all left fief` 操作或流程。
 
 ### ExecuteAutoBalance
+`public void ExecuteAutoBalance()`
 
-```csharp
-public void ExecuteAutoBalance()
-```
+**用途 / Purpose:** 执行 `auto balance` 操作或流程。
 
 ### ExecuteTransferAllLeftItem
+`public void ExecuteTransferAllLeftItem()`
 
-```csharp
-public void ExecuteTransferAllLeftItem()
-```
+**用途 / Purpose:** 执行 `transfer all left item` 操作或流程。
 
 ### ExecuteTransferAllLeftPrisoner
+`public void ExecuteTransferAllLeftPrisoner()`
 
-```csharp
-public void ExecuteTransferAllLeftPrisoner()
-```
+**用途 / Purpose:** 执行 `transfer all left prisoner` 操作或流程。
 
 ### ExecuteTransferAllLeftOther
+`public void ExecuteTransferAllLeftOther()`
 
-```csharp
-public void ExecuteTransferAllLeftOther()
-```
+**用途 / Purpose:** 执行 `transfer all left other` 操作或流程。
 
 ### ExecuteTransferAllRightFief
+`public void ExecuteTransferAllRightFief()`
 
-```csharp
-public void ExecuteTransferAllRightFief()
-```
+**用途 / Purpose:** 执行 `transfer all right fief` 操作或流程。
 
 ### ExecuteTransferAllRightItem
+`public void ExecuteTransferAllRightItem()`
 
-```csharp
-public void ExecuteTransferAllRightItem()
-```
+**用途 / Purpose:** 执行 `transfer all right item` 操作或流程。
 
 ### ExecuteTransferAllRightPrisoner
+`public void ExecuteTransferAllRightPrisoner()`
 
-```csharp
-public void ExecuteTransferAllRightPrisoner()
-```
+**用途 / Purpose:** 执行 `transfer all right prisoner` 操作或流程。
 
 ### ExecuteTransferAllRightOther
+`public void ExecuteTransferAllRightOther()`
 
-```csharp
-public void ExecuteTransferAllRightOther()
-```
+**用途 / Purpose:** 执行 `transfer all right other` 操作或流程。
 
 ### ExecuteOffer
+`public void ExecuteOffer()`
 
-```csharp
-public void ExecuteOffer()
-```
+**用途 / Purpose:** 执行 `offer` 操作或流程。
 
 ### ExecuteCancel
+`public void ExecuteCancel()`
 
-```csharp
-public void ExecuteCancel()
-```
+**用途 / Purpose:** 执行 `cancel` 操作或流程。
 
 ### ExecuteReset
+`public void ExecuteReset()`
 
-```csharp
-public void ExecuteReset()
-```
+**用途 / Purpose:** 执行 `reset` 操作或流程。
 
 ### OnTransferItem
+`public void OnTransferItem(Barterable barter, bool isTransferrable)`
 
-```csharp
-public void OnTransferItem(Barterable barter, bool isTransferrable)
-```
+**用途 / Purpose:** 当 `transfer item` 事件触发时调用此方法。
 
 ### SetResetInputKey
+`public void SetResetInputKey(HotKey hotkey)`
 
-```csharp
-public void SetResetInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `reset input key` 的值或状态。
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotkey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `done input key` 的值或状态。
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
 
 ### InitializeStaticContent
+`public void InitializeStaticContent()`
+
+**用途 / Purpose:** 初始化 `static content` 的状态、资源或绑定。
+
+## 使用示例
 
 ```csharp
-public void InitializeStaticContent()
+var value = new BarterVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

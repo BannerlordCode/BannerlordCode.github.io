@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `OrderOfBattleFormationFilterVisualBrushWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OrderOfBattleFormationFilterVisualBrushWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `OrderOfBattleFormationFilterVisualBrushWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `OrderOfBattleFormationFilterVisualBrushWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,9 +37,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of OrderOfBattleFormationFilterVisualBrushWidget (Widget)
-// 声明/访问一个 OrderOfBattleFormationFilterVisualBrushWidget
-var widget = root.GetChild("orderOfBattleFormationFilterVisualBrushWidget");;
+var widget = new OrderOfBattleFormationFilterVisualBrushWidget(context);
 ```
 
 ## See Also

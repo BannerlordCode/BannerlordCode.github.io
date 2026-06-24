@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AgentApplyDamageModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AgentApplyDamageModel
@@ -14,165 +15,188 @@
 
 ## Overview
 
-`AgentApplyDamageModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<AgentApplyDamageModel>(new MyAgentApplyDamageModel())` to change how it computes.
+`AgentApplyDamageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `AgentApplyDamageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateDamage
-```csharp
-public float CalculateDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)
-```
+`public float CalculateDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Handles logic related to `calculate damage`.
 
 ### IsDamageIgnored
-```csharp
-public abstract bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)
-```
+`public abstract bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)`
+
+**Purpose:** Handles logic related to `is damage ignored`.
 
 ### ApplyDamageAmplifications
-```csharp
-public abstract float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)
-```
+`public abstract float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Applies `damage amplifications` to the current object.
 
 ### ApplyDamageScaling
-```csharp
-public abstract float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)
-```
+`public abstract float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Applies `damage scaling` to the current object.
 
 ### ApplyDamageReductions
-```csharp
-public abstract float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)
-```
+`public abstract float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Applies `damage reductions` to the current object.
 
 ### ApplyGeneralDamageModifiers
-```csharp
-public abstract float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)
-```
+`public abstract float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Applies `general damage modifiers` to the current object.
 
 ### DecideMissileWeaponFlags
-```csharp
-public abstract void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)
-```
+`public abstract void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)`
+
+**Purpose:** Handles logic related to `decide missile weapon flags`.
 
 ### CalculateDefendedBlowStunMultipliers
-```csharp
-public abstract void CalculateDefendedBlowStunMultipliers(Agent attackerAgent, Agent defenderAgent, CombatCollisionResult collisionResult, WeaponComponentData attackerWeapon, WeaponComponentData defenderWeapon, ref float attackerStunPeriod, ref float defenderStunPeriod)
-```
+`public abstract void CalculateDefendedBlowStunMultipliers(Agent attackerAgent, Agent defenderAgent, CombatCollisionResult collisionResult, WeaponComponentData attackerWeapon, WeaponComponentData defenderWeapon, ref float attackerStunPeriod, ref float defenderStunPeriod)`
+
+**Purpose:** Handles logic related to `calculate defended blow stun multipliers`.
 
 ### CalculateStaggerThresholdDamage
-```csharp
-public abstract float CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow)
-```
+`public abstract float CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow)`
+
+**Purpose:** Handles logic related to `calculate stagger threshold damage`.
 
 ### CalculateAlternativeAttackDamage
-```csharp
-public abstract float CalculateAlternativeAttackDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, WeaponComponentData weapon)
-```
+`public abstract float CalculateAlternativeAttackDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, WeaponComponentData weapon)`
+
+**Purpose:** Handles logic related to `calculate alternative attack damage`.
 
 ### CalculatePassiveAttackDamage
-```csharp
-public abstract float CalculatePassiveAttackDamage(BasicCharacterObject attackerCharacter, in AttackCollisionData collisionData, float baseDamage)
-```
+`public abstract float CalculatePassiveAttackDamage(BasicCharacterObject attackerCharacter, in AttackCollisionData collisionData, float baseDamage)`
+
+**Purpose:** Handles logic related to `calculate passive attack damage`.
 
 ### DecidePassiveAttackCollisionReaction
-```csharp
-public abstract MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)
-```
+`public abstract MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)`
+
+**Purpose:** Handles logic related to `decide passive attack collision reaction`.
 
 ### DecideWeaponCollisionReaction
-```csharp
-public abstract void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)
-```
+`public abstract void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
+
+**Purpose:** Handles logic related to `decide weapon collision reaction`.
 
 ### CalculateShieldDamage
-```csharp
-public abstract float CalculateShieldDamage(in AttackInformation attackInformation, float baseDamage)
-```
+`public abstract float CalculateShieldDamage(in AttackInformation attackInformation, float baseDamage)`
+
+**Purpose:** Handles logic related to `calculate shield damage`.
 
 ### CalculateSailFireDamage
-```csharp
-public abstract float CalculateSailFireDamage(Agent attackerAgent, IShipOrigin shipOrigin, float baseDamage, bool damageFromShipMachine)
-```
+`public abstract float CalculateSailFireDamage(Agent attackerAgent, IShipOrigin shipOrigin, float baseDamage, bool damageFromShipMachine)`
+
+**Purpose:** Handles logic related to `calculate sail fire damage`.
 
 ### CalculateHullFireDamage
-```csharp
-public abstract float CalculateHullFireDamage(float baseFireDamage, IShipOrigin shipOrigin)
-```
+`public abstract float CalculateHullFireDamage(float baseFireDamage, IShipOrigin shipOrigin)`
+
+**Purpose:** Handles logic related to `calculate hull fire damage`.
 
 ### GetDamageMultiplierForBodyPart
-```csharp
-public abstract float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)
-```
+`public abstract float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)`
+
+**Purpose:** Gets the current value of `damage multiplier for body part`.
 
 ### CanWeaponIgnoreFriendlyFireChecks
-```csharp
-public abstract bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)
-```
+`public abstract bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)`
+
+**Purpose:** Checks whether the current object can `weapon ignore friendly fire checks`.
 
 ### CanWeaponDealSneakAttack
-```csharp
-public abstract bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)
-```
+`public abstract bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)`
+
+**Purpose:** Checks whether the current object can `weapon deal sneak attack`.
 
 ### CanWeaponDismount
-```csharp
-public abstract bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)
-```
+`public abstract bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Checks whether the current object can `weapon dismount`.
 
 ### CanWeaponKnockback
-```csharp
-public abstract bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)
-```
+`public abstract bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Checks whether the current object can `weapon knockback`.
 
 ### CanWeaponKnockDown
-```csharp
-public abstract bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)
-```
+`public abstract bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Checks whether the current object can `weapon knock down`.
 
 ### DecideCrushedThrough
-```csharp
-public abstract bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsageHit)
-```
+`public abstract bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsageHit)`
+
+**Purpose:** Handles logic related to `decide crushed through`.
 
 ### CalculateRemainingMomentum
-```csharp
-public abstract float CalculateRemainingMomentum(float originalMomentum, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)
-```
+`public abstract float CalculateRemainingMomentum(float originalMomentum, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)`
+
+**Purpose:** Handles logic related to `calculate remaining momentum`.
 
 ### DecideAgentShrugOffBlow
-```csharp
-public abstract bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)
-```
+`public abstract bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
+
+**Purpose:** Handles logic related to `decide agent shrug off blow`.
 
 ### DecideAgentDismountedByBlow
-```csharp
-public abstract bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)
-```
+`public abstract bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
+
+**Purpose:** Handles logic related to `decide agent dismounted by blow`.
 
 ### DecideAgentKnockedBackByBlow
-```csharp
-public abstract bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)
-```
+`public abstract bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
+
+**Purpose:** Handles logic related to `decide agent knocked back by blow`.
 
 ### DecideAgentKnockedDownByBlow
-```csharp
-public abstract bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)
-```
+`public abstract bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
+
+**Purpose:** Handles logic related to `decide agent knocked down by blow`.
 
 ### DecideMountRearedByBlow
-```csharp
-public abstract bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)
-```
+`public abstract bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
+
+**Purpose:** Handles logic related to `decide mount reared by blow`.
 
 ### ShouldMissilePassThroughAfterShieldBreak
-```csharp
-public abstract bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)
-```
+`public abstract bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)`
+
+**Purpose:** Handles logic related to `should missile pass through after shield break`.
+
+### GetDismountPenetration
+`public abstract float GetDismountPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Gets the current value of `dismount penetration`.
+
+### GetKnockBackPenetration
+`public abstract float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Gets the current value of `knock back penetration`.
+
+### GetKnockDownPenetration
+`public abstract float GetKnockDownPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
+
+**Purpose:** Gets the current value of `knock down penetration`.
+
+### GetHorseChargePenetration
+`public abstract float GetHorseChargePenetration()`
+
+**Purpose:** Gets the current value of `horse charge penetration`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AgentApplyDamageModel (Model)
-Game.Current.ReplaceModel<AgentApplyDamageModel>(new MyAgentApplyDamageModel());
+var implementation = new CustomAgentApplyDamageModel();
 ```
 
 ## See Also

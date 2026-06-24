@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LanguageData`
+**Home** → **API Index** → **Area** → `LanguageData / LanguageData`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LanguageData / LanguageData
+
+## Mental Model
+
+Treat `LanguageData` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.Localization
 **File**: `bannerlord-1.3.15/TaleWorlds.Localization/LanguageData.cs`
@@ -89,3 +95,9 @@ SupportedIsoCodes = new string[] { "de", "de-DE", "de-AT", "de-CH" };
 - 使用 `LocalizedTextManager.GetLanguageIds()` 获取可用语言列表
 - Text processor class name must be a fully qualified name loadable by `Type.GetType()`
 - 文本处理器类名必须是可以用 `Type.GetType()` 加载的完全限定名
+
+## Usage Example
+
+```csharp
+var example = new LanguageData();
+```

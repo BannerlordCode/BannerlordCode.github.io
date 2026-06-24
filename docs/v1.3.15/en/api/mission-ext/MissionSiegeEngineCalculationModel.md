@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionSiegeEngineCalculationModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionSiegeEngineCalculationModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`MissionSiegeEngineCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<MissionSiegeEngineCalculationModel>(new MyMissionSiegeEngineCalculationModel())` to change how it computes.
+`MissionSiegeEngineCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `MissionSiegeEngineCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateReloadSpeed
-```csharp
-public abstract float CalculateReloadSpeed(Agent userAgent, float baseSpeed)
-```
+`public abstract float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
+
+**Purpose:** Handles logic related to `calculate reload speed`.
 
 ### CalculateShipSiegeWeaponAmmoCount
-```csharp
-public abstract int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)
-```
+`public abstract int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
+
+**Purpose:** Handles logic related to `calculate ship siege weapon ammo count`.
 
 ### CalculateDamage
-```csharp
-public abstract int CalculateDamage(Agent attackerAgent, float baseDamage)
-```
+`public abstract int CalculateDamage(Agent attackerAgent, float baseDamage)`
+
+**Purpose:** Handles logic related to `calculate damage`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionSiegeEngineCalculationModel (Model)
-Game.Current.ReplaceModel<MissionSiegeEngineCalculationModel>(new MyMissionSiegeEngineCalculationModel());
+var implementation = new CustomMissionSiegeEngineCalculationModel();
 ```
 
 ## See Also

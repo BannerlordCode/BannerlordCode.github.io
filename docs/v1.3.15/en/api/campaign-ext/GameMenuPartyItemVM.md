@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameMenuPartyItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuPartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GameMenuPartyItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/GameMenuPartyItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameMenuPartyItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameMenuPartyItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,83 +45,81 @@
 | `EncyclopediaCursorEffect` | `public string EncyclopediaCursorEffect { get; set; }` |
 | `Visual` | `public CharacterImageIdentifierVM Visual { get; set; }` |
 | `Banner_9` | `public BannerImageIdentifierVM Banner_9 { get; set; }` |
-
+| `PartySize` | `public int PartySize { get; set; }` |
+| `PartyWoundedSize` | `public int PartyWoundedSize { get; set; }` |
+| `ShipCount` | `public int ShipCount { get; set; }` |
+| `PartySizeLbl` | `public string PartySizeLbl { get; set; }` |
+| `IsLeader` | `public bool IsLeader { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteSetAsContextMenuItem
+`public void ExecuteSetAsContextMenuItem()`
 
-```csharp
-public void ExecuteSetAsContextMenuItem()
-```
+**Purpose:** Executes the `set as context menu item` operation or workflow.
 
 ### ExecuteOpenEncyclopedia
+`public void ExecuteOpenEncyclopedia()`
 
-```csharp
-public void ExecuteOpenEncyclopedia()
-```
+**Purpose:** Executes the `open encyclopedia` operation or workflow.
 
 ### ExecuteCloseTooltip
+`public void ExecuteCloseTooltip()`
 
-```csharp
-public void ExecuteCloseTooltip()
-```
+**Purpose:** Executes the `close tooltip` operation or workflow.
 
 ### ExecuteOpenTooltip
+`public void ExecuteOpenTooltip()`
 
-```csharp
-public void ExecuteOpenTooltip()
-```
+**Purpose:** Executes the `open tooltip` operation or workflow.
 
 ### RefreshProperties
+`public void RefreshProperties()`
 
-```csharp
-public void RefreshProperties()
-```
+**Purpose:** Refreshes the display or cache of `properties`.
 
 ### RefreshQuestStatus
+`public void RefreshQuestStatus()`
 
-```csharp
-public void RefreshQuestStatus()
-```
+**Purpose:** Refreshes the display or cache of `quest status`.
 
 ### RefreshVisual
+`public void RefreshVisual()`
 
-```csharp
-public void RefreshVisual()
-```
+**Purpose:** Refreshes the display or cache of `visual`.
 
 ### RefreshCounts
+`public void RefreshCounts()`
 
-```csharp
-public void RefreshCounts()
-```
+**Purpose:** Refreshes the display or cache of `counts`.
 
 ### GetPartyDescriptionTextFromValues
+`public string GetPartyDescriptionTextFromValues()`
 
-```csharp
-public string GetPartyDescriptionTextFromValues()
-```
+**Purpose:** Gets the current value of `party description text from values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Compare
+`public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(QuestMarkerVM x, QuestMarkerVM y)
+var value = new GameMenuPartyItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

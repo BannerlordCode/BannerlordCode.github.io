@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `BindingPath`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BindingPath
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class BindingPath`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `BindingPath` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BindingPath` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,67 +31,63 @@
 | `SubPath` | `public BindingPath SubPath { get; }` |
 | `ParentPath` | `public BindingPath ParentPath { get; }` |
 
-
 ## Key Methods
 
 ### CreateFromProperty
+`public static BindingPath CreateFromProperty(string propertyName)`
 
-```csharp
-public static BindingPath CreateFromProperty(string propertyName)
-```
+**Purpose:** Creates a new `from property` instance or object.
 
 ### GetHashCode
+`public override int GetHashCode()`
 
-```csharp
-public override int GetHashCode()
-```
+**Purpose:** Gets the current value of `hash code`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### IsRelatedWithPathAsString
+`public static bool IsRelatedWithPathAsString(string path, string referencePath)`
 
-```csharp
-public static bool IsRelatedWithPathAsString(string path, string referencePath)
-```
+**Purpose:** Handles logic related to `is related with path as string`.
 
 ### IsRelatedWithPath
+`public static bool IsRelatedWithPath(string path, BindingPath referencePath)`
 
-```csharp
-public static bool IsRelatedWithPath(string path, BindingPath referencePath)
-```
+**Purpose:** Handles logic related to `is related with path`.
 
 ### IsRelatedWith
+`public bool IsRelatedWith(BindingPath referencePath)`
 
-```csharp
-public bool IsRelatedWith(BindingPath referencePath)
-```
+**Purpose:** Handles logic related to `is related with`.
 
 ### DecrementIfRelatedWith
+`public void DecrementIfRelatedWith(BindingPath path, int startIndex)`
 
-```csharp
-public void DecrementIfRelatedWith(BindingPath path, int startIndex)
-```
+**Purpose:** Handles logic related to `decrement if related with`.
 
 ### Simplify
+`public BindingPath Simplify()`
 
-```csharp
-public BindingPath Simplify()
-```
+**Purpose:** Handles logic related to `simplify`.
 
 ### Append
+`public BindingPath Append(BindingPath bindingPath)`
 
-```csharp
-public BindingPath Append(BindingPath bindingPath)
-```
+**Purpose:** Handles logic related to `append`.
 
 ### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+## Usage Example
 
 ```csharp
-public override string ToString()
+// Prepare the required context, then call the static entry point directly
+BindingPath.CreateFromProperty("example");
 ```
 
 ## See Also

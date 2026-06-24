@@ -5,6 +5,10 @@ description: Bannerlord SDK architecture hub — module map, loading flow, save 
 
 # Architecture
 
+## Mental Model
+
+Treat `Architecture` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Start here to understand the overall structure and key subsystems of the Bannerlord SDK.
 
 ---

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `RetirementSettlementComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RetirementSettlementComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`RetirementSettlementComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<RetirementSettlementComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`RetirementSettlementComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `RetirementSettlementComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,15 +31,14 @@
 ## Key Methods
 
 ### Deserialize
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of RetirementSettlementComponent (Component)
-agent.GetComponent<RetirementSettlementComponent>();
+var component = agent.GetComponent<RetirementSettlementComponent>();
 ```
 
 ## See Also

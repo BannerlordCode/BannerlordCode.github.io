@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Town`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/Town](/versions/Town)
 <!-- END BREADCRUMB -->
@@ -17,6 +19,10 @@
 ## Overview
 
 `Town` covers both towns (`IsTown`) and castles (`IsCastle`). Get an instance via `Settlement.Town`, or enumerate all with the static `AllTowns` / `AllCastles` / `AllFiefs`. Prosperity, loyalty, security, etc. have daily deltas computed by campaign models (`SettlementProsperityModel`, etc.) and applied by the engine in `DailyTick`. Direct assignment triggers built-in clamping: prosperity ≥ 0; loyalty/security clamped to 0–100. Gold (`Gold`) is read-only and must be changed via `ChangeGold`.
+
+## Mental Model
+
+Treat `Town` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Constants
 
@@ -288,3 +294,9 @@ foreach (Town t in Town.AllTowns)
 - [Workshop](./Workshop.md)
 - [Campaign](./Campaign.md)
 - [PartyTemplate](./PartyTemplate.md)
+
+## Usage Example
+
+```csharp
+var example = new Town();
+```

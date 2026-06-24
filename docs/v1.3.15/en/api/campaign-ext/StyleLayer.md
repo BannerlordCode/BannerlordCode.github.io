@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `StyleLayer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StyleLayer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class StyleLayer : IBrushLayerData, IDataSource`
+**Base:** `IBrushLayerData`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `StyleLayer` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StyleLayer` lives in `TaleWorlds.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,43 +46,43 @@
 | `ExtendLeft` | `public float ExtendLeft { get; set; }` |
 | `ExtendRight` | `public float ExtendRight { get; set; }` |
 
-
 ## Key Methods
 
 ### CreateFrom
+`public static StyleLayer CreateFrom(StyleLayer source)`
 
-```csharp
-public static StyleLayer CreateFrom(StyleLayer source)
-```
+**Purpose:** Creates a new `from` instance or object.
 
 ### FillFrom
+`public void FillFrom(StyleLayer source)`
 
-```csharp
-public void FillFrom(StyleLayer source)
-```
+**Purpose:** Handles logic related to `fill from`.
 
 ### GetValueAsFloat
+`public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as float`.
 
 ### GetValueAsColor
+`public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as color`.
 
 ### GetValueAsSprite
+`public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as sprite`.
 
 ### GetIsValueChanged
+`public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
+
+**Purpose:** Gets the current value of `is value changed`.
+
+## Usage Example
 
 ```csharp
-public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
+// Prepare the required context, then call the static entry point directly
+StyleLayer.CreateFrom(source);
 ```
 
 ## See Also

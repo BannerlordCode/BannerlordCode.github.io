@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SceneModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SceneModel
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`SceneModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SceneModel>(new MySceneModel())` to change how it computes.
+`SceneModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SceneModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetConversationSceneForMapPosition
-```csharp
-public abstract string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)
-```
+`public abstract string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
+
+**Purpose:** Gets the current value of `conversation scene for map position`.
 
 ### GetBattleSceneForMapPatch
-```csharp
-public abstract string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)
-```
+`public abstract string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
+
+**Purpose:** Gets the current value of `battle scene for map patch`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SceneModel (Model)
-Game.Current.ReplaceModel<SceneModel>(new MySceneModel());
+var implementation = new CustomSceneModel();
 ```
 
 ## See Also

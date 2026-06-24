@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyScreenLogic`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyScreenLogic
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyScreenLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new PartyScreenLogic())`; subclass it to customize.
+`PartyScreenLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `PartyScreenLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -60,159 +65,228 @@
 ## Key Methods
 
 ### Initialize
-```csharp
-public void Initialize(PartyScreenLogicInitializationData initializationData)
-```
+`public void Initialize(PartyScreenLogicInitializationData initializationData)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### AddCommand
-```csharp
-public void AddCommand(PartyScreenLogic.PartyCommand command)
-```
+`public void AddCommand(PartyScreenLogic.PartyCommand command)`
+
+**Purpose:** Adds `command` to the current collection or state.
 
 ### ValidateCommand
-```csharp
-public bool ValidateCommand(PartyScreenLogic.PartyCommand command)
-```
+`public bool ValidateCommand(PartyScreenLogic.PartyCommand command)`
+
+**Purpose:** Handles logic related to `validate command`.
 
 ### GetIndexToInsertTroop
-```csharp
-public int GetIndexToInsertTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, TroopRosterElement troop)
-```
+`public int GetIndexToInsertTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, TroopRosterElement troop)`
+
+**Purpose:** Gets the current value of `index to insert troop`.
 
 ### GetActiveSortTypeForSide
-```csharp
-public PartyScreenLogic.TroopSortType GetActiveSortTypeForSide(PartyScreenLogic.PartyRosterSide side)
-```
+`public PartyScreenLogic.TroopSortType GetActiveSortTypeForSide(PartyScreenLogic.PartyRosterSide side)`
+
+**Purpose:** Gets the current value of `active sort type for side`.
 
 ### GetIsAscendingSortForSide
-```csharp
-public bool GetIsAscendingSortForSide(PartyScreenLogic.PartyRosterSide side)
-```
+`public bool GetIsAscendingSortForSide(PartyScreenLogic.PartyRosterSide side)`
+
+**Purpose:** Gets the current value of `is ascending sort for side`.
 
 ### IsDoneActive
-```csharp
-public bool IsDoneActive()
-```
+`public bool IsDoneActive()`
+
+**Purpose:** Handles logic related to `is done active`.
 
 ### IsCancelActive
-```csharp
-public bool IsCancelActive()
-```
+`public bool IsCancelActive()`
+
+**Purpose:** Handles logic related to `is cancel active`.
 
 ### DoneLogic
-```csharp
-public bool DoneLogic(bool isForced)
-```
+`public bool DoneLogic(bool isForced)`
+
+**Purpose:** Handles logic related to `done logic`.
 
 ### OnPartyScreenClosed
-```csharp
-public void OnPartyScreenClosed(bool fromCancel)
-```
+`public void OnPartyScreenClosed(bool fromCancel)`
+
+**Purpose:** Called when the `party screen closed` event is raised.
 
 ### IsTroopTransferable
-```csharp
-public bool IsTroopTransferable(PartyScreenLogic.TroopType troopType, CharacterObject character, int side)
-```
+`public bool IsTroopTransferable(PartyScreenLogic.TroopType troopType, CharacterObject character, int side)`
+
+**Purpose:** Handles logic related to `is troop transferable`.
 
 ### IsTroopRosterTransferable
-```csharp
-public bool IsTroopRosterTransferable(PartyScreenLogic.TroopType troopType)
-```
+`public bool IsTroopRosterTransferable(PartyScreenLogic.TroopType troopType)`
+
+**Purpose:** Handles logic related to `is troop roster transferable`.
 
 ### IsPrisonerRecruitable
-```csharp
-public bool IsPrisonerRecruitable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)
-```
+`public bool IsPrisonerRecruitable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)`
+
+**Purpose:** Handles logic related to `is prisoner recruitable`.
 
 ### GetRecruitableReasonString
-```csharp
-public string GetRecruitableReasonString(CharacterObject character, bool isRecruitable, int troopCount, out bool showStackModifierText)
-```
+`public string GetRecruitableReasonString(CharacterObject character, bool isRecruitable, int troopCount, out bool showStackModifierText)`
+
+**Purpose:** Gets the current value of `recruitable reason string`.
 
 ### IsExecutable
-```csharp
-public bool IsExecutable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)
-```
+`public bool IsExecutable(PartyScreenLogic.TroopType troopType, CharacterObject character, PartyScreenLogic.PartyRosterSide side)`
+
+**Purpose:** Handles logic related to `is executable`.
 
 ### GetExecutableReasonString
-```csharp
-public string GetExecutableReasonString(CharacterObject character, bool isExecutable)
-```
+`public string GetExecutableReasonString(CharacterObject character, bool isExecutable)`
+
+**Purpose:** Gets the current value of `executable reason string`.
 
 ### GetCurrentQuestCurrentCount
-```csharp
-public int GetCurrentQuestCurrentCount(bool includePrisoners, bool includeMembers)
-```
+`public int GetCurrentQuestCurrentCount(bool includePrisoners, bool includeMembers)`
+
+**Purpose:** Gets the current value of `current quest current count`.
 
 ### GetCurrentQuestRequiredCount
-```csharp
-public int GetCurrentQuestRequiredCount()
-```
+`public int GetCurrentQuestRequiredCount()`
+
+**Purpose:** Gets the current value of `current quest required count`.
 
 ### Reset
-```csharp
-public void Reset(bool fromCancel)
-```
+`public void Reset(bool fromCancel)`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ### SavePartyScreenData
-```csharp
-public void SavePartyScreenData()
-```
+`public void SavePartyScreenData()`
+
+**Purpose:** Saves `party screen data` data.
 
 ### ResetToLastSavedPartyScreenData
-```csharp
-public void ResetToLastSavedPartyScreenData(bool fromCancel)
-```
+`public void ResetToLastSavedPartyScreenData(bool fromCancel)`
+
+**Purpose:** Resets `to last saved party screen data` to its initial state.
 
 ### RemoveZeroCounts
-```csharp
-public void RemoveZeroCounts()
-```
+`public void RemoveZeroCounts()`
+
+**Purpose:** Removes `zero counts` from the current collection or state.
 
 ### GetTroopRecruitableAmount
-```csharp
-public int GetTroopRecruitableAmount(CharacterObject troop)
-```
+`public int GetTroopRecruitableAmount(CharacterObject troop)`
+
+**Purpose:** Gets the current value of `troop recruitable amount`.
 
 ### GetRoster
-```csharp
-public TroopRoster GetRoster(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType troopType)
-```
+`public TroopRoster GetRoster(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType troopType)`
+
+**Purpose:** Gets the current value of `roster`.
 
 ### IsThereAnyChanges
-```csharp
-public bool IsThereAnyChanges()
-```
+`public bool IsThereAnyChanges()`
+
+**Purpose:** Handles logic related to `is there any changes`.
 
 ### HaveRightSideGainedTroops
-```csharp
-public bool HaveRightSideGainedTroops()
-```
+`public bool HaveRightSideGainedTroops()`
+
+**Purpose:** Handles logic related to `have right side gained troops`.
 
 ### GetComparer
-```csharp
-public PartyScreenLogic.TroopComparer GetComparer(PartyScreenLogic.TroopSortType sortType)
-```
+`public PartyScreenLogic.TroopComparer GetComparer(PartyScreenLogic.TroopSortType sortType)`
+
+**Purpose:** Gets the current value of `comparer`.
 
 ### PresentationUpdate
-```csharp
-public delegate void PresentationUpdate(PartyScreenLogic.PartyCommand command)
-```
+`public delegate void PresentationUpdate(PartyScreenLogic.PartyCommand command)`
+
+**Purpose:** Handles logic related to `presentation update`.
 
 ### PartyGoldDelegate
-```csharp
-public delegate void PartyGoldDelegate()
-```
+`public delegate void PartyGoldDelegate()`
+
+**Purpose:** Handles logic related to `party gold delegate`.
 
 ### PartyMoraleDelegate
-```csharp
-public delegate void PartyMoraleDelegate()
-```
+`public delegate void PartyMoraleDelegate()`
+
+**Purpose:** Handles logic related to `party morale delegate`.
+
+### PartyInfluenceDelegate
+`public delegate void PartyInfluenceDelegate()`
+
+**Purpose:** Handles logic related to `party influence delegate`.
+
+### PartyHorseDelegate
+`public delegate void PartyHorseDelegate()`
+
+**Purpose:** Handles logic related to `party horse delegate`.
+
+### AfterResetDelegate
+`public delegate void AfterResetDelegate(PartyScreenLogic partyScreenLogic, bool fromCancel)`
+
+**Purpose:** Handles logic related to `after reset delegate`.
+
+### FillForTransferTroop
+`public void FillForTransferTroop(PartyScreenLogic.PartyRosterSide fromSide, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
+
+**Purpose:** Handles logic related to `fill for transfer troop`.
+
+### FillForShiftTroop
+`public void FillForShiftTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int targetIndex)`
+
+**Purpose:** Handles logic related to `fill for shift troop`.
+
+### FillForTransferTroopToLeaderSlot
+`public void FillForTransferTroopToLeaderSlot(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
+
+**Purpose:** Handles logic related to `fill for transfer troop to leader slot`.
+
+### FillForTransferPartyLeaderTroop
+`public void FillForTransferPartyLeaderTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int totalNumber)`
+
+**Purpose:** Handles logic related to `fill for transfer party leader troop`.
+
+### FillForUpgradeTroop
+`public void FillForUpgradeTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int number, int upgradeTargetType, int index)`
+
+**Purpose:** Handles logic related to `fill for upgrade troop`.
+
+### FillForRecruitTroop
+`public void FillForRecruitTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character, int number, int index)`
+
+**Purpose:** Handles logic related to `fill for recruit troop`.
+
+### FillForExecuteTroop
+`public void FillForExecuteTroop(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type, CharacterObject character)`
+
+**Purpose:** Handles logic related to `fill for execute troop`.
+
+### FillForTransferAllTroops
+`public void FillForTransferAllTroops(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopType type)`
+
+**Purpose:** Handles logic related to `fill for transfer all troops`.
+
+### FillForSortTroops
+`public void FillForSortTroops(PartyScreenLogic.PartyRosterSide side, PartyScreenLogic.TroopSortType sortType, bool isAscending)`
+
+**Purpose:** Handles logic related to `fill for sort troops`.
+
+### SetIsAscending
+`public void SetIsAscending(bool isAscending)`
+
+**Purpose:** Sets the value or state of `is ascending`.
+
+### Compare
+`public int Compare(TroopRosterElement x, TroopRosterElement y)`
+
+**Purpose:** Handles logic related to `compare`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyScreenLogic (Logic)
 Mission.Current.AddMissionBehavior(new PartyScreenLogic());
 ```
 

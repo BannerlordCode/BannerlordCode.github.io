@@ -1,11 +1,17 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `MissionBehavior`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/MissionBehavior](/versions/MissionBehavior)
 <!-- END BREADCRUMB -->
 # MissionBehavior
+
+## Mental Model
+
+Treat `MissionBehavior` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Class Overview
 

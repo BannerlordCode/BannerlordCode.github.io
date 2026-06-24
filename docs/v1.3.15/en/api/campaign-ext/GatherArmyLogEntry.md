@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GatherArmyLogEntry`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GatherArmyLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GatherArmyLogEntry : LogEntry, IChatNotification`
+**Base:** `LogEntry`
+**File:** `TaleWorlds.CampaignSystem/LogEntries/GatherArmyLogEntry.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GatherArmyLogEntry` is a class in the `TaleWorlds.CampaignSystem.LogEntries` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GatherArmyLogEntry` lives in `TaleWorlds.CampaignSystem.LogEntries` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,22 +28,25 @@
 | `NotificationType` | `public override ChatNotificationType NotificationType { get; }` |
 | `IsVisibleNotification` | `public bool IsVisibleNotification { get; }` |
 
-
 ## Key Methods
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### GetNotificationText
+`public TextObject GetNotificationText()`
+
+**Purpose:** Gets the current value of `notification text`.
+
+## Usage Example
 
 ```csharp
-public TextObject GetNotificationText()
+var value = new GatherArmyLogEntry();
+value.ToString();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

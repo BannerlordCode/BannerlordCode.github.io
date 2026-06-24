@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `AllianceModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AllianceModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`AllianceModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<AllianceModel>(new MyAllianceModel())` 注册，以改变其计算逻辑。
+`AllianceModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `AllianceModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,40 +33,39 @@
 ## 主要方法
 
 ### GetCallToWarCost
-```csharp
-public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)
-```
+`public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
+
+**用途 / Purpose:** 获取 `call to war cost` 的当前值。
 
 ### GetScoreOfStartingAlliance
-```csharp
-public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanation, bool includeDescription = false)
-```
+`public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, out TextObject explanation, bool includeDescription = false)`
+
+**用途 / Purpose:** 获取 `score of starting alliance` 的当前值。
 
 ### GetScoreOfCallingToWar
-```csharp
-public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**用途 / Purpose:** 获取 `score of calling to war` 的当前值。
 
 ### GetScoreOfJoiningWar
-```csharp
-public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)
-```
+`public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
+
+**用途 / Purpose:** 获取 `score of joining war` 的当前值。
 
 ### GetInfluenceCostOfProposingStartingAlliance
-```csharp
-public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)
-```
+`public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
+
+**用途 / Purpose:** 获取 `influence cost of proposing starting alliance` 的当前值。
 
 ### GetInfluenceCostOfCallingToWar
-```csharp
-public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)
-```
+`public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
+
+**用途 / Purpose:** 获取 `influence cost of calling to war` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// AllianceModel (Model) 的典型用法
-Game.Current.ReplaceModel<AllianceModel>(new MyAllianceModel());
+var implementation = new CustomAllianceModel();
 ```
 
 ## 参见

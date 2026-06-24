@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `WallHitPointCalculationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WallHitPointCalculationModel
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`WallHitPointCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<WallHitPointCalculationModel>(new MyWallHitPointCalculationModel())` to change how it computes.
+`WallHitPointCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `WallHitPointCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateMaximumWallHitPoint
-```csharp
-public abstract float CalculateMaximumWallHitPoint(Town town)
-```
+`public abstract float CalculateMaximumWallHitPoint(Town town)`
+
+**Purpose:** Handles logic related to `calculate maximum wall hit point`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of WallHitPointCalculationModel (Model)
-Game.Current.ReplaceModel<WallHitPointCalculationModel>(new MyWallHitPointCalculationModel());
+var implementation = new CustomWallHitPointCalculationModel();
 ```
 
 ## See Also

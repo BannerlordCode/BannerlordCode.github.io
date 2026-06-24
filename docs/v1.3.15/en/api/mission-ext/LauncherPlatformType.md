@@ -2,31 +2,31 @@
 **Home** → **API Index** → **Area** → `LauncherPlatformType`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherPlatformType
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatformType.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `LauncherPlatformType` is a enum in the `TaleWorlds.MountAndBlade.Launcher.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LauncherPlatformType` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `None` |
-| `Steam` |
-| `Epic` |
-| `Gog` |
+## Usage Example
+
+```csharp
+var value = new LauncherPlatformType();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

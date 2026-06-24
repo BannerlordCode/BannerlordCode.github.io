@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `HideoutEventComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HideoutEventComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`HideoutEventComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<HideoutEventComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`HideoutEventComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `HideoutEventComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,20 +30,19 @@
 ## Key Methods
 
 ### CreateHideoutEvent
-```csharp
-public static HideoutEventComponent CreateHideoutEvent(PartyBase attackerParty, PartyBase defenderParty, bool isSendTroops)
-```
+`public static HideoutEventComponent CreateHideoutEvent(PartyBase attackerParty, PartyBase defenderParty, bool isSendTroops)`
+
+**Purpose:** Creates a new `hideout event` instance or object.
 
 ### CreateComponentForOldSaves
-```csharp
-public static HideoutEventComponent CreateComponentForOldSaves(MapEvent mapEvent, bool isSendTroops)
-```
+`public static HideoutEventComponent CreateComponentForOldSaves(MapEvent mapEvent, bool isSendTroops)`
+
+**Purpose:** Creates a new `component for old saves` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of HideoutEventComponent (Component)
-agent.GetComponent<HideoutEventComponent>();
+var component = agent.GetComponent<HideoutEventComponent>();
 ```
 
 ## See Also

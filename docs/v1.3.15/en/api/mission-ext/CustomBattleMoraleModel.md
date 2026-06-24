@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleMoraleModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleMoraleModel
@@ -14,64 +15,67 @@
 
 ## Overview
 
-`CustomBattleMoraleModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CustomBattleMoraleModel>(new MyCustomBattleMoraleModel())` to change how it computes.
+`CustomBattleMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CustomBattleMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
-```csharp
-public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)
-```
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
+
+**Purpose:** Handles logic related to `calculate max morale change due to agent incapacitated`.
 
 ### CalculateMaxMoraleChangeDueToAgentPanicked
-```csharp
-public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)
-```
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
+
+**Purpose:** Handles logic related to `calculate max morale change due to agent panicked`.
 
 ### CalculateMoraleChangeToCharacter
-```csharp
-public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)
-```
+`public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
+
+**Purpose:** Handles logic related to `calculate morale change to character`.
 
 ### GetEffectiveInitialMorale
-```csharp
-public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)
-```
+`public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
+
+**Purpose:** Gets the current value of `effective initial morale`.
 
 ### CanPanicDueToMorale
-```csharp
-public override bool CanPanicDueToMorale(Agent agent)
-```
+`public override bool CanPanicDueToMorale(Agent agent)`
+
+**Purpose:** Checks whether the current object can `panic due to morale`.
 
 ### CalculateCasualtiesFactor
-```csharp
-public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)
-```
+`public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
+
+**Purpose:** Handles logic related to `calculate casualties factor`.
 
 ### GetAverageMorale
-```csharp
-public override float GetAverageMorale(Formation formation)
-```
+`public override float GetAverageMorale(Formation formation)`
+
+**Purpose:** Gets the current value of `average morale`.
 
 ### CalculateMoraleChangeOnShipSunk
-```csharp
-public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)
-```
+`public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
+
+**Purpose:** Handles logic related to `calculate morale change on ship sunk`.
 
 ### CalculateMoraleOnRamming
-```csharp
-public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)
-```
+`public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
+
+**Purpose:** Handles logic related to `calculate morale on ramming`.
 
 ### CalculateMoraleOnShipsConnected
-```csharp
-public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)
-```
+`public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
+
+**Purpose:** Handles logic related to `calculate morale on ships connected`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleMoraleModel (Model)
 Game.Current.ReplaceModel<CustomBattleMoraleModel>(new MyCustomBattleMoraleModel());
 ```
 

@@ -2,40 +2,31 @@
 **首页** → **API 目录** → **本领域** → `CompatibilityReason`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompatibilityReason
 
-**命名空间:** psai.Editor
-**模块:** psai.Editor
-**类型:** 枚举 enum enum
-**领域:** 战役系统 Campaign
+**Namespace:** psai.Editor
+**Module:** psai.Editor
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.PSAI/Editor/CompatibilityReason.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CompatibilityReason` 是 `psai.Editor` 命名空间下的一个枚举 enum。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献
-## 枚举值
+`CompatibilityReason` 位于 `psai.Editor`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-| Name |
-|------|
-| `not_set` |
-| `target_theme_will_never_interrupt_source` |
-| `manual_setting_within_same_hierarchy` |
-| `manual_setting_of_parent_entity` |
-| `inherited_from_parent_hierarchy` |
-| `target_segment_and_source_segment_are_both_only_usable_at_end` |
-| `target_segment_is_of_a_different_group_and_is_only_usable_at_end` |
-| `target_segment_is_a_pure_bridge_segment_within_the_same_group` |
-| `target_segment_is_a_manual_bridge_segment_for_the_source_group` |
-| `target_segment_is_an_automatic_bridge_segment` |
-| `target_group_contains_at_least_one_bridge_segment` |
-| `anything_may_be_played_after_a_pure_end_segment` |
-| `default_behavior_of_psai` |
+## 心智模型
 
-文档。
+先从命名空间 `psai.Editor` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 使用示例
+
+```csharp
+var value = new CompatibilityReason();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

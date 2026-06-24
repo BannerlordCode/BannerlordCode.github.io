@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `Float`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Float
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct Float`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Float` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Float` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,67 +26,64 @@
 |------|-----------|
 | `FullPrecision` | `public static CompressionInfo.Float FullPrecision { get; }` |
 
-
 ## Key Methods
 
 ### GetNumBits
+`public int GetNumBits()`
 
-```csharp
-public int GetNumBits()
-```
-
-### GetMaximumValue
-
-```csharp
-public int GetMaximumValue()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
-
-### GetNumBits
-
-```csharp
-public int GetNumBits()
-```
+**Purpose:** Gets the current value of `num bits`.
 
 ### GetMaximumValue
+`public int GetMaximumValue()`
 
-```csharp
-public float GetMaximumValue()
-```
+**Purpose:** Gets the current value of `maximum value`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetNumBits
+`public int GetNumBits()`
+
+**Purpose:** Gets the current value of `num bits`.
+
+### GetMaximumValue
+`public float GetMaximumValue()`
+
+**Purpose:** Gets the current value of `maximum value`.
 
 ### GetMinimumValue
+`public float GetMinimumValue()`
 
-```csharp
-public float GetMinimumValue()
-```
+**Purpose:** Gets the current value of `minimum value`.
 
 ### GetPrecision
+`public float GetPrecision()`
 
-```csharp
-public float GetPrecision()
-```
+**Purpose:** Gets the current value of `precision`.
 
 ### ClampValueAccordingToLimits
+`public void ClampValueAccordingToLimits(ref float x)`
+
+**Purpose:** Handles logic related to `clamp value according to limits`.
+
+## Usage Example
 
 ```csharp
-public void ClampValueAccordingToLimits(ref float x)
+// First obtain a Float instance from game state, then call one of its public methods
+var value = new Float();
+value.GetNumBits();
 ```
 
 ## See Also

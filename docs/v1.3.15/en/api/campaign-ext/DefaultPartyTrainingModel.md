@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartyTrainingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyTrainingModel
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`DefaultPartyTrainingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartyTrainingModel>(new MyDefaultPartyTrainingModel())` to change how it computes.
+`DefaultPartyTrainingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartyTrainingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetXpReward
-```csharp
-public override int GetXpReward(CharacterObject character)
-```
+`public override int GetXpReward(CharacterObject character)`
+
+**Purpose:** Gets the current value of `xp reward`.
 
 ### GetEffectiveDailyExperience
-```csharp
-public override ExplainedNumber GetEffectiveDailyExperience(MobileParty mobileParty, TroopRosterElement troop)
-```
+`public override ExplainedNumber GetEffectiveDailyExperience(MobileParty mobileParty, TroopRosterElement troop)`
+
+**Purpose:** Gets the current value of `effective daily experience`.
 
 ### GenerateSharedXp
-```csharp
-public override int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)
-```
+`public override int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `generate shared xp`.
 
 ### CalculateXpGainFromBattles
-```csharp
-public override ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)
-```
+`public override ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
+
+**Purpose:** Handles logic related to `calculate xp gain from battles`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartyTrainingModel (Model)
 Game.Current.ReplaceModel<DefaultPartyTrainingModel>(new MyDefaultPartyTrainingModel());
 ```
 

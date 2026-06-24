@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignBehaviorManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignBehaviorManager
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`CampaignBehaviorManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CampaignBehaviorManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CampaignBehaviorManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### InitializeCampaignBehaviors
-```csharp
-public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)
-```
+`public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
+
+**Purpose:** Initializes the state, resources, or bindings for `campaign behaviors`.
 
 ### RegisterEvents
-```csharp
-public void RegisterEvents()
-```
+`public void RegisterEvents()`
+
+**Purpose:** Handles logic related to `register events`.
 
 ### LoadBehaviorData
-```csharp
-public void LoadBehaviorData()
-```
+`public void LoadBehaviorData()`
+
+**Purpose:** Loads `behavior data` data.
 
 ### AddBehavior
-```csharp
-public void AddBehavior(CampaignBehaviorBase campaignBehavior)
-```
+`public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
+
+**Purpose:** Adds `behavior` to the current collection or state.
 
 ### ClearBehaviors
-```csharp
-public void ClearBehaviors()
-```
+`public void ClearBehaviors()`
+
+**Purpose:** Handles logic related to `clear behaviors`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignBehaviorManager (Manager)
-CampaignBehaviorManager.Current;
+var manager = CampaignBehaviorManager.Current;
 ```
 
 ## See Also

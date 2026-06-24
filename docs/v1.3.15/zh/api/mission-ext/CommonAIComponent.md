@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CommonAIComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CommonAIComponent
@@ -14,73 +15,79 @@
 
 ## 概述
 
-`CommonAIComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<CommonAIComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`CommonAIComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `CommonAIComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `InitialMorale` | `public float InitialMorale { get { return this._initialMorale; }` |
-| `RecoveryMorale` | `public float RecoveryMorale { get { return this._recoveryMorale; }` |
-| `Morale` | `public float Morale { get { return this._morale; }` |
+| `IsPanicked` | `public bool IsPanicked { get; }` |
+| `IsRetreating` | `public bool IsRetreating { get; }` |
+| `ReservedRiderAgentIndex` | `public int ReservedRiderAgentIndex { get; }` |
+| `InitialMorale` | `public float InitialMorale { get; set; }` |
+| `RecoveryMorale` | `public float RecoveryMorale { get; set; }` |
+| `Morale` | `public float Morale { get; set; }` |
 
 ## 主要方法
 
 ### Initialize
-```csharp
-public override void Initialize()
-```
+`public override void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### OnTickParallel
-```csharp
-public override void OnTickParallel(float dt)
-```
+`public override void OnTickParallel(float dt)`
+
+**用途 / Purpose:** 当 `tick parallel` 事件触发时调用此方法。
 
 ### OnTick
-```csharp
-public override void OnTick(float dt)
-```
+`public override void OnTick(float dt)`
+
+**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
 
 ### Panic
-```csharp
-public void Panic()
-```
+`public void Panic()`
+
+**用途 / Purpose:** 处理 `panic` 相关逻辑。
 
 ### Retreat
-```csharp
-public void Retreat(bool useCachingSystem = false)
-```
+`public void Retreat(bool useCachingSystem = false)`
+
+**用途 / Purpose:** 处理 `retreat` 相关逻辑。
 
 ### StopRetreating
-```csharp
-public void StopRetreating()
-```
+`public void StopRetreating()`
+
+**用途 / Purpose:** 处理 `stop retreating` 相关逻辑。
 
 ### CanPanic
-```csharp
-public bool CanPanic()
-```
+`public bool CanPanic()`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `panic`。
 
 ### OnHit
-```csharp
-public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)
-```
+`public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
+
+**用途 / Purpose:** 当 `hit` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved()
-```
+`public override void OnAgentRemoved()`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ### OnComponentRemoved
-```csharp
-public override void OnComponentRemoved()
-```
+`public override void OnComponentRemoved()`
+
+**用途 / Purpose:** 当 `component removed` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// CommonAIComponent (Component) 的典型用法
-agent.GetComponent<CommonAIComponent>();
+var component = agent.GetComponent<CommonAIComponent>();
 ```
 
 ## 参见

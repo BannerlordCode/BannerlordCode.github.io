@@ -5,7 +5,11 @@ sidebar: auto
 
 # 网络/平台/服务 Network & Platform 类目录
 
-本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **246** 个类型，其中 **246** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `网络/平台/服务 Network & Platform 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **246** 个类型，其中 **237** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -172,7 +176,7 @@ sidebar: auto
 | C | [DotNetObject](./campaign-ext/DotNetObject.md) | 🔗 |
 | C | [EditableScriptComponentVariable](./campaign-ext/EditableScriptComponentVariable.md) | 🔗 |
 | C | [EngineBaseClass](./campaign-ext/EngineBaseClass.md) | 🔗 |
-| C | [EngineClass](./engine/EngineClass.md) | 🔗 |
+| C | EngineClass | — |
 | C | [EngineStruct](./campaign-ext/EngineStruct.md) | 🔗 |
 | C | [GameApplicationDomainController](./campaign-ext/GameApplicationDomainController.md) | 🔗 |
 | I | [ICallbackManager](./campaign-ext/ICallbackManager.md) | 🔗 |
@@ -185,7 +189,7 @@ sidebar: auto
 | C | [ManagedToUnmanagedScopedCallCounter](./campaign-ext/ManagedToUnmanagedScopedCallCounter.md) | 🔗 |
 | C | [NativeArray](./campaign-ext/NativeArray.md) | 🔗 |
 | C | [NativeArrayEnumerator](./campaign-ext/NativeArrayEnumerator.md) | 🔗 |
-| C | [NativeObject](./engine/NativeObject.md) | 🔗 |
+| C | NativeObject | — |
 | C | [NativeObjectArray](./campaign-ext/NativeObjectArray.md) | 🔗 |
 | C | [NativeString](./campaign-ext/NativeString.md) | 🔗 |
 | C | [NativeTelemetryManager](./campaign-ext/NativeTelemetryManager.md) | 🔗 |
@@ -239,12 +243,12 @@ sidebar: auto
 | S | [MBGUID](./campaign-ext/MBGUID.md) | 🔗 |
 | C | [MBIllegalRegisterException](./campaign-ext/MBIllegalRegisterException.md) | 🔗 |
 | C | [MBInvalidReferenceException](./campaign-ext/MBInvalidReferenceException.md) | 🔗 |
-| C | [MBObjectBase](./core/MBObjectBase.md) | 🔗 |
-| C | [MBObjectManager](./core/MBObjectManager.md) | 🔗 |
+| C | MBObjectBase | — |
+| C | MBObjectManager | — |
 | S | [MbObjectXmlInformation](./campaign-ext/MbObjectXmlInformation.md) | 🔗 |
-| C | [MBOutOfRangeException](./core-extra/MBOutOfRangeException.md) | 🔗 |
+| C | MBOutOfRangeException | — |
 | C | [MBTooManyRegisteredTypesException](./campaign-ext/MBTooManyRegisteredTypesException.md) | 🔗 |
-| C | [MBTypeMismatchException](./core-extra/MBTypeMismatchException.md) | 🔗 |
+| C | MBTypeMismatchException | — |
 | C | [MBTypeNotRegisteredException](./campaign-ext/MBTypeNotRegisteredException.md) | 🔗 |
 | C | [ObjectSystemException](./campaign-ext/ObjectSystemException.md) | 🔗 |
 | C | [SaveableObjectSystemTypeDefiner](./campaign-ext/SaveableObjectSystemTypeDefiner.md) | 🔗 |
@@ -262,7 +266,7 @@ sidebar: auto
 | I | [IPlatformServices](./campaign-ext/IPlatformServices.md) | 🔗 |
 | I | [ISessionService](./campaign-ext/ISessionService.md) | 🔗 |
 | C | [NullPlatformServices](./campaign-ext/NullPlatformServices.md) | 🔗 |
-| E | [Permission](./mission-ext/Permission.md) | 🔗 |
+| E | [Permission](./campaign-ext/Permission.md) | 🔗 |
 | E | [PlatformInviteResponse](./campaign-ext/PlatformInviteResponse.md) | 🔗 |
 | C | [PlatformServices](./campaign-ext/PlatformServices.md) | 🔗 |
 | E | [Privilege](./campaign-ext/Privilege.md) | 🔗 |
@@ -305,14 +309,14 @@ sidebar: auto
 | C | [SteamModuleExtension](./campaign-ext/SteamModuleExtension.md) | 🔗 |
 | C | [SteamPlatformAvatarService](./campaign-ext/SteamPlatformAvatarService.md) | 🔗 |
 | C | [SteamPlatformServices](./campaign-ext/SteamPlatformServices.md) | 🔗 |
-| C | [SteamPlayerIdExtensions](./campaign-ext/SteamPlayerIdExtensions.md) | 🔗 |
+| C | SteamPlayerIdExtensions | — |
 
 ## TaleWorlds.PlayerServices (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | S | [PlayerId](./campaign-ext/PlayerId.md) | 🔗 |
-| C | [PlayerIdExtensions](./campaign-ext/PlayerIdExtensions.md) | 🔗 |
+| C | PlayerIdExtensions | — |
 | C | [PlayerIdJsonConverter](./campaign-ext/PlayerIdJsonConverter.md) | 🔗 |
 | E | [PlayerIdProvidedTypes](./campaign-ext/PlayerIdProvidedTypes.md) | 🔗 |
 | C | [TimeoutWebClient](./campaign-ext/TimeoutWebClient.md) | 🔗 |
@@ -343,7 +347,7 @@ sidebar: auto
 | C | [ScreenBase](./campaign-ext/ScreenBase.md) | 🔗 |
 | C | [ScreenComponent](./campaign-ext/ScreenComponent.md) | 🔗 |
 | C | [ScreenLayer](./campaign-ext/ScreenLayer.md) | 🔗 |
-| C | [ScreenManager](./gui/ScreenManager.md) | 🔗 |
+| C | ScreenManager | — |
 
 ## TaleWorlds.ServiceDiscovery.Client (5)
 

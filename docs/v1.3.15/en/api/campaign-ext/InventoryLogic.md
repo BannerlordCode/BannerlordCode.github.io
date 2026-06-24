@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `InventoryLogic`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryLogic
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`InventoryLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new InventoryLogic())`; subclass it to customize.
+`InventoryLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `InventoryLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -52,159 +57,238 @@
 ## Key Methods
 
 ### Initialize
-```csharp
-public void Initialize(ItemRoster leftItemRoster, MobileParty party, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)
-```
+`public void Initialize(ItemRoster leftItemRoster, MobileParty party, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Initialize
-```csharp
-public void Initialize(ItemRoster leftItemRoster, ItemRoster rightItemRoster, TroopRoster rightMemberRoster, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)
-```
+`public void Initialize(ItemRoster leftItemRoster, ItemRoster rightItemRoster, TroopRoster rightMemberRoster, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### GetItemTotalPrice
-```csharp
-public int GetItemTotalPrice(ItemRosterElement itemRosterElement, int absStockChange, out int lastPrice, bool isBuying)
-```
+`public int GetItemTotalPrice(ItemRosterElement itemRosterElement, int absStockChange, out int lastPrice, bool isBuying)`
+
+**Purpose:** Gets the current value of `item total price`.
 
 ### SetPlayerAcceptTraderOffer
-```csharp
-public void SetPlayerAcceptTraderOffer()
-```
+`public void SetPlayerAcceptTraderOffer()`
+
+**Purpose:** Sets the value or state of `player accept trader offer`.
 
 ### DoneLogic
-```csharp
-public bool DoneLogic()
-```
+`public bool DoneLogic()`
+
+**Purpose:** Handles logic related to `done logic`.
 
 ### GetBoughtItems
-```csharp
-public List<ValueTuple<ItemRosterElement, int>> GetBoughtItems()
-```
+`public List<ValueTuple<ItemRosterElement, int>> GetBoughtItems()`
+
+**Purpose:** Gets the current value of `bought items`.
 
 ### GetSoldItems
-```csharp
-public List<ValueTuple<ItemRosterElement, int>> GetSoldItems()
-```
+`public List<ValueTuple<ItemRosterElement, int>> GetSoldItems()`
+
+**Purpose:** Gets the current value of `sold items`.
 
 ### CanInventoryCapacityIncrease
-```csharp
-public bool CanInventoryCapacityIncrease(InventoryLogic.InventorySide side)
-```
+`public bool CanInventoryCapacityIncrease(InventoryLogic.InventorySide side)`
+
+**Purpose:** Checks whether the current object can `inventory capacity increase`.
 
 ### GetCanItemIncreaseInventoryCapacity
-```csharp
-public bool GetCanItemIncreaseInventoryCapacity(ItemObject item)
-```
+`public bool GetCanItemIncreaseInventoryCapacity(ItemObject item)`
+
+**Purpose:** Gets the current value of `can item increase inventory capacity`.
 
 ### GetAveragePriceFactorItemCategory
-```csharp
-public float GetAveragePriceFactorItemCategory(ItemCategory category)
-```
+`public float GetAveragePriceFactorItemCategory(ItemCategory category)`
+
+**Purpose:** Gets the current value of `average price factor item category`.
 
 ### IsThereAnyChanges
-```csharp
-public bool IsThereAnyChanges()
-```
+`public bool IsThereAnyChanges()`
+
+**Purpose:** Handles logic related to `is there any changes`.
 
 ### Reset
-```csharp
-public void Reset(bool fromCancel)
-```
+`public void Reset(bool fromCancel)`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ### CanPlayerCompleteTransaction
-```csharp
-public bool CanPlayerCompleteTransaction()
-```
+`public bool CanPlayerCompleteTransaction()`
+
+**Purpose:** Checks whether the current object can `player complete transaction`.
 
 ### CanSlaughterItem
-```csharp
-public bool CanSlaughterItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)
-```
+`public bool CanSlaughterItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)`
+
+**Purpose:** Checks whether the current object can `slaughter item`.
 
 ### IsSlaughterable
-```csharp
-public bool IsSlaughterable(ItemObject item)
-```
+`public bool IsSlaughterable(ItemObject item)`
+
+**Purpose:** Handles logic related to `is slaughterable`.
 
 ### CanDonateItem
-```csharp
-public bool CanDonateItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)
-```
+`public bool CanDonateItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)`
+
+**Purpose:** Checks whether the current object can `donate item`.
 
 ### IsDonatable
-```csharp
-public bool IsDonatable(ItemObject item)
-```
+`public bool IsDonatable(ItemObject item)`
+
+**Purpose:** Handles logic related to `is donatable`.
 
 ### SetInventoryListener
-```csharp
-public void SetInventoryListener(InventoryListener inventoryListener)
-```
+`public void SetInventoryListener(InventoryListener inventoryListener)`
+
+**Purpose:** Sets the value or state of `inventory listener`.
 
 ### GetItemPrice
-```csharp
-public int GetItemPrice(EquipmentElement equipmentElement, bool isBuying = false)
-```
+`public int GetItemPrice(EquipmentElement equipmentElement, bool isBuying = false)`
+
+**Purpose:** Gets the current value of `item price`.
 
 ### GetCostOfItemRosterElement
-```csharp
-public int GetCostOfItemRosterElement(ItemRosterElement itemRosterElement, InventoryLogic.InventorySide side)
-```
+`public int GetCostOfItemRosterElement(ItemRosterElement itemRosterElement, InventoryLogic.InventorySide side)`
+
+**Purpose:** Gets the current value of `cost of item roster element`.
 
 ### AddTransferCommand
-```csharp
-public void AddTransferCommand(TransferCommand command)
-```
+`public void AddTransferCommand(TransferCommand command)`
+
+**Purpose:** Adds `transfer command` to the current collection or state.
 
 ### AddTransferCommands
-```csharp
-public void AddTransferCommands(IEnumerable<TransferCommand> commands)
-```
+`public void AddTransferCommands(IEnumerable<TransferCommand> commands)`
+
+**Purpose:** Adds `transfer commands` to the current collection or state.
 
 ### CheckItemRosterHasElement
-```csharp
-public bool CheckItemRosterHasElement(InventoryLogic.InventorySide side, ItemRosterElement rosterElement, int number)
-```
+`public bool CheckItemRosterHasElement(InventoryLogic.InventorySide side, ItemRosterElement rosterElement, int number)`
+
+**Purpose:** Handles logic related to `check item roster has element`.
 
 ### IsEquipmentSide
-```csharp
-public static bool IsEquipmentSide(InventoryLogic.InventorySide side)
-```
+`public static bool IsEquipmentSide(InventoryLogic.InventorySide side)`
+
+**Purpose:** Handles logic related to `is equipment side`.
 
 ### SlaughterItem
-```csharp
-public void SlaughterItem(ItemRosterElement itemRosterElement)
-```
+`public void SlaughterItem(ItemRosterElement itemRosterElement)`
+
+**Purpose:** Handles logic related to `slaughter item`.
 
 ### DonateItem
-```csharp
-public void DonateItem(ItemRosterElement itemRosterElement)
-```
+`public void DonateItem(ItemRosterElement itemRosterElement)`
+
+**Purpose:** Handles logic related to `donate item`.
 
 ### TransferOne
-```csharp
-public void TransferOne(ItemRosterElement itemRosterElement)
-```
+`public void TransferOne(ItemRosterElement itemRosterElement)`
+
+**Purpose:** Handles logic related to `transfer one`.
 
 ### GetElementCountOnSide
-```csharp
-public int GetElementCountOnSide(InventoryLogic.InventorySide side)
-```
+`public int GetElementCountOnSide(InventoryLogic.InventorySide side)`
+
+**Purpose:** Gets the current value of `element count on side`.
 
 ### GetElementsInInitialRoster
-```csharp
-public IReadOnlyList<ItemRosterElement> GetElementsInInitialRoster(InventoryLogic.InventorySide side)
-```
+`public IReadOnlyList<ItemRosterElement> GetElementsInInitialRoster(InventoryLogic.InventorySide side)`
+
+**Purpose:** Gets the current value of `elements in initial roster`.
 
 ### GetElementsInRoster
-```csharp
-public IReadOnlyList<ItemRosterElement> GetElementsInRoster(InventoryLogic.InventorySide side)
-```
+`public IReadOnlyList<ItemRosterElement> GetElementsInRoster(InventoryLogic.InventorySide side)`
+
+**Purpose:** Gets the current value of `elements in roster`.
+
+### FindItemFromSide
+`public ItemRosterElement? FindItemFromSide(InventoryLogic.InventorySide side, EquipmentElement item)`
+
+**Purpose:** Handles logic related to `find item from side`.
+
+### AfterResetDelegate
+`public delegate void AfterResetDelegate(InventoryLogic inventoryLogic, bool fromCancel)`
+
+**Purpose:** Handles logic related to `after reset delegate`.
+
+### TotalAmountChangeDelegate
+`public delegate void TotalAmountChangeDelegate(int newTotalAmount)`
+
+**Purpose:** Handles logic related to `total amount change delegate`.
+
+### ProcessResultListDelegate
+`public delegate void ProcessResultListDelegate(InventoryLogic inventoryLogic, List<TransferCommandResult> results)`
+
+**Purpose:** Handles logic related to `process result list delegate`.
+
+### InitializeCopyFrom
+`public void InitializeCopyFrom(MobileParty party)`
+
+**Purpose:** Initializes the state, resources, or bindings for `copy from`.
+
+### SetReference
+`public void SetReference(InventoryLogic.PartyEquipment partyEquipment)`
+
+**Purpose:** Sets the value or state of `reference`.
+
+### IsEqual
+`public bool IsEqual(InventoryLogic.PartyEquipment partyEquipment)`
+
+**Purpose:** Handles logic related to `is equal`.
+
+### RecordTransaction
+`public void RecordTransaction(int price, bool isSelling)`
+
+**Purpose:** Handles logic related to `record transaction`.
+
+### GetLastTransaction
+`public bool GetLastTransaction(out int price, out bool isSelling)`
+
+**Purpose:** Gets the current value of `last transaction`.
+
+### GetEnumerator
+`public IEnumerator<int> GetEnumerator()`
+
+**Purpose:** Gets the current value of `enumerator`.
+
+### GetCapacity
+`public int GetCapacity()`
+
+**Purpose:** Gets the current value of `capacity`.
+
+### CanForceTransaction
+`public bool CanForceTransaction()`
+
+**Purpose:** Checks whether the current object can `force transaction`.
+
+### GetCapacityExceededWarningText
+`public TextObject GetCapacityExceededWarningText()`
+
+**Purpose:** Gets the current value of `capacity exceeded warning text`.
+
+### GetCapacityExceededHintText
+`public TextObject GetCapacityExceededHintText()`
+
+**Purpose:** Gets the current value of `capacity exceeded hint text`.
+
+### Clear
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+### GetLastTransfer
+`public bool GetLastTransfer(EquipmentElement equipmentElement, out int lastPrice, out bool lastIsSelling)`
+
+**Purpose:** Gets the current value of `last transfer`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of InventoryLogic (Logic)
 Mission.Current.AddMissionBehavior(new InventoryLogic());
 ```
 

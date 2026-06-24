@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `SkillObject`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkillObject
@@ -16,6 +18,10 @@
 ## Overview
 
 Mods usually reference existing skills via the `DefaultSkills` static fields (e.g. `DefaultSkills.OneHanded`). Read/write a hero's skill value with `Hero.GetSkillValue(skill)` / `Hero.SetSkillValue(skill, value)`; add xp with `Hero.AddSkillXp(skill, xp)` or `HeroDeveloper.AddSkillXp`.
+
+## Mental Model
+
+Treat `SkillObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -54,3 +60,9 @@ foreach (CharacterAttribute attr in oneHanded.Attributes)
 - [HeroDeveloper](../campaign-ext/HeroDeveloper.md)
 - [CharacterAttribute](./CharacterAttribute.md)
 - [PerkObject](../campaign-ext/PerkObject.md)
+
+## Usage Example
+
+```csharp
+var example = new SkillObject();
+```

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MissionMultiplayerGameModeDuelClient`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeDuelClient
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionMultiplayerGameModeDuelClient : MissionMultiplayerGameModeBaseClient`
+**Base:** `MissionMultiplayerGameModeBaseClient`
+**File:** `TaleWorlds.MountAndBlade/MissionMultiplayerGameModeDuelClient.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionMultiplayerGameModeDuelClient` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionMultiplayerGameModeDuelClient` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,52 +34,50 @@
 | `IsInDuel` | `public bool IsInDuel { get; }` |
 | `MyRepresentative` | `public DuelMissionRepresentative MyRepresentative { get; }` |
 
-
 ## Key Methods
 
 ### GetGoldAmount
+`public override int GetGoldAmount()`
 
-```csharp
-public override int GetGoldAmount()
-```
+**Purpose:** Gets the current value of `gold amount`.
 
 ### OnGoldAmountChangedForRepresentative
+`public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-```csharp
-public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)
-```
+**Purpose:** Called when the `gold amount changed for representative` event is raised.
 
 ### OnBehaviorInitialize
+`public override void OnBehaviorInitialize()`
 
-```csharp
-public override void OnBehaviorInitialize()
-```
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### OnRemoveBehavior
+`public override void OnRemoveBehavior()`
 
-```csharp
-public override void OnRemoveBehavior()
-```
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### OnAgentRemoved
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### CanRequestCultureChange
+`public override bool CanRequestCultureChange()`
 
-```csharp
-public override bool CanRequestCultureChange()
-```
+**Purpose:** Checks whether the current object can `request culture change`.
 
 ### CanRequestTroopChange
+`public override bool CanRequestTroopChange()`
+
+**Purpose:** Checks whether the current object can `request troop change`.
+
+## Usage Example
 
 ```csharp
-public override bool CanRequestTroopChange()
+var value = new MissionMultiplayerGameModeDuelClient();
+value.GetGoldAmount();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

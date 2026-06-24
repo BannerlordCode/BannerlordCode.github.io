@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartyShipLimitModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyShipLimitModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultPartyShipLimitModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartyShipLimitModel>(new MyDefaultPartyShipLimitModel())` to change how it computes.
+`DefaultPartyShipLimitModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartyShipLimitModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetIdealShipNumber
-```csharp
-public override int GetIdealShipNumber(MobileParty mobileParty)
-```
+`public override int GetIdealShipNumber(MobileParty mobileParty)`
+
+**Purpose:** Gets the current value of `ideal ship number`.
 
 ### GetIdealShipNumber
-```csharp
-public override int GetIdealShipNumber(Clan clan)
-```
+`public override int GetIdealShipNumber(Clan clan)`
+
+**Purpose:** Gets the current value of `ideal ship number`.
 
 ### GetShipPriority
-```csharp
-public override float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)
-```
+`public override float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
+
+**Purpose:** Gets the current value of `ship priority`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartyShipLimitModel (Model)
 Game.Current.ReplaceModel<DefaultPartyShipLimitModel>(new MyDefaultPartyShipLimitModel());
 ```
 

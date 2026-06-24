@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultAgeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultAgeModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultAgeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultAgeModel>(new MyDefaultAgeModel())` to change how it computes.
+`DefaultAgeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultAgeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,14 +36,13 @@
 ## Key Methods
 
 ### GetAgeLimitForLocation
-```csharp
-public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")
-```
+`public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
+
+**Purpose:** Gets the current value of `age limit for location`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultAgeModel (Model)
 Game.Current.ReplaceModel<DefaultAgeModel>(new MyDefaultAgeModel());
 ```
 

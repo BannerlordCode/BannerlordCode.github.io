@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `EncyclopediaNavigatorVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaNavigatorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EncyclopediaNavigatorVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Encyclopedia/EncyclopediaNavigatorVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EncyclopediaNavigatorVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EncyclopediaNavigatorVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -39,112 +43,100 @@
 | `NextPageInputKey` | `public InputKeyItemVM NextPageInputKey { get; set; }` |
 | `SearchText` | `public string SearchText { get; set; }` |
 
-
 ## Key Methods
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteHome
+`public void ExecuteHome()`
 
-```csharp
-public void ExecuteHome()
-```
+**Purpose:** Executes the `home` operation or workflow.
 
 ### ExecuteBarLink
+`public void ExecuteBarLink(string targetID)`
 
-```csharp
-public void ExecuteBarLink(string targetID)
-```
+**Purpose:** Executes the `bar link` operation or workflow.
 
 ### ExecuteCloseEncyclopedia
+`public void ExecuteCloseEncyclopedia()`
 
-```csharp
-public void ExecuteCloseEncyclopedia()
-```
+**Purpose:** Executes the `close encyclopedia` operation or workflow.
 
 ### ResetHistory
+`public void ResetHistory()`
 
-```csharp
-public void ResetHistory()
-```
+**Purpose:** Resets `history` to its initial state.
 
 ### ExecuteBack
+`public void ExecuteBack()`
 
-```csharp
-public void ExecuteBack()
-```
+**Purpose:** Executes the `back` operation or workflow.
 
 ### ExecuteForward
+`public void ExecuteForward()`
 
-```csharp
-public void ExecuteForward()
-```
+**Purpose:** Executes the `forward` operation or workflow.
 
 ### GetLastPage
+`public Tuple<string, object> GetLastPage()`
 
-```csharp
-public Tuple<string, object> GetLastPage()
-```
+**Purpose:** Gets the current value of `last page`.
 
 ### AddHistory
+`public void AddHistory(string pageId, object obj)`
 
-```csharp
-public void AddHistory(string pageId, object obj)
-```
+**Purpose:** Adds `history` to the current collection or state.
 
 ### UpdatePageName
+`public void UpdatePageName(string value)`
 
-```csharp
-public void UpdatePageName(string value)
-```
+**Purpose:** Updates the state or data of `page name`.
 
 ### ResetSearch
+`public void ResetSearch()`
 
-```csharp
-public void ResetSearch()
-```
+**Purpose:** Resets `search` to its initial state.
 
 ### ExecuteOnSearchActivated
+`public void ExecuteOnSearchActivated()`
 
-```csharp
-public void ExecuteOnSearchActivated()
-```
+**Purpose:** Executes the `on search activated` operation or workflow.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotkey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetPreviousPageInputKey
+`public void SetPreviousPageInputKey(HotKey hotkey)`
 
-```csharp
-public void SetPreviousPageInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `previous page input key`.
 
 ### SetNextPageInputKey
+`public void SetNextPageInputKey(HotKey hotkey)`
 
-```csharp
-public void SetNextPageInputKey(HotKey hotkey)
-```
+**Purpose:** Sets the value or state of `next page input key`.
 
 ### Compare
+`public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)
+var value = new EncyclopediaNavigatorVM();
+value.OnFinalize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BrushLayer`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushLayer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BrushLayer : IBrushLayerData`
+**Base:** `IBrushLayerData`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushLayer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BrushLayer` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BrushLayer` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,41 +45,54 @@
 | `ExtendLeft` | `public float ExtendLeft { get; set; }` |
 | `ExtendRight` | `public float ExtendRight { get; set; }` |
 | `ExtendTop` | `public float ExtendTop { get; set; }` |
-
+| `ExtendBottom` | `public float ExtendBottom { get; set; }` |
+| `OverridenWidth` | `public float OverridenWidth { get; set; }` |
+| `OverridenHeight` | `public float OverridenHeight { get; set; }` |
+| `WidthPolicy` | `public BrushLayerSizePolicy WidthPolicy { get; set; }` |
+| `HeightPolicy` | `public BrushLayerSizePolicy HeightPolicy { get; set; }` |
+| `HorizontalFlip` | `public bool HorizontalFlip { get; set; }` |
+| `VerticalFlip` | `public bool VerticalFlip { get; set; }` |
+| `OverlayMethod` | `public BrushOverlayMethod OverlayMethod { get; set; }` |
+| `OverlaySprite` | `public Sprite OverlaySprite { get; set; }` |
+| `OverlayXOffset` | `public float OverlayXOffset { get; set; }` |
+| `OverlayYOffset` | `public float OverlayYOffset { get; set; }` |
+| `UseRandomBaseOverlayXOffset` | `public bool UseRandomBaseOverlayXOffset { get; set; }` |
+| `UseRandomBaseOverlayYOffset` | `public bool UseRandomBaseOverlayYOffset { get; set; }` |
 
 ## Key Methods
 
 ### FillFrom
+`public void FillFrom(BrushLayer brushLayer)`
 
-```csharp
-public void FillFrom(BrushLayer brushLayer)
-```
+**Purpose:** Handles logic related to `fill from`.
 
 ### GetValueAsFloat
+`public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as float`.
 
 ### GetValueAsColor
+`public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as color`.
 
 ### GetValueAsSprite
+`public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-```csharp
-public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)
-```
+**Purpose:** Gets the current value of `value as sprite`.
 
 ### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+## Usage Example
 
 ```csharp
-public override string ToString()
+var value = new BrushLayer();
+value.FillFrom(brushLayer);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

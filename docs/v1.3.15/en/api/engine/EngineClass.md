@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineClass`
+**Home** → **API Index** → **Area** → `EngineClass / EngineClass`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EngineClass / EngineClass
+
+## Mental Model
+
+Treat `EngineClass` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.DotNet
 **File**: `bannerlord-1.3.15/TaleWorlds.DotNet/EngineClass.cs`

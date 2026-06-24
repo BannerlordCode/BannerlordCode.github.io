@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CaravanModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CaravanModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CaravanModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CaravanModel>(new MyCaravanModel())` to change how it computes.
+`CaravanModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CaravanModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,40 +30,39 @@
 ## Key Methods
 
 ### GetMaxGoldToSpendOnOneItemCategory
-```csharp
-public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)
-```
+`public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
+
+**Purpose:** Gets the current value of `max gold to spend on one item category`.
 
 ### GetInitialTradeGold
-```csharp
-public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)
-```
+`public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)`
+
+**Purpose:** Gets the current value of `initial trade gold`.
 
 ### GetCaravanFormingCost
-```csharp
-public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)
-```
+`public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)`
+
+**Purpose:** Gets the current value of `caravan forming cost`.
 
 ### GetPowerChangeAfterCaravanCreation
-```csharp
-public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)
-```
+`public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
+
+**Purpose:** Gets the current value of `power change after caravan creation`.
 
 ### CanHeroCreateCaravan
-```csharp
-public abstract bool CanHeroCreateCaravan(Hero hero)
-```
+`public abstract bool CanHeroCreateCaravan(Hero hero)`
+
+**Purpose:** Checks whether the current object can `hero create caravan`.
 
 ### GetEliteCaravanSpawnChance
-```csharp
-public abstract float GetEliteCaravanSpawnChance(Hero hero)
-```
+`public abstract float GetEliteCaravanSpawnChance(Hero hero)`
+
+**Purpose:** Gets the current value of `elite caravan spawn chance`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CaravanModel (Model)
-Game.Current.ReplaceModel<CaravanModel>(new MyCaravanModel());
+var implementation = new CustomCaravanModel();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BlowWeaponRecord`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BlowWeaponRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct BlowWeaponRecord`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/BlowWeaponRecord.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BlowWeaponRecord` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BlowWeaponRecord` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,34 +30,35 @@
 | `IsRanged` | `public bool IsRanged { get; }` |
 | `IsAmmo` | `public bool IsAmmo { get; }` |
 
-
 ## Key Methods
 
 ### FillAsMeleeBlow
+`public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-```csharp
-public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)
-```
+**Purpose:** Handles logic related to `fill as melee blow`.
 
 ### FillAsMissileBlow
+`public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-```csharp
-public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)
-```
+**Purpose:** Handles logic related to `fill as missile blow`.
 
 ### HasWeapon
+`public bool HasWeapon()`
 
-```csharp
-public bool HasWeapon()
-```
+**Purpose:** Checks whether the current object has/contains `weapon`.
 
 ### GetHitSound
+`public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)`
+
+**Purpose:** Gets the current value of `hit sound`.
+
+## Usage Example
 
 ```csharp
-public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)
+var value = new BlowWeaponRecord();
+value.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultValuationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultValuationModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultValuationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultValuationModel>(new MyDefaultValuationModel())` to change how it computes.
+`DefaultValuationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultValuationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMilitaryValueOfParty
-```csharp
-public override float GetMilitaryValueOfParty(MobileParty party)
-```
+`public override float GetMilitaryValueOfParty(MobileParty party)`
+
+**Purpose:** Gets the current value of `military value of party`.
 
 ### GetValueOfTroop
-```csharp
-public override float GetValueOfTroop(CharacterObject troop)
-```
+`public override float GetValueOfTroop(CharacterObject troop)`
+
+**Purpose:** Gets the current value of `value of troop`.
 
 ### GetValueOfHero
-```csharp
-public override float GetValueOfHero(Hero hero)
-```
+`public override float GetValueOfHero(Hero hero)`
+
+**Purpose:** Gets the current value of `value of hero`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultValuationModel (Model)
 Game.Current.ReplaceModel<DefaultValuationModel>(new MyDefaultValuationModel());
 ```
 

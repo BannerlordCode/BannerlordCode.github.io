@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MPPerkSelectionManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPPerkSelectionManager
@@ -14,45 +15,54 @@
 
 ## 概述
 
-`MPPerkSelectionManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`MPPerkSelectionManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MPPerkSelectionManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static MPPerkSelectionManager Instance { get; }` |
 
 ## 主要方法
 
 ### FreeInstance
-```csharp
-public static void FreeInstance()
-```
+`public static void FreeInstance()`
+
+**用途 / Purpose:** 处理 `free instance` 相关逻辑。
 
 ### InitializeForUser
-```csharp
-public void InitializeForUser(string username, PlayerId playerId)
-```
+`public void InitializeForUser(string username, PlayerId playerId)`
+
+**用途 / Purpose:** 初始化 `for user` 的状态、资源或绑定。
 
 ### ResetPendingChanges
-```csharp
-public void ResetPendingChanges()
-```
+`public void ResetPendingChanges()`
+
+**用途 / Purpose:** 将 `pending changes` 重置为初始状态。
 
 ### TryToApplyAndSavePendingChanges
-```csharp
-public void TryToApplyAndSavePendingChanges()
-```
+`public void TryToApplyAndSavePendingChanges()`
+
+**用途 / Purpose:** 尝试获取 `to apply and save pending changes`，通常以 out 参数返回结果。
 
 ### GetSelectionsForHeroClass
-```csharp
-public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)
-```
+`public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
+
+**用途 / Purpose:** 获取 `selections for hero class` 的当前值。
 
 ### SetSelectionsForHeroClassTemporarily
-```csharp
-public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)
-```
+`public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
+
+**用途 / Purpose:** 设置 `selections for hero class temporarily` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// MPPerkSelectionManager (Manager) 的典型用法
-MPPerkSelectionManager.Current;
+var manager = MPPerkSelectionManager.Current;
 ```
 
 ## 参见

@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `StickAnimStage`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StickAnimStage
 
 **命名空间:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public class StickAnimStage`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`StickAnimStage` 是 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`StickAnimStage` 位于 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -27,16 +32,20 @@
 | `AnimType` | `public TutorialObjectiveStickParentWidget.StickAnimStage.AnimTypes AnimType { get; }` |
 | `WidgetToManipulate` | `public Widget WidgetToManipulate { get; }` |
 
-
 ## 主要方法
 
 ### Tick
+`public void Tick(float dt)`
+
+**用途 / Purpose:** 处理 `tick` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void Tick(float dt)
+// 先从游戏状态中拿到一个 StickAnimStage 实例，再调用它的公开方法
+var value = new StickAnimStage();
+value.Tick(0);
 ```
-
-献文档。
 
 ## 参见
 

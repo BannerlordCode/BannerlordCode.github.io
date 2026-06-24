@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ValuationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ValuationModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`ValuationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ValuationModel>(new MyValuationModel())` to change how it computes.
+`ValuationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ValuationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetValueOfTroop
-```csharp
-public abstract float GetValueOfTroop(CharacterObject troop)
-```
+`public abstract float GetValueOfTroop(CharacterObject troop)`
+
+**Purpose:** Gets the current value of `value of troop`.
 
 ### GetMilitaryValueOfParty
-```csharp
-public abstract float GetMilitaryValueOfParty(MobileParty party)
-```
+`public abstract float GetMilitaryValueOfParty(MobileParty party)`
+
+**Purpose:** Gets the current value of `military value of party`.
 
 ### GetValueOfHero
-```csharp
-public abstract float GetValueOfHero(Hero hero)
-```
+`public abstract float GetValueOfHero(Hero hero)`
+
+**Purpose:** Gets the current value of `value of hero`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ValuationModel (Model)
-Game.Current.ReplaceModel<ValuationModel>(new MyValuationModel());
+var implementation = new CustomValuationModel();
 ```
 
 ## See Also

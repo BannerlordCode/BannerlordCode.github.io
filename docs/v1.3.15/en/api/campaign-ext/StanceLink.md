@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `StanceLink`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # StanceLink
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class StanceLink`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/StanceLink.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StanceLink` is a class in the `TaleWorlds.CampaignSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StanceLink` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,58 +45,55 @@
 | `SuccessfulTownSieges1` | `public int SuccessfulTownSieges1 { get; set; }` |
 | `SuccessfulTownSieges2` | `public int SuccessfulTownSieges2 { get; set; }` |
 
-
 ## Key Methods
 
 ### GetCasualties
+`public int GetCasualties(IFaction faction)`
 
-```csharp
-public int GetCasualties(IFaction faction)
-```
+**Purpose:** Gets the current value of `casualties`.
 
 ### GetSuccessfulSieges
+`public int GetSuccessfulSieges(IFaction faction)`
 
-```csharp
-public int GetSuccessfulSieges(IFaction faction)
-```
+**Purpose:** Gets the current value of `successful sieges`.
 
 ### GetSuccessfulRaids
+`public int GetSuccessfulRaids(IFaction faction)`
 
-```csharp
-public int GetSuccessfulRaids(IFaction faction)
-```
+**Purpose:** Gets the current value of `successful raids`.
 
 ### GetTotalTributePaid
+`public int GetTotalTributePaid(IFaction faction)`
 
-```csharp
-public int GetTotalTributePaid(IFaction faction)
-```
+**Purpose:** Gets the current value of `total tribute paid`.
 
 ### GetSuccessfulTownSieges
+`public int GetSuccessfulTownSieges(IFaction faction)`
 
-```csharp
-public int GetSuccessfulTownSieges(IFaction faction)
-```
+**Purpose:** Gets the current value of `successful town sieges`.
 
 ### GetDailyTributeToPay
+`public int GetDailyTributeToPay(IFaction faction)`
 
-```csharp
-public int GetDailyTributeToPay(IFaction faction)
-```
+**Purpose:** Gets the current value of `daily tribute to pay`.
 
 ### SetDailyTributePaid
+`public void SetDailyTributePaid(IFaction payer, int dailyTribute, int dailyTributeInstallments)`
 
-```csharp
-public void SetDailyTributePaid(IFaction payer, int dailyTribute, int dailyTributeInstallments)
-```
+**Purpose:** Sets the value or state of `daily tribute paid`.
 
 ### GetRemainingTributePaymentCount
+`public int GetRemainingTributePaymentCount()`
+
+**Purpose:** Gets the current value of `remaining tribute payment count`.
+
+## Usage Example
 
 ```csharp
-public int GetRemainingTributePaymentCount()
+var value = new StanceLink();
+value.GetCasualties(faction);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

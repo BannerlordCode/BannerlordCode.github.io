@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerPerkPopupWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerPerkPopupWidget
@@ -16,6 +17,10 @@
 
 `MultiplayerPerkPopupWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `MultiplayerPerkPopupWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -25,16 +30,14 @@
 ## Key Methods
 
 ### SetPopupPerksContainer
-```csharp
-public void SetPopupPerksContainer(MultiplayerPerkContainerPanelWidget container)
-```
+`public void SetPopupPerksContainer(MultiplayerPerkContainerPanelWidget container)`
+
+**Purpose:** Sets the value or state of `popup perks container`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerPerkPopupWidget (Widget)
-// 声明/访问一个 MultiplayerPerkPopupWidget
-var widget = root.GetChild("multiplayerPerkPopupWidget");;
+var widget = new MultiplayerPerkPopupWidget(context);
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClothSimulatorComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClothSimulatorComponent
@@ -14,80 +15,83 @@
 
 ## Overview
 
-`ClothSimulatorComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<ClothSimulatorComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`ClothSimulatorComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `ClothSimulatorComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetMaxDistanceMultiplier
-```csharp
-public void SetMaxDistanceMultiplier(float multiplier)
-```
+`public void SetMaxDistanceMultiplier(float multiplier)`
+
+**Purpose:** Sets the value or state of `max distance multiplier`.
 
 ### SetForcedWind
-```csharp
-public void SetForcedWind(Vec3 windVector, bool isLocal)
-```
+`public void SetForcedWind(Vec3 windVector, bool isLocal)`
+
+**Purpose:** Sets the value or state of `forced wind`.
 
 ### DisableForcedWind
-```csharp
-public void DisableForcedWind()
-```
+`public void DisableForcedWind()`
+
+**Purpose:** Handles logic related to `disable forced wind`.
 
 ### SetForcedGustStrength
-```csharp
-public void SetForcedGustStrength(float gustStrength)
-```
+`public void SetForcedGustStrength(float gustStrength)`
+
+**Purpose:** Sets the value or state of `forced gust strength`.
 
 ### SetResetRequired
-```csharp
-public void SetResetRequired()
-```
+`public void SetResetRequired()`
+
+**Purpose:** Sets the value or state of `reset required`.
 
 ### DisableMorphAnimation
-```csharp
-public void DisableMorphAnimation()
-```
+`public void DisableMorphAnimation()`
+
+**Purpose:** Handles logic related to `disable morph animation`.
 
 ### SetMorphBuffer
-```csharp
-public void SetMorphBuffer(float morphKey)
-```
+`public void SetMorphBuffer(float morphKey)`
+
+**Purpose:** Sets the value or state of `morph buffer`.
 
 ### GetNumberOfMorphKeys
-```csharp
-public int GetNumberOfMorphKeys()
-```
+`public int GetNumberOfMorphKeys()`
+
+**Purpose:** Gets the current value of `number of morph keys`.
 
 ### SetVectorArgument
-```csharp
-public void SetVectorArgument(float x, float y, float z, float w)
-```
+`public void SetVectorArgument(float x, float y, float z, float w)`
+
+**Purpose:** Sets the value or state of `vector argument`.
 
 ### GetMorphAnimLeftPoints
-```csharp
-public void GetMorphAnimLeftPoints(Vec3 leftPoints)
-```
+`public void GetMorphAnimLeftPoints(Vec3 leftPoints)`
+
+**Purpose:** Gets the current value of `morph anim left points`.
 
 ### GetMorphAnimRightPoints
-```csharp
-public void GetMorphAnimRightPoints(Vec3 rightPoints)
-```
+`public void GetMorphAnimRightPoints(Vec3 rightPoints)`
+
+**Purpose:** Gets the current value of `morph anim right points`.
 
 ### GetMorphAnimCenterPoints
-```csharp
-public void GetMorphAnimCenterPoints(Vec3 centerPoints)
-```
+`public void GetMorphAnimCenterPoints(Vec3 centerPoints)`
+
+**Purpose:** Gets the current value of `morph anim center points`.
 
 ### SetForcedVelocity
-```csharp
-public void SetForcedVelocity(in Vec3 forcedVelocity)
-```
+`public void SetForcedVelocity(in Vec3 forcedVelocity)`
+
+**Purpose:** Sets the value or state of `forced velocity`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ClothSimulatorComponent (Component)
-agent.GetComponent<ClothSimulatorComponent>();
+var component = agent.GetComponent<ClothSimulatorComponent>();
 ```
 
 ## See Also

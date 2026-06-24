@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ScriptedMovementComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScriptedMovementComponent
@@ -14,35 +15,38 @@
 
 ## 概述
 
-`ScriptedMovementComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<ScriptedMovementComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`ScriptedMovementComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `ScriptedMovementComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### SetTargetAgent
-```csharp
-public void SetTargetAgent(Agent targetAgent)
-```
+`public void SetTargetAgent(Agent targetAgent)`
+
+**用途 / Purpose:** 设置 `target agent` 的值或状态。
 
 ### OnTick
-```csharp
-public override void OnTick(float dt)
-```
+`public override void OnTick(float dt)`
+
+**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
 
 ### ShouldConversationStartWithAgent
-```csharp
-public bool ShouldConversationStartWithAgent()
-```
+`public bool ShouldConversationStartWithAgent()`
+
+**用途 / Purpose:** 处理 `should conversation start with agent` 相关逻辑。
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
 
 ## 使用示例
 
 ```csharp
-// ScriptedMovementComponent (Component) 的典型用法
-agent.GetComponent<ScriptedMovementComponent>();
+var component = agent.GetComponent<ScriptedMovementComponent>();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `IssueCoolDownData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IssueCoolDownData
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`IssueCoolDownData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`IssueCoolDownData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `IssueCoolDownData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsValid
-```csharp
-public virtual bool IsValid()
-```
+`public virtual bool IsValid()`
+
+**Purpose:** Handles logic related to `is valid`.
 
 ### IsRelatedTo
-```csharp
-public abstract bool IsRelatedTo(object obj)
-```
+`public abstract bool IsRelatedTo(object obj)`
+
+**Purpose:** Handles logic related to `is related to`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of IssueCoolDownData (Data)
-new IssueCoolDownData { /* fill fields */ };;
+var implementation = new CustomIssueCoolDownData();
 ```
 
 ## See Also

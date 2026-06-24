@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPartyHealingModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyHealingModel
@@ -14,54 +15,57 @@
 
 ## Overview
 
-`DefaultPartyHealingModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPartyHealingModel>(new MyDefaultPartyHealingModel())` to change how it computes.
+`DefaultPartyHealingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPartyHealingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetSurgeryChance
-```csharp
-public override float GetSurgeryChance(PartyBase party)
-```
+`public override float GetSurgeryChance(PartyBase party)`
+
+**Purpose:** Gets the current value of `surgery chance`.
 
 ### GetSiegeBombardmentHitSurgeryChance
-```csharp
-public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)
-```
+`public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
+
+**Purpose:** Gets the current value of `siege bombardment hit surgery chance`.
 
 ### GetSurvivalChance
-```csharp
-public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)
-```
+`public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
+
+**Purpose:** Gets the current value of `survival chance`.
 
 ### GetSkillXpFromHealingTroop
-```csharp
-public override int GetSkillXpFromHealingTroop(PartyBase party)
-```
+`public override int GetSkillXpFromHealingTroop(PartyBase party)`
+
+**Purpose:** Gets the current value of `skill xp from healing troop`.
 
 ### GetDailyHealingForRegulars
-```csharp
-public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `daily healing for regulars`.
 
 ### GetDailyHealingHpForHeroes
-```csharp
-public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `daily healing hp for heroes`.
 
 ### GetHeroesEffectedHealingAmount
-```csharp
-public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)
-```
+`public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
+
+**Purpose:** Gets the current value of `heroes effected healing amount`.
 
 ### GetBattleEndHealingAmount
-```csharp
-public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)
-```
+`public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)`
+
+**Purpose:** Gets the current value of `battle end healing amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPartyHealingModel (Model)
 Game.Current.ReplaceModel<DefaultPartyHealingModel>(new MyDefaultPartyHealingModel());
 ```
 

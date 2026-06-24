@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ViewModel`
+**Home** → **API Index** → **Area** → `ViewModel / ViewModel`
 - [← Area / Back to viewmodel](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ViewModel / ViewModel
+
+## Mental Model
+
+Treat `ViewModel` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.Library
 **File**: `bannerlord-1.3.15/TaleWorlds.Library/ViewModel.cs`

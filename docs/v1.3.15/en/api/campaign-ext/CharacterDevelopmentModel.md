@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CharacterDevelopmentModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterDevelopmentModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CharacterDevelopmentModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<CharacterDevelopmentModel>(new MyCharacterDevelopmentModel())` to change how it computes.
+`CharacterDevelopmentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `CharacterDevelopmentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,70 +37,69 @@
 ## Key Methods
 
 ### SkillsRequiredForLevel
-```csharp
-public abstract int SkillsRequiredForLevel(int level)
-```
+`public abstract int SkillsRequiredForLevel(int level)`
+
+**Purpose:** Handles logic related to `skills required for level`.
 
 ### GetMaxSkillPoint
-```csharp
-public abstract int GetMaxSkillPoint()
-```
+`public abstract int GetMaxSkillPoint()`
+
+**Purpose:** Gets the current value of `max skill point`.
 
 ### GetXpRequiredForSkillLevel
-```csharp
-public abstract int GetXpRequiredForSkillLevel(int skillLevel)
-```
+`public abstract int GetXpRequiredForSkillLevel(int skillLevel)`
+
+**Purpose:** Gets the current value of `xp required for skill level`.
 
 ### GetSkillLevelChange
-```csharp
-public abstract int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)
-```
+`public abstract int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
+
+**Purpose:** Gets the current value of `skill level change`.
 
 ### GetXpAmountForSkillLevelChange
-```csharp
-public abstract int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)
-```
+`public abstract int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
+
+**Purpose:** Gets the current value of `xp amount for skill level change`.
 
 ### GetTraitLevelForTraitXp
-```csharp
-public abstract void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int newValue, out int traitLevel, out int traitXp)
-```
+`public abstract void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int newValue, out int traitLevel, out int traitXp)`
+
+**Purpose:** Gets the current value of `trait level for trait xp`.
 
 ### GetTraitXpRequiredForTraitLevel
-```csharp
-public abstract int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)
-```
+`public abstract int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
+
+**Purpose:** Gets the current value of `trait xp required for trait level`.
 
 ### CalculateLearningLimit
-```csharp
-public abstract ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate learning limit`.
 
 ### CalculateLearningRate
-```csharp
-public abstract ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate learning rate`.
 
 ### GetNextSkillToAddFocus
-```csharp
-public abstract SkillObject GetNextSkillToAddFocus(Hero hero)
-```
+`public abstract SkillObject GetNextSkillToAddFocus(Hero hero)`
+
+**Purpose:** Gets the current value of `next skill to add focus`.
 
 ### GetNextAttributeToUpgrade
-```csharp
-public abstract CharacterAttribute GetNextAttributeToUpgrade(Hero hero)
-```
+`public abstract CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
+
+**Purpose:** Gets the current value of `next attribute to upgrade`.
 
 ### GetNextPerkToChoose
-```csharp
-public abstract PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)
-```
+`public abstract PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
+
+**Purpose:** Gets the current value of `next perk to choose`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CharacterDevelopmentModel (Model)
-Game.Current.ReplaceModel<CharacterDevelopmentModel>(new MyCharacterDevelopmentModel());
+var implementation = new CustomCharacterDevelopmentModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClanFinanceTextWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanFinanceTextWidget
@@ -16,6 +17,10 @@
 
 `ClanFinanceTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ClanFinanceTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -25,9 +30,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of ClanFinanceTextWidget (Widget)
-// 声明/访问一个 ClanFinanceTextWidget
-var widget = root.GetChild("clanFinanceTextWidget");;
+var widget = new ClanFinanceTextWidget(context);
 ```
 
 ## See Also

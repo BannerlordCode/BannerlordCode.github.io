@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Campaign`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Campaign
@@ -13,6 +15,10 @@
 ## Overview
 
 Campaign is the central class for the campaign mode in Mount and Blade II: Bannerlord. It manages the global game state, time progression, factions, parties, settlements, and provides access to all major game systems.
+
+## Mental Model
+
+Treat `Campaign` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

@@ -5,6 +5,10 @@ description: Bannerlord 1.3.15全新存档系统架构详解
 
 # 存档系统 / Save System
 
+## 心智模型
+
+先把 `存档系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Namespace**: TaleWorlds.SaveSystem
 **Version**: 1.3.15 (NEW - 不存在于1.3.0)
 

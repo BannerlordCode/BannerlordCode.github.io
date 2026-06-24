@@ -2,86 +2,223 @@
 **Home** → **API Index** → **Area** → `Vec3`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# Vec3 / 3D Vector
+# Vec3
 
-**Namespace**: TaleWorlds.Library
-**File**: `bannerlord-1.3.15/TaleWorlds.Library/Vec3.cs`
-**Purpose**: 3D vector math library for positions, directions, and scaling in 3D game development
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public struct Vec3`
+**Base:** none
+**File:** `TaleWorlds.Library/Vec3.cs`
 
 ## Overview
 
-`Vec3` is a 3D vector struct in Bannerlord providing complete 3D math operations. It represents positions, directions, rotations, and scaling in the game world.
+`Vec3` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-## Struct
+## Mental Model
 
-```csharp
-public struct Vec3
-{
-    public float X, Y, Z, W;
-}
-```
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Constructors
+## Key Properties
 
-| Constructor | Description |
-|-------------|-------------|
-| `new Vec3()` | Create zero vector |
-| `new Vec3(float x, float y, float z)` | Create vector with given components |
-| `new Vec3(float x, float y, float z, float w)` | Create vector with W component |
+| Name | Signature |
+|------|-----------|
+| `X` | `public float X { get; }` |
+| `Y` | `public float Y { get; }` |
+| `Z` | `public float Z { get; }` |
+| `this` | `public float this { get; }` |
+| `Length` | `public float Length { get; }` |
+| `LengthSquared` | `public float LengthSquared { get; }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `IsValidXYZW` | `public bool IsValidXYZW { get; }` |
+| `IsUnit` | `public bool IsUnit { get; }` |
+| `IsNonZero` | `public bool IsNonZero { get; }` |
+| `AsVec2` | `public Vec2 AsVec2 { get; set; }` |
+| `ToARGB` | `public uint ToARGB { get; }` |
+| `RotationZ` | `public float RotationZ { get; }` |
+| `RotationX` | `public float RotationX { get; }` |
+| `this` | `public Vec3 this { get; }` |
 
-## Properties
+## Key Methods
 
-| Property | Type | Description |
-|----------|------|-------------|
-| X | float | X component |
-| Y | float | Y component |
-| Z | float | Z component |
-| W | float | W component (homogeneous coordinates) |
-| Zero | Vec3 | Zero vector |
-| One | Vec3 | One vector (1,1,1) |
-| Forward | Vec3 | Forward vector (0,0,1) |
-| Up | Vec3 | Up vector (0,1,0) |
+### Abs
+`public static Vec3 Abs(Vec3 vec)`
 
-## Methods
+**Purpose:** Handles logic related to `abs`.
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| Dot | `float Dot(Vec3 v)` | Dot product |
-| Cross | `Vec3 Cross(Vec3 v)` | Cross product |
-| Normalize | `Vec3 Normalize()` | Normalize vector |
-| NormalizeDangerous | `Vec3 NormalizeDangerous()` | Fast normalize (no zero check) |
-| Length | `float Length` | Vector length |
-| LengthSquared | `float LengthSquared` | Squared length |
-| Distance | `float Distance(Vec3 v)` | Distance to another point |
-| DistanceSquared | `float DistanceSquared(Vec3 v)` | Squared distance |
-| Rotate | `Vec3 Rotate(Vec3 center, Vec3 axis, float angle)` | Rotate around axis |
-| Lerp | `Vec3 Lerp(Vec3 v1, Vec3 v2, float t)` | Linear interpolation |
+### Vector3
+`public static explicit operator Vector3(Vec3 vec3)`
+
+**Purpose:** Handles logic related to `vector3`.
+
+### DotProduct
+`public static float DotProduct(Vec3 v1, Vec3 v2)`
+
+**Purpose:** Handles logic related to `dot product`.
+
+### Lerp
+`public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)`
+
+**Purpose:** Handles logic related to `lerp`.
+
+### Slerp
+`public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)`
+
+**Purpose:** Handles logic related to `slerp`.
+
+### Vec3Max
+`public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)`
+
+**Purpose:** Handles logic related to `vec3 max`.
+
+### Vec3Min
+`public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)`
+
+**Purpose:** Handles logic related to `vec3 min`.
+
+### CrossProduct
+`public static Vec3 CrossProduct(Vec3 va, Vec3 vb)`
+
+**Purpose:** Handles logic related to `cross product`.
+
+### ElementWiseProduct
+`public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)`
+
+**Purpose:** Handles logic related to `element wise product`.
+
+### ElementWiseDivision
+`public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)`
+
+**Purpose:** Handles logic related to `element wise division`.
+
+### Equals
+`public override bool Equals(object obj)`
+
+**Purpose:** Handles logic related to `equals`.
+
+### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
+
+### NormalizedCopy
+`public Vec3 NormalizedCopy()`
+
+**Purpose:** Handles logic related to `normalized copy`.
+
+### Normalize
+`public float Normalize()`
+
+**Purpose:** Handles logic related to `normalize`.
+
+### ClampMagnitude
+`public void ClampMagnitude(float min, float max)`
+
+**Purpose:** Handles logic related to `clamp magnitude`.
+
+### ClampedCopy
+`public Vec3 ClampedCopy(float min, float max)`
+
+**Purpose:** Handles logic related to `clamped copy`.
+
+### ClampedCopy
+`public Vec3 ClampedCopy(float min, float max, out bool valueClamped)`
+
+**Purpose:** Handles logic related to `clamped copy`.
+
+### NormalizeWithoutChangingZ
+`public void NormalizeWithoutChangingZ()`
+
+**Purpose:** Handles logic related to `normalize without changing z`.
+
+### CrossProductWithUp
+`public Vec3 CrossProductWithUp()`
+
+**Purpose:** Handles logic related to `cross product with up`.
+
+### CrossProductWithUpAsLeftParameter
+`public Vec3 CrossProductWithUpAsLeftParameter()`
+
+**Purpose:** Handles logic related to `cross product with up as left parameter`.
+
+### NearlyEquals
+`public bool NearlyEquals(in Vec3 v, float epsilon = 1E-05f)`
+
+**Purpose:** Handles logic related to `nearly equals`.
+
+### RotateAboutX
+`public void RotateAboutX(float a)`
+
+**Purpose:** Handles logic related to `rotate about x`.
+
+### RotateAboutY
+`public void RotateAboutY(float a)`
+
+**Purpose:** Handles logic related to `rotate about y`.
+
+### RotateAboutZ
+`public void RotateAboutZ(float a)`
+
+**Purpose:** Handles logic related to `rotate about z`.
+
+### RotateAboutAnArbitraryVector
+`public Vec3 RotateAboutAnArbitraryVector(Vec3 vec, float a)`
+
+**Purpose:** Handles logic related to `rotate about an arbitrary vector`.
+
+### Reflect
+`public Vec3 Reflect(Vec3 normal)`
+
+**Purpose:** Handles logic related to `reflect`.
+
+### ProjectOnUnitVector
+`public Vec3 ProjectOnUnitVector(Vec3 ov)`
+
+**Purpose:** Handles logic related to `project on unit vector`.
+
+### DistanceSquared
+`public float DistanceSquared(Vec3 v)`
+
+**Purpose:** Handles logic related to `distance squared`.
+
+### Distance
+`public float Distance(Vec3 v)`
+
+**Purpose:** Handles logic related to `distance`.
+
+### RotateVectorToXYPlane
+`public Vec3 RotateVectorToXYPlane()`
+
+**Purpose:** Handles logic related to `rotate vector to x y plane`.
+
+### AngleBetweenTwoVectors
+`public static float AngleBetweenTwoVectors(Vec3 v1, Vec3 v2)`
+
+**Purpose:** Handles logic related to `angle between two vectors`.
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+### ToString
+`public string ToString(string format)`
+
+**Purpose:** Handles logic related to `to string`.
+
+### Parse
+`public static Vec3 Parse(string input)`
+
+**Purpose:** Handles logic related to `parse`.
 
 ## Usage Example
 
 ```csharp
-// Create position vector
-Vec3 position = new Vec3(100f, 50f, 200f);
-
-// Vector operations
-Vec3 direction = target - origin;
-float distance = direction.Normalize();
-Vec3 moved = origin + direction * moveSpeed * deltaTime;
-
-// Dot product for angle calculation
-float dot = forward.Dot(otherDirection);
-
-// Cross product for perpendicular direction
-Vec3 cross = Vec3.Cross(up, forward);
+Vec3.Abs(vec);
 ```
 
-## Game Development Usage
+## See Also
 
-In Bannerlord, `Vec3` is widely used for:
-- Agent and unit positions
-- Movement direction and velocity
-- Collision detection
-- Camera control
-- UI element positions
+- [Complete Class Catalog](../catalog)

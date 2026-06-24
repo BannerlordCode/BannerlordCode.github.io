@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `AddPlayersResult`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AddPlayersResult
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 结构体 struct struct
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public struct AddPlayersResult`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`AddPlayersResult` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`AddPlayersResult` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -40,130 +45,114 @@
 | `MyPeer` | `public static NetworkCommunicator MyPeer { get; }` |
 | `IsMyPeerReady` | `public static bool IsMyPeerReady { get; }` |
 
-
 ## 主要方法
 
 ### ClearAllPeers
+`public static void ClearAllPeers()`
 
-```csharp
-public static void ClearAllPeers()
-```
+**用途 / Purpose:** 处理 `clear all peers` 相关逻辑。
 
 ### FindNetworkPeer
+`public static NetworkCommunicator FindNetworkPeer(int index)`
 
-```csharp
-public static NetworkCommunicator FindNetworkPeer(int index)
-```
+**用途 / Purpose:** 处理 `find network peer` 相关逻辑。
 
 ### Initialize
+`public static void Initialize(IGameNetworkHandler handler)`
 
-```csharp
-public static void Initialize(IGameNetworkHandler handler)
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### EndMultiplayer
+`public static void EndMultiplayer()`
 
-```csharp
-public static void EndMultiplayer()
-```
+**用途 / Purpose:** 处理 `end multiplayer` 相关逻辑。
 
 ### StartReplay
+`public static void StartReplay()`
 
-```csharp
-public static void StartReplay()
-```
+**用途 / Purpose:** 处理 `start replay` 相关逻辑。
 
 ### EndReplay
+`public static void EndReplay()`
 
-```csharp
-public static void EndReplay()
-```
+**用途 / Purpose:** 处理 `end replay` 相关逻辑。
 
 ### PreStartMultiplayerOnServer
+`public static void PreStartMultiplayerOnServer()`
 
-```csharp
-public static void PreStartMultiplayerOnServer()
-```
+**用途 / Purpose:** 处理 `pre start multiplayer on server` 相关逻辑。
 
 ### StartMultiplayerOnServer
+`public static void StartMultiplayerOnServer(int port)`
 
-```csharp
-public static void StartMultiplayerOnServer(int port)
-```
+**用途 / Purpose:** 处理 `start multiplayer on server` 相关逻辑。
 
 ### HandleConsoleCommand
+`public static void HandleConsoleCommand(string command)`
 
-```csharp
-public static void HandleConsoleCommand(string command)
-```
+**用途 / Purpose:** 处理 `console command` 事件或回调。
 
 ### GetActiveUdpSessionsIpAddress
+`public static string GetActiveUdpSessionsIpAddress()`
 
-```csharp
-public static string GetActiveUdpSessionsIpAddress()
-```
+**用途 / Purpose:** 获取 `active udp sessions ip address` 的当前值。
 
 ### AddNewPlayerOnServer
+`public static ICommunicator AddNewPlayerOnServer(PlayerConnectionInfo playerConnectionInfo, bool serverPeer, bool isAdmin)`
 
-```csharp
-public static ICommunicator AddNewPlayerOnServer(PlayerConnectionInfo playerConnectionInfo, bool serverPeer, bool isAdmin)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `new player on server`。
 
 ### AddNewPlayersOnServer
+`public static GameNetwork.AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)`
 
-```csharp
-public static GameNetwork.AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `new players on server`。
 
 ### ClientFinishedLoading
+`public static void ClientFinishedLoading(NetworkCommunicator networkPeer)`
 
-```csharp
-public static void ClientFinishedLoading(NetworkCommunicator networkPeer)
-```
+**用途 / Purpose:** 处理 `client finished loading` 相关逻辑。
 
 ### BeginModuleEventAsClient
+`public static void BeginModuleEventAsClient()`
 
-```csharp
-public static void BeginModuleEventAsClient()
-```
+**用途 / Purpose:** 处理 `begin module event as client` 相关逻辑。
 
 ### EndModuleEventAsClient
+`public static void EndModuleEventAsClient()`
 
-```csharp
-public static void EndModuleEventAsClient()
-```
+**用途 / Purpose:** 处理 `end module event as client` 相关逻辑。
 
 ### BeginModuleEventAsClientUnreliable
+`public static void BeginModuleEventAsClientUnreliable()`
 
-```csharp
-public static void BeginModuleEventAsClientUnreliable()
-```
+**用途 / Purpose:** 处理 `begin module event as client unreliable` 相关逻辑。
 
 ### EndModuleEventAsClientUnreliable
+`public static void EndModuleEventAsClientUnreliable()`
 
-```csharp
-public static void EndModuleEventAsClientUnreliable()
-```
+**用途 / Purpose:** 处理 `end module event as client unreliable` 相关逻辑。
 
 ### BeginModuleEventAsServer
+`public static void BeginModuleEventAsServer(NetworkCommunicator communicator)`
 
-```csharp
-public static void BeginModuleEventAsServer(NetworkCommunicator communicator)
-```
+**用途 / Purpose:** 处理 `begin module event as server` 相关逻辑。
 
 ### BeginModuleEventAsServerUnreliable
+`public static void BeginModuleEventAsServerUnreliable(NetworkCommunicator communicator)`
 
-```csharp
-public static void BeginModuleEventAsServerUnreliable(NetworkCommunicator communicator)
-```
+**用途 / Purpose:** 处理 `begin module event as server unreliable` 相关逻辑。
 
 ### BeginModuleEventAsServer
+`public static void BeginModuleEventAsServer(VirtualPlayer peer)`
+
+**用途 / Purpose:** 处理 `begin module event as server` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public static void BeginModuleEventAsServer(VirtualPlayer peer)
+// 先准备该类型需要的上下文，然后直接调用静态入口
+AddPlayersResult.ClearAllPeers();
 ```
-
-贡献文档。
 
 ## 参见
 

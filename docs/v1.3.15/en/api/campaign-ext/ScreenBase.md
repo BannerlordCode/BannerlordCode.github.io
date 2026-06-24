@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ScreenBase`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScreenBase
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class ScreenBase`
+**Base:** none
+**File:** `TaleWorlds.ScreenSystem/ScreenBase.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ScreenBase` is a class in the `TaleWorlds.ScreenSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ScreenBase` lives in `TaleWorlds.ScreenSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -29,100 +33,89 @@
 | `IsFinalized` | `public bool IsFinalized { get; }` |
 | `MouseVisible` | `public virtual bool MouseVisible { get; set; }` |
 
-
 ## Key Methods
 
 ### ActivateAllLayers
+`public void ActivateAllLayers()`
 
-```csharp
-public void ActivateAllLayers()
-```
+**Purpose:** Handles logic related to `activate all layers`.
 
 ### DeactivateAllLayers
+`public void DeactivateAllLayers()`
 
-```csharp
-public void DeactivateAllLayers()
-```
+**Purpose:** Handles logic related to `deactivate all layers`.
 
 ### Deactivate
+`public void Deactivate()`
 
-```csharp
-public void Deactivate()
-```
+**Purpose:** Handles logic related to `deactivate`.
 
 ### Activate
+`public void Activate()`
 
-```csharp
-public void Activate()
-```
+**Purpose:** Handles logic related to `activate`.
 
 ### UpdateLayout
+`public virtual void UpdateLayout()`
 
-```csharp
-public virtual void UpdateLayout()
-```
+**Purpose:** Updates the state or data of `layout`.
 
 ### OnFocusChangeOnGameWindow
+`public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
 
-```csharp
-public virtual void OnFocusChangeOnGameWindow(bool focusGained)
-```
+**Purpose:** Called when the `focus change on game window` event is raised.
 
 ### AddComponent
+`public void AddComponent(ScreenComponent component)`
 
-```csharp
-public void AddComponent(ScreenComponent component)
-```
+**Purpose:** Adds `component` to the current collection or state.
 
 ### AddLayer
+`public void AddLayer(ScreenLayer layer)`
 
-```csharp
-public void AddLayer(ScreenLayer layer)
-```
+**Purpose:** Adds `layer` to the current collection or state.
 
 ### RemoveLayer
+`public void RemoveLayer(ScreenLayer layer)`
 
-```csharp
-public void RemoveLayer(ScreenLayer layer)
-```
+**Purpose:** Removes `layer` from the current collection or state.
 
 ### HasLayer
+`public bool HasLayer(ScreenLayer layer)`
 
-```csharp
-public bool HasLayer(ScreenLayer layer)
-```
+**Purpose:** Checks whether the current object has/contains `layer`.
 
 ### SetLayerCategoriesState
+`public void SetLayerCategoriesState(string categoryIds, bool isActive)`
 
-```csharp
-public void SetLayerCategoriesState(string categoryIds, bool isActive)
-```
+**Purpose:** Sets the value or state of `layer categories state`.
 
 ### SetLayerCategoriesStateAndToggleOthers
+`public void SetLayerCategoriesStateAndToggleOthers(string categoryIds, bool isActive)`
 
-```csharp
-public void SetLayerCategoriesStateAndToggleOthers(string categoryIds, bool isActive)
-```
+**Purpose:** Sets the value or state of `layer categories state and toggle others`.
 
 ### SetLayerCategoriesStateAndDeactivateOthers
+`public void SetLayerCategoriesStateAndDeactivateOthers(string categoryIds, bool isActive)`
 
-```csharp
-public void SetLayerCategoriesStateAndDeactivateOthers(string categoryIds, bool isActive)
-```
+**Purpose:** Sets the value or state of `layer categories state and deactivate others`.
 
 ### OnLayerAddedEvent
+`public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)`
 
-```csharp
-public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)
-```
+**Purpose:** Called when the `layer added event` event is raised.
 
 ### OnLayerRemovedEvent
+`public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)`
+
+**Purpose:** Called when the `layer removed event` event is raised.
+
+## Usage Example
 
 ```csharp
-public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)
+var implementation = new CustomScreenBase();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

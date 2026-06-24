@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `SPInventorySortControllerVM`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SPInventorySortControllerVM
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SPInventorySortControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Inventory/SPInventorySortControllerVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SPInventorySortControllerVM` 是 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SPInventorySortControllerVM` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -30,90 +36,80 @@
 | `IsQuantitySelected` | `public bool IsQuantitySelected { get; set; }` |
 | `IsCostSelected` | `public bool IsCostSelected { get; set; }` |
 
-
 ## 主要方法
 
 ### SortByOption
+`public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)`
 
-```csharp
-public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)
-```
+**用途 / Purpose:** 处理 `sort by option` 相关逻辑。
 
 ### SortByDefaultState
+`public void SortByDefaultState()`
 
-```csharp
-public void SortByDefaultState()
-```
+**用途 / Purpose:** 处理 `sort by default state` 相关逻辑。
 
 ### SortByCurrentState
+`public void SortByCurrentState()`
 
-```csharp
-public void SortByCurrentState()
-```
+**用途 / Purpose:** 处理 `sort by current state` 相关逻辑。
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**用途 / Purpose:** 执行 `sort by name` 操作或流程。
 
 ### ExecuteSortByType
+`public void ExecuteSortByType()`
 
-```csharp
-public void ExecuteSortByType()
-```
+**用途 / Purpose:** 执行 `sort by type` 操作或流程。
 
 ### ExecuteSortByQuantity
+`public void ExecuteSortByQuantity()`
 
-```csharp
-public void ExecuteSortByQuantity()
-```
+**用途 / Purpose:** 执行 `sort by quantity` 操作或流程。
 
 ### ExecuteSortByCost
+`public void ExecuteSortByCost()`
 
-```csharp
-public void ExecuteSortByCost()
-```
+**用途 / Purpose:** 执行 `sort by cost` 操作或流程。
 
 ### SetSortMode
+`public void SetSortMode(bool isAscending)`
 
-```csharp
-public void SetSortMode(bool isAscending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(SPItemVM x, SPItemVM y)
-```
+**用途 / Purpose:** 设置 `sort mode` 的值或状态。
 
 ### Compare
+`public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
 
-```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
-```
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+### Compare
+`public override int Compare(SPItemVM x, SPItemVM y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public override int Compare(SPItemVM x, SPItemVM y)
+var value = new SPInventorySortControllerVM();
+value.SortByOption(sortOption, sortState);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

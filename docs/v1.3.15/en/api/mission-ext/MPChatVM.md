@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MPChatVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPChatVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MPChatVM : ViewModel, IChatHandler`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Multiplayer/MPChatVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MPChatVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MPChatVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,131 +45,144 @@
 | `SendMessageText` | `public string SendMessageText { get; set; }` |
 | `CancelSendingText` | `public string CancelSendingText { get; set; }` |
 | `MessageHistory` | `public MBBindingList<MPChatLineVM> MessageHistory { get; set; }` |
-
+| `CombatLogHint` | `public HintViewModel CombatLogHint { get; set; }` |
+| `IncludeCombatLog` | `public bool IncludeCombatLog { get; set; }` |
+| `IncludeBark` | `public bool IncludeBark { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ToggleIncludeCombatLog
+`public void ToggleIncludeCombatLog()`
 
-```csharp
-public void ToggleIncludeCombatLog()
-```
+**Purpose:** Handles logic related to `toggle include combat log`.
 
 ### ExecuteToggleIncludeShouts
+`public void ExecuteToggleIncludeShouts()`
 
-```csharp
-public void ExecuteToggleIncludeShouts()
-```
+**Purpose:** Executes the `toggle include shouts` operation or workflow.
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### Hide
+`public void Hide()`
 
-```csharp
-public void Hide()
-```
+**Purpose:** Handles logic related to `hide`.
 
 ### Clear
+`public void Clear()`
 
-```csharp
-public void Clear()
-```
+**Purpose:** Handles logic related to `clear`.
 
 ### UpdateObjects
+`public void UpdateObjects(Game game, Mission mission)`
 
-```csharp
-public void UpdateObjects(Game game, Mission mission)
-```
+**Purpose:** Updates the state or data of `objects`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SendMessageToChannel
+`public void SendMessageToChannel(ChatChannelType channel, string message)`
 
-```csharp
-public void SendMessageToChannel(ChatChannelType channel, string message)
-```
+**Purpose:** Handles logic related to `send message to channel`.
 
 ### CheckChatFading
+`public void CheckChatFading(float dt)`
 
-```csharp
-public void CheckChatFading(float dt)
-```
+**Purpose:** Handles logic related to `check chat fading`.
 
 ### SetChatDisabledStateChangedCallback
+`public void SetChatDisabledStateChangedCallback(Action<bool> onChatDisabledStateChanged)`
 
-```csharp
-public void SetChatDisabledStateChangedCallback(Action<bool> onChatDisabledStateChanged)
-```
+**Purpose:** Sets the value or state of `chat disabled state changed callback`.
 
 ### SetGetKeyTextFromKeyIDFunc
+`public void SetGetKeyTextFromKeyIDFunc(Func<TextObject> getToggleChatKeyText)`
 
-```csharp
-public void SetGetKeyTextFromKeyIDFunc(Func<TextObject> getToggleChatKeyText)
-```
+**Purpose:** Sets the value or state of `get key text from key i d func`.
 
 ### SetGetCycleChannelKeyTextFunc
+`public void SetGetCycleChannelKeyTextFunc(Func<TextObject> getCycleChannelsKeyText)`
 
-```csharp
-public void SetGetCycleChannelKeyTextFunc(Func<TextObject> getCycleChannelsKeyText)
-```
+**Purpose:** Sets the value or state of `get cycle channel key text func`.
 
 ### SetGetSendMessageKeyTextFunc
+`public void SetGetSendMessageKeyTextFunc(Func<TextObject> getSendMessageKeyText)`
 
-```csharp
-public void SetGetSendMessageKeyTextFunc(Func<TextObject> getSendMessageKeyText)
-```
+**Purpose:** Sets the value or state of `get send message key text func`.
 
 ### SetGetCancelSendingKeyTextFunc
+`public void SetGetCancelSendingKeyTextFunc(Func<TextObject> getCancelSendingKeyText)`
 
-```csharp
-public void SetGetCancelSendingKeyTextFunc(Func<TextObject> getCancelSendingKeyText)
-```
+**Purpose:** Sets the value or state of `get cancel sending key text func`.
 
 ### IsChatAllowedByOptions
+`public bool IsChatAllowedByOptions()`
 
-```csharp
-public bool IsChatAllowedByOptions()
-```
+**Purpose:** Handles logic related to `is chat allowed by options`.
 
 ### TypeToChannelAll
+`public void TypeToChannelAll(bool startTyping = false)`
 
-```csharp
-public void TypeToChannelAll(bool startTyping = false)
-```
+**Purpose:** Handles logic related to `type to channel all`.
 
 ### TypeToChannelTeam
+`public void TypeToChannelTeam(bool startTyping = false)`
 
-```csharp
-public void TypeToChannelTeam(bool startTyping = false)
-```
+**Purpose:** Handles logic related to `type to channel team`.
 
 ### StartInspectingMessages
+`public void StartInspectingMessages()`
 
-```csharp
-public void StartInspectingMessages()
-```
+**Purpose:** Handles logic related to `start inspecting messages`.
 
 ### StopInspectingMessages
+`public void StopInspectingMessages()`
+
+**Purpose:** Handles logic related to `stop inspecting messages`.
+
+### StartTyping
+`public void StartTyping()`
+
+**Purpose:** Handles logic related to `start typing`.
+
+### StopTyping
+`public void StopTyping(bool resetWrittenText = false)`
+
+**Purpose:** Handles logic related to `stop typing`.
+
+### SendCurrentlyTypedMessage
+`public void SendCurrentlyTypedMessage()`
+
+**Purpose:** Handles logic related to `send currently typed message`.
+
+### ExecuteSaveSizes
+`public void ExecuteSaveSizes()`
+
+**Purpose:** Executes the `save sizes` operation or workflow.
+
+### SetMessageHistoryCapacity
+`public void SetMessageHistoryCapacity(int capacity)`
+
+**Purpose:** Sets the value or state of `message history capacity`.
+
+## Usage Example
 
 ```csharp
-public void StopInspectingMessages()
+var value = new MPChatVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

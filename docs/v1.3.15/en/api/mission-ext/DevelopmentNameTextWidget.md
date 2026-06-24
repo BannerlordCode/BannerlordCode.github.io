@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DevelopmentNameTextWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DevelopmentNameTextWidget
@@ -16,6 +17,10 @@
 
 `DevelopmentNameTextWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `DevelopmentNameTextWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -28,16 +33,14 @@
 ## Key Methods
 
 ### StartMaxTextAnimation
-```csharp
-public void StartMaxTextAnimation()
-```
+`public void StartMaxTextAnimation()`
+
+**Purpose:** Handles logic related to `start max text animation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DevelopmentNameTextWidget (Widget)
-// 声明/访问一个 DevelopmentNameTextWidget
-var widget = root.GetChild("developmentNameTextWidget");;
+var widget = new DevelopmentNameTextWidget(context);
 ```
 
 ## See Also

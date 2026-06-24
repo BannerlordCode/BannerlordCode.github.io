@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `ItemModifier`
 - [← Area / Back to items](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemModifier
+
+## Mental Model
+
+Treat `ItemModifier` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.Core  
 **File**: `bannerlord-1.3.15/TaleWorlds.Core/ItemModifier.cs`  

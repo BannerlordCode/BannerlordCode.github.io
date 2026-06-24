@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `BannerlordConfig`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerlordConfig
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public static class BannerlordConfig`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `BannerlordConfig` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BannerlordConfig` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,61 +45,58 @@
 | `CivilianAgentCount` | `public static float CivilianAgentCount { get; set; }` |
 | `FirstPersonFov` | `public static float FirstPersonFov { get; set; }` |
 
-
 ## Key Methods
 
 ### Initialize
+`public static void Initialize()`
 
-```csharp
-public static void Initialize()
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### Save
+`public static SaveResult Save()`
 
-```csharp
-public static SaveResult Save()
-```
+**Purpose:** Saves `save` data.
 
 ### GetDamageToPlayerMultiplier
+`public static float GetDamageToPlayerMultiplier()`
 
-```csharp
-public static float GetDamageToPlayerMultiplier()
-```
+**Purpose:** Gets the current value of `damage to player multiplier`.
 
 ### GetRealBattleSize
+`public static int GetRealBattleSize()`
 
-```csharp
-public static int GetRealBattleSize()
-```
+**Purpose:** Gets the current value of `real battle size`.
 
 ### GetRealBattleSizeForSiege
+`public static int GetRealBattleSizeForSiege()`
 
-```csharp
-public static int GetRealBattleSizeForSiege()
-```
+**Purpose:** Gets the current value of `real battle size for siege`.
 
 ### GetRealBattleSizeForNaval
+`public static int GetRealBattleSizeForNaval()`
 
-```csharp
-public static int GetRealBattleSizeForNaval()
-```
+**Purpose:** Gets the current value of `real battle size for naval`.
 
 ### GetReinforcementWaveCount
+`public static int GetReinforcementWaveCount()`
 
-```csharp
-public static int GetReinforcementWaveCount()
-```
+**Purpose:** Gets the current value of `reinforcement wave count`.
 
 ### GetRealBattleSizeForSallyOut
+`public static int GetRealBattleSizeForSallyOut()`
 
-```csharp
-public static int GetRealBattleSizeForSallyOut()
-```
+**Purpose:** Gets the current value of `real battle size for sally out`.
 
 ### IsValidValue
+`public bool IsValidValue(int value)`
+
+**Purpose:** Handles logic related to `is valid value`.
+
+## Usage Example
 
 ```csharp
-public bool IsValidValue(int value)
+// Prepare the required context, then call the static entry point directly
+BannerlordConfig.Initialize();
 ```
 
 ## See Also

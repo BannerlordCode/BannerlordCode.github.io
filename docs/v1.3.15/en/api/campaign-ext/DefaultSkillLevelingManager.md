@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSkillLevelingManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSkillLevelingManager
@@ -14,165 +15,258 @@
 
 ## Overview
 
-`DefaultSkillLevelingManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`DefaultSkillLevelingManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `DefaultSkillLevelingManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnCombatHit
-```csharp
-public void OnCombatHit(CharacterObject affectorCharacter, CharacterObject affectedCharacter, CharacterObject captain, Hero commander, float speedBonusFromMovement, float shotDifficulty, WeaponComponentData affectorWeapon, float hitPointRatio, CombatXpModel.MissionTypeEnum missionType, bool isAffectorMounted, bool isTeamKill, bool isAffectorUnderCommand, float damageAmount, bool isFatal, bool isSiegeEngineHit, bool isHorseCharge, bool isSneakAttack)
-```
+`public void OnCombatHit(CharacterObject affectorCharacter, CharacterObject affectedCharacter, CharacterObject captain, Hero commander, float speedBonusFromMovement, float shotDifficulty, WeaponComponentData affectorWeapon, float hitPointRatio, CombatXpModel.MissionTypeEnum missionType, bool isAffectorMounted, bool isTeamKill, bool isAffectorUnderCommand, float damageAmount, bool isFatal, bool isSiegeEngineHit, bool isHorseCharge, bool isSneakAttack)`
+
+**Purpose:** Called when the `combat hit` event is raised.
 
 ### OnSiegeEngineDestroyed
-```csharp
-public void OnSiegeEngineDestroyed(MobileParty party, SiegeEngineType destroyedSiegeEngine)
-```
+`public void OnSiegeEngineDestroyed(MobileParty party, SiegeEngineType destroyedSiegeEngine)`
+
+**Purpose:** Called when the `siege engine destroyed` event is raised.
 
 ### OnSimulationCombatKill
-```csharp
-public void OnSimulationCombatKill(CharacterObject affectorCharacter, CharacterObject affectedCharacter, PartyBase affectorParty, PartyBase commanderParty)
-```
+`public void OnSimulationCombatKill(CharacterObject affectorCharacter, CharacterObject affectedCharacter, PartyBase affectorParty, PartyBase commanderParty)`
+
+**Purpose:** Called when the `simulation combat kill` event is raised.
 
 ### OnTradeProfitMade
-```csharp
-public void OnTradeProfitMade(PartyBase party, int tradeProfit)
-```
+`public void OnTradeProfitMade(PartyBase party, int tradeProfit)`
+
+**Purpose:** Called when the `trade profit made` event is raised.
 
 ### OnTradeProfitMade
-```csharp
-public void OnTradeProfitMade(Hero hero, int tradeProfit)
-```
+`public void OnTradeProfitMade(Hero hero, int tradeProfit)`
+
+**Purpose:** Called when the `trade profit made` event is raised.
 
 ### OnSettlementProjectFinished
-```csharp
-public void OnSettlementProjectFinished(Settlement settlement)
-```
+`public void OnSettlementProjectFinished(Settlement settlement)`
+
+**Purpose:** Called when the `settlement project finished` event is raised.
 
 ### OnSettlementGoverned
-```csharp
-public void OnSettlementGoverned(Hero governor, Settlement settlement)
-```
+`public void OnSettlementGoverned(Hero governor, Settlement settlement)`
+
+**Purpose:** Called when the `settlement governed` event is raised.
 
 ### OnInfluenceSpent
-```csharp
-public void OnInfluenceSpent(Hero hero, float amountSpent)
-```
+`public void OnInfluenceSpent(Hero hero, float amountSpent)`
+
+**Purpose:** Called when the `influence spent` event is raised.
 
 ### OnGainRelation
-```csharp
-public void OnGainRelation(Hero hero, Hero gainedRelationWith, float relationChange, ChangeRelationAction.ChangeRelationDetail detail = ChangeRelationAction.ChangeRelationDetail.Default)
-```
+`public void OnGainRelation(Hero hero, Hero gainedRelationWith, float relationChange, ChangeRelationAction.ChangeRelationDetail detail = ChangeRelationAction.ChangeRelationDetail.Default)`
+
+**Purpose:** Called when the `gain relation` event is raised.
 
 ### OnTroopRecruited
-```csharp
-public void OnTroopRecruited(Hero hero, int amount, int tier)
-```
+`public void OnTroopRecruited(Hero hero, int amount, int tier)`
+
+**Purpose:** Called when the `troop recruited` event is raised.
 
 ### OnBribeGiven
-```csharp
-public void OnBribeGiven(int amount)
-```
+`public void OnBribeGiven(int amount)`
+
+**Purpose:** Called when the `bribe given` event is raised.
 
 ### OnBanditsRecruited
-```csharp
-public void OnBanditsRecruited(MobileParty mobileParty, CharacterObject bandit, int count)
-```
+`public void OnBanditsRecruited(MobileParty mobileParty, CharacterObject bandit, int count)`
+
+**Purpose:** Called when the `bandits recruited` event is raised.
 
 ### OnMainHeroReleasedFromCaptivity
-```csharp
-public void OnMainHeroReleasedFromCaptivity(float captivityTime)
-```
+`public void OnMainHeroReleasedFromCaptivity(float captivityTime)`
+
+**Purpose:** Called when the `main hero released from captivity` event is raised.
 
 ### OnMainHeroTortured
-```csharp
-public void OnMainHeroTortured()
-```
+`public void OnMainHeroTortured()`
+
+**Purpose:** Called when the `main hero tortured` event is raised.
 
 ### OnMainHeroDisguised
-```csharp
-public void OnMainHeroDisguised(bool isNotCaught)
-```
+`public void OnMainHeroDisguised(bool isNotCaught)`
+
+**Purpose:** Called when the `main hero disguised` event is raised.
 
 ### OnRaid
-```csharp
-public void OnRaid(MobileParty attackerParty, ItemRoster lootedItems)
-```
+`public void OnRaid(MobileParty attackerParty, ItemRoster lootedItems)`
+
+**Purpose:** Called when the `raid` event is raised.
 
 ### OnLoot
-```csharp
-public void OnLoot(MobileParty attackerParty, MobileParty forcedParty, ItemRoster lootedItems, bool attacked)
-```
+`public void OnLoot(MobileParty attackerParty, MobileParty forcedParty, ItemRoster lootedItems, bool attacked)`
+
+**Purpose:** Called when the `loot` event is raised.
 
 ### OnPrisonerSell
-```csharp
-public void OnPrisonerSell(MobileParty mobileParty, in TroopRoster prisonerRoster)
-```
+`public void OnPrisonerSell(MobileParty mobileParty, in TroopRoster prisonerRoster)`
+
+**Purpose:** Called when the `prisoner sell` event is raised.
 
 ### OnSurgeryApplied
-```csharp
-public void OnSurgeryApplied(MobileParty party, bool surgerySuccess, int troopTier)
-```
+`public void OnSurgeryApplied(MobileParty party, bool surgerySuccess, int troopTier)`
+
+**Purpose:** Called when the `surgery applied` event is raised.
 
 ### OnTacticsUsed
-```csharp
-public void OnTacticsUsed(MobileParty party, float xp)
-```
+`public void OnTacticsUsed(MobileParty party, float xp)`
+
+**Purpose:** Called when the `tactics used` event is raised.
 
 ### OnHideoutSpotted
-```csharp
-public void OnHideoutSpotted(MobileParty party, PartyBase spottedParty)
-```
+`public void OnHideoutSpotted(MobileParty party, PartyBase spottedParty)`
+
+**Purpose:** Called when the `hideout spotted` event is raised.
 
 ### OnTrackDetected
-```csharp
-public void OnTrackDetected(Track track)
-```
+`public void OnTrackDetected(Track track)`
+
+**Purpose:** Called when the `track detected` event is raised.
 
 ### OnTravelOnFoot
-```csharp
-public void OnTravelOnFoot(Hero hero, float speed)
-```
+`public void OnTravelOnFoot(Hero hero, float speed)`
+
+**Purpose:** Called when the `travel on foot` event is raised.
 
 ### OnTravelOnHorse
-```csharp
-public void OnTravelOnHorse(Hero hero, float speed)
-```
+`public void OnTravelOnHorse(Hero hero, float speed)`
+
+**Purpose:** Called when the `travel on horse` event is raised.
 
 ### OnHeroHealedWhileWaiting
-```csharp
-public void OnHeroHealedWhileWaiting(Hero hero, int healingAmount)
-```
+`public void OnHeroHealedWhileWaiting(Hero hero, int healingAmount)`
+
+**Purpose:** Called when the `hero healed while waiting` event is raised.
 
 ### OnRegularTroopHealedWhileWaiting
-```csharp
-public void OnRegularTroopHealedWhileWaiting(MobileParty mobileParty, int healedTroopCount, float averageTier)
-```
+`public void OnRegularTroopHealedWhileWaiting(MobileParty mobileParty, int healedTroopCount, float averageTier)`
+
+**Purpose:** Called when the `regular troop healed while waiting` event is raised.
 
 ### OnLeadingArmy
-```csharp
-public void OnLeadingArmy(MobileParty mobileParty)
-```
+`public void OnLeadingArmy(MobileParty mobileParty)`
+
+**Purpose:** Called when the `leading army` event is raised.
 
 ### OnSieging
-```csharp
-public void OnSieging(MobileParty mobileParty)
-```
+`public void OnSieging(MobileParty mobileParty)`
+
+**Purpose:** Called when the `sieging` event is raised.
 
 ### OnSiegeEngineBuilt
-```csharp
-public void OnSiegeEngineBuilt(MobileParty mobileParty, SiegeEngineType siegeEngine)
-```
+`public void OnSiegeEngineBuilt(MobileParty mobileParty, SiegeEngineType siegeEngine)`
+
+**Purpose:** Called when the `siege engine built` event is raised.
 
 ### OnUpgradeTroops
-```csharp
-public void OnUpgradeTroops(PartyBase party, CharacterObject troop, CharacterObject upgrade, int numberOfTroops)
-```
+`public void OnUpgradeTroops(PartyBase party, CharacterObject troop, CharacterObject upgrade, int numberOfTroops)`
+
+**Purpose:** Called when the `upgrade troops` event is raised.
+
+### OnPersuasionSucceeded
+`public void OnPersuasionSucceeded(Hero targetHero, SkillObject skill, PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
+
+**Purpose:** Called when the `persuasion succeeded` event is raised.
+
+### OnPrisonBreakEnd
+`public void OnPrisonBreakEnd(Hero prisonerHero, bool isSucceeded)`
+
+**Purpose:** Called when the `prison break end` event is raised.
+
+### OnWallBreached
+`public void OnWallBreached(MobileParty party)`
+
+**Purpose:** Called when the `wall breached` event is raised.
+
+### OnForceVolunteers
+`public void OnForceVolunteers(MobileParty attackerParty, PartyBase forcedParty)`
+
+**Purpose:** Called when the `force volunteers` event is raised.
+
+### OnForceSupplies
+`public void OnForceSupplies(MobileParty attackerParty, ItemRoster lootedItems, bool attacked)`
+
+**Purpose:** Called when the `force supplies` event is raised.
+
+### OnAIPartiesTravel
+`public void OnAIPartiesTravel(Hero hero, bool isCaravanParty, TerrainType currentTerrainType)`
+
+**Purpose:** Called when the `a i parties travel` event is raised.
+
+### OnTraverseTerrain
+`public void OnTraverseTerrain(MobileParty mobileParty, TerrainType currentTerrainType)`
+
+**Purpose:** Called when the `traverse terrain` event is raised.
+
+### OnBattleEnded
+`public void OnBattleEnded(PartyBase party, CharacterObject troop, int excessXp)`
+
+**Purpose:** Called when the `battle ended` event is raised.
+
+### OnFoodConsumed
+`public void OnFoodConsumed(MobileParty mobileParty, bool wasStarving)`
+
+**Purpose:** Called when the `food consumed` event is raised.
+
+### OnAlleyCleared
+`public void OnAlleyCleared(Alley alley)`
+
+**Purpose:** Called when the `alley cleared` event is raised.
+
+### OnDailyAlleyTick
+`public void OnDailyAlleyTick(Alley alley, Hero alleyLeader)`
+
+**Purpose:** Called when the `daily alley tick` event is raised.
+
+### OnBoardGameWonAgainstLord
+`public void OnBoardGameWonAgainstLord(Hero lord, BoardGameHelper.AIDifficulty difficulty, bool extraXpGain)`
+
+**Purpose:** Called when the `board game won against lord` event is raised.
+
+### OnHideoutMissionEnd
+`public void OnHideoutMissionEnd(bool isSucceeded)`
+
+**Purpose:** Called when the `hideout mission end` event is raised.
+
+### OnWarehouseProduction
+`public void OnWarehouseProduction(EquipmentElement production)`
+
+**Purpose:** Called when the `warehouse production` event is raised.
+
+### OnAIPartyLootCasualties
+`public void OnAIPartyLootCasualties(int goldAmount, Hero winnerPartyLeader, PartyBase defeatedParty)`
+
+**Purpose:** Called when the `a i party loot casualties` event is raised.
+
+### OnShipDamaged
+`public void OnShipDamaged(Ship ship, float rawDamage, float finalDamage)`
+
+**Purpose:** Called when the `ship damaged` event is raised.
+
+### OnShipRepaired
+`public void OnShipRepaired(Ship ship, float repairedHitPoints)`
+
+**Purpose:** Called when the `ship repaired` event is raised.
+
+### OnTravelOnWater
+`public void OnTravelOnWater(Hero hero, float speed)`
+
+**Purpose:** Called when the `travel on water` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSkillLevelingManager (Manager)
-DefaultSkillLevelingManager.Current;
+var manager = DefaultSkillLevelingManager.Current;
 ```
 
 ## See Also

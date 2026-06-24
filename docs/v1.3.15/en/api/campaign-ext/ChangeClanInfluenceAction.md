@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `ChangeClanInfluenceAction`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ChangeClanInfluenceAction
+
+## Mental Model
+
+Treat `ChangeClanInfluenceAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -21,7 +27,7 @@ ChangeClanInfluenceAction is a set of static methods that trigger "ChangeClanInf
 public static void Apply(Clan clan, float amount)
 ```
 
-**Purpose:** .
+**Purpose:** execute this entry point.
 
 ## Usage Example
 

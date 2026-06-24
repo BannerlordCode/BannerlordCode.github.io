@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `QuestsVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QuestsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class QuestsVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Quests/QuestsVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `QuestsVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`QuestsVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,59 +45,58 @@
 | `TimeRemainingHint` | `public HintViewModel TimeRemainingHint { get; set; }` |
 | `OldQuestsHint` | `public HintViewModel OldQuestsHint { get; set; }` |
 | `ActiveQuestsSortController` | `public QuestItemSortControllerVM ActiveQuestsSortController { get; set; }` |
-
+| `OldQuestsSortController` | `public QuestItemSortControllerVM OldQuestsSortController { get; set; }` |
+| `SortSelector` | `public SelectorVM<SelectorItemVM> SortSelector { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteOpenQuestGiverEncyclopedia
+`public void ExecuteOpenQuestGiverEncyclopedia()`
 
-```csharp
-public void ExecuteOpenQuestGiverEncyclopedia()
-```
+**Purpose:** Executes the `open quest giver encyclopedia` operation or workflow.
 
 ### ExecuteClose
+`public void ExecuteClose()`
 
-```csharp
-public void ExecuteClose()
-```
+**Purpose:** Executes the `close` operation or workflow.
 
 ### SetSelectedIssue
+`public void SetSelectedIssue(IssueBase issue)`
 
-```csharp
-public void SetSelectedIssue(IssueBase issue)
-```
+**Purpose:** Sets the value or state of `selected issue`.
 
 ### SetSelectedQuest
+`public void SetSelectedQuest(QuestBase quest)`
 
-```csharp
-public void SetSelectedQuest(QuestBase quest)
-```
+**Purpose:** Sets the value or state of `selected quest`.
 
 ### SetSelectedLog
+`public void SetSelectedLog(JournalLogEntry log)`
 
-```csharp
-public void SetSelectedLog(JournalLogEntry log)
-```
+**Purpose:** Sets the value or state of `selected log`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `done input key`.
+
+## Usage Example
 
 ```csharp
-public void SetDoneInputKey(HotKey hotKey)
+var value = new QuestsVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

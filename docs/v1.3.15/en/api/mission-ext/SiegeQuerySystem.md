@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SiegeQuerySystem`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SiegeQuerySystem`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/SiegeQuerySystem.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeQuerySystem` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeQuerySystem` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,34 +46,35 @@
 | `MidToRightDir` | `public Vec2 MidToRightDir { get; }` |
 | `RightToMidDir` | `public Vec2 RightToMidDir { get; }` |
 
-
 ## Key Methods
 
 ### Expire
+`public void Expire()`
 
-```csharp
-public void Expire()
-```
+**Purpose:** Handles logic related to `expire`.
 
 ### DeterminePositionAssociatedSide
+`public int DeterminePositionAssociatedSide(Vec3 position)`
 
-```csharp
-public int DeterminePositionAssociatedSide(Vec3 position)
-```
+**Purpose:** Handles logic related to `determine position associated side`.
 
 ### AreSidesRelated
+`public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)`
 
-```csharp
-public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)
-```
+**Purpose:** Handles logic related to `are sides related`.
 
 ### SideDistance
+`public static int SideDistance(int connectedSides, int side)`
+
+**Purpose:** Handles logic related to `side distance`.
+
+## Usage Example
 
 ```csharp
-public static int SideDistance(int connectedSides, int side)
+var value = new SiegeQuerySystem();
+value.Expire();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

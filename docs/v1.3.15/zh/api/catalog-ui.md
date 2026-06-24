@@ -5,7 +5,11 @@ sidebar: auto
 
 # Gauntlet UI 类目录
 
-本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **265** 个类型，其中 **265** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `Gauntlet UI 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.15 源码中该领域全部公开类型，按命名空间分组。共 **265** 个类型，其中 **258** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -62,12 +66,12 @@ sidebar: auto
 | C | [StyleLayer](./campaign-ext/StyleLayer.md) | 🔗 |
 | C | [TextureProvider](./campaign-ext/TextureProvider.md) | 🔗 |
 | C | [TextureProviderFactory](./campaign-ext/TextureProviderFactory.md) | 🔗 |
-| E | [Type](./mission-ext/Type.md) | 🔗 |
+| E | Type | — |
 | C | [UIContext](./campaign-ext/UIContext.md) | 🔗 |
 | E | [ValueType](./campaign-ext/ValueType.md) | 🔗 |
 | E | [VerticalAlignment](./campaign-ext/VerticalAlignment.md) | 🔗 |
 | C | [VisualDefinition](./campaign-ext/VisualDefinition.md) | 🔗 |
-| C | [VisualState](./mission-ext/VisualState.md) | 🔗 |
+| C | [VisualState](./campaign-ext/VisualState.md) | 🔗 |
 | E | [VisualStateAnimationState](./campaign-ext/VisualStateAnimationState.md) | 🔗 |
 | C | [WidgetComponent](./campaign-ext/WidgetComponent.md) | 🔗 |
 | C | [WidgetInfo](./campaign-ext/WidgetInfo.md) | 🔗 |
@@ -87,7 +91,7 @@ sidebar: auto
 | C | [EditableTextWidget](./campaign-ext/EditableTextWidget.md) | 🔗 |
 | C | [FloatInputTextWidget](./campaign-ext/FloatInputTextWidget.md) | 🔗 |
 | C | [GridWidget](./campaign-ext/GridWidget.md) | 🔗 |
-| E | [ImageSizePolicies](./mission-ext/ImageSizePolicies.md) | 🔗 |
+| E | [ImageSizePolicies](./campaign-ext/ImageSizePolicies.md) | 🔗 |
 | C | [ImageWidget](./campaign-ext/ImageWidget.md) | 🔗 |
 | C | [IntegerInputPercentageTextWidget](./campaign-ext/IntegerInputPercentageTextWidget.md) | 🔗 |
 | C | [IntegerInputTextWidget](./campaign-ext/IntegerInputTextWidget.md) | 🔗 |
@@ -110,7 +114,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [GauntletMovie](./gui/GauntletMovie.md) | 🔗 |
+| C | GauntletMovie | — |
 | C | [GauntletView](./campaign-ext/GauntletView.md) | 🔗 |
 | C | [GeneratedGauntletMovie](./campaign-ext/GeneratedGauntletMovie.md) | 🔗 |
 | C | [GeneratedWidgetData](./campaign-ext/GeneratedWidgetData.md) | 🔗 |
@@ -153,7 +157,7 @@ sidebar: auto
 | C | [TooltipWidget](./campaign-ext/TooltipWidget.md) | 🔗 |
 | C | [TwoWaySliderWidget](./campaign-ext/TwoWaySliderWidget.md) | 🔗 |
 | C | [ValueBasedVisibilityWidget](./campaign-ext/ValueBasedVisibilityWidget.md) | 🔗 |
-| E | [WatchTypes](./mission-ext/WatchTypes.md) | 🔗 |
+| E | [WatchTypes](./campaign-ext/WatchTypes.md) | 🔗 |
 
 ## TaleWorlds.GauntletUI.ExtraWidgets.Graph (3)
 
@@ -238,10 +242,10 @@ sidebar: auto
 | I | [ILanguage](./campaign-ext/ILanguage.md) | 🔗 |
 | S | [ImageDrawObject](./campaign-ext/ImageDrawObject.md) | 🔗 |
 | I | [IText](./campaign-ext/IText.md) | 🔗 |
-| I | [ITexture](./campaign-ext/ITexture.md) | 🔗 |
+| I | ITexture | — |
 | I | [ITwoDimensionPlatform](./campaign-ext/ITwoDimensionPlatform.md) | 🔗 |
 | I | [ITwoDimensionResourceContext](./campaign-ext/ITwoDimensionResourceContext.md) | 🔗 |
-| C | [Material](./engine/Material.md) | 🔗 |
+| C | Material | — |
 | C | [MaterialPool](./campaign-ext/MaterialPool.md) | 🔗 |
 | C | [Mathf](./campaign-ext/Mathf.md) | 🔗 |
 | E | [MeshTopology](./campaign-ext/MeshTopology.md) | 🔗 |
@@ -274,9 +278,9 @@ sidebar: auto
 | C | [TextParser](./campaign-ext/TextParser.md) | 🔗 |
 | C | [TextPart](./campaign-ext/TextPart.md) | 🔗 |
 | C | [TextToken](./campaign-ext/TextToken.md) | 🔗 |
-| C | [Texture](./engine/Texture.md) | 🔗 |
+| C | Texture | — |
 | E | [TextVerticalAlignment](./campaign-ext/TextVerticalAlignment.md) | 🔗 |
-| E | [TokenType](./campaign-ext/TokenType.md) | 🔗 |
+| E | TokenType | — |
 | C | [TwoDimensionContext](./campaign-ext/TwoDimensionContext.md) | 🔗 |
 | C | [TwoDimensionContextObject](./campaign-ext/TwoDimensionContextObject.md) | 🔗 |
 | C | [TwoDimensionDrawContext](./campaign-ext/TwoDimensionDrawContext.md) | 🔗 |
@@ -292,7 +296,7 @@ sidebar: auto
 | C | [InputData](./campaign-ext/InputData.md) | 🔗 |
 | C | [LayeredWindowController](./campaign-ext/LayeredWindowController.md) | 🔗 |
 | C | [OpenGLTexture](./campaign-ext/OpenGLTexture.md) | 🔗 |
-| C | [Shader](./engine/Shader.md) | 🔗 |
+| C | Shader | — |
 | C | [StandaloneInputManager](./campaign-ext/StandaloneInputManager.md) | 🔗 |
 | C | [TwoDimensionPlatform](./campaign-ext/TwoDimensionPlatform.md) | 🔗 |
 | C | [VertexArrayObject](./campaign-ext/VertexArrayObject.md) | 🔗 |

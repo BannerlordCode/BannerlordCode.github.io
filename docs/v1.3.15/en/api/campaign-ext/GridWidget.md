@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GridWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GridWidget
@@ -16,44 +17,47 @@
 
 `GridWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `GridWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `DefaultCellWidth` | `public float DefaultCellWidth { get { return this._defaultCellWidth; }` |
-| `DefaultScaledCellWidth` | `public float DefaultScaledCellWidth { get { return this.DefaultCellWidth * base._scaleToUse; }` |
-| `DefaultCellHeight` | `public float DefaultCellHeight { get { return this._defaultCellHeight; }` |
-| `DefaultScaledCellHeight` | `public float DefaultScaledCellHeight { get { return this.DefaultCellHeight * base._scaleToUse; }` |
-| `RowCount` | `public int RowCount { get { return this._rowCount; }` |
-| `ColumnCount` | `public int ColumnCount { get { return this._columnCount; }` |
-| `UseDynamicCellWidth` | `public bool UseDynamicCellWidth { get { return this._useDynamicCellWidth; }` |
-| `UseDynamicCellHeight` | `public bool UseDynamicCellHeight { get { return this._useDynamicCellHeight; }` |
+| `GridLayout` | `public GridLayout GridLayout { get; }` |
+| `DefaultCellWidth` | `public float DefaultCellWidth { get; set; }` |
+| `DefaultScaledCellWidth` | `public float DefaultScaledCellWidth { get; set; }` |
+| `DefaultCellHeight` | `public float DefaultCellHeight { get; set; }` |
+| `DefaultScaledCellHeight` | `public float DefaultScaledCellHeight { get; set; }` |
+| `RowCount` | `public int RowCount { get; set; }` |
+| `ColumnCount` | `public int ColumnCount { get; set; }` |
+| `UseDynamicCellWidth` | `public bool UseDynamicCellWidth { get; set; }` |
+| `UseDynamicCellHeight` | `public bool UseDynamicCellHeight { get; set; }` |
 | `AcceptDropPredicate` | `public override Predicate<Widget> AcceptDropPredicate { get; set; }` |
-| `IsDragHovering` | `public override bool IsDragHovering { get { return false; }` |
+| `IsDragHovering` | `public override bool IsDragHovering { get; }` |
 
 ## Key Methods
 
 ### GetDropGizmoPosition
-```csharp
-public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)
-```
+`public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
+
+**Purpose:** Gets the current value of `drop gizmo position`.
 
 ### GetIndexForDrop
-```csharp
-public override int GetIndexForDrop(Vector2 draggedWidgetPosition)
-```
+`public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
+
+**Purpose:** Gets the current value of `index for drop`.
 
 ### OnChildSelected
-```csharp
-public override void OnChildSelected(Widget widget)
-```
+`public override void OnChildSelected(Widget widget)`
+
+**Purpose:** Called when the `child selected` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GridWidget (Widget)
-// 声明/访问一个 GridWidget
-var widget = root.GetChild("gridWidget");;
+var widget = new GridWidget(context);
 ```
 
 ## See Also

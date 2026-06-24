@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DialogButtonsParentWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DialogButtonsParentWidget
@@ -16,6 +17,10 @@
 
 `DialogButtonsParentWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `DialogButtonsParentWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -23,16 +28,14 @@
 | `CancelClickSound` | `public string CancelClickSound { get; set; }` |
 | `ConfirmClickSound` | `public string ConfirmClickSound { get; set; }` |
 | `ResetClickSound` | `public string ResetClickSound { get; set; }` |
-| `CancelButton` | `public ButtonWidget CancelButton { get { return this._cancelButton; }` |
-| `ConfirmButton` | `public ButtonWidget ConfirmButton { get { return this._confirmButton; }` |
-| `ResetButton` | `public ButtonWidget ResetButton { get { return this._resetButton; }` |
+| `CancelButton` | `public ButtonWidget CancelButton { get; set; }` |
+| `ConfirmButton` | `public ButtonWidget ConfirmButton { get; set; }` |
+| `ResetButton` | `public ButtonWidget ResetButton { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DialogButtonsParentWidget (Widget)
-// 声明/访问一个 DialogButtonsParentWidget
-var widget = root.GetChild("dialogButtonsParentWidget");;
+var widget = new DialogButtonsParentWidget(context);
 ```
 
 ## See Also

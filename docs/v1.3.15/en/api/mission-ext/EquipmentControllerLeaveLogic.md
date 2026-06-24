@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EquipmentControllerLeaveLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EquipmentControllerLeaveLogic
@@ -14,24 +15,33 @@
 
 ## Overview
 
-`EquipmentControllerLeaveLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new EquipmentControllerLeaveLogic())`; subclass it to customize.
+`EquipmentControllerLeaveLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `EquipmentControllerLeaveLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsEquipmentSelectionActive` | `public bool IsEquipmentSelectionActive { get; }` |
 
 ## Key Methods
 
 ### SetIsEquipmentSelectionActive
-```csharp
-public void SetIsEquipmentSelectionActive(bool isActive)
-```
+`public void SetIsEquipmentSelectionActive(bool isActive)`
+
+**Purpose:** Sets the value or state of `is equipment selection active`.
 
 ### OnEndMissionRequest
-```csharp
-public override InquiryData OnEndMissionRequest(out bool canLeave)
-```
+`public override InquiryData OnEndMissionRequest(out bool canLeave)`
+
+**Purpose:** Called when the `end mission request` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EquipmentControllerLeaveLogic (Logic)
 Mission.Current.AddMissionBehavior(new EquipmentControllerLeaveLogic());
 ```
 

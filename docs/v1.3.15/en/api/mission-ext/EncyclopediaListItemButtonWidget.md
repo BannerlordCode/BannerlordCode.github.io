@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EncyclopediaListItemButtonWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EncyclopediaListItemButtonWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `EncyclopediaListItemButtonWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `EncyclopediaListItemButtonWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -30,16 +35,14 @@
 ## Key Methods
 
 ### OnThisLateUpdate
-```csharp
-public void OnThisLateUpdate(float dt)
-```
+`public void OnThisLateUpdate(float dt)`
+
+**Purpose:** Called when the `this late update` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EncyclopediaListItemButtonWidget (Widget)
-// 声明/访问一个 EncyclopediaListItemButtonWidget
-var widget = root.GetChild("encyclopediaListItemButtonWidget");;
+var widget = new EncyclopediaListItemButtonWidget(context);
 ```
 
 ## See Also

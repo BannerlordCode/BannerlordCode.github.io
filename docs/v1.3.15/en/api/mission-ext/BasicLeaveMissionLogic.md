@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BasicLeaveMissionLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BasicLeaveMissionLogic
@@ -14,24 +15,27 @@
 
 ## Overview
 
-`BasicLeaveMissionLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new BasicLeaveMissionLogic())`; subclass it to customize.
+`BasicLeaveMissionLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `BasicLeaveMissionLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### MissionEnded
-```csharp
-public override bool MissionEnded(ref MissionResult missionResult)
-```
+`public override bool MissionEnded(ref MissionResult missionResult)`
+
+**Purpose:** Handles logic related to `mission ended`.
 
 ### OnEndMissionRequest
-```csharp
-public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)
-```
+`public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
+
+**Purpose:** Called when the `end mission request` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BasicLeaveMissionLogic (Logic)
 Mission.Current.AddMissionBehavior(new BasicLeaveMissionLogic());
 ```
 

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `RecentPlayersManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RecentPlayersManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`RecentPlayersManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`RecentPlayersManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `RecentPlayersManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -27,45 +32,44 @@
 ## 主要方法
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### GetRecentPlayerInfos
-```csharp
-public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()
-```
+`public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
+
+**用途 / Purpose:** 获取 `recent player infos` 的当前值。
 
 ### GetRecentPlayerIds
-```csharp
-public static PlayerId GetRecentPlayerIds()
-```
+`public static PlayerId GetRecentPlayerIds()`
+
+**用途 / Purpose:** 获取 `recent player ids` 的当前值。
 
 ### AddOrUpdatePlayerEntry
-```csharp
-public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)
-```
+`public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `or update player entry`。
 
 ### TrimPlayers
-```csharp
-public static void TrimPlayers()
-```
+`public static void TrimPlayers()`
+
+**用途 / Purpose:** 处理 `trim players` 相关逻辑。
 
 ### Serialize
-```csharp
-public static void Serialize()
-```
+`public static void Serialize()`
+
+**用途 / Purpose:** 处理 `serialize` 相关逻辑。
 
 ### GetPlayersOrdered
-```csharp
-public static IEnumerable<PlayerId> GetPlayersOrdered()
-```
+`public static IEnumerable<PlayerId> GetPlayersOrdered()`
+
+**用途 / Purpose:** 获取 `players ordered` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// RecentPlayersManager (Manager) 的典型用法
-RecentPlayersManager.Current;
+var manager = RecentPlayersManager.Current;
 ```
 
 ## 参见

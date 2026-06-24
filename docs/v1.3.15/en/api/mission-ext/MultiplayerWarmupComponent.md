@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerWarmupComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerWarmupComponent
@@ -14,62 +15,65 @@
 
 ## Overview
 
-`MultiplayerWarmupComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerWarmupComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerWarmupComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerWarmupComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `TotalWarmupDuration` | `public static float TotalWarmupDuration { get { return (float)MultiplayerOptions.OptionType.WarmupTimeLimitInSeconds.GetIntValue(MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions); }` |
-| `IsInWarmup` | `public bool IsInWarmup { get { return this.WarmupState != MultiplayerWarmupComponent.WarmupStates.Ended; }` |
+| `TotalWarmupDuration` | `public static float TotalWarmupDuration { get; }` |
+| `IsInWarmup` | `public bool IsInWarmup { get; }` |
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### CheckForWarmupProgressEnd
-```csharp
-public bool CheckForWarmupProgressEnd()
-```
+`public bool CheckForWarmupProgressEnd()`
+
+**Purpose:** Handles logic related to `check for warmup progress end`.
 
 ### OnPreDisplayMissionTick
-```csharp
-public override void OnPreDisplayMissionTick(float dt)
-```
+`public override void OnPreDisplayMissionTick(float dt)`
+
+**Purpose:** Called when the `pre display mission tick` event is raised.
 
 ### EndWarmupProgress
-```csharp
-public void EndWarmupProgress()
-```
+`public void EndWarmupProgress()`
+
+**Purpose:** Handles logic related to `end warmup progress`.
 
 ### CanMatchStartAfterWarmup
-```csharp
-public bool CanMatchStartAfterWarmup()
-```
+`public bool CanMatchStartAfterWarmup()`
+
+**Purpose:** Checks whether the current object can `match start after warmup`.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### CommandEndWarmup
-```csharp
-public static string CommandEndWarmup(List<string> strings)
-```
+`public static string CommandEndWarmup(List<string> strings)`
+
+**Purpose:** Handles logic related to `command end warmup`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerWarmupComponent (Component)
-agent.GetComponent<MultiplayerWarmupComponent>();
+var component = agent.GetComponent<MultiplayerWarmupComponent>();
 ```
 
 ## See Also

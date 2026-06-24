@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CraftingItemViewModel`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingItemViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class CraftingItemViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/CraftingItemViewModel.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CraftingItemViewModel` is a class in the `TaleWorlds.Core.ViewModelCollection` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CraftingItemViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and UI. Mods typically use it to expose state, commands, and list items to the screen.
 
+## Mental Model
+
+Treat `CraftingItemViewModel` as a ViewModel-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -24,22 +28,25 @@
 | `UsedPieces` | `public string UsedPieces { get; set; }` |
 | `WeaponClass` | `public int WeaponClass { get; set; }` |
 
-
 ## Key Methods
 
 ### GetWeaponClass
+`public WeaponClass GetWeaponClass()`
 
-```csharp
-public WeaponClass GetWeaponClass()
-```
+**Purpose:** Gets the current value of `weapon class`.
 
 ### SetCraftingData
+`public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
+
+**Purpose:** Sets the value or state of `crafting data`.
+
+## Usage Example
 
 ```csharp
-public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)
+var vm = new CraftingItemViewModel();
+movie.SetViewModel(vm);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

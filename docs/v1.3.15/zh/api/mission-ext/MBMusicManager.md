@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MBMusicManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBMusicManager
@@ -14,165 +15,185 @@
 
 ## 概述
 
-`MBMusicManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`MBMusicManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MBMusicManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Current` | `public static MBMusicManager Current { get; }` |
+| `CurrentMode` | `public MusicMode CurrentMode { get; }` |
 
 ## 主要方法
 
 ### IsCreationCompleted
-```csharp
-public static bool IsCreationCompleted()
-```
+`public static bool IsCreationCompleted()`
+
+**用途 / Purpose:** 处理 `is creation completed` 相关逻辑。
 
 ### Create
-```csharp
-public static void Create()
-```
+`public static void Create()`
+
+**用途 / Purpose:** 创建一个 `create` 实例或对象。
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### OnCampaignMusicHandlerInit
-```csharp
-public void OnCampaignMusicHandlerInit(IMusicHandler campaignMusicHandler)
-```
+`public void OnCampaignMusicHandlerInit(IMusicHandler campaignMusicHandler)`
+
+**用途 / Purpose:** 当 `campaign music handler init` 事件触发时调用此方法。
 
 ### OnCampaignMusicHandlerFinalize
-```csharp
-public void OnCampaignMusicHandlerFinalize()
-```
+`public void OnCampaignMusicHandlerFinalize()`
+
+**用途 / Purpose:** 当 `campaign music handler finalize` 事件触发时调用此方法。
 
 ### OnBattleMusicHandlerInit
-```csharp
-public void OnBattleMusicHandlerInit(IMusicHandler battleMusicHandler)
-```
+`public void OnBattleMusicHandlerInit(IMusicHandler battleMusicHandler)`
+
+**用途 / Purpose:** 当 `battle music handler init` 事件触发时调用此方法。
 
 ### OnBattleMusicHandlerFinalize
-```csharp
-public void OnBattleMusicHandlerFinalize()
-```
+`public void OnBattleMusicHandlerFinalize()`
+
+**用途 / Purpose:** 当 `battle music handler finalize` 事件触发时调用此方法。
 
 ### OnSilencedMusicHandlerInit
-```csharp
-public void OnSilencedMusicHandlerInit(IMusicHandler silencedMusicHandler)
-```
+`public void OnSilencedMusicHandlerInit(IMusicHandler silencedMusicHandler)`
+
+**用途 / Purpose:** 当 `silenced music handler init` 事件触发时调用此方法。
 
 ### OnSilencedMusicHandlerFinalize
-```csharp
-public void OnSilencedMusicHandlerFinalize()
-```
+`public void OnSilencedMusicHandlerFinalize()`
+
+**用途 / Purpose:** 当 `silenced music handler finalize` 事件触发时调用此方法。
 
 ### ActivateBattleMode
-```csharp
-public void ActivateBattleMode()
-```
+`public void ActivateBattleMode()`
+
+**用途 / Purpose:** 处理 `activate battle mode` 相关逻辑。
 
 ### DeactivateBattleMode
-```csharp
-public void DeactivateBattleMode()
-```
+`public void DeactivateBattleMode()`
+
+**用途 / Purpose:** 处理 `deactivate battle mode` 相关逻辑。
 
 ### ActivateCampaignMode
-```csharp
-public void ActivateCampaignMode()
-```
+`public void ActivateCampaignMode()`
+
+**用途 / Purpose:** 处理 `activate campaign mode` 相关逻辑。
 
 ### DeactivateCampaignMode
-```csharp
-public void DeactivateCampaignMode()
-```
+`public void DeactivateCampaignMode()`
+
+**用途 / Purpose:** 处理 `deactivate campaign mode` 相关逻辑。
 
 ### DeactivateCurrentMode
-```csharp
-public void DeactivateCurrentMode()
-```
+`public void DeactivateCurrentMode()`
+
+**用途 / Purpose:** 处理 `deactivate current mode` 相关逻辑。
 
 ### UnpauseMusicManagerSystem
-```csharp
-public void UnpauseMusicManagerSystem()
-```
+`public void UnpauseMusicManagerSystem()`
+
+**用途 / Purpose:** 处理 `unpause music manager system` 相关逻辑。
 
 ### PauseMusicManagerSystem
-```csharp
-public void PauseMusicManagerSystem()
-```
+`public void PauseMusicManagerSystem()`
+
+**用途 / Purpose:** 处理 `pause music manager system` 相关逻辑。
 
 ### StartTheme
-```csharp
-public void StartTheme(MusicTheme theme, float startIntensity, bool queueEndSegment = false)
-```
+`public void StartTheme(MusicTheme theme, float startIntensity, bool queueEndSegment = false)`
+
+**用途 / Purpose:** 处理 `start theme` 相关逻辑。
 
 ### StartThemeWithConstantIntensity
-```csharp
-public void StartThemeWithConstantIntensity(MusicTheme theme, bool queueEndSegment = false)
-```
+`public void StartThemeWithConstantIntensity(MusicTheme theme, bool queueEndSegment = false)`
+
+**用途 / Purpose:** 处理 `start theme with constant intensity` 相关逻辑。
 
 ### ForceStopThemeWithFadeOut
-```csharp
-public void ForceStopThemeWithFadeOut()
-```
+`public void ForceStopThemeWithFadeOut()`
+
+**用途 / Purpose:** 处理 `force stop theme with fade out` 相关逻辑。
 
 ### ChangeCurrentThemeIntensity
-```csharp
-public void ChangeCurrentThemeIntensity(float deltaIntensity)
-```
+`public void ChangeCurrentThemeIntensity(float deltaIntensity)`
+
+**用途 / Purpose:** 处理 `change current theme intensity` 相关逻辑。
 
 ### Update
-```csharp
-public void Update(float dt)
-```
+`public void Update(float dt)`
+
+**用途 / Purpose:** 更新 `update` 的状态或数据。
 
 ### GetSiegeTheme
-```csharp
-public MusicTheme GetSiegeTheme(BasicCultureObject culture)
-```
+`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
+
+**用途 / Purpose:** 获取 `siege theme` 的当前值。
 
 ### GetBattleTheme
-```csharp
-public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)
-```
+`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
+
+**用途 / Purpose:** 获取 `battle theme` 的当前值。
 
 ### GetBattleEndTheme
-```csharp
-public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictory)
-```
+`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictory)`
+
+**用途 / Purpose:** 获取 `battle end theme` 的当前值。
 
 ### GetBattleTurnsOneSideTheme
-```csharp
-public MusicTheme GetBattleTurnsOneSideTheme(BasicCultureObject culture, bool isPositive, bool isPaganBattle)
-```
+`public MusicTheme GetBattleTurnsOneSideTheme(BasicCultureObject culture, bool isPositive, bool isPaganBattle)`
+
+**用途 / Purpose:** 获取 `battle turns one side theme` 的当前值。
 
 ### GetCampaignMusicTheme
-```csharp
-public MusicTheme GetCampaignMusicTheme(BasicCultureObject culture, bool isDark, bool isWarMode, bool isAtSea)
-```
+`public MusicTheme GetCampaignMusicTheme(BasicCultureObject culture, bool isDark, bool isWarMode, bool isAtSea)`
+
+**用途 / Purpose:** 获取 `campaign music theme` 的当前值。
 
 ### GetCampaignTheme
-```csharp
-public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)
-```
+`public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)`
+
+**用途 / Purpose:** 获取 `campaign theme` 的当前值。
 
 ### GetCampaignDramaticThemeWithCulture
-```csharp
-public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)
-```
+`public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)`
+
+**用途 / Purpose:** 获取 `campaign dramatic theme with culture` 的当前值。
 
 ### GetSeaCampignMusic
-```csharp
-public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)
-```
+`public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)`
+
+**用途 / Purpose:** 获取 `sea campign music` 的当前值。
 
 ### GetBattleTheme
-```csharp
-public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)
-```
+`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
+
+**用途 / Purpose:** 获取 `battle theme` 的当前值。
+
+### GetSiegeTheme
+`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
+
+**用途 / Purpose:** 获取 `siege theme` 的当前值。
+
+### GetBattleEndTheme
+`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictorious)`
+
+**用途 / Purpose:** 获取 `battle end theme` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// MBMusicManager (Manager) 的典型用法
-MBMusicManager.Current;
+var manager = MBMusicManager.Current;
 ```
 
 ## 参见

@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `RefiningFormula`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RefiningFormula
 
 **命名空间:** TaleWorlds.Core
 **模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**类型:** `public class RefiningFormula`
+**领域:** core-extra
 
 ## 概述
 
-> 本页为自动生成的存根。`RefiningFormula` 是 `TaleWorlds.Core` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`RefiningFormula` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -35,130 +40,115 @@
 | `Input2` | `public CraftingMaterials Input2 { get; }` |
 | `Input2Count` | `public int Input2Count { get; }` |
 
-
 ## 主要方法
 
 ### SetCraftedWeaponName
+`public void SetCraftedWeaponName(TextObject weaponName)`
 
-```csharp
-public void SetCraftedWeaponName(TextObject weaponName)
-```
+**用途 / Purpose:** 设置 `crafted weapon name` 的值或状态。
 
 ### Init
+`public void Init()`
 
-```csharp
-public void Init()
-```
+**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
 
 ### GetRandomPieceOfType
+`public WeaponDesignElement GetRandomPieceOfType(CraftingPiece.PieceTypes pieceType, bool randomScale)`
 
-```csharp
-public WeaponDesignElement GetRandomPieceOfType(CraftingPiece.PieceTypes pieceType, bool randomScale)
-```
+**用途 / Purpose:** 获取 `random piece of type` 的当前值。
 
 ### SwitchToCraftedItem
+`public void SwitchToCraftedItem(ItemObject item)`
 
-```csharp
-public void SwitchToCraftedItem(ItemObject item)
-```
+**用途 / Purpose:** 处理 `switch to crafted item` 相关逻辑。
 
 ### Randomize
+`public void Randomize()`
 
-```csharp
-public void Randomize()
-```
+**用途 / Purpose:** 处理 `randomize` 相关逻辑。
 
 ### SwitchToPiece
+`public void SwitchToPiece(WeaponDesignElement piece)`
 
-```csharp
-public void SwitchToPiece(WeaponDesignElement piece)
-```
+**用途 / Purpose:** 处理 `switch to piece` 相关逻辑。
 
 ### ScaleThePiece
+`public void ScaleThePiece(CraftingPiece.PieceTypes scalingPieceType, int percentage)`
 
-```csharp
-public void ScaleThePiece(CraftingPiece.PieceTypes scalingPieceType, int percentage)
-```
+**用途 / Purpose:** 处理 `scale the piece` 相关逻辑。
 
 ### ReIndex
+`public void ReIndex(bool enforceReCreation = false)`
 
-```csharp
-public void ReIndex(bool enforceReCreation = false)
-```
+**用途 / Purpose:** 处理 `re index` 相关逻辑。
 
 ### Undo
+`public bool Undo()`
 
-```csharp
-public bool Undo()
-```
+**用途 / Purpose:** 处理 `undo` 相关逻辑。
 
 ### Redo
+`public bool Redo()`
 
-```csharp
-public bool Redo()
-```
+**用途 / Purpose:** 处理 `redo` 相关逻辑。
 
 ### UpdateHistory
+`public void UpdateHistory()`
 
-```csharp
-public void UpdateHistory()
-```
+**用途 / Purpose:** 更新 `history` 的状态或数据。
 
 ### GetRandomCraftName
+`public TextObject GetRandomCraftName()`
 
-```csharp
-public TextObject GetRandomCraftName()
-```
+**用途 / Purpose:** 获取 `random craft name` 的当前值。
 
 ### GenerateItem
+`public static void GenerateItem(WeaponDesign weaponDesignTemplate, TextObject name, BasicCultureObject culture, ItemModifierGroup itemModifierGroup, ref ItemObject itemObject, string customId = null)`
 
-```csharp
-public static void GenerateItem(WeaponDesign weaponDesignTemplate, TextObject name, BasicCultureObject culture, ItemModifierGroup itemModifierGroup, ref ItemObject itemObject, string customId = null)
-```
+**用途 / Purpose:** 处理 `generate item` 相关逻辑。
 
 ### GetCurrentCraftedItemObject
+`public ItemObject GetCurrentCraftedItemObject(bool forceReCreate = false, string customId = null)`
 
-```csharp
-public ItemObject GetCurrentCraftedItemObject(bool forceReCreate = false, string customId = null)
-```
+**用途 / Purpose:** 获取 `current crafted item object` 的当前值。
 
 ### GetStatDatasFromTemplate
+`public static IEnumerable<CraftingStatData> GetStatDatasFromTemplate(int usageIndex, ItemObject craftedItemObject, CraftingTemplate template)`
 
-```csharp
-public static IEnumerable<CraftingStatData> GetStatDatasFromTemplate(int usageIndex, ItemObject craftedItemObject, CraftingTemplate template)
-```
+**用途 / Purpose:** 获取 `stat datas from template` 的当前值。
 
 ### GetStatDatas
+`public IEnumerable<CraftingStatData> GetStatDatas(int usageIndex)`
 
-```csharp
-public IEnumerable<CraftingStatData> GetStatDatas(int usageIndex)
-```
+**用途 / Purpose:** 获取 `stat datas` 的当前值。
 
 ### GetXmlCodeForCurrentItem
+`public string GetXmlCodeForCurrentItem(ItemObject item)`
 
-```csharp
-public string GetXmlCodeForCurrentItem(ItemObject item)
-```
+**用途 / Purpose:** 获取 `xml code for current item` 的当前值。
 
 ### TryGetWeaponPropertiesFromXmlCode
+`public bool TryGetWeaponPropertiesFromXmlCode(string xmlCode, out CraftingTemplate craftingTemplate, out ValueTuple<CraftingPiece, int> pieces)`
 
-```csharp
-public bool TryGetWeaponPropertiesFromXmlCode(string xmlCode, out CraftingTemplate craftingTemplate, out ValueTuple<CraftingPiece, int> pieces)
-```
+**用途 / Purpose:** 尝试获取 `get weapon properties from xml code`，通常以 out 参数返回结果。
 
 ### CreatePreCraftedWeaponOnDeserialize
+`public static ItemObject CreatePreCraftedWeaponOnDeserialize(ItemObject itemObject, WeaponDesignElement usedPieces, string templateId, TextObject craftedWeaponName, ItemModifierGroup itemModifierGroup)`
 
-```csharp
-public static ItemObject CreatePreCraftedWeaponOnDeserialize(ItemObject itemObject, WeaponDesignElement usedPieces, string templateId, TextObject craftedWeaponName, ItemModifierGroup itemModifierGroup)
-```
+**用途 / Purpose:** 创建一个 `pre crafted weapon on deserialize` 实例或对象。
 
 ### InitializePreCraftedWeaponOnLoad
+`public static ItemObject InitializePreCraftedWeaponOnLoad(ItemObject itemObject, WeaponDesign craftedData, TextObject itemName, BasicCultureObject culture)`
+
+**用途 / Purpose:** 初始化 `pre crafted weapon on load` 的状态、资源或绑定。
+
+## 使用示例
 
 ```csharp
-public static ItemObject InitializePreCraftedWeaponOnLoad(ItemObject itemObject, WeaponDesign craftedData, TextObject itemName, BasicCultureObject culture)
+// 先从游戏状态中拿到一个 RefiningFormula 实例，再调用它的公开方法
+var value = new RefiningFormula();
+value.SetCraftedWeaponName(weaponName);
 ```
-
-献文档。
 
 ## 参见
 

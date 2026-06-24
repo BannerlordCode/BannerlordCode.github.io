@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMapWeatherModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMapWeatherModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultMapWeatherModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMapWeatherModel>(new MyDefaultMapWeatherModel())` to change how it computes.
+`DefaultMapWeatherModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMapWeatherModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,54 +33,53 @@
 ## Key Methods
 
 ### GetInterpolatedAtmosphereState
-```csharp
-public override AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)
-```
+`public override AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
+
+**Purpose:** Gets the current value of `interpolated atmosphere state`.
 
 ### GetAtmosphereModel
-```csharp
-public override AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)
-```
+`public override AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
+
+**Purpose:** Gets the current value of `atmosphere model`.
 
 ### InitializeCaches
-```csharp
-public override void InitializeCaches()
-```
+`public override void InitializeCaches()`
+
+**Purpose:** Initializes the state, resources, or bindings for `caches`.
 
 ### UpdateWeatherForPosition
-```csharp
-public override MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)
-```
+`public override MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
+
+**Purpose:** Updates the state or data of `weather for position`.
 
 ### GetSnowAndRainDataForPosition
-```csharp
-public override void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)
-```
+`public override void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
+
+**Purpose:** Gets the current value of `snow and rain data for position`.
 
 ### GetWeatherEventInPosition
-```csharp
-public override MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)
-```
+`public override MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
+
+**Purpose:** Gets the current value of `weather event in position`.
 
 ### GetWeatherEffectOnTerrainForPosition
-```csharp
-public override MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)
-```
+`public override MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
+
+**Purpose:** Gets the current value of `weather effect on terrain for position`.
 
 ### GetSeasonTimeFactorOfCampaignTime
-```csharp
-public override void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)
-```
+`public override void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
+
+**Purpose:** Gets the current value of `season time factor of campaign time`.
 
 ### GetWindForPosition
-```csharp
-public override Vec2 GetWindForPosition(CampaignVec2 position)
-```
+`public override Vec2 GetWindForPosition(CampaignVec2 position)`
+
+**Purpose:** Gets the current value of `wind for position`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMapWeatherModel (Model)
 Game.Current.ReplaceModel<DefaultMapWeatherModel>(new MyDefaultMapWeatherModel());
 ```
 

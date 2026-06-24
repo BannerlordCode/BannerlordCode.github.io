@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SaddleComponent`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaddleComponent
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`SaddleComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<SaddleComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`SaddleComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `SaddleComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetCopy
-```csharp
-public override ItemComponent GetCopy()
-```
+`public override ItemComponent GetCopy()`
+
+**Purpose:** Gets the current value of `copy`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SaddleComponent (Component)
-agent.GetComponent<SaddleComponent>();
+var component = agent.GetComponent<SaddleComponent>();
 ```
 
 ## See Also

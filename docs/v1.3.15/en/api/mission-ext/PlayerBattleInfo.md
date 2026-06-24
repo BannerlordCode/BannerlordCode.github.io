@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PlayerBattleInfo`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PlayerBattleInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class PlayerBattleInfo`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerBattleInfo.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PlayerBattleInfo` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PlayerBattleInfo` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -30,40 +34,40 @@
 | `PeerIndex` | `public int PeerIndex { get; set; }` |
 | `CurrentState` | `public PlayerBattleInfo.State CurrentState { get; }` |
 
-
 ## Key Methods
 
 ### Flee
+`public void Flee()`
 
-```csharp
-public void Flee()
-```
+**Purpose:** Handles logic related to `flee`.
 
 ### Disconnect
+`public void Disconnect()`
 
-```csharp
-public void Disconnect()
-```
+**Purpose:** Handles logic related to `disconnect`.
 
 ### Initialize
+`public void Initialize(int peerIndex)`
 
-```csharp
-public void Initialize(int peerIndex)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### RejoinBattle
+`public void RejoinBattle(int teamNo)`
 
-```csharp
-public void RejoinBattle(int teamNo)
-```
+**Purpose:** Handles logic related to `rejoin battle`.
 
 ### Clone
+`public PlayerBattleInfo Clone()`
+
+**Purpose:** Handles logic related to `clone`.
+
+## Usage Example
 
 ```csharp
-public PlayerBattleInfo Clone()
+var value = new PlayerBattleInfo();
+value.Flee();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

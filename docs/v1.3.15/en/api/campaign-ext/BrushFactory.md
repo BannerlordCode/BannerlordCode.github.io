@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BrushFactory`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BrushFactory
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class BrushFactory`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushFactory.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BrushFactory` is a class in the `TaleWorlds.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BrushFactory` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,40 +28,40 @@
 | `Brushes` | `public IEnumerable<Brush> Brushes { get; }` |
 | `DefaultBrush` | `public Brush DefaultBrush { get; }` |
 
-
 ## Key Methods
 
 ### Initialize
+`public void Initialize()`
 
-```csharp
-public void Initialize()
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### LoadBrushFile
+`public void LoadBrushFile(string name)`
 
-```csharp
-public void LoadBrushFile(string name)
-```
+**Purpose:** Loads `brush file` data.
 
 ### GetBrush
+`public Brush GetBrush(string name)`
 
-```csharp
-public Brush GetBrush(string name)
-```
+**Purpose:** Gets the current value of `brush`.
 
 ### SaveBrushAs
+`public bool SaveBrushAs(string name, Brush brush)`
 
-```csharp
-public bool SaveBrushAs(string name, Brush brush)
-```
+**Purpose:** Saves `brush as` data.
 
 ### CheckForUpdates
+`public void CheckForUpdates()`
+
+**Purpose:** Handles logic related to `check for updates`.
+
+## Usage Example
 
 ```csharp
-public void CheckForUpdates()
+var value = new BrushFactory();
+value.Initialize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

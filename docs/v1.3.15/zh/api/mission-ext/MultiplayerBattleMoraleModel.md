@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerBattleMoraleModel`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerBattleMoraleModel
@@ -14,64 +15,67 @@
 
 ## 概述
 
-`MultiplayerBattleMoraleModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<MultiplayerBattleMoraleModel>(new MyMultiplayerBattleMoraleModel())` 注册，以改变其计算逻辑。
+`MultiplayerBattleMoraleModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MultiplayerBattleMoraleModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
-```csharp
-public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)
-```
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
+
+**用途 / Purpose:** 处理 `calculate max morale change due to agent incapacitated` 相关逻辑。
 
 ### CalculateMaxMoraleChangeDueToAgentPanicked
-```csharp
-public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)
-```
+`public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
+
+**用途 / Purpose:** 处理 `calculate max morale change due to agent panicked` 相关逻辑。
 
 ### CalculateMoraleChangeToCharacter
-```csharp
-public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)
-```
+`public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
+
+**用途 / Purpose:** 处理 `calculate morale change to character` 相关逻辑。
 
 ### GetEffectiveInitialMorale
-```csharp
-public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)
-```
+`public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
+
+**用途 / Purpose:** 获取 `effective initial morale` 的当前值。
 
 ### CanPanicDueToMorale
-```csharp
-public override bool CanPanicDueToMorale(Agent agent)
-```
+`public override bool CanPanicDueToMorale(Agent agent)`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `panic due to morale`。
 
 ### CalculateCasualtiesFactor
-```csharp
-public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)
-```
+`public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 处理 `calculate casualties factor` 相关逻辑。
 
 ### GetAverageMorale
-```csharp
-public override float GetAverageMorale(Formation formation)
-```
+`public override float GetAverageMorale(Formation formation)`
+
+**用途 / Purpose:** 获取 `average morale` 的当前值。
 
 ### CalculateMoraleChangeOnShipSunk
-```csharp
-public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)
-```
+`public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
+
+**用途 / Purpose:** 处理 `calculate morale change on ship sunk` 相关逻辑。
 
 ### CalculateMoraleOnRamming
-```csharp
-public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)
-```
+`public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
+
+**用途 / Purpose:** 处理 `calculate morale on ramming` 相关逻辑。
 
 ### CalculateMoraleOnShipsConnected
-```csharp
-public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)
-```
+`public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
+
+**用途 / Purpose:** 处理 `calculate morale on ships connected` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerBattleMoraleModel (Model) 的典型用法
 Game.Current.ReplaceModel<MultiplayerBattleMoraleModel>(new MyMultiplayerBattleMoraleModel());
 ```
 

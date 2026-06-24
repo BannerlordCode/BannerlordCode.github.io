@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPartyMoraleModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartyMoraleModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultPartyMoraleModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPartyMoraleModel>(new MyDefaultPartyMoraleModel())` 注册，以改变其计算逻辑。
+`DefaultPartyMoraleModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPartyMoraleModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,39 +30,38 @@
 ## 主要方法
 
 ### GetDailyStarvationMoralePenalty
-```csharp
-public override int GetDailyStarvationMoralePenalty(PartyBase party)
-```
+`public override int GetDailyStarvationMoralePenalty(PartyBase party)`
+
+**用途 / Purpose:** 获取 `daily starvation morale penalty` 的当前值。
 
 ### GetDailyNoWageMoralePenalty
-```csharp
-public override int GetDailyNoWageMoralePenalty(MobileParty party)
-```
+`public override int GetDailyNoWageMoralePenalty(MobileParty party)`
+
+**用途 / Purpose:** 获取 `daily no wage morale penalty` 的当前值。
 
 ### GetStandardBaseMorale
-```csharp
-public override float GetStandardBaseMorale(PartyBase party)
-```
+`public override float GetStandardBaseMorale(PartyBase party)`
+
+**用途 / Purpose:** 获取 `standard base morale` 的当前值。
 
 ### GetVictoryMoraleChange
-```csharp
-public override float GetVictoryMoraleChange(PartyBase party)
-```
+`public override float GetVictoryMoraleChange(PartyBase party)`
+
+**用途 / Purpose:** 获取 `victory morale change` 的当前值。
 
 ### GetDefeatMoraleChange
-```csharp
-public override float GetDefeatMoraleChange(PartyBase party)
-```
+`public override float GetDefeatMoraleChange(PartyBase party)`
+
+**用途 / Purpose:** 获取 `defeat morale change` 的当前值。
 
 ### GetEffectivePartyMorale
-```csharp
-public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)
-```
+`public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)`
+
+**用途 / Purpose:** 获取 `effective party morale` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DefaultPartyMoraleModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPartyMoraleModel>(new MyDefaultPartyMoraleModel());
 ```
 

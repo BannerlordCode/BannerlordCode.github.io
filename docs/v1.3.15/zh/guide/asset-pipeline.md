@@ -5,6 +5,10 @@ description: 添加自定义网格、纹理、音效 / Adding custom meshes, tex
 
 # 资源管线 / Asset Pipeline
 
+## 心智模型
+
+先把 `资源管线` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **Related APIs**: `TaleWorlds.Engine`, `TaleWorlds.Core`
 
 ## 概述 / Overview
@@ -137,3 +141,9 @@ entity.SetMeshWithMaterial("my_mesh", "my_material");
 
 - [本地化](./localization.md) - 多语言支持
 - [常见模式](./common-patterns.md) - 最佳实践
+
+## 使用示例
+
+```csharp
+var example = new 资源管线();
+```

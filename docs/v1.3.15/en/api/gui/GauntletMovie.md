@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMovie`
+**Home** → **API Index** → **Area** → `GauntletMovie / Gauntlet影片`
 - [← Area / Back to gui](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GauntletMovie / Gauntlet影片
+
+## Mental Model
+
+Treat `GauntletMovie` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.GauntletUI.Data
 **File**: `TaleWorlds.GauntletUI.Data/GauntletMovie.cs`

@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `Army`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Army
@@ -21,6 +23,10 @@ Key concepts for modders:
 - **Gathering**: `Gather(...)` calls parties to the army; `IsArmyInGatheringState` / `IsWaitingForArmyMembers` track readiness.
 - **Strength**: `CalculateCurrentStrength()` aggregates member party strength.
 - **Lifecycle**: created for an objective, disbanded via `FinishArmyObjective()` or `DisbandArmyAction`.
+
+## Mental Model
+
+Treat `Army` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Properties
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleViewModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleViewModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BattleViewModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BattleViewModel>(new MyBattleViewModel())` to change how it computes.
+`BattleViewModel` is a Gauntlet ViewModel — the data-binding bridge between C# logic and UI. Mods typically use it to expose state, commands, and list items to the screen.
+
+## Mental Model
+
+Treat `BattleViewModel` as a ViewModel-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,8 +30,8 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleViewModel (Model)
-Game.Current.ReplaceModel<BattleViewModel>(new MyBattleViewModel());
+var vm = new BattleViewModel();
+movie.SetViewModel(vm);
 ```
 
 ## See Also

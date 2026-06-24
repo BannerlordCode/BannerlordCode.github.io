@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `MissionNetworkHelper`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionNetworkHelper
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public static class MissionNetworkHelper`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`MissionNetworkHelper` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MissionNetworkHelper` 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。
+
+## 心智模型
+
+把 `MissionNetworkHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -40,130 +45,113 @@
 | `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
 | `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
 
-
 ## 主要方法
 
 ### AddActiveMissionObject
+`public void AddActiveMissionObject(MissionObject missionObject)`
 
-```csharp
-public void AddActiveMissionObject(MissionObject missionObject)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `active mission object`。
 
 ### ActivateMissionObject
+`public void ActivateMissionObject(MissionObject missionObject)`
 
-```csharp
-public void ActivateMissionObject(MissionObject missionObject)
-```
+**用途 / Purpose:** 处理 `activate mission object` 相关逻辑。
 
 ### DeactivateMissionObject
+`public void DeactivateMissionObject(MissionObject missionObject)`
 
-```csharp
-public void DeactivateMissionObject(MissionObject missionObject)
-```
+**用途 / Purpose:** 处理 `deactivate mission object` 相关逻辑。
 
 ### SetMissionCombatType
+`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
 
-```csharp
-public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)
-```
+**用途 / Purpose:** 设置 `mission combat type` 的值或状态。
 
 ### ConversationCharacterChanged
+`public void ConversationCharacterChanged()`
 
-```csharp
-public void ConversationCharacterChanged()
-```
+**用途 / Purpose:** 处理 `conversation character changed` 相关逻辑。
 
 ### SetMissionMode
+`public void SetMissionMode(MissionMode newMode, bool atStart)`
 
-```csharp
-public void SetMissionMode(MissionMode newMode, bool atStart)
-```
+**用途 / Purpose:** 设置 `mission mode` 的值或状态。
 
 ### GetAverageFps
+`public float GetAverageFps()`
 
-```csharp
-public float GetAverageFps()
-```
+**用途 / Purpose:** 获取 `average fps` 的当前值。
 
 ### GetFallAvoidSystemActive
+`public bool GetFallAvoidSystemActive()`
 
-```csharp
-public bool GetFallAvoidSystemActive()
-```
+**用途 / Purpose:** 获取 `fall avoid system active` 的当前值。
 
 ### SetFallAvoidSystemActive
+`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
 
-```csharp
-public void SetFallAvoidSystemActive(bool fallAvoidActive)
-```
+**用途 / Purpose:** 设置 `fall avoid system active` 的值或状态。
 
 ### IsPositionInsideBoundaries
+`public bool IsPositionInsideBoundaries(Vec2 position)`
 
-```csharp
-public bool IsPositionInsideBoundaries(Vec2 position)
-```
+**用途 / Purpose:** 处理 `is position inside boundaries` 相关逻辑。
 
 ### IsPositionInsideHardBoundaries
+`public bool IsPositionInsideHardBoundaries(Vec2 position)`
 
-```csharp
-public bool IsPositionInsideHardBoundaries(Vec2 position)
-```
+**用途 / Purpose:** 处理 `is position inside hard boundaries` 相关逻辑。
 
 ### IsPositionInsideAnyBlockerNavMeshFace2D
+`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
 
-```csharp
-public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)
-```
+**用途 / Purpose:** 处理 `is position inside any blocker nav mesh face2 d` 相关逻辑。
 
 ### IsPositionOnAnyBlockerNavMeshFace
+`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
 
-```csharp
-public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)
-```
+**用途 / Purpose:** 处理 `is position on any blocker nav mesh face` 相关逻辑。
 
 ### RayCastForClosestAgent
+`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
 
-```csharp
-public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)
-```
+**用途 / Purpose:** 处理 `ray cast for closest agent` 相关逻辑。
 
 ### RayCastForClosestAgentsLimbs
+`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
 
-```csharp
-public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)
-```
+**用途 / Purpose:** 处理 `ray cast for closest agents limbs` 相关逻辑。
 
 ### RayCastForGivenAgentsLimbs
+`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
 
-```csharp
-public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)
-```
+**用途 / Purpose:** 处理 `ray cast for given agents limbs` 相关逻辑。
 
 ### GetBiggestAgentCollisionPadding
+`public float GetBiggestAgentCollisionPadding()`
 
-```csharp
-public float GetBiggestAgentCollisionPadding()
-```
+**用途 / Purpose:** 获取 `biggest agent collision padding` 的当前值。
 
 ### SetMissionCorpseFadeOutTimeInSeconds
+`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
 
-```csharp
-public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)
-```
+**用途 / Purpose:** 设置 `mission corpse fade out time in seconds` 的值或状态。
 
 ### SetOverrideCorpseCount
+`public void SetOverrideCorpseCount(int overrideCorpseCount)`
 
-```csharp
-public void SetOverrideCorpseCount(int overrideCorpseCount)
-```
+**用途 / Purpose:** 设置 `override corpse count` 的值或状态。
 
 ### SetReportStuckAgentsMode
+`public void SetReportStuckAgentsMode(bool value)`
+
+**用途 / Purpose:** 设置 `report stuck agents mode` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetReportStuckAgentsMode(bool value)
+MissionNetworkHelper.Initialize();
 ```
-
-献文档。
 
 ## 参见
 

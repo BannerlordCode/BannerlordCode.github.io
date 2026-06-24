@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ItemPickupModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ItemPickupModel
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`ItemPickupModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ItemPickupModel>(new MyItemPickupModel())` to change how it computes.
+`ItemPickupModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ItemPickupModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetItemScoreForAgent
-```csharp
-public abstract float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)
-```
+`public abstract float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
+
+**Purpose:** Gets the current value of `item score for agent`.
 
 ### IsItemAvailableForAgent
-```csharp
-public abstract bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)
-```
+`public abstract bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
+
+**Purpose:** Handles logic related to `is item available for agent`.
 
 ### IsAgentEquipmentSuitableForPickUpAvailability
-```csharp
-public abstract bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)
-```
+`public abstract bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
+
+**Purpose:** Handles logic related to `is agent equipment suitable for pick up availability`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ItemPickupModel (Model)
-Game.Current.ReplaceModel<ItemPickupModel>(new MyItemPickupModel());
+var implementation = new CustomItemPickupModel();
 ```
 
 ## See Also

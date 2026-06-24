@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `TraitObject`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TraitObject
@@ -17,14 +19,18 @@
 
 mod 通常通过 `DefaultTraits` 静态字段引用既有特质，或用 `TraitObject.All` 枚举全部。读写某角色的特质等级用 `Hero.GetTraitLevel(trait)` / `Hero.SetTraitLevel(trait, value)`。
 
+## 心智模型
+
+先把 `TraitObject` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 主要属性
 
-| 名称 | 类型 | 描述 |
-|------|------|------|
-| All | `MBReadOnlyList<TraitObject>` | 静态；当前所有特质（取自 `Campaign.Current.AllTraits`） |
-| MinValue | int | 最小等级 |
-| MaxValue | int | 最大等级 |
-| IsHidden | bool | 是否对玩家隐藏 |
+\| 名称 \| 类型 \| 描述 \|
+\|------\|------\|------\|
+\| All \| `MBReadOnlyList&lt;TraitObject&gt;` \| 静态；当前所有特质（取自 `Campaign.Current.AllTraits`） \|
+\| MinValue \| int \| 最小等级 \|
+\| MaxValue \| int \| 最大等级 \|
+\| IsHidden \| bool \| 是否对玩家隐藏 \|
 
 ## Initialize
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultEncounterModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultEncounterModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultEncounterModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultEncounterModel>(new MyDefaultEncounterModel())` to change how it computes.
+`DefaultEncounterModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultEncounterModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -32,79 +37,78 @@
 ## Key Methods
 
 ### IsEncounterExemptFromHostileActions
-```csharp
-public override bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)
-```
+`public override bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
+
+**Purpose:** Handles logic related to `is encounter exempt from hostile actions`.
 
 ### GetLeaderOfSiegeEvent
-```csharp
-public override Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)
-```
+`public override Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `leader of siege event`.
 
 ### CanMainHeroDoParleyWithParty
-```csharp
-public override bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)
-```
+`public override bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `main hero do parley with party`.
 
 ### GetLeaderOfMapEvent
-```csharp
-public override Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)
-```
+`public override Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
+
+**Purpose:** Gets the current value of `leader of map event`.
 
 ### GetCharacterSergeantScore
-```csharp
-public override int GetCharacterSergeantScore(Hero hero)
-```
+`public override int GetCharacterSergeantScore(Hero hero)`
+
+**Purpose:** Gets the current value of `character sergeant score`.
 
 ### GetDefenderPartiesOfSettlement
-```csharp
-public override IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)
-```
+`public override IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
+
+**Purpose:** Gets the current value of `defender parties of settlement`.
 
 ### GetNextDefenderPartyOfSettlement
-```csharp
-public override PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)
-```
+`public override PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
+
+**Purpose:** Gets the current value of `next defender party of settlement`.
 
 ### CreateMapEventComponentForEncounter
-```csharp
-public override MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)
-```
+`public override MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
+
+**Purpose:** Creates a new `map event component for encounter` instance or object.
 
 ### GetSurrenderChance
-```csharp
-public override float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public override float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**Purpose:** Gets the current value of `surrender chance`.
 
 ### GetBribeChance
-```csharp
-public override ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)
-```
+`public override ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
+
+**Purpose:** Gets the current value of `bribe chance`.
 
 ### GetMapEventSideRunAwayChance
-```csharp
-public override float GetMapEventSideRunAwayChance(MapEventSide mapEventSide)
-```
+`public override float GetMapEventSideRunAwayChance(MapEventSide mapEventSide)`
+
+**Purpose:** Gets the current value of `map event side run away chance`.
 
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
-```csharp
-public override void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)
-```
+`public override void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
+
+**Purpose:** Handles logic related to `find non attached npc parties who will join player encounter`.
 
 ### CanPlayerForceBanditsToJoin
-```csharp
-public override bool CanPlayerForceBanditsToJoin(out TextObject explanation)
-```
+`public override bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `player force bandits to join`.
 
 ### IsPartyUnderPlayerCommand
-```csharp
-public override bool IsPartyUnderPlayerCommand(PartyBase party)
-```
+`public override bool IsPartyUnderPlayerCommand(PartyBase party)`
+
+**Purpose:** Handles logic related to `is party under player command`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultEncounterModel (Model)
 Game.Current.ReplaceModel<DefaultEncounterModel>(new MyDefaultEncounterModel());
 ```
 

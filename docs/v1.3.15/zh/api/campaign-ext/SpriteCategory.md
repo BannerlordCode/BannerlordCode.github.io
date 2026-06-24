@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `SpriteCategory`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SpriteCategory
 
-**命名空间:** TaleWorlds.TwoDimension
-**模块:** TaleWorlds.TwoDimension
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.TwoDimension
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public class SpriteCategory`
+**Base:** 无
+**File:** `TaleWorlds.TwoDimension/SpriteCategory.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SpriteCategory` 是 `TaleWorlds.TwoDimension` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SpriteCategory` 位于 `TaleWorlds.TwoDimension`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.TwoDimension` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -28,72 +34,65 @@
 | `IsPartiallyLoaded` | `public bool IsPartiallyLoaded { get; }` |
 | `SheetSizes` | `public Vec2i SheetSizes { get; set; }` |
 
-
 ## 主要方法
 
 ### Load
+`public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-```csharp
-public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)
-```
+**用途 / Purpose:** 加载 `load` 数据。
 
 ### Unload
+`public void Unload()`
 
-```csharp
-public void Unload()
-```
+**用途 / Purpose:** 处理 `unload` 相关逻辑。
 
 ### Reload
+`public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-```csharp
-public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)
-```
+**用途 / Purpose:** 处理 `reload` 相关逻辑。
 
 ### InitializePartialLoad
+`public void InitializePartialLoad()`
 
-```csharp
-public void InitializePartialLoad()
-```
+**用途 / Purpose:** 初始化 `partial load` 的状态、资源或绑定。
 
 ### ReleasePartialLoad
+`public void ReleasePartialLoad()`
 
-```csharp
-public void ReleasePartialLoad()
-```
+**用途 / Purpose:** 处理 `release partial load` 相关逻辑。
 
 ### PartialLoadAtIndex
+`public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-```csharp
-public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)
-```
+**用途 / Purpose:** 处理 `partial load at index` 相关逻辑。
 
 ### PartialUnloadAtIndex
+`public void PartialUnloadAtIndex(int sheetIndex)`
 
-```csharp
-public void PartialUnloadAtIndex(int sheetIndex)
-```
+**用途 / Purpose:** 处理 `partial unload at index` 相关逻辑。
 
 ### SortList
+`public void SortList()`
 
-```csharp
-public void SortList()
-```
+**用途 / Purpose:** 处理 `sort list` 相关逻辑。
 
 ### IsCategoryFullyLoaded
+`public bool IsCategoryFullyLoaded()`
 
-```csharp
-public bool IsCategoryFullyLoaded()
-```
+**用途 / Purpose:** 处理 `is category fully loaded` 相关逻辑。
 
 ### Compare
+`public int Compare(SpritePart x, SpritePart y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public int Compare(SpritePart x, SpritePart y)
+var value = new SpriteCategory();
+value.Load(resourceContext, resourceDepot);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

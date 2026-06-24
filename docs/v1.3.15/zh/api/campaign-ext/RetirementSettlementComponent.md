@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `RetirementSettlementComponent`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RetirementSettlementComponent
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`RetirementSettlementComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<RetirementSettlementComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`RetirementSettlementComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `RetirementSettlementComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,15 +31,14 @@
 ## 主要方法
 
 ### Deserialize
-```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
-```
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// RetirementSettlementComponent (Component) 的典型用法
-agent.GetComponent<RetirementSettlementComponent>();
+var component = agent.GetComponent<RetirementSettlementComponent>();
 ```
 
 ## 参见

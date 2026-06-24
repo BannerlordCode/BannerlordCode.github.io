@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultAlleyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultAlleyModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultAlleyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultAlleyModel>(new MyDefaultAlleyModel())` to change how it computes.
+`DefaultAlleyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultAlleyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,64 +33,63 @@
 ## Key Methods
 
 ### GetDailyXpGainForAssignedClanMember
-```csharp
-public override float GetDailyXpGainForAssignedClanMember(Hero assignedHero)
-```
+`public override float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
+
+**Purpose:** Gets the current value of `daily xp gain for assigned clan member`.
 
 ### GetDailyXpGainForMainHero
-```csharp
-public override float GetDailyXpGainForMainHero()
-```
+`public override float GetDailyXpGainForMainHero()`
+
+**Purpose:** Gets the current value of `daily xp gain for main hero`.
 
 ### GetInitialXpGainForMainHero
-```csharp
-public override float GetInitialXpGainForMainHero()
-```
+`public override float GetInitialXpGainForMainHero()`
+
+**Purpose:** Gets the current value of `initial xp gain for main hero`.
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
-```csharp
-public override float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()
-```
+`public override float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
+
+**Purpose:** Gets the current value of `xp gain after successful alley defense for main hero`.
 
 ### GetTroopsOfAIOwnedAlley
-```csharp
-public override TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)
-```
+`public override TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `troops of a i owned alley`.
 
 ### GetTroopsOfAlleyForBattleMission
-```csharp
-public override TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)
-```
+`public override TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
+
+**Purpose:** Gets the current value of `troops of alley for battle mission`.
 
 ### GetClanMembersAndAvailabilityDetailsForLeadingAnAlley
-```csharp
-public override List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
-```
+`public override List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `clan members and availability details for leading an alley`.
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
-```csharp
-public override TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)
-```
+`public override TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
+
+**Purpose:** Gets the current value of `troops to recruit from alley depending on alley random`.
 
 ### GetDisabledReasonTextForHero
-```csharp
-public override TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)
-```
+`public override TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
+
+**Purpose:** Gets the current value of `disabled reason text for hero`.
 
 ### GetAlleyAttackResponseTimeInDays
-```csharp
-public override float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)
-```
+`public override float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
+
+**Purpose:** Gets the current value of `alley attack response time in days`.
 
 ### GetDailyIncomeOfAlley
-```csharp
-public override int GetDailyIncomeOfAlley(Alley alley)
-```
+`public override int GetDailyIncomeOfAlley(Alley alley)`
+
+**Purpose:** Gets the current value of `daily income of alley`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultAlleyModel (Model)
 Game.Current.ReplaceModel<DefaultAlleyModel>(new MyDefaultAlleyModel());
 ```
 

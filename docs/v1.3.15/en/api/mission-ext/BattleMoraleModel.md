@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleMoraleModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleMoraleModel
@@ -14,65 +15,68 @@
 
 ## Overview
 
-`BattleMoraleModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BattleMoraleModel>(new MyBattleMoraleModel())` to change how it computes.
+`BattleMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BattleMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
-```csharp
-public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)
-```
+`public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
+
+**Purpose:** Handles logic related to `calculate max morale change due to agent incapacitated`.
 
 ### CalculateMaxMoraleChangeDueToAgentPanicked
-```csharp
-public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)
-```
+`public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
+
+**Purpose:** Handles logic related to `calculate max morale change due to agent panicked`.
 
 ### CalculateMoraleChangeToCharacter
-```csharp
-public abstract float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)
-```
+`public abstract float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
+
+**Purpose:** Handles logic related to `calculate morale change to character`.
 
 ### GetEffectiveInitialMorale
-```csharp
-public abstract float GetEffectiveInitialMorale(Agent agent, float baseMorale)
-```
+`public abstract float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
+
+**Purpose:** Gets the current value of `effective initial morale`.
 
 ### CanPanicDueToMorale
-```csharp
-public abstract bool CanPanicDueToMorale(Agent agent)
-```
+`public abstract bool CanPanicDueToMorale(Agent agent)`
+
+**Purpose:** Checks whether the current object can `panic due to morale`.
 
 ### CalculateCasualtiesFactor
-```csharp
-public abstract float CalculateCasualtiesFactor(BattleSideEnum battleSide)
-```
+`public abstract float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
+
+**Purpose:** Handles logic related to `calculate casualties factor`.
 
 ### GetAverageMorale
-```csharp
-public abstract float GetAverageMorale(Formation formation)
-```
+`public abstract float GetAverageMorale(Formation formation)`
+
+**Purpose:** Gets the current value of `average morale`.
 
 ### CalculateMoraleChangeOnShipSunk
-```csharp
-public abstract float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)
-```
+`public abstract float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
+
+**Purpose:** Handles logic related to `calculate morale change on ship sunk`.
 
 ### CalculateMoraleOnRamming
-```csharp
-public abstract float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)
-```
+`public abstract float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
+
+**Purpose:** Handles logic related to `calculate morale on ramming`.
 
 ### CalculateMoraleOnShipsConnected
-```csharp
-public abstract float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)
-```
+`public abstract float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
+
+**Purpose:** Handles logic related to `calculate morale on ships connected`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleMoraleModel (Model)
-Game.Current.ReplaceModel<BattleMoraleModel>(new MyBattleMoraleModel());
+var implementation = new CustomBattleMoraleModel();
 ```
 
 ## See Also

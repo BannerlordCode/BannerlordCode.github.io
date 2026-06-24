@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CharacterCreationOptionsItemWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCreationOptionsItemWidget
@@ -16,6 +17,10 @@
 
 `CharacterCreationOptionsItemWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `CharacterCreationOptionsItemWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -29,9 +34,7 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of CharacterCreationOptionsItemWidget (Widget)
-// 声明/访问一个 CharacterCreationOptionsItemWidget
-var widget = root.GetChild("characterCreationOptionsItemWidget");;
+var widget = new CharacterCreationOptionsItemWidget(context);
 ```
 
 ## See Also

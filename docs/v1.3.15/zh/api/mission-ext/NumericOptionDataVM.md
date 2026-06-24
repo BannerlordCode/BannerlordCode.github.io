@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `NumericOptionDataVM`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NumericOptionDataVM
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class NumericOptionDataVM : GenericOptionDataVM`
+**Base:** `GenericOptionDataVM`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/NumericOptionDataVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`NumericOptionDataVM` 是 `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`NumericOptionDataVM` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -27,48 +33,45 @@
 | `UpdateContinuously` | `public bool UpdateContinuously { get; set; }` |
 | `OptionValueAsString` | `public string OptionValueAsString { get; }` |
 
-
 ## 主要方法
 
 ### UpdateValue
+`public override void UpdateValue()`
 
-```csharp
-public override void UpdateValue()
-```
+**用途 / Purpose:** 更新 `value` 的状态或数据。
 
 ### Cancel
+`public override void Cancel()`
 
-```csharp
-public override void Cancel()
-```
+**用途 / Purpose:** 判断当前对象是否可以执行 `cel`。
 
 ### SetValue
+`public override void SetValue(float value)`
 
-```csharp
-public override void SetValue(float value)
-```
+**用途 / Purpose:** 设置 `value` 的值或状态。
 
 ### ResetData
+`public override void ResetData()`
 
-```csharp
-public override void ResetData()
-```
+**用途 / Purpose:** 将 `data` 重置为初始状态。
 
 ### IsChanged
+`public override bool IsChanged()`
 
-```csharp
-public override bool IsChanged()
-```
+**用途 / Purpose:** 处理 `is changed` 相关逻辑。
 
 ### ApplyValue
+`public override void ApplyValue()`
+
+**用途 / Purpose:** 将 `value` 应用到当前对象。
+
+## 使用示例
 
 ```csharp
-public override void ApplyValue()
+var value = new NumericOptionDataVM();
+value.UpdateValue();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

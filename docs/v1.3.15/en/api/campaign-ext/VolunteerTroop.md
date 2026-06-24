@@ -2,45 +2,53 @@
 **Home** → **API Index** → **Area** → `VolunteerTroop`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VolunteerTroop
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** struct
-**Area:** Campaign System
+**Type:** `public struct VolunteerTroop : IComparable`
+**Base:** `IComparable`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `VolunteerTroop` is a struct in the `TaleWorlds.CampaignSystem.CampaignBehaviors` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`VolunteerTroop` lives in `TaleWorlds.CampaignSystem.CampaignBehaviors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**Purpose:** Handles logic related to `register events`.
 
 ### GetGarrisonChangeExplainedNumber
+`public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-```csharp
-public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)
-```
+**Purpose:** Gets the current value of `garrison change explained number`.
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**Purpose:** Handles logic related to `sync data`.
 
 ### CompareTo
+`public int CompareTo(object obj)`
+
+**Purpose:** Handles logic related to `compare to`.
+
+## Usage Example
 
 ```csharp
-public int CompareTo(object obj)
+// First obtain a VolunteerTroop instance from game state, then call one of its public methods
+var value = new VolunteerTroop();
+value.RegisterEvents();
 ```
 
 ## See Also

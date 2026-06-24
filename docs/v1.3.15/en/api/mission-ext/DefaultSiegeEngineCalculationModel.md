@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSiegeEngineCalculationModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSiegeEngineCalculationModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultSiegeEngineCalculationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSiegeEngineCalculationModel>(new MyDefaultSiegeEngineCalculationModel())` to change how it computes.
+`DefaultSiegeEngineCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSiegeEngineCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateReloadSpeed
-```csharp
-public override float CalculateReloadSpeed(Agent userAgent, float baseSpeed)
-```
+`public override float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
+
+**Purpose:** Handles logic related to `calculate reload speed`.
 
 ### CalculateShipSiegeWeaponAmmoCount
-```csharp
-public override int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)
-```
+`public override int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
+
+**Purpose:** Handles logic related to `calculate ship siege weapon ammo count`.
 
 ### CalculateDamage
-```csharp
-public override int CalculateDamage(Agent attackerAgent, float baseDamage)
-```
+`public override int CalculateDamage(Agent attackerAgent, float baseDamage)`
+
+**Purpose:** Handles logic related to `calculate damage`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSiegeEngineCalculationModel (Model)
 Game.Current.ReplaceModel<DefaultSiegeEngineCalculationModel>(new MyDefaultSiegeEngineCalculationModel());
 ```
 

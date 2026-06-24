@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `ImpactSoundModifier`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ImpactSoundModifier
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct ImpactSoundModifier`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ImpactSoundModifier` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ImpactSoundModifier` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,127 +44,114 @@
 | `IsEmpty` | `public bool IsEmpty { get; }` |
 | `Value` | `public MissionWeapon Value { get; }` |
 
-
 ## Key Methods
 
 ### GetModifiedItemName
+`public TextObject GetModifiedItemName()`
 
-```csharp
-public TextObject GetModifiedItemName()
-```
+**Purpose:** Gets the current value of `modified item name`.
 
 ### IsEqualTo
+`public bool IsEqualTo(MissionWeapon other)`
 
-```csharp
-public bool IsEqualTo(MissionWeapon other)
-```
+**Purpose:** Handles logic related to `is equal to`.
 
 ### IsSameType
+`public bool IsSameType(MissionWeapon other)`
 
-```csharp
-public bool IsSameType(MissionWeapon other)
-```
+**Purpose:** Handles logic related to `is same type`.
 
 ### GetWeight
+`public float GetWeight()`
 
-```csharp
-public float GetWeight()
-```
+**Purpose:** Gets the current value of `weight`.
 
 ### GetWeaponComponentDataForUsage
+`public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)`
 
-```csharp
-public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)
-```
+**Purpose:** Gets the current value of `weapon component data for usage`.
 
 ### GetGetModifiedArmorForCurrentUsage
+`public int GetGetModifiedArmorForCurrentUsage()`
 
-```csharp
-public int GetGetModifiedArmorForCurrentUsage()
-```
+**Purpose:** Gets the current value of `get modified armor for current usage`.
 
 ### GetModifiedThrustDamageForCurrentUsage
+`public int GetModifiedThrustDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedThrustDamageForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified thrust damage for current usage`.
 
 ### GetModifiedSwingDamageForCurrentUsage
+`public int GetModifiedSwingDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedSwingDamageForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified swing damage for current usage`.
 
 ### GetModifiedMissileDamageForCurrentUsage
+`public int GetModifiedMissileDamageForCurrentUsage()`
 
-```csharp
-public int GetModifiedMissileDamageForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified missile damage for current usage`.
 
 ### GetModifiedThrustSpeedForCurrentUsage
+`public int GetModifiedThrustSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedThrustSpeedForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified thrust speed for current usage`.
 
 ### GetModifiedSwingSpeedForCurrentUsage
+`public int GetModifiedSwingSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedSwingSpeedForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified swing speed for current usage`.
 
 ### GetModifiedMissileSpeedForCurrentUsage
+`public int GetModifiedMissileSpeedForCurrentUsage()`
 
-```csharp
-public int GetModifiedMissileSpeedForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified missile speed for current usage`.
 
 ### GetModifiedMissileSpeedForUsage
+`public int GetModifiedMissileSpeedForUsage(int usageIndex)`
 
-```csharp
-public int GetModifiedMissileSpeedForUsage(int usageIndex)
-```
+**Purpose:** Gets the current value of `modified missile speed for usage`.
 
 ### GetModifiedHandlingForCurrentUsage
+`public int GetModifiedHandlingForCurrentUsage()`
 
-```csharp
-public int GetModifiedHandlingForCurrentUsage()
-```
+**Purpose:** Gets the current value of `modified handling for current usage`.
 
 ### GetWeaponData
+`public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)`
 
-```csharp
-public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)
-```
+**Purpose:** Gets the current value of `weapon data`.
 
 ### GetWeaponStatsData
+`public WeaponStatsData GetWeaponStatsData()`
 
-```csharp
-public WeaponStatsData GetWeaponStatsData()
-```
+**Purpose:** Gets the current value of `weapon stats data`.
 
 ### GetWeaponStatsDataForUsage
+`public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)`
 
-```csharp
-public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)
-```
+**Purpose:** Gets the current value of `weapon stats data for usage`.
 
 ### GetAmmoWeaponData
+`public WeaponData GetAmmoWeaponData(bool needBatchedVersion)`
 
-```csharp
-public WeaponData GetAmmoWeaponData(bool needBatchedVersion)
-```
+**Purpose:** Gets the current value of `ammo weapon data`.
 
 ### GetAmmoWeaponStatsData
+`public WeaponStatsData GetAmmoWeaponStatsData()`
 
-```csharp
-public WeaponStatsData GetAmmoWeaponStatsData()
-```
+**Purpose:** Gets the current value of `ammo weapon stats data`.
 
 ### GetAttachedWeaponsCount
+`public int GetAttachedWeaponsCount()`
+
+**Purpose:** Gets the current value of `attached weapons count`.
+
+## Usage Example
 
 ```csharp
-public int GetAttachedWeaponsCount()
+// First obtain a ImpactSoundModifier instance from game state, then call one of its public methods
+var value = new ImpactSoundModifier();
+value.GetModifiedItemName();
 ```
 
 ## See Also

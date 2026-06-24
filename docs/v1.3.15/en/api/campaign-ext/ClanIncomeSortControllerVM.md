@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ClanIncomeSortControllerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanIncomeSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ClanIncomeSortControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanIncomeSortControllerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ClanIncomeSortControllerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ClanIncomeSortControllerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,124 +35,110 @@
 | `LocationText` | `public string LocationText { get; set; }` |
 | `IncomeText` | `public string IncomeText { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**Purpose:** Executes the `sort by name` operation or workflow.
 
 ### ExecuteSortByLocation
+`public void ExecuteSortByLocation()`
 
-```csharp
-public void ExecuteSortByLocation()
-```
+**Purpose:** Executes the `sort by location` operation or workflow.
 
 ### ExecuteSortByIncome
+`public void ExecuteSortByIncome()`
 
-```csharp
-public void ExecuteSortByIncome()
-```
+**Purpose:** Executes the `sort by income` operation or workflow.
 
 ### ResetAllStates
+`public void ResetAllStates()`
 
-```csharp
-public void ResetAllStates()
-```
-
-### SetSortMode
-
-```csharp
-public void SetSortMode(bool isAcending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)
-```
+**Purpose:** Resets `all states` to its initial state.
 
 ### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public void SetSortMode(bool isAcending)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-```csharp
-public abstract int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public void SetSortMode(bool isAcending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-```csharp
-public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
-### Compare
+### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-```csharp
-public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-```csharp
-public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-```csharp
-public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)
+var value = new ClanIncomeSortControllerVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

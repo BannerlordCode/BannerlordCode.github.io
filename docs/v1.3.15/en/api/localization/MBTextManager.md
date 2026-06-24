@@ -2,155 +2,130 @@
 **Home** → **API Index** → **Area** → `MBTextManager`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# MBTextManager / MBTextManager
+# MBTextManager
 
-**Namespace**: TaleWorlds.Localization
-**File**: `bannerlord-1.3.15/TaleWorlds.Localization/MBTextManager.cs`
-**Purpose**: Static central text processing service / 静态中央文本处理服务
+**Namespace:** TaleWorlds.Localization
+**Module:** TaleWorlds.Localization
+**Type:** `public static class MBTextManager`
+**Base:** none
+**File:** `TaleWorlds.Localization/MBTextManager.cs`
 
-## Overview / 概述
+## Overview
 
-`MBTextManager` is the static central service class for the localization system. It handles text localization, variable substitution, language switching, and text expression parsing. It is the main entry point for interacting with the localization system.
+`MBTextManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
-`MBTextManager` 是本地化系统的静态中央服务类。它负责处理文本的本地化、变量替换、语言切换以及文本表达式的解析。是与本地化系统交互的主要入口点。
+## Mental Model
 
-## Important Properties / 重要属性
+Treat `MBTextManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-| Property | Type | Description |
-|----------|------|-------------|
-| ActiveTextLanguage | `static string` | StringId of the currently active language / 当前活动语言的 StringId |
-| LocalizationDebugMode | `static bool` | Whether localization debug mode is enabled (shows text IDs) / 是否启用本地化调试模式（显示文本 ID） |
-| Tokenizer | `static Tokenizer` | Text tokenizer / 文本分词器 |
+## Key Properties
 
-## Important Methods / 重要方法
+| Name | Signature |
+|------|-----------|
+| `ActiveTextLanguage` | `public static string ActiveTextLanguage { get; set; }` |
+| `LocalizationDebugMode` | `public static bool LocalizationDebugMode { get; set; }` |
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetLocalizedText | `public static string GetLocalizedText(string text)` | Get localized text by text ID / 根据文本 ID 获取本地化文本 |
-| ProcessTextToString | `internal static string ProcessTextToString(TextObject to, bool shouldClear)` | Process TextObject to string / 将 TextObject 处理为字符串 |
-| ChangeLanguage | `public static bool ChangeLanguage(string language)` | Change to specified language / 切换到指定语言 |
-| SetTextVariable | `public static void SetTextVariable(string variableName, string text, bool sendClients)` | Set string variable / 设置字符串变量 |
-| SetTextVariable | `public static void SetTextVariable(string variableName, TextObject text, bool sendClients)` | Set TextObject variable / 设置 TextObject 变量 |
-| SetTextVariable | `public static void SetTextVariable(string variableName, int content)` | Set integer variable / 设置整数变量 |
-| SetTextVariable | `public static void SetTextVariable(string variableName, float content, int decimalDigits)` | Set float variable / 设置浮点变量 |
-| SetTextVariable | `public static void SetTextVariable(string variableName, object content)` | Set object variable / 设置对象变量 |
-| SetFunction | `public static void SetFunction(string funcName, string functionBody)` | Define text function / 定义文本函数 |
-| ClearAll | `public static void ClearAll()` | Clear all context data / 清除所有上下文数据 |
-| ResetFunctions | `public static void ResetFunctions()` | Reset all text functions / 重置所有文本函数 |
-| LanguageExistsInCurrentConfiguration | `public static bool LanguageExistsInCurrentConfiguration(string language, bool developmentMode)` | Check if language exists / 检查语言是否存在 |
-| GetConversationAnimations | `public static string[] GetConversationAnimations(TextObject to)` | Get conversation animation info / 获取对话动画信息 |
-| DiscardAnimationTags | `public static string DiscardAnimationTags(string text)` | Remove animation tags / 移除动画标签 |
-| TryGetVoiceObject | `public static bool TryGetVoiceObject(TextObject to, out VoiceObject vo, out string vocalizationId)` | Get voice object / 获取语音对象 |
+## Key Methods
 
-## Localized Text Format / 本地化文本格式
+### LanguageExistsInCurrentConfiguration
+`public static bool LanguageExistsInCurrentConfiguration(string language, bool developmentMode)`
 
-Localized text uses `{=id}default_text` format:
-- `{=id}` is the unique text identifier
-- `default_text` is the default (English) text
+**Purpose:** Handles logic related to `language exists in current configuration`.
 
-本地化文本使用 `{=id}default_text` 格式：
-- `{=id}` 是文本的唯一标识符
-- `default_text` 是默认（英文）文本
+### ChangeLanguage
+`public static bool ChangeLanguage(string language)`
 
-```csharp
-// Get localized text
-// 获取本地化文本
-string text = MBTextManager.GetLocalizedText("{=greeting}Hello");
+**Purpose:** Handles logic related to `change language`.
 
-// If current language is English, returns "Hello"
-// 如果当前语言是英文，返回 "Hello"
+### GetActiveTextLanguageIndex
+`public static int GetActiveTextLanguageIndex()`
 
-// If current language is German with translation, returns "Hallo"
-// 如果当前语言是德语且有翻译，返回 "Hallo"
-```
+**Purpose:** Gets the current value of `active text language index`.
 
-## Variable Setting and Usage / 变量设置与使用
+### TryChangeVoiceLanguage
+`public static bool TryChangeVoiceLanguage(string language)`
 
-### Global Variables (affects all subsequent text)
-### 全局变量（影响所有后续文本）
+**Purpose:** Attempts to get `change voice language`, usually returning the result in an out parameter.
 
-```csharp
-// Set global text variable
-// 设置全局文本变量
-MBTextManager.SetTextVariable("PLAYER_NAME", "Commander");
-MBTextManager.SetTextVariable("GOLD_AMOUNT", 1500);
+### ClearAll
+`public static void ClearAll()`
 
-// Subsequent ToString() calls will use these variables
-// 后续的 ToString() 调用会使用这些变量
-TextObject text = new TextObject("{=info}Welcome, {PLAYER_NAME}! You have {GOLD_AMOUNT} gold.");
-string result = text.ToString(); // "Welcome, Commander! You have 1500 gold."
-```
+**Purpose:** Handles logic related to `clear all`.
 
-### TextObject Local Variables
-### TextObject 局部变量
+### SetTextVariable
+`public static void SetTextVariable(string variableName, string text, bool sendClients = false)`
 
-```csharp
-// Set variable on TextObject (only affects that object)
-// 在 TextObject 上设置变量（仅影响该对象）
-TextObject text = new TextObject("{=info}{NAME} has joined the battle.");
-text.SetTextVariable("NAME", "Sir Roland");
-string result = text.ToString(); // "Sir Roland has joined the battle."
-```
+**Purpose:** Sets the value or state of `text variable`.
 
-## Language Change / 语言切换
+### SetTextVariable
+`public static void SetTextVariable(string variableName, TextObject text, bool sendClients = false)`
 
-```csharp
-// Check if language exists
-// 检查语言是否存在
-bool exists = MBTextManager.LanguageExistsInCurrentConfiguration("Deutsch", false);
+**Purpose:** Sets the value or state of `text variable`.
 
-// Change language
-// 切换语言
-bool success = MBTextManager.ChangeLanguage("Deutsch");
-if (success)
-{
-    // Language changed successfully
-    // 语言切换成功
-    string currentLang = MBTextManager.ActiveTextLanguage; // "Deutsch"
-}
-```
+### SetTextVariable
+`public static void SetTextVariable(string variableName, int content)`
 
-## Debug Mode / 调试模式
+**Purpose:** Sets the value or state of `text variable`.
 
-```csharp
-// Enable debug mode - text will be prefixed with ID
-// 启用调试模式 - 文本前会显示 ID
-MBTextManager.LocalizationDebugMode = true;
+### SetTextVariable
+`public static void SetTextVariable(string variableName, float content, int decimalDigits = 2)`
 
-TextObject text = new TextObject("{=greeting}Hello {PLAYER}");
-text.SetTextVariable("PLAYER", "Test");
-string result = text.ToString();
-// Output: "(greeting) Hello Test" instead of "Hello Test"
-// 输出: "(greeting) Hello Test" 而不是 "Hello Test"
-```
+**Purpose:** Sets the value or state of `text variable`.
 
-## Text Functions / 文本函数
+### SetTextVariable
+`public static void SetTextVariable(string variableName, object content)`
 
-You can define custom text functions for complex logic:
+**Purpose:** Sets the value or state of `text variable`.
 
-可以定义自定义文本函数来处理复杂逻辑：
+### SetTextVariable
+`public static void SetTextVariable(string variableName, int arrayIndex, object content)`
+
+**Purpose:** Sets the value or state of `text variable`.
+
+### SetFunction
+`public static void SetFunction(string funcName, string functionBody)`
+
+**Purpose:** Sets the value or state of `function`.
+
+### ResetFunctions
+`public static void ResetFunctions()`
+
+**Purpose:** Resets `functions` to its initial state.
+
+### ThrowLocalizationError
+`public static void ThrowLocalizationError(string message)`
+
+**Purpose:** Handles logic related to `throw localization error`.
+
+### DiscardAnimationTagsAndCheckAnimationTagPositions
+`public static string DiscardAnimationTagsAndCheckAnimationTagPositions(string text)`
+
+**Purpose:** Handles logic related to `discard animation tags and check animation tag positions`.
+
+### DiscardAnimationTags
+`public static string DiscardAnimationTags(string text)`
+
+**Purpose:** Handles logic related to `discard animation tags`.
+
+### GetConversationAnimations
+`public static string GetConversationAnimations(TextObject to)`
+
+**Purpose:** Gets the current value of `conversation animations`.
+
+### TryGetVoiceObject
+`public static bool TryGetVoiceObject(TextObject to, out VoiceObject vo, out string vocalizationId)`
+
+**Purpose:** Attempts to get `get voice object`, usually returning the result in an out parameter.
+
+## Usage Example
 
 ```csharp
-// Define function
-// 定义函数
-MBTextManager.SetFunction("GET_RANK", "{=(rank == 1) ? 'Sergeant' : (rank == 2) ? 'Captain' : 'General'}");
-
-// Use function
-// 使用函数
-TextObject rankText = new TextObject("{=rank}Rank: {GET_RANK}");
+var manager = MBTextManager.Current;
 ```
 
-## Notes / 注意事项
+## See Also
 
-- `MBTextManager` is a static class, all methods are static
-- `MBTextManager` 是静态类，所有方法都是静态方法
-- Variables set via `SetTextVariable` are global and affect all subsequent text processing
-- `SetTextVariable` 设置的变量是全局的，影响所有后续的文本处理
-- `ChangeLanguage` reloads the translation dictionary for that language
-- `ChangeLanguage` 会重新加载该语言的翻译字典
-- `LocalizationDebugMode` causes text to show ID prefix, useful for debugging
-- `LocalizationDebugMode` 会导致文本前显示 ID，可用于调试
-- The `shouldClear` parameter of `ProcessTextToString` determines whether to clear temporary data after processing
-- `ProcessTextToString` 的 `shouldClear` 参数决定是否在处理后清除临时数据
+- [Complete Class Catalog](../catalog)

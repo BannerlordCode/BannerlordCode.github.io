@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `SaveContext`
 - [← Area / Back to save-system](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveContext
@@ -23,6 +25,10 @@ The **write-side context** of the save system. `SaveManager.Save` creates a `Sav
 | `_strings` / `_idsOfStrings` | String dedup table |
 
 The collection phase uses `TWParallel.ForWithoutRenderThread` for parallelism — the critical path for save performance.
+
+## Mental Model
+
+Treat `SaveContext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -64,3 +70,9 @@ In almost all cases you do **not** use `SaveContext` directly — just annotate 
 - [SaveManager](./SaveManager.md)
 - [LoadContext](./LoadContext.md)
 - [SaveAttributes](./SaveAttributes.md)
+
+## Usage Example
+
+```csharp
+var example = new SaveContext();
+```

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `EditableTextWidget`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EditableTextWidget
@@ -16,35 +17,37 @@
 
 `EditableTextWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `EditableTextWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `MaxLength` | `public int MaxLength { get; set; }` |
-| `IsObfuscationEnabled` | `public bool IsObfuscationEnabled { get { return this._isObfuscationEnabled; }` |
+| `IsObfuscationEnabled` | `public bool IsObfuscationEnabled { get; set; }` |
 | `DefaultSearchText` | `public string DefaultSearchText { get; set; }` |
-| `RealText` | `public string RealText { get { return this._realText; }` |
-| `KeyboardInfoText` | `public string KeyboardInfoText { get { return this._keyboardInfoText; }` |
-| `Text` | `public string Text { get { return this._editableText.VisibleText; }` |
+| `RealText` | `public string RealText { get; set; }` |
+| `KeyboardInfoText` | `public string KeyboardInfoText { get; set; }` |
+| `Text` | `public string Text { get; set; }` |
 
 ## 主要方法
 
 ### HandleInput
-```csharp
-public override void HandleInput(IReadOnlyList<int> lastKeysPressed)
-```
+`public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
+
+**用途 / Purpose:** 处理 `input` 事件或回调。
 
 ### SetAllText
-```csharp
-public virtual void SetAllText(string text)
-```
+`public virtual void SetAllText(string text)`
+
+**用途 / Purpose:** 设置 `all text` 的值或状态。
 
 ## 使用示例
 
 ```csharp
-// EditableTextWidget (Widget) 的典型用法
-// 声明/访问一个 EditableTextWidget
-var widget = root.GetChild("editableTextWidget");;
+var widget = new EditableTextWidget(context);
 ```
 
 ## 参见

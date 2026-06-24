@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `AssignPlayerRoleInTeamMissionController`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AssignPlayerRoleInTeamMissionController
@@ -14,49 +15,52 @@
 
 ## Overview
 
-`AssignPlayerRoleInTeamMissionController` is a mission controller driving a mission subsystem (deployment, highlights, reinforcements). Accessed via Mission.Current or as a mission behavior.
+`AssignPlayerRoleInTeamMissionController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `AssignPlayerRoleInTeamMissionController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `IsPlayerInArmy` | `public bool IsPlayerInArmy { get; }` |
-| `IsPlayerGeneral` | `public bool IsPlayerGeneral { get; }` |
-| `IsPlayerSergeant` | `public bool IsPlayerSergeant { get; }` |
-| `PlayerChosenIndex` | `public int PlayerChosenIndex { get; protected set; }` |
+| `IsPlayerInArmy` | `public bool IsPlayerInArmy { get; set; }` |
+| `IsPlayerGeneral` | `public bool IsPlayerGeneral { get; set; }` |
+| `IsPlayerSergeant` | `public bool IsPlayerSergeant { get; set; }` |
+| `PlayerChosenIndex` | `public int PlayerChosenIndex { get; set; }` |
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnTeamDeployed
-```csharp
-public override void OnTeamDeployed(Team team)
-```
+`public override void OnTeamDeployed(Team team)`
+
+**Purpose:** Called when the `team deployed` event is raised.
 
 ### OnPlayerTeamDeployed
-```csharp
-public virtual void OnPlayerTeamDeployed()
-```
+`public virtual void OnPlayerTeamDeployed()`
+
+**Purpose:** Called when the `player team deployed` event is raised.
 
 ### OnPlayerChoiceMade
-```csharp
-public virtual void OnPlayerChoiceMade(int chosenIndex)
-```
+`public virtual void OnPlayerChoiceMade(int chosenIndex)`
+
+**Purpose:** Called when the `player choice made` event is raised.
 
 ### OnPlayerChoiceFinalized
-```csharp
-public void OnPlayerChoiceFinalized()
-```
+`public void OnPlayerChoiceFinalized()`
+
+**Purpose:** Called when the `player choice finalized` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of AssignPlayerRoleInTeamMissionController (Controller)
-Mission.Current.GetMissionBehavior<AssignPlayerRoleInTeamMissionController>();
+var controller = Mission.Current.GetMissionBehavior<AssignPlayerRoleInTeamMissionController>();
 ```
 
 ## See Also

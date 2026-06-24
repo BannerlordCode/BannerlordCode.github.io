@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BarterGroup`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class BarterGroup`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/BarterSystem/BarterGroup.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BarterGroup` is a class in the `TaleWorlds.CampaignSystem.BarterSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BarterGroup` lives in `TaleWorlds.CampaignSystem.BarterSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.BarterSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,7 +27,12 @@
 |------|-----------|
 | `AIDecisionWeight` | `public abstract float AIDecisionWeight { get; }` |
 
+## Usage Example
+
+```csharp
+var implementation = new CustomBarterGroup();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

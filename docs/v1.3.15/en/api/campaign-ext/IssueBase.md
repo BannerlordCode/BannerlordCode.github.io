@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `IssueBase`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/IssueBase](/versions/IssueBase)
 <!-- END BREADCRUMB -->
@@ -17,6 +19,10 @@
 ## Overview
 
 Each issue is attached to an `IssueOwner` (the hero providing the issue). Subclasses must implement the dialogue text properties (`IssueBriefByIssueGiver`, etc.) and the `IsThereAlternativeSolution` / `IsThereLordSolution` booleans. The alternative solution involves the required troop count (`AlternativeSolutionBaseNeededMenCount`) and duration (`GetBaseAlternativeSolutionDurationInDays`), validated via `AlternativeSolutionCondition` / `DoTroopsSatisfyAlternativeSolution`.
+
+## Mental Model
+
+Treat `IssueBase` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key abstract members (must implement)
 
@@ -90,3 +96,9 @@ Issues pair with quests: `IssueBase` describes the issue and solution dialogue, 
 - [QuestBase](./QuestBase.md)
 - [Hero](../campaign/Hero.md)
 - [Campaign](./Campaign.md)
+
+## Usage Example
+
+```csharp
+var implementation = new CustomIssueBase();
+```

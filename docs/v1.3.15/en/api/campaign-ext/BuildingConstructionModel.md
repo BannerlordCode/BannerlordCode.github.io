@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BuildingConstructionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BuildingConstructionModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BuildingConstructionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BuildingConstructionModel>(new MyBuildingConstructionModel())` to change how it computes.
+`BuildingConstructionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BuildingConstructionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,30 +33,29 @@
 ## Key Methods
 
 ### CalculateDailyConstructionPower
-```csharp
-public abstract ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate daily construction power`.
 
 ### CalculateDailyConstructionPowerWithoutBoost
-```csharp
-public abstract int CalculateDailyConstructionPowerWithoutBoost(Town town)
-```
+`public abstract int CalculateDailyConstructionPowerWithoutBoost(Town town)`
+
+**Purpose:** Handles logic related to `calculate daily construction power without boost`.
 
 ### GetBoostCost
-```csharp
-public abstract int GetBoostCost(Town town)
-```
+`public abstract int GetBoostCost(Town town)`
+
+**Purpose:** Gets the current value of `boost cost`.
 
 ### GetBoostAmount
-```csharp
-public abstract int GetBoostAmount(Town town)
-```
+`public abstract int GetBoostAmount(Town town)`
+
+**Purpose:** Gets the current value of `boost amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BuildingConstructionModel (Model)
-Game.Current.ReplaceModel<BuildingConstructionModel>(new MyBuildingConstructionModel());
+var implementation = new CustomBuildingConstructionModel();
 ```
 
 ## See Also

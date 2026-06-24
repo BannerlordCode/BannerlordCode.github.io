@@ -5,6 +5,10 @@ description: Documentation for native type and method mapping attributes
 
 # EngineClass and EngineMethod
 
+## Mental Model
+
+Treat `EngineClass and EngineMethod` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **EngineClass File**: `TaleWorlds.DotNet/EngineClass.cs`  
 **EngineMethod File**: `TaleWorlds.Library/EngineMethod.cs`  
 **EngineBaseClass File**: `TaleWorlds.DotNet/EngineBaseClass.cs`

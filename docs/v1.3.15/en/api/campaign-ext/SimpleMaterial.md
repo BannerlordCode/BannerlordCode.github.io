@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SimpleMaterial`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SimpleMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SimpleMaterial : Material`
+**Base:** `Material`
+**File:** `TaleWorlds.TwoDimension/SimpleMaterial.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SimpleMaterial` is a class in the `TaleWorlds.TwoDimension` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SimpleMaterial` lives in `TaleWorlds.TwoDimension` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,35 +45,38 @@
 | `Scale` | `public float Scale { get; set; }` |
 | `OverlayTextureWidth` | `public float OverlayTextureWidth { get; set; }` |
 | `OverlayTextureHeight` | `public float OverlayTextureHeight { get; set; }` |
-
+| `OverlayXOffset` | `public float OverlayXOffset { get; set; }` |
+| `OverlayYOffset` | `public float OverlayYOffset { get; set; }` |
 
 ## Key Methods
 
 ### Reset
+`public void Reset(Texture texture = null)`
 
-```csharp
-public void Reset(Texture texture = null)
-```
+**Purpose:** Resets `reset` to its initial state.
 
 ### GetCircularMaskingCenter
+`public Vec2 GetCircularMaskingCenter()`
 
-```csharp
-public Vec2 GetCircularMaskingCenter()
-```
+**Purpose:** Gets the current value of `circular masking center`.
 
 ### GetOverlayStartCoordinate
+`public Vec2 GetOverlayStartCoordinate()`
 
-```csharp
-public Vec2 GetOverlayStartCoordinate()
-```
+**Purpose:** Gets the current value of `overlay start coordinate`.
 
 ### GetOverlaySize
+`public Vec2 GetOverlaySize()`
+
+**Purpose:** Gets the current value of `overlay size`.
+
+## Usage Example
 
 ```csharp
-public Vec2 GetOverlaySize()
+var value = new SimpleMaterial();
+value.Reset(null);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

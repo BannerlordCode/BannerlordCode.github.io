@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BoundaryWallView`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BoundaryWallView
@@ -14,20 +15,23 @@
 
 ## Overview
 
-`BoundaryWallView` is an engine view/surface (render, texture, scene preview, etc.). Accessed via the engine view system.
+`BoundaryWallView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `BoundaryWallView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CreateBoundaryMesh
-```csharp
-public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)
-```
+`public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)`
+
+**Purpose:** Creates a new `boundary mesh` instance or object.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BoundaryWallView (View)
-BoundaryWallView /* via engine view system */;
+var view = new BoundaryWallView();
 ```
 
 ## See Also

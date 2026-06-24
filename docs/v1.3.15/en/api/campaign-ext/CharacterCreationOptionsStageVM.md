@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CharacterCreationOptionsStageVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCreationOptionsStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation.OptionsStage
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class CharacterCreationOptionsStageVM : CharacterCreationStageBaseVM`
+**Base:** `CharacterCreationStageBaseVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CharacterCreation/OptionsStage/CharacterCreationOptionsStageVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CharacterCreationOptionsStageVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation.OptionsStage` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CharacterCreationOptionsStageVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation.OptionsStage` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation.OptionsStage` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,70 +31,65 @@
 | `OptionsController` | `public CampaignOptionsControllerVM OptionsController { get; set; }` |
 | `CharacterGamepadControlsEnabled` | `public bool CharacterGamepadControlsEnabled { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### CanAdvanceToNextStage
+`public override bool CanAdvanceToNextStage()`
 
-```csharp
-public override bool CanAdvanceToNextStage()
-```
+**Purpose:** Checks whether the current object can `advance to next stage`.
 
 ### OnNextStage
+`public override void OnNextStage()`
 
-```csharp
-public override void OnNextStage()
-```
+**Purpose:** Called when the `next stage` event is raised.
 
 ### OnPreviousStage
+`public override void OnPreviousStage()`
 
-```csharp
-public override void OnPreviousStage()
-```
+**Purpose:** Called when the `previous stage` event is raised.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
 
-```csharp
-public void SetDoneInputKey(HotKey hotKey)
-```
-
-### AddCameraControlInputKey
-
-```csharp
-public void AddCameraControlInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `done input key`.
 
 ### AddCameraControlInputKey
+`public void AddCameraControlInputKey(HotKey hotKey)`
 
-```csharp
-public void AddCameraControlInputKey(GameKey gameKey)
-```
+**Purpose:** Adds `camera control input key` to the current collection or state.
 
 ### AddCameraControlInputKey
+`public void AddCameraControlInputKey(GameKey gameKey)`
+
+**Purpose:** Adds `camera control input key` to the current collection or state.
+
+### AddCameraControlInputKey
+`public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
+
+**Purpose:** Adds `camera control input key` to the current collection or state.
+
+## Usage Example
 
 ```csharp
-public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)
+var value = new CharacterCreationOptionsStageVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

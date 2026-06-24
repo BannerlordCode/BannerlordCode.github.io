@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `FillBarWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FillBarWidget
@@ -16,29 +17,31 @@
 
 `FillBarWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `FillBarWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `CurrentAmount` | `public int CurrentAmount { get { return (int)this._currentAmount; }` |
-| `MaxAmount` | `public int MaxAmount { get { return (int)this._maxAmount; }` |
-| `InitialAmount` | `public int InitialAmount { get { return (int)this._initialAmount; }` |
-| `MaxAmountAsFloat` | `public float MaxAmountAsFloat { get { return this._maxAmount; }` |
-| `CurrentAmountAsFloat` | `public float CurrentAmountAsFloat { get { return this._currentAmount; }` |
-| `InitialAmountAsFloat` | `public float InitialAmountAsFloat { get { return this._initialAmount; }` |
-| `CompletelyFillChange` | `public bool CompletelyFillChange { get { return this._completelyFillChange; }` |
-| `ShowNegativeChange` | `public bool ShowNegativeChange { get { return this._showNegativeChange; }` |
-| `CustomChangeColor` | `public bool CustomChangeColor { get { return this._customChangeColor; }` |
-| `FillWidget` | `public Widget FillWidget { get { return this._fillWidget; }` |
-| `ChangeWidget` | `public Widget ChangeWidget { get { return this._changeWidget; }` |
-| `DividerWidget` | `public Widget DividerWidget { get { return this._dividerWidget; }` |
+| `CurrentAmount` | `public int CurrentAmount { get; set; }` |
+| `MaxAmount` | `public int MaxAmount { get; set; }` |
+| `InitialAmount` | `public int InitialAmount { get; set; }` |
+| `MaxAmountAsFloat` | `public float MaxAmountAsFloat { get; set; }` |
+| `CurrentAmountAsFloat` | `public float CurrentAmountAsFloat { get; set; }` |
+| `InitialAmountAsFloat` | `public float InitialAmountAsFloat { get; set; }` |
+| `CompletelyFillChange` | `public bool CompletelyFillChange { get; set; }` |
+| `ShowNegativeChange` | `public bool ShowNegativeChange { get; set; }` |
+| `CustomChangeColor` | `public bool CustomChangeColor { get; set; }` |
+| `FillWidget` | `public Widget FillWidget { get; set; }` |
+| `ChangeWidget` | `public Widget ChangeWidget { get; set; }` |
+| `DividerWidget` | `public Widget DividerWidget { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of FillBarWidget (Widget)
-// 声明/访问一个 FillBarWidget
-var widget = root.GetChild("fillBarWidget");;
+var widget = new FillBarWidget(context);
 ```
 
 ## See Also

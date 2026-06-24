@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `UdpNetworkComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UdpNetworkComponent
@@ -14,80 +15,83 @@
 
 ## Overview
 
-`UdpNetworkComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<UdpNetworkComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`UdpNetworkComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `UdpNetworkComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnUdpNetworkHandlerClose
-```csharp
-public virtual void OnUdpNetworkHandlerClose()
-```
+`public virtual void OnUdpNetworkHandlerClose()`
+
+**Purpose:** Called when the `udp network handler close` event is raised.
 
 ### OnUdpNetworkHandlerTick
-```csharp
-public virtual void OnUdpNetworkHandlerTick(float dt)
-```
+`public virtual void OnUdpNetworkHandlerTick(float dt)`
+
+**Purpose:** Called when the `udp network handler tick` event is raised.
 
 ### HandleNewClientConnect
-```csharp
-public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)
-```
+`public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)`
+
+**Purpose:** Handles the `new client connect` event or callback.
 
 ### HandleEarlyNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `early new client after loading finished` event or callback.
 
 ### HandleNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `new client after loading finished` event or callback.
 
 ### HandleLateNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `late new client after loading finished` event or callback.
 
 ### HandleNewClientAfterSynchronized
-```csharp
-public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `new client after synchronized` event or callback.
 
 ### HandleLateNewClientAfterSynchronized
-```csharp
-public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `late new client after synchronized` event or callback.
 
 ### OnEveryoneUnSynchronized
-```csharp
-public virtual void OnEveryoneUnSynchronized()
-```
+`public virtual void OnEveryoneUnSynchronized()`
+
+**Purpose:** Called when the `everyone un synchronized` event is raised.
 
 ### HandleEarlyPlayerDisconnect
-```csharp
-public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)
-```
+`public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `early player disconnect` event or callback.
 
 ### HandlePlayerDisconnect
-```csharp
-public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)
-```
+`public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
+
+**Purpose:** Handles the `player disconnect` event or callback.
 
 ### OnPlayerDisconnectedFromServer
-```csharp
-public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)
-```
+`public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
+
+**Purpose:** Called when the `player disconnected from server` event is raised.
 
 ### OnDisconnectedFromServer
-```csharp
-public virtual void OnDisconnectedFromServer()
-```
+`public virtual void OnDisconnectedFromServer()`
+
+**Purpose:** Called when the `disconnected from server` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of UdpNetworkComponent (Component)
-agent.GetComponent<UdpNetworkComponent>();
+var implementation = new CustomUdpNetworkComponent();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TooltipPropertyWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TooltipPropertyWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `TooltipPropertyWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `TooltipPropertyWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -50,21 +55,19 @@
 ## Key Methods
 
 ### SetBattleScope
-```csharp
-public void SetBattleScope(bool battleScope)
-```
+`public void SetBattleScope(bool battleScope)`
+
+**Purpose:** Sets the value or state of `battle scope`.
 
 ### RefreshSize
-```csharp
-public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)
-```
+`public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)`
+
+**Purpose:** Refreshes the display or cache of `size`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TooltipPropertyWidget (Widget)
-// 声明/访问一个 TooltipPropertyWidget
-var widget = root.GetChild("tooltipPropertyWidget");;
+var widget = new TooltipPropertyWidget(context);
 ```
 
 ## See Also

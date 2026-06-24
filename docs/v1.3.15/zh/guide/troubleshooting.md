@@ -5,6 +5,10 @@ description: 常见问题诊断和解决方案 / Common problem diagnosis and so
 
 # 故障排除 / Troubleshooting
 
+## 心智模型
+
+先把 `故障排除` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 本指南帮助你诊断和解决 Bannerlord modding 中常见的问题。
@@ -222,3 +226,9 @@ public override void OnMissionFinish(bool isHeroParty)
 
 - [常见模式](./common-patterns.md) - 最佳实践
 - [入门指南](./index.md) - 返回主指南
+
+## 使用示例
+
+```csharp
+var example = new 故障排除();
+```

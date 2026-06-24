@@ -5,6 +5,10 @@ description: 快速上手 Bannerlord 模块开发 / Quick start guide for Banner
 
 # 入门指南 / Getting Started Guide
 
+## 心智模型
+
+先把 `入门指南` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 欢迎来到 Bannerlord 模块开发入门指南。本指南将帮助你搭建开发环境、创建第一个 SubModule 并掌握调试技巧。
 
 ## 目录 / Table of Contents
@@ -167,28 +171,6 @@ namespace MyModule
 </Module>
 ```
 
-### 常用 API 示例
-
-```csharp
-// 获取游戏实例
-Game game = Game.Current;
-
-// 创建新物品
-ItemObject newItem = ItemObject.CreateItem("my_item");
-
-// 添加到游戏世界
-game.ItemRoster.Add(newItem);
-
-// 监听事件
-game.GameStarted += OnGameStarted;
-
-// 输出调试信息
-InformationMessage message = new InformationMessage("Hello from MyModule!");
-MBInformationManager.AddQuickInformation(message);
-```
-
----
-
 ## 调试技巧 / Debugging Tips
 
 ### 使用断点调试
@@ -197,21 +179,6 @@ MBInformationManager.AddQuickInformation(message);
 2. 在目标代码处设置断点 (F9)
 3. 按 `F5` 启动调试
 4. 游戏将在断点处暂停
-
-### 输出调试信息
-
-```csharp
-// 方法1: 使用 Debug.Print
-Debug.Print("Debug message here", Debug.Color.White);
-
-// 方法2: 使用 InformationManager
-MBInformationManager.AddQuickInformation(
-    new InformationMessage("Info text", Debug.Color.Blue)
-);
-
-// 方法3: 写入日志文件
-File.WriteAllText("debug_log.txt", "content");
-```
 
 ### 常见调试场景
 

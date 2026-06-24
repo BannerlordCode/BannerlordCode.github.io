@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CircularAutoScrollablePanelWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CircularAutoScrollablePanelWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `CircularAutoScrollablePanelWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `CircularAutoScrollablePanelWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -33,26 +38,24 @@
 ## Key Methods
 
 ### SetScrollMouse
-```csharp
-public void SetScrollMouse()
-```
+`public void SetScrollMouse()`
+
+**Purpose:** Sets the value or state of `scroll mouse`.
 
 ### SetHoverBegin
-```csharp
-public void SetHoverBegin()
-```
+`public void SetHoverBegin()`
+
+**Purpose:** Sets the value or state of `hover begin`.
 
 ### SetHoverEnd
-```csharp
-public void SetHoverEnd()
-```
+`public void SetHoverEnd()`
+
+**Purpose:** Sets the value or state of `hover end`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CircularAutoScrollablePanelWidget (Widget)
-// 声明/访问一个 CircularAutoScrollablePanelWidget
-var widget = root.GetChild("circularAutoScrollablePanelWidget");;
+var widget = new CircularAutoScrollablePanelWidget(context);
 ```
 
 ## See Also

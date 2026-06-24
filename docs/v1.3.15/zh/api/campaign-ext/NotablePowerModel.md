@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `NotablePowerModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NotablePowerModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`NotablePowerModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<NotablePowerModel>(new MyNotablePowerModel())` 注册，以改变其计算逻辑。
+`NotablePowerModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `NotablePowerModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -26,35 +31,34 @@
 ## 主要方法
 
 ### CalculateDailyPowerChangeForHero
-```csharp
-public abstract ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate daily power change for hero` 相关逻辑。
 
 ### GetPowerRankName
-```csharp
-public abstract TextObject GetPowerRankName(Hero hero)
-```
+`public abstract TextObject GetPowerRankName(Hero hero)`
+
+**用途 / Purpose:** 获取 `power rank name` 的当前值。
 
 ### GetInfluenceBonusToClan
-```csharp
-public abstract float GetInfluenceBonusToClan(Hero hero)
-```
+`public abstract float GetInfluenceBonusToClan(Hero hero)`
+
+**用途 / Purpose:** 获取 `influence bonus to clan` 的当前值。
 
 ### GetInitialPower
-```csharp
-public abstract int GetInitialPower(Hero hero)
-```
+`public abstract int GetInitialPower(Hero hero)`
+
+**用途 / Purpose:** 获取 `initial power` 的当前值。
 
 ### GetInitialNotableSupporterCost
-```csharp
-public abstract int GetInitialNotableSupporterCost(Hero hero)
-```
+`public abstract int GetInitialNotableSupporterCost(Hero hero)`
+
+**用途 / Purpose:** 获取 `initial notable supporter cost` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// NotablePowerModel (Model) 的典型用法
-Game.Current.ReplaceModel<NotablePowerModel>(new MyNotablePowerModel());
+var implementation = new CustomNotablePowerModel();
 ```
 
 ## 参见

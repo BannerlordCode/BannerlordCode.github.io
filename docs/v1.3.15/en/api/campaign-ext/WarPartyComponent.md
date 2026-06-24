@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `WarPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WarPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`WarPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<WarPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`WarPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `WarPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,15 +30,14 @@
 ## Key Methods
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of WarPartyComponent (Component)
-agent.GetComponent<WarPartyComponent>();
+var implementation = new CustomWarPartyComponent();
 ```
 
 ## See Also

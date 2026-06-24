@@ -5,6 +5,10 @@ description: Documentation for native array operations interface
 
 # INativeArray
 
+## Mental Model
+
+Treat `INativeArray` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **File**: `TaleWorlds.DotNet/INativeArray.cs`  
 **Namespace**: `TaleWorlds.DotNet`  
 **Attribute**: `[LibraryInterfaceBase]`

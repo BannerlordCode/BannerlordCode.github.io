@@ -12,6 +12,10 @@ description: Creating custom UI with GauntletMovie, GauntletSystem, ScreenManage
 
 Bannerlord uses **Gauntlet** as its UI framework. Gauntlet is a data-driven UI system based on XAML-style XML definitions and MVVM pattern data binding.
 
+## Mental Model
+
+Treat `Gauntlet UI System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Core Components
 
 | Component | Class | Responsibility |
@@ -479,3 +483,9 @@ namespace MyModule.UI
 
 - [Mission System](./mission-system.md) - Learn Mission, MissionBehavior
 - [Campaign System](./campaign-system.md) - Learn about the Campaign game world
+
+## Usage Example
+
+```csharp
+var example = new Gauntlet UI System();
+```

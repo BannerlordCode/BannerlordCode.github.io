@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `WidgetPrefab`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetPrefab
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WidgetPrefab`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `WidgetPrefab` is a class in the `TaleWorlds.GauntletUI.PrefabSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WidgetPrefab` lives in `TaleWorlds.GauntletUI.PrefabSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,49 +30,48 @@
 | `CustomElements` | `public Dictionary<string, XmlElement> CustomElements { get; }` |
 | `RootTemplate` | `public WidgetTemplate RootTemplate { get; }` |
 
-
 ## Key Methods
 
 ### LoadFrom
+`public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)`
 
-```csharp
-public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)
-```
+**Purpose:** Loads `from` data.
 
 ### Save
+`public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)`
 
-```csharp
-public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)
-```
-
-### Instantiate
-
-```csharp
-public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)
-```
+**Purpose:** Saves `save` data.
 
 ### Instantiate
+`public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-```csharp
-public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)
-```
+**Purpose:** Handles logic related to `instantiate`.
+
+### Instantiate
+`public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
+
+**Purpose:** Handles logic related to `instantiate`.
 
 ### OnRelease
+`public void OnRelease()`
 
-```csharp
-public void OnRelease()
-```
+**Purpose:** Called when the `release` event is raised.
 
 ### GetConstantValue
+`public ConstantDefinition GetConstantValue(string name)`
 
-```csharp
-public ConstantDefinition GetConstantValue(string name)
-```
+**Purpose:** Gets the current value of `constant value`.
 
 ### GetParameterDefaultValue
+`public string GetParameterDefaultValue(string name)`
+
+**Purpose:** Gets the current value of `parameter default value`.
+
+## Usage Example
 
 ```csharp
-public string GetParameterDefaultValue(string name)
+// Prepare the required context, then call the static entry point directly
+WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example");
 ```
 
 ## See Also

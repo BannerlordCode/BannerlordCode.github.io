@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `QuestBase`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 - [🔀 Cross-Version Compare /versions/QuestBase](/versions/QuestBase)
 <!-- END BREADCRUMB -->
@@ -17,6 +19,10 @@
 ## Overview
 
 A quest is started by a `QuestGiver` (the hero offering it), has a deadline `QuestDueTime`, and holds tasks (`TaskList`) and journal entries (`JournalEntries`). Start it with `StartQuest`; end it via the `CompleteQuestWith*` family by success/timeout/fail/betrayal/cancel. During the quest you can add game menus (`AddGameMenu`) and tracked objects (`AddTrackedObject`).
+
+## Mental Model
+
+Treat `QuestBase` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -102,3 +108,9 @@ public class MyQuest : QuestBase
 - [Hero](../campaign/Hero.md)
 - [CampaignTime](./CampaignTime.md)
 - [Campaign](./Campaign.md)
+
+## Usage Example
+
+```csharp
+var implementation = new CustomQuestBase();
+```

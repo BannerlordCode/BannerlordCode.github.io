@@ -12,6 +12,10 @@ description: Bannerlord 1.3.15 new save system architecture
 
 TaleWorlds.SaveSystem is a new modular save system added in version 1.3.15. In 1.3.0, save logic was scattered across modules, but 1.3.15 unified it into a dedicated system with 100+ .cs files.
 
+## Mental Model
+
+Treat `Save System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Module Structure
 
 ```
@@ -297,56 +301,6 @@ save.zip
 ├── objects_1.bin   # More object data
 ├── container_0.bin # Container data blocks
 └── container_1.bin # More container data
-```
-
-## Usage Example
-
-```csharp
-// Define saveable class
-[SaveableRootClass(5000)]
-public class MyGameData
-{
-    [SaveableField(1)]
-    public int Score;
-    
-    [SaveableField(2)]
-    public string PlayerName;
-    
-    [SaveableProperty(3)]
-    public List<Item> Inventory { get; set; }
-}
-
-// Save game
-public void SaveGame(string saveName)
-{
-    MyGameData data = new MyGameData { Score = 100, PlayerName = "Hero" };
-    MetaData meta = new MetaData 
-    { 
-        SaveName = saveName,
-        GameVersion = ApplicationVersion.FromParametersFile(null)
-    };
-    
-    ISaveDriver driver = new AsyncFileSaveDriver();
-    SaveOutput result = SaveManager.Save(data, meta, saveName, driver);
-    
-    if (result.Succeeded)
-    {
-        Debug.Print("Game saved successfully!");
-    }
-}
-
-// Load game
-public void LoadGame(string saveName)
-{
-    ISaveDriver driver = new AsyncFileSaveDriver();
-    LoadResult result = SaveManager.Load(saveName, driver);
-    
-    if (result.Succeeded)
-    {
-        MyGameData data = result.RootObject as MyGameData;
-        Debug.Print($"Loaded: {data.PlayerName}, Score: {data.Score}");
-    }
-}
 ```
 
 ## 1.3.0 vs 1.3.15 Comparison

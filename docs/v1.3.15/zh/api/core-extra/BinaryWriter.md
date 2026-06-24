@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `BinaryWriter`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BinaryWriter
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public class BinaryWriter : IWriter`
+**Base:** `IWriter`
+**File:** `TaleWorlds.Library/BinaryWriter.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`BinaryWriter` 是 `TaleWorlds.Library` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`BinaryWriter` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,132 +28,140 @@
 | `Data` | `public byte Data { get; }` |
 | `Length` | `public int Length { get; }` |
 
-
 ## 主要方法
 
 ### Clear
+`public void Clear()`
 
-```csharp
-public void Clear()
-```
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
 
 ### EnsureLength
+`public void EnsureLength(int added)`
 
-```csharp
-public void EnsureLength(int added)
-```
+**用途 / Purpose:** 处理 `ensure length` 相关逻辑。
 
 ### WriteSerializableObject
+`public void WriteSerializableObject(ISerializableObject serializableObject)`
 
-```csharp
-public void WriteSerializableObject(ISerializableObject serializableObject)
-```
+**用途 / Purpose:** 处理 `write serializable object` 相关逻辑。
 
 ### WriteByte
+`public void WriteByte(byte value)`
 
-```csharp
-public void WriteByte(byte value)
-```
+**用途 / Purpose:** 处理 `write byte` 相关逻辑。
 
 ### WriteBytes
+`public void WriteBytes(byte bytes)`
 
-```csharp
-public void WriteBytes(byte bytes)
-```
+**用途 / Purpose:** 处理 `write bytes` 相关逻辑。
 
 ### Write3ByteInt
+`public void Write3ByteInt(int value)`
 
-```csharp
-public void Write3ByteInt(int value)
-```
+**用途 / Purpose:** 处理 `write3 byte int` 相关逻辑。
 
 ### WriteInt
+`public void WriteInt(int value)`
 
-```csharp
-public void WriteInt(int value)
-```
+**用途 / Purpose:** 处理 `write int` 相关逻辑。
 
 ### WriteShort
+`public void WriteShort(short value)`
 
-```csharp
-public void WriteShort(short value)
-```
+**用途 / Purpose:** 处理 `write short` 相关逻辑。
 
 ### WriteString
+`public void WriteString(string value)`
 
-```csharp
-public void WriteString(string value)
-```
+**用途 / Purpose:** 处理 `write string` 相关逻辑。
 
 ### WriteFloats
+`public void WriteFloats(float value, int count)`
 
-```csharp
-public void WriteFloats(float value, int count)
-```
+**用途 / Purpose:** 处理 `write floats` 相关逻辑。
 
 ### WriteShorts
+`public void WriteShorts(short value, int count)`
 
-```csharp
-public void WriteShorts(short value, int count)
-```
+**用途 / Purpose:** 处理 `write shorts` 相关逻辑。
 
 ### WriteColor
+`public void WriteColor(Color value)`
 
-```csharp
-public void WriteColor(Color value)
-```
+**用途 / Purpose:** 处理 `write color` 相关逻辑。
 
 ### WriteBool
+`public void WriteBool(bool value)`
 
-```csharp
-public void WriteBool(bool value)
-```
+**用途 / Purpose:** 处理 `write bool` 相关逻辑。
 
 ### WriteFloat
+`public void WriteFloat(float value)`
 
-```csharp
-public void WriteFloat(float value)
-```
+**用途 / Purpose:** 处理 `write float` 相关逻辑。
 
 ### WriteUInt
+`public void WriteUInt(uint value)`
 
-```csharp
-public void WriteUInt(uint value)
-```
+**用途 / Purpose:** 处理 `write u int` 相关逻辑。
 
 ### WriteULong
+`public void WriteULong(ulong value)`
 
-```csharp
-public void WriteULong(ulong value)
-```
+**用途 / Purpose:** 处理 `write u long` 相关逻辑。
 
 ### WriteLong
+`public void WriteLong(long value)`
 
-```csharp
-public void WriteLong(long value)
-```
+**用途 / Purpose:** 处理 `write long` 相关逻辑。
 
 ### WriteVec2
+`public void WriteVec2(Vec2 vec2)`
 
-```csharp
-public void WriteVec2(Vec2 vec2)
-```
+**用途 / Purpose:** 处理 `write vec2` 相关逻辑。
 
 ### WriteVec3
+`public void WriteVec3(Vec3 vec3)`
 
-```csharp
-public void WriteVec3(Vec3 vec3)
-```
+**用途 / Purpose:** 处理 `write vec3` 相关逻辑。
 
 ### WriteVec3Int
+`public void WriteVec3Int(Vec3i vec3)`
+
+**用途 / Purpose:** 处理 `write vec3 int` 相关逻辑。
+
+### WriteSByte
+`public void WriteSByte(sbyte value)`
+
+**用途 / Purpose:** 处理 `write s byte` 相关逻辑。
+
+### WriteUShort
+`public void WriteUShort(ushort value)`
+
+**用途 / Purpose:** 处理 `write u short` 相关逻辑。
+
+### WriteDouble
+`public void WriteDouble(double value)`
+
+**用途 / Purpose:** 处理 `write double` 相关逻辑。
+
+### AppendData
+`public void AppendData(BinaryWriter writer)`
+
+**用途 / Purpose:** 处理 `append data` 相关逻辑。
+
+### GetFinalData
+`public byte GetFinalData()`
+
+**用途 / Purpose:** 获取 `final data` 的当前值。
+
+## 使用示例
 
 ```csharp
-public void WriteVec3Int(Vec3i vec3)
+var value = new BinaryWriter();
+value.Clear();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

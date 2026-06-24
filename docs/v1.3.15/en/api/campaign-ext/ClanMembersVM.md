@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ClanMembersVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanMembersVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ClanMembersVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanMembersVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ClanMembersVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ClanMembersVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -34,34 +38,35 @@
 | `CurrentSelectedMember` | `public ClanLordItemVM CurrentSelectedMember { get; set; }` |
 | `SortController` | `public ClanMembersSortControllerVM SortController { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshMembersList
+`public void RefreshMembersList()`
 
-```csharp
-public void RefreshMembersList()
-```
+**Purpose:** Refreshes the display or cache of `members list`.
 
 ### SelectMember
+`public void SelectMember(Hero hero)`
 
-```csharp
-public void SelectMember(Hero hero)
-```
+**Purpose:** Handles logic related to `select member`.
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var value = new ClanMembersVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

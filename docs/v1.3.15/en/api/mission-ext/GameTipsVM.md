@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GameTipsVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameTipsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class GameTipsVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/EscapeMenu/GameTipsVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GameTipsVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GameTipsVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,34 +29,35 @@
 | `GameTipTitle` | `public string GameTipTitle { get; set; }` |
 | `NavigationButtonsEnabled` | `public bool NavigationButtonsEnabled { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecutePreviousTip
+`public void ExecutePreviousTip()`
 
-```csharp
-public void ExecutePreviousTip()
-```
+**Purpose:** Executes the `previous tip` operation or workflow.
 
 ### ExecuteNextTip
+`public void ExecuteNextTip()`
 
-```csharp
-public void ExecuteNextTip()
-```
+**Purpose:** Executes the `next tip` operation or workflow.
 
 ### OnTick
+`public void OnTick(float dt)`
+
+**Purpose:** Called when the `tick` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OnTick(float dt)
+var value = new GameTipsVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Group`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Group
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class Group : PsaiMusicEntity, ICloneable`
+**Base:** `PsaiMusicEntity`
+**File:** `TaleWorlds.PSAI/Editor/Group.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Group` is a class in the `psai.Editor` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Group` lives in `psai.Editor` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `psai.Editor` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,106 +36,95 @@
 | `ManuallyLinkedGroups` | `public HashSet<Group> ManuallyLinkedGroups { get; set; }` |
 | `Theme` | `public Theme Theme { get; set; }` |
 
-
 ## Key Methods
 
 ### GetClassString
+`public override string GetClassString()`
 
-```csharp
-public override string GetClassString()
-```
-
-### AddSegment
-
-```csharp
-public void AddSegment(Segment snippet)
-```
+**Purpose:** Gets the current value of `class string`.
 
 ### AddSegment
+`public void AddSegment(Segment snippet)`
 
-```csharp
-public void AddSegment(Segment snippet, int index)
-```
+**Purpose:** Adds `segment` to the current collection or state.
+
+### AddSegment
+`public void AddSegment(Segment snippet, int index)`
+
+**Purpose:** Adds `segment` to the current collection or state.
 
 ### RemoveSegment
+`public void RemoveSegment(Segment snippet)`
 
-```csharp
-public void RemoveSegment(Segment snippet)
-```
+**Purpose:** Removes `segment` from the current collection or state.
 
 ### HasAtLeastOneBridgeSegmentToTargetGroup
+`public bool HasAtLeastOneBridgeSegmentToTargetGroup(Group targetGroup)`
 
-```csharp
-public bool HasAtLeastOneBridgeSegmentToTargetGroup(Group targetGroup)
-```
+**Purpose:** Checks whether the current object has/contains `at least one bridge segment to target group`.
 
 ### ContainsAtLeastOneManualBridgeSegmentForSourceGroup
+`public bool ContainsAtLeastOneManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-```csharp
-public bool ContainsAtLeastOneManualBridgeSegmentForSourceGroup(Group sourceGroup)
-```
+**Purpose:** Handles logic related to `contains at least one manual bridge segment for source group`.
 
 ### ContainsAtLeastOneAutomaticBridgeSegment
+`public bool ContainsAtLeastOneAutomaticBridgeSegment()`
 
-```csharp
-public bool ContainsAtLeastOneAutomaticBridgeSegment()
-```
+**Purpose:** Handles logic related to `contains at least one automatic bridge segment`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### GetCompatibilitySetting
+`public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-```csharp
-public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)
-```
+**Purpose:** Gets the current value of `compatibility setting`.
 
 ### GetCompatibilityType
+`public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-```csharp
-public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)
-```
+**Purpose:** Gets the current value of `compatibility type`.
 
 ### SetAsParentGroupForAllSegments
+`public void SetAsParentGroupForAllSegments()`
 
-```csharp
-public void SetAsParentGroupForAllSegments()
-```
+**Purpose:** Sets the value or state of `as parent group for all segments`.
 
 ### GetParent
+`public override PsaiMusicEntity GetParent()`
 
-```csharp
-public override PsaiMusicEntity GetParent()
-```
+**Purpose:** Gets the current value of `parent`.
 
 ### GetChildren
+`public override List<PsaiMusicEntity> GetChildren()`
 
-```csharp
-public override List<PsaiMusicEntity> GetChildren()
-```
+**Purpose:** Gets the current value of `children`.
 
 ### GetIndexPositionWithinParentEntity
+`public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-```csharp
-public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)
-```
+**Purpose:** Gets the current value of `index position within parent entity`.
 
 ### Clone
+`public override object Clone()`
 
-```csharp
-public override object Clone()
-```
+**Purpose:** Handles logic related to `clone`.
 
 ### ShallowCopy
+`public override PsaiMusicEntity ShallowCopy()`
+
+**Purpose:** Handles logic related to `shallow copy`.
+
+## Usage Example
 
 ```csharp
-public override PsaiMusicEntity ShallowCopy()
+var value = new Group();
+value.GetClassString();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

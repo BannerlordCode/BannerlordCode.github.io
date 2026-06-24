@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CompositeComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompositeComponent
@@ -14,108 +15,111 @@
 
 ## Overview
 
-`CompositeComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<CompositeComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`CompositeComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `CompositeComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `IsValid` | `public bool IsValid { get { return base.Pointer != UIntPtr.Zero; }` |
-| `Frame` | `public MatrixFrame Frame { get { MatrixFrame matrixFrame = default(MatrixFrame); EngineApplicationInterface.ICompositeComponent.GetFrame(base.Pointer, ref matrixFrame); return matrixFrame; }` |
-| `VectorUserData` | `public Vec3 VectorUserData { get { return EngineApplicationInterface.ICompositeComponent.GetVectorUserData(base.Pointer); }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `Frame` | `public MatrixFrame Frame { get; set; }` |
+| `VectorUserData` | `public Vec3 VectorUserData { get; set; }` |
 
 ## Key Methods
 
 ### IsNull
-```csharp
-public static bool IsNull(CompositeComponent component)
-```
+`public static bool IsNull(CompositeComponent component)`
+
+**Purpose:** Handles logic related to `is null`.
 
 ### CreateCompositeComponent
-```csharp
-public static CompositeComponent CreateCompositeComponent()
-```
+`public static CompositeComponent CreateCompositeComponent()`
+
+**Purpose:** Creates a new `composite component` instance or object.
 
 ### CreateCopy
-```csharp
-public CompositeComponent CreateCopy()
-```
+`public CompositeComponent CreateCopy()`
+
+**Purpose:** Creates a new `copy` instance or object.
 
 ### AddComponent
-```csharp
-public void AddComponent(GameEntityComponent component)
-```
+`public void AddComponent(GameEntityComponent component)`
+
+**Purpose:** Adds `component` to the current collection or state.
 
 ### AddPrefabEntity
-```csharp
-public void AddPrefabEntity(string prefabName, Scene scene)
-```
+`public void AddPrefabEntity(string prefabName, Scene scene)`
+
+**Purpose:** Adds `prefab entity` to the current collection or state.
 
 ### Dispose
-```csharp
-public void Dispose()
-```
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
 
 ### GetFactor1
-```csharp
-public uint GetFactor1()
-```
+`public uint GetFactor1()`
+
+**Purpose:** Gets the current value of `factor1`.
 
 ### GetFactor2
-```csharp
-public uint GetFactor2()
-```
+`public uint GetFactor2()`
+
+**Purpose:** Gets the current value of `factor2`.
 
 ### SetFactor1
-```csharp
-public void SetFactor1(uint factorColor1)
-```
+`public void SetFactor1(uint factorColor1)`
+
+**Purpose:** Sets the value or state of `factor1`.
 
 ### SetFactor2
-```csharp
-public void SetFactor2(uint factorColor2)
-```
+`public void SetFactor2(uint factorColor2)`
+
+**Purpose:** Sets the value or state of `factor2`.
 
 ### SetVectorArgument
-```csharp
-public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)
-```
+`public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
+
+**Purpose:** Sets the value or state of `vector argument`.
 
 ### SetMaterial
-```csharp
-public void SetMaterial(Material material)
-```
+`public void SetMaterial(Material material)`
+
+**Purpose:** Sets the value or state of `material`.
 
 ### SetVisibilityMask
-```csharp
-public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)
-```
+`public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
+
+**Purpose:** Sets the value or state of `visibility mask`.
 
 ### GetFirstMetaMesh
-```csharp
-public override MetaMesh GetFirstMetaMesh()
-```
+`public override MetaMesh GetFirstMetaMesh()`
+
+**Purpose:** Gets the current value of `first meta mesh`.
 
 ### AddMultiMesh
-```csharp
-public void AddMultiMesh(string MultiMeshName)
-```
+`public void AddMultiMesh(string MultiMeshName)`
+
+**Purpose:** Adds `multi mesh` to the current collection or state.
 
 ### SetVisible
-```csharp
-public void SetVisible(bool visible)
-```
+`public void SetVisible(bool visible)`
+
+**Purpose:** Sets the value or state of `visible`.
 
 ### GetVisible
-```csharp
-public bool GetVisible()
-```
+`public bool GetVisible()`
+
+**Purpose:** Gets the current value of `visible`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CompositeComponent (Component)
-agent.GetComponent<CompositeComponent>();
+var component = agent.GetComponent<CompositeComponent>();
 ```
 
 ## See Also

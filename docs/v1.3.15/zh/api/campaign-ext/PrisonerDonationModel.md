@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `PrisonerDonationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PrisonerDonationModel
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`PrisonerDonationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<PrisonerDonationModel>(new MyPrisonerDonationModel())` 注册，以改变其计算逻辑。
+`PrisonerDonationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `PrisonerDonationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CalculateRelationGainAfterHeroPrisonerDonate
-```csharp
-public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)
-```
+`public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
+
+**用途 / Purpose:** 处理 `calculate relation gain after hero prisoner donate` 相关逻辑。
 
 ### CalculateInfluenceGainAfterPrisonerDonation
-```csharp
-public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)
-```
+`public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
+
+**用途 / Purpose:** 处理 `calculate influence gain after prisoner donation` 相关逻辑。
 
 ### CalculateInfluenceGainAfterTroopDonation
-```csharp
-public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)
-```
+`public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)`
+
+**用途 / Purpose:** 处理 `calculate influence gain after troop donation` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// PrisonerDonationModel (Model) 的典型用法
-Game.Current.ReplaceModel<PrisonerDonationModel>(new MyPrisonerDonationModel());
+var implementation = new CustomPrisonerDonationModel();
 ```
 
 ## 参见

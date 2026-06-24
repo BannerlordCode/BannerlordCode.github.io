@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `IntermissionVoteItem`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IntermissionVoteItem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class IntermissionVoteItem`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/IntermissionVoteItem.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IntermissionVoteItem` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IntermissionVoteItem` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,22 +27,25 @@
 |------|-----------|
 | `VoteCount` | `public int VoteCount { get; }` |
 
-
 ## Key Methods
 
 ### SetVoteCount
+`public void SetVoteCount(int voteCount)`
 
-```csharp
-public void SetVoteCount(int voteCount)
-```
+**Purpose:** Sets the value or state of `vote count`.
 
 ### IncreaseVoteCount
+`public void IncreaseVoteCount(int incrementAmount)`
+
+**Purpose:** Handles logic related to `increase vote count`.
+
+## Usage Example
 
 ```csharp
-public void IncreaseVoteCount(int incrementAmount)
+var value = new IntermissionVoteItem();
+value.SetVoteCount(0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

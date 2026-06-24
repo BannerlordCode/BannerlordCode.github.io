@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SaveHandler`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SaveHandler
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SaveHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`SaveHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `SaveHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,39 +33,38 @@
 ## Key Methods
 
 ### QuickSaveCurrentGame
-```csharp
-public void QuickSaveCurrentGame()
-```
+`public void QuickSaveCurrentGame()`
+
+**Purpose:** Handles logic related to `quick save current game`.
 
 ### SaveAs
-```csharp
-public void SaveAs(string saveName)
-```
+`public void SaveAs(string saveName)`
+
+**Purpose:** Saves `as` data.
 
 ### CampaignTick
-```csharp
-public void CampaignTick()
-```
+`public void CampaignTick()`
+
+**Purpose:** Handles logic related to `campaign tick`.
 
 ### SignalAutoSave
-```csharp
-public void SignalAutoSave()
-```
+`public void SignalAutoSave()`
+
+**Purpose:** Handles logic related to `signal auto save`.
 
 ### ForceAutoSave
-```csharp
-public void ForceAutoSave()
-```
+`public void ForceAutoSave()`
+
+**Purpose:** Handles logic related to `force auto save`.
 
 ### GetSaveMetaData
-```csharp
-public CampaignSaveMetaDataArgs GetSaveMetaData()
-```
+`public CampaignSaveMetaDataArgs GetSaveMetaData()`
+
+**Purpose:** Gets the current value of `save meta data`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SaveHandler (Handler)
 Mission.Current.AddMissionBehavior(new SaveHandler());
 ```
 

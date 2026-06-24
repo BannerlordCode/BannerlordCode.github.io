@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CombatXpModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatXpModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CombatXpModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<CombatXpModel>(new MyCombatXpModel())` 注册，以改变其计算逻辑。
+`CombatXpModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `CombatXpModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,25 +30,24 @@
 ## 主要方法
 
 ### GetSkillForWeapon
-```csharp
-public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)
-```
+`public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
+
+**用途 / Purpose:** 获取 `skill for weapon` 的当前值。
 
 ### GetXpFromHit
-```csharp
-public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)
-```
+`public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
+
+**用途 / Purpose:** 获取 `xp from hit` 的当前值。
 
 ### GetXpMultiplierFromShotDifficulty
-```csharp
-public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)
-```
+`public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
+
+**用途 / Purpose:** 获取 `xp multiplier from shot difficulty` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// CombatXpModel (Model) 的典型用法
-Game.Current.ReplaceModel<CombatXpModel>(new MyCombatXpModel());
+var implementation = new CustomCombatXpModel();
 ```
 
 ## 参见

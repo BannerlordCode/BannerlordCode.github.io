@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyScreenData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyScreenData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyScreenData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`PartyScreenData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `PartyScreenData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,60 +33,59 @@
 ## Key Methods
 
 ### GetHashCode
-```csharp
-public override int GetHashCode()
-```
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
 
 ### InitializeCopyFrom
-```csharp
-public void InitializeCopyFrom(PartyBase rightParty, PartyBase leftParty)
-```
+`public void InitializeCopyFrom(PartyBase rightParty, PartyBase leftParty)`
+
+**Purpose:** Initializes the state, resources, or bindings for `copy from`.
 
 ### CopyFromPartyAndRoster
-```csharp
-public void CopyFromPartyAndRoster(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty)
-```
+`public void CopyFromPartyAndRoster(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty)`
+
+**Purpose:** Handles logic related to `copy from party and roster`.
 
 ### CopyFromScreenData
-```csharp
-public void CopyFromScreenData(PartyScreenData data)
-```
+`public void CopyFromScreenData(PartyScreenData data)`
+
+**Purpose:** Handles logic related to `copy from screen data`.
 
 ### BindRostersFrom
-```csharp
-public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)
-```
+`public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)`
+
+**Purpose:** Handles logic related to `bind rosters from`.
 
 ### ResetUsing
-```csharp
-public void ResetUsing(PartyScreenData partyScreenData)
-```
+`public void ResetUsing(PartyScreenData partyScreenData)`
+
+**Purpose:** Resets `using` to its initial state.
 
 ### IsThereAnyTroopTradeDifferenceBetween
-```csharp
-public bool IsThereAnyTroopTradeDifferenceBetween(PartyScreenData other)
-```
+`public bool IsThereAnyTroopTradeDifferenceBetween(PartyScreenData other)`
+
+**Purpose:** Handles logic related to `is there any troop trade difference between`.
 
 ### GetTroopTradeDifferencesFromTo
-```csharp
-public List<TroopTradeDifference> GetTroopTradeDifferencesFromTo(PartyScreenData toPartyScreenData, PartyScreenLogic.PartyRosterSide side = PartyScreenLogic.PartyRosterSide.None)
-```
+`public List<TroopTradeDifference> GetTroopTradeDifferencesFromTo(PartyScreenData toPartyScreenData, PartyScreenLogic.PartyRosterSide side = PartyScreenLogic.PartyRosterSide.None)`
+
+**Purpose:** Gets the current value of `troop trade differences from to`.
 
 ### GetEnumerator
-```csharp
-public IEnumerator<ValueTuple<TroopRosterElement, bool>> GetEnumerator()
-```
+`public IEnumerator<ValueTuple<TroopRosterElement, bool>> GetEnumerator()`
+
+**Purpose:** Gets the current value of `enumerator`.
 
 ### Equals
-```csharp
-public override bool Equals(object obj)
-```
+`public override bool Equals(object obj)`
+
+**Purpose:** Handles logic related to `equals`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyScreenData (Data)
-new PartyScreenData { /* fill fields */ };;
+PartyScreenData example = PartyScreenData.RightParty;
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCampaignTimeModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCampaignTimeModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultCampaignTimeModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCampaignTimeModel>(new MyDefaultCampaignTimeModel())` to change how it computes.
+`DefaultCampaignTimeModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCampaignTimeModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -35,7 +40,6 @@
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCampaignTimeModel (Model)
 Game.Current.ReplaceModel<DefaultCampaignTimeModel>(new MyDefaultCampaignTimeModel());
 ```
 

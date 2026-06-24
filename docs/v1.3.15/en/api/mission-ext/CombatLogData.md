@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CombatLogData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatLogData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CombatLogData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`CombatLogData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `CombatLogData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,20 +31,19 @@
 ## Key Methods
 
 ### GetLogString
-```csharp
-public List<ValueTuple<string, uint>> GetLogString()
-```
+`public List<ValueTuple<string, uint>> GetLogString()`
+
+**Purpose:** Gets the current value of `log string`.
 
 ### SetVictimAgent
-```csharp
-public void SetVictimAgent(Agent victimAgent)
-```
+`public void SetVictimAgent(Agent victimAgent)`
+
+**Purpose:** Sets the value or state of `victim agent`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CombatLogData (Data)
-new CombatLogData { /* fill fields */ };;
+var value = new CombatLogData();
 ```
 
 ## See Also

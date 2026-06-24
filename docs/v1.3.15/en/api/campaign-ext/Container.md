@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `Container`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Container
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class Container : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BaseTypes/Container.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Container` is a class in the `TaleWorlds.GauntletUI.BaseTypes` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Container` lives in `TaleWorlds.GauntletUI.BaseTypes` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,46 +32,44 @@
 | `DragHoverInsertionIndex` | `public int DragHoverInsertionIndex { get; set; }` |
 | `ClearSelectedOnRemoval` | `public bool ClearSelectedOnRemoval { get; set; }` |
 
-
 ## Key Methods
 
 ### GetDropGizmoPosition
+`public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-```csharp
-public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)
-```
+**Purpose:** Gets the current value of `drop gizmo position`.
 
 ### GetIndexForDrop
+`public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-```csharp
-public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)
-```
+**Purpose:** Gets the current value of `index for drop`.
 
 ### OnChildSelected
+`public abstract void OnChildSelected(Widget widget)`
 
-```csharp
-public abstract void OnChildSelected(Widget widget)
-```
+**Purpose:** Called when the `child selected` event is raised.
 
 ### GetItemDescription
+`public ContainerItemDescription GetItemDescription(string id, int index)`
 
-```csharp
-public ContainerItemDescription GetItemDescription(string id, int index)
-```
+**Purpose:** Gets the current value of `item description`.
 
 ### AddItemDescription
+`public void AddItemDescription(ContainerItemDescription itemDescription)`
 
-```csharp
-public void AddItemDescription(ContainerItemDescription itemDescription)
-```
+**Purpose:** Adds `item description` to the current collection or state.
 
 ### FindParentPanel
+`public ScrollablePanel FindParentPanel()`
+
+**Purpose:** Handles logic related to `find parent panel`.
+
+## Usage Example
 
 ```csharp
-public ScrollablePanel FindParentPanel()
+var implementation = new CustomContainer();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

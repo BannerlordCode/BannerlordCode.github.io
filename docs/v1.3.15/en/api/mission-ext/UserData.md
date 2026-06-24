@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `UserData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UserData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`UserData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`UserData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `UserData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,45 +33,44 @@
 ## Key Methods
 
 ### GetUserModData
-```csharp
-public UserModData GetUserModData(bool isMultiplayer, string id)
-```
+`public UserModData GetUserModData(bool isMultiplayer, string id)`
+
+**Purpose:** Gets the current value of `user mod data`.
 
 ### GetDLLLatestSizeInBytes
-```csharp
-public uint? GetDLLLatestSizeInBytes(string dllName)
-```
+`public uint? GetDLLLatestSizeInBytes(string dllName)`
+
+**Purpose:** Gets the current value of `d l l latest size in bytes`.
 
 ### GetDLLLatestIsDangerous
-```csharp
-public bool GetDLLLatestIsDangerous(string dllName)
-```
+`public bool GetDLLLatestIsDangerous(string dllName)`
+
+**Purpose:** Gets the current value of `d l l latest is dangerous`.
 
 ### GetDLLLatestVerifyInformation
-```csharp
-public string GetDLLLatestVerifyInformation(string dllName)
-```
+`public string GetDLLLatestVerifyInformation(string dllName)`
+
+**Purpose:** Gets the current value of `d l l latest verify information`.
 
 ### SetDLLLatestSizeInBytes
-```csharp
-public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)
-```
+`public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
+
+**Purpose:** Sets the value or state of `d l l latest size in bytes`.
 
 ### SetDLLLatestVerifyInformation
-```csharp
-public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)
-```
+`public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
+
+**Purpose:** Sets the value or state of `d l l latest verify information`.
 
 ### SetDLLLatestIsDangerous
-```csharp
-public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)
-```
+`public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
+
+**Purpose:** Sets the value or state of `d l l latest is dangerous`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of UserData (Data)
-new UserData { /* fill fields */ };;
+var value = new UserData();
 ```
 
 ## See Also

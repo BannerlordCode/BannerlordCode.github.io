@@ -2,177 +2,157 @@
 **Home** → **API Index** → **Area** → `TextObject`
 - [← Area / Back to localization](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# TextObject / TextObject
+# TextObject
 
-**Namespace**: TaleWorlds.Localization
-**File**: `bannerlord-1.3.15/TaleWorlds.Localization/TextObject.cs`
-**Purpose**: Core text container with variables and attributes / 核心文本容器，支持变量替换和属性管理
+**Namespace:** TaleWorlds.Localization
+**Module:** TaleWorlds.Localization
+**Type:** `public class TextObject`
+**Base:** none
+**File:** `TaleWorlds.Localization/TextObject.cs`
 
+## Overview
 
-<!-- BEGIN DEV-USE-CASES -->
+`TextObject` lives in `TaleWorlds.Localization` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-## Developer Use Cases
+## Mental Model
 
-### Use Case 1: Create localized text
+Start from namespace `TaleWorlds.Localization` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-**Scenario**: Display a message that supports multiple languages.
+## Key Properties
 
-```csharp
-TextObject msg = new TextObject("{=MyMod_Greeting}Hello, {NAME}!");
-msg.SetTextVariable("NAME", Hero.MainHero.Name);
-InformationManager.DisplayMessage(new InformationMessage(msg.ToString()));
-```
+| Name | Signature |
+|------|-----------|
+| `Attributes` | `public Dictionary<string, object> Attributes { get; }` |
+| `Length` | `public int Length { get; }` |
+| `IsLink` | `public bool IsLink { get; }` |
 
-**Key points**: The `{=key}` prefix is a translation key — the game looks it up in `module_strings.xml`; `SetTextVariable` replaces the `{NAME}` placeholder.
+## Key Methods
 
-### Use Case 2: Use numeric variables
+### CacheTokens
+`public void CacheTokens()`
 
-**Scenario**: Display text with numbers (e.g., gold changes).
+**Purpose:** Handles logic related to `cache tokens`.
 
-```csharp
-TextObject goldMsg = new TextObject("Gained {GOLD} gold.");
-goldMsg.SetTextVariable("GOLD", 500);
-// or use the int overload directly
-goldMsg.SetTextVariable("GOLD", 500);
-```
+### GetEmpty
+`public static TextObject GetEmpty()`
 
-**Key points**: `SetTextVariable` has `int`, `float`, `string`, and `TextObject` overloads; the `float` overload accepts decimal digits.
+**Purpose:** Gets the current value of `empty`.
 
-### Use Case 3: Check if text is empty
+### IsEmpty
+`public bool IsEmpty()`
 
-**Scenario**: Validate a text object before displaying.
+**Purpose:** Handles logic related to `is empty`.
 
-```csharp
-if (!TextObject.IsNullOrEmpty(myText))
-{
-    // safe to display
-}
-```
+### IsNullOrEmpty
+`public static bool IsNullOrEmpty(TextObject obj)`
 
-**Key points**: `IsNullOrEmpty` is a static method; `GetEmpty()` returns a shared empty instance (avoids repeated `new`).
+**Purpose:** Handles logic related to `is null or empty`.
 
-### Use Case 4: Nested text variables
+### ToString
+`public override string ToString()`
 
-**Scenario**: Reference another text object inside text (e.g., a linked hero name).
+**Purpose:** Handles logic related to `to string`.
 
-```csharp
-TextObject heroName = Hero.MainHero.Name; // already a TextObject
-TextObject msg = new TextObject("{HERO} joined your party.");
-msg.SetTextVariable("HERO", heroName);
-```
+### ToStringWithoutClear
+`public string ToStringWithoutClear()`
 
-**Key points**: `SetTextVariable(string, TextObject)` supports nesting; the translation key of `heroName` is resolved as well.
+**Purpose:** Handles logic related to `to string without clear`.
 
-<!-- END DEV-USE-CASES -->
+### Format
+`public string Format(float p1)`
 
+**Purpose:** Handles logic related to `format`.
 
-## Overview / 概述
+### Contains
+`public bool Contains(TextObject to)`
 
-`TextObject` is the core class of the game's localization system. It stores strings with text IDs and supports variable substitution at runtime. The format is `{=id}text` where `id` is the text identifier and `text` is the default (English) content.
+**Purpose:** Handles logic related to `contains`.
 
-`TextObject` 是游戏本地化系统的核心类。它用于存储带有文本 ID 的字符串，并支持在运行时替换变量。格式为 `{=id}text` 的字符串，其中 `id` 是文本标识符，`text` 是默认（英文）内容。
+### Contains
+`public bool Contains(string text)`
 
-## Important Properties / 重要属性
+**Purpose:** Handles logic related to `contains`.
 
-| Property | Type | Description |
-|----------|------|-------------|
-| Value | `string` | Text value containing `{=id}` format identifier / 文本值，包含 `{=id}` 格式的标识符 |
-| Attributes | `Dictionary<string, object>` | Dictionary of text variables for placeholder substitution / 文本变量字典，用于替换占位符 |
-| Length | `int` | Length of the text / 文本长度 |
-| IsLink | `bool` | Whether this is a link text / 是否为链接文本 |
+### Equals
+`public override bool Equals(object other)`
 
-## Important Methods / 重要方法
+**Purpose:** Handles logic related to `equals`.
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| TextObject | `public TextObject(string value, Dictionary<string, object> attributes = null)` | Constructor / 构造函数 |
-| GetID | `public string GetID()` | Extract text ID from Value / 从 Value 中提取文本 ID |
-| SetTextVariable | `public TextObject SetTextVariable(string tag, TextObject variable)` | Set TextObject variable / 设置 TextObject 类型变量 |
-| SetTextVariable | `public TextObject SetTextVariable(string tag, string variable)` | Set string variable / 设置字符串变量 |
-| SetTextVariable | `public TextObject SetTextVariable(string tag, float variable, int decimalDigits = 2)` | Set float variable / 设置浮点数变量 |
-| SetTextVariable | `public TextObject SetTextVariable(string tag, int variable)` | Set int variable / 设置整数变量 |
-| ToString | `public override string ToString()` | Convert to localized string / 转换为本地化字符串 |
-| ToStringWithoutClear | `public string ToStringWithoutClear()` | Convert without clearing temporary data / 转换但不清除临时数据 |
-| Format | `public string Format(float p1)` | Format with float parameter / 使用浮点数格式化 |
-| IsEmpty | `public bool IsEmpty()` | Check if empty / 检查是否为空 |
-| IsNullOrEmpty | `public static bool IsNullOrEmpty(TextObject obj)` | Static null check / 静态空值检查 |
-| GetVariableValue | `public bool GetVariableValue(string tag, out TextObject variable)` | Get variable value / 获取变量值 |
-| CopyTextObject | `public TextObject CopyTextObject()` | Create a copy / 创建副本 |
+### GetHashCode
+`public override int GetHashCode()`
 
-## Text ID Format / 文本 ID 格式
+**Purpose:** Gets the current value of `hash code`.
 
-Text ID uses `{=identifier}text` format:
-- `{=` marks the start of text ID
-- `identifier` is the unique identifier for the text
-- `}` marks the end of ID
-- `text` is the default (English) content
+### Equals
+`public bool Equals(TextObject other)`
 
-文本 ID 使用 `{=identifier}text` 格式：
-- `{=` 标记文本 ID 的开始
-- `identifier` 是文本的唯一标识符
-- `}` 标记 ID 结束
-- `text` 是默认（英文）内容
+**Purpose:** Handles logic related to `equals`.
 
-Examples / 示例:
-```
-{=greeting}Hello
-{=player_name}Lord Bolton
-{=battle_result}You have defeated {COUNT} enemies.
-```
+### HasSameValue
+`public bool HasSameValue(TextObject to)`
 
-## Usage Example / 使用示例
+**Purpose:** Checks whether the current object has/contains `same value`.
 
-```csharp
-// Create TextObject with ID
-// 创建带有 ID 的 TextObject
-TextObject greeting = new TextObject("{=greeting}Hello {PLAYER_NAME}!");
+### ConvertToStringList
+`public static List<string> ConvertToStringList(List<TextObject> to)`
 
-// Set variables
-// 设置变量
-greeting.SetTextVariable("PLAYER_NAME", "Commander");
+**Purpose:** Handles logic related to `convert to string list`.
 
-// Convert to localized string
-// 转换为本地化字符串
-string result = greeting.ToString(); // Output: "Hello Commander!" (after localization)
+### SetTextVariable
+`public TextObject SetTextVariable(string tag, TextObject variable)`
 
-// Create directly from string
-// 直接使用字符串创建
-TextObject simpleText = new TextObject("Simple text without ID");
+**Purpose:** Sets the value or state of `text variable`.
 
-// Use with integer variable
-// 使用整数变量
-TextObject scoreText = new TextObject("{=score}Score: {POINTS}");
-scoreText.SetTextVariable("POINTS", 1500);
-string scoreResult = scoreText.ToString(); // Output: "Score: 1500"
+### SetTextVariable
+`public TextObject SetTextVariable(string tag, string variable)`
 
-// Use with float variable (2 decimal places)
-// 使用浮点数变量（保留2位小数）
-TextObject goldText = new TextObject("{=gold}You have {AMOUNT} gold.");
-goldText.SetTextVariable("AMOUNT", 123.456f);
-string goldResult = goldText.ToString(); // Output: "You have 123.46 gold."
-```
+**Purpose:** Sets the value or state of `text variable`.
 
-## Link Text / 链接文本
+### SetTextVariable
+`public TextObject SetTextVariable(string tag, float variable, int decimalDigits = 2)`
 
-`TextObject` supports creating clickable link text. Use `{=!}{.link}` prefix to mark links.
+**Purpose:** Sets the value or state of `text variable`.
 
-`TextObject` 支持创建可点击的链接文本。使用 `{=!}{.link}` 开头标记链接。
+### SetTextVariable
+`public TextObject SetTextVariable(string tag, int variable)`
+
+**Purpose:** Sets the value or state of `text variable`.
+
+### AddIDToValue
+`public void AddIDToValue(string id)`
+
+**Purpose:** Adds `i d to value` to the current collection or state.
+
+### GetVariableValue
+`public bool GetVariableValue(string tag, out TextObject variable)`
+
+**Purpose:** Gets the current value of `variable value`.
+
+### GetValueHashCode
+`public int GetValueHashCode()`
+
+**Purpose:** Gets the current value of `value hash code`.
+
+### CopyTextObject
+`public TextObject CopyTextObject()`
+
+**Purpose:** Handles logic related to `copy text object`.
+
+### GetID
+`public string GetID()`
+
+**Purpose:** Gets the current value of `i d`.
+
+## Usage Example
 
 ```csharp
-// Create link text
-// 创建链接文本
-TextObject linkText = new TextObject("{=!}{.link}Click here for details{/link}");
+var value = new TextObject();
+value.CacheTokens();
 ```
 
-## Notes / 注意事项
+## See Also
 
-- `TextObject` is serializable and can be used with the save system
-- `TextObject` 是可序列化的，可以用于存档系统
-- `SetTextVariable` returns the `TextObject` itself, supporting method chaining
-- `SetTextVariable` 返回 `TextObject` 本身，支持链式调用
-- Calling `ToString()` processes localization and variable substitution
-- 调用 `ToString()` 会处理本地化和变量替换
-- `GetID()` extracts the id part from `{=id}` format
-- `GetID()` 提取 `{=id}` 格式中的 id 部分
+- [Complete Class Catalog](../catalog)

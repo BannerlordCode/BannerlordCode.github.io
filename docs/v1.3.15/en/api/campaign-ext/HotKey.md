@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `HotKey`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HotKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class HotKey`
+**Base:** none
+**File:** `TaleWorlds.InputSystem/HotKey.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `HotKey` is a class in the `TaleWorlds.InputSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`HotKey` lives in `TaleWorlds.InputSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,40 +28,40 @@
 | `Keys` | `public List<Key> Keys { get; }` |
 | `DefaultKeys` | `public List<Key> DefaultKeys { get; }` |
 
-
 ## Key Methods
 
 ### HasModifier
+`public bool HasModifier(HotKey.Modifiers modifier)`
 
-```csharp
-public bool HasModifier(HotKey.Modifiers modifier)
-```
+**Purpose:** Checks whether the current object has/contains `modifier`.
 
 ### HasSameModifiers
+`public bool HasSameModifiers(HotKey other)`
 
-```csharp
-public bool HasSameModifiers(HotKey other)
-```
+**Purpose:** Checks whether the current object has/contains `same modifiers`.
 
 ### ToString
+`public override string ToString()`
 
-```csharp
-public override string ToString()
-```
+**Purpose:** Handles logic related to `to string`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
+
+## Usage Example
 
 ```csharp
-public override int GetHashCode()
+var value = new HotKey();
+value.HasModifier(modifier);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

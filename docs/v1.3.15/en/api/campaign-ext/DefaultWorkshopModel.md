@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultWorkshopModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultWorkshopModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultWorkshopModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultWorkshopModel>(new MyDefaultWorkshopModel())` to change how it computes.
+`DefaultWorkshopModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultWorkshopModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,49 +36,48 @@
 ## Key Methods
 
 ### GetEffectiveConversionSpeedOfProduction
-```csharp
-public override ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescription)
-```
+`public override ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescription)`
+
+**Purpose:** Gets the current value of `effective conversion speed of production`.
 
 ### GetMaxWorkshopCountForClanTier
-```csharp
-public override int GetMaxWorkshopCountForClanTier(int tier)
-```
+`public override int GetMaxWorkshopCountForClanTier(int tier)`
+
+**Purpose:** Gets the current value of `max workshop count for clan tier`.
 
 ### GetCostForPlayer
-```csharp
-public override int GetCostForPlayer(Workshop workshop)
-```
+`public override int GetCostForPlayer(Workshop workshop)`
+
+**Purpose:** Gets the current value of `cost for player`.
 
 ### GetCostForNotable
-```csharp
-public override int GetCostForNotable(Workshop workshop)
-```
+`public override int GetCostForNotable(Workshop workshop)`
+
+**Purpose:** Gets the current value of `cost for notable`.
 
 ### GetNotableOwnerForWorkshop
-```csharp
-public override Hero GetNotableOwnerForWorkshop(Workshop workshop)
-```
+`public override Hero GetNotableOwnerForWorkshop(Workshop workshop)`
+
+**Purpose:** Gets the current value of `notable owner for workshop`.
 
 ### GetConvertProductionCost
-```csharp
-public override int GetConvertProductionCost(WorkshopType workshopType)
-```
+`public override int GetConvertProductionCost(WorkshopType workshopType)`
+
+**Purpose:** Gets the current value of `convert production cost`.
 
 ### CanPlayerSellWorkshop
-```csharp
-public override bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)
-```
+`public override bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
+
+**Purpose:** Checks whether the current object can `player sell workshop`.
 
 ### GetTradeXpPerWarehouseProduction
-```csharp
-public override float GetTradeXpPerWarehouseProduction(EquipmentElement production)
-```
+`public override float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
+
+**Purpose:** Gets the current value of `trade xp per warehouse production`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultWorkshopModel (Model)
 Game.Current.ReplaceModel<DefaultWorkshopModel>(new MyDefaultWorkshopModel());
 ```
 

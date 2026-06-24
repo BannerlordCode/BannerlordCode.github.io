@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletSystem`
+**Home** → **API Index** → **Area** → `GauntletSystem / Gauntlet系统事件管理`
 - [← Area / Back to gui](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GauntletSystem / Gauntlet系统事件管理
+
+## Mental Model
+
+Treat `GauntletSystem` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.GauntletUI
 **File**: `TaleWorlds.GauntletUI/EventManager.cs`

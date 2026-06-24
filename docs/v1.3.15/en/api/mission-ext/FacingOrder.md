@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `FacingOrder`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FacingOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct FacingOrder`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `FacingOrder` is a struct in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`FacingOrder` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,31 +26,33 @@
 |------|-----------|
 | `OrderType` | `public OrderType OrderType { get; }` |
 
-
 ## Key Methods
 
 ### FacingOrderLookAtDirection
+`public static FacingOrder FacingOrderLookAtDirection(Vec2 direction)`
 
-```csharp
-public static FacingOrder FacingOrderLookAtDirection(Vec2 direction)
-```
+**Purpose:** Handles logic related to `facing order look at direction`.
 
 ### GetDirection
+`public Vec2 GetDirection(Formation f, Agent targetAgent = null)`
 
-```csharp
-public Vec2 GetDirection(Formation f, Agent targetAgent = null)
-```
+**Purpose:** Gets the current value of `direction`.
 
 ### Equals
+`public override bool Equals(object obj)`
 
-```csharp
-public override bool Equals(object obj)
-```
+**Purpose:** Handles logic related to `equals`.
 
 ### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Gets the current value of `hash code`.
+
+## Usage Example
 
 ```csharp
-public override int GetHashCode()
+// Prepare the required context, then call the static entry point directly
+FacingOrder.FacingOrderLookAtDirection(direction);
 ```
 
 ## See Also

@@ -2,40 +2,46 @@
 **首页** → **API 目录** → **本领域** → `FontData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # FontData
 
 **命名空间:** TaleWorlds.TwoDimension
 **模块:** TaleWorlds.TwoDimension
-**类型:** 结构体 struct struct
-**领域:** 战役系统 Campaign
+**类型:** `public struct FontData`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`FontData` 是 `TaleWorlds.TwoDimension` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`FontData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `FontData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### Add
+`public void Add(string style, Font font, float fontSize)`
 
-```csharp
-public void Add(string style, Font font, float fontSize)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `add`。
 
 ### GetFontData
+`public StyleFontContainer.FontData GetFontData(string style)`
 
-```csharp
-public StyleFontContainer.FontData GetFontData(string style)
-```
+**用途 / Purpose:** 获取 `font data` 的当前值。
 
 ### ClearFonts
+`public void ClearFonts()`
+
+**用途 / Purpose:** 处理 `clear fonts` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void ClearFonts()
+var value = new FontData();
 ```
-
-贡献文档。
 
 ## 参见
 

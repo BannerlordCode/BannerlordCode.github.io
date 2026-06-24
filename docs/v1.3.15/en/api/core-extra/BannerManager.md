@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BannerManager`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerManager
@@ -14,91 +15,96 @@
 
 ## Overview
 
-`BannerManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`BannerManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `BannerManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `BannerIconGroups` | `public MBReadOnlyList<BannerIconGroup> BannerIconGroups { get { return this._bannerIconGroups; }` |
+| `Instance` | `public static BannerManager Instance { get; }` |
+| `BannerIconGroups` | `public MBReadOnlyList<BannerIconGroup> BannerIconGroups { get; }` |
+| `BaseBackgroundId` | `public int BaseBackgroundId { get; }` |
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### ResetAndLoad
-```csharp
-public static void ResetAndLoad()
-```
+`public static void ResetAndLoad()`
+
+**Purpose:** Resets `and load` to its initial state.
 
 ### GetColor
-```csharp
-public static uint GetColor(int id)
-```
+`public static uint GetColor(int id)`
+
+**Purpose:** Gets the current value of `color`.
 
 ### GetColorId
-```csharp
-public static int GetColorId(uint color)
-```
+`public static int GetColorId(uint color)`
+
+**Purpose:** Gets the current value of `color id`.
 
 ### GetRandomColorId
-```csharp
-public int GetRandomColorId(MBFastRandom random)
-```
+`public int GetRandomColorId(MBFastRandom random)`
+
+**Purpose:** Gets the current value of `random color id`.
 
 ### GetIconDataFromIconId
-```csharp
-public BannerIconData GetIconDataFromIconId(int id)
-```
+`public BannerIconData GetIconDataFromIconId(int id)`
+
+**Purpose:** Gets the current value of `icon data from icon id`.
 
 ### GetRandomBackgroundId
-```csharp
-public int GetRandomBackgroundId(MBFastRandom random)
-```
+`public int GetRandomBackgroundId(MBFastRandom random)`
+
+**Purpose:** Gets the current value of `random background id`.
 
 ### GetRandomBannerIconId
-```csharp
-public int GetRandomBannerIconId(MBFastRandom random)
-```
+`public int GetRandomBannerIconId(MBFastRandom random)`
+
+**Purpose:** Gets the current value of `random banner icon id`.
 
 ### GetBackgroundMeshName
-```csharp
-public string GetBackgroundMeshName(int id)
-```
+`public string GetBackgroundMeshName(int id)`
+
+**Purpose:** Gets the current value of `background mesh name`.
 
 ### GetIconSourceTextureName
-```csharp
-public string GetIconSourceTextureName(int id)
-```
+`public string GetIconSourceTextureName(int id)`
+
+**Purpose:** Gets the current value of `icon source texture name`.
 
 ### SetBaseBackgroundId
-```csharp
-public void SetBaseBackgroundId(int id)
-```
+`public void SetBaseBackgroundId(int id)`
+
+**Purpose:** Sets the value or state of `base background id`.
 
 ### SetCultureColors
-```csharp
-public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)
-```
+`public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)`
+
+**Purpose:** Sets the value or state of `culture colors`.
 
 ### LoadBannerIcons
-```csharp
-public void LoadBannerIcons()
-```
+`public void LoadBannerIcons()`
+
+**Purpose:** Loads `banner icons` data.
 
 ### LoadBannerIcons
-```csharp
-public void LoadBannerIcons(string xmlPath)
-```
+`public void LoadBannerIcons(string xmlPath)`
+
+**Purpose:** Loads `banner icons` data.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BannerManager (Manager)
-BannerManager.Current;
+var manager = BannerManager.Current;
 ```
 
 ## See Also

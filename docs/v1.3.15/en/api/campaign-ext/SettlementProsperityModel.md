@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementProsperityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementProsperityModel
@@ -14,25 +15,28 @@
 
 ## Overview
 
-`SettlementProsperityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementProsperityModel>(new MySettlementProsperityModel())` to change how it computes.
+`SettlementProsperityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementProsperityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### CalculateProsperityChange
-```csharp
-public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate prosperity change`.
 
 ### CalculateHearthChange
-```csharp
-public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate hearth change`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementProsperityModel (Model)
-Game.Current.ReplaceModel<SettlementProsperityModel>(new MySettlementProsperityModel());
+var implementation = new CustomSettlementProsperityModel();
 ```
 
 ## See Also

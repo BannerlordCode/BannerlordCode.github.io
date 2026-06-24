@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `WeaponDesignResultPopupVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WeaponDesignResultPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class WeaponDesignResultPopupVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/WeaponCrafting/WeaponDesign/WeaponDesignResultPopupVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `WeaponDesignResultPopupVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`WeaponDesignResultPopupVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -40,40 +44,40 @@
 | `SecondaryUsageSelector` | `public SelectorVM<CraftingSecondaryUsageItemVM> SecondaryUsageSelector { get; set; }` |
 | `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### ExecuteFinalizeCrafting
+`public void ExecuteFinalizeCrafting()`
 
-```csharp
-public void ExecuteFinalizeCrafting()
-```
+**Purpose:** Executes the `finalize crafting` operation or workflow.
 
 ### ExecuteRandomCraftName
+`public void ExecuteRandomCraftName()`
 
-```csharp
-public void ExecuteRandomCraftName()
-```
+**Purpose:** Executes the `random craft name` operation or workflow.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotkey)`
+
+**Purpose:** Sets the value or state of `done input key`.
+
+## Usage Example
 
 ```csharp
-public void SetDoneInputKey(HotKey hotkey)
+var value = new WeaponDesignResultPopupVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

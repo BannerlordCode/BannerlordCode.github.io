@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `WidgetTemplate`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # WidgetTemplate
 
-**命名空间:** TaleWorlds.GauntletUI.PrefabSystem
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI.PrefabSystem
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class WidgetTemplate`
+**Base:** 无
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetTemplate.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`WidgetTemplate` 是 `TaleWorlds.GauntletUI.PrefabSystem` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`WidgetTemplate` 位于 `TaleWorlds.GauntletUI.PrefabSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.GauntletUI.PrefabSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -30,108 +36,95 @@
 | `Tag` | `public object Tag { get; set; }` |
 | `AllAttributes` | `public IEnumerable<WidgetAttributeTemplate> AllAttributes { get; }` |
 
-
 ## 主要方法
 
 ### AddExtensionData
+`public void AddExtensionData(string name, object data)`
 
-```csharp
-public void AddExtensionData(string name, object data)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `extension data`。
 
 ### RemoveExtensionData
+`public void RemoveExtensionData(string name)`
 
-```csharp
-public void RemoveExtensionData(string name)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `extension data`。
 
 ### AddExtensionData
+`public void AddExtensionData(object data)`
 
-```csharp
-public void AddExtensionData(object data)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `extension data`。
 
 ### SetAttribute
+`public void SetAttribute(WidgetAttributeTemplate attribute)`
 
-```csharp
-public void SetAttribute(WidgetAttributeTemplate attribute)
-```
+**用途 / Purpose:** 设置 `attribute` 的值或状态。
 
 ### GetChildAt
+`public WidgetTemplate GetChildAt(int i)`
 
-```csharp
-public WidgetTemplate GetChildAt(int i)
-```
+**用途 / Purpose:** 获取 `child at` 的当前值。
 
 ### AddChild
+`public void AddChild(WidgetTemplate child)`
 
-```csharp
-public void AddChild(WidgetTemplate child)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `child`。
 
 ### RemoveChild
+`public void RemoveChild(WidgetTemplate child)`
 
-```csharp
-public void RemoveChild(WidgetTemplate child)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `child`。
 
 ### SwapChildren
+`public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)`
 
-```csharp
-public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)
-```
+**用途 / Purpose:** 处理 `swap children` 相关逻辑。
 
 ### Instantiate
+`public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-```csharp
-public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)
-```
+**用途 / Purpose:** 处理 `instantiate` 相关逻辑。
 
 ### OnRelease
+`public void OnRelease()`
 
-```csharp
-public void OnRelease()
-```
+**用途 / Purpose:** 当 `release` 事件触发时调用此方法。
 
 ### LoadFrom
+`public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)`
 
-```csharp
-public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)
-```
+**用途 / Purpose:** 加载 `from` 数据。
 
 ### SetRootTemplate
+`public void SetRootTemplate(WidgetPrefab prefab)`
 
-```csharp
-public void SetRootTemplate(WidgetPrefab prefab)
-```
+**用途 / Purpose:** 设置 `root template` 的值或状态。
 
 ### AddAttributeTo
+`public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)`
 
-```csharp
-public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)
-```
-
-### RemoveAttributeFrom
-
-```csharp
-public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `attribute to`。
 
 ### RemoveAttributeFrom
+`public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)`
 
-```csharp
-public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `attribute from`。
+
+### RemoveAttributeFrom
+`public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `attribute from`。
 
 ### Save
+`public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)`
+
+**用途 / Purpose:** 保存 `save` 数据。
+
+## 使用示例
 
 ```csharp
-public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)
+var value = new WidgetTemplate();
+value.AddExtensionData("example", data);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

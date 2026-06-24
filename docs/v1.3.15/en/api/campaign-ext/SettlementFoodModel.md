@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementFoodModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementFoodModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SettlementFoodModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementFoodModel>(new MySettlementFoodModel())` to change how it computes.
+`SettlementFoodModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementFoodModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,15 +33,14 @@
 ## Key Methods
 
 ### CalculateTownFoodStocksChange
-```csharp
-public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate town food stocks change`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementFoodModel (Model)
-Game.Current.ReplaceModel<SettlementFoodModel>(new MySettlementFoodModel());
+var implementation = new CustomSettlementFoodModel();
 ```
 
 ## See Also

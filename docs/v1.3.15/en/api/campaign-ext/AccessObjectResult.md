@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `AccessObjectResult`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AccessObjectResult
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class AccessObjectResult`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `AccessObjectResult` is a class in the `TaleWorlds.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AccessObjectResult` lives in `TaleWorlds.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,19 +28,23 @@
 | `Success` | `public bool Success { get; set; }` |
 | `FailReason` | `public TextObject FailReason { get; set; }` |
 
-
 ## Key Methods
 
 ### CreateSuccess
+`public static AccessObjectResult CreateSuccess(AccessObject accessObject)`
 
-```csharp
-public static AccessObjectResult CreateSuccess(AccessObject accessObject)
-```
+**Purpose:** Creates a new `success` instance or object.
 
 ### CreateFailed
+`public static AccessObjectResult CreateFailed(TextObject failReason)`
+
+**Purpose:** Creates a new `failed` instance or object.
+
+## Usage Example
 
 ```csharp
-public static AccessObjectResult CreateFailed(TextObject failReason)
+// Prepare the required context, then call the static entry point directly
+AccessObjectResult.CreateSuccess(accessObject);
 ```
 
 ## See Also

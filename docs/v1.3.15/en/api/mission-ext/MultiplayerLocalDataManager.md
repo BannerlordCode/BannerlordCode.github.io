@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerLocalDataManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLocalDataManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MultiplayerLocalDataManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MultiplayerLocalDataManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MultiplayerLocalDataManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,25 +33,24 @@
 ## Key Methods
 
 ### InitializeManager
-```csharp
-public static void InitializeManager()
-```
+`public static void InitializeManager()`
+
+**Purpose:** Initializes the state, resources, or bindings for `manager`.
 
 ### FinalizeManager
-```csharp
-public static void FinalizeManager()
-```
+`public static void FinalizeManager()`
+
+**Purpose:** Handles logic related to `finalize manager`.
 
 ### Tick
-```csharp
-public void Tick(float dt)
-```
+`public void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerLocalDataManager (Manager)
-MultiplayerLocalDataManager.Current;
+var manager = MultiplayerLocalDataManager.Current;
 ```
 
 ## See Also

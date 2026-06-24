@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `EquipmentSelectionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # EquipmentSelectionModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`EquipmentSelectionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<EquipmentSelectionModel>(new MyEquipmentSelectionModel())` to change how it computes.
+`EquipmentSelectionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `EquipmentSelectionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetEquipmentRostersForHeroComeOfAge
-```csharp
-public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)
-```
+`public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
+
+**Purpose:** Gets the current value of `equipment rosters for hero come of age`.
 
 ### GetEquipmentRostersForHeroReachesTeenAge
-```csharp
-public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)
-```
+`public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
+
+**Purpose:** Gets the current value of `equipment rosters for hero reaches teen age`.
 
 ### GetEquipmentRostersForInitialChildrenGeneration
-```csharp
-public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)
-```
+`public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
+
+**Purpose:** Gets the current value of `equipment rosters for initial children generation`.
 
 ### GetEquipmentRostersForDeliveredOffspring
-```csharp
-public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)
-```
+`public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
+
+**Purpose:** Gets the current value of `equipment rosters for delivered offspring`.
 
 ### GetEquipmentRostersForCompanion
-```csharp
-public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)
-```
+`public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)`
+
+**Purpose:** Gets the current value of `equipment rosters for companion`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of EquipmentSelectionModel (Model)
-Game.Current.ReplaceModel<EquipmentSelectionModel>(new MyEquipmentSelectionModel());
+var implementation = new CustomEquipmentSelectionModel();
 ```
 
 ## See Also

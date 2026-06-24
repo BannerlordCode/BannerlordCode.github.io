@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CharacterCreationStageBaseVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterCreationStageBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public abstract class CharacterCreationStageBaseVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CharacterCreation/CharacterCreationStageBaseVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CharacterCreationStageBaseVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CharacterCreationStageBaseVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,28 +36,29 @@
 | `AnyItemSelected` | `public bool AnyItemSelected { get; set; }` |
 | `CanAdvance` | `public bool CanAdvance { get; set; }` |
 
-
 ## Key Methods
 
 ### OnNextStage
+`public abstract void OnNextStage()`
 
-```csharp
-public abstract void OnNextStage()
-```
+**Purpose:** Called when the `next stage` event is raised.
 
 ### OnPreviousStage
+`public abstract void OnPreviousStage()`
 
-```csharp
-public abstract void OnPreviousStage()
-```
+**Purpose:** Called when the `previous stage` event is raised.
 
 ### CanAdvanceToNextStage
+`public abstract bool CanAdvanceToNextStage()`
+
+**Purpose:** Checks whether the current object can `advance to next stage`.
+
+## Usage Example
 
 ```csharp
-public abstract bool CanAdvanceToNextStage()
+var implementation = new CustomCharacterCreationStageBaseVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

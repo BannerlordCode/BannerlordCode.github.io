@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultPrisonBreakModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPrisonBreakModel
@@ -14,39 +15,42 @@
 
 ## Overview
 
-`DefaultPrisonBreakModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel())` to change how it computes.
+`DefaultPrisonBreakModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultPrisonBreakModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetNumberOfGuardsToSpawn
-```csharp
-public override int GetNumberOfGuardsToSpawn(Settlement settlement)
-```
+`public override int GetNumberOfGuardsToSpawn(Settlement settlement)`
+
+**Purpose:** Gets the current value of `number of guards to spawn`.
 
 ### CanPlayerStagePrisonBreak
-```csharp
-public override bool CanPlayerStagePrisonBreak(Settlement settlement)
-```
+`public override bool CanPlayerStagePrisonBreak(Settlement settlement)`
+
+**Purpose:** Checks whether the current object can `player stage prison break`.
 
 ### GetPrisonBreakStartCost
-```csharp
-public override int GetPrisonBreakStartCost(Hero prisonerHero)
-```
+`public override int GetPrisonBreakStartCost(Hero prisonerHero)`
+
+**Purpose:** Gets the current value of `prison break start cost`.
 
 ### GetRelationRewardOnPrisonBreak
-```csharp
-public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)
-```
+`public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
+
+**Purpose:** Gets the current value of `relation reward on prison break`.
 
 ### GetRogueryRewardOnPrisonBreak
-```csharp
-public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)
-```
+`public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
+
+**Purpose:** Gets the current value of `roguery reward on prison break`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultPrisonBreakModel (Model)
 Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel());
 ```
 

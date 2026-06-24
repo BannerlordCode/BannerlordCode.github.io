@@ -2,66 +2,84 @@
 **首页** → **API 目录** → **本领域** → `MissionLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionLogic
 
-## 类概述
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class MissionLogic : MissionBehavior`
+**Base:** `MissionBehavior`
+**File:** `TaleWorlds.MountAndBlade/MissionLogic.cs`
 
-| 项目 | 说明 |
-|------|------|
-| **命名空间** | TaleWorlds.MountAndBlade |
-| **文件路径** | TaleWorlds.MountAndBlade/MissionLogic.cs |
-| **基类** | MissionBehavior |
-| **类型** | 抽象类 |
+## 概述
 
-## 说明
+`MissionLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
 
-`MissionLogic` 是任务逻辑的基类，继承自 `MissionBehavior`。用于实现游戏规则、胜负判定、特殊模式等任务级别的逻辑。
+## 心智模型
 
-## 关键属性
+把 `MissionLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-| 属性 | 类型 | 说明 |
-|------|------|------|
-| BehaviorType | MissionBehaviorType | 返回 Logic |
+## 主要属性
 
-## 关键方法
+| Name | Signature |
+|------|-----------|
+| `BehaviorType` | `public override MissionBehaviorType BehaviorType { get; }` |
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| OnEndMissionRequest(out bool canLeave) | InquiryData | 请求结束任务时调用 |
-| MissionEnded(ref MissionResult missionResult) | bool | 任务结束时调用，返回是否结束 |
-| OnBattleEnded() | void | 战斗结束时调用 |
-| ShowBattleResults() | void | 显示战斗结果 |
-| OnRetreatMission() | void | 撤退时调用 |
-| OnSurrenderMission() | void | 投降时调用 |
-| OnAutoDeployTeam(Team team) | void | 自动部署队伍时调用 |
-| GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments) | List | 获取额外装备 |
-| OnMissionResultReady(MissionResult missionResult) | void | 任务结果准备就绪时调用 |
+## 主要方法
+
+### OnEndMissionRequest
+`public virtual InquiryData OnEndMissionRequest(out bool canLeave)`
+
+**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+
+### MissionEnded
+`public virtual bool MissionEnded(ref MissionResult missionResult)`
+
+**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
+
+### OnBattleEnded
+`public virtual void OnBattleEnded()`
+
+**用途 / Purpose:** 当 `battle ended` 事件触发时调用此方法。
+
+### ShowBattleResults
+`public virtual void ShowBattleResults()`
+
+**用途 / Purpose:** 处理 `show battle results` 相关逻辑。
+
+### OnRetreatMission
+`public virtual void OnRetreatMission()`
+
+**用途 / Purpose:** 当 `retreat mission` 事件触发时调用此方法。
+
+### OnSurrenderMission
+`public virtual void OnSurrenderMission()`
+
+**用途 / Purpose:** 当 `surrender mission` 事件触发时调用此方法。
+
+### OnAutoDeployTeam
+`public virtual void OnAutoDeployTeam(Team team)`
+
+**用途 / Purpose:** 当 `auto deploy team` 事件触发时调用此方法。
+
+### GetExtraEquipmentElementsForCharacter
+`public virtual List<EquipmentElement> GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)`
+
+**用途 / Purpose:** 获取 `extra equipment elements for character` 的当前值。
+
+### OnMissionResultReady
+`public virtual void OnMissionResultReady(MissionResult missionResult)`
+
+**用途 / Purpose:** 当 `mission result ready` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// 创建自定义任务逻辑
-public class MyMissionLogic : MissionLogic
-{
-    public override bool MissionEnded(ref MissionResult missionResult)
-    {
-        // 检查自定义结束条件
-        if (ShouldEndMission())
-        {
-            missionResult = MissionResult.CreateSuccessful();
-            return true;
-        }
-        return false;
-    }
-
-    public override void OnBattleEnded()
-    {
-        // 战斗结束后的清理工作
-    }
-}
-
-// 注册到任务
-mission.AddMissionLogic(new MyMissionLogic());
+var implementation = new CustomMissionLogic();
 ```
+
+## 参见
+
+- [完整类目录](../catalog)

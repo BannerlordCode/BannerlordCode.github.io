@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultPartySizeLimitModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultPartySizeLimitModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultPartySizeLimitModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultPartySizeLimitModel>(new MyDefaultPartySizeLimitModel())` 注册，以改变其计算逻辑。
+`DefaultPartySizeLimitModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultPartySizeLimitModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,54 +30,53 @@
 ## 主要方法
 
 ### GetPartyMemberSizeLimit
-```csharp
-public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 获取 `party member size limit` 的当前值。
 
 ### GetPartyPrisonerSizeLimit
-```csharp
-public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 获取 `party prisoner size limit` 的当前值。
 
 ### CalculateGarrisonPartySizeLimit
-```csharp
-public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
+
+**用途 / Purpose:** 处理 `calculate garrison party size limit` 相关逻辑。
 
 ### GetNextClanTierPartySizeEffectChangeForHero
-```csharp
-public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)
-```
+`public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `next clan tier party size effect change for hero` 的当前值。
 
 ### GetAssumedPartySizeForLordParty
-```csharp
-public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)
-```
+`public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
+
+**用途 / Purpose:** 获取 `assumed party size for lord party` 的当前值。
 
 ### GetClanTierPartySizeEffectForHero
-```csharp
-public override int GetClanTierPartySizeEffectForHero(Hero hero)
-```
+`public override int GetClanTierPartySizeEffectForHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `clan tier party size effect for hero` 的当前值。
 
 ### GetIdealVillagerPartySize
-```csharp
-public override int GetIdealVillagerPartySize(Village village)
-```
+`public override int GetIdealVillagerPartySize(Village village)`
+
+**用途 / Purpose:** 获取 `ideal villager party size` 的当前值。
 
 ### FindAppropriateInitialRosterForMobileParty
-```csharp
-public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
-```
+`public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
+
+**用途 / Purpose:** 处理 `find appropriate initial roster for mobile party` 相关逻辑。
 
 ### FindAppropriateInitialShipsForMobileParty
-```csharp
-public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)
-```
+`public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
+
+**用途 / Purpose:** 处理 `find appropriate initial ships for mobile party` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// DefaultPartySizeLimitModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultPartySizeLimitModel>(new MyDefaultPartySizeLimitModel());
 ```
 

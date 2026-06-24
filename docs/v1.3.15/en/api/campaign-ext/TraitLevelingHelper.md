@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TraitLevelingHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TraitLevelingHelper
@@ -14,100 +15,103 @@
 
 ## Overview
 
-`TraitLevelingHelper` is a static utility class providing helper methods.
+`TraitLevelingHelper` is a helper class that usually provides static logic which does not depend on instance state.
+
+## Mental Model
+
+Treat `TraitLevelingHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### UpdateTraitXPAccordingToTraitLevels
-```csharp
-public static void UpdateTraitXPAccordingToTraitLevels()
-```
+`public static void UpdateTraitXPAccordingToTraitLevels()`
+
+**Purpose:** Updates the state or data of `trait x p according to trait levels`.
 
 ### OnBattleWon
-```csharp
-public static void OnBattleWon(MapEvent mapEvent, float contribution)
-```
+`public static void OnBattleWon(MapEvent mapEvent, float contribution)`
+
+**Purpose:** Called when the `battle won` event is raised.
 
 ### OnTroopsSacrificed
-```csharp
-public static void OnTroopsSacrificed()
-```
+`public static void OnTroopsSacrificed()`
+
+**Purpose:** Called when the `troops sacrificed` event is raised.
 
 ### OnLordExecuted
-```csharp
-public static void OnLordExecuted()
-```
+`public static void OnLordExecuted()`
+
+**Purpose:** Called when the `lord executed` event is raised.
 
 ### OnVillageRaided
-```csharp
-public static void OnVillageRaided()
-```
+`public static void OnVillageRaided()`
+
+**Purpose:** Called when the `village raided` event is raised.
 
 ### OnHostileAction
-```csharp
-public static void OnHostileAction(int amount)
-```
+`public static void OnHostileAction(int amount)`
+
+**Purpose:** Called when the `hostile action` event is raised.
 
 ### OnPartyTreatedWell
-```csharp
-public static void OnPartyTreatedWell()
-```
+`public static void OnPartyTreatedWell()`
+
+**Purpose:** Called when the `party treated well` event is raised.
 
 ### OnPartyStarved
-```csharp
-public static void OnPartyStarved()
-```
+`public static void OnPartyStarved()`
+
+**Purpose:** Called when the `party starved` event is raised.
 
 ### OnIssueFailed
-```csharp
-public static void OnIssueFailed(Hero targetHero, Tuple<TraitObject, int> effectedTraits)
-```
+`public static void OnIssueFailed(Hero targetHero, Tuple<TraitObject, int> effectedTraits)`
+
+**Purpose:** Called when the `issue failed` event is raised.
 
 ### OnIssueSolvedThroughQuest
-```csharp
-public static void OnIssueSolvedThroughQuest(Hero targetHero, Tuple<TraitObject, int> effectedTraits)
-```
+`public static void OnIssueSolvedThroughQuest(Hero targetHero, Tuple<TraitObject, int> effectedTraits)`
+
+**Purpose:** Called when the `issue solved through quest` event is raised.
 
 ### OnIssueSolvedThroughQuest
-```csharp
-public static void OnIssueSolvedThroughQuest(Hero targetHero, TraitObject trait, int xp)
-```
+`public static void OnIssueSolvedThroughQuest(Hero targetHero, TraitObject trait, int xp)`
+
+**Purpose:** Called when the `issue solved through quest` event is raised.
 
 ### OnIssueSolvedThroughAlternativeSolution
-```csharp
-public static void OnIssueSolvedThroughAlternativeSolution(Hero targetHero, Tuple<TraitObject, int> effectedTraits)
-```
+`public static void OnIssueSolvedThroughAlternativeSolution(Hero targetHero, Tuple<TraitObject, int> effectedTraits)`
+
+**Purpose:** Called when the `issue solved through alternative solution` event is raised.
 
 ### OnIssueSolvedThroughBetrayal
-```csharp
-public static void OnIssueSolvedThroughBetrayal(Hero targetHero, Tuple<TraitObject, int> effectedTraits)
-```
+`public static void OnIssueSolvedThroughBetrayal(Hero targetHero, Tuple<TraitObject, int> effectedTraits)`
+
+**Purpose:** Called when the `issue solved through betrayal` event is raised.
 
 ### OnLordFreed
-```csharp
-public static void OnLordFreed(Hero targetHero)
-```
+`public static void OnLordFreed(Hero targetHero)`
+
+**Purpose:** Called when the `lord freed` event is raised.
 
 ### OnPersuasionDefection
-```csharp
-public static void OnPersuasionDefection(Hero targetHero)
-```
+`public static void OnPersuasionDefection(Hero targetHero)`
+
+**Purpose:** Called when the `persuasion defection` event is raised.
 
 ### OnSiegeAftermathApplied
-```csharp
-public static void OnSiegeAftermathApplied(Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, TraitObject effectedTraits)
-```
+`public static void OnSiegeAftermathApplied(Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, TraitObject effectedTraits)`
+
+**Purpose:** Called when the `siege aftermath applied` event is raised.
 
 ### OnIncidentResolved
-```csharp
-public static void OnIncidentResolved(TraitObject trait, int xpValue)
-```
+`public static void OnIncidentResolved(TraitObject trait, int xpValue)`
+
+**Purpose:** Called when the `incident resolved` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TraitLevelingHelper (Helper)
-TraitLevelingHelper./* static helper method */();;
+TraitLevelingHelper.Initialize();
 ```
 
 ## See Also

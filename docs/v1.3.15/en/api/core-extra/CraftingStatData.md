@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CraftingStatData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingStatData
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`CraftingStatData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`CraftingStatData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `CraftingStatData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `IsValid` | `public bool IsValid { get { return this.MaxValue >= 0f; }` |
+| `IsValid` | `public bool IsValid { get; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CraftingStatData (Data)
-new CraftingStatData { /* fill fields */ };;
+var value = new CraftingStatData();
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `KingdomArmyVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomArmyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class KingdomArmyVM : KingdomCategoryVM`
+**Base:** `KingdomCategoryVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Armies/KingdomArmyVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `KingdomArmyVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`KingdomArmyVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,29 +45,37 @@
 | `CanManageCurrentArmy` | `public bool CanManageCurrentArmy { get; set; }` |
 | `CanChangeLeaderOfCurrentArmy` | `public bool CanChangeLeaderOfCurrentArmy { get; set; }` |
 | `CanShowLocationOfCurrentArmy` | `public bool CanShowLocationOfCurrentArmy { get; set; }` |
-
+| `DisbandText` | `public string DisbandText { get; set; }` |
+| `ManageText` | `public string ManageText { get; set; }` |
+| `DisbandCost` | `public int DisbandCost { get; set; }` |
+| `ChangeLeaderText` | `public string ChangeLeaderText { get; set; }` |
+| `ChangeLeaderCost` | `public int ChangeLeaderCost { get; set; }` |
+| `DisbandHint` | `public HintViewModel DisbandHint { get; set; }` |
 
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### RefreshArmyList
+`public void RefreshArmyList()`
 
-```csharp
-public void RefreshArmyList()
-```
+**Purpose:** Refreshes the display or cache of `army list`.
 
 ### SelectArmy
+`public void SelectArmy(Army army)`
+
+**Purpose:** Handles logic related to `select army`.
+
+## Usage Example
 
 ```csharp
-public void SelectArmy(Army army)
+var value = new KingdomArmyVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

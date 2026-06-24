@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `UserDataManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UserDataManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`UserDataManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`UserDataManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `UserDataManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,25 +30,24 @@
 ## Key Methods
 
 ### HasUserData
-```csharp
-public bool HasUserData()
-```
+`public bool HasUserData()`
+
+**Purpose:** Checks whether the current object has/contains `user data`.
 
 ### LoadUserData
-```csharp
-public void LoadUserData()
-```
+`public void LoadUserData()`
+
+**Purpose:** Loads `user data` data.
 
 ### SaveUserData
-```csharp
-public void SaveUserData()
-```
+`public void SaveUserData()`
+
+**Purpose:** Saves `user data` data.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of UserDataManager (Manager)
-UserDataManager.Current;
+var manager = UserDataManager.Current;
 ```
 
 ## See Also

@@ -2,176 +2,800 @@
 **Home** → **API Index** → **Area** → `Utilities`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# Utilities / Utilities
+# Utilities
 
-**Namespace**: TaleWorlds.Engine
-**File**: `bannerlord-1.3.15/TaleWorlds.Engine/Utilities.cs`
-**Purpose**: Static utility class providing application-level functionality and system information / 静态工具类，提供应用程序级功能和系统信息
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public static class Utilities`
+**Base:** none
+**File:** `TaleWorlds.Engine/Utilities.cs`
 
-## Overview / 概述
+## Overview
 
-`Utilities` is a static utility class in TaleWorlds.Engine providing extensive static methods for accessing application information, performance metrics, rendering settings, file path management, and more. It has 1100+ lines of code, and all methods call native implementation via `EngineApplicationInterface.IUtil`.
+`Utilities` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-`Utilities` 是 TaleWorlds.Engine 中的一个静态工具类，提供大量静态方法用于访问应用程序信息、性能指标、渲染设置、文件路径管理等。它有 1100+ 行代码，所有方法都通过 `EngineApplicationInterface.IUtil` 调用原生实现。
+## Mental Model
 
-## Performance Monitoring Methods / 性能监控方法
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetFps | `public static float GetFps()` | Get frames per second / 获取帧率 |
-| GetMainFps | `public static float GetMainFps()` | Get main thread FPS / 获取主线程帧率 |
-| GetRendererFps | `public static float GetRendererFps()` | Get renderer FPS / 获取渲染器帧率 |
-| GetDeltaTime | `public static float GetDeltaTime(int timerId)` | Get delta time for specific timer / 获取指定计时器的增量时间 |
-| GetApplicationMemory | `public static float GetApplicationMemory()` | Get application memory usage / 获取应用程序内存使用 |
-| GetApplicationMemoryStatistics | `public static string GetApplicationMemoryStatistics()` | Get application memory statistics / 获取应用程序内存统计 |
-| GetNativeMemoryStatistics | `public static string GetNativeMemoryStatistics()` | Get native memory statistics / 获取原生内存统计 |
-| GetCurrentCpuMemoryUsageMB | `public static ulong GetCurrentCpuMemoryUsageMB()` | Get current CPU memory usage / 获取当前 CPU 内存使用 |
-| GetGPUMemoryMB | `public static int GetGPUMemoryMB()` | Get GPU memory / 获取 GPU 内存 |
-| GetGpuMemoryOfAllocationGroup | `public static ulong GetGpuMemoryOfAllocationGroup(string name)` | Get GPU memory of allocation group / 获取分配组的 GPU 内存 |
-| GetGPUMemoryStats | `public static void GetGPUMemoryStats(ref float totalMemory, ref float renderTargetMemory, ref float depthTargetMemory, ref float srvMemory, ref float bufferMemory)` | Get GPU memory stats / 获取 GPU 内存统计 |
+## Key Properties
 
-## Path and File Methods / 路径和文件方法
+| Name | Signature |
+|------|-----------|
+| `EngineFrameNo` | `public static int EngineFrameNo { get; }` |
+| `EditModeEnabled` | `public static bool EditModeEnabled { get; }` |
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetBasePath | `public static string GetBasePath()` | Get base path / 获取基础路径 |
-| GetExecutableWorkingDirectory | `public static string GetExecutableWorkingDirectory()` | Get executable working directory / 获取可执行文件工作目录 |
-| GetFullFilePathOfScene | `public static string GetFullFilePathOfScene(string sceneName)` | Get full file path of scene / 获取场景文件的完整路径 |
-| GetLocalOutputPath | `public static string GetLocalOutputPath()` | Get local output path / 获取本地输出路径 |
-| GetAttachmentsPath | `public static string GetAttachmentsPath()` | Get attachments path / 获取附件路径 |
-| GetModulesNames | `public static string[] GetModulesNames()` | Get all module names / 获取所有模块名称 |
-| GetSingleModuleScenesOfModule | `public static string[] GetSingleModuleScenesOfModule(string moduleName)` | Get scenes of a module / 获取模块的场景列表 |
-| SetDumpFolderPath | `public static void SetDumpFolderPath(string path)` | Set dump folder path / 设置转储文件夹路径 |
+## Key Methods
 
-## Parallel Processing Methods / 并行处理方法
+### ConstructMainThreadJob
+`public static void ConstructMainThreadJob(Delegate function, params object parameters)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ParallelFor | `public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)` | Execute for loop in parallel / 并行执行 for 循环 |
-| ParallelForWithoutRenderThread | `public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)` | Execute parallel without render thread / 在渲染线程外并行执行 |
-| ParallelForWithDt | `public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)` | Execute parallel with delta time / 带时间增量并行执行 |
-| GetMainThreadId | `public static ulong GetMainThreadId()` | Get main thread ID / 获取主线程 ID |
-| GetCurrentThreadId | `public static ulong GetCurrentThreadId()` | Get current thread ID / 获取当前线程 ID |
-| IsAsyncPhysicsThread | `public static bool IsAsyncPhysicsThread()` | Check if async physics thread / 检查是否是异步物理线程 |
+**Purpose:** Handles logic related to `construct main thread job`.
 
-## Main Thread Job Methods / 主线程作业方法
+### ConstructMainThreadJob
+`public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object parameters)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ConstructMainThreadJob | `public static void ConstructMainThreadJob(Delegate function, params object[] parameters)` | Construct main thread job / 构造主线程作业 |
-| ConstructMainThreadJob | `public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object[] parameters)` | Construct main thread job with semaphore / 带信号量构造主线程作业 |
-| RunJobs | `public static void RunJobs()` | Run all main thread jobs / 执行所有主线程作业 |
-| WaitJobs | `public static void WaitJobs()` | Wait for all jobs to complete / 等待所有作业完成 |
+**Purpose:** Handles logic related to `construct main thread job`.
 
-## Rendering Control Methods / 渲染控制方法
+### RunJobs
+`public static void RunJobs()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| ToggleRender | `public static void ToggleRender()` | Toggle render state / 切换渲染状态 |
-| SetRenderAgents | `public static void SetRenderAgents(bool value)` | Set render agents / 设置是否渲染 Agent |
-| SetRenderMode | `public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)` | Set render mode / 设置渲染模式 |
-| SetForceDrawEntityID | `public static void SetForceDrawEntityID(bool value)` | Set force draw entity ID / 设置强制绘制实体 ID |
-| SetForceVsync | `public static void SetForceVsync(bool value)` | Set force VSync / 设置强制垂直同步 |
-| EnableSingleGPUQueryPerFrame | `public static void EnableSingleGPUQueryPerFrame()` | Enable single GPU query per frame / 启用单 GPU 每帧查询 |
+**Purpose:** Handles logic related to `run jobs`.
 
-## Shader Related Methods / 着色器相关方法
+### WaitJobs
+`public static void WaitJobs()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| CheckShaderCompilation | `public static bool CheckShaderCompilation()` | Check shader compilation / 检查着色器编译状态 |
-| CompileAllShaders | `public static void CompileAllShaders(string targetPlatform)` | Compile all shaders / 编译所有着色器 |
-| ClearShaderMemory | `public static void ClearShaderMemory()` | Clear shader memory / 清除着色器内存 |
-| GetNumberOfShaderCompilationsInProgress | `public static int GetNumberOfShaderCompilationsInProgress()` | Get number of shader compilations in progress / 获取正在编译的着色器数量 |
+**Purpose:** Handles logic related to `wait jobs`.
 
-## Screenshot Methods / 截图方法
+### OutputBenchmarkValuesToPerformanceReporter
+`public static void OutputBenchmarkValuesToPerformanceReporter()`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| TakeScreenshot | `public static void TakeScreenshot(string path)` | Take screenshot / 拍摄截图 |
-| TakeScreenshot | `public static void TakeScreenshot(PlatformFilePath path)` | Take screenshot with platform path / 拍摄截图（平台路径） |
-| TakeSSFromTop | `public static string TakeSSFromTop(string file_name)` | Take screenshot from top / 从顶部拍摄截图 |
+**Purpose:** Handles logic related to `output benchmark values to performance reporter`.
 
-## System Information Methods / 系统信息方法
+### SetLoadingScreenPercentage
+`public static void SetLoadingScreenPercentage(float value)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetSystemLanguage | `public static string GetSystemLanguage()` | Get system language / 获取系统语言 |
-| GetPCInfo | `public static string GetPCInfo()` | Get PC info / 获取 PC 信息 |
-| GetApplicationName | `public static string GetApplicationName()` | Get application name / 获取应用程序名称 |
-| GetSteamAppId | `public static int GetSteamAppId()` | Get Steam App ID / 获取 Steam App ID |
-| GetBuildNumber | `public static int GetBuildNumber()` | Get build number / 获取构建号 |
-| GetCurrentProcessID | `public static uint GetCurrentProcessID()` | Get current process ID / 获取当前进程 ID |
-| CommandLineArgumentExists | `public static bool CommandLineArgumentExists(string str)` | Check if command line argument exists / 检查命令行参数是否存在 |
-| GetFullCommandLineString | `public static string GetFullCommandLineString()` | Get full command line string / 获取完整命令行字符串 |
+**Purpose:** Sets the value or state of `loading screen percentage`.
 
-## Editor Methods / 编辑器方法
+### SetFixedDt
+`public static void SetFixedDt(bool enabled, float dt)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| GetSelectedEntities | `public static void GetSelectedEntities(ref List<GameEntity> gameEntities)` | Get selected entities / 获取选中的实体 |
-| SelectEntities | `public static void SelectEntities(List<GameEntity> gameEntities)` | Select entities / 选中实体 |
-| DeleteEntitiesInEditorScene | `public static void DeleteEntitiesInEditorScene(List<GameEntity> gameEntities)` | Delete entities in editor scene / 删除编辑器场景中的实体 |
-| CreateSelectionInEditor | `public static void CreateSelectionInEditor(List<GameEntity> gameEntities, string name)` | Create selection in editor / 在编辑器中创建选择集 |
+**Purpose:** Sets the value or state of `fixed dt`.
 
-## Game State Methods / 游戏状态方法
+### SetBenchmarkStatus
+`public static void SetBenchmarkStatus(int status, string def)`
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| QuitGame | `public static void QuitGame()` | Quit game / 退出游戏 |
-| ExitProcess | `public static void ExitProcess(int exitCode)` | Exit process / 退出进程 |
-| DisableCoreGame | `public static void DisableCoreGame()` | Disable core game / 禁用核心游戏 |
-| SetCoreGameState | `public static void SetCoreGameState(int state)` | Set core game state / 设置核心游戏状态 |
-| GetCoreGameState | `public static int GetCoreGameState()` | Get core game state / 获取核心游戏状态 |
-| IsOnlyCoreContentEnabled | `public static bool IsOnlyCoreContentEnabled()` | Check if only core content enabled / 检查是否仅启用核心内容 |
+**Purpose:** Sets the value or state of `benchmark status`.
 
-## Important Properties / 重要属性
+### GetBenchmarkStatus
+`public static int GetBenchmarkStatus()`
 
-| Property | Type | Description |
-|----------|------|-------------|
-| EngineFrameNo | `int` | Get current engine frame number / 获取当前引擎帧号 |
-| EditModeEnabled | `bool` | Check if edit mode is enabled / 检查编辑器模式是否启用 |
-| renderingActive | `bool` | Whether rendering is active / 渲染是否活跃 |
+**Purpose:** Gets the current value of `benchmark status`.
 
-## Important Enums / 重要枚举
+### GetApplicationMemoryStatistics
+`public static string GetApplicationMemoryStatistics()`
 
-| Enum | Description |
-|------|-------------|
-| EngineRenderDisplayMode | Engine render display mode enum with 40+ debug render modes (ShowAlbedo, ShowNormals, ShowDepth, etc.) / 渲染显示模式枚举，包含 40+ 种渲染调试模式（如 ShowAlbedo, ShowNormals, ShowDepth 等） |
+**Purpose:** Gets the current value of `application memory statistics`.
 
-## Usage Example / 使用示例
+### IsBenchmarkQuited
+`public static bool IsBenchmarkQuited()`
+
+**Purpose:** Handles logic related to `is benchmark quited`.
+
+### GetNativeMemoryStatistics
+`public static string GetNativeMemoryStatistics()`
+
+**Purpose:** Gets the current value of `native memory statistics`.
+
+### CommandLineArgumentExists
+`public static bool CommandLineArgumentExists(string str)`
+
+**Purpose:** Handles logic related to `command line argument exists`.
+
+### GetConsoleHostMachine
+`public static string GetConsoleHostMachine()`
+
+**Purpose:** Gets the current value of `console host machine`.
+
+### ExportNavMeshFaceMarks
+`public static string ExportNavMeshFaceMarks(string file_name)`
+
+**Purpose:** Handles logic related to `export nav mesh face marks`.
+
+### TakeSSFromTop
+`public static string TakeSSFromTop(string file_name)`
+
+**Purpose:** Handles logic related to `take s s from top`.
+
+### CheckIfAssetsAndSourcesAreSame
+`public static void CheckIfAssetsAndSourcesAreSame()`
+
+**Purpose:** Handles logic related to `check if assets and sources are same`.
+
+### DisableCoreGame
+`public static void DisableCoreGame()`
+
+**Purpose:** Handles logic related to `disable core game`.
+
+### GetApplicationMemory
+`public static float GetApplicationMemory()`
+
+**Purpose:** Gets the current value of `application memory`.
+
+### GatherCoreGameReferences
+`public static void GatherCoreGameReferences(string scene_names)`
+
+**Purpose:** Handles logic related to `gather core game references`.
+
+### IsOnlyCoreContentEnabled
+`public static bool IsOnlyCoreContentEnabled()`
+
+**Purpose:** Handles logic related to `is only core content enabled`.
+
+### FindMeshesWithoutLods
+`public static void FindMeshesWithoutLods(string module_name)`
+
+**Purpose:** Handles logic related to `find meshes without lods`.
+
+### SetDisableDumpGeneration
+`public static void SetDisableDumpGeneration(bool value)`
+
+**Purpose:** Sets the value or state of `disable dump generation`.
+
+### SetPrintCallstackAtCrahses
+`public static void SetPrintCallstackAtCrahses(bool value)`
+
+**Purpose:** Sets the value or state of `print callstack at crahses`.
+
+### GetModulesNames
+`public static string GetModulesNames()`
+
+**Purpose:** Gets the current value of `modules names`.
+
+### GetFullFilePathOfScene
+`public static string GetFullFilePathOfScene(string sceneName)`
+
+**Purpose:** Gets the current value of `full file path of scene`.
+
+### TryGetFullFilePathOfScene
+`public static bool TryGetFullFilePathOfScene(string sceneName, out string fullPath)`
+
+**Purpose:** Attempts to get `get full file path of scene`, usually returning the result in an out parameter.
+
+### TryGetUniqueIdentifiersForScene
+`public static bool TryGetUniqueIdentifiersForScene(string sceneName, out UniqueSceneId identifiers)`
+
+**Purpose:** Attempts to get `get unique identifiers for scene`, usually returning the result in an out parameter.
+
+### TryGetUniqueIdentifiersForSceneFile
+`public static bool TryGetUniqueIdentifiersForSceneFile(string xsceneFilePath, out UniqueSceneId identifiers)`
+
+**Purpose:** Attempts to get `get unique identifiers for scene file`, usually returning the result in an out parameter.
+
+### PairSceneNameToModuleName
+`public static void PairSceneNameToModuleName(string sceneName, string moduleName)`
+
+**Purpose:** Handles logic related to `pair scene name to module name`.
+
+### GetSingleModuleScenesOfModule
+`public static string GetSingleModuleScenesOfModule(string moduleName)`
+
+**Purpose:** Gets the current value of `single module scenes of module`.
+
+### GetFullCommandLineString
+`public static string GetFullCommandLineString()`
+
+**Purpose:** Gets the current value of `full command line string`.
+
+### SetScreenTextRenderingState
+`public static void SetScreenTextRenderingState(bool state)`
+
+**Purpose:** Sets the value or state of `screen text rendering state`.
+
+### SetMessageLineRenderingState
+`public static void SetMessageLineRenderingState(bool state)`
+
+**Purpose:** Sets the value or state of `message line rendering state`.
+
+### CheckIfTerrainShaderHeaderGenerationFinished
+`public static bool CheckIfTerrainShaderHeaderGenerationFinished()`
+
+**Purpose:** Handles logic related to `check if terrain shader header generation finished`.
+
+### GenerateTerrainShaderHeaders
+`public static void GenerateTerrainShaderHeaders(string targetPlatform, string targetConfig, string output_path)`
+
+**Purpose:** Handles logic related to `generate terrain shader headers`.
+
+### CompileTerrainShadersDist
+`public static void CompileTerrainShadersDist(string targetPlatform, string targetConfig, string output_path)`
+
+**Purpose:** Handles logic related to `compile terrain shaders dist`.
+
+### SetCrashOnAsserts
+`public static void SetCrashOnAsserts(bool val)`
+
+**Purpose:** Sets the value or state of `crash on asserts`.
+
+### SetCrashOnWarnings
+`public static void SetCrashOnWarnings(bool val)`
+
+**Purpose:** Sets the value or state of `crash on warnings`.
+
+### SetCreateDumpOnWarnings
+`public static void SetCreateDumpOnWarnings(bool val)`
+
+**Purpose:** Sets the value or state of `create dump on warnings`.
+
+### ToggleRender
+`public static void ToggleRender()`
+
+**Purpose:** Handles logic related to `toggle render`.
+
+### SetRenderAgents
+`public static void SetRenderAgents(bool value)`
+
+**Purpose:** Sets the value or state of `render agents`.
+
+### CheckShaderCompilation
+`public static bool CheckShaderCompilation()`
+
+**Purpose:** Handles logic related to `check shader compilation`.
+
+### CompileAllShaders
+`public static void CompileAllShaders(string targetPlatform)`
+
+**Purpose:** Handles logic related to `compile all shaders`.
+
+### GetExecutableWorkingDirectory
+`public static string GetExecutableWorkingDirectory()`
+
+**Purpose:** Gets the current value of `executable working directory`.
+
+### SetDumpFolderPath
+`public static void SetDumpFolderPath(string path)`
+
+**Purpose:** Sets the value or state of `dump folder path`.
+
+### CheckSceneForProblems
+`public static void CheckSceneForProblems(string sceneName)`
+
+**Purpose:** Handles logic related to `check scene for problems`.
+
+### SetCoreGameState
+`public static void SetCoreGameState(int state)`
+
+**Purpose:** Sets the value or state of `core game state`.
+
+### GetCoreGameState
+`public static int GetCoreGameState()`
+
+**Purpose:** Gets the current value of `core game state`.
+
+### ExecuteCommandLineCommand
+`public static string ExecuteCommandLineCommand(string command)`
+
+**Purpose:** Executes the `command line command` operation or workflow.
+
+### QuitGame
+`public static void QuitGame()`
+
+**Purpose:** Handles logic related to `quit game`.
+
+### ExitProcess
+`public static void ExitProcess(int exitCode)`
+
+**Purpose:** Handles logic related to `exit process`.
+
+### GetBasePath
+`public static string GetBasePath()`
+
+**Purpose:** Gets the current value of `base path`.
+
+### GetVisualTestsValidatePath
+`public static string GetVisualTestsValidatePath()`
+
+**Purpose:** Gets the current value of `visual tests validate path`.
+
+### GetVisualTestsTestFilesPath
+`public static string GetVisualTestsTestFilesPath()`
+
+**Purpose:** Gets the current value of `visual tests test files path`.
+
+### GetAttachmentsPath
+`public static string GetAttachmentsPath()`
+
+**Purpose:** Gets the current value of `attachments path`.
+
+### StartScenePerformanceReport
+`public static void StartScenePerformanceReport(string folderPath)`
+
+**Purpose:** Handles logic related to `start scene performance report`.
+
+### IsSceneReportFinished
+`public static bool IsSceneReportFinished()`
+
+**Purpose:** Handles logic related to `is scene report finished`.
+
+### GetFps
+`public static float GetFps()`
+
+**Purpose:** Gets the current value of `fps`.
+
+### GetMainFps
+`public static float GetMainFps()`
+
+**Purpose:** Gets the current value of `main fps`.
+
+### GetRendererFps
+`public static float GetRendererFps()`
+
+**Purpose:** Gets the current value of `renderer fps`.
+
+### EnableSingleGPUQueryPerFrame
+`public static void EnableSingleGPUQueryPerFrame()`
+
+**Purpose:** Handles logic related to `enable single g p u query per frame`.
+
+### ClearDecalAtlas
+`public static void ClearDecalAtlas(DecalAtlasGroup atlasGroup)`
+
+**Purpose:** Handles logic related to `clear decal atlas`.
+
+### FlushManagedObjectsMemory
+`public static void FlushManagedObjectsMemory()`
+
+**Purpose:** Handles logic related to `flush managed objects memory`.
+
+### OnLoadingWindowEnabled
+`public static void OnLoadingWindowEnabled()`
+
+**Purpose:** Called when the `loading window enabled` event is raised.
+
+### DebugSetGlobalLoadingWindowState
+`public static void DebugSetGlobalLoadingWindowState(bool newState)`
+
+**Purpose:** Handles logic related to `debug set global loading window state`.
+
+### OnLoadingWindowDisabled
+`public static void OnLoadingWindowDisabled()`
+
+**Purpose:** Called when the `loading window disabled` event is raised.
+
+### DisableGlobalLoadingWindow
+`public static void DisableGlobalLoadingWindow()`
+
+**Purpose:** Handles logic related to `disable global loading window`.
+
+### EnableGlobalLoadingWindow
+`public static void EnableGlobalLoadingWindow()`
+
+**Purpose:** Handles logic related to `enable global loading window`.
+
+### EnableGlobalEditDataCacher
+`public static void EnableGlobalEditDataCacher()`
+
+**Purpose:** Handles logic related to `enable global edit data cacher`.
+
+### DoFullBakeAllLevelsAutomated
+`public static void DoFullBakeAllLevelsAutomated(string module, string scene)`
+
+**Purpose:** Handles logic related to `do full bake all levels automated`.
+
+### GetReturnCode
+`public static int GetReturnCode()`
+
+**Purpose:** Gets the current value of `return code`.
+
+### DisableGlobalEditDataCacher
+`public static void DisableGlobalEditDataCacher()`
+
+**Purpose:** Handles logic related to `disable global edit data cacher`.
+
+### DoFullBakeSingleLevelAutomated
+`public static void DoFullBakeSingleLevelAutomated(string module, string scene)`
+
+**Purpose:** Handles logic related to `do full bake single level automated`.
+
+### DoLightOnlyBakeSingleLevelAutomated
+`public static void DoLightOnlyBakeSingleLevelAutomated(string module, string scene)`
+
+**Purpose:** Handles logic related to `do light only bake single level automated`.
+
+### DoLightOnlyBakeAllLevelsAutomated
+`public static void DoLightOnlyBakeAllLevelsAutomated(string module, string scene)`
+
+**Purpose:** Handles logic related to `do light only bake all levels automated`.
+
+### DidAutomatedGIBakeFinished
+`public static bool DidAutomatedGIBakeFinished()`
+
+**Purpose:** Handles logic related to `did automated g i bake finished`.
+
+### GetSelectedEntities
+`public static void GetSelectedEntities(ref List<GameEntity> gameEntities)`
+
+**Purpose:** Gets the current value of `selected entities`.
+
+### DeleteEntitiesInEditorScene
+`public static void DeleteEntitiesInEditorScene(List<GameEntity> gameEntities)`
+
+**Purpose:** Handles logic related to `delete entities in editor scene`.
+
+### CreateSelectionInEditor
+`public static void CreateSelectionInEditor(List<GameEntity> gameEntities, string name)`
+
+**Purpose:** Creates a new `selection in editor` instance or object.
+
+### SelectEntities
+`public static void SelectEntities(List<GameEntity> gameEntities)`
+
+**Purpose:** Handles logic related to `select entities`.
+
+### GetEntitiesOfSelectionSet
+`public static void GetEntitiesOfSelectionSet(string selectionSetName, ref List<GameEntity> gameEntities)`
+
+**Purpose:** Gets the current value of `entities of selection set`.
+
+### AddCommandLineFunction
+`public static void AddCommandLineFunction(string concatName)`
+
+**Purpose:** Adds `command line function` to the current collection or state.
+
+### GetNumberOfShaderCompilationsInProgress
+`public static int GetNumberOfShaderCompilationsInProgress()`
+
+**Purpose:** Gets the current value of `number of shader compilations in progress`.
+
+### IsDetailedSoundLogOn
+`public static int IsDetailedSoundLogOn()`
+
+**Purpose:** Handles logic related to `is detailed sound log on`.
+
+### GetCurrentCpuMemoryUsageMB
+`public static ulong GetCurrentCpuMemoryUsageMB()`
+
+**Purpose:** Gets the current value of `current cpu memory usage m b`.
+
+### GetGpuMemoryOfAllocationGroup
+`public static ulong GetGpuMemoryOfAllocationGroup(string name)`
+
+**Purpose:** Gets the current value of `gpu memory of allocation group`.
+
+### GetGPUMemoryStats
+`public static void GetGPUMemoryStats(ref float totalMemory, ref float renderTargetMemory, ref float depthTargetMemory, ref float srvMemory, ref float bufferMemory)`
+
+**Purpose:** Gets the current value of `g p u memory stats`.
+
+### GetDetailedGPUMemoryData
+`public static void GetDetailedGPUMemoryData(ref int totalMemoryAllocated, ref int totalMemoryUsed, ref int emptyChunkTotalSize)`
+
+**Purpose:** Gets the current value of `detailed g p u memory data`.
+
+### SetRenderMode
+`public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)`
+
+**Purpose:** Sets the value or state of `render mode`.
+
+### SetForceDrawEntityID
+`public static void SetForceDrawEntityID(bool value)`
+
+**Purpose:** Sets the value or state of `force draw entity i d`.
+
+### AddPerformanceReportToken
+`public static void AddPerformanceReportToken(string performance_type, string name, float loading_time)`
+
+**Purpose:** Adds `performance report token` to the current collection or state.
+
+### AddSceneObjectReport
+`public static void AddSceneObjectReport(string scene_name, string report_name, float report_value)`
+
+**Purpose:** Adds `scene object report` to the current collection or state.
+
+### OutputPerformanceReports
+`public static void OutputPerformanceReports()`
+
+**Purpose:** Handles logic related to `output performance reports`.
+
+### TakeScreenshot
+`public static void TakeScreenshot(PlatformFilePath path)`
+
+**Purpose:** Handles logic related to `take screenshot`.
+
+### TakeScreenshot
+`public static void TakeScreenshot(string path)`
+
+**Purpose:** Handles logic related to `take screenshot`.
+
+### SetAllocationAlwaysValidScene
+`public static void SetAllocationAlwaysValidScene(Scene scene)`
+
+**Purpose:** Sets the value or state of `allocation always valid scene`.
+
+### CheckResourceModifications
+`public static void CheckResourceModifications()`
+
+**Purpose:** Handles logic related to `check resource modifications`.
+
+### SetGraphicsPreset
+`public static void SetGraphicsPreset(int preset)`
+
+**Purpose:** Sets the value or state of `graphics preset`.
+
+### GetLocalOutputPath
+`public static string GetLocalOutputPath()`
+
+**Purpose:** Gets the current value of `local output path`.
+
+### GetPCInfo
+`public static string GetPCInfo()`
+
+**Purpose:** Gets the current value of `p c info`.
+
+### GetGPUMemoryMB
+`public static int GetGPUMemoryMB()`
+
+**Purpose:** Gets the current value of `g p u memory m b`.
+
+### GetCurrentEstimatedGPUMemoryCostMB
+`public static int GetCurrentEstimatedGPUMemoryCostMB()`
+
+**Purpose:** Gets the current value of `current estimated g p u memory cost m b`.
+
+### DumpGPUMemoryStatistics
+`public static void DumpGPUMemoryStatistics(string filePath)`
+
+**Purpose:** Handles logic related to `dump g p u memory statistics`.
+
+### SaveDataAsTexture
+`public static int SaveDataAsTexture(string path, int width, int height, float data)`
+
+**Purpose:** Saves `data as texture` data.
+
+### ClearOldResourcesAndObjects
+`public static void ClearOldResourcesAndObjects()`
+
+**Purpose:** Handles logic related to `clear old resources and objects`.
+
+### LoadVirtualTextureTileset
+`public static void LoadVirtualTextureTileset(string name)`
+
+**Purpose:** Loads `virtual texture tileset` data.
+
+### GetDeltaTime
+`public static float GetDeltaTime(int timerId)`
+
+**Purpose:** Gets the current value of `delta time`.
+
+### LoadSkyBoxes
+`public static void LoadSkyBoxes()`
+
+**Purpose:** Loads `sky boxes` data.
+
+### GetApplicationName
+`public static string GetApplicationName()`
+
+**Purpose:** Gets the current value of `application name`.
+
+### OpenNavalDlcPurchasePage
+`public static void OpenNavalDlcPurchasePage()`
+
+**Purpose:** Handles logic related to `open naval dlc purchase page`.
+
+### SetWindowTitle
+`public static void SetWindowTitle(string title)`
+
+**Purpose:** Sets the value or state of `window title`.
+
+### ProcessWindowTitle
+`public static string ProcessWindowTitle(string title)`
+
+**Purpose:** Handles logic related to `process window title`.
+
+### GetCurrentProcessID
+`public static uint GetCurrentProcessID()`
+
+**Purpose:** Gets the current value of `current process i d`.
+
+### DoDelayedexit
+`public static void DoDelayedexit(int returnCode)`
+
+**Purpose:** Handles logic related to `do delayedexit`.
+
+### SetAssertionsAndWarningsSetExitCode
+`public static void SetAssertionsAndWarningsSetExitCode(bool value)`
+
+**Purpose:** Sets the value or state of `assertions and warnings set exit code`.
+
+### SetReportMode
+`public static void SetReportMode(bool reportMode)`
+
+**Purpose:** Sets the value or state of `report mode`.
+
+### SetAssertionAtShaderCompile
+`public static void SetAssertionAtShaderCompile(bool value)`
+
+**Purpose:** Sets the value or state of `assertion at shader compile`.
+
+### SetCrashReportCustomString
+`public static void SetCrashReportCustomString(string customString)`
+
+**Purpose:** Sets the value or state of `crash report custom string`.
+
+### SetCrashReportCustomStack
+`public static void SetCrashReportCustomStack(string customStack)`
+
+**Purpose:** Sets the value or state of `crash report custom stack`.
+
+### GetSteamAppId
+`public static int GetSteamAppId()`
+
+**Purpose:** Gets the current value of `steam app id`.
+
+### SetForceVsync
+`public static void SetForceVsync(bool value)`
+
+**Purpose:** Sets the value or state of `force vsync`.
+
+### LoadBannerlordConfigFile
+`public static string LoadBannerlordConfigFile()`
+
+**Purpose:** Loads `bannerlord config file` data.
+
+### SaveConfigFile
+`public static SaveResult SaveConfigFile(string configProperties)`
+
+**Purpose:** Saves `config file` data.
+
+### OpenOnscreenKeyboard
+`public static void OpenOnscreenKeyboard(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
+
+**Purpose:** Handles logic related to `open onscreen keyboard`.
+
+### GetSystemLanguage
+`public static string GetSystemLanguage()`
+
+**Purpose:** Gets the current value of `system language`.
+
+### RegisterGPUAllocationGroup
+`public static int RegisterGPUAllocationGroup(string name)`
+
+**Purpose:** Handles logic related to `register g p u allocation group`.
+
+### GetMemoryUsageOfCategory
+`public static int GetMemoryUsageOfCategory(int category)`
+
+**Purpose:** Gets the current value of `memory usage of category`.
+
+### GetDetailedXBOXMemoryInfo
+`public static string GetDetailedXBOXMemoryInfo()`
+
+**Purpose:** Gets the current value of `detailed x b o x memory info`.
+
+### SetFrameLimiterWithSleep
+`public static void SetFrameLimiterWithSleep(bool value)`
+
+**Purpose:** Sets the value or state of `frame limiter with sleep`.
+
+### GetFrameLimiterWithSleep
+`public static bool GetFrameLimiterWithSleep()`
+
+**Purpose:** Gets the current value of `frame limiter with sleep`.
+
+### GetPossibleCommandLineStartingWith
+`public static string GetPossibleCommandLineStartingWith(string command, int index)`
+
+**Purpose:** Gets the current value of `possible command line starting with`.
+
+### IsDevkit
+`public static bool IsDevkit()`
+
+**Purpose:** Handles logic related to `is devkit`.
+
+### IsLockhartPlatform
+`public static bool IsLockhartPlatform()`
+
+**Purpose:** Handles logic related to `is lockhart platform`.
+
+### GetVertexBufferChunkSystemMemoryUsage
+`public static int GetVertexBufferChunkSystemMemoryUsage()`
+
+**Purpose:** Gets the current value of `vertex buffer chunk system memory usage`.
+
+### GetBuildNumber
+`public static int GetBuildNumber()`
+
+**Purpose:** Gets the current value of `build number`.
+
+### GetApplicationVersionWithBuildNumber
+`public static ApplicationVersion GetApplicationVersionWithBuildNumber()`
+
+**Purpose:** Gets the current value of `application version with build number`.
+
+### ParallelFor
+`public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**Purpose:** Handles logic related to `parallel for`.
+
+### ParallelForWithoutRenderThread
+`public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**Purpose:** Handles logic related to `parallel for without render thread`.
+
+### ClearShaderMemory
+`public static void ClearShaderMemory()`
+
+**Purpose:** Handles logic related to `clear shader memory`.
+
+### RegisterMeshForGPUMorph
+`public static void RegisterMeshForGPUMorph(string metaMeshName)`
+
+**Purpose:** Handles logic related to `register mesh for g p u morph`.
+
+### ParallelForWithDt
+`public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)`
+
+**Purpose:** Handles logic related to `parallel for with dt`.
+
+### GetMainThreadId
+`public static ulong GetMainThreadId()`
+
+**Purpose:** Gets the current value of `main thread id`.
+
+### GetCurrentThreadId
+`public static ulong GetCurrentThreadId()`
+
+**Purpose:** Gets the current value of `current thread id`.
+
+### SetWatchdogValue
+`public static void SetWatchdogValue(string fileName, string groupName, string key, string value)`
+
+**Purpose:** Sets the value or state of `watchdog value`.
+
+### SetWatchdogAutoreport
+`public static void SetWatchdogAutoreport(bool enabled)`
+
+**Purpose:** Sets the value or state of `watchdog autoreport`.
+
+### DetachWatchdog
+`public static void DetachWatchdog()`
+
+**Purpose:** Handles logic related to `detach watchdog`.
+
+### GetPlatformModulePaths
+`public static string GetPlatformModulePaths()`
+
+**Purpose:** Gets the current value of `platform module paths`.
+
+### IsAsyncPhysicsThread
+`public static bool IsAsyncPhysicsThread()`
+
+**Purpose:** Handles logic related to `is async physics thread`.
+
+### StartLoadingStuckCheckState
+`public static void StartLoadingStuckCheckState(float timeoutThresholdSeconds)`
+
+**Purpose:** Handles logic related to `start loading stuck check state`.
+
+### EndLoadingStuckCheckState
+`public static void EndLoadingStuckCheckState()`
+
+**Purpose:** Handles logic related to `end loading stuck check state`.
+
+### Dispose
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
+
+## Usage Example
 
 ```csharp
-// Get performance info
-// 获取性能信息
-float fps = Utilities.GetFps();
-float memory = Utilities.GetApplicationMemory();
-
-// Get paths
-// 获取路径
-string basePath = Utilities.GetBasePath();
-string scenePath = Utilities.GetFullFilePathOfScene("battle_scene");
-
-// Take screenshot
-// 截图
-Utilities.TakeScreenshot("screenshot.png");
-
-// Parallel processing
-// 并行处理
-Utilities.ParallelFor(0, 100, 0, 10, (int i) => {
-    // Work to be done in parallel
-    // 并行执行的工作
-});
+Utilities.ConstructMainThreadJob(function, parameters);
 ```
 
-## Notes / 注意事项
+## See Also
 
-- Utilities is a static class and all methods are static methods
-- Utilities 是一个静态类，所有方法都是静态方法
-- All methods call native implementation via `EngineApplicationInterface.IUtil`
-- 所有方法都通过 `EngineApplicationInterface.IUtil` 调用原生实现
-- Some methods (like ParallelFor) accept delegate parameters for parallel execution
-- 某些方法（如 ParallelFor）接受委托参数用于并行执行
-- The render mode enum EngineRenderDisplayMode contains many debug visualization options
-- 渲染模式枚举 EngineRenderDisplayMode 包含大量调试可视化选项
+- [Complete Class Catalog](../catalog)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `KingdomDecisionPermissionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomDecisionPermissionModel
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`KingdomDecisionPermissionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<KingdomDecisionPermissionModel>(new MyKingdomDecisionPermissionModel())` to change how it computes.
+`KingdomDecisionPermissionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `KingdomDecisionPermissionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### IsPolicyDecisionAllowed
-```csharp
-public abstract bool IsPolicyDecisionAllowed(PolicyObject policy)
-```
+`public abstract bool IsPolicyDecisionAllowed(PolicyObject policy)`
+
+**Purpose:** Handles logic related to `is policy decision allowed`.
 
 ### IsWarDecisionAllowedBetweenKingdoms
-```csharp
-public abstract bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public abstract bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is war decision allowed between kingdoms`.
 
 ### IsPeaceDecisionAllowedBetweenKingdoms
-```csharp
-public abstract bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public abstract bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is peace decision allowed between kingdoms`.
 
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
-```csharp
-public abstract bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)
-```
+`public abstract bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
+
+**Purpose:** Handles logic related to `is start alliance decision allowed between kingdoms`.
 
 ### IsAnnexationDecisionAllowed
-```csharp
-public abstract bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)
-```
+`public abstract bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
+
+**Purpose:** Handles logic related to `is annexation decision allowed`.
 
 ### IsExpulsionDecisionAllowed
-```csharp
-public abstract bool IsExpulsionDecisionAllowed(Clan expelledClan)
-```
+`public abstract bool IsExpulsionDecisionAllowed(Clan expelledClan)`
+
+**Purpose:** Handles logic related to `is expulsion decision allowed`.
 
 ### IsKingSelectionDecisionAllowed
-```csharp
-public abstract bool IsKingSelectionDecisionAllowed(Kingdom kingdom)
-```
+`public abstract bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
+
+**Purpose:** Handles logic related to `is king selection decision allowed`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of KingdomDecisionPermissionModel (Model)
-Game.Current.ReplaceModel<KingdomDecisionPermissionModel>(new MyKingdomDecisionPermissionModel());
+var implementation = new CustomKingdomDecisionPermissionModel();
 ```
 
 ## See Also

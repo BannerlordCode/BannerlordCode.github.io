@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `RecruitVolunteerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RecruitVolunteerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class RecruitVolunteerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Recruitment/RecruitVolunteerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `RecruitVolunteerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`RecruitVolunteerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -32,40 +36,40 @@
 | `RecruitText` | `public string RecruitText { get; set; }` |
 | `RecruitHint` | `public HintViewModel RecruitHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteRecruit
+`public void ExecuteRecruit(RecruitVolunteerTroopVM troop)`
 
-```csharp
-public void ExecuteRecruit(RecruitVolunteerTroopVM troop)
-```
+**Purpose:** Executes the `recruit` operation or workflow.
 
 ### ExecuteRemoveFromCart
+`public void ExecuteRemoveFromCart(RecruitVolunteerTroopVM troop)`
 
-```csharp
-public void ExecuteRemoveFromCart(RecruitVolunteerTroopVM troop)
-```
+**Purpose:** Executes the `remove from cart` operation or workflow.
 
 ### OnRecruitMoveToCart
+`public void OnRecruitMoveToCart(RecruitVolunteerTroopVM troop)`
 
-```csharp
-public void OnRecruitMoveToCart(RecruitVolunteerTroopVM troop)
-```
+**Purpose:** Called when the `recruit move to cart` event is raised.
 
 ### OnRecruitRemovedFromCart
+`public void OnRecruitRemovedFromCart(RecruitVolunteerTroopVM troop)`
+
+**Purpose:** Called when the `recruit removed from cart` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OnRecruitRemovedFromCart(RecruitVolunteerTroopVM troop)
+var value = new RecruitVolunteerVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

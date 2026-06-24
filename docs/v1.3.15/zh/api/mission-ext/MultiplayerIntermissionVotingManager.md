@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerIntermissionVotingManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerIntermissionVotingManager
@@ -14,110 +15,122 @@
 
 ## 概述
 
-`MultiplayerIntermissionVotingManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`MultiplayerIntermissionVotingManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MultiplayerIntermissionVotingManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static MultiplayerIntermissionVotingManager Instance { get; }` |
+| `MapVoteItems` | `public List<IntermissionVoteItem> MapVoteItems { get; }` |
+| `CultureVoteItems` | `public List<IntermissionVoteItem> CultureVoteItems { get; }` |
+| `UsableMaps` | `public List<CustomGameUsableMap> UsableMaps { get; }` |
 
 ## 主要方法
 
 ### AddMapItem
-```csharp
-public void AddMapItem(string mapID)
-```
+`public void AddMapItem(string mapID)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `map item`。
 
 ### AddUsableMap
-```csharp
-public void AddUsableMap(CustomGameUsableMap usableMap)
-```
+`public void AddUsableMap(CustomGameUsableMap usableMap)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `usable map`。
 
 ### GetUsableMaps
-```csharp
-public List<string> GetUsableMaps(string gameType)
-```
+`public List<string> GetUsableMaps(string gameType)`
+
+**用途 / Purpose:** 获取 `usable maps` 的当前值。
 
 ### AddCultureItem
-```csharp
-public void AddCultureItem(string cultureID)
-```
+`public void AddCultureItem(string cultureID)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `culture item`。
 
 ### AddVote
-```csharp
-public void AddVote(PlayerId voterID, string itemID, int voteCount)
-```
+`public void AddVote(PlayerId voterID, string itemID, int voteCount)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `vote`。
 
 ### SetVotesOfMap
-```csharp
-public void SetVotesOfMap(int mapItemIndex, int voteCount)
-```
+`public void SetVotesOfMap(int mapItemIndex, int voteCount)`
+
+**用途 / Purpose:** 设置 `votes of map` 的值或状态。
 
 ### SetVotesOfCulture
-```csharp
-public void SetVotesOfCulture(int cultureItemIndex, int voteCount)
-```
+`public void SetVotesOfCulture(int cultureItemIndex, int voteCount)`
+
+**用途 / Purpose:** 设置 `votes of culture` 的值或状态。
 
 ### ClearVotes
-```csharp
-public void ClearVotes()
-```
+`public void ClearVotes()`
+
+**用途 / Purpose:** 处理 `clear votes` 相关逻辑。
 
 ### ClearItems
-```csharp
-public void ClearItems()
-```
+`public void ClearItems()`
+
+**用途 / Purpose:** 处理 `clear items` 相关逻辑。
 
 ### IsCultureItem
-```csharp
-public bool IsCultureItem(string itemID)
-```
+`public bool IsCultureItem(string itemID)`
+
+**用途 / Purpose:** 处理 `is culture item` 相关逻辑。
 
 ### IsMapItem
-```csharp
-public bool IsMapItem(string itemID)
-```
+`public bool IsMapItem(string itemID)`
+
+**用途 / Purpose:** 处理 `is map item` 相关逻辑。
 
 ### HandlePlayerDisconnect
-```csharp
-public void HandlePlayerDisconnect(PlayerId playerID)
-```
+`public void HandlePlayerDisconnect(PlayerId playerID)`
+
+**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
 
 ### SelectRandomCultures
-```csharp
-public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)
-```
+`public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
+
+**用途 / Purpose:** 处理 `select random cultures` 相关逻辑。
 
 ### IsPeerVotedForItem
-```csharp
-public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)
-```
+`public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)`
+
+**用途 / Purpose:** 处理 `is peer voted for item` 相关逻辑。
 
 ### SortVotesAndPickBest
-```csharp
-public void SortVotesAndPickBest()
-```
+`public void SortVotesAndPickBest()`
+
+**用途 / Purpose:** 处理 `sort votes and pick best` 相关逻辑。
 
 ### MapItemAddedDelegate
-```csharp
-public delegate void MapItemAddedDelegate(string mapId)
-```
+`public delegate void MapItemAddedDelegate(string mapId)`
+
+**用途 / Purpose:** 处理 `map item added delegate` 相关逻辑。
 
 ### CultureItemAddedDelegate
-```csharp
-public delegate void CultureItemAddedDelegate(string cultureId)
-```
+`public delegate void CultureItemAddedDelegate(string cultureId)`
+
+**用途 / Purpose:** 处理 `culture item added delegate` 相关逻辑。
 
 ### MapItemVoteCountChangedDelegate
-```csharp
-public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)
-```
+`public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
+
+**用途 / Purpose:** 处理 `map item vote count changed delegate` 相关逻辑。
 
 ### CultureItemVoteCountChangedDelegate
-```csharp
-public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)
-```
+`public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
+
+**用途 / Purpose:** 处理 `culture item vote count changed delegate` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerIntermissionVotingManager (Manager) 的典型用法
-MultiplayerIntermissionVotingManager.Current;
+var manager = MultiplayerIntermissionVotingManager.Current;
 ```
 
 ## 参见

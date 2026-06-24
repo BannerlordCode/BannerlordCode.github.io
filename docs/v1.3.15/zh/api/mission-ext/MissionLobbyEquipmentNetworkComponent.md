@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionLobbyEquipmentNetworkComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionLobbyEquipmentNetworkComponent
@@ -14,45 +15,48 @@
 
 ## 概述
 
-`MissionLobbyEquipmentNetworkComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<MissionLobbyEquipmentNetworkComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`MissionLobbyEquipmentNetworkComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `MissionLobbyEquipmentNetworkComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### PerkUpdated
-```csharp
-public void PerkUpdated(int perkList, int perkIndex)
-```
+`public void PerkUpdated(int perkList, int perkIndex)`
+
+**用途 / Purpose:** 处理 `perk updated` 相关逻辑。
 
 ### EquipmentUpdated
-```csharp
-public void EquipmentUpdated()
-```
+`public void EquipmentUpdated()`
+
+**用途 / Purpose:** 处理 `equipment updated` 相关逻辑。
 
 ### ToggleLoadout
-```csharp
-public void ToggleLoadout(bool isActive)
-```
+`public void ToggleLoadout(bool isActive)`
+
+**用途 / Purpose:** 处理 `toggle loadout` 相关逻辑。
 
 ### OnToggleLoadoutDelegate
-```csharp
-public delegate void OnToggleLoadoutDelegate(bool isActive)
-```
+`public delegate void OnToggleLoadoutDelegate(bool isActive)`
+
+**用途 / Purpose:** 当 `toggle loadout delegate` 事件触发时调用此方法。
 
 ### OnRefreshEquipmentEventDelegate
-```csharp
-public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)
-```
+`public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
+
+**用途 / Purpose:** 当 `refresh equipment event delegate` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// MissionLobbyEquipmentNetworkComponent (Component) 的典型用法
-agent.GetComponent<MissionLobbyEquipmentNetworkComponent>();
+var component = agent.GetComponent<MissionLobbyEquipmentNetworkComponent>();
 ```
 
 ## 参见

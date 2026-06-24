@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementGarrisonModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementGarrisonModel
@@ -14,40 +15,43 @@
 
 ## Overview
 
-`SettlementGarrisonModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementGarrisonModel>(new MySettlementGarrisonModel())` to change how it computes.
+`SettlementGarrisonModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementGarrisonModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetMaximumDailyAutoRecruitmentCount
-```csharp
-public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)
-```
+`public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
+
+**Purpose:** Gets the current value of `maximum daily auto recruitment count`.
 
 ### CalculateBaseGarrisonChange
-```csharp
-public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate base garrison change`.
 
 ### FindNumberOfTroopsToTakeFromGarrison
-```csharp
-public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)
-```
+`public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
+
+**Purpose:** Handles logic related to `find number of troops to take from garrison`.
 
 ### FindNumberOfTroopsToLeaveToGarrison
-```csharp
-public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)
-```
+`public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
+
+**Purpose:** Handles logic related to `find number of troops to leave to garrison`.
 
 ### GetMaximumDailyRepairAmount
-```csharp
-public abstract float GetMaximumDailyRepairAmount(Settlement settlement)
-```
+`public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
+
+**Purpose:** Gets the current value of `maximum daily repair amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementGarrisonModel (Model)
-Game.Current.ReplaceModel<SettlementGarrisonModel>(new MySettlementGarrisonModel());
+var implementation = new CustomSettlementGarrisonModel();
 ```
 
 ## See Also

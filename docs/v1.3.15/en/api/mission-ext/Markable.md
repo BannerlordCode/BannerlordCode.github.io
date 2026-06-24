@@ -2,48 +2,54 @@
 **Home** → **API Index** → **Area** → `Markable`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Markable
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class Markable : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
+**File:** `TaleWorlds.MountAndBlade/Markable.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `Markable` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Markable` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### GetTickRequirement
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-```csharp
-public override ScriptComponentBehavior.TickRequirement GetTickRequirement()
-```
+**Purpose:** Gets the current value of `tick requirement`.
 
 ### DisableMarkerActivation
+`public void DisableMarkerActivation()`
 
-```csharp
-public void DisableMarkerActivation()
-```
+**Purpose:** Handles logic related to `disable marker activation`.
 
 ### ActivateMarkerFor
+`public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)`
 
-```csharp
-public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)
-```
+**Purpose:** Handles logic related to `activate marker for`.
 
 ### ResetPassiveDurationTimer
+`public void ResetPassiveDurationTimer()`
+
+**Purpose:** Resets `passive duration timer` to its initial state.
+
+## Usage Example
 
 ```csharp
-public void ResetPassiveDurationTimer()
+var value = new Markable();
+value.GetTickRequirement();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

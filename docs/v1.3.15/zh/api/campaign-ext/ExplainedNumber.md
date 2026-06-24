@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `ExplainedNumber`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ExplainedNumber
 
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem
-**类型:** 结构体 struct struct
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public struct ExplainedNumber`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/ExplainedNumber.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ExplainedNumber` 是 `TaleWorlds.CampaignSystem` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`ExplainedNumber` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -31,78 +37,70 @@
 | `LimitMinLine` | `public ExplainedNumber.StatExplainer.ExplanationLine? LimitMinLine { get; }` |
 | `LimitMaxLine` | `public ExplainedNumber.StatExplainer.ExplanationLine? LimitMaxLine { get; }` |
 
-
 ## 主要方法
 
 ### GetExplanations
+`public string GetExplanations()`
 
-```csharp
-public string GetExplanations()
-```
+**用途 / Purpose:** 获取 `explanations` 的当前值。
 
 ### GetLines
+`public List<ValueTuple<string, float>> GetLines()`
 
-```csharp
-public List<ValueTuple<string, float>> GetLines()
-```
+**用途 / Purpose:** 获取 `lines` 的当前值。
 
 ### AddFromExplainedNumber
+`public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-```csharp
-public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `from explained number`。
 
 ### SubtractFromExplainedNumber
+`public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-```csharp
-public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)
-```
+**用途 / Purpose:** 处理 `subtract from explained number` 相关逻辑。
 
 ### Add
+`public void Add(float value, TextObject description = null, TextObject variable = null)`
 
-```csharp
-public void Add(float value, TextObject description = null, TextObject variable = null)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `add`。
 
 ### AddFactor
+`public void AddFactor(float value, TextObject description = null)`
 
-```csharp
-public void AddFactor(float value, TextObject description = null)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `factor`。
 
 ### LimitMin
+`public void LimitMin(float minValue)`
 
-```csharp
-public void LimitMin(float minValue)
-```
+**用途 / Purpose:** 处理 `limit min` 相关逻辑。
 
 ### LimitMax
+`public void LimitMax(float maxValue, TextObject description = null)`
 
-```csharp
-public void LimitMax(float maxValue, TextObject description = null)
-```
+**用途 / Purpose:** 处理 `limit max` 相关逻辑。
 
 ### Clamp
+`public void Clamp(float minValue, float maxValue)`
 
-```csharp
-public void Clamp(float minValue, float maxValue)
-```
+**用途 / Purpose:** 处理 `clamp` 相关逻辑。
 
 ### GetLines
+`public List<ValueTuple<string, float>> GetLines(float baseNumber, float unclampedResultNumber, TextObject overrideBaseLineText = null, TextObject overrideMaximumLineText = null, TextObject overrideMinimumLineText = null)`
 
-```csharp
-public List<ValueTuple<string, float>> GetLines(float baseNumber, float unclampedResultNumber, TextObject overrideBaseLineText = null, TextObject overrideMaximumLineText = null, TextObject overrideMinimumLineText = null)
-```
+**用途 / Purpose:** 获取 `lines` 的当前值。
 
 ### AddLine
+`public void AddLine(string name, float number, ExplainedNumber.StatExplainer.OperationType opType)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+
+## 使用示例
 
 ```csharp
-public void AddLine(string name, float number, ExplainedNumber.StatExplainer.OperationType opType)
+var value = new ExplainedNumber();
+value.GetExplanations();
 ```
-
-贡献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

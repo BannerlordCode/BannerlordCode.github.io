@@ -12,6 +12,10 @@ description: MBSubModuleBase lifecycle, module loading mechanism, SubModule conf
 
 Bannerlord's module system is the core of the game's architecture. Every mod is a `SubModule` that extends `MBSubModuleBase` to integrate with the game's lifecycle.
 
+## Mental Model
+
+Treat `Module System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## MBSubModuleBase Lifecycle
 
 `MBSubModuleBase` defines complete lifecycle hooks:

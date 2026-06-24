@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CombatSoundContainer`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CombatSoundContainer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public static class CombatSoundContainer`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/CombatSoundContainer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CombatSoundContainer` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CombatSoundContainer` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,8 +45,25 @@
 | `SoundCodeMissionCombatPunchMed` | `public static int SoundCodeMissionCombatPunchMed { get; }` |
 | `SoundCodeMissionCombatThrowingAxeHigh` | `public static int SoundCodeMissionCombatThrowingAxeHigh { get; }` |
 | `SoundCodeMissionCombatThrowingAxeLow` | `public static int SoundCodeMissionCombatThrowingAxeLow { get; }` |
+| `SoundCodeMissionCombatThrowingAxeMed` | `public static int SoundCodeMissionCombatThrowingAxeMed { get; }` |
+| `SoundCodeMissionCombatThrowingDaggerHigh` | `public static int SoundCodeMissionCombatThrowingDaggerHigh { get; }` |
+| `SoundCodeMissionCombatThrowingDaggerLow` | `public static int SoundCodeMissionCombatThrowingDaggerLow { get; }` |
+| `SoundCodeMissionCombatThrowingDaggerMed` | `public static int SoundCodeMissionCombatThrowingDaggerMed { get; }` |
+| `SoundCodeMissionCombatThrowingStoneHigh` | `public static int SoundCodeMissionCombatThrowingStoneHigh { get; }` |
+| `SoundCodeMissionCombatThrowingStoneLow` | `public static int SoundCodeMissionCombatThrowingStoneLow { get; }` |
+| `SoundCodeMissionCombatThrowingStoneMed` | `public static int SoundCodeMissionCombatThrowingStoneMed { get; }` |
+| `SoundCodeMissionCombatChargeDamage` | `public static int SoundCodeMissionCombatChargeDamage { get; }` |
+| `SoundCodeMissionCombatKick` | `public static int SoundCodeMissionCombatKick { get; }` |
+| `SoundCodeMissionCombatPlayerhit` | `public static int SoundCodeMissionCombatPlayerhit { get; }` |
+| `SoundCodeMissionCombatWoodShieldBash` | `public static int SoundCodeMissionCombatWoodShieldBash { get; }` |
+| `SoundCodeMissionCombatMetalShieldBash` | `public static int SoundCodeMissionCombatMetalShieldBash { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new CombatSoundContainer();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

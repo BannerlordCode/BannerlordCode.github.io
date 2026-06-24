@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ClanMembersSortControllerVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanMembersSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ClanMembersSortControllerVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/Categories/ClanMembersSortControllerVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ClanMembersSortControllerVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ClanMembersSortControllerVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,58 +32,55 @@
 | `NameText` | `public string NameText { get; set; }` |
 | `LocationText` | `public string LocationText { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### ExecuteSortByName
+`public void ExecuteSortByName()`
 
-```csharp
-public void ExecuteSortByName()
-```
+**Purpose:** Executes the `sort by name` operation or workflow.
 
 ### ExecuteSortByLocation
+`public void ExecuteSortByLocation()`
 
-```csharp
-public void ExecuteSortByLocation()
-```
+**Purpose:** Executes the `sort by location` operation or workflow.
 
 ### ResetAllStates
+`public void ResetAllStates()`
 
-```csharp
-public void ResetAllStates()
-```
+**Purpose:** Resets `all states` to its initial state.
 
 ### SetSortMode
+`public void SetSortMode(bool isAcending)`
 
-```csharp
-public void SetSortMode(bool isAcending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(ClanLordItemVM x, ClanLordItemVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-```csharp
-public override int Compare(ClanLordItemVM x, ClanLordItemVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(ClanLordItemVM x, ClanLordItemVM y)
+var value = new ClanMembersSortControllerVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,30 +2,38 @@
 **Home** → **API Index** → **Area** → `DialogHelper`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DialogHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class DialogHelper`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Helpers/DialogHelper.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DialogHelper` is a class in the `Helpers` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DialogHelper` is a helper class that usually provides static logic which does not depend on instance state.
 
+## Mental Model
+
+Treat `DialogHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SetDialogString
+`public static void SetDialogString(string stringVariable, string gameTextId)`
+
+**Purpose:** Sets the value or state of `dialog string`.
+
+## Usage Example
 
 ```csharp
-public static void SetDialogString(string stringVariable, string gameTextId)
+DialogHelper.Initialize();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BattleResult`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class BattleResult`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/BattleResult.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BattleResult` is a class in the `TaleWorlds.MountAndBlade.Diamond` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BattleResult` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,46 +31,45 @@
 | `PremadeGameType` | `public PremadeGameType PremadeGameType { get; }` |
 | `PlayerEntries` | `public Dictionary<string, BattlePlayerEntry> PlayerEntries { get; }` |
 
-
 ## Key Methods
 
 ### AddOrUpdatePlayerEntry
+`public void AddOrUpdatePlayerEntry(PlayerId playerId, int teamNo, string gameMode, Guid party, int overriddenInitialPlayTime = -1)`
 
-```csharp
-public void AddOrUpdatePlayerEntry(PlayerId playerId, int teamNo, string gameMode, Guid party, int overriddenInitialPlayTime = -1)
-```
+**Purpose:** Adds `or update player entry` to the current collection or state.
 
 ### TryGetPlayerEntry
+`public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)`
 
-```csharp
-public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)
-```
+**Purpose:** Attempts to get `get player entry`, usually returning the result in an out parameter.
 
 ### HandlePlayerDisconnect
+`public void HandlePlayerDisconnect(PlayerId playerId)`
 
-```csharp
-public void HandlePlayerDisconnect(PlayerId playerId)
-```
+**Purpose:** Handles the `player disconnect` event or callback.
 
 ### DebugPrint
+`public void DebugPrint()`
 
-```csharp
-public void DebugPrint()
-```
+**Purpose:** Handles logic related to `debug print`.
 
 ### SetBattleFinished
+`public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)`
 
-```csharp
-public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)
-```
+**Purpose:** Sets the value or state of `battle finished`.
 
 ### SetBattleCancelled
+`public void SetBattleCancelled()`
+
+**Purpose:** Sets the value or state of `battle cancelled`.
+
+## Usage Example
 
 ```csharp
-public void SetBattleCancelled()
+var value = new BattleResult();
+value.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

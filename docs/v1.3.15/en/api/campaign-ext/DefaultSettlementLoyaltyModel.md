@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementLoyaltyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementLoyaltyModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultSettlementLoyaltyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementLoyaltyModel>(new MyDefaultSettlementLoyaltyModel())` to change how it computes.
+`DefaultSettlementLoyaltyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementLoyaltyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -47,24 +52,23 @@
 ## Key Methods
 
 ### CalculateLoyaltyChange
-```csharp
-public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate loyalty change`.
 
 ### CalculateGoldGainDueToHighLoyalty
-```csharp
-public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)
-```
+`public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold gain due to high loyalty`.
 
 ### CalculateGoldCutDueToLowLoyalty
-```csharp
-public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)
-```
+`public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold cut due to low loyalty`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementLoyaltyModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementLoyaltyModel>(new MyDefaultSettlementLoyaltyModel());
 ```
 

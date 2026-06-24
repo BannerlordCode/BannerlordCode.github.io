@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `TextureUnit`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextureUnit
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureUnit.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TextureUnit` is a enum in the `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TextureUnit` lives in `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `Texture0` |
-| `33984` |
-| `Texture0Arb` |
-| `33984` |
-| `Texture1` |
-| `Texture1Arb` |
-| `33985` |
-| `Texture2` |
-| `Texture2Arb` |
-| `33986` |
-| `Texture3` |
-| `Texture3Arb` |
-| `33987` |
-| `Texture4` |
-| `Texture4Arb` |
-| `33988` |
-| `Texture5` |
-| `Texture5Arb` |
-| `33989` |
-| `Texture6` |
-| `Texture6Arb` |
-| `33990` |
-| `Texture7` |
-| `Texture7Arb` |
-| `33991` |
-| `Texture8` |
-| `Texture8Arb` |
-| `33992` |
-| `Texture9` |
-| `Texture9Arb` |
+## Usage Example
+
+```csharp
+var value = new TextureUnit();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

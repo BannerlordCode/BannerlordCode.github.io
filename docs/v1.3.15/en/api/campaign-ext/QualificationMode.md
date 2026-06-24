@@ -2,26 +2,35 @@
 **Home** → **API Index** → **Area** → `QualificationMode`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QualificationMode
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
-**Type:** enum
-**Area:** Campaign System
+**Type:** `public enum QualificationMode`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `QualificationMode` is a enum in the `TaleWorlds.CampaignSystem.TournamentGames` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`QualificationMode` lives in `TaleWorlds.CampaignSystem.TournamentGames`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
 | Name |
 |------|
 | `IndividualScore` |
+
+## Usage Example
+
+```csharp
+QualificationMode example = QualificationMode.IndividualScore;
+```
 
 ## See Also
 

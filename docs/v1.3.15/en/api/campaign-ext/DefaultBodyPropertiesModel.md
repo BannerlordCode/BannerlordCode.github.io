@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBodyPropertiesModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBodyPropertiesModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultBodyPropertiesModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBodyPropertiesModel>(new MyDefaultBodyPropertiesModel())` to change how it computes.
+`DefaultBodyPropertiesModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBodyPropertiesModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetHairIndicesForCulture
-```csharp
-public override int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public override int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `hair indices for culture`.
 
 ### GetBeardIndicesForCulture
-```csharp
-public override int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public override int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `beard indices for culture`.
 
 ### GetTattooIndicesForCulture
-```csharp
-public override int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)
-```
+`public override int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
+
+**Purpose:** Gets the current value of `tattoo indices for culture`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBodyPropertiesModel (Model)
 Game.Current.ReplaceModel<DefaultBodyPropertiesModel>(new MyDefaultBodyPropertiesModel());
 ```
 

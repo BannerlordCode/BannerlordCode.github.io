@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `InputContext`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InputContext
@@ -16,6 +18,10 @@
 ## Overview
 
 Mods obtain the current input context in a `MissionBehavior` via `Mission.Current.InputContext`, then query custom hotkeys (`GameKeyContext`) or raw `InputKey`s. Register a custom key category with `RegisterHotKeyCategory`, then query with `IsGameKeyDown/Pressed/Released(gameKey)` (an int ID) or `IsHotKeyDown/Pressed/Released(hotKeyName)`.
+
+## Mental Model
+
+Treat `InputContext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Main properties
 
@@ -122,3 +128,9 @@ public class MyMissionBehavior : MissionBehavior
 - [Mission](../mission/Mission.md)
 - [GameEntity](../engine/GameEntity.md)
 - [MBCommon](./MBCommon.md)
+
+## Usage Example
+
+```csharp
+var example = new InputContext();
+```

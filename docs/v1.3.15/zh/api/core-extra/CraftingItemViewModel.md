@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `CraftingItemViewModel`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CraftingItemViewModel
 
-**命名空间:** TaleWorlds.Core.ViewModelCollection
-**模块:** TaleWorlds.Core
-**类型:** 类 class class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core.ViewModelCollection
+**Module:** TaleWorlds.Core
+**Type:** `public class CraftingItemViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/CraftingItemViewModel.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CraftingItemViewModel` 是 `TaleWorlds.Core.ViewModelCollection` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`CraftingItemViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
+
+## 心智模型
+
+把 `CraftingItemViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,24 +28,25 @@
 | `UsedPieces` | `public string UsedPieces { get; set; }` |
 | `WeaponClass` | `public int WeaponClass { get; set; }` |
 
-
 ## 主要方法
 
 ### GetWeaponClass
+`public WeaponClass GetWeaponClass()`
 
-```csharp
-public WeaponClass GetWeaponClass()
-```
+**用途 / Purpose:** 获取 `weapon class` 的当前值。
 
 ### SetCraftingData
+`public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
+
+**用途 / Purpose:** 设置 `crafting data` 的值或状态。
+
+## 使用示例
 
 ```csharp
-public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)
+var vm = new CraftingItemViewModel();
+movie.SetViewModel(vm);
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

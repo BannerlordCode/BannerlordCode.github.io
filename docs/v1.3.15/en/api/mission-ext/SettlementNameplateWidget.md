@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementNameplateWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementNameplateWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `SettlementNameplateWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `SettlementNameplateWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -39,16 +44,14 @@
 ## Key Methods
 
 ### CompareTo
-```csharp
-public int CompareTo(SettlementNameplateWidget other)
-```
+`public int CompareTo(SettlementNameplateWidget other)`
+
+**Purpose:** Handles logic related to `compare to`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementNameplateWidget (Widget)
-// 声明/访问一个 SettlementNameplateWidget
-var widget = root.GetChild("settlementNameplateWidget");;
+var widget = new SettlementNameplateWidget(context);
 ```
 
 ## See Also

@@ -2,21 +2,32 @@
 **Home** → **API Index** → **Area** → `MonoPInvokeCallbackAttribute`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MonoPInvokeCallbackAttribute
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MonoPInvokeCallbackAttribute : Attribute`
+**Base:** `Attribute`
+**File:** `TaleWorlds.DotNet/MonoPInvokeCallbackAttribute.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MonoPInvokeCallbackAttribute` is a class in the `(global)` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MonoPInvokeCallbackAttribute` is a .NET attribute used to tag a type or member so runtime code or tooling can recognize it by convention.
+
+## Mental Model
+
+Treat `MonoPInvokeCallbackAttribute` as a Attribute-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+[MonoPInvokeCallbackAttribute]
+public class Example { }
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

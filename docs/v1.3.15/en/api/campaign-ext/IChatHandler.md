@@ -2,21 +2,31 @@
 **Home** → **API Index** → **Area** → `IChatHandler`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # IChatHandler
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** interface
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/IChatHandler.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IChatHandler` is a interface in the `(global)` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IChatHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `IChatHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+IChatHandler implementation = GetChatHandlerImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

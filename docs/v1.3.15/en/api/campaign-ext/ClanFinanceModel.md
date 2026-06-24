@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ClanFinanceModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ClanFinanceModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`ClanFinanceModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<ClanFinanceModel>(new MyClanFinanceModel())` to change how it computes.
+`ClanFinanceModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ClanFinanceModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,60 +30,59 @@
 ## Key Methods
 
 ### CalculateClanGoldChange
-```csharp
-public abstract ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public abstract ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**Purpose:** Handles logic related to `calculate clan gold change`.
 
 ### CalculateClanIncome
-```csharp
-public abstract ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public abstract ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**Purpose:** Handles logic related to `calculate clan income`.
 
 ### CalculateClanExpenses
-```csharp
-public abstract ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public abstract ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**Purpose:** Handles logic related to `calculate clan expenses`.
 
 ### CalculateTownIncomeFromTariffs
-```csharp
-public abstract ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)
-```
+`public abstract ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
+
+**Purpose:** Handles logic related to `calculate town income from tariffs`.
 
 ### CalculateTownIncomeFromProjects
-```csharp
-public abstract int CalculateTownIncomeFromProjects(Town town)
-```
+`public abstract int CalculateTownIncomeFromProjects(Town town)`
+
+**Purpose:** Handles logic related to `calculate town income from projects`.
 
 ### CalculateNotableDailyGoldChange
-```csharp
-public abstract int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)
-```
+`public abstract int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
+
+**Purpose:** Handles logic related to `calculate notable daily gold change`.
 
 ### CalculateVillageIncome
-```csharp
-public abstract int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)
-```
+`public abstract int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
+
+**Purpose:** Handles logic related to `calculate village income`.
 
 ### CalculateOwnerIncomeFromCaravan
-```csharp
-public abstract int CalculateOwnerIncomeFromCaravan(MobileParty caravan)
-```
+`public abstract int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
+
+**Purpose:** Handles logic related to `calculate owner income from caravan`.
 
 ### CalculateOwnerIncomeFromWorkshop
-```csharp
-public abstract int CalculateOwnerIncomeFromWorkshop(Workshop workshop)
-```
+`public abstract int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
+
+**Purpose:** Handles logic related to `calculate owner income from workshop`.
 
 ### RevenueSmoothenFraction
-```csharp
-public abstract float RevenueSmoothenFraction()
-```
+`public abstract float RevenueSmoothenFraction()`
+
+**Purpose:** Handles logic related to `revenue smoothen fraction`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ClanFinanceModel (Model)
-Game.Current.ReplaceModel<ClanFinanceModel>(new MyClanFinanceModel());
+var implementation = new CustomClanFinanceModel();
 ```
 
 ## See Also

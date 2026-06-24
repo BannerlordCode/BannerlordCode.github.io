@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DependentVersionMissmatchItem`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DependentVersionMissmatchItem
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** struct
-**Area:** Mount & Blade
+**Type:** `public struct DependentVersionMissmatchItem`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/DependentVersionMissmatchItem.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DependentVersionMissmatchItem` is a struct in the `TaleWorlds.MountAndBlade.Launcher.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DependentVersionMissmatchItem` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,7 +28,12 @@
 | `MissmatchedModuleId` | `public string MissmatchedModuleId { get; }` |
 | `MissmatchedDependencies` | `public List<Tuple<DependedModule, ApplicationVersion>> MissmatchedDependencies { get; }` |
 
+## Usage Example
+
+```csharp
+var value = new DependentVersionMissmatchItem();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

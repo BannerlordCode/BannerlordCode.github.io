@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ObjectiveMarkersParentWidget`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ObjectiveMarkersParentWidget
@@ -16,6 +17,10 @@
 
 `ObjectiveMarkersParentWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
 
+## 心智模型
+
+把 `ObjectiveMarkersParentWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -29,21 +34,19 @@
 ## 主要方法
 
 ### Compare
-```csharp
-public int Compare(ObjectiveMarkerWidget x, ObjectiveMarkerWidget y)
-```
+`public int Compare(ObjectiveMarkerWidget x, ObjectiveMarkerWidget y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### Compare
-```csharp
-public int Compare(Widget x, Widget y)
-```
+`public int Compare(Widget x, Widget y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// ObjectiveMarkersParentWidget (Widget) 的典型用法
-// 声明/访问一个 ObjectiveMarkersParentWidget
-var widget = root.GetChild("objectiveMarkersParentWidget");;
+var widget = new ObjectiveMarkersParentWidget(context);
 ```
 
 ## 参见

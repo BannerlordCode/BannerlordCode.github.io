@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DifficultyModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DifficultyModel
@@ -14,55 +15,58 @@
 
 ## 概述
 
-`DifficultyModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DifficultyModel>(new MyDifficultyModel())` 注册，以改变其计算逻辑。
+`DifficultyModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DifficultyModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetPlayerTroopsReceivedDamageMultiplier
-```csharp
-public abstract float GetPlayerTroopsReceivedDamageMultiplier()
-```
+`public abstract float GetPlayerTroopsReceivedDamageMultiplier()`
+
+**用途 / Purpose:** 获取 `player troops received damage multiplier` 的当前值。
 
 ### GetPlayerRecruitSlotBonus
-```csharp
-public abstract int GetPlayerRecruitSlotBonus()
-```
+`public abstract int GetPlayerRecruitSlotBonus()`
+
+**用途 / Purpose:** 获取 `player recruit slot bonus` 的当前值。
 
 ### GetPlayerMapMovementSpeedBonusMultiplier
-```csharp
-public abstract float GetPlayerMapMovementSpeedBonusMultiplier()
-```
+`public abstract float GetPlayerMapMovementSpeedBonusMultiplier()`
+
+**用途 / Purpose:** 获取 `player map movement speed bonus multiplier` 的当前值。
 
 ### GetCombatAIDifficultyMultiplier
-```csharp
-public abstract float GetCombatAIDifficultyMultiplier()
-```
+`public abstract float GetCombatAIDifficultyMultiplier()`
+
+**用途 / Purpose:** 获取 `combat a i difficulty multiplier` 的当前值。
 
 ### GetPersuasionBonusChance
-```csharp
-public abstract float GetPersuasionBonusChance()
-```
+`public abstract float GetPersuasionBonusChance()`
+
+**用途 / Purpose:** 获取 `persuasion bonus chance` 的当前值。
 
 ### GetClanMemberDeathChanceMultiplier
-```csharp
-public abstract float GetClanMemberDeathChanceMultiplier()
-```
+`public abstract float GetClanMemberDeathChanceMultiplier()`
+
+**用途 / Purpose:** 获取 `clan member death chance multiplier` 的当前值。
 
 ### GetStealthDifficultyMultiplier
-```csharp
-public abstract float GetStealthDifficultyMultiplier()
-```
+`public abstract float GetStealthDifficultyMultiplier()`
+
+**用途 / Purpose:** 获取 `stealth difficulty multiplier` 的当前值。
 
 ### GetDisguiseDifficultyMultiplier
-```csharp
-public abstract float GetDisguiseDifficultyMultiplier()
-```
+`public abstract float GetDisguiseDifficultyMultiplier()`
+
+**用途 / Purpose:** 获取 `disguise difficulty multiplier` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// DifficultyModel (Model) 的典型用法
-Game.Current.ReplaceModel<DifficultyModel>(new MyDifficultyModel());
+var implementation = new CustomDifficultyModel();
 ```
 
 ## 参见

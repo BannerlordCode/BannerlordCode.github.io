@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TradeItemPriceFactorModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TradeItemPriceFactorModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`TradeItemPriceFactorModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<TradeItemPriceFactorModel>(new MyTradeItemPriceFactorModel())` to change how it computes.
+`TradeItemPriceFactorModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `TradeItemPriceFactorModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetTradePenalty
-```csharp
-public abstract float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)
-```
+`public abstract float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
+
+**Purpose:** Gets the current value of `trade penalty`.
 
 ### GetBasePriceFactor
-```csharp
-public abstract float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)
-```
+`public abstract float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
+
+**Purpose:** Gets the current value of `base price factor`.
 
 ### GetPrice
-```csharp
-public abstract int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)
-```
+`public abstract int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
+
+**Purpose:** Gets the current value of `price`.
 
 ### GetTheoreticalMaxItemMarketValue
-```csharp
-public abstract int GetTheoreticalMaxItemMarketValue(ItemObject item)
-```
+`public abstract int GetTheoreticalMaxItemMarketValue(ItemObject item)`
+
+**Purpose:** Gets the current value of `theoretical max item market value`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TradeItemPriceFactorModel (Model)
-Game.Current.ReplaceModel<TradeItemPriceFactorModel>(new MyTradeItemPriceFactorModel());
+var implementation = new CustomTradeItemPriceFactorModel();
 ```
 
 ## See Also

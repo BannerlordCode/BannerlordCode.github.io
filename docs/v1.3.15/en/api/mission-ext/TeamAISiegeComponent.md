@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TeamAISiegeComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TeamAISiegeComponent
@@ -14,75 +15,81 @@
 
 ## Overview
 
-`TeamAISiegeComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<TeamAISiegeComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`TeamAISiegeComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `TeamAISiegeComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `QuerySystem` | `public static SiegeQuerySystem QuerySystem { get; protected set; }` |
+| `SiegeLanes` | `public static List<SiegeLane> SiegeLanes { get; }` |
+| `QuerySystem` | `public static SiegeQuerySystem QuerySystem { get; set; }` |
 | `OuterGate` | `public CastleGate OuterGate { get; }` |
 | `PrimarySiegeWeapons` | `public List<IPrimarySiegeWeapon> PrimarySiegeWeapons { get; }` |
 | `InnerGate` | `public CastleGate InnerGate { get; }` |
-| `Ladders` | `public MBReadOnlyList<SiegeLadder> Ladders { get { return this._ladders; }` |
+| `Ladders` | `public MBReadOnlyList<SiegeLadder> Ladders { get; }` |
+| `AreLaddersReady` | `public bool AreLaddersReady { get; }` |
+| `DifficultNavmeshIDs` | `public List<int> DifficultNavmeshIDs { get; }` |
 
 ## Key Methods
 
 ### OnMissionFinalize
-```csharp
-public static void OnMissionFinalize()
-```
+`public static void OnMissionFinalize()`
+
+**Purpose:** Called when the `mission finalize` event is raised.
 
 ### CalculateIsChargePastWallsApplicable
-```csharp
-public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)
-```
+`public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)`
+
+**Purpose:** Handles logic related to `calculate is charge past walls applicable`.
 
 ### SetAreLaddersReady
-```csharp
-public void SetAreLaddersReady(bool areLaddersReady)
-```
+`public void SetAreLaddersReady(bool areLaddersReady)`
+
+**Purpose:** Sets the value or state of `are ladders ready`.
 
 ### CalculateIsAnyLaneOpenToGetInside
-```csharp
-public bool CalculateIsAnyLaneOpenToGetInside()
-```
+`public bool CalculateIsAnyLaneOpenToGetInside()`
+
+**Purpose:** Handles logic related to `calculate is any lane open to get inside`.
 
 ### CalculateIsAnyLaneOpenToGoOutside
-```csharp
-public bool CalculateIsAnyLaneOpenToGoOutside()
-```
+`public bool CalculateIsAnyLaneOpenToGoOutside()`
+
+**Purpose:** Handles logic related to `calculate is any lane open to go outside`.
 
 ### IsPrimarySiegeWeaponNavmeshFaceId
-```csharp
-public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)
-```
+`public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)`
+
+**Purpose:** Handles logic related to `is primary siege weapon navmesh face id`.
 
 ### IsFormationGroupInsideCastle
-```csharp
-public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)
-```
+`public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
+
+**Purpose:** Handles logic related to `is formation group inside castle`.
 
 ### IsFormationInsideCastle
-```csharp
-public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)
-```
+`public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
+
+**Purpose:** Handles logic related to `is formation inside castle`.
 
 ### IsCastleBreached
-```csharp
-public bool IsCastleBreached()
-```
+`public bool IsCastleBreached()`
+
+**Purpose:** Handles logic related to `is castle breached`.
 
 ### OnDeploymentFinished
-```csharp
-public override void OnDeploymentFinished()
-```
+`public override void OnDeploymentFinished()`
+
+**Purpose:** Called when the `deployment finished` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TeamAISiegeComponent (Component)
-agent.GetComponent<TeamAISiegeComponent>();
+var implementation = new CustomTeamAISiegeComponent();
 ```
 
 ## See Also

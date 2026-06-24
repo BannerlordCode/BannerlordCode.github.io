@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `NativeObject`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NativeObject
@@ -13,6 +15,10 @@
 ## Overview
 
 `NativeObject` is the base class for all native object wrapper classes in the Bannerlord engine. It encapsulates a `UIntPtr Pointer` to native C++ objects and manages the lifecycle through reference counting.
+
+## Mental Model
+
+Treat `NativeObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Key Features
 
@@ -44,3 +50,9 @@ skeleton.ManualInvalidate();
 - Abstract base class - cannot be instantiated directly
 - All wrapper classes inherit from it
 - Reference counting managed by native side
+
+## Usage Example
+
+```csharp
+var example = new NativeObject();
+```

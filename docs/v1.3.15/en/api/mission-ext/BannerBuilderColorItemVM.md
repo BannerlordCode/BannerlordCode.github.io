@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `BannerBuilderColorItemVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BannerBuilderColorItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class BannerBuilderColorItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/BannerBuilder/BannerBuilderColorItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `BannerBuilderColorItemVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`BannerBuilderColorItemVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,16 +30,20 @@
 | `IsSelected` | `public bool IsSelected { get; set; }` |
 | `ColorAsStr` | `public string ColorAsStr { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteSelection
+`public void ExecuteSelection()`
+
+**Purpose:** Executes the `selection` operation or workflow.
+
+## Usage Example
 
 ```csharp
-public void ExecuteSelection()
+var value = new BannerBuilderColorItemVM();
+value.ExecuteSelection();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

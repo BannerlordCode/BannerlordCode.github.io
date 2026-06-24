@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `DefaultClanFinanceModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultClanFinanceModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`DefaultClanFinanceModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<DefaultClanFinanceModel>(new MyDefaultClanFinanceModel())` 注册，以改变其计算逻辑。
+`DefaultClanFinanceModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `DefaultClanFinanceModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,64 +30,63 @@
 ## 主要方法
 
 ### CalculateClanGoldChange
-```csharp
-public override ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public override ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**用途 / Purpose:** 处理 `calculate clan gold change` 相关逻辑。
 
 ### CalculateClanIncome
-```csharp
-public override ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public override ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**用途 / Purpose:** 处理 `calculate clan income` 相关逻辑。
 
 ### CalculateClanExpensesInternal
-```csharp
-public void CalculateClanExpensesInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public void CalculateClanExpensesInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**用途 / Purpose:** 处理 `calculate clan expenses internal` 相关逻辑。
 
 ### CalculateClanExpenses
-```csharp
-public override ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
-```
+`public override ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
+
+**用途 / Purpose:** 处理 `calculate clan expenses` 相关逻辑。
 
 ### CalculateTownIncomeFromTariffs
-```csharp
-public override ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)
-```
+`public override ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
+
+**用途 / Purpose:** 处理 `calculate town income from tariffs` 相关逻辑。
 
 ### CalculateTownIncomeFromProjects
-```csharp
-public override int CalculateTownIncomeFromProjects(Town town)
-```
+`public override int CalculateTownIncomeFromProjects(Town town)`
+
+**用途 / Purpose:** 处理 `calculate town income from projects` 相关逻辑。
 
 ### CalculateVillageIncome
-```csharp
-public override int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)
-```
+`public override int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
+
+**用途 / Purpose:** 处理 `calculate village income` 相关逻辑。
 
 ### CalculateOwnerIncomeFromCaravan
-```csharp
-public override int CalculateOwnerIncomeFromCaravan(MobileParty caravan)
-```
+`public override int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
+
+**用途 / Purpose:** 处理 `calculate owner income from caravan` 相关逻辑。
 
 ### CalculateOwnerIncomeFromWorkshop
-```csharp
-public override int CalculateOwnerIncomeFromWorkshop(Workshop workshop)
-```
+`public override int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
+
+**用途 / Purpose:** 处理 `calculate owner income from workshop` 相关逻辑。
 
 ### RevenueSmoothenFraction
-```csharp
-public override float RevenueSmoothenFraction()
-```
+`public override float RevenueSmoothenFraction()`
+
+**用途 / Purpose:** 处理 `revenue smoothen fraction` 相关逻辑。
 
 ### CalculateNotableDailyGoldChange
-```csharp
-public override int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)
-```
+`public override int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
+
+**用途 / Purpose:** 处理 `calculate notable daily gold change` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// DefaultClanFinanceModel (Model) 的典型用法
 Game.Current.ReplaceModel<DefaultClanFinanceModel>(new MyDefaultClanFinanceModel());
 ```
 

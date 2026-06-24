@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `AnimFlags`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AnimFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/AnimFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `AnimFlags` is a enum in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AnimFlags` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `amf_priority_continue` |
-| `1UL` |
-| `amf_priority_jump` |
-| `2UL` |
-| `amf_priority_ride` |
-| `2UL` |
-| `amf_priority_crouch` |
-| `2UL` |
-| `amf_priority_attack` |
-| `10UL` |
-| `amf_priority_cancel` |
-| `12UL` |
-| `amf_priority_defend` |
-| `14UL` |
-| `amf_priority_defend_parry` |
-| `15UL` |
-| `amf_priority_throw` |
-| `15UL` |
-| `amf_priority_blocked` |
-| `15UL` |
-| `amf_priority_parried` |
-| `15UL` |
-| `amf_priority_kick` |
-| `33UL` |
-| `amf_priority_reload` |
-| `60UL` |
-| `amf_priority_mount` |
-| `64UL` |
-| `amf_priority_equip` |
-| `70UL` |
+## Usage Example
+
+```csharp
+var value = new AnimFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

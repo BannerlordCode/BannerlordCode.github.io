@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBWindowManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBWindowManager
@@ -14,50 +15,53 @@
 
 ## Overview
 
-`MBWindowManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MBWindowManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MBWindowManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### WorldToScreen
-```csharp
-public static float WorldToScreen(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)
-```
+`public static float WorldToScreen(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
+
+**Purpose:** Handles logic related to `world to screen`.
 
 ### WorldToScreenInsideUsableArea
-```csharp
-public static float WorldToScreenInsideUsableArea(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)
-```
+`public static float WorldToScreenInsideUsableArea(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
+
+**Purpose:** Handles logic related to `world to screen inside usable area`.
 
 ### WorldToScreenWithFixedZ
-```csharp
-public static float WorldToScreenWithFixedZ(Camera camera, Vec3 cameraPosition, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)
-```
+`public static float WorldToScreenWithFixedZ(Camera camera, Vec3 cameraPosition, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
+
+**Purpose:** Handles logic related to `world to screen with fixed z`.
 
 ### ScreenToWorld
-```csharp
-public static void ScreenToWorld(Camera camera, float screenX, float screenY, float w, ref Vec3 worldSpacePosition)
-```
+`public static void ScreenToWorld(Camera camera, float screenX, float screenY, float w, ref Vec3 worldSpacePosition)`
+
+**Purpose:** Handles logic related to `screen to world`.
 
 ### GetScreenResolution
-```csharp
-public static Vec2 GetScreenResolution()
-```
+`public static Vec2 GetScreenResolution()`
+
+**Purpose:** Gets the current value of `screen resolution`.
 
 ### PreDisplay
-```csharp
-public static void PreDisplay()
-```
+`public static void PreDisplay()`
+
+**Purpose:** Handles logic related to `pre display`.
 
 ### DontChangeCursorPos
-```csharp
-public static void DontChangeCursorPos()
-```
+`public static void DontChangeCursorPos()`
+
+**Purpose:** Handles logic related to `dont change cursor pos`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBWindowManager (Manager)
-MBWindowManager.Current;
+var manager = MBWindowManager.Current;
 ```
 
 ## See Also

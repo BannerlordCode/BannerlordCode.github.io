@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBCommon`
+**Home** → **API Index** → **Area** → `MBCommon / Common Utilities`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBCommon / Common Utilities
@@ -13,6 +15,10 @@
 ## Overview
 
 `MBCommon` provides game engine-level common functionality including pause state management and time control.
+
+## Mental Model
+
+Treat `MBCommon` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Properties
 

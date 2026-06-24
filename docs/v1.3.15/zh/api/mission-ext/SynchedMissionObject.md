@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `SynchedMissionObject`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SynchedMissionObject
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class SynchedMissionObject : MissionObject`
+**Base:** `MissionObject`
+**File:** `TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SynchedMissionObject` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`SynchedMissionObject` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -23,132 +29,125 @@
 | `Color2` | `public uint Color2 { get; }` |
 | `SynchronizeCompleted` | `public bool SynchronizeCompleted { get; }` |
 
-
 ## 主要方法
 
 ### GetTickRequirement
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-```csharp
-public override ScriptComponentBehavior.TickRequirement GetTickRequirement()
-```
+**用途 / Purpose:** 获取 `tick requirement` 的当前值。
 
 ### SetLocalPositionSmoothStep
+`public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
 
-```csharp
-public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)
-```
+**用途 / Purpose:** 设置 `local position smooth step` 的值或状态。
 
 ### SetVisibleSynched
+`public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
 
-```csharp
-public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)
-```
+**用途 / Purpose:** 设置 `visible synched` 的值或状态。
 
 ### SetPhysicsStateSynched
+`public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
 
-```csharp
-public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)
-```
+**用途 / Purpose:** 设置 `physics state synched` 的值或状态。
 
 ### SetDisabledSynched
+`public virtual void SetDisabledSynched()`
 
-```csharp
-public virtual void SetDisabledSynched()
-```
+**用途 / Purpose:** 设置 `disabled synched` 的值或状态。
 
 ### SetFrameSynched
+`public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-```csharp
-public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)
-```
+**用途 / Purpose:** 设置 `frame synched` 的值或状态。
 
 ### SetGlobalFrameSynched
+`public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-```csharp
-public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)
-```
+**用途 / Purpose:** 设置 `global frame synched` 的值或状态。
 
 ### SetFrameSynchedOverTime
+`public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-```csharp
-public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)
-```
+**用途 / Purpose:** 设置 `frame synched over time` 的值或状态。
 
 ### SetGlobalFrameSynchedOverTime
+`public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-```csharp
-public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)
-```
-
-### SetAnimationAtChannelSynched
-
-```csharp
-public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)
-```
+**用途 / Purpose:** 设置 `global frame synched over time` 的值或状态。
 
 ### SetAnimationAtChannelSynched
+`public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
 
-```csharp
-public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)
-```
+**用途 / Purpose:** 设置 `animation at channel synched` 的值或状态。
+
+### SetAnimationAtChannelSynched
+`public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
+
+**用途 / Purpose:** 设置 `animation at channel synched` 的值或状态。
 
 ### SetAnimationChannelParameterSynched
+`public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
 
-```csharp
-public void SetAnimationChannelParameterSynched(int channelNo, float parameter)
-```
+**用途 / Purpose:** 设置 `animation channel parameter synched` 的值或状态。
 
 ### PauseSkeletonAnimationSynched
+`public void PauseSkeletonAnimationSynched()`
 
-```csharp
-public void PauseSkeletonAnimationSynched()
-```
+**用途 / Purpose:** 处理 `pause skeleton animation synched` 相关逻辑。
 
 ### ResumeSkeletonAnimationSynched
+`public void ResumeSkeletonAnimationSynched()`
 
-```csharp
-public void ResumeSkeletonAnimationSynched()
-```
+**用途 / Purpose:** 处理 `resume skeleton animation synched` 相关逻辑。
 
 ### BurstParticlesSynched
+`public void BurstParticlesSynched(bool doChildren = true)`
 
-```csharp
-public void BurstParticlesSynched(bool doChildren = true)
-```
+**用途 / Purpose:** 处理 `burst particles synched` 相关逻辑。
 
 ### ApplyImpulseSynched
+`public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
 
-```csharp
-public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)
-```
+**用途 / Purpose:** 将 `impulse synched` 应用到当前对象。
 
 ### AddBodyFlagsSynched
+`public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-```csharp
-public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `body flags synched`。
 
 ### RemoveBodyFlagsSynched
+`public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-```csharp
-public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)
-```
+**用途 / Purpose:** 从当前集合/状态中移除 `body flags synched`。
 
 ### SetTeamColors
+`public void SetTeamColors(uint color, uint color2)`
 
-```csharp
-public void SetTeamColors(uint color, uint color2)
-```
+**用途 / Purpose:** 设置 `team colors` 的值或状态。
 
 ### SetTeamColorsSynched
+`public virtual void SetTeamColorsSynched(uint color, uint color2)`
+
+**用途 / Purpose:** 设置 `team colors synched` 的值或状态。
+
+### WriteToNetwork
+`public virtual void WriteToNetwork()`
+
+**用途 / Purpose:** 处理 `write to network` 相关逻辑。
+
+### OnAfterReadFromNetwork
+`public virtual void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+
+**用途 / Purpose:** 当 `after read from network` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public virtual void SetTeamColorsSynched(uint color, uint color2)
+var value = new SynchedMissionObject();
+value.GetTickRequirement();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

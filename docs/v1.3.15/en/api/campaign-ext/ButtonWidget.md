@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ButtonWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ButtonWidget
@@ -16,23 +17,25 @@
 
 `ButtonWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `ButtonWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `ButtonType` | `public ButtonType ButtonType { get { return this._buttonType; }` |
-| `IsToggle` | `public bool IsToggle { get { return this.ButtonType == ButtonType.Toggle; }` |
-| `IsRadio` | `public bool IsRadio { get { return this.ButtonType == ButtonType.Radio; }` |
-| `ToggleIndicator` | `public Widget ToggleIndicator { get { return this._toggleIndicator; }` |
-| `IsSelected` | `public bool IsSelected { get { return this._isSelected; }` |
-| `DominantSelectedState` | `public bool DominantSelectedState { get { return this._dominantSelectedState; }` |
+| `ButtonType` | `public ButtonType ButtonType { get; set; }` |
+| `IsToggle` | `public bool IsToggle { get; }` |
+| `IsRadio` | `public bool IsRadio { get; set; }` |
+| `ToggleIndicator` | `public Widget ToggleIndicator { get; set; }` |
+| `IsSelected` | `public bool IsSelected { get; set; }` |
+| `DominantSelectedState` | `public bool DominantSelectedState { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of ButtonWidget (Widget)
-// 声明/访问一个 ButtonWidget
-var widget = root.GetChild("buttonWidget");;
+var widget = new ButtonWidget(context);
 ```
 
 ## See Also

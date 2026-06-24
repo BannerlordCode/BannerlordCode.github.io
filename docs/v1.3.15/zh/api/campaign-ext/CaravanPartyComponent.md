@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CaravanPartyComponent`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CaravanPartyComponent
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`CaravanPartyComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<CaravanPartyComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`CaravanPartyComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `CaravanPartyComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -33,50 +38,49 @@
 ## 主要方法
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**用途 / Purpose:** 获取 `default component banner` 的当前值。
 
 ### ConvertPartyToCaravanParty
-```csharp
-public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)
-```
+`public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
+
+**用途 / Purpose:** 处理 `convert party to caravan party` 相关逻辑。
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
 
 ### CreateCaravanParty
-```csharp
-public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)
-```
+`public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
+
+**用途 / Purpose:** 创建一个 `caravan party` 实例或对象。
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
-```csharp
-public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)
-```
+`public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
+
+**用途 / Purpose:** 获取 `mount and harness visual ids for party icon` 的当前值。
 
 ### TransferCaravanOwnership
-```csharp
-public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)
-```
+`public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)`
+
+**用途 / Purpose:** 处理 `transfer caravan ownership` 相关逻辑。
 
 ### ChangeHomeSettlement
-```csharp
-public void ChangeHomeSettlement(Settlement newHomeSettlement)
-```
+`public void ChangeHomeSettlement(Settlement newHomeSettlement)`
+
+**用途 / Purpose:** 处理 `change home settlement` 相关逻辑。
 
 ### InitializeCaravanOnCreation
-```csharp
-public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)
-```
+`public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)`
+
+**用途 / Purpose:** 初始化 `caravan on creation` 的状态、资源或绑定。
 
 ## 使用示例
 
 ```csharp
-// CaravanPartyComponent (Component) 的典型用法
-agent.GetComponent<CaravanPartyComponent>();
+var component = agent.GetComponent<CaravanPartyComponent>();
 ```
 
 ## 参见

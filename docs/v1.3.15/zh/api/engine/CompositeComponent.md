@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `CompositeComponent`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CompositeComponent
@@ -14,108 +15,111 @@
 
 ## 概述
 
-`CompositeComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<CompositeComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`CompositeComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `CompositeComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `IsValid` | `public bool IsValid { get { return base.Pointer != UIntPtr.Zero; }` |
-| `Frame` | `public MatrixFrame Frame { get { MatrixFrame matrixFrame = default(MatrixFrame); EngineApplicationInterface.ICompositeComponent.GetFrame(base.Pointer, ref matrixFrame); return matrixFrame; }` |
-| `VectorUserData` | `public Vec3 VectorUserData { get { return EngineApplicationInterface.ICompositeComponent.GetVectorUserData(base.Pointer); }` |
+| `IsValid` | `public bool IsValid { get; }` |
+| `Frame` | `public MatrixFrame Frame { get; set; }` |
+| `VectorUserData` | `public Vec3 VectorUserData { get; set; }` |
 
 ## 主要方法
 
 ### IsNull
-```csharp
-public static bool IsNull(CompositeComponent component)
-```
+`public static bool IsNull(CompositeComponent component)`
+
+**用途 / Purpose:** 处理 `is null` 相关逻辑。
 
 ### CreateCompositeComponent
-```csharp
-public static CompositeComponent CreateCompositeComponent()
-```
+`public static CompositeComponent CreateCompositeComponent()`
+
+**用途 / Purpose:** 创建一个 `composite component` 实例或对象。
 
 ### CreateCopy
-```csharp
-public CompositeComponent CreateCopy()
-```
+`public CompositeComponent CreateCopy()`
+
+**用途 / Purpose:** 创建一个 `copy` 实例或对象。
 
 ### AddComponent
-```csharp
-public void AddComponent(GameEntityComponent component)
-```
+`public void AddComponent(GameEntityComponent component)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `component`。
 
 ### AddPrefabEntity
-```csharp
-public void AddPrefabEntity(string prefabName, Scene scene)
-```
+`public void AddPrefabEntity(string prefabName, Scene scene)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `prefab entity`。
 
 ### Dispose
-```csharp
-public void Dispose()
-```
+`public void Dispose()`
+
+**用途 / Purpose:** 处理 `dispose` 相关逻辑。
 
 ### GetFactor1
-```csharp
-public uint GetFactor1()
-```
+`public uint GetFactor1()`
+
+**用途 / Purpose:** 获取 `factor1` 的当前值。
 
 ### GetFactor2
-```csharp
-public uint GetFactor2()
-```
+`public uint GetFactor2()`
+
+**用途 / Purpose:** 获取 `factor2` 的当前值。
 
 ### SetFactor1
-```csharp
-public void SetFactor1(uint factorColor1)
-```
+`public void SetFactor1(uint factorColor1)`
+
+**用途 / Purpose:** 设置 `factor1` 的值或状态。
 
 ### SetFactor2
-```csharp
-public void SetFactor2(uint factorColor2)
-```
+`public void SetFactor2(uint factorColor2)`
+
+**用途 / Purpose:** 设置 `factor2` 的值或状态。
 
 ### SetVectorArgument
-```csharp
-public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)
-```
+`public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
+
+**用途 / Purpose:** 设置 `vector argument` 的值或状态。
 
 ### SetMaterial
-```csharp
-public void SetMaterial(Material material)
-```
+`public void SetMaterial(Material material)`
+
+**用途 / Purpose:** 设置 `material` 的值或状态。
 
 ### SetVisibilityMask
-```csharp
-public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)
-```
+`public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
+
+**用途 / Purpose:** 设置 `visibility mask` 的值或状态。
 
 ### GetFirstMetaMesh
-```csharp
-public override MetaMesh GetFirstMetaMesh()
-```
+`public override MetaMesh GetFirstMetaMesh()`
+
+**用途 / Purpose:** 获取 `first meta mesh` 的当前值。
 
 ### AddMultiMesh
-```csharp
-public void AddMultiMesh(string MultiMeshName)
-```
+`public void AddMultiMesh(string MultiMeshName)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `multi mesh`。
 
 ### SetVisible
-```csharp
-public void SetVisible(bool visible)
-```
+`public void SetVisible(bool visible)`
+
+**用途 / Purpose:** 设置 `visible` 的值或状态。
 
 ### GetVisible
-```csharp
-public bool GetVisible()
-```
+`public bool GetVisible()`
+
+**用途 / Purpose:** 获取 `visible` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// CompositeComponent (Component) 的典型用法
-agent.GetComponent<CompositeComponent>();
+var component = agent.GetComponent<CompositeComponent>();
 ```
 
 ## 参见

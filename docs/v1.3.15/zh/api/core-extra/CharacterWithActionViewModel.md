@@ -2,21 +2,32 @@
 **首页** → **API 目录** → **本领域** → `CharacterWithActionViewModel`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CharacterWithActionViewModel
 
-**命名空间:** TaleWorlds.Core.ViewModelCollection
-**模块:** TaleWorlds.Core
-**类型:** 类 class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Core.ViewModelCollection
+**Module:** TaleWorlds.Core
+**Type:** `public class CharacterWithActionViewModel : CharacterViewModel`
+**Base:** `CharacterViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/CharacterWithActionViewModel.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CharacterWithActionViewModel` 是 `TaleWorlds.Core.ViewModelCollection` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`CharacterWithActionViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
+
+## 心智模型
+
+把 `CharacterWithActionViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+var vm = new CharacterWithActionViewModel();
+movie.SetViewModel(vm);
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

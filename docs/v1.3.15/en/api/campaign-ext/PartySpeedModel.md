@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartySpeedModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartySpeedModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartySpeedModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartySpeedModel>(new MyPartySpeedModel())` to change how it computes.
+`PartySpeedModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartySpeedModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,20 +31,19 @@
 ## Key Methods
 
 ### CalculateBaseSpeed
-```csharp
-public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)
-```
+`public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
+
+**Purpose:** Handles logic related to `calculate base speed`.
 
 ### CalculateFinalSpeed
-```csharp
-public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)
-```
+`public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
+
+**Purpose:** Handles logic related to `calculate final speed`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartySpeedModel (Model)
-Game.Current.ReplaceModel<PartySpeedModel>(new MyPartySpeedModel());
+var implementation = new CustomPartySpeedModel();
 ```
 
 ## See Also

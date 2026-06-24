@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `MPCombatPerkHandler`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MPCombatPerkHandler
 
 **命名空间:** TaleWorlds.MountAndBlade
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**类型:** `class MPCombatPerkHandler`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`MPCombatPerkHandler` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MPCombatPerkHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `MPCombatPerkHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -33,130 +38,113 @@
 | `IsWarmup` | `public bool IsWarmup { get; }` |
 | `IsWarmup` | `public bool IsWarmup { get; }` |
 
-
 ## 主要方法
 
 ### Clone
+`public MPPerkObject Clone(MissionPeer peer)`
 
-```csharp
-public MPPerkObject Clone(MissionPeer peer)
-```
+**用途 / Purpose:** 处理 `clone` 相关逻辑。
 
 ### Reset
+`public void Reset()`
 
-```csharp
-public void Reset()
-```
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
 
 ### GetExtraTroopCount
+`public int GetExtraTroopCount(bool isWarmup)`
 
-```csharp
-public int GetExtraTroopCount(bool isWarmup)
-```
+**用途 / Purpose:** 获取 `extra troop count` 的当前值。
 
 ### GetAlternativeEquipments
+`public List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isWarmup, bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAllEquipments = false)`
 
-```csharp
-public List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isWarmup, bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAllEquipments = false)
-```
+**用途 / Purpose:** 获取 `alternative equipments` 的当前值。
 
 ### GetDrivenPropertyBonusOnSpawn
+`public float GetDrivenPropertyBonusOnSpawn(bool isWarmup, bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-```csharp
-public float GetDrivenPropertyBonusOnSpawn(bool isWarmup, bool isPlayer, DrivenProperty drivenProperty, float baseValue)
-```
+**用途 / Purpose:** 获取 `driven property bonus on spawn` 的当前值。
 
 ### GetHitpoints
+`public float GetHitpoints(bool isWarmup, bool isPlayer)`
 
-```csharp
-public float GetHitpoints(bool isWarmup, bool isPlayer)
-```
+**用途 / Purpose:** 获取 `hitpoints` 的当前值。
 
 ### GetTroopCount
+`public static int GetTroopCount(MultiplayerClassDivisions.MPHeroClass heroClass, int botsPerFormation, MPPerkObject.MPOnSpawnPerkHandler onSpawnPerkHandler)`
 
-```csharp
-public static int GetTroopCount(MultiplayerClassDivisions.MPHeroClass heroClass, int botsPerFormation, MPPerkObject.MPOnSpawnPerkHandler onSpawnPerkHandler)
-```
+**用途 / Purpose:** 获取 `troop count` 的当前值。
 
 ### Deserialize
+`public static IReadOnlyPerkObject Deserialize(XmlNode node)`
 
-```csharp
-public static IReadOnlyPerkObject Deserialize(XmlNode node)
-```
-
-### GetPerkHandler
-
-```csharp
-public static MPPerkObject.MPPerkHandler GetPerkHandler(Agent agent)
-```
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
 
 ### GetPerkHandler
+`public static MPPerkObject.MPPerkHandler GetPerkHandler(Agent agent)`
 
-```csharp
-public static MPPerkObject.MPPerkHandler GetPerkHandler(MissionPeer peer)
-```
+**用途 / Purpose:** 获取 `perk handler` 的当前值。
+
+### GetPerkHandler
+`public static MPPerkObject.MPPerkHandler GetPerkHandler(MissionPeer peer)`
+
+**用途 / Purpose:** 获取 `perk handler` 的当前值。
 
 ### GetCombatPerkHandler
+`public static MPPerkObject.MPCombatPerkHandler GetCombatPerkHandler(Agent attacker, Agent defender)`
 
-```csharp
-public static MPPerkObject.MPCombatPerkHandler GetCombatPerkHandler(Agent attacker, Agent defender)
-```
-
-### GetOnSpawnPerkHandler
-
-```csharp
-public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(MissionPeer peer)
-```
+**用途 / Purpose:** 获取 `combat perk handler` 的当前值。
 
 ### GetOnSpawnPerkHandler
+`public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(MissionPeer peer)`
 
-```csharp
-public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(IEnumerable<IReadOnlyPerkObject> perks)
-```
+**用途 / Purpose:** 获取 `on spawn perk handler` 的当前值。
+
+### GetOnSpawnPerkHandler
+`public static MPPerkObject.MPOnSpawnPerkHandler GetOnSpawnPerkHandler(IEnumerable<IReadOnlyPerkObject> perks)`
+
+**用途 / Purpose:** 获取 `on spawn perk handler` 的当前值。
 
 ### RaiseEventForAllPeers
+`public static void RaiseEventForAllPeers(MPPerkCondition.PerkEventFlags flags)`
 
-```csharp
-public static void RaiseEventForAllPeers(MPPerkCondition.PerkEventFlags flags)
-```
+**用途 / Purpose:** 处理 `raise event for all peers` 相关逻辑。
 
 ### RaiseEventForAllPeersOnTeam
+`public static void RaiseEventForAllPeersOnTeam(Team side, MPPerkCondition.PerkEventFlags flags)`
 
-```csharp
-public static void RaiseEventForAllPeersOnTeam(Team side, MPPerkCondition.PerkEventFlags flags)
-```
+**用途 / Purpose:** 处理 `raise event for all peers on team` 相关逻辑。
 
 ### TickAllPeerPerks
+`public static void TickAllPeerPerks(int tickCount)`
 
-```csharp
-public static void TickAllPeerPerks(int tickCount)
-```
+**用途 / Purpose:** 处理 `tick all peer perks` 相关逻辑。
 
 ### RaiseEventForAllPeersCommand
+`public static string RaiseEventForAllPeersCommand(List<string> strings)`
 
-```csharp
-public static string RaiseEventForAllPeersCommand(List<string> strings)
-```
+**用途 / Purpose:** 处理 `raise event for all peers command` 相关逻辑。
 
 ### TickAllPeerPerksCommand
+`public static string TickAllPeerPerksCommand(List<string> strings)`
 
-```csharp
-public static string TickAllPeerPerksCommand(List<string> strings)
-```
+**用途 / Purpose:** 处理 `tick all peer perks command` 相关逻辑。
 
 ### GetExtraTroopCount
+`public float GetExtraTroopCount()`
 
-```csharp
-public float GetExtraTroopCount()
-```
+**用途 / Purpose:** 获取 `extra troop count` 的当前值。
 
 ### GetAlternativeEquipments
+`public IEnumerable<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer)`
+
+**用途 / Purpose:** 获取 `alternative equipments` 的当前值。
+
+## 使用示例
 
 ```csharp
-public IEnumerable<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer)
+Mission.Current.AddMissionBehavior(new MPCombatPerkHandler());
 ```
-
-献文档。
 
 ## 参见
 

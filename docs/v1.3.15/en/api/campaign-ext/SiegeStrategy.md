@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SiegeStrategy`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SiegeStrategy
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SiegeStrategy : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `TaleWorlds.CampaignSystem/Siege/SiegeStrategy.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SiegeStrategy` is a class in the `TaleWorlds.CampaignSystem.Siege` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SiegeStrategy` lives in `TaleWorlds.CampaignSystem.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,16 +29,20 @@
 | `Name` | `public TextObject Name { get; }` |
 | `Description` | `public TextObject Description { get; }` |
 
-
 ## Key Methods
 
 ### Initialize
+`public void Initialize(TextObject name, TextObject description)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+
+## Usage Example
 
 ```csharp
-public void Initialize(TextObject name, TextObject description)
+var value = new SiegeStrategy();
+value.Initialize(name, description);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

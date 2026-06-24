@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `SceneView`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SceneView
@@ -14,165 +15,173 @@
 
 ## 概述
 
-`SceneView` 是一个引擎视图/表面（渲染、纹理、场景预览等）。经引擎视图系统访问。
+`SceneView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `SceneView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CreateSceneView
-```csharp
-public static SceneView CreateSceneView()
-```
+`public static SceneView CreateSceneView()`
+
+**用途 / Purpose:** 创建一个 `scene view` 实例或对象。
 
 ### SetScene
-```csharp
-public void SetScene(Scene scene)
-```
+`public void SetScene(Scene scene)`
+
+**用途 / Purpose:** 设置 `scene` 的值或状态。
 
 ### SetAcceptGlobalDebugRenderObjects
-```csharp
-public void SetAcceptGlobalDebugRenderObjects(bool value)
-```
+`public void SetAcceptGlobalDebugRenderObjects(bool value)`
+
+**用途 / Purpose:** 设置 `accept global debug render objects` 的值或状态。
 
 ### SetRenderWithPostfx
-```csharp
-public void SetRenderWithPostfx(bool value)
-```
+`public void SetRenderWithPostfx(bool value)`
+
+**用途 / Purpose:** 设置 `render with postfx` 的值或状态。
 
 ### SetPostfxConfigParams
-```csharp
-public void SetPostfxConfigParams(int value)
-```
+`public void SetPostfxConfigParams(int value)`
+
+**用途 / Purpose:** 设置 `postfx config params` 的值或状态。
 
 ### SetForceShaderCompilation
-```csharp
-public void SetForceShaderCompilation(bool value)
-```
+`public void SetForceShaderCompilation(bool value)`
+
+**用途 / Purpose:** 设置 `force shader compilation` 的值或状态。
 
 ### CheckSceneReadyToRender
-```csharp
-public bool CheckSceneReadyToRender()
-```
+`public bool CheckSceneReadyToRender()`
+
+**用途 / Purpose:** 处理 `check scene ready to render` 相关逻辑。
 
 ### SetDoQuickExposure
-```csharp
-public void SetDoQuickExposure(bool value)
-```
+`public void SetDoQuickExposure(bool value)`
+
+**用途 / Purpose:** 设置 `do quick exposure` 的值或状态。
 
 ### SetCamera
-```csharp
-public void SetCamera(Camera camera)
-```
+`public void SetCamera(Camera camera)`
+
+**用途 / Purpose:** 设置 `camera` 的值或状态。
 
 ### SetResolutionScaling
-```csharp
-public void SetResolutionScaling(bool value)
-```
+`public void SetResolutionScaling(bool value)`
+
+**用途 / Purpose:** 设置 `resolution scaling` 的值或状态。
 
 ### SetPostfxFromConfig
-```csharp
-public void SetPostfxFromConfig()
-```
+`public void SetPostfxFromConfig()`
+
+**用途 / Purpose:** 设置 `postfx from config` 的值或状态。
 
 ### WorldPointToScreenPoint
-```csharp
-public Vec2 WorldPointToScreenPoint(Vec3 position)
-```
+`public Vec2 WorldPointToScreenPoint(Vec3 position)`
+
+**用途 / Purpose:** 处理 `world point to screen point` 相关逻辑。
 
 ### ScreenPointToViewportPoint
-```csharp
-public Vec2 ScreenPointToViewportPoint(Vec2 position)
-```
+`public Vec2 ScreenPointToViewportPoint(Vec2 position)`
+
+**用途 / Purpose:** 处理 `screen point to viewport point` 相关逻辑。
 
 ### ProjectedMousePositionOnGround
-```csharp
-public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)
-```
+`public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
+
+**用途 / Purpose:** 处理 `projected mouse position on ground` 相关逻辑。
 
 ### ProjectedMousePositionOnWater
-```csharp
-public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)
-```
+`public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)`
+
+**用途 / Purpose:** 处理 `projected mouse position on water` 相关逻辑。
 
 ### TranslateMouse
-```csharp
-public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)
-```
+`public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
+
+**用途 / Purpose:** 处理 `translate mouse` 相关逻辑。
 
 ### SetSceneUsesSkybox
-```csharp
-public void SetSceneUsesSkybox(bool value)
-```
+`public void SetSceneUsesSkybox(bool value)`
+
+**用途 / Purpose:** 设置 `scene uses skybox` 的值或状态。
 
 ### SetSceneUsesShadows
-```csharp
-public void SetSceneUsesShadows(bool value)
-```
+`public void SetSceneUsesShadows(bool value)`
+
+**用途 / Purpose:** 设置 `scene uses shadows` 的值或状态。
 
 ### SetSceneUsesContour
-```csharp
-public void SetSceneUsesContour(bool value)
-```
+`public void SetSceneUsesContour(bool value)`
+
+**用途 / Purpose:** 设置 `scene uses contour` 的值或状态。
 
 ### DoNotClear
-```csharp
-public void DoNotClear(bool value)
-```
+`public void DoNotClear(bool value)`
+
+**用途 / Purpose:** 处理 `do not clear` 相关逻辑。
 
 ### AddClearTask
-```csharp
-public void AddClearTask(bool clearOnlySceneview = false)
-```
+`public void AddClearTask(bool clearOnlySceneview = false)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `clear task`。
 
 ### ReadyToRender
-```csharp
-public bool ReadyToRender()
-```
+`public bool ReadyToRender()`
+
+**用途 / Purpose:** 处理 `ready to render` 相关逻辑。
 
 ### SetClearAndDisableAfterSucessfullRender
-```csharp
-public void SetClearAndDisableAfterSucessfullRender(bool value)
-```
+`public void SetClearAndDisableAfterSucessfullRender(bool value)`
+
+**用途 / Purpose:** 设置 `clear and disable after sucessfull render` 的值或状态。
 
 ### SetClearGbuffer
-```csharp
-public void SetClearGbuffer(bool value)
-```
+`public void SetClearGbuffer(bool value)`
+
+**用途 / Purpose:** 设置 `clear gbuffer` 的值或状态。
 
 ### SetShadowmapResolutionMultiplier
-```csharp
-public void SetShadowmapResolutionMultiplier(float value)
-```
+`public void SetShadowmapResolutionMultiplier(float value)`
+
+**用途 / Purpose:** 设置 `shadowmap resolution multiplier` 的值或状态。
 
 ### SetPointlightResolutionMultiplier
-```csharp
-public void SetPointlightResolutionMultiplier(float value)
-```
+`public void SetPointlightResolutionMultiplier(float value)`
+
+**用途 / Purpose:** 设置 `pointlight resolution multiplier` 的值或状态。
 
 ### SetCleanScreenUntilLoadingDone
-```csharp
-public void SetCleanScreenUntilLoadingDone(bool value)
-```
+`public void SetCleanScreenUntilLoadingDone(bool value)`
+
+**用途 / Purpose:** 设置 `clean screen until loading done` 的值或状态。
 
 ### ClearAll
-```csharp
-public void ClearAll(bool clearScene, bool removeTerrain)
-```
+`public void ClearAll(bool clearScene, bool removeTerrain)`
+
+**用途 / Purpose:** 处理 `clear all` 相关逻辑。
 
 ### SetFocusedShadowmap
-```csharp
-public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)
-```
+`public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)`
+
+**用途 / Purpose:** 设置 `focused shadowmap` 的值或状态。
 
 ### GetScene
-```csharp
-public Scene GetScene()
-```
+`public Scene GetScene()`
+
+**用途 / Purpose:** 获取 `scene` 的当前值。
+
+### RayCastForClosestEntityOrTerrain
+`public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
+
+**用途 / Purpose:** 处理 `ray cast for closest entity or terrain` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// SceneView (View) 的典型用法
-SceneView /* via engine view system */;
+var view = new SceneView();
 ```
 
 ## 参见

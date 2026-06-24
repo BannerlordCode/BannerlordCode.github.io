@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MapTracksCampaignBehavior`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapTracksCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MapTracksCampaignBehavior : CampaignBehaviorBase, IMapTracksCampaignBehavior, ICampaignBehavior`
+**Base:** `CampaignBehaviorBase`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/MapTracksCampaignBehavior.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MapTracksCampaignBehavior` is a class in the `TaleWorlds.CampaignSystem.CampaignBehaviors` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MapTracksCampaignBehavior` lives in `TaleWorlds.CampaignSystem.CampaignBehaviors` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,64 +28,60 @@
 | `DetectedTracks` | `public MBReadOnlyList<Track> DetectedTracks { get; }` |
 | `Size` | `public int Size { get; }` |
 
-
 ## Key Methods
 
 ### RegisterEvents
+`public override void RegisterEvents()`
 
-```csharp
-public override void RegisterEvents()
-```
+**Purpose:** Handles logic related to `register events`.
 
 ### SyncData
+`public override void SyncData(IDataStore dataStore)`
 
-```csharp
-public override void SyncData(IDataStore dataStore)
-```
+**Purpose:** Handles logic related to `sync data`.
 
 ### IsTrackDropped
+`public bool IsTrackDropped(MobileParty mobileParty)`
 
-```csharp
-public bool IsTrackDropped(MobileParty mobileParty)
-```
+**Purpose:** Handles logic related to `is track dropped`.
 
 ### AddTrack
+`public void AddTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-```csharp
-public void AddTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)
-```
+**Purpose:** Adds `track` to the current collection or state.
 
 ### AddMapArrow
+`public void AddMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-```csharp
-public void AddMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)
-```
+**Purpose:** Adds `map arrow` to the current collection or state.
 
 ### RequestTrack
+`public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-```csharp
-public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)
-```
+**Purpose:** Handles logic related to `request track`.
 
 ### RequestMapArrow
+`public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-```csharp
-public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)
-```
+**Purpose:** Handles logic related to `request map arrow`.
 
 ### ReleaseTrack
+`public void ReleaseTrack(Track track)`
 
-```csharp
-public void ReleaseTrack(Track track)
-```
+**Purpose:** Handles logic related to `release track`.
 
 ### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+## Usage Example
 
 ```csharp
-public override string ToString()
+var value = new MapTracksCampaignBehavior();
+value.RegisterEvents();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

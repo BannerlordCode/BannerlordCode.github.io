@@ -5,6 +5,10 @@ description: Bannerlord SDK full module map, layered architecture, and mod devel
 
 # SDK Overview — Module Map & Developer Roadmap
 
+## Mental Model
+
+Treat `SDK Overview — Module Map & Developer Roadmap` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 > This is the **navigation hub** of the whole documentation. It is not just a module list — it answers three questions from a developer's perspective: **why** each layer exists, **when** you will touch it, and **how** to jump from here to the relevant API docs. After reading this page you should be able to tell, in under a minute, "which layers does my task need, what's the entry class, and where is the doc".
 
 ## In one sentence

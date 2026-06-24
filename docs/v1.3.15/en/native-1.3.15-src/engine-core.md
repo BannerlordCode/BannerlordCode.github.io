@@ -9,6 +9,10 @@ description: TaleWorlds.Native.dll engine core class reference
 
 The engine core module contains core interfaces and implementations for TaleWorlds.Native.dll.
 
+## Mental Model
+
+Treat `Engine Core` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Core Classes
 
 ### Core
@@ -323,4 +327,10 @@ Epic module extension.
 
 ```cpp
 ftmmEpic_module_extension::vftable
+```
+
+## Usage Example
+
+```csharp
+var example = new Engine Core();
 ```

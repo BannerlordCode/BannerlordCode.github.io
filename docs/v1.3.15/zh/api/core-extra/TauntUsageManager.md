@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `TauntUsageManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TauntUsageManager
@@ -14,97 +15,100 @@
 
 ## 概述
 
-`TauntUsageManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`TauntUsageManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `TauntUsageManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `Instance` | `public static TauntUsageManager Instance { get { if (TauntUsageManager._instance == null) { TauntUsageManager._instance = TauntUsageManager.Initialize(); }` |
+| `Instance` | `public static TauntUsageManager Instance { get; }` |
 | `UsageFlag` | `public TauntUsageManager.TauntUsage.TauntUsageFlag UsageFlag { get; }` |
 
 ## 主要方法
 
 ### Initialize
-```csharp
-public static TauntUsageManager Initialize()
-```
+`public static TauntUsageManager Initialize()`
+
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### Read
-```csharp
-public void Read()
-```
+`public void Read()`
+
+**用途 / Purpose:** 处理 `read` 相关逻辑。
 
 ### GetUsageSet
-```csharp
-public TauntUsageManager.TauntUsageSet GetUsageSet(string id)
-```
+`public TauntUsageManager.TauntUsageSet GetUsageSet(string id)`
+
+**用途 / Purpose:** 获取 `usage set` 的当前值。
 
 ### GetAction
-```csharp
-public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 获取 `action` 的当前值。
 
 ### GetActionDisabledReasonText
-```csharp
-public static string GetActionDisabledReasonText(TauntUsageManager.TauntUsage.TauntUsageFlag disabledReasonFlag)
-```
+`public static string GetActionDisabledReasonText(TauntUsageManager.TauntUsage.TauntUsageFlag disabledReasonFlag)`
+
+**用途 / Purpose:** 获取 `action disabled reason text` 的当前值。
 
 ### GetIsActionNotSuitableReason
-```csharp
-public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 获取 `is action not suitable reason` 的当前值。
 
 ### GetTauntItemCount
-```csharp
-public int GetTauntItemCount()
-```
+`public int GetTauntItemCount()`
+
+**用途 / Purpose:** 获取 `taunt item count` 的当前值。
 
 ### GetIndexOfAction
-```csharp
-public int GetIndexOfAction(string id)
-```
+`public int GetIndexOfAction(string id)`
+
+**用途 / Purpose:** 获取 `index of action` 的当前值。
 
 ### GetDefaultAction
-```csharp
-public string GetDefaultAction(int index)
-```
+`public string GetDefaultAction(int index)`
+
+**用途 / Purpose:** 获取 `default action` 的当前值。
 
 ### Compare
-```csharp
-public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)
-```
+`public int Compare(TauntUsageManager.TauntUsage.TauntUsageFlag x, TauntUsageManager.TauntUsage.TauntUsageFlag y)`
+
+**用途 / Purpose:** 处理 `compare` 相关逻辑。
 
 ### AddUsage
-```csharp
-public void AddUsage(TauntUsageManager.TauntUsage usage)
-```
+`public void AddUsage(TauntUsageManager.TauntUsage usage)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `usage`。
 
 ### GetUsages
-```csharp
-public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()
-```
+`public MBReadOnlyList<TauntUsageManager.TauntUsage> GetUsages()`
+
+**用途 / Purpose:** 获取 `usages` 的当前值。
 
 ### IsSuitable
-```csharp
-public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 处理 `is suitable` 相关逻辑。
 
 ### GetIsNotSuitableReason
-```csharp
-public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)
-```
+`public TauntUsageManager.TauntUsage.TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
+
+**用途 / Purpose:** 获取 `is not suitable reason` 的当前值。
 
 ### GetAction
-```csharp
-public string GetAction()
-```
+`public string GetAction()`
+
+**用途 / Purpose:** 获取 `action` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// TauntUsageManager (Manager) 的典型用法
-TauntUsageManager.Current;
+var manager = TauntUsageManager.Current;
 ```
 
 ## 参见

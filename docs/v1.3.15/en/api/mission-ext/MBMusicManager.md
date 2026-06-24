@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBMusicManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBMusicManager
@@ -14,165 +15,185 @@
 
 ## Overview
 
-`MBMusicManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MBMusicManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MBMusicManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Current` | `public static MBMusicManager Current { get; }` |
+| `CurrentMode` | `public MusicMode CurrentMode { get; }` |
 
 ## Key Methods
 
 ### IsCreationCompleted
-```csharp
-public static bool IsCreationCompleted()
-```
+`public static bool IsCreationCompleted()`
+
+**Purpose:** Handles logic related to `is creation completed`.
 
 ### Create
-```csharp
-public static void Create()
-```
+`public static void Create()`
+
+**Purpose:** Creates a new `create` instance or object.
 
 ### Initialize
-```csharp
-public static void Initialize()
-```
+`public static void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### OnCampaignMusicHandlerInit
-```csharp
-public void OnCampaignMusicHandlerInit(IMusicHandler campaignMusicHandler)
-```
+`public void OnCampaignMusicHandlerInit(IMusicHandler campaignMusicHandler)`
+
+**Purpose:** Called when the `campaign music handler init` event is raised.
 
 ### OnCampaignMusicHandlerFinalize
-```csharp
-public void OnCampaignMusicHandlerFinalize()
-```
+`public void OnCampaignMusicHandlerFinalize()`
+
+**Purpose:** Called when the `campaign music handler finalize` event is raised.
 
 ### OnBattleMusicHandlerInit
-```csharp
-public void OnBattleMusicHandlerInit(IMusicHandler battleMusicHandler)
-```
+`public void OnBattleMusicHandlerInit(IMusicHandler battleMusicHandler)`
+
+**Purpose:** Called when the `battle music handler init` event is raised.
 
 ### OnBattleMusicHandlerFinalize
-```csharp
-public void OnBattleMusicHandlerFinalize()
-```
+`public void OnBattleMusicHandlerFinalize()`
+
+**Purpose:** Called when the `battle music handler finalize` event is raised.
 
 ### OnSilencedMusicHandlerInit
-```csharp
-public void OnSilencedMusicHandlerInit(IMusicHandler silencedMusicHandler)
-```
+`public void OnSilencedMusicHandlerInit(IMusicHandler silencedMusicHandler)`
+
+**Purpose:** Called when the `silenced music handler init` event is raised.
 
 ### OnSilencedMusicHandlerFinalize
-```csharp
-public void OnSilencedMusicHandlerFinalize()
-```
+`public void OnSilencedMusicHandlerFinalize()`
+
+**Purpose:** Called when the `silenced music handler finalize` event is raised.
 
 ### ActivateBattleMode
-```csharp
-public void ActivateBattleMode()
-```
+`public void ActivateBattleMode()`
+
+**Purpose:** Handles logic related to `activate battle mode`.
 
 ### DeactivateBattleMode
-```csharp
-public void DeactivateBattleMode()
-```
+`public void DeactivateBattleMode()`
+
+**Purpose:** Handles logic related to `deactivate battle mode`.
 
 ### ActivateCampaignMode
-```csharp
-public void ActivateCampaignMode()
-```
+`public void ActivateCampaignMode()`
+
+**Purpose:** Handles logic related to `activate campaign mode`.
 
 ### DeactivateCampaignMode
-```csharp
-public void DeactivateCampaignMode()
-```
+`public void DeactivateCampaignMode()`
+
+**Purpose:** Handles logic related to `deactivate campaign mode`.
 
 ### DeactivateCurrentMode
-```csharp
-public void DeactivateCurrentMode()
-```
+`public void DeactivateCurrentMode()`
+
+**Purpose:** Handles logic related to `deactivate current mode`.
 
 ### UnpauseMusicManagerSystem
-```csharp
-public void UnpauseMusicManagerSystem()
-```
+`public void UnpauseMusicManagerSystem()`
+
+**Purpose:** Handles logic related to `unpause music manager system`.
 
 ### PauseMusicManagerSystem
-```csharp
-public void PauseMusicManagerSystem()
-```
+`public void PauseMusicManagerSystem()`
+
+**Purpose:** Handles logic related to `pause music manager system`.
 
 ### StartTheme
-```csharp
-public void StartTheme(MusicTheme theme, float startIntensity, bool queueEndSegment = false)
-```
+`public void StartTheme(MusicTheme theme, float startIntensity, bool queueEndSegment = false)`
+
+**Purpose:** Handles logic related to `start theme`.
 
 ### StartThemeWithConstantIntensity
-```csharp
-public void StartThemeWithConstantIntensity(MusicTheme theme, bool queueEndSegment = false)
-```
+`public void StartThemeWithConstantIntensity(MusicTheme theme, bool queueEndSegment = false)`
+
+**Purpose:** Handles logic related to `start theme with constant intensity`.
 
 ### ForceStopThemeWithFadeOut
-```csharp
-public void ForceStopThemeWithFadeOut()
-```
+`public void ForceStopThemeWithFadeOut()`
+
+**Purpose:** Handles logic related to `force stop theme with fade out`.
 
 ### ChangeCurrentThemeIntensity
-```csharp
-public void ChangeCurrentThemeIntensity(float deltaIntensity)
-```
+`public void ChangeCurrentThemeIntensity(float deltaIntensity)`
+
+**Purpose:** Handles logic related to `change current theme intensity`.
 
 ### Update
-```csharp
-public void Update(float dt)
-```
+`public void Update(float dt)`
+
+**Purpose:** Updates the state or data of `update`.
 
 ### GetSiegeTheme
-```csharp
-public MusicTheme GetSiegeTheme(BasicCultureObject culture)
-```
+`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
+
+**Purpose:** Gets the current value of `siege theme`.
 
 ### GetBattleTheme
-```csharp
-public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)
-```
+`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
+
+**Purpose:** Gets the current value of `battle theme`.
 
 ### GetBattleEndTheme
-```csharp
-public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictory)
-```
+`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictory)`
+
+**Purpose:** Gets the current value of `battle end theme`.
 
 ### GetBattleTurnsOneSideTheme
-```csharp
-public MusicTheme GetBattleTurnsOneSideTheme(BasicCultureObject culture, bool isPositive, bool isPaganBattle)
-```
+`public MusicTheme GetBattleTurnsOneSideTheme(BasicCultureObject culture, bool isPositive, bool isPaganBattle)`
+
+**Purpose:** Gets the current value of `battle turns one side theme`.
 
 ### GetCampaignMusicTheme
-```csharp
-public MusicTheme GetCampaignMusicTheme(BasicCultureObject culture, bool isDark, bool isWarMode, bool isAtSea)
-```
+`public MusicTheme GetCampaignMusicTheme(BasicCultureObject culture, bool isDark, bool isWarMode, bool isAtSea)`
+
+**Purpose:** Gets the current value of `campaign music theme`.
 
 ### GetCampaignTheme
-```csharp
-public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)
-```
+`public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)`
+
+**Purpose:** Gets the current value of `campaign theme`.
 
 ### GetCampaignDramaticThemeWithCulture
-```csharp
-public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)
-```
+`public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)`
+
+**Purpose:** Gets the current value of `campaign dramatic theme with culture`.
 
 ### GetSeaCampignMusic
-```csharp
-public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)
-```
+`public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)`
+
+**Purpose:** Gets the current value of `sea campign music`.
 
 ### GetBattleTheme
-```csharp
-public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)
-```
+`public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
+
+**Purpose:** Gets the current value of `battle theme`.
+
+### GetSiegeTheme
+`public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
+
+**Purpose:** Gets the current value of `siege theme`.
+
+### GetBattleEndTheme
+`public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictorious)`
+
+**Purpose:** Gets the current value of `battle end theme`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBMusicManager (Manager)
-MBMusicManager.Current;
+var manager = MBMusicManager.Current;
 ```
 
 ## See Also

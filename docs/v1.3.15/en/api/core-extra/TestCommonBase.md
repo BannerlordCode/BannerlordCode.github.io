@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `TestCommonBase`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TestCommonBase
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public abstract class TestCommonBase`
+**Base:** none
+**File:** `TaleWorlds.Library/TestCommonBase.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TestCommonBase` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TestCommonBase` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -23,76 +27,69 @@
 |------|-----------|
 | `BaseInstance` | `public static TestCommonBase BaseInstance { get; }` |
 
-
 ## Key Methods
 
 ### Tick
+`public abstract void Tick()`
 
-```csharp
-public abstract void Tick()
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### StartTimeoutTimer
+`public void StartTimeoutTimer()`
 
-```csharp
-public void StartTimeoutTimer()
-```
+**Purpose:** Handles logic related to `start timeout timer`.
 
 ### ToggleTimeoutTimer
+`public void ToggleTimeoutTimer()`
 
-```csharp
-public void ToggleTimeoutTimer()
-```
+**Purpose:** Handles logic related to `toggle timeout timer`.
 
 ### CheckTimeoutTimer
+`public bool CheckTimeoutTimer()`
 
-```csharp
-public bool CheckTimeoutTimer()
-```
+**Purpose:** Handles logic related to `check timeout timer`.
 
 ### GetGameStatus
+`public virtual string GetGameStatus()`
 
-```csharp
-public virtual string GetGameStatus()
-```
+**Purpose:** Gets the current value of `game status`.
 
 ### WaitFor
+`public void WaitFor(double seconds)`
 
-```csharp
-public void WaitFor(double seconds)
-```
+**Purpose:** Handles logic related to `wait for`.
 
 ### WaitUntil
+`public virtual Task WaitUntil(Func<bool> func)`
 
-```csharp
-public virtual Task WaitUntil(Func<bool> func)
-```
-
-### WaitForAsync
-
-```csharp
-public Task WaitForAsync(double seconds, Random random)
-```
+**Purpose:** Handles logic related to `wait until`.
 
 ### WaitForAsync
+`public Task WaitForAsync(double seconds, Random random)`
 
-```csharp
-public Task WaitForAsync(double seconds)
-```
+**Purpose:** Handles logic related to `wait for async`.
+
+### WaitForAsync
+`public Task WaitForAsync(double seconds)`
+
+**Purpose:** Handles logic related to `wait for async`.
 
 ### GetAttachmentsFolderPath
+`public static string GetAttachmentsFolderPath()`
 
-```csharp
-public static string GetAttachmentsFolderPath()
-```
+**Purpose:** Gets the current value of `attachments folder path`.
 
 ### OnFinalize
+`public virtual void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public virtual void OnFinalize()
+var implementation = new CustomTestCommonBase();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCharacterStatsModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCharacterStatsModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultCharacterStatsModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCharacterStatsModel>(new MyDefaultCharacterStatsModel())` to change how it computes.
+`DefaultCharacterStatsModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCharacterStatsModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,24 +30,23 @@
 ## Key Methods
 
 ### WoundedHitPointLimit
-```csharp
-public override int WoundedHitPointLimit(Hero hero)
-```
+`public override int WoundedHitPointLimit(Hero hero)`
+
+**Purpose:** Handles logic related to `wounded hit point limit`.
 
 ### GetTier
-```csharp
-public override int GetTier(CharacterObject character)
-```
+`public override int GetTier(CharacterObject character)`
+
+**Purpose:** Gets the current value of `tier`.
 
 ### MaxHitpoints
-```csharp
-public override ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)
-```
+`public override ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `max hitpoints`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCharacterStatsModel (Model)
 Game.Current.ReplaceModel<DefaultCharacterStatsModel>(new MyDefaultCharacterStatsModel());
 ```
 

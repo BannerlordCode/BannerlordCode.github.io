@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PartyWageModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyWageModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`PartyWageModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<PartyWageModel>(new MyPartyWageModel())` to change how it computes.
+`PartyWageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `PartyWageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,25 +30,24 @@
 ## Key Methods
 
 ### GetCharacterWage
-```csharp
-public abstract int GetCharacterWage(CharacterObject character)
-```
+`public abstract int GetCharacterWage(CharacterObject character)`
+
+**Purpose:** Gets the current value of `character wage`.
 
 ### GetTotalWage
-```csharp
-public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `total wage`.
 
 ### GetTroopRecruitmentCost
-```csharp
-public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)
-```
+`public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
+
+**Purpose:** Gets the current value of `troop recruitment cost`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PartyWageModel (Model)
-Game.Current.ReplaceModel<PartyWageModel>(new MyPartyWageModel());
+var implementation = new CustomPartyWageModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `NativeScriptComponent`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # NativeScriptComponent
@@ -14,13 +15,16 @@
 
 ## Overview
 
-`NativeScriptComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<NativeScriptComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`NativeScriptComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `NativeScriptComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of NativeScriptComponent (Component)
-agent.GetComponent<NativeScriptComponent>();
+var component = agent.GetComponent<NativeScriptComponent>();
 ```
 
 ## See Also

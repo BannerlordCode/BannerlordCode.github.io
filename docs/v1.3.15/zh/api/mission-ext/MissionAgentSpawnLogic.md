@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MissionAgentSpawnLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionAgentSpawnLogic
@@ -14,189 +15,222 @@
 
 ## 概述
 
-`MissionAgentSpawnLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new MissionAgentSpawnLogic())` 添加；继承它可定制。
+`MissionAgentSpawnLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `MissionAgentSpawnLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
-| `NumberOfAgents` | `public int NumberOfAgents { get { return base.Mission.AllAgents.Count; }` |
-| `NumberOfActiveDefenderTroops` | `public int NumberOfActiveDefenderTroops { get { MissionAgentSpawnLogic.SpawnPhase defenderActivePhase = this.DefenderActivePhase; if (defenderActivePhase == null) { return 0; }` |
-| `NumberOfActiveAttackerTroops` | `public int NumberOfActiveAttackerTroops { get { MissionAgentSpawnLogic.SpawnPhase attackerActivePhase = this.AttackerActivePhase; if (attackerActivePhase == null) { return 0; }` |
-| `NumberOfRemainingDefenderTroops` | `public int NumberOfRemainingDefenderTroops { get { MissionAgentSpawnLogic.SpawnPhase defenderActivePhase = this.DefenderActivePhase; if (defenderActivePhase == null) { return 0; }` |
-| `NumberOfRemainingAttackerTroops` | `public int NumberOfRemainingAttackerTroops { get { MissionAgentSpawnLogic.SpawnPhase attackerActivePhase = this.AttackerActivePhase; if (attackerActivePhase == null) { return 0; }` |
-| `BattleSize` | `public int BattleSize { get { return this._battleSize; }` |
-| `IsInitialSpawnOver` | `public bool IsInitialSpawnOver { get { return this.DefenderActivePhase.InitialSpawnNumber + this.AttackerActivePhase.InitialSpawnNumber == 0; }` |
-| `IsDeploymentOver` | `public bool IsDeploymentOver { get { return base.Mission.Mode != MissionMode.Deployment && this.IsInitialSpawnOver; }` |
-| `ReinforcementSpawnSettings` | `public readonly ref MissionSpawnSettings ReinforcementSpawnSettings { get { return ref this._spawnSettings; }` |
-| `NumTroops` | `public int NumTroops { get { return this.FootTroopCount + this.MountedTroopCount; }` |
+| `MaxNumberOfAgentsForMission` | `public static int MaxNumberOfAgentsForMission { get; }` |
+| `NumberOfAgents` | `public int NumberOfAgents { get; }` |
+| `NumberOfRemainingTroops` | `public int NumberOfRemainingTroops { get; }` |
+| `NumberOfActiveDefenderTroops` | `public int NumberOfActiveDefenderTroops { get; }` |
+| `NumberOfActiveAttackerTroops` | `public int NumberOfActiveAttackerTroops { get; }` |
+| `NumberOfRemainingDefenderTroops` | `public int NumberOfRemainingDefenderTroops { get; }` |
+| `NumberOfRemainingAttackerTroops` | `public int NumberOfRemainingAttackerTroops { get; }` |
+| `BattleSize` | `public int BattleSize { get; }` |
+| `IsInitialSpawnOver` | `public bool IsInitialSpawnOver { get; }` |
+| `IsDeploymentOver` | `public bool IsDeploymentOver { get; }` |
+| `ReinforcementSpawnSettings` | `public readonly ref MissionSpawnSettings ReinforcementSpawnSettings { get; }` |
+| `NumTroops` | `public int NumTroops { get; }` |
+| `TroopSpawnActive` | `public bool TroopSpawnActive { get; }` |
 | `IsPlayerSide` | `public bool IsPlayerSide { get; }` |
-| `SpawnWithHorses` | `public bool SpawnWithHorses { get { return this._spawnWithHorses; }` |
-| `NumberOfActiveTroops` | `public int NumberOfActiveTroops { get { return this._numSpawnedTroops - this._troopSupplier.NumRemovedTroops; }` |
-| `ReinforcementQuotaRequirement` | `public int ReinforcementQuotaRequirement { get { return this._reinforcementQuotaRequirement; }` |
-| `ReinforcementsSpawnedInLastBatch` | `public int ReinforcementsSpawnedInLastBatch { get { return this._reinforcementsSpawnedInLastBatch; }` |
-| `ReinforcementBatchSize` | `public float ReinforcementBatchSize { get { return (float)this._reinforcementBatchSize; }` |
-| `HasReservedTroops` | `public bool HasReservedTroops { get { return this._reservedTroops.Count > 0; }` |
-| `ReinforcementBatchPriority` | `public float ReinforcementBatchPriority { get { return this._reinforcementBatchPriority; }` |
-| `ReservedTroopsCount` | `public int ReservedTroopsCount { get { return this._reservedTroops.Count; }` |
-| `HasSpawnableReinforcements` | `public bool HasSpawnableReinforcements { get { return this.ReinforcementSpawnActive && this.HasReservedTroops && this.ReinforcementBatchSize > 0f; }` |
+| `ReinforcementSpawnActive` | `public bool ReinforcementSpawnActive { get; }` |
+| `SpawnWithHorses` | `public bool SpawnWithHorses { get; }` |
+| `ReinforcementsNotifiedOnLastBatch` | `public bool ReinforcementsNotifiedOnLastBatch { get; }` |
+| `NumberOfActiveTroops` | `public int NumberOfActiveTroops { get; }` |
+| `ReinforcementQuotaRequirement` | `public int ReinforcementQuotaRequirement { get; }` |
+| `ReinforcementsSpawnedInLastBatch` | `public int ReinforcementsSpawnedInLastBatch { get; }` |
+| `ReinforcementBatchSize` | `public float ReinforcementBatchSize { get; }` |
+| `HasReservedTroops` | `public bool HasReservedTroops { get; }` |
+| `ReinforcementBatchPriority` | `public float ReinforcementBatchPriority { get; }` |
+| `ReservedTroopsCount` | `public int ReservedTroopsCount { get; }` |
+| `HasSpawnableReinforcements` | `public bool HasSpawnableReinforcements { get; }` |
 
 ## 主要方法
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
 
 ### InitWithSinglePhase
-```csharp
-public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)
-```
+`public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)`
+
+**用途 / Purpose:** 初始化 `with single phase` 的状态、资源或绑定。
 
 ### GetAllTroopsForSide
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `all troops for side` 的当前值。
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ### SetCustomReinforcementSpawnTimer
-```csharp
-public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)
-```
+`public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)`
+
+**用途 / Purpose:** 设置 `custom reinforcement spawn timer` 的值或状态。
 
 ### SetSpawnTroops
-```csharp
-public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)
-```
+`public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)`
+
+**用途 / Purpose:** 设置 `spawn troops` 的值或状态。
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### SetSpawnHorses
-```csharp
-public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)
-```
+`public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)`
+
+**用途 / Purpose:** 设置 `spawn horses` 的值或状态。
 
 ### StartSpawner
-```csharp
-public void StartSpawner(BattleSideEnum side)
-```
+`public void StartSpawner(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `start spawner` 相关逻辑。
 
 ### StopSpawner
-```csharp
-public void StopSpawner(BattleSideEnum side)
-```
+`public void StopSpawner(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `stop spawner` 相关逻辑。
 
 ### IsSideSpawnEnabled
-```csharp
-public bool IsSideSpawnEnabled(BattleSideEnum side)
-```
+`public bool IsSideSpawnEnabled(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `is side spawn enabled` 相关逻辑。
 
 ### OnSideDeploymentOver
-```csharp
-public void OnSideDeploymentOver(BattleSideEnum battleSide)
-```
+`public void OnSideDeploymentOver(BattleSideEnum battleSide)`
+
+**用途 / Purpose:** 当 `side deployment over` 事件触发时调用此方法。
 
 ### GetReinforcementInterval
-```csharp
-public float GetReinforcementInterval()
-```
+`public float GetReinforcementInterval()`
+
+**用途 / Purpose:** 获取 `reinforcement interval` 的当前值。
 
 ### SetReinforcementsSpawnEnabled
-```csharp
-public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)
-```
+`public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)`
+
+**用途 / Purpose:** 设置 `reinforcements spawn enabled` 的值或状态。
 
 ### GetTotalNumberOfTroopsForSide
-```csharp
-public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)
-```
+`public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `total number of troops for side` 的当前值。
 
 ### GetGeneralCharacterOfSide
-```csharp
-public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)
-```
+`public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `general character of side` 的当前值。
 
 ### GetSpawnHorses
-```csharp
-public bool GetSpawnHorses(BattleSideEnum side)
-```
+`public bool GetSpawnHorses(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `spawn horses` 的当前值。
 
 ### IsSideDepleted
-```csharp
-public bool IsSideDepleted(BattleSideEnum side)
-```
+`public bool IsSideDepleted(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
 
 ### AddPhaseChangeAction
-```csharp
-public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)
-```
+`public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `phase change action`。
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
 
 ### TryReinforcementSpawn
-```csharp
-public int TryReinforcementSpawn()
-```
+`public int TryReinforcementSpawn()`
+
+**用途 / Purpose:** 尝试获取 `reinforcement spawn`，通常以 out 参数返回结果。
 
 ### GetTeamFormationsSpawnData
-```csharp
-public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })
-```
+`public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })`
+
+**用途 / Purpose:** 获取 `team formations spawn data` 的当前值。
 
 ### ReserveTroops
-```csharp
-public void ReserveTroops(int number)
-```
+`public void ReserveTroops(int number)`
+
+**用途 / Purpose:** 处理 `reserve troops` 相关逻辑。
 
 ### GetGeneralCharacter
-```csharp
-public BasicCharacterObject GetGeneralCharacter()
-```
+`public BasicCharacterObject GetGeneralCharacter()`
+
+**用途 / Purpose:** 获取 `general character` 的当前值。
 
 ### CheckReinforcementBatch
-```csharp
-public unsafe bool CheckReinforcementBatch()
-```
+`public unsafe bool CheckReinforcementBatch()`
+
+**用途 / Purpose:** 处理 `check reinforcement batch` 相关逻辑。
 
 ### GetAllTroops
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroops()
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
+
+**用途 / Purpose:** 获取 `all troops` 的当前值。
 
 ### SpawnTroops
-```csharp
-public int SpawnTroops(int number, bool isReinforcement)
-```
+`public int SpawnTroops(int number, bool isReinforcement)`
+
+**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
 
 ### SetSpawnWithHorses
-```csharp
-public void SetSpawnWithHorses(bool spawnWithHorses)
-```
+`public void SetSpawnWithHorses(bool spawnWithHorses)`
+
+**用途 / Purpose:** 设置 `spawn with horses` 的值或状态。
 
 ### SetBannerBearerLogic
-```csharp
-public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)
-```
+`public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
+
+**用途 / Purpose:** 设置 `banner bearer logic` 的值或状态。
+
+### SetReinforcementsNotifiedOnLastBatch
+`public void SetReinforcementsNotifiedOnLastBatch(bool value)`
+
+**用途 / Purpose:** 设置 `reinforcements notified on last batch` 的值或状态。
+
+### SetSpawnTroops
+`public void SetSpawnTroops(bool spawnTroops)`
+
+**用途 / Purpose:** 设置 `spawn troops` 的值或状态。
+
+### OnInitialSpawnOver
+`public void OnInitialSpawnOver()`
+
+**用途 / Purpose:** 当 `initial spawn over` 事件触发时调用此方法。
+
+### OnInitialTroopsSpawned
+`public void OnInitialTroopsSpawned()`
+
+**用途 / Purpose:** 当 `initial troops spawned` 事件触发时调用此方法。
+
+### OnPhaseChangedDelegate
+`public delegate void OnPhaseChangedDelegate()`
+
+**用途 / Purpose:** 当 `phase changed delegate` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// MissionAgentSpawnLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new MissionAgentSpawnLogic());
 ```
 

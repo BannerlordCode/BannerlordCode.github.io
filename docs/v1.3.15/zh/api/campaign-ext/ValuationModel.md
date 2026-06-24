@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `ValuationModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ValuationModel
@@ -14,30 +15,33 @@
 
 ## 概述
 
-`ValuationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<ValuationModel>(new MyValuationModel())` 注册，以改变其计算逻辑。
+`ValuationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `ValuationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetValueOfTroop
-```csharp
-public abstract float GetValueOfTroop(CharacterObject troop)
-```
+`public abstract float GetValueOfTroop(CharacterObject troop)`
+
+**用途 / Purpose:** 获取 `value of troop` 的当前值。
 
 ### GetMilitaryValueOfParty
-```csharp
-public abstract float GetMilitaryValueOfParty(MobileParty party)
-```
+`public abstract float GetMilitaryValueOfParty(MobileParty party)`
+
+**用途 / Purpose:** 获取 `military value of party` 的当前值。
 
 ### GetValueOfHero
-```csharp
-public abstract float GetValueOfHero(Hero hero)
-```
+`public abstract float GetValueOfHero(Hero hero)`
+
+**用途 / Purpose:** 获取 `value of hero` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// ValuationModel (Model) 的典型用法
-Game.Current.ReplaceModel<ValuationModel>(new MyValuationModel());
+var implementation = new CustomValuationModel();
 ```
 
 ## 参见

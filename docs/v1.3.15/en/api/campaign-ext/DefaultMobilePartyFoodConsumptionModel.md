@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMobilePartyFoodConsumptionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMobilePartyFoodConsumptionModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultMobilePartyFoodConsumptionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMobilePartyFoodConsumptionModel>(new MyDefaultMobilePartyFoodConsumptionModel())` to change how it computes.
+`DefaultMobilePartyFoodConsumptionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMobilePartyFoodConsumptionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,24 +30,23 @@
 ## Key Methods
 
 ### CalculateDailyBaseFoodConsumptionf
-```csharp
-public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)
-```
+`public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
+
+**Purpose:** Handles logic related to `calculate daily base food consumptionf`.
 
 ### CalculateDailyFoodConsumptionf
-```csharp
-public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)
-```
+`public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
+
+**Purpose:** Handles logic related to `calculate daily food consumptionf`.
 
 ### DoesPartyConsumeFood
-```csharp
-public override bool DoesPartyConsumeFood(MobileParty mobileParty)
-```
+`public override bool DoesPartyConsumeFood(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `does party consume food`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMobilePartyFoodConsumptionModel (Model)
 Game.Current.ReplaceModel<DefaultMobilePartyFoodConsumptionModel>(new MyDefaultMobilePartyFoodConsumptionModel());
 ```
 

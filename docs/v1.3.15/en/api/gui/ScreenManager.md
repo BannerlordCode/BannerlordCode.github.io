@@ -2,87 +2,253 @@
 **Home** → **API Index** → **Area** → `ScreenManager`
 - [← Area / Back to gui](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
-# ScreenManager / 屏幕管理器
+# ScreenManager
 
-**Namespace**: TaleWorlds.ScreenSystem
-**File**: `TaleWorlds.ScreenSystem/ScreenManager.cs`
-**Purpose**: Manages the game screen stack and global layers, handles screen transitions, input routing, and focus management
+**Namespace:** TaleWorlds.ScreenSystem
+**Module:** TaleWorlds.ScreenSystem
+**Type:** `public static class ScreenManager`
+**Base:** none
+**File:** `TaleWorlds.ScreenSystem/ScreenManager.cs`
 
-ScreenManager is the core manager of the game UI system. It maintains the screen list, handles screen transitions, manages global layers, and processes input events.
+## Overview
+
+`ScreenManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ScreenManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| TopScreen | ScreenBase | The current topmost active screen |
-| FocusedLayer | ScreenLayer | The layer currently having input focus |
-| FirstHitLayer | ScreenLayer | The first layer hit this frame |
-| Scale | float | UI scale factor |
-| UsableArea | Vec2 | Usable area size |
-| SortedLayers | List ScreenLayer | Layers sorted by render order |
-| IsEnterButtonRDown | bool | Whether the Enter button (controller) is pressed |
-| IsWindowFocused | bool | Whether the game window has focus |
-| IsLateTickInProgress | bool | Whether LateTick is in progress |
+| Name | Signature |
+|------|-----------|
+| `EngineInterface` | `public static IScreenManagerEngineConnection EngineInterface { get; }` |
+| `Scale` | `public static float Scale { get; }` |
+| `UsableArea` | `public static Vec2 UsableArea { get; }` |
+| `IsEnterButtonRDown` | `public static bool IsEnterButtonRDown { get; }` |
+| `IsLateTickInProgress` | `public static bool IsLateTickInProgress { get; }` |
+| `SortedLayers` | `public static List<ScreenLayer> SortedLayers { get; }` |
+| `TopScreen` | `public static ScreenBase TopScreen { get; }` |
+| `FocusedLayer` | `public static ScreenLayer FocusedLayer { get; }` |
+| `FirstHitLayer` | `public static ScreenLayer FirstHitLayer { get; }` |
+| `IsWindowFocused` | `public static bool IsWindowFocused { get; }` |
 
 ## Key Methods
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| PushScreen | `void PushScreen(ScreenBase screen)` | Pushes a screen onto the stack top, pausing the current screen |
-| PopScreen | `void PopScreen()` | Pops the top screen, resuming the previous screen |
-| ReplaceTopScreen | `void ReplaceTopScreen(ScreenBase screen)` | Replaces the top screen |
-| CleanAndPushScreen | `void CleanAndPushScreen(ScreenBase screen)` | Clears all screens then pushes a new screen |
-| CleanScreens | `void CleanScreens()` | Clears all screens |
-| SetAndActivateRootScreen | `void SetAndActivateRootScreen(ScreenBase screen)` | Sets and activates the root screen |
-| AddGlobalLayer | `void AddGlobalLayer(GlobalLayer layer, bool isFocusable)` | Adds a global layer |
-| RemoveGlobalLayer | `void RemoveGlobalLayer(GlobalLayer layer)` | Removes a global layer |
-| Tick | `void Tick(float dt)` | Main update loop |
-| LateTick | `void LateTick(float dt)` | Late update (rendering) |
-| UpdateLayout | `void UpdateLayout()` | Updates all layer layouts |
-| TrySetFocus | `void TrySetFocus(ScreenLayer layer)` | Attempts to set focus layer |
-| TryLoseFocus | `void TryLoseFocus(ScreenLayer layer)` | Attempts to release focus |
-| OnScaleChange | `void OnScaleChange(float newScale)` | Scale change callback |
-| ScreenTypeExistsAtList | `bool ScreenTypeExistsAtList(ScreenBase screen)` | Checks if a screen type already exists |
-| IsLayerBlockedAtPosition | `bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)` | Checks if position is blocked |
-| GetMouseVisibility | `bool GetMouseVisibility()` | Gets mouse visibility state |
-| IsControllerActive | `bool IsControllerActive()` | Checks if controller is active |
-| IsMouseCursorActive | `bool IsMouseCursorActive()` | Checks if mouse is active |
-| IsMouseCursorHidden | `bool IsMouseCursorHidden()` | Checks if mouse is hidden |
+### Initialize
+`public static void Initialize(IScreenManagerEngineConnection engineInterface)`
 
-## Events
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
-| Event | Description |
-|-------|-------------|
-| OnPushScreen | Triggered when a screen is pushed |
-| OnPopScreen | Triggered when a screen is popped |
-| OnControllerDisconnected | Triggered when controller disconnects |
-| FocusGained | Triggered when window gains focus |
-| PlatformTextRequested | Triggered when platform text input is requested |
+### RemoveGlobalLayer
+`public static void RemoveGlobalLayer(GlobalLayer layer)`
 
-## Usage Examples
+**Purpose:** Removes `global layer` from the current collection or state.
+
+### AddGlobalLayer
+`public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)`
+
+**Purpose:** Adds `global layer` to the current collection or state.
+
+### OnConstrainStateChanged
+`public static void OnConstrainStateChanged(bool isConstrained)`
+
+**Purpose:** Called when the `constrain state changed` event is raised.
+
+### ScreenTypeExistsAtList
+`public static bool ScreenTypeExistsAtList(ScreenBase screen)`
+
+**Purpose:** Handles logic related to `screen type exists at list`.
+
+### UpdateLayout
+`public static void UpdateLayout()`
+
+**Purpose:** Updates the state or data of `layout`.
+
+### SetSuspendLayer
+`public static void SetSuspendLayer(ScreenLayer layer, bool isSuspended)`
+
+**Purpose:** Sets the value or state of `suspend layer`.
+
+### OnFinalize
+`public static void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+### Tick
+`public static void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
+
+### LateTick
+`public static void LateTick(float dt)`
+
+**Purpose:** Handles logic related to `late tick`.
+
+### OnPlatformScreenKeyboardRequested
+`public static bool OnPlatformScreenKeyboardRequested(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
+
+**Purpose:** Called when the `platform screen keyboard requested` event is raised.
+
+### OnOnscreenKeyboardDone
+`public static void OnOnscreenKeyboardDone(string inputText)`
+
+**Purpose:** Called when the `onscreen keyboard done` event is raised.
+
+### OnOnscreenKeyboardCanceled
+`public static void OnOnscreenKeyboardCanceled()`
+
+**Purpose:** Called when the `onscreen keyboard canceled` event is raised.
+
+### OnGameWindowFocusChange
+`public static void OnGameWindowFocusChange(bool focusGained)`
+
+**Purpose:** Called when the `game window focus change` event is raised.
+
+### ReplaceTopScreen
+`public static void ReplaceTopScreen(ScreenBase screen)`
+
+**Purpose:** Handles logic related to `replace top screen`.
+
+### GetPersistentInputRestrictions
+`public static List<ScreenLayer> GetPersistentInputRestrictions()`
+
+**Purpose:** Gets the current value of `persistent input restrictions`.
+
+### SetAndActivateRootScreen
+`public static void SetAndActivateRootScreen(ScreenBase screen)`
+
+**Purpose:** Sets the value or state of `and activate root screen`.
+
+### CleanAndPushScreen
+`public static void CleanAndPushScreen(ScreenBase screen)`
+
+**Purpose:** Handles logic related to `clean and push screen`.
+
+### ClearSiegeMachineSelection
+`public static string ClearSiegeMachineSelection(List<string> args)`
+
+**Purpose:** Handles logic related to `clear siege machine selection`.
+
+### CopyCustomBattle
+`public static string CopyCustomBattle(List<string> args)`
+
+**Purpose:** Handles logic related to `copy custom battle`.
+
+### ApplyCustomBattleLayout
+`public static string ApplyCustomBattleLayout(List<string> args)`
+
+**Purpose:** Applies `custom battle layout` to the current object.
+
+### PushScreen
+`public static void PushScreen(ScreenBase screen)`
+
+**Purpose:** Handles logic related to `push screen`.
+
+### PopScreen
+`public static void PopScreen()`
+
+**Purpose:** Handles logic related to `pop screen`.
+
+### CleanScreens
+`public static void CleanScreens()`
+
+**Purpose:** Handles logic related to `clean screens`.
+
+### Update
+`public static void Update(IReadOnlyList<int> lastKeysPressed)`
+
+**Purpose:** Updates the state or data of `update`.
+
+### EarlyUpdate
+`public static void EarlyUpdate(Vec2 usableArea)`
+
+**Purpose:** Handles logic related to `early update`.
+
+### IsControllerActive
+`public static bool IsControllerActive()`
+
+**Purpose:** Handles logic related to `is controller active`.
+
+### IsMouseCursorHidden
+`public static bool IsMouseCursorHidden()`
+
+**Purpose:** Handles logic related to `is mouse cursor hidden`.
+
+### IsMouseCursorActive
+`public static bool IsMouseCursorActive()`
+
+**Purpose:** Handles logic related to `is mouse cursor active`.
+
+### IsLayerBlockedAtPosition
+`public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)`
+
+**Purpose:** Handles logic related to `is layer blocked at position`.
+
+### GetMouseVisibility
+`public static bool GetMouseVisibility()`
+
+**Purpose:** Gets the current value of `mouse visibility`.
+
+### TrySetFocus
+`public static void TrySetFocus(ScreenLayer layer)`
+
+**Purpose:** Attempts to get `set focus`, usually returning the result in an out parameter.
+
+### TryLoseFocus
+`public static void TryLoseFocus(ScreenLayer layer)`
+
+**Purpose:** Attempts to get `lose focus`, usually returning the result in an out parameter.
+
+### OnScaleChange
+`public static void OnScaleChange(float newScale)`
+
+**Purpose:** Called when the `scale change` event is raised.
+
+### OnControllerDisconnect
+`public static void OnControllerDisconnect()`
+
+**Purpose:** Called when the `controller disconnect` event is raised.
+
+### SetScreenDebugInformationEnabled
+`public static string SetScreenDebugInformationEnabled(List<string> args)`
+
+**Purpose:** Sets the value or state of `screen debug information enabled`.
+
+### SetScreenDebugInformationEnabled
+`public static void SetScreenDebugInformationEnabled(bool isEnabled)`
+
+**Purpose:** Sets the value or state of `screen debug information enabled`.
+
+### OnPushScreenEvent
+`public delegate void OnPushScreenEvent(ScreenBase pushedScreen)`
+
+**Purpose:** Called when the `push screen event` event is raised.
+
+### OnPopScreenEvent
+`public delegate void OnPopScreenEvent(ScreenBase poppedScreen)`
+
+**Purpose:** Called when the `pop screen event` event is raised.
+
+### OnControllerDisconnectedEvent
+`public delegate void OnControllerDisconnectedEvent()`
+
+**Purpose:** Called when the `controller disconnected event` event is raised.
+
+### OnPlatformTextRequestedDelegate
+`public delegate bool OnPlatformTextRequestedDelegate(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
+
+**Purpose:** Called when the `platform text requested delegate` event is raised.
+
+## Usage Example
 
 ```csharp
-// Push a new screen
-ScreenManager.PushScreen(new MyCustomScreen());
-
-// Replace the current screen
-ScreenManager.ReplaceTopScreen(new MyCustomScreen());
-
-// Add a global layer (for menus, HUD, etc.)
-GlobalLayer myLayer = new GlobalLayer();
-ScreenManager.AddGlobalLayer(myLayer, isFocusable: true);
-
-// Check if controller is in use
-if (ScreenManager.IsControllerActive())
-{
-    // Use controller navigation logic
-}
-
-// Listen for screen transition events
-ScreenManager.OnPushScreen += (screen) => 
-{
-    Debug.WriteLine($"Screen pushed: {screen.GetType().Name}");
-};
+var manager = ScreenManager.Current;
 ```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

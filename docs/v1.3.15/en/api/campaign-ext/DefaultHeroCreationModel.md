@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultHeroCreationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultHeroCreationModel
@@ -14,89 +15,92 @@
 
 ## Overview
 
-`DefaultHeroCreationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultHeroCreationModel>(new MyDefaultHeroCreationModel())` to change how it computes.
+`DefaultHeroCreationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultHeroCreationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetBirthAndDeathDay
-```csharp
-public override ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)
-```
+`public override ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)`
+
+**Purpose:** Gets the current value of `birth and death day`.
 
 ### GetBornSettlement
-```csharp
-public override Settlement GetBornSettlement(Hero hero)
-```
+`public override Settlement GetBornSettlement(Hero hero)`
+
+**Purpose:** Gets the current value of `born settlement`.
 
 ### GetStaticBodyProperties
-```csharp
-public override StaticBodyProperties GetStaticBodyProperties(Hero hero, bool isOffspring, float variationAmount = 0.35f)
-```
+`public override StaticBodyProperties GetStaticBodyProperties(Hero hero, bool isOffspring, float variationAmount = 0.35f)`
+
+**Purpose:** Gets the current value of `static body properties`.
 
 ### GetPreferredUpgradeFormation
-```csharp
-public override FormationClass GetPreferredUpgradeFormation(Hero hero)
-```
+`public override FormationClass GetPreferredUpgradeFormation(Hero hero)`
+
+**Purpose:** Gets the current value of `preferred upgrade formation`.
 
 ### GetClan
-```csharp
-public override Clan GetClan(Hero hero)
-```
+`public override Clan GetClan(Hero hero)`
+
+**Purpose:** Gets the current value of `clan`.
 
 ### GetCulture
-```csharp
-public override CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)
-```
+`public override CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)`
+
+**Purpose:** Gets the current value of `culture`.
 
 ### GetRandomTemplateByOccupation
-```csharp
-public override CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)
-```
+`public override CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)`
+
+**Purpose:** Gets the current value of `random template by occupation`.
 
 ### GetTraitsForHero
-```csharp
-public override List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)
-```
+`public override List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `traits for hero`.
 
 ### GetCivilianEquipment
-```csharp
-public override Equipment GetCivilianEquipment(Hero hero)
-```
+`public override Equipment GetCivilianEquipment(Hero hero)`
+
+**Purpose:** Gets the current value of `civilian equipment`.
 
 ### GetBattleEquipment
-```csharp
-public override Equipment GetBattleEquipment(Hero hero)
-```
+`public override Equipment GetBattleEquipment(Hero hero)`
+
+**Purpose:** Gets the current value of `battle equipment`.
 
 ### GetCharacterTemplateForOffspring
-```csharp
-public override CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)
-```
+`public override CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)`
+
+**Purpose:** Gets the current value of `character template for offspring`.
 
 ### GenerateFirstAndFullName
-```csharp
-public override ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)
-```
+`public override ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)`
+
+**Purpose:** Handles logic related to `generate first and full name`.
 
 ### GetDefaultSkillsForHero
-```csharp
-public override List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)
-```
+`public override List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `default skills for hero`.
 
 ### GetInheritedSkillsForHero
-```csharp
-public override List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)
-```
+`public override List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)`
+
+**Purpose:** Gets the current value of `inherited skills for hero`.
 
 ### IsHeroCombatant
-```csharp
-public override bool IsHeroCombatant(Hero hero)
-```
+`public override bool IsHeroCombatant(Hero hero)`
+
+**Purpose:** Handles logic related to `is hero combatant`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultHeroCreationModel (Model)
 Game.Current.ReplaceModel<DefaultHeroCreationModel>(new MyDefaultHeroCreationModel());
 ```
 

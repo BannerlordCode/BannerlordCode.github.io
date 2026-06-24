@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `ScoreboardUnitItemComparerBase`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScoreboardUnitItemComparerBase
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class ScoreboardUnitItemComparerBase : IComparer<SPScoreboardUnitVM>`
+**Base:** `IComparer<SPScoreboardUnitVM>`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `ScoreboardUnitItemComparerBase` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ScoreboardUnitItemComparerBase` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -34,97 +38,87 @@
 | `RoutedState` | `public int RoutedState { get; set; }` |
 | `IsRoutedSelected` | `public bool IsRoutedSelected { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteSortByRemaining
+`public void ExecuteSortByRemaining()`
 
-```csharp
-public void ExecuteSortByRemaining()
-```
+**Purpose:** Executes the `sort by remaining` operation or workflow.
 
 ### ExecuteSortByKill
+`public void ExecuteSortByKill()`
 
-```csharp
-public void ExecuteSortByKill()
-```
+**Purpose:** Executes the `sort by kill` operation or workflow.
 
 ### ExecuteSortByUpgrade
+`public void ExecuteSortByUpgrade()`
 
-```csharp
-public void ExecuteSortByUpgrade()
-```
+**Purpose:** Executes the `sort by upgrade` operation or workflow.
 
 ### ExecuteSortByDead
+`public void ExecuteSortByDead()`
 
-```csharp
-public void ExecuteSortByDead()
-```
+**Purpose:** Executes the `sort by dead` operation or workflow.
 
 ### ExecuteSortByWounded
+`public void ExecuteSortByWounded()`
 
-```csharp
-public void ExecuteSortByWounded()
-```
+**Purpose:** Executes the `sort by wounded` operation or workflow.
 
 ### ExecuteSortByRouted
+`public void ExecuteSortByRouted()`
 
-```csharp
-public void ExecuteSortByRouted()
-```
+**Purpose:** Executes the `sort by routed` operation or workflow.
 
 ### SetSortMode
+`public void SetSortMode(bool isAscending)`
 
-```csharp
-public void SetSortMode(bool isAscending)
-```
-
-### Compare
-
-```csharp
-public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
+**Purpose:** Sets the value or state of `sort mode`.
 
 ### Compare
+`public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
-
-### Compare
-
-```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
-```
+**Purpose:** Handles logic related to `compare`.
 
 ### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+## Usage Example
 
 ```csharp
-public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)
+var implementation = new CustomScoreboardUnitItemComparerBase();
 ```
 
 ## See Also

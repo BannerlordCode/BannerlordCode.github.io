@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `MaterialProperty`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MaterialProperty
 
 **命名空间:** TaleWorlds.Core
 **模块:** TaleWorlds.Core
-**类型:** 结构体 struct struct
-**领域:** 核心数据 Core
+**类型:** `public struct MaterialProperty`
+**领域:** core-extra
 
 ## 概述
 
-> 本页为自动生成的存根。`MaterialProperty` 是 `TaleWorlds.Core` 命名空间下的一个结构体 struct。
-> 如需了解其属性、方法和开发者用例，请参考源码或
+`MaterialProperty` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -36,22 +41,25 @@
 | `SkeletonScale` | `public SkeletonScale SkeletonScale { get; }` |
 | `Name` | `public string Name { get; }` |
 
-
 ## 主要方法
 
 ### GetCopy
+`public override ItemComponent GetCopy()`
 
-```csharp
-public override ItemComponent GetCopy()
-```
+**用途 / Purpose:** 获取 `copy` 的当前值。
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+// 先从游戏状态中拿到一个 MaterialProperty 实例，再调用它的公开方法
+var value = new MaterialProperty();
+value.GetCopy();
 ```
-
-贡献文档。
 
 ## 参见
 

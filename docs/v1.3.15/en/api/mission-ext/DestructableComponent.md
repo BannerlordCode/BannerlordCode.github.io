@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DestructableComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DestructableComponent
@@ -14,99 +15,107 @@
 
 ## Overview
 
-`DestructableComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<DestructableComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`DestructableComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `DestructableComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `HitPoint` | `public float HitPoint { get { return this._hitPoint; }` |
-| `FocusableObjectType` | `public FocusableObjectType FocusableObjectType { get { return FocusableObjectType.None; }` |
-| `IsFocusable` | `public virtual bool IsFocusable { get { return true; }` |
-| `IsDestroyed` | `public bool IsDestroyed { get { return this.HitPoint <= 0f; }` |
+| `HitPoint` | `public float HitPoint { get; set; }` |
+| `FocusableObjectType` | `public FocusableObjectType FocusableObjectType { get; }` |
+| `IsFocusable` | `public virtual bool IsFocusable { get; }` |
+| `IsDestroyed` | `public bool IsDestroyed { get; }` |
+| `CurrentState` | `public GameEntity CurrentState { get; }` |
+| `HitPoint` | `public float HitPoint { get; }` |
+| `DestructionState` | `public int DestructionState { get; }` |
+| `ForceIndex` | `public int ForceIndex { get; }` |
+| `IsMissionObject` | `public bool IsMissionObject { get; }` |
 
 ## Key Methods
 
 ### GetOriginalState
-```csharp
-public WeakGameEntity GetOriginalState(WeakGameEntity parent)
-```
+`public WeakGameEntity GetOriginalState(WeakGameEntity parent)`
+
+**Purpose:** Gets the current value of `original state`.
 
 ### Reset
-```csharp
-public void Reset()
-```
+`public void Reset()`
+
+**Purpose:** Resets `reset` to its initial state.
 
 ### TriggerOnHit
-```csharp
-public void TriggerOnHit(Agent attackerAgent, int inflictedDamage, Vec3 impactPosition, Vec3 impactDirection, in MissionWeapon weapon, int affectorWeaponSlotOrMissileIndex, ScriptComponentBehavior attackerScriptComponentBehavior)
-```
+`public void TriggerOnHit(Agent attackerAgent, int inflictedDamage, Vec3 impactPosition, Vec3 impactDirection, in MissionWeapon weapon, int affectorWeaponSlotOrMissileIndex, ScriptComponentBehavior attackerScriptComponentBehavior)`
+
+**Purpose:** Handles logic related to `trigger on hit`.
 
 ### BurstHeavyHitParticles
-```csharp
-public void BurstHeavyHitParticles()
-```
+`public void BurstHeavyHitParticles()`
+
+**Purpose:** Handles logic related to `burst heavy hit particles`.
 
 ### SetDestructionLevel
-```csharp
-public void SetDestructionLevel(int state, int forcedId, float blowMagnitude, Vec3 blowPosition, Vec3 blowDirection, bool noEffects = false)
-```
+`public void SetDestructionLevel(int state, int forcedId, float blowMagnitude, Vec3 blowPosition, Vec3 blowDirection, bool noEffects = false)`
+
+**Purpose:** Sets the value or state of `destruction level`.
 
 ### PreDestroy
-```csharp
-public void PreDestroy()
-```
+`public void PreDestroy()`
+
+**Purpose:** Handles logic related to `pre destroy`.
 
 ### WriteToNetwork
-```csharp
-public override void WriteToNetwork()
-```
+`public override void WriteToNetwork()`
+
+**Purpose:** Handles logic related to `write to network`.
 
 ### AddStuckMissile
-```csharp
-public override void AddStuckMissile(GameEntity missileEntity)
-```
+`public override void AddStuckMissile(GameEntity missileEntity)`
+
+**Purpose:** Adds `stuck missile` to the current collection or state.
 
 ### OnFocusGain
-```csharp
-public void OnFocusGain(Agent userAgent)
-```
+`public void OnFocusGain(Agent userAgent)`
+
+**Purpose:** Called when the `focus gain` event is raised.
 
 ### OnFocusLose
-```csharp
-public void OnFocusLose(Agent userAgent)
-```
+`public void OnFocusLose(Agent userAgent)`
+
+**Purpose:** Called when the `focus lose` event is raised.
 
 ### GetInfoTextForBeingNotInteractable
-```csharp
-public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)
-```
+`public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
+
+**Purpose:** Gets the current value of `info text for being not interactable`.
 
 ### OnAfterReadFromNetwork
-```csharp
-public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)
-```
+`public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
+
+**Purpose:** Called when the `after read from network` event is raised.
 
 ### GetDescriptionText
-```csharp
-public TextObject GetDescriptionText(WeakGameEntity gameEntity)
-```
+`public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
+
+**Purpose:** Gets the current value of `description text`.
 
 ### ReadFromNetwork
-```csharp
-public bool ReadFromNetwork(ref bool bufferReadValid)
-```
+`public bool ReadFromNetwork(ref bool bufferReadValid)`
+
+**Purpose:** Handles logic related to `read from network`.
 
 ### OnHitTakenAndDestroyedDelegate
-```csharp
-public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)
-```
+`public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
+
+**Purpose:** Called when the `hit taken and destroyed delegate` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DestructableComponent (Component)
-agent.GetComponent<DestructableComponent>();
+var component = agent.GetComponent<DestructableComponent>();
 ```
 
 ## See Also

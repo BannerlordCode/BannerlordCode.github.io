@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultSettlementTaxModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultSettlementTaxModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultSettlementTaxModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultSettlementTaxModel>(new MyDefaultSettlementTaxModel())` to change how it computes.
+`DefaultSettlementTaxModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultSettlementTaxModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,34 +33,33 @@
 ## Key Methods
 
 ### GetTownTaxRatio
-```csharp
-public override float GetTownTaxRatio(Town town)
-```
+`public override float GetTownTaxRatio(Town town)`
+
+**Purpose:** Gets the current value of `town tax ratio`.
 
 ### GetVillageTaxRatio
-```csharp
-public override float GetVillageTaxRatio(Village village)
-```
+`public override float GetVillageTaxRatio(Village village)`
+
+**Purpose:** Gets the current value of `village tax ratio`.
 
 ### GetTownCommissionChangeBasedOnSecurity
-```csharp
-public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)
-```
+`public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
+
+**Purpose:** Gets the current value of `town commission change based on security`.
 
 ### CalculateTownTax
-```csharp
-public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate town tax`.
 
 ### CalculateVillageTaxFromIncome
-```csharp
-public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)
-```
+`public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
+
+**Purpose:** Handles logic related to `calculate village tax from income`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultSettlementTaxModel (Model)
 Game.Current.ReplaceModel<DefaultSettlementTaxModel>(new MyDefaultSettlementTaxModel());
 ```
 

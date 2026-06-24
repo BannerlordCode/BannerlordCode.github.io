@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `MaterialProperty`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MaterialProperty
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** struct
-**Area:** Core
+**Type:** `public struct MaterialProperty`
+**Area:** core-extra
 
 ## Overview
 
-> This is an auto-generated stub. `MaterialProperty` is a struct in the `TaleWorlds.Core` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MaterialProperty` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -38,19 +41,24 @@
 | `SkeletonScale` | `public SkeletonScale SkeletonScale { get; }` |
 | `Name` | `public string Name { get; }` |
 
-
 ## Key Methods
 
 ### GetCopy
+`public override ItemComponent GetCopy()`
 
-```csharp
-public override ItemComponent GetCopy()
-```
+**Purpose:** Gets the current value of `copy`.
 
 ### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+## Usage Example
 
 ```csharp
-public override void Deserialize(MBObjectManager objectManager, XmlNode node)
+// First obtain a MaterialProperty instance from game state, then call one of its public methods
+var value = new MaterialProperty();
+value.GetCopy();
 ```
 
 ## See Also

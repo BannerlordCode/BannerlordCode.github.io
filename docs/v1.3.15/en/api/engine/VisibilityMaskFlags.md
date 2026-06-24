@@ -2,57 +2,31 @@
 **Home** → **API Index** → **Area** → `VisibilityMaskFlags`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VisibilityMaskFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** enum
-**Area:** Engine
+**Type:** `class`
+**Base:** none
+**File:** `TaleWorlds.Engine/VisibilityMaskFlags.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `VisibilityMaskFlags` is a enum in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`VisibilityMaskFlags` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
 
-## Enum Values
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-| Name |
-|------|
-| `Final` |
-| `1U` |
-| `ShadowStatic` |
-| `16U` |
-| `ShadowDynamic` |
-| `32U` |
-| `ForEnvmap` |
-| `64U` |
-| `EditModeAtmosphere` |
-| `268435456U` |
-| `EditModeLight` |
-| `536870912U` |
-| `EditModeParticleSystem` |
-| `1073741824U` |
-| `EditModeHelpers` |
-| `2147483648U` |
-| `EditModeTerrain` |
-| `16777216U` |
-| `EditModeGameEntity` |
-| `33554432U` |
-| `EditModeFloraEntity` |
-| `67108864U` |
-| `EditModeLayerFlora` |
-| `134217728U` |
-| `EditModeShadows` |
-| `1048576U` |
-| `EditModeBorders` |
-| `2097152U` |
-| `EditModeEditingEntity` |
-| `4194304U` |
+## Usage Example
+
+```csharp
+var value = new VisibilityMaskFlags();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)

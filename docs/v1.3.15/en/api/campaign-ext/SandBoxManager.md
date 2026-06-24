@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SandBoxManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SandBoxManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SandBoxManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`SandBoxManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `SandBoxManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,40 +34,39 @@
 ## Key Methods
 
 ### Initialize
-```csharp
-public void Initialize(CampaignGameStarter gameStarter)
-```
+`public void Initialize(CampaignGameStarter gameStarter)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### OnCampaignStart
-```csharp
-public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)
-```
+`public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)`
+
+**Purpose:** Called when the `campaign start` event is raised.
 
 ### InitializeSandboxXMLs
-```csharp
-public void InitializeSandboxXMLs(bool isSavedCampaign)
-```
+`public void InitializeSandboxXMLs(bool isSavedCampaign)`
+
+**Purpose:** Initializes the state, resources, or bindings for `sandbox x m ls`.
 
 ### InitializeCharactersAfterLoad
-```csharp
-public void InitializeCharactersAfterLoad(bool isSavedCampaign)
-```
+`public void InitializeCharactersAfterLoad(bool isSavedCampaign)`
+
+**Purpose:** Initializes the state, resources, or bindings for `characters after load`.
 
 ### OnBeforeSave
-```csharp
-public override void OnBeforeSave()
-```
+`public override void OnBeforeSave()`
+
+**Purpose:** Called when the `before save` event is raised.
 
 ### OnAfterSave
-```csharp
-public override void OnAfterSave()
-```
+`public override void OnAfterSave()`
+
+**Purpose:** Called when the `after save` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SandBoxManager (Manager)
-SandBoxManager.Current;
+var manager = SandBoxManager.Current;
 ```
 
 ## See Also

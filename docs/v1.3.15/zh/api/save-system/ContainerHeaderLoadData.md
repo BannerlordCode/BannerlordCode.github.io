@@ -2,19 +2,24 @@
 **首页** → **API 目录** → **本领域** → `ContainerHeaderLoadData`
 - [← 本领域 / 返回 save-system](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ContainerHeaderLoadData
 
 **命名空间:** TaleWorlds.SaveSystem.Load
 **模块:** TaleWorlds.SaveSystem
-**类型:** 类 class class
-**领域:** 存档系统 SaveSystem
+**类型:** `public class ContainerHeaderLoadData`
+**领域:** save-system
 
 ## 概述
 
-> 本页为自动生成的存根。`ContainerHeaderLoadData` 是 `TaleWorlds.SaveSystem.Load` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ContainerHeaderLoadData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `ContainerHeaderLoadData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
@@ -27,28 +32,28 @@
 | `ElementCount` | `public int ElementCount { get; }` |
 | `ContainerType` | `public ContainerType ContainerType { get; }` |
 
-
 ## 主要方法
 
 ### GetObjectTypeDefinition
+`public bool GetObjectTypeDefinition()`
 
-```csharp
-public bool GetObjectTypeDefinition()
-```
+**用途 / Purpose:** 获取 `object type definition` 的当前值。
 
 ### CreateObject
+`public void CreateObject()`
 
-```csharp
-public void CreateObject()
-```
+**用途 / Purpose:** 创建一个 `object` 实例或对象。
 
 ### InitialieReaders
+`public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
+
+**用途 / Purpose:** 初始化 `ialie readers` 的状态、资源或绑定。
+
+## 使用示例
 
 ```csharp
-public void InitialieReaders(SaveEntryFolder saveEntryFolder)
+var value = new ContainerHeaderLoadData();
 ```
-
-献文档。
 
 ## 参见
 

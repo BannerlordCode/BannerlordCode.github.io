@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `RankBarInfo`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RankBarInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class RankBarInfo`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `RankBarInfo` is a class in the `TaleWorlds.MountAndBlade.Diamond.Ranked` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`RankBarInfo` lives in `TaleWorlds.MountAndBlade.Diamond.Ranked`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,19 +34,23 @@
 | `EvaluationMatchesPlayed` | `public int EvaluationMatchesPlayed { get; set; }` |
 | `TotalEvaluationMatchesRequired` | `public int TotalEvaluationMatchesRequired { get; set; }` |
 
-
 ## Key Methods
 
 ### CreateBarInfo
+`public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-```csharp
-public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)
-```
+**Purpose:** Creates a new `bar info` instance or object.
 
 ### CreateUnrankedInfo
+`public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
+
+**Purpose:** Creates a new `unranked info` instance or object.
+
+## Usage Example
 
 ```csharp
-public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)
+// Prepare the required context, then call the static entry point directly
+RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 ```
 
 ## See Also

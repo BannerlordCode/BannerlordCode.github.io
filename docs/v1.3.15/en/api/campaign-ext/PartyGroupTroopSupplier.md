@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PartyGroupTroopSupplier`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PartyGroupTroopSupplier
 
 **Namespace:** TaleWorlds.CampaignSystem.TroopSuppliers
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PartyGroupTroopSupplier : IMissionTroopSupplier`
+**Base:** `IMissionTroopSupplier`
+**File:** `TaleWorlds.CampaignSystem/TroopSuppliers/PartyGroupTroopSupplier.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PartyGroupTroopSupplier` is a class in the `TaleWorlds.CampaignSystem.TroopSuppliers` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PartyGroupTroopSupplier` lives in `TaleWorlds.CampaignSystem.TroopSuppliers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.TroopSuppliers` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -25,70 +29,65 @@
 | `NumTroopsNotSupplied` | `public int NumTroopsNotSupplied { get; }` |
 | `AnyTroopRemainsToBeSupplied` | `public bool AnyTroopRemainsToBeSupplied { get; }` |
 
-
 ## Key Methods
 
 ### SupplyTroops
+`public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-```csharp
-public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)
-```
+**Purpose:** Handles logic related to `supply troops`.
 
 ### SupplyOneTroop
+`public IAgentOriginBase SupplyOneTroop()`
 
-```csharp
-public IAgentOriginBase SupplyOneTroop()
-```
+**Purpose:** Handles logic related to `supply one troop`.
 
 ### GetAllTroops
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroops()
-```
+**Purpose:** Gets the current value of `all troops`.
 
 ### GetGeneralCharacter
+`public BasicCharacterObject GetGeneralCharacter()`
 
-```csharp
-public BasicCharacterObject GetGeneralCharacter()
-```
+**Purpose:** Gets the current value of `general character`.
 
 ### GetNumberOfPlayerControllableTroops
+`public int GetNumberOfPlayerControllableTroops()`
 
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+**Purpose:** Gets the current value of `number of player controllable troops`.
 
 ### OnTroopWounded
+`public void OnTroopWounded(UniqueTroopDescriptor troopDescriptor)`
 
-```csharp
-public void OnTroopWounded(UniqueTroopDescriptor troopDescriptor)
-```
+**Purpose:** Called when the `troop wounded` event is raised.
 
 ### OnTroopKilled
+`public void OnTroopKilled(UniqueTroopDescriptor troopDescriptor)`
 
-```csharp
-public void OnTroopKilled(UniqueTroopDescriptor troopDescriptor)
-```
+**Purpose:** Called when the `troop killed` event is raised.
 
 ### OnTroopRouted
+`public void OnTroopRouted(UniqueTroopDescriptor troopDescriptor, bool isOrderRetreat)`
 
-```csharp
-public void OnTroopRouted(UniqueTroopDescriptor troopDescriptor, bool isOrderRetreat)
-```
+**Purpose:** Called when the `troop routed` event is raised.
 
 ### GetParty
+`public PartyBase GetParty(UniqueTroopDescriptor troopDescriptor)`
 
-```csharp
-public PartyBase GetParty(UniqueTroopDescriptor troopDescriptor)
-```
+**Purpose:** Gets the current value of `party`.
 
 ### OnTroopScoreHit
+`public void OnTroopScoreHit(UniqueTroopDescriptor descriptor, BasicCharacterObject attackedCharacter, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon)`
+
+**Purpose:** Called when the `troop score hit` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OnTroopScoreHit(UniqueTroopDescriptor descriptor, BasicCharacterObject attackedCharacter, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon)
+var value = new PartyGroupTroopSupplier();
+value.SupplyTroops(0);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

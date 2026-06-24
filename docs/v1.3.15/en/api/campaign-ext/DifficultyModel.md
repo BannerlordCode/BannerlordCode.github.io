@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DifficultyModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DifficultyModel
@@ -14,55 +15,58 @@
 
 ## Overview
 
-`DifficultyModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DifficultyModel>(new MyDifficultyModel())` to change how it computes.
+`DifficultyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DifficultyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetPlayerTroopsReceivedDamageMultiplier
-```csharp
-public abstract float GetPlayerTroopsReceivedDamageMultiplier()
-```
+`public abstract float GetPlayerTroopsReceivedDamageMultiplier()`
+
+**Purpose:** Gets the current value of `player troops received damage multiplier`.
 
 ### GetPlayerRecruitSlotBonus
-```csharp
-public abstract int GetPlayerRecruitSlotBonus()
-```
+`public abstract int GetPlayerRecruitSlotBonus()`
+
+**Purpose:** Gets the current value of `player recruit slot bonus`.
 
 ### GetPlayerMapMovementSpeedBonusMultiplier
-```csharp
-public abstract float GetPlayerMapMovementSpeedBonusMultiplier()
-```
+`public abstract float GetPlayerMapMovementSpeedBonusMultiplier()`
+
+**Purpose:** Gets the current value of `player map movement speed bonus multiplier`.
 
 ### GetCombatAIDifficultyMultiplier
-```csharp
-public abstract float GetCombatAIDifficultyMultiplier()
-```
+`public abstract float GetCombatAIDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `combat a i difficulty multiplier`.
 
 ### GetPersuasionBonusChance
-```csharp
-public abstract float GetPersuasionBonusChance()
-```
+`public abstract float GetPersuasionBonusChance()`
+
+**Purpose:** Gets the current value of `persuasion bonus chance`.
 
 ### GetClanMemberDeathChanceMultiplier
-```csharp
-public abstract float GetClanMemberDeathChanceMultiplier()
-```
+`public abstract float GetClanMemberDeathChanceMultiplier()`
+
+**Purpose:** Gets the current value of `clan member death chance multiplier`.
 
 ### GetStealthDifficultyMultiplier
-```csharp
-public abstract float GetStealthDifficultyMultiplier()
-```
+`public abstract float GetStealthDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `stealth difficulty multiplier`.
 
 ### GetDisguiseDifficultyMultiplier
-```csharp
-public abstract float GetDisguiseDifficultyMultiplier()
-```
+`public abstract float GetDisguiseDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `disguise difficulty multiplier`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DifficultyModel (Model)
-Game.Current.ReplaceModel<DifficultyModel>(new MyDifficultyModel());
+var implementation = new CustomDifficultyModel();
 ```
 
 ## See Also

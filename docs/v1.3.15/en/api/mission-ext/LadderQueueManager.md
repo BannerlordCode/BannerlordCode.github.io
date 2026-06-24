@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `LadderQueueManager`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LadderQueueManager
@@ -14,55 +15,64 @@
 
 ## Overview
 
-`LadderQueueManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`LadderQueueManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `LadderQueueManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsDeactivated` | `public bool IsDeactivated { get; }` |
 
 ## Key Methods
 
 ### DeactivateImmediate
-```csharp
-public void DeactivateImmediate()
-```
+`public void DeactivateImmediate()`
+
+**Purpose:** Handles logic related to `deactivate immediate`.
 
 ### Deactivate
-```csharp
-public void Deactivate()
-```
+`public void Deactivate()`
+
+**Purpose:** Handles logic related to `deactivate`.
 
 ### Activate
-```csharp
-public void Activate()
-```
+`public void Activate()`
+
+**Purpose:** Handles logic related to `activate`.
 
 ### Initialize
-```csharp
-public void Initialize(int managedNavigationFaceId, MatrixFrame managedFrame, Vec3 managedDirection, BattleSideEnum managedSide, int maxUserCount, float arcAngle, float queueBeginDistance, float queueRowSize, float costPerRow, float baseCost, bool blockUsage, float agentSpacing, float zDifferenceToStopUsing, float distanceToStopUsing2d, bool doesManageMultipleIDs, int managedNavigationFaceAlternateID1, int managedNavigationFaceAlternateID2, int maxClimberCount, int maxRunnerCount)
-```
+`public void Initialize(int managedNavigationFaceId, MatrixFrame managedFrame, Vec3 managedDirection, BattleSideEnum managedSide, int maxUserCount, float arcAngle, float queueBeginDistance, float queueRowSize, float costPerRow, float baseCost, bool blockUsage, float agentSpacing, float zDifferenceToStopUsing, float distanceToStopUsing2d, bool doesManageMultipleIDs, int managedNavigationFaceAlternateID1, int managedNavigationFaceAlternateID2, int maxClimberCount, int maxRunnerCount)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### GetTickRequirement
-```csharp
-public override ScriptComponentBehavior.TickRequirement GetTickRequirement()
-```
+`public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
+
+**Purpose:** Gets the current value of `tick requirement`.
 
 ### FlushQueueManager
-```csharp
-public void FlushQueueManager()
-```
+`public void FlushQueueManager()`
+
+**Purpose:** Handles logic related to `flush queue manager`.
 
 ### AssignNeighborQueueManager
-```csharp
-public void AssignNeighborQueueManager(LadderQueueManager neighborLadderQueueManager)
-```
+`public void AssignNeighborQueueManager(LadderQueueManager neighborLadderQueueManager)`
+
+**Purpose:** Handles logic related to `assign neighbor queue manager`.
 
 ### OnFormationFrameChanged
-```csharp
-public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition frame)
-```
+`public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition frame)`
+
+**Purpose:** Called when the `formation frame changed` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of LadderQueueManager (Manager)
-LadderQueueManager.Current;
+var manager = LadderQueueManager.Current;
 ```
 
 ## See Also

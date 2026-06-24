@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CustomBattleMissionSpawnHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleMissionSpawnHandler
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`CustomBattleMissionSpawnHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`CustomBattleMissionSpawnHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `CustomBattleMissionSpawnHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CustomBattleMissionSpawnHandler (Handler)
 Mission.Current.AddMissionBehavior(new CustomBattleMissionSpawnHandler());
 ```
 

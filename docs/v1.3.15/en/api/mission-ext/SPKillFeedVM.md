@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SPKillFeedVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SPKillFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class SPKillFeedVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/KillFeed/SPKillFeedVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SPKillFeedVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SPKillFeedVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -24,34 +28,35 @@
 | `GeneralCasualty` | `public SPGeneralKillNotificationVM GeneralCasualty { get; set; }` |
 | `PersonalFeed` | `public SPPersonalKillNotificationVM PersonalFeed { get; set; }` |
 
-
 ## Key Methods
 
 ### OnAgentRemoved
+`public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-```csharp
-public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)
-```
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnPersonalKill
+`public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-```csharp
-public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)
-```
+**Purpose:** Called when the `personal kill` event is raised.
 
 ### OnPersonalDamage
+`public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)`
 
-```csharp
-public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)
-```
+**Purpose:** Called when the `personal damage` event is raised.
 
 ### OnPersonalMessage
+`public void OnPersonalMessage(string message)`
+
+**Purpose:** Called when the `personal message` event is raised.
+
+## Usage Example
 
 ```csharp
-public void OnPersonalMessage(string message)
+var value = new SPKillFeedVM();
+value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

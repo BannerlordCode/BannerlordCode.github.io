@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionDeploymentPlanningLogic`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionDeploymentPlanningLogic
@@ -14,130 +15,133 @@
 
 ## Overview
 
-`MissionDeploymentPlanningLogic` is a MissionLogic (a MissionBehavior subclass) running per-tick/event logic in a mission. Add via `mission.AddMissionBehavior(new MissionDeploymentPlanningLogic())`; subclass it to customize.
+`MissionDeploymentPlanningLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `MissionDeploymentPlanningLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### Initialize
-```csharp
-public virtual void Initialize()
-```
+`public virtual void Initialize()`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### ClearAll
-```csharp
-public virtual void ClearAll()
-```
+`public virtual void ClearAll()`
+
+**Purpose:** Handles logic related to `clear all`.
 
 ### MakeDefaultDeploymentPlans
-```csharp
-public virtual void MakeDefaultDeploymentPlans()
-```
+`public virtual void MakeDefaultDeploymentPlans()`
+
+**Purpose:** Handles logic related to `make default deployment plans`.
 
 ### MakeDeploymentPlan
-```csharp
-public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)
-```
+`public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
+
+**Purpose:** Handles logic related to `make deployment plan`.
 
 ### RemakeDeploymentPlan
-```csharp
-public virtual bool RemakeDeploymentPlan(Team team)
-```
+`public virtual bool RemakeDeploymentPlan(Team team)`
+
+**Purpose:** Handles logic related to `remake deployment plan`.
 
 ### ClearDeploymentPlan
-```csharp
-public virtual void ClearDeploymentPlan(Team team)
-```
+`public virtual void ClearDeploymentPlan(Team team)`
+
+**Purpose:** Handles logic related to `clear deployment plan`.
 
 ### IsPlanMade
-```csharp
-public virtual bool IsPlanMade(Team team)
-```
+`public virtual bool IsPlanMade(Team team)`
+
+**Purpose:** Handles logic related to `is plan made`.
 
 ### IsPlanMade
-```csharp
-public virtual bool IsPlanMade(Team team, out bool isFirstPlan)
-```
+`public virtual bool IsPlanMade(Team team, out bool isFirstPlan)`
+
+**Purpose:** Handles logic related to `is plan made`.
 
 ### IsPositionInsideDeploymentBoundaries
-```csharp
-public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)
-```
+`public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
+
+**Purpose:** Handles logic related to `is position inside deployment boundaries`.
 
 ### HasDeploymentBoundaries
-```csharp
-public virtual bool HasDeploymentBoundaries(Team team)
-```
+`public virtual bool HasDeploymentBoundaries(Team team)`
+
+**Purpose:** Checks whether the current object has/contains `deployment boundaries`.
 
 ### GetDeploymentBoundaries
-```csharp
-public virtual MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)
-```
+`public virtual MBReadOnlyList<ValueTuple<string, MBList<Vec2>>> GetDeploymentBoundaries(Team team)`
+
+**Purpose:** Gets the current value of `deployment boundaries`.
 
 ### SupportsReinforcements
-```csharp
-public virtual bool SupportsReinforcements()
-```
+`public virtual bool SupportsReinforcements()`
+
+**Purpose:** Handles logic related to `supports reinforcements`.
 
 ### SupportsNavmesh
-```csharp
-public virtual bool SupportsNavmesh()
-```
+`public virtual bool SupportsNavmesh()`
+
+**Purpose:** Handles logic related to `supports navmesh`.
 
 ### HasPlayerSpawnFrame
-```csharp
-public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)
-```
+`public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
+
+**Purpose:** Checks whether the current object has/contains `player spawn frame`.
 
 ### GetPlayerSpawnFrame
-```csharp
-public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)
-```
+`public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
+
+**Purpose:** Gets the current value of `player spawn frame`.
 
 ### GetClosestDeploymentBoundaryPosition
-```csharp
-public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)
-```
+`public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
+
+**Purpose:** Gets the current value of `closest deployment boundary position`.
 
 ### ProjectPositionToDeploymentBoundaries
-```csharp
-public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)
-```
+`public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
+
+**Purpose:** Handles logic related to `project position to deployment boundaries`.
 
 ### GetPathDeploymentBoundaryIntersection
-```csharp
-public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)
-```
+`public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)`
+
+**Purpose:** Gets the current value of `path deployment boundary intersection`.
 
 ### GetDeploymentFrame
-```csharp
-public virtual MatrixFrame GetDeploymentFrame(Team team)
-```
+`public virtual MatrixFrame GetDeploymentFrame(Team team)`
+
+**Purpose:** Gets the current value of `deployment frame`.
 
 ### GetFormationPlan
-```csharp
-public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)
-```
+`public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)`
+
+**Purpose:** Gets the current value of `formation plan`.
 
 ### GetSpawnPathOffset
-```csharp
-public virtual float GetSpawnPathOffset(Team team)
-```
+`public virtual float GetSpawnPathOffset(Team team)`
+
+**Purpose:** Gets the current value of `spawn path offset`.
 
 ### GetZoomFocusFrame
-```csharp
-public virtual MatrixFrame GetZoomFocusFrame(Team team)
-```
+`public virtual MatrixFrame GetZoomFocusFrame(Team team)`
+
+**Purpose:** Gets the current value of `zoom focus frame`.
 
 ### GetZoomOffset
-```csharp
-public virtual float GetZoomOffset(Team team, float fovAngle)
-```
+`public virtual float GetZoomOffset(Team team, float fovAngle)`
+
+**Purpose:** Gets the current value of `zoom offset`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionDeploymentPlanningLogic (Logic)
-Mission.Current.AddMissionBehavior(new MissionDeploymentPlanningLogic());
+var implementation = new CustomMissionDeploymentPlanningLogic();
 ```
 
 ## See Also

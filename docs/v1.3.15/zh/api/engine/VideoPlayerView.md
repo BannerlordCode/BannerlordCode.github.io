@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `VideoPlayerView`
 - [← 本领域 / 返回 engine](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # VideoPlayerView
@@ -14,40 +15,43 @@
 
 ## 概述
 
-`VideoPlayerView` 是一个引擎视图/表面（渲染、纹理、场景预览等）。经引擎视图系统访问。
+`VideoPlayerView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `VideoPlayerView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### CreateVideoPlayerView
-```csharp
-public static VideoPlayerView CreateVideoPlayerView()
-```
+`public static VideoPlayerView CreateVideoPlayerView()`
+
+**用途 / Purpose:** 创建一个 `video player view` 实例或对象。
 
 ### PlayVideo
-```csharp
-public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)
-```
+`public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
+
+**用途 / Purpose:** 处理 `play video` 相关逻辑。
 
 ### StopVideo
-```csharp
-public void StopVideo()
-```
+`public void StopVideo()`
+
+**用途 / Purpose:** 处理 `stop video` 相关逻辑。
 
 ### IsVideoFinished
-```csharp
-public bool IsVideoFinished()
-```
+`public bool IsVideoFinished()`
+
+**用途 / Purpose:** 处理 `is video finished` 相关逻辑。
 
 ### FinalizePlayer
-```csharp
-public void FinalizePlayer()
-```
+`public void FinalizePlayer()`
+
+**用途 / Purpose:** 处理 `finalize player` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// VideoPlayerView (View) 的典型用法
-VideoPlayerView /* via engine view system */;
+var view = new VideoPlayerView();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `LordsHallFightMissionController`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LordsHallFightMissionController
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`LordsHallFightMissionController` 是一个任务控制器，驱动某个任务子系统（部署、高光、援兵等）。经 Mission.Current 或作为任务行为访问。
+`LordsHallFightMissionController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `LordsHallFightMissionController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -31,120 +36,119 @@
 ## 主要方法
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
 
 ### OnMissionStateFinalized
-```csharp
-public override void OnMissionStateFinalized()
-```
+`public override void OnMissionStateFinalized()`
+
+**用途 / Purpose:** 当 `mission state finalized` 事件触发时调用此方法。
 
 ### OnCreated
-```csharp
-public override void OnCreated()
-```
+`public override void OnCreated()`
+
+**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
 
 ### OnMissionTick
-```csharp
-public override void OnMissionTick(float dt)
-```
+`public override void OnMissionTick(float dt)`
+
+**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ### StartSpawner
-```csharp
-public void StartSpawner(BattleSideEnum side)
-```
+`public void StartSpawner(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `start spawner` 相关逻辑。
 
 ### StopSpawner
-```csharp
-public void StopSpawner(BattleSideEnum side)
-```
+`public void StopSpawner(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `stop spawner` 相关逻辑。
 
 ### IsSideSpawnEnabled
-```csharp
-public bool IsSideSpawnEnabled(BattleSideEnum side)
-```
+`public bool IsSideSpawnEnabled(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `is side spawn enabled` 相关逻辑。
 
 ### GetReinforcementInterval
-```csharp
-public float GetReinforcementInterval()
-```
+`public float GetReinforcementInterval()`
+
+**用途 / Purpose:** 获取 `reinforcement interval` 的当前值。
 
 ### IsSideDepleted
-```csharp
-public bool IsSideDepleted(BattleSideEnum side)
-```
+`public bool IsSideDepleted(BattleSideEnum side)`
+
+**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
 
 ### GetNumberOfPlayerControllableTroops
-```csharp
-public int GetNumberOfPlayerControllableTroops()
-```
+`public int GetNumberOfPlayerControllableTroops()`
+
+**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
 
 ### GetAllTroopsForSide
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `all troops for side` 的当前值。
 
 ### GetSpawnHorses
-```csharp
-public bool GetSpawnHorses(BattleSideEnum side)
-```
+`public bool GetSpawnHorses(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `spawn horses` 的当前值。
 
 ### SpawnTroops
-```csharp
-public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)
-```
+`public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
+
+**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
 
 ### SpawnTroops
-```csharp
-public void SpawnTroops(int spawnCount, bool isReinforcement)
-```
+`public void SpawnTroops(int spawnCount, bool isReinforcement)`
+
+**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
 
 ### SetSpawnTroops
-```csharp
-public void SetSpawnTroops(bool spawnTroops)
-```
+`public void SetSpawnTroops(bool spawnTroops)`
+
+**用途 / Purpose:** 设置 `spawn troops` 的值或状态。
 
 ### GetAllTroops
-```csharp
-public IEnumerable<IAgentOriginBase> GetAllTroops()
-```
+`public IEnumerable<IAgentOriginBase> GetAllTroops()`
+
+**用途 / Purpose:** 获取 `all troops` 的当前值。
 
 ### GetAvailableMachines
-```csharp
-public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)
-```
+`public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)`
+
+**用途 / Purpose:** 获取 `available machines` 的当前值。
 
 ### AddAreaMarker
-```csharp
-public void AddAreaMarker(FightAreaMarker marker)
-```
+`public void AddAreaMarker(FightAreaMarker marker)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `area marker`。
 
 ### FindAgentMachine
-```csharp
-public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)
-```
+`public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)`
+
+**用途 / Purpose:** 处理 `find agent machine` 相关逻辑。
 
 ### AssignAgent
-```csharp
-public void AssignAgent(Agent agent)
-```
+`public void AssignAgent(Agent agent)`
+
+**用途 / Purpose:** 处理 `assign agent` 相关逻辑。
 
 ### StopUse
-```csharp
-public void StopUse()
-```
+`public void StopUse()`
+
+**用途 / Purpose:** 处理 `stop use` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// LordsHallFightMissionController (Controller) 的典型用法
-Mission.Current.GetMissionBehavior<LordsHallFightMissionController>();
+var controller = Mission.Current.GetMissionBehavior<LordsHallFightMissionController>();
 ```
 
 ## 参见

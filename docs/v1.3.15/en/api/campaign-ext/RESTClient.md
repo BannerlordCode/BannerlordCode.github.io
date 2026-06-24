@@ -2,36 +2,44 @@
 **Home** → **API Index** → **Area** → `RESTClient`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # RESTClient
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class RESTClient`
+**Base:** none
+**File:** `TaleWorlds.Network/RESTClient.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `RESTClient` is a class in the `TaleWorlds.Network` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`RESTClient` lives in `TaleWorlds.Network` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### Get
+`public Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
-```csharp
-public Task Get(string service, List<KeyValuePair<string, string>> headers)
-```
+**Purpose:** Gets the current value of `get`.
 
 ### Post
+`public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
+
+**Purpose:** Handles logic related to `post`.
+
+## Usage Example
 
 ```csharp
-public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")
+var value = new RESTClient();
+value.Get("example", list<KeyValuePair<string, "example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBattleCaptainModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBattleCaptainModel
@@ -14,19 +15,22 @@
 
 ## Overview
 
-`DefaultBattleCaptainModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBattleCaptainModel>(new MyDefaultBattleCaptainModel())` to change how it computes.
+`DefaultBattleCaptainModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBattleCaptainModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### GetCaptainRatingForTroopUsages
-```csharp
-public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)
-```
+`public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
+
+**Purpose:** Gets the current value of `captain rating for troop usages`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBattleCaptainModel (Model)
 Game.Current.ReplaceModel<DefaultBattleCaptainModel>(new MyDefaultBattleCaptainModel());
 ```
 

@@ -2,42 +2,48 @@
 **首页** → **API 目录** → **本领域** → `LayeredWindowController`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LayeredWindowController
 
-**命名空间:** TaleWorlds.TwoDimension.Standalone
-**模块:** TaleWorlds.TwoDimension
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.TwoDimension.Standalone
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public class LayeredWindowController`
+**Base:** 无
+**File:** `TaleWorlds.TwoDimension.Standalone/LayeredWindowController.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`LayeredWindowController` 是 `TaleWorlds.TwoDimension.Standalone` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`LayeredWindowController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `LayeredWindowController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### SetSize
+`public void SetSize(int width, int height)`
 
-```csharp
-public void SetSize(int width, int height)
-```
+**用途 / Purpose:** 设置 `size` 的值或状态。
 
 ### PostRender
+`public void PostRender()`
 
-```csharp
-public void PostRender()
-```
+**用途 / Purpose:** 处理 `post render` 相关逻辑。
 
 ### OnFinalize
+`public void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+
+## 使用示例
 
 ```csharp
-public void OnFinalize()
+var controller = Mission.Current.GetMissionBehavior<LayeredWindowController>();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

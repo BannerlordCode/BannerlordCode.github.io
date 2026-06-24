@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BattleInitializationModel`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleInitializationModel
@@ -14,35 +15,38 @@
 
 ## 概述
 
-`BattleInitializationModel` 是一个游戏 Model——规则/覆盖点。modder 继承它并经 `Game.Current.ReplaceModel<BattleInitializationModel>(new MyBattleInitializationModel())` 注册，以改变其计算逻辑。
+`BattleInitializationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `BattleInitializationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### GetAllAvailableTroopTypes
-```csharp
-public abstract List<FormationClass> GetAllAvailableTroopTypes()
-```
+`public abstract List<FormationClass> GetAllAvailableTroopTypes()`
+
+**用途 / Purpose:** 获取 `all available troop types` 的当前值。
 
 ### CanPlayerSideDeployWithOrderOfBattle
-```csharp
-public bool CanPlayerSideDeployWithOrderOfBattle()
-```
+`public bool CanPlayerSideDeployWithOrderOfBattle()`
+
+**用途 / Purpose:** 判断当前对象是否可以执行 `player side deploy with order of battle`。
 
 ### InitializeModel
-```csharp
-public void InitializeModel()
-```
+`public void InitializeModel()`
+
+**用途 / Purpose:** 初始化 `model` 的状态、资源或绑定。
 
 ### FinalizeModel
-```csharp
-public void FinalizeModel()
-```
+`public void FinalizeModel()`
+
+**用途 / Purpose:** 处理 `finalize model` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// BattleInitializationModel (Model) 的典型用法
-Game.Current.ReplaceModel<BattleInitializationModel>(new MyBattleInitializationModel());
+var implementation = new CustomBattleInitializationModel();
 ```
 
 ## 参见

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `GameMenuManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GameMenuManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`GameMenuManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`GameMenuManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `GameMenuManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -26,150 +31,149 @@
 ## Key Methods
 
 ### SetNextMenu
-```csharp
-public void SetNextMenu(string name)
-```
+`public void SetNextMenu(string name)`
+
+**Purpose:** Sets the value or state of `next menu`.
 
 ### ExitToLast
-```csharp
-public void ExitToLast()
-```
+`public void ExitToLast()`
+
+**Purpose:** Handles logic related to `exit to last`.
 
 ### SetCurrentRepeatableIndex
-```csharp
-public void SetCurrentRepeatableIndex(MenuContext menuContext, int index)
-```
+`public void SetCurrentRepeatableIndex(MenuContext menuContext, int index)`
+
+**Purpose:** Sets the value or state of `current repeatable index`.
 
 ### GetMenuOptionConditionsHold
-```csharp
-public bool GetMenuOptionConditionsHold(MenuContext menuContext, int menuItemNumber)
-```
+`public bool GetMenuOptionConditionsHold(MenuContext menuContext, int menuItemNumber)`
+
+**Purpose:** Gets the current value of `menu option conditions hold`.
 
 ### RefreshMenuOptions
-```csharp
-public void RefreshMenuOptions(MenuContext menuContext)
-```
+`public void RefreshMenuOptions(MenuContext menuContext)`
+
+**Purpose:** Refreshes the display or cache of `menu options`.
 
 ### RefreshMenuOptionConditions
-```csharp
-public void RefreshMenuOptionConditions(MenuContext menuContext)
-```
+`public void RefreshMenuOptionConditions(MenuContext menuContext)`
+
+**Purpose:** Refreshes the display or cache of `menu option conditions`.
 
 ### GetMenuOptionIdString
-```csharp
-public string GetMenuOptionIdString(MenuContext menuContext, int menuItemNumber)
-```
+`public string GetMenuOptionIdString(MenuContext menuContext, int menuItemNumber)`
+
+**Purpose:** Gets the current value of `menu option id string`.
 
 ### RunConsequencesOfMenuOption
-```csharp
-public void RunConsequencesOfMenuOption(MenuContext menuContext, int menuItemNumber)
-```
+`public void RunConsequencesOfMenuOption(MenuContext menuContext, int menuItemNumber)`
+
+**Purpose:** Handles logic related to `run consequences of menu option`.
 
 ### GetVirtualMenuOptionTooltip
-```csharp
-public TextObject GetVirtualMenuOptionTooltip(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public TextObject GetVirtualMenuOptionTooltip(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option tooltip`.
 
 ### GetMenuOverlayType
-```csharp
-public GameMenu.MenuOverlayType GetMenuOverlayType(MenuContext menuContext)
-```
+`public GameMenu.MenuOverlayType GetMenuOverlayType(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `menu overlay type`.
 
 ### GetVirtualMenuOptionText
-```csharp
-public TextObject GetVirtualMenuOptionText(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public TextObject GetVirtualMenuOptionText(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option text`.
 
 ### GetVirtualGameMenuOption
-```csharp
-public GameMenuOption GetVirtualGameMenuOption(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public GameMenuOption GetVirtualGameMenuOption(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual game menu option`.
 
 ### GetVirtualMenuOptionText2
-```csharp
-public TextObject GetVirtualMenuOptionText2(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public TextObject GetVirtualMenuOptionText2(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option text2`.
 
 ### GetVirtualMenuProgress
-```csharp
-public float GetVirtualMenuProgress(MenuContext menuContext)
-```
+`public float GetVirtualMenuProgress(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `virtual menu progress`.
 
 ### GetVirtualMenuAndOptionType
-```csharp
-public GameMenu.MenuAndOptionType GetVirtualMenuAndOptionType(MenuContext menuContext)
-```
+`public GameMenu.MenuAndOptionType GetVirtualMenuAndOptionType(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `virtual menu and option type`.
 
 ### GetVirtualMenuIsWaitActive
-```csharp
-public bool GetVirtualMenuIsWaitActive(MenuContext menuContext)
-```
+`public bool GetVirtualMenuIsWaitActive(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `virtual menu is wait active`.
 
 ### GetVirtualMenuTargetWaitHours
-```csharp
-public float GetVirtualMenuTargetWaitHours(MenuContext menuContext)
-```
+`public float GetVirtualMenuTargetWaitHours(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `virtual menu target wait hours`.
 
 ### GetVirtualMenuOptionIsEnabled
-```csharp
-public bool GetVirtualMenuOptionIsEnabled(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public bool GetVirtualMenuOptionIsEnabled(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option is enabled`.
 
 ### GetVirtualMenuOptionAmount
-```csharp
-public int GetVirtualMenuOptionAmount(MenuContext menuContext)
-```
+`public int GetVirtualMenuOptionAmount(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `virtual menu option amount`.
 
 ### GetVirtualMenuOptionIsLeave
-```csharp
-public bool GetVirtualMenuOptionIsLeave(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public bool GetVirtualMenuOptionIsLeave(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option is leave`.
 
 ### GetLeaveMenuOption
-```csharp
-public GameMenuOption GetLeaveMenuOption(MenuContext menuContext)
-```
+`public GameMenuOption GetLeaveMenuOption(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `leave menu option`.
 
 ### GetVirtualMenuOptionConditionsHold
-```csharp
-public bool GetVirtualMenuOptionConditionsHold(MenuContext menuContext, int virtualMenuItemIndex)
-```
+`public bool GetVirtualMenuOptionConditionsHold(MenuContext menuContext, int virtualMenuItemIndex)`
+
+**Purpose:** Gets the current value of `virtual menu option conditions hold`.
 
 ### OnFrameTick
-```csharp
-public void OnFrameTick(MenuContext menuContext, float dt)
-```
+`public void OnFrameTick(MenuContext menuContext, float dt)`
+
+**Purpose:** Called when the `frame tick` event is raised.
 
 ### GetMenuText
-```csharp
-public TextObject GetMenuText(MenuContext menuContext)
-```
+`public TextObject GetMenuText(MenuContext menuContext)`
+
+**Purpose:** Gets the current value of `menu text`.
 
 ### AddGameMenu
-```csharp
-public void AddGameMenu(GameMenu gameMenu)
-```
+`public void AddGameMenu(GameMenu gameMenu)`
+
+**Purpose:** Adds `game menu` to the current collection or state.
 
 ### RemoveRelatedGameMenus
-```csharp
-public void RemoveRelatedGameMenus(object relatedObject)
-```
+`public void RemoveRelatedGameMenus(object relatedObject)`
+
+**Purpose:** Removes `related game menus` from the current collection or state.
 
 ### RemoveRelatedGameMenuOptions
-```csharp
-public void RemoveRelatedGameMenuOptions(object relatedObject)
-```
+`public void RemoveRelatedGameMenuOptions(object relatedObject)`
+
+**Purpose:** Removes `related game menu options` from the current collection or state.
 
 ### GetGameMenu
-```csharp
-public GameMenu GetGameMenu(string menuId)
-```
+`public GameMenu GetGameMenu(string menuId)`
+
+**Purpose:** Gets the current value of `game menu`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of GameMenuManager (Manager)
-GameMenuManager.Current;
+GameMenuManager example = GameMenuManager.NextGameMenuId;
 ```
 
 ## See Also

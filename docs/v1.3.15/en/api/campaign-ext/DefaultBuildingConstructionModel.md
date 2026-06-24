@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBuildingConstructionModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBuildingConstructionModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultBuildingConstructionModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBuildingConstructionModel>(new MyDefaultBuildingConstructionModel())` to change how it computes.
+`DefaultBuildingConstructionModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBuildingConstructionModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -28,29 +33,28 @@
 ## Key Methods
 
 ### CalculateDailyConstructionPower
-```csharp
-public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)
-```
+`public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate daily construction power`.
 
 ### CalculateDailyConstructionPowerWithoutBoost
-```csharp
-public override int CalculateDailyConstructionPowerWithoutBoost(Town town)
-```
+`public override int CalculateDailyConstructionPowerWithoutBoost(Town town)`
+
+**Purpose:** Handles logic related to `calculate daily construction power without boost`.
 
 ### GetBoostAmount
-```csharp
-public override int GetBoostAmount(Town town)
-```
+`public override int GetBoostAmount(Town town)`
+
+**Purpose:** Gets the current value of `boost amount`.
 
 ### GetBoostCost
-```csharp
-public override int GetBoostCost(Town town)
-```
+`public override int GetBoostCost(Town town)`
+
+**Purpose:** Gets the current value of `boost cost`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBuildingConstructionModel (Model)
 Game.Current.ReplaceModel<DefaultBuildingConstructionModel>(new MyDefaultBuildingConstructionModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `PinnedArrayData`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PinnedArrayData
@@ -14,31 +15,38 @@
 
 ## Overview
 
-`PinnedArrayData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`PinnedArrayData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `PinnedArrayData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `Handle` | `public GCHandle Handle { get { return this._handle; }` |
+| `Pinned` | `public bool Pinned { get; }` |
+| `Pointer` | `public IntPtr Pointer { get; }` |
+| `Array` | `public T Array { get; }` |
+| `Array2D` | `public T Array2D { get; }` |
+| `Handle` | `public GCHandle Handle { get; }` |
 
 ## Key Methods
 
 ### CheckIfTypeRequiresManualPinning
-```csharp
-public static bool CheckIfTypeRequiresManualPinning(Type type)
-```
+`public static bool CheckIfTypeRequiresManualPinning(Type type)`
+
+**Purpose:** Handles logic related to `check if type requires manual pinning`.
 
 ### Dispose
-```csharp
-public void Dispose()
-```
+`public void Dispose()`
+
+**Purpose:** Handles logic related to `dispose`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of PinnedArrayData (Data)
-new PinnedArrayData { /* fill fields */ };;
+var value = new PinnedArrayData();
 ```
 
 ## See Also

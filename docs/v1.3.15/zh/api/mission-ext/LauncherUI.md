@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `LauncherUI`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # LauncherUI
 
-**命名空间:** TaleWorlds.MountAndBlade.Launcher.Library
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class LauncherUI`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherUI.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`LauncherUI` 是 `TaleWorlds.MountAndBlade.Launcher.Library` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`LauncherUI` 位于 `TaleWorlds.MountAndBlade.Launcher.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.Launcher.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -22,54 +28,50 @@
 | `HasUnofficialModulesSelected` | `public bool HasUnofficialModulesSelected { get; }` |
 | `AdditionalArgs` | `public string AdditionalArgs { get; }` |
 
-
 ## 主要方法
 
 ### Initialize
+`public void Initialize()`
 
-```csharp
-public void Initialize()
-```
+**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
 
 ### OnFinalize
+`public void OnFinalize()`
 
-```csharp
-public void OnFinalize()
-```
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ### Update
+`public void Update()`
 
-```csharp
-public void Update()
-```
+**用途 / Purpose:** 更新 `update` 的状态或数据。
 
 ### CheckMouseOverWindowDragArea
+`public bool CheckMouseOverWindowDragArea()`
 
-```csharp
-public bool CheckMouseOverWindowDragArea()
-```
+**用途 / Purpose:** 处理 `check mouse over window drag area` 相关逻辑。
 
 ### HitTest
+`public bool HitTest()`
 
-```csharp
-public bool HitTest()
-```
+**用途 / Purpose:** 处理 `hit test` 相关逻辑。
 
 ### AddHintInformation
+`public static void AddHintInformation(string message)`
 
-```csharp
-public static void AddHintInformation(string message)
-```
+**用途 / Purpose:** 向当前集合/状态中添加 `hint information`。
 
 ### HideHintInformation
+`public static void HideHintInformation()`
+
+**用途 / Purpose:** 处理 `hide hint information` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public static void HideHintInformation()
+var value = new LauncherUI();
+value.Initialize();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultMapVisibilityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultMapVisibilityModel
@@ -14,44 +15,47 @@
 
 ## Overview
 
-`DefaultMapVisibilityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultMapVisibilityModel>(new MyDefaultMapVisibilityModel())` to change how it computes.
+`DefaultMapVisibilityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultMapVisibilityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### MaximumSeeingRange
-```csharp
-public override float MaximumSeeingRange()
-```
+`public override float MaximumSeeingRange()`
+
+**Purpose:** Handles logic related to `maximum seeing range`.
 
 ### GetPartySpottingRangeBase
-```csharp
-public override float GetPartySpottingRangeBase(MobileParty party)
-```
+`public override float GetPartySpottingRangeBase(MobileParty party)`
+
+**Purpose:** Gets the current value of `party spotting range base`.
 
 ### GetPartySpottingRange
-```csharp
-public override ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)
-```
+`public override ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
+
+**Purpose:** Gets the current value of `party spotting range`.
 
 ### GetPartyRelativeInspectionRange
-```csharp
-public override float GetPartyRelativeInspectionRange(IMapPoint party)
-```
+`public override float GetPartyRelativeInspectionRange(IMapPoint party)`
+
+**Purpose:** Gets the current value of `party relative inspection range`.
 
 ### GetPartySpottingDifficulty
-```csharp
-public override float GetPartySpottingDifficulty(MobileParty spottingParty, MobileParty party)
-```
+`public override float GetPartySpottingDifficulty(MobileParty spottingParty, MobileParty party)`
+
+**Purpose:** Gets the current value of `party spotting difficulty`.
 
 ### GetHideoutSpottingDistance
-```csharp
-public override float GetHideoutSpottingDistance()
-```
+`public override float GetHideoutSpottingDistance()`
+
+**Purpose:** Gets the current value of `hideout spotting distance`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultMapVisibilityModel (Model)
 Game.Current.ReplaceModel<DefaultMapVisibilityModel>(new MyDefaultMapVisibilityModel());
 ```
 

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BattleSpawnModel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleSpawnModel
@@ -14,35 +15,38 @@
 
 ## Overview
 
-`BattleSpawnModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<BattleSpawnModel>(new MyBattleSpawnModel())` to change how it computes.
+`BattleSpawnModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `BattleSpawnModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnMissionStart
-```csharp
-public virtual void OnMissionStart()
-```
+`public virtual void OnMissionStart()`
+
+**Purpose:** Called when the `mission start` event is raised.
 
 ### OnMissionEnd
-```csharp
-public virtual void OnMissionEnd()
-```
+`public virtual void OnMissionEnd()`
+
+**Purpose:** Called when the `mission end` event is raised.
 
 ### GetInitialSpawnAssignments
-```csharp
-public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
-```
+`public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**Purpose:** Gets the current value of `initial spawn assignments`.
 
 ### GetReinforcementAssignments
-```csharp
-public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)
-```
+`public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**Purpose:** Gets the current value of `reinforcement assignments`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BattleSpawnModel (Model)
-Game.Current.ReplaceModel<BattleSpawnModel>(new MyBattleSpawnModel());
+var implementation = new CustomBattleSpawnModel();
 ```
 
 ## See Also

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `TextureWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TextureWidget
@@ -16,28 +17,31 @@
 
 `TextureWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `TextureWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `LoadingIconWidget` | `public Widget LoadingIconWidget { get; set; }` |
-| `SetForClearNextFrame` | `public bool SetForClearNextFrame { get; protected set; }` |
-| `TextureProviderName` | `public string TextureProviderName { get { return this._textureProviderName; }` |
-| `Texture` | `public Texture Texture { get { return this._texture; }` |
+| `LoadingIconWidget` | `public Widget LoadingIconWidget { get; }` |
+| `TextureProvider` | `public TextureProvider TextureProvider { get; }` |
+| `SetForClearNextFrame` | `public bool SetForClearNextFrame { get; set; }` |
+| `TextureProviderName` | `public string TextureProviderName { get; set; }` |
+| `Texture` | `public Texture Texture { get; set; }` |
 
 ## Key Methods
 
 ### OnClearTextureProvider
-```csharp
-public virtual void OnClearTextureProvider()
-```
+`public virtual void OnClearTextureProvider()`
+
+**Purpose:** Called when the `clear texture provider` event is raised.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of TextureWidget (Widget)
-// 声明/访问一个 TextureWidget
-var widget = root.GetChild("textureWidget");;
+var widget = new TextureWidget(context);
 ```
 
 ## See Also

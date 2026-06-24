@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PopUpBaseVM`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PopUpBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public abstract class PopUpBaseVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Inquiries/PopUpBaseVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `PopUpBaseVM` is a class in the `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PopUpBaseVM` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -34,64 +38,59 @@
 | `CancelInputKey` | `public InputKeyItemVM CancelInputKey { get; set; }` |
 | `DoneInputKey` | `public InputKeyItemVM DoneInputKey { get; set; }` |
 
-
 ## Key Methods
 
 ### ExecuteAffirmativeAction
+`public abstract void ExecuteAffirmativeAction()`
 
-```csharp
-public abstract void ExecuteAffirmativeAction()
-```
+**Purpose:** Executes the `affirmative action` operation or workflow.
 
 ### ExecuteNegativeAction
+`public abstract void ExecuteNegativeAction()`
 
-```csharp
-public abstract void ExecuteNegativeAction()
-```
+**Purpose:** Executes the `negative action` operation or workflow.
 
 ### OnTick
+`public virtual void OnTick(float dt)`
 
-```csharp
-public virtual void OnTick(float dt)
-```
+**Purpose:** Called when the `tick` event is raised.
 
 ### OnClearData
+`public virtual void OnClearData()`
 
-```csharp
-public virtual void OnClearData()
-```
+**Purpose:** Called when the `clear data` event is raised.
 
 ### ForceRefreshKeyVisuals
+`public void ForceRefreshKeyVisuals()`
 
-```csharp
-public void ForceRefreshKeyVisuals()
-```
+**Purpose:** Handles logic related to `force refresh key visuals`.
 
 ### CloseQuery
+`public void CloseQuery()`
 
-```csharp
-public void CloseQuery()
-```
+**Purpose:** Handles logic related to `close query`.
 
 ### OnFinalize
+`public override void OnFinalize()`
 
-```csharp
-public override void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### SetCancelInputKey
+`public void SetCancelInputKey(HotKey hotKey)`
 
-```csharp
-public void SetCancelInputKey(HotKey hotKey)
-```
+**Purpose:** Sets the value or state of `cancel input key`.
 
 ### SetDoneInputKey
+`public void SetDoneInputKey(HotKey hotKey)`
+
+**Purpose:** Sets the value or state of `done input key`.
+
+## Usage Example
 
 ```csharp
-public void SetDoneInputKey(HotKey hotKey)
+var implementation = new CustomPopUpBaseVM();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

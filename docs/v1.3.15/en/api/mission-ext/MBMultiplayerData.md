@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MBMultiplayerData`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBMultiplayerData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MBMultiplayerData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`MBMultiplayerData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `MBMultiplayerData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,55 +30,54 @@
 ## Key Methods
 
 ### GetServerId
-```csharp
-public static string GetServerId()
-```
+`public static string GetServerId()`
+
+**Purpose:** Gets the current value of `server id`.
 
 ### GetServerName
-```csharp
-public static string GetServerName()
-```
+`public static string GetServerName()`
+
+**Purpose:** Gets the current value of `server name`.
 
 ### GetGameModule
-```csharp
-public static string GetGameModule()
-```
+`public static string GetGameModule()`
+
+**Purpose:** Gets the current value of `game module`.
 
 ### GetGameType
-```csharp
-public static string GetGameType()
-```
+`public static string GetGameType()`
+
+**Purpose:** Gets the current value of `game type`.
 
 ### GetMap
-```csharp
-public static string GetMap()
-```
+`public static string GetMap()`
+
+**Purpose:** Gets the current value of `map`.
 
 ### GetCurrentPlayerCount
-```csharp
-public static int GetCurrentPlayerCount()
-```
+`public static int GetCurrentPlayerCount()`
+
+**Purpose:** Gets the current value of `current player count`.
 
 ### GetPlayerCountLimit
-```csharp
-public static int GetPlayerCountLimit()
-```
+`public static int GetPlayerCountLimit()`
+
+**Purpose:** Gets the current value of `player count limit`.
 
 ### UpdateGameServerInfo
-```csharp
-public static void UpdateGameServerInfo(string id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)
-```
+`public static void UpdateGameServerInfo(string id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
+
+**Purpose:** Updates the state or data of `game server info`.
 
 ### GameServerInfoReceivedDelegate
-```csharp
-public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)
-```
+`public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
+
+**Purpose:** Handles logic related to `game server info received delegate`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MBMultiplayerData (Data)
-new MBMultiplayerData { /* fill fields */ };;
+var value = new MBMultiplayerData();
 ```
 
 ## See Also

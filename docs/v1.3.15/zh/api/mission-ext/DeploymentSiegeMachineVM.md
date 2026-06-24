@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `DeploymentSiegeMachineVM`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DeploymentSiegeMachineVM
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class DeploymentSiegeMachineVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/DeploymentSiegeMachineVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`DeploymentSiegeMachineVM` 是 `TaleWorlds.MountAndBlade.ViewModelCollection.Order` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`DeploymentSiegeMachineVM` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.Order`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.Order` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -30,60 +36,55 @@
 | `IsInFront` | `public bool IsInFront { get; set; }` |
 | `Position` | `public Vec2 Position { get; set; }` |
 
-
 ## 主要方法
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
 
 ### Update
+`public void Update()`
 
-```csharp
-public void Update()
-```
+**用途 / Purpose:** 更新 `update` 的状态或数据。
 
 ### CalculatePosition
+`public void CalculatePosition()`
 
-```csharp
-public void CalculatePosition()
-```
+**用途 / Purpose:** 处理 `calculate position` 相关逻辑。
 
 ### RefreshPosition
+`public void RefreshPosition()`
 
-```csharp
-public void RefreshPosition()
-```
+**用途 / Purpose:** 刷新 `position` 的显示或缓存。
 
 ### ExecuteAction
+`public void ExecuteAction()`
 
-```csharp
-public void ExecuteAction()
-```
+**用途 / Purpose:** 执行 `action` 操作或流程。
 
 ### ExecuteFocusBegin
+`public void ExecuteFocusBegin()`
 
-```csharp
-public void ExecuteFocusBegin()
-```
+**用途 / Purpose:** 执行 `focus begin` 操作或流程。
 
 ### ExecuteFocusEnd
+`public void ExecuteFocusEnd()`
 
-```csharp
-public void ExecuteFocusEnd()
-```
+**用途 / Purpose:** 执行 `focus end` 操作或流程。
 
 ### RefreshWithDeployedWeapon
+`public void RefreshWithDeployedWeapon()`
+
+**用途 / Purpose:** 刷新 `with deployed weapon` 的显示或缓存。
+
+## 使用示例
 
 ```csharp
-public void RefreshWithDeployedWeapon()
+var value = new DeploymentSiegeMachineVM();
+value.RefreshValues();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

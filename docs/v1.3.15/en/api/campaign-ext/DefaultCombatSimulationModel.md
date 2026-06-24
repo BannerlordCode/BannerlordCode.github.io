@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultCombatSimulationModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultCombatSimulationModel
@@ -14,64 +15,67 @@
 
 ## Overview
 
-`DefaultCombatSimulationModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultCombatSimulationModel>(new MyDefaultCombatSimulationModel())` to change how it computes.
+`DefaultCombatSimulationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultCombatSimulationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### SimulateHit
-```csharp
-public override ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)
-```
+`public override ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
+
+**Purpose:** Handles logic related to `simulate hit`.
 
 ### SimulateHit
-```csharp
-public override ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)
-```
+`public override ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
+
+**Purpose:** Handles logic related to `simulate hit`.
 
 ### GetMaximumSiegeEquipmentProgress
-```csharp
-public override float GetMaximumSiegeEquipmentProgress(Settlement settlement)
-```
+`public override float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
+
+**Purpose:** Gets the current value of `maximum siege equipment progress`.
 
 ### GetNumberOfEquipmentsBuilt
-```csharp
-public override int GetNumberOfEquipmentsBuilt(Settlement settlement)
-```
+`public override int GetNumberOfEquipmentsBuilt(Settlement settlement)`
+
+**Purpose:** Gets the current value of `number of equipments built`.
 
 ### GetSettlementAdvantage
-```csharp
-public override float GetSettlementAdvantage(Settlement settlement)
-```
+`public override float GetSettlementAdvantage(Settlement settlement)`
+
+**Purpose:** Gets the current value of `settlement advantage`.
 
 ### GetSimulationTicksForBattleRound
-```csharp
-public override ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)
-```
+`public override ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
+
+**Purpose:** Gets the current value of `simulation ticks for battle round`.
 
 ### GetBattleAdvantage
-```csharp
-public override void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)
-```
+`public override void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
+
+**Purpose:** Gets the current value of `battle advantage`.
 
 ### GetShipSiegeEngineHitChance
-```csharp
-public override float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)
-```
+`public override float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
+
+**Purpose:** Gets the current value of `ship siege engine hit chance`.
 
 ### GetPursuitRoundCount
-```csharp
-public override int GetPursuitRoundCount(MapEvent mapEvent)
-```
+`public override int GetPursuitRoundCount(MapEvent mapEvent)`
+
+**Purpose:** Gets the current value of `pursuit round count`.
 
 ### GetBluntDamageChance
-```csharp
-public override float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)
-```
+`public override float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
+
+**Purpose:** Gets the current value of `blunt damage chance`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultCombatSimulationModel (Model)
 Game.Current.ReplaceModel<DefaultCombatSimulationModel>(new MyDefaultCombatSimulationModel());
 ```
 

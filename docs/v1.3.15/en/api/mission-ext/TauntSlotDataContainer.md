@@ -2,36 +2,44 @@
 **Home** → **API Index** → **Area** → `TauntSlotDataContainer`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TauntSlotDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class TauntSlotDataContainer : MultiplayerLocalDataContainer<TauntSlotData>`
+**Base:** `MultiplayerLocalDataContainer<TauntSlotData>`
+**File:** `TaleWorlds.MountAndBlade.Diamond/Lobby/LocalData/TauntSlotDataContainer.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TauntSlotDataContainer` is a class in the `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TauntSlotDataContainer` lives in `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### GetTauntIndicesForPlayer
+`public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)`
 
-```csharp
-public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)
-```
+**Purpose:** Gets the current value of `taunt indices for player`.
 
 ### SetTauntIndicesForPlayer
+`public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)`
+
+**Purpose:** Sets the value or state of `taunt indices for player`.
+
+## Usage Example
 
 ```csharp
-public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)
+var value = new TauntSlotDataContainer();
+value.GetTauntIndicesForPlayer("example");
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

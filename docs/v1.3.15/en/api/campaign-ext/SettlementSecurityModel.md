@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `SettlementSecurityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SettlementSecurityModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`SettlementSecurityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<SettlementSecurityModel>(new MySettlementSecurityModel())` to change how it computes.
+`SettlementSecurityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `SettlementSecurityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -40,35 +45,34 @@
 ## Key Methods
 
 ### GetLootedNearbyPartySecurityEffect
-```csharp
-public abstract float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)
-```
+`public abstract float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+
+**Purpose:** Gets the current value of `looted nearby party security effect`.
 
 ### CalculateSecurityChange
-```csharp
-public abstract ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)
-```
+`public abstract ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate security change`.
 
 ### GetNearbyBanditPartyDefeatedSecurityEffect
-```csharp
-public abstract float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)
-```
+`public abstract float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+
+**Purpose:** Gets the current value of `nearby bandit party defeated security effect`.
 
 ### CalculateGoldGainDueToHighSecurity
-```csharp
-public abstract void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)
-```
+`public abstract void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold gain due to high security`.
 
 ### CalculateGoldCutDueToLowSecurity
-```csharp
-public abstract void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)
-```
+`public abstract void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Handles logic related to `calculate gold cut due to low security`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of SettlementSecurityModel (Model)
-Game.Current.ReplaceModel<SettlementSecurityModel>(new MySettlementSecurityModel());
+var implementation = new CustomSettlementSecurityModel();
 ```
 
 ## See Also

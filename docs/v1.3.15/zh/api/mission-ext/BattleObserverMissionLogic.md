@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `BattleObserverMissionLogic`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BattleObserverMissionLogic
@@ -14,49 +15,58 @@
 
 ## 概述
 
-`BattleObserverMissionLogic` 是一个 MissionLogic（MissionBehavior 的子类），在任务中运行每-tick/事件逻辑。通过 `mission.AddMissionBehavior(new BattleObserverMissionLogic())` 添加；继承它可定制。
+`BattleObserverMissionLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `BattleObserverMissionLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `BattleObserver` | `public IBattleObserver BattleObserver { get; }` |
 
 ## 主要方法
 
 ### SetObserver
-```csharp
-public void SetObserver(IBattleObserver observer)
-```
+`public void SetObserver(IBattleObserver observer)`
+
+**用途 / Purpose:** 设置 `observer` 的值或状态。
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**用途 / Purpose:** 处理 `early start` 相关逻辑。
 
 ### OnAgentBuild
-```csharp
-public override void OnAgentBuild(Agent agent, Banner banner)
-```
+`public override void OnAgentBuild(Agent agent, Banner banner)`
+
+**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
 
 ### OnAgentTeamChanged
-```csharp
-public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)
-```
+`public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
+
+**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
 
 ### OnMissionResultReady
-```csharp
-public override void OnMissionResultReady(MissionResult missionResult)
-```
+`public override void OnMissionResultReady(MissionResult missionResult)`
+
+**用途 / Purpose:** 当 `mission result ready` 事件触发时调用此方法。
 
 ### GetDeathToBuiltAgentRatioForSide
-```csharp
-public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)
-```
+`public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
+
+**用途 / Purpose:** 获取 `death to built agent ratio for side` 的当前值。
 
 ## 使用示例
 
 ```csharp
-// BattleObserverMissionLogic (Logic) 的典型用法
 Mission.Current.AddMissionBehavior(new BattleObserverMissionLogic());
 ```
 

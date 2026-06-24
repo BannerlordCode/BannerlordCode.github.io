@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `SceneNotificationVM`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SceneNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
-**Type:** class
-**Area:** Core
+**Type:** `public class SceneNotificationVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/SceneNotificationVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SceneNotificationVM` is a class in the `TaleWorlds.Core.ViewModelCollection.Information` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SceneNotificationVM` lives in `TaleWorlds.Core.ViewModelCollection.Information` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -39,52 +43,50 @@
 | `EndProgress` | `public float EndProgress { get; set; }` |
 | `AffirmativeHint` | `public BasicTooltipViewModel AffirmativeHint { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
 
-```csharp
-public override void RefreshValues()
-```
+**Purpose:** Refreshes the display or cache of `values`.
 
 ### CreateNotification
+`public void CreateNotification(SceneNotificationData data)`
 
-```csharp
-public void CreateNotification(SceneNotificationData data)
-```
+**Purpose:** Creates a new `notification` instance or object.
 
 ### ClearData
+`public void ClearData()`
 
-```csharp
-public void ClearData()
-```
+**Purpose:** Handles logic related to `clear data`.
 
 ### ExecuteAffirmativeProcess
+`public void ExecuteAffirmativeProcess()`
 
-```csharp
-public void ExecuteAffirmativeProcess()
-```
+**Purpose:** Executes the `affirmative process` operation or workflow.
 
 ### ExecuteClose
+`public void ExecuteClose()`
 
-```csharp
-public void ExecuteClose()
-```
+**Purpose:** Executes the `close` operation or workflow.
 
 ### ExecuteNegativeProcess
+`public void ExecuteNegativeProcess()`
 
-```csharp
-public void ExecuteNegativeProcess()
-```
+**Purpose:** Executes the `negative process` operation or workflow.
 
 ### OnFinalize
+`public override void OnFinalize()`
+
+**Purpose:** Called when the `finalize` event is raised.
+
+## Usage Example
 
 ```csharp
-public override void OnFinalize()
+var value = new SceneNotificationVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

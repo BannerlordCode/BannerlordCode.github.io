@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `HeroViewModel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HeroViewModel
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`HeroViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 Gauntlet UI 之间的数据绑定桥梁。用 `[DataSourceProperty]` 绑定属性，重写 OnPropertyChanged 响应变化。
+`HeroViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
+
+## 心智模型
+
+把 `HeroViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -25,27 +30,25 @@
 ## 主要方法
 
 ### SetEquipment
-```csharp
-public override void SetEquipment(Equipment equipment)
-```
+`public override void SetEquipment(Equipment equipment)`
+
+**用途 / Purpose:** 设置 `equipment` 的值或状态。
 
 ### FillFrom
-```csharp
-public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)
-```
+`public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
+
+**用途 / Purpose:** 处理 `fill from` 相关逻辑。
 
 ### OnFinalize
-```csharp
-public override void OnFinalize()
-```
+`public override void OnFinalize()`
+
+**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// HeroViewModel (ViewModel) 的典型用法
-// 绑定一个 HeroViewModel 到 Gauntlet UI
 var vm = new HeroViewModel();
-movie.SetViewModel(vm);;
+movie.SetViewModel(vm);
 ```
 
 ## 参见

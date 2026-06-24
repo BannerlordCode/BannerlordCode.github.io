@@ -5,6 +5,10 @@ description: TaleWorlds.Native.dll 引擎核心类参考
 
 # 引擎核心 / Engine Core
 
+## 心智模型
+
+先把 `引擎核心` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## 概述 / Overview
 
 引擎核心模块包含 TaleWorlds.Native.dll 的核心接口和实现。
@@ -327,4 +331,10 @@ Epic 模块扩展。
 
 ```cpp
 ftmmEpic_module_extension::vftable
+```
+
+## 使用示例
+
+```csharp
+var example = new 引擎核心();
 ```

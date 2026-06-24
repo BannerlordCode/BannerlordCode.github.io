@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CampaignObjectManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CampaignObjectManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CampaignObjectManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`CampaignObjectManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `CampaignObjectManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -41,55 +46,54 @@
 ## Key Methods
 
 ### PreAfterLoad
-```csharp
-public void PreAfterLoad()
-```
+`public void PreAfterLoad()`
+
+**Purpose:** Handles logic related to `pre after load`.
 
 ### AfterLoad
-```csharp
-public void AfterLoad()
-```
+`public void AfterLoad()`
+
+**Purpose:** Handles logic related to `after load`.
 
 ### GetMaxObjectSubId
-```csharp
-public uint GetMaxObjectSubId()
-```
+`public uint GetMaxObjectSubId()`
+
+**Purpose:** Gets the current value of `max object sub id`.
 
 ### OnItemAdded
-```csharp
-public void OnItemAdded(T item)
-```
+`public void OnItemAdded(T item)`
+
+**Purpose:** Called when the `item added` event is raised.
 
 ### UnregisterItem
-```csharp
-public void UnregisterItem(T item)
-```
+`public void UnregisterItem(T item)`
+
+**Purpose:** Handles logic related to `unregister item`.
 
 ### Find
-```csharp
-public T Find(string id)
-```
+`public T Find(string id)`
+
+**Purpose:** Handles logic related to `find`.
 
 ### FindFirst
-```csharp
-public T FindFirst(Predicate<T> predicate)
-```
+`public T FindFirst(Predicate<T> predicate)`
+
+**Purpose:** Handles logic related to `find first`.
 
 ### FindAll
-```csharp
-public MBReadOnlyList<T> FindAll(Predicate<T> predicate)
-```
+`public MBReadOnlyList<T> FindAll(Predicate<T> predicate)`
+
+**Purpose:** Handles logic related to `find all`.
 
 ### FindNextUniqueStringId
-```csharp
-public static string FindNextUniqueStringId(List<CampaignObjectManager.CampaignObjectType<T>> lists, string id)
-```
+`public static string FindNextUniqueStringId(List<CampaignObjectManager.CampaignObjectType<T>> lists, string id)`
+
+**Purpose:** Handles logic related to `find next unique string id`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CampaignObjectManager (Manager)
-CampaignObjectManager.Current;
+var manager = CampaignObjectManager.Current;
 ```
 
 ## See Also

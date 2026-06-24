@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `MultiplayerLocalDataManager`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerLocalDataManager
@@ -14,7 +15,11 @@
 
 ## 概述
 
-`MultiplayerLocalDataManager` 是一个管理器（通常经 Current 单例或 Mission.Current 访问）。用它访问/修改其管理的子系统。
+`MultiplayerLocalDataManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MultiplayerLocalDataManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要属性
 
@@ -28,25 +33,24 @@
 ## 主要方法
 
 ### InitializeManager
-```csharp
-public static void InitializeManager()
-```
+`public static void InitializeManager()`
+
+**用途 / Purpose:** 初始化 `manager` 的状态、资源或绑定。
 
 ### FinalizeManager
-```csharp
-public static void FinalizeManager()
-```
+`public static void FinalizeManager()`
+
+**用途 / Purpose:** 处理 `finalize manager` 相关逻辑。
 
 ### Tick
-```csharp
-public void Tick(float dt)
-```
+`public void Tick(float dt)`
+
+**用途 / Purpose:** 处理 `tick` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-// MultiplayerLocalDataManager (Manager) 的典型用法
-MultiplayerLocalDataManager.Current;
+var manager = MultiplayerLocalDataManager.Current;
 ```
 
 ## 参见

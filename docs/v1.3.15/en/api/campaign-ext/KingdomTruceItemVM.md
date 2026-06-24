@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `KingdomTruceItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # KingdomTruceItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class KingdomTruceItemVM : KingdomDiplomacyItemVM`
+**Base:** `KingdomDiplomacyItemVM`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/KingdomManagement/Diplomacy/KingdomTruceItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `KingdomTruceItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`KingdomTruceItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -27,7 +31,12 @@
 | `AllianceEndTimeStr` | `public string AllianceEndTimeStr { get; set; }` |
 | `TradeAgreementEndTimeStr` | `public string TradeAgreementEndTimeStr { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new KingdomTruceItemVM();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

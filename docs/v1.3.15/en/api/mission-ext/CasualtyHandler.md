@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CasualtyHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CasualtyHandler
@@ -14,34 +15,37 @@
 
 ## Overview
 
-`CasualtyHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`CasualtyHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `CasualtyHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnAgentRemoved
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-```
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### OnAgentFleeing
-```csharp
-public override void OnAgentFleeing(Agent affectedAgent)
-```
+`public override void OnAgentFleeing(Agent affectedAgent)`
+
+**Purpose:** Called when the `agent fleeing` event is raised.
 
 ### GetCasualtyCountOfFormation
-```csharp
-public int GetCasualtyCountOfFormation(Formation formation)
-```
+`public int GetCasualtyCountOfFormation(Formation formation)`
+
+**Purpose:** Gets the current value of `casualty count of formation`.
 
 ### GetCasualtyPowerLossOfFormation
-```csharp
-public float GetCasualtyPowerLossOfFormation(Formation formation)
-```
+`public float GetCasualtyPowerLossOfFormation(Formation formation)`
+
+**Purpose:** Gets the current value of `casualty power loss of formation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CasualtyHandler (Handler)
 Mission.Current.AddMissionBehavior(new CasualtyHandler());
 ```
 

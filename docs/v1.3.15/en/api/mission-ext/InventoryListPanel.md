@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `InventoryListPanel`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InventoryListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class InventoryListPanel : NavigatableListPanel`
+**Base:** `NavigatableListPanel`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Inventory/InventoryListPanel.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `InventoryListPanel` is a class in the `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`InventoryListPanel` lives in `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -26,7 +30,12 @@
 | `SortByQuantityBtn` | `public ButtonWidget SortByQuantityBtn { get; set; }` |
 | `SortByCostBtn` | `public ButtonWidget SortByCostBtn { get; set; }` |
 
+## Usage Example
+
+```csharp
+var value = new InventoryListPanel();
+```
+
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MapEventManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MapEventManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`MapEventManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`MapEventManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `MapEventManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,50 +30,49 @@
 ## Key Methods
 
 ### OnMapEventCreated
-```csharp
-public void OnMapEventCreated(MapEvent mapEvent)
-```
+`public void OnMapEventCreated(MapEvent mapEvent)`
+
+**Purpose:** Called when the `map event created` event is raised.
 
 ### GetMapEvent
-```csharp
-public MapEvent GetMapEvent(int attackerPartyIndex)
-```
+`public MapEvent GetMapEvent(int attackerPartyIndex)`
+
+**Purpose:** Gets the current value of `map event`.
 
 ### GetMapEventsBetweenFactions
-```csharp
-public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)
-```
+`public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
+
+**Purpose:** Gets the current value of `map events between factions`.
 
 ### FinalizePlayerMapEvent
-```csharp
-public void FinalizePlayerMapEvent(MapEvent mapEvent = null)
-```
+`public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
+
+**Purpose:** Handles logic related to `finalize player map event`.
 
 ### StartSiegeMapEvent
-```csharp
-public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Handles logic related to `start siege map event`.
 
 ### StartSallyOutMapEvent
-```csharp
-public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Handles logic related to `start sally out map event`.
 
 ### StartSiegeOutsideMapEvent
-```csharp
-public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Handles logic related to `start siege outside map event`.
 
 ### StartBlockadeBattleMapEvent
-```csharp
-public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)
-```
+`public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Handles logic related to `start blockade battle map event`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MapEventManager (Manager)
-MapEventManager.Current;
+var manager = MapEventManager.Current;
 ```
 
 ## See Also

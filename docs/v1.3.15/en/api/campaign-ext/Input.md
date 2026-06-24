@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `Input`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # Input
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public static class Input`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `Input` is a class in the `TaleWorlds.InputSystem` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`Input` lives in `TaleWorlds.InputSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -42,127 +45,113 @@
 | `MousePositionRanged` | `public static Vec2 MousePositionRanged { get; }` |
 | `MousePositionPixel` | `public static Vec2 MousePositionPixel { get; }` |
 
-
 ## Key Methods
 
 ### IsPlaystation
+`public static bool IsPlaystation(this Input.ControllerTypes controllerType)`
 
-```csharp
-public static bool IsPlaystation(this Input.ControllerTypes controllerType)
-```
+**Purpose:** Handles logic related to `is playstation`.
 
 ### Initialize
+`public static void Initialize(IInputManager inputManager, IInputContext debugInput)`
 
-```csharp
-public static void Initialize(IInputManager inputManager, IInputContext debugInput)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### UpdateKeyData
+`public static void UpdateKeyData(byte keyData)`
 
-```csharp
-public static void UpdateKeyData(byte keyData)
-```
+**Purpose:** Updates the state or data of `key data`.
 
 ### GetMouseMoveX
+`public static float GetMouseMoveX()`
 
-```csharp
-public static float GetMouseMoveX()
-```
+**Purpose:** Gets the current value of `mouse move x`.
 
 ### GetMouseMoveY
+`public static float GetMouseMoveY()`
 
-```csharp
-public static float GetMouseMoveY()
-```
+**Purpose:** Gets the current value of `mouse move y`.
 
 ### GetNormalizedMouseMoveX
+`public static float GetNormalizedMouseMoveX()`
 
-```csharp
-public static float GetNormalizedMouseMoveX()
-```
+**Purpose:** Gets the current value of `normalized mouse move x`.
 
 ### GetNormalizedMouseMoveY
+`public static float GetNormalizedMouseMoveY()`
 
-```csharp
-public static float GetNormalizedMouseMoveY()
-```
+**Purpose:** Gets the current value of `normalized mouse move y`.
 
 ### GetGyroX
+`public static float GetGyroX()`
 
-```csharp
-public static float GetGyroX()
-```
+**Purpose:** Gets the current value of `gyro x`.
 
 ### GetGyroY
+`public static float GetGyroY()`
 
-```csharp
-public static float GetGyroY()
-```
+**Purpose:** Gets the current value of `gyro y`.
 
 ### GetGyroZ
+`public static float GetGyroZ()`
 
-```csharp
-public static float GetGyroZ()
-```
+**Purpose:** Gets the current value of `gyro z`.
 
 ### GetKeyState
+`public static Vec2 GetKeyState(InputKey key)`
 
-```csharp
-public static Vec2 GetKeyState(InputKey key)
-```
+**Purpose:** Gets the current value of `key state`.
 
 ### IsKeyPressed
+`public static bool IsKeyPressed(InputKey key)`
 
-```csharp
-public static bool IsKeyPressed(InputKey key)
-```
+**Purpose:** Handles logic related to `is key pressed`.
 
 ### IsKeyDown
+`public static bool IsKeyDown(InputKey key)`
 
-```csharp
-public static bool IsKeyDown(InputKey key)
-```
+**Purpose:** Handles logic related to `is key down`.
 
 ### IsKeyDownImmediate
+`public static bool IsKeyDownImmediate(InputKey key)`
 
-```csharp
-public static bool IsKeyDownImmediate(InputKey key)
-```
+**Purpose:** Handles logic related to `is key down immediate`.
 
 ### IsKeyReleased
+`public static bool IsKeyReleased(InputKey key)`
 
-```csharp
-public static bool IsKeyReleased(InputKey key)
-```
+**Purpose:** Handles logic related to `is key released`.
 
 ### IsControlOrShiftNotDown
+`public static bool IsControlOrShiftNotDown()`
 
-```csharp
-public static bool IsControlOrShiftNotDown()
-```
+**Purpose:** Handles logic related to `is control or shift not down`.
 
 ### GetPrimaryControllerType
+`public static Input.ControllerTypes GetPrimaryControllerType()`
 
-```csharp
-public static Input.ControllerTypes GetPrimaryControllerType()
-```
+**Purpose:** Gets the current value of `primary controller type`.
 
 ### GetFirstKeyPressedInRange
+`public static int GetFirstKeyPressedInRange(int startKeyNo)`
 
-```csharp
-public static int GetFirstKeyPressedInRange(int startKeyNo)
-```
+**Purpose:** Gets the current value of `first key pressed in range`.
 
 ### GetFirstKeyDownInRange
+`public static int GetFirstKeyDownInRange(int startKeyNo)`
 
-```csharp
-public static int GetFirstKeyDownInRange(int startKeyNo)
-```
+**Purpose:** Gets the current value of `first key down in range`.
 
 ### GetFirstKeyReleasedInRange
+`public static int GetFirstKeyReleasedInRange(int startKeyNo)`
+
+**Purpose:** Gets the current value of `first key released in range`.
+
+## Usage Example
 
 ```csharp
-public static int GetFirstKeyReleasedInRange(int startKeyNo)
+// Prepare the required context, then call the static entry point directly
+Input.IsPlaystation(controllerType);
 ```
 
 ## See Also

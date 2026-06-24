@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MissionCommunityClientComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MissionCommunityClientComponent
@@ -14,30 +15,33 @@
 
 ## Overview
 
-`MissionCommunityClientComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MissionCommunityClientComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MissionCommunityClientComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MissionCommunityClientComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### SetServerEndingBeforeClientLoaded
-```csharp
-public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)
-```
+`public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
+
+**Purpose:** Sets the value or state of `server ending before client loaded`.
 
 ### QuitMission
-```csharp
-public override void QuitMission()
-```
+`public override void QuitMission()`
+
+**Purpose:** Handles logic related to `quit mission`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MissionCommunityClientComponent (Component)
-agent.GetComponent<MissionCommunityClientComponent>();
+var component = agent.GetComponent<MissionCommunityClientComponent>();
 ```
 
 ## See Also

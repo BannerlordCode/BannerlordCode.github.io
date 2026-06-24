@@ -1,7 +1,9 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `QuestBase`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 - [🔀 跨版本对比 /versions/QuestBase](/versions/QuestBase)
 <!-- END BREADCRUMB -->
@@ -9,33 +11,90 @@
 
 **命名空间:** TaleWorlds.CampaignSystem  
 **模块:** TaleWorlds.CampaignSystem  
-**类型:** abstract class（继承 `MBObjectBase`）  
-**文件:** `bannerlord-1.3.15/TaleWorlds.CampaignSystem/QuestBase.cs`
+**类型:** abstract class（继?
 
-`QuestBase` 是所有任务（quest）的基类。mod 通过继承它并实现 `Title`、`IsRemainingTimeHidden` 与各生命周期方法来添加自定义任务。
+`MBObjectBase
 
+`? 
+**文件:** 
+
+`bannerlord-1.3.15/TaleWorlds.CampaignSystem/QuestBase.cs
+
+`
+
+`QuestBase
+
+` 是所有任务（quest）的基类。mod 通过继承它并实现 
+
+`Title
+
+`、`IsRemainingTimeHidden
+
+` 与各生命周期方法来添加自定义任务?
 ## 概述
 
-任务由 `QuestGiver`（给任务的英雄）触发，有截止时间 `QuestDueTime`，包含任务步骤（`TaskList`）与日志（`JournalEntries`）。用 `StartQuest` 启动，用 `CompleteQuestWith*` 系列方法按成功/超时/失败/背叛/取消结束。可在任务期间添加游戏菜单（`AddGameMenu`）与追踪对象（`AddTrackedObject`）。
+任务?
 
-## 主要属性
+`QuestGiver
 
-| 名称 | 类型 | 描述 |
-|------|------|------|
-| QuestGiver | Hero | 给出任务的英雄 |
-| QuestDueTime | CampaignTime | 截止时间（protected set） |
-| Title | TextObject | 任务标题（abstract） |
-| IsRemainingTimeHidden | bool | 是否隐藏剩余时间（abstract） |
-| TaskList | `MBReadOnlyList<QuestTaskBase>` | 任务步骤列表 |
-| JournalEntries | `MBReadOnlyList<JournalLog>` | 日志条目 |
-| IsOngoing | bool | 是否进行中 |
-| IsFinalized | bool | 是否已结束 |
-| IsTrackEnabled | bool | 是否启用追踪 |
-| RelationshipChangeWithQuestGiver | int | 完成时与给任务者的关系变化 |
+`（给任务的英雄）触发，有截止时间 
+
+`QuestDueTime
+
+`，包含任务步骤（
+
+`TaskList
+
+`）与日志（`JournalEntries
+
+`）。用 
+
+`StartQuest
+
+` 启动，用 
+
+`CompleteQuestWith*
+
+` 系列方法按成?超时/失败/背叛/取消结束。可在任务期间添加游戏菜单（
+
+`AddGameMenu
+
+`）与追踪对象（`AddTrackedObject
+
+`）?
+## 心智模型
+
+先把 `QuestBase` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+## 主要属?
+\| 名称 \| 类型 \| 描述 \|
+\|------\|------\|------\|
+\| QuestGiver \| Hero \| 给出任务的英?\|
+\| QuestDueTime \| CampaignTime \| 截止时间（protected set?\|
+\| Title \| TextObject \| 任务标题（abstract?\|
+\| IsRemainingTimeHidden \| bool \| 是否隐藏剩余时间（abstract?\|
+\| TaskList \| 
+
+`MBReadOnlyList&lt;QuestTaskBase&gt;
+
+` \| 任务步骤列表 \|
+\| JournalEntries \| 
+
+`MBReadOnlyList&lt;JournalLog&gt;
+
+` \| 日志条目 \|
+\| IsOngoing \| bool \| 是否进行?\|
+\| IsFinalized \| bool \| 是否已结?\|
+\| IsTrackEnabled \| bool \| 是否启用追踪 \|
+\| RelationshipChangeWithQuestGiver \| int \| 完成时与给任务者的关系变化 \|
 
 ## 主要方法
 
-```csharp
+`
+
+`
+
+`csharp
 public void StartQuest();
 public void CompleteQuestWithSuccess();
 public void CompleteQuestWithTimeOut(TextObject timeOutLog = null);
@@ -59,17 +118,32 @@ public virtual int GetMaxProgress();
 public virtual void OnFailed();
 public virtual void OnCanceled();
 public virtual bool QuestPreconditions();
-```
+`
 
-任务结束时引擎会调用对应的 `OnFailed`/`OnCanceled` 等虚方法，mod 可重写做清理。
+`
 
+`
+
+任务结束时引擎会调用对应?
+
+`OnFailed
+
+`/
+
+`OnCanceled
+
+` 等虚方法，mod 可重写做清理?
 ## 使用示例
 
-```csharp
+`
+
+`
+
+`csharp
 public class MyQuest : QuestBase
 {
-    public override TextObject Title => new TextObject("{=myquest}My Custom Quest");
-    public override bool IsRemainingTimeHidden => false;
+    public override TextObject Title =&gt; new TextObject("{=myquest}My Custom Quest");
+    public override bool IsRemainingTimeHidden =&gt; false;
 
     protected override void RegisterEvents()
     {
@@ -78,8 +152,7 @@ public class MyQuest : QuestBase
 
     protected override void InitializeQuestOnGameLoad()
     {
-        // 读档时恢复状态
-    }
+        // 读档时恢复状?    }
 
     public void Start()
     {
@@ -94,7 +167,11 @@ public class MyQuest : QuestBase
         CompleteQuestWithSuccess();
     }
 }
-```
+`
+
+`
+
+`
 
 ## 参见
 

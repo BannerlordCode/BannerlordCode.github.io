@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `GauntletGamepadNavigationManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GauntletGamepadNavigationManager
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GauntletGamepadNavigationManager`
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GamepadNavigation/GauntletGamepadNavigationManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GauntletGamepadNavigationManager` is a class in the `TaleWorlds.GauntletUI.GamepadNavigation` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GauntletGamepadNavigationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
+## Mental Model
+
+Treat `GauntletGamepadNavigationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -31,82 +35,74 @@
 | `TargetedWidgetHasAction` | `public bool TargetedWidgetHasAction { get; }` |
 | `AnyWidgetUsingNavigation` | `public bool AnyWidgetUsingNavigation { get; }` |
 
-
 ## Key Methods
 
 ### Initialize
+`public static void Initialize()`
 
-```csharp
-public static void Initialize()
-```
-
-### TryNavigateTo
-
-```csharp
-public bool TryNavigateTo(Widget widget)
-```
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
 
 ### TryNavigateTo
+`public bool TryNavigateTo(Widget widget)`
 
-```csharp
-public bool TryNavigateTo(GamepadNavigationScope scope)
-```
+**Purpose:** Attempts to get `navigate to`, usually returning the result in an out parameter.
+
+### TryNavigateTo
+`public bool TryNavigateTo(GamepadNavigationScope scope)`
+
+**Purpose:** Attempts to get `navigate to`, usually returning the result in an out parameter.
 
 ### OnFinalize
+`public void OnFinalize()`
 
-```csharp
-public void OnFinalize()
-```
+**Purpose:** Called when the `finalize` event is raised.
 
 ### Update
+`public void Update(float dt)`
 
-```csharp
-public void Update(float dt)
-```
+**Purpose:** Updates the state or data of `update`.
 
 ### SetAllDirty
+`public void SetAllDirty()`
 
-```csharp
-public void SetAllDirty()
-```
-
-### Compare
-
-```csharp
-public int Compare(IGamepadNavigationContext x, IGamepadNavigationContext y)
-```
+**Purpose:** Sets the value or state of `all dirty`.
 
 ### Compare
+`public int Compare(IGamepadNavigationContext x, IGamepadNavigationContext y)`
 
-```csharp
-public int Compare(GamepadNavigationForcedScopeCollection x, GamepadNavigationForcedScopeCollection y)
-```
+**Purpose:** Handles logic related to `compare`.
+
+### Compare
+`public int Compare(GamepadNavigationForcedScopeCollection x, GamepadNavigationForcedScopeCollection y)`
+
+**Purpose:** Handles logic related to `compare`.
 
 ### GainNavigationAfterFrames
+`public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)`
 
-```csharp
-public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)
-```
+**Purpose:** Handles logic related to `gain navigation after frames`.
 
 ### GainNavigationAfterTime
+`public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)`
 
-```csharp
-public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)
-```
+**Purpose:** Handles logic related to `gain navigation after time`.
 
 ### Tick
+`public void Tick(float dt)`
 
-```csharp
-public void Tick(float dt)
-```
+**Purpose:** Handles logic related to `tick`.
 
 ### Clear
+`public void Clear()`
+
+**Purpose:** Handles logic related to `clear`.
+
+## Usage Example
 
 ```csharp
-public void Clear()
+var manager = GauntletGamepadNavigationManager.Current;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

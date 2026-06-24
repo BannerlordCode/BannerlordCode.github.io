@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultIssueModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultIssueModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultIssueModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultIssueModel>(new MyDefaultIssueModel())` to change how it computes.
+`DefaultIssueModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultIssueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -25,59 +30,58 @@
 ## Key Methods
 
 ### GetIssueDifficultyMultiplier
-```csharp
-public override float GetIssueDifficultyMultiplier()
-```
+`public override float GetIssueDifficultyMultiplier()`
+
+**Purpose:** Gets the current value of `issue difficulty multiplier`.
 
 ### GetIssueEffectsOfSettlement
-```csharp
-public override void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)
-```
+`public override void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effects of settlement`.
 
 ### GetIssueEffectOfHero
-```csharp
-public override void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)
-```
+`public override void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effect of hero`.
 
 ### GetIssueEffectOfClan
-```csharp
-public override void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)
-```
+`public override void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
+
+**Purpose:** Gets the current value of `issue effect of clan`.
 
 ### GetCausalityForHero
-```csharp
-public override ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public override ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `causality for hero`.
 
 ### GetFailureRiskForHero
-```csharp
-public override float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public override float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `failure risk for hero`.
 
 ### GetDurationOfResolutionForHero
-```csharp
-public override CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public override CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `duration of resolution for hero`.
 
 ### GetTroopsRequiredForHero
-```csharp
-public override int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)
-```
+`public override int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `troops required for hero`.
 
 ### GetIssueAlternativeSolutionSkill
-```csharp
-public override ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)
-```
+`public override ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)`
+
+**Purpose:** Gets the current value of `issue alternative solution skill`.
 
 ### CanTroopsReturnFromAlternativeSolution
-```csharp
-public override bool CanTroopsReturnFromAlternativeSolution()
-```
+`public override bool CanTroopsReturnFromAlternativeSolution()`
+
+**Purpose:** Checks whether the current object can `troops return from alternative solution`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultIssueModel (Model)
 Game.Current.ReplaceModel<DefaultIssueModel>(new MyDefaultIssueModel());
 ```
 

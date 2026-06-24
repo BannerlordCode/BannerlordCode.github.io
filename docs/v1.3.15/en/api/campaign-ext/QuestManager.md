@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `QuestManager`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # QuestManager
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`QuestManager` is a manager (often reached via a Current singleton or Mission.Current). Use it to access/modify its managed subsystem.
+`QuestManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `QuestManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,145 +32,144 @@
 ## Key Methods
 
 ### OnQuestStarted
-```csharp
-public override void OnQuestStarted(QuestBase quest)
-```
+`public override void OnQuestStarted(QuestBase quest)`
+
+**Purpose:** Called when the `quest started` event is raised.
 
 ### IsThereActiveQuestWithType
-```csharp
-public bool IsThereActiveQuestWithType(Type type)
-```
+`public bool IsThereActiveQuestWithType(Type type)`
+
+**Purpose:** Handles logic related to `is there active quest with type`.
 
 ### IsQuestGiver
-```csharp
-public bool IsQuestGiver(Hero offeringHero)
-```
+`public bool IsQuestGiver(Hero offeringHero)`
+
+**Purpose:** Handles logic related to `is quest giver`.
 
 ### OnGameLoaded
-```csharp
-public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)
-```
+`public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
+
+**Purpose:** Called when the `game loaded` event is raised.
 
 ### OnSessionStart
-```csharp
-public override void OnSessionStart(CampaignGameStarter campaignGameStarter)
-```
+`public override void OnSessionStart(CampaignGameStarter campaignGameStarter)`
+
+**Purpose:** Called when the `session start` event is raised.
 
 ### HourlyTick
-```csharp
-public override void HourlyTick()
-```
+`public override void HourlyTick()`
+
+**Purpose:** Handles logic related to `hourly tick`.
 
 ### HourlyTickParty
-```csharp
-public override void HourlyTickParty(MobileParty mobileParty)
-```
+`public override void HourlyTickParty(MobileParty mobileParty)`
+
+**Purpose:** Handles logic related to `hourly tick party`.
 
 ### DailyTick
-```csharp
-public override void DailyTick()
-```
+`public override void DailyTick()`
+
+**Purpose:** Handles logic related to `daily tick`.
 
 ### WeeklyTick
-```csharp
-public override void WeeklyTick()
-```
+`public override void WeeklyTick()`
+
+**Purpose:** Handles logic related to `weekly tick`.
 
 ### CheckQuestForMenuLocations
-```csharp
-public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)
-```
+`public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)`
+
+**Purpose:** Handles logic related to `check quest for menu locations`.
 
 ### OnQuestFinalized
-```csharp
-public void OnQuestFinalized(QuestBase quest)
-```
+`public void OnQuestFinalized(QuestBase quest)`
+
+**Purpose:** Called when the `quest finalized` event is raised.
 
 ### OnPlayerCharacterChanged
-```csharp
-public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)
-```
+`public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)`
+
+**Purpose:** Called when the `player character changed` event is raised.
 
 ### CanHaveCampaignIssues
-```csharp
-public override void CanHaveCampaignIssues(Hero hero, ref bool result)
-```
+`public override void CanHaveCampaignIssues(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `have campaign issues`.
 
 ### CanHeroDie
-```csharp
-public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)
-```
+`public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
+
+**Purpose:** Checks whether the current object can `hero die`.
 
 ### CanHeroBecomePrisoner
-```csharp
-public override void CanHeroBecomePrisoner(Hero hero, ref bool result)
-```
+`public override void CanHeroBecomePrisoner(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `hero become prisoner`.
 
 ### CanHeroEquipmentBeChanged
-```csharp
-public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)
-```
+`public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `hero equipment be changed`.
 
 ### CanHeroLeadParty
-```csharp
-public override void CanHeroLeadParty(Hero hero, ref bool result)
-```
+`public override void CanHeroLeadParty(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `hero lead party`.
 
 ### CanHeroMarry
-```csharp
-public override void CanHeroMarry(Hero hero, ref bool result)
-```
+`public override void CanHeroMarry(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `hero marry`.
 
 ### CanMoveToSettlement
-```csharp
-public override void CanMoveToSettlement(Hero hero, ref bool result)
-```
+`public override void CanMoveToSettlement(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `move to settlement`.
 
 ### CanBeGovernorOrHavePartyRole
-```csharp
-public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)
-```
+`public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)`
+
+**Purpose:** Checks whether the current object can `be governor or have party role`.
 
 ### AddTrackedObjectForQuest
-```csharp
-public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)
-```
+`public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
+
+**Purpose:** Adds `tracked object for quest` to the current collection or state.
 
 ### RemoveTrackedObjectForQuest
-```csharp
-public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)
-```
+`public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
+
+**Purpose:** Removes `tracked object for quest` from the current collection or state.
 
 ### RemoveAllTrackedObjectsForQuest
-```csharp
-public void RemoveAllTrackedObjectsForQuest(QuestBase quest)
-```
+`public void RemoveAllTrackedObjectsForQuest(QuestBase quest)`
+
+**Purpose:** Removes `all tracked objects for quest` from the current collection or state.
 
 ### GetAllTrackedObjectsOfAQuest
-```csharp
-public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)
-```
+`public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)`
+
+**Purpose:** Gets the current value of `all tracked objects of a quest`.
 
 ### GetQuestGiverQuests
-```csharp
-public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)
-```
+`public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)`
+
+**Purpose:** Gets the current value of `quest giver quests`.
 
 ### QuestExistInSettlementNotables
-```csharp
-public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)
-```
+`public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)`
+
+**Purpose:** Handles logic related to `quest exist in settlement notables`.
 
 ### QuestExistInClan
-```csharp
-public static bool QuestExistInClan(QuestBase questBase, Clan clan)
-```
+`public static bool QuestExistInClan(QuestBase questBase, Clan clan)`
+
+**Purpose:** Handles logic related to `quest exist in clan`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of QuestManager (Manager)
-QuestManager.Current;
+var manager = QuestManager.Current;
 ```
 
 ## See Also

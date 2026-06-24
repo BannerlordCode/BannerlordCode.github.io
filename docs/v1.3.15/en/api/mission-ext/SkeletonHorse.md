@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **Home** → **API Index** → **Area** → `SkeletonHorse`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # SkeletonHorse
+
+## Mental Model
+
+Treat `SkeletonHorse` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 ## Class Overview
 
@@ -27,3 +33,9 @@ For horse skeleton functionality, consider:
 - `HorseComponent` - Horse data component
 - `Agent` - Agent/unit base class
 - `SkeletonScale` - Skeleton scale
+
+## Usage Example
+
+```csharp
+var example = new SkeletonHorse();
+```

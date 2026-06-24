@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MoraleWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MoraleWidget
@@ -15,6 +16,10 @@
 ## Overview
 
 `MoraleWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `MoraleWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -41,16 +46,14 @@
 ## Key Methods
 
 ### SetFillAmount
-```csharp
-public void SetFillAmount(float fill, int fillMargin)
-```
+`public void SetFillAmount(float fill, int fillMargin)`
+
+**Purpose:** Sets the value or state of `fill amount`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MoraleWidget (Widget)
-// 声明/访问一个 MoraleWidget
-var widget = root.GetChild("moraleWidget");;
+var widget = new MoraleWidget(context);
 ```
 
 ## See Also

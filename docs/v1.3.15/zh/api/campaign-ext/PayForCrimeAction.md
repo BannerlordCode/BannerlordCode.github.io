@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `PayForCrimeAction`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PayForCrimeAction
+
+## 心智模型
+
+先把 `PayForCrimeAction` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +35,7 @@ public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod
 public static void Apply(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
 ```
 
-**用途 / Purpose:** 。
+**用途 / Purpose:** 执行此入口。
 
 ## 使用示例
 

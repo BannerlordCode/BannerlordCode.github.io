@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `OptionsScreenWidget`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # OptionsScreenWidget
@@ -16,6 +17,10 @@
 
 `OptionsScreenWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `OptionsScreenWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
@@ -29,16 +34,14 @@
 ## Key Methods
 
 ### SetCurrentOption
-```csharp
-public void SetCurrentOption(Widget currentOptionWidget, Sprite newgraphicsSprite)
-```
+`public void SetCurrentOption(Widget currentOptionWidget, Sprite newgraphicsSprite)`
+
+**Purpose:** Sets the value or state of `current option`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of OptionsScreenWidget (Widget)
-// 声明/访问一个 OptionsScreenWidget
-var widget = root.GetChild("optionsScreenWidget");;
+var widget = new OptionsScreenWidget(context);
 ```
 
 ## See Also

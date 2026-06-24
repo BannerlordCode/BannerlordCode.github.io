@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultBanditDensityModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultBanditDensityModel
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`DefaultBanditDensityModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultBanditDensityModel>(new MyDefaultBanditDensityModel())` to change how it computes.
+`DefaultBanditDensityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultBanditDensityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -33,29 +38,28 @@
 ## Key Methods
 
 ### GetMinimumTroopCountForHideoutMission
-```csharp
-public override int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)
-```
+`public override int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
+
+**Purpose:** Gets the current value of `minimum troop count for hideout mission`.
 
 ### GetMaxSupportedNumberOfLootersForClan
-```csharp
-public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)
-```
+`public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
+
+**Purpose:** Gets the current value of `max supported number of looters for clan`.
 
 ### GetMaximumTroopCountForHideoutMission
-```csharp
-public override int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)
-```
+`public override int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
+
+**Purpose:** Gets the current value of `maximum troop count for hideout mission`.
 
 ### IsPositionInsideNavalSafeZone
-```csharp
-public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)
-```
+`public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
+
+**Purpose:** Handles logic related to `is position inside naval safe zone`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultBanditDensityModel (Model)
 Game.Current.ReplaceModel<DefaultBanditDensityModel>(new MyDefaultBanditDensityModel());
 ```
 

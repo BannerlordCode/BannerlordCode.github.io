@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `CustomBattleAgentOrigin`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CustomBattleAgentOrigin
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class CustomBattleAgentOrigin : IAgentOriginBase`
+**Base:** `IAgentOriginBase`
+**File:** `TaleWorlds.MountAndBlade/CustomBattleAgentOrigin.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `CustomBattleAgentOrigin` is a class in the `TaleWorlds.MountAndBlade` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`CustomBattleAgentOrigin` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -31,40 +35,40 @@
 | `Seed` | `public int Seed { get; }` |
 | `UniqueSeed` | `public int UniqueSeed { get; }` |
 
-
 ## Key Methods
 
 ### SetWounded
+`public void SetWounded()`
 
-```csharp
-public void SetWounded()
-```
+**Purpose:** Sets the value or state of `wounded`.
 
 ### SetKilled
+`public void SetKilled()`
 
-```csharp
-public void SetKilled()
-```
+**Purpose:** Sets the value or state of `killed`.
 
 ### SetRouted
+`public void SetRouted(bool isOrderRetreat)`
 
-```csharp
-public void SetRouted(bool isOrderRetreat)
-```
+**Purpose:** Sets the value or state of `routed`.
 
 ### OnAgentRemoved
+`public void OnAgentRemoved(float agentHealth)`
 
-```csharp
-public void OnAgentRemoved(float agentHealth)
-```
+**Purpose:** Called when the `agent removed` event is raised.
 
 ### SetBanner
+`public void SetBanner(Banner banner)`
+
+**Purpose:** Sets the value or state of `banner`.
+
+## Usage Example
 
 ```csharp
-public void SetBanner(Banner banner)
+var value = new CustomBattleAgentOrigin();
+value.SetWounded();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

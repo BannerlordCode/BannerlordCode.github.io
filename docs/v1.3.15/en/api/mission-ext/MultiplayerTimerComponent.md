@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `MultiplayerTimerComponent`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MultiplayerTimerComponent
@@ -14,40 +15,49 @@
 
 ## Overview
 
-`MultiplayerTimerComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<MultiplayerTimerComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`MultiplayerTimerComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `MultiplayerTimerComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsTimerRunning` | `public bool IsTimerRunning { get; }` |
 
 ## Key Methods
 
 ### StartTimerAsServer
-```csharp
-public void StartTimerAsServer(float duration)
-```
+`public void StartTimerAsServer(float duration)`
+
+**Purpose:** Handles logic related to `start timer as server`.
 
 ### StartTimerAsClient
-```csharp
-public void StartTimerAsClient(float startTime, float duration)
-```
+`public void StartTimerAsClient(float startTime, float duration)`
+
+**Purpose:** Handles logic related to `start timer as client`.
 
 ### GetRemainingTime
-```csharp
-public float GetRemainingTime(bool isSynched)
-```
+`public float GetRemainingTime(bool isSynched)`
+
+**Purpose:** Gets the current value of `remaining time`.
 
 ### CheckIfTimerPassed
-```csharp
-public bool CheckIfTimerPassed()
-```
+`public bool CheckIfTimerPassed()`
+
+**Purpose:** Handles logic related to `check if timer passed`.
 
 ### GetCurrentTimerStartTime
-```csharp
-public MissionTime GetCurrentTimerStartTime()
-```
+`public MissionTime GetCurrentTimerStartTime()`
+
+**Purpose:** Gets the current value of `current timer start time`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of MultiplayerTimerComponent (Component)
-agent.GetComponent<MultiplayerTimerComponent>();
+var component = agent.GetComponent<MultiplayerTimerComponent>();
 ```
 
 ## See Also

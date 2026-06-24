@@ -2,19 +2,25 @@
 **首页** → **API 目录** → **本领域** → `ScrollablePanel`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ScrollablePanel
 
-**命名空间:** TaleWorlds.GauntletUI.BaseTypes
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI.BaseTypes
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class ScrollablePanel : Widget`
+**Base:** `Widget`
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BaseTypes/ScrollablePanel.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ScrollablePanel` 是 `TaleWorlds.GauntletUI.BaseTypes` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`ScrollablePanel` 位于 `TaleWorlds.GauntletUI.BaseTypes`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.GauntletUI.BaseTypes` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要属性
 
 | Name | Signature |
@@ -34,66 +40,60 @@
 | `VerticalScrollbar` | `public ScrollbarWidget VerticalScrollbar { get; set; }` |
 | `IsInterpolating` | `public bool IsInterpolating { get; }` |
 
-
 ## 主要方法
 
 ### ResetTweenSpeed
+`public void ResetTweenSpeed()`
 
-```csharp
-public void ResetTweenSpeed()
-```
+**用途 / Purpose:** 将 `tween speed` 重置为初始状态。
 
 ### ScrollToChild
+`public void ScrollToChild(Widget targetWidget, ScrollablePanel.AutoScrollParameters scrollParameters = null)`
 
-```csharp
-public void ScrollToChild(Widget targetWidget, ScrollablePanel.AutoScrollParameters scrollParameters = null)
-```
+**用途 / Purpose:** 处理 `scroll to child` 相关逻辑。
 
 ### SetVerticalScrollTarget
+`public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)`
 
-```csharp
-public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)
-```
+**用途 / Purpose:** 设置 `vertical scroll target` 的值或状态。
 
 ### SetHorizontalScrollTarget
+`public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)`
 
-```csharp
-public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)
-```
+**用途 / Purpose:** 设置 `horizontal scroll target` 的值或状态。
 
 ### SetControlledScrollbar
+`public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-```csharp
-public void SetControlledScrollbar(ScrollbarWidget scrollbar)
-```
+**用途 / Purpose:** 设置 `controlled scrollbar` 的值或状态。
 
 ### StartInterpolation
+`public void StartInterpolation(float targetValue, float duration)`
 
-```csharp
-public void StartInterpolation(float targetValue, float duration)
-```
+**用途 / Purpose:** 处理 `start interpolation` 相关逻辑。
 
 ### StopInterpolation
+`public void StopInterpolation()`
 
-```csharp
-public void StopInterpolation()
-```
+**用途 / Purpose:** 处理 `stop interpolation` 相关逻辑。
 
 ### GetValue
+`public float GetValue()`
 
-```csharp
-public float GetValue()
-```
+**用途 / Purpose:** 获取 `value` 的当前值。
 
 ### Tick
+`public void Tick(float dt)`
+
+**用途 / Purpose:** 处理 `tick` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public void Tick(float dt)
+var value = new ScrollablePanel();
+value.ResetTweenSpeed();
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

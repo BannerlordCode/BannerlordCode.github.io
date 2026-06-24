@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `DefaultVillageTypes`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultVillageTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class DefaultVillageTypes`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Settlements/DefaultVillageTypes.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DefaultVillageTypes` is a class in the `TaleWorlds.CampaignSystem.Settlements` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DefaultVillageTypes` lives in `TaleWorlds.CampaignSystem.Settlements` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -41,8 +45,15 @@
 | `FlaxPlant` | `public static VillageType FlaxPlant { get; }` |
 | `DateFarm` | `public static VillageType DateFarm { get; }` |
 | `OliveTrees` | `public static VillageType OliveTrees { get; }` |
+| `SilkPlant` | `public static VillageType SilkPlant { get; }` |
+| `SilverMine` | `public static VillageType SilverMine { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new DefaultVillageTypes();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BarterData`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BarterData
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BarterData` is a data struct/DTO holding structured fields. Construct it to pass or serialize data.
+`BarterData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `BarterData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -27,30 +32,29 @@
 ## Key Methods
 
 ### AddBarterGroup
-```csharp
-public void AddBarterGroup(BarterGroup barterGroup)
-```
+`public void AddBarterGroup(BarterGroup barterGroup)`
+
+**Purpose:** Adds `barter group` to the current collection or state.
 
 ### GetBarterGroups
-```csharp
-public List<BarterGroup> GetBarterGroups()
-```
+`public List<BarterGroup> GetBarterGroups()`
+
+**Purpose:** Gets the current value of `barter groups`.
 
 ### GetBarterables
-```csharp
-public List<Barterable> GetBarterables()
-```
+`public List<Barterable> GetBarterables()`
+
+**Purpose:** Gets the current value of `barterables`.
 
 ### GetOfferedBarterables
-```csharp
-public List<Barterable> GetOfferedBarterables()
-```
+`public List<Barterable> GetOfferedBarterables()`
+
+**Purpose:** Gets the current value of `offered barterables`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BarterData (Data)
-new BarterData { /* fill fields */ };;
+var value = new BarterData();
 ```
 
 ## See Also

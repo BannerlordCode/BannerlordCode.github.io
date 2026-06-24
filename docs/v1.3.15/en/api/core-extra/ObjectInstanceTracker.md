@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `ObjectInstanceTracker`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ObjectInstanceTracker
@@ -14,24 +15,28 @@
 
 ## Overview
 
-> TODO: add this class's responsibility and typical use-cases from a developer perspective.
+`ObjectInstanceTracker` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
 ### RegisterTrackedInstance
-```csharp
-public static void RegisterTrackedInstance(string name, WeakReference instance)
-```
+`public static void RegisterTrackedInstance(string name, WeakReference instance)`
+
+**Purpose:** Handles logic related to `register tracked instance`.
 
 ### CheckBlacklistedTypeCounts
-```csharp
-public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)
-```
+`public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)`
+
+**Purpose:** Handles logic related to `check blacklisted type counts`.
 
 ## Usage Example
 
 ```csharp
-// TODO: add a typical use-case
+ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
 ```
 
 ## See Also

@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `MBArrayList`
 - [← Area / Back to core-extra](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MBArrayList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** class
-**Area:** Core
+**Type:** `public class MBArrayList<T> : IMBCollection, ICollection, IEnumerable, IEnumerable<T>`
+**Base:** `IMBCollection`
+**File:** `TaleWorlds.Library/MBArrayList.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MBArrayList` is a class in the `TaleWorlds.Library` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MBArrayList` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -28,58 +32,54 @@
 | `SyncRoot` | `public object SyncRoot { get; set; }` |
 | `this` | `public T this { get; set; }` |
 
-
 ## Key Methods
 
 ### IndexOf
+`public int IndexOf(T item)`
 
-```csharp
-public int IndexOf(T item)
-```
+**Purpose:** Handles logic related to `index of`.
 
 ### Contains
+`public bool Contains(T item)`
 
-```csharp
-public bool Contains(T item)
-```
+**Purpose:** Handles logic related to `contains`.
 
 ### GetEnumerator
+`public IEnumerator<T> GetEnumerator()`
 
-```csharp
-public IEnumerator<T> GetEnumerator()
-```
+**Purpose:** Gets the current value of `enumerator`.
 
 ### Clear
+`public void Clear()`
 
-```csharp
-public void Clear()
-```
+**Purpose:** Handles logic related to `clear`.
 
 ### Add
+`public void Add(T item)`
 
-```csharp
-public void Add(T item)
-```
+**Purpose:** Adds `add` to the current collection or state.
 
 ### AddRange
+`public void AddRange(IEnumerable<T> list)`
 
-```csharp
-public void AddRange(IEnumerable<T> list)
-```
+**Purpose:** Adds `range` to the current collection or state.
 
 ### Remove
+`public bool Remove(T item)`
 
-```csharp
-public bool Remove(T item)
-```
+**Purpose:** Removes `remove` from the current collection or state.
 
 ### CopyTo
+`public void CopyTo(Array array, int index)`
+
+**Purpose:** Handles logic related to `copy to`.
+
+## Usage Example
 
 ```csharp
-public void CopyTo(Array array, int index)
+MBArrayList example = MBArrayList.Count;
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)

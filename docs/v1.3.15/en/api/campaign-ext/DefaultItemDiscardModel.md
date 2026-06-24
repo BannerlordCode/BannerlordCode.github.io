@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DefaultItemDiscardModel`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DefaultItemDiscardModel
@@ -14,29 +15,32 @@
 
 ## Overview
 
-`DefaultItemDiscardModel` is a game Model — a rules/override point. Subclass it and register via `Game.Current.ReplaceModel<DefaultItemDiscardModel>(new MyDefaultItemDiscardModel())` to change how it computes.
+`DefaultItemDiscardModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `DefaultItemDiscardModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### PlayerCanDonateItem
-```csharp
-public override bool PlayerCanDonateItem(ItemObject item)
-```
+`public override bool PlayerCanDonateItem(ItemObject item)`
+
+**Purpose:** Handles logic related to `player can donate item`.
 
 ### GetXpBonusForDiscardingItem
-```csharp
-public override int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)
-```
+`public override int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
+
+**Purpose:** Gets the current value of `xp bonus for discarding item`.
 
 ### GetXpBonusForDiscardingItems
-```csharp
-public override int GetXpBonusForDiscardingItems(ItemRoster itemRoster)
-```
+`public override int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
+
+**Purpose:** Gets the current value of `xp bonus for discarding items`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DefaultItemDiscardModel (Model)
 Game.Current.ReplaceModel<DefaultItemDiscardModel>(new MyDefaultItemDiscardModel());
 ```
 

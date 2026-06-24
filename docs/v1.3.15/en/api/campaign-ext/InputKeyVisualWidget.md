@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `InputKeyVisualWidget`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # InputKeyVisualWidget
@@ -16,19 +17,21 @@
 
 `InputKeyVisualWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
 
+## Mental Model
+
+Treat `InputKeyVisualWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `KeyID` | `public string KeyID { get { return this._keyID; }` |
-| `IconsPath` | `public string IconsPath { get { return this._iconsPath; }` |
+| `KeyID` | `public string KeyID { get; set; }` |
+| `IconsPath` | `public string IconsPath { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-// Typical usage of InputKeyVisualWidget (Widget)
-// 声明/访问一个 InputKeyVisualWidget
-var widget = root.GetChild("inputKeyVisualWidget");;
+var widget = new InputKeyVisualWidget(context);
 ```
 
 ## See Also

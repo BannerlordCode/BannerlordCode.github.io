@@ -1,10 +1,16 @@
+
 <!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HintViewModel`
+**Home** → **API Index** → **Area** → `HintViewModel / HintViewModel`
 - [← Area / Back to viewmodel](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # HintViewModel / HintViewModel
+
+## Mental Model
+
+Treat `HintViewModel` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace**: TaleWorlds.Core.ViewModelCollection.Information
 **File**: `bannerlord-1.3.15/TaleWorlds.Core.ViewModelCollection/Information/HintViewModel.cs`

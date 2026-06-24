@@ -5,6 +5,10 @@ description: Complete documentation for interacting with native C++ engine via P
 
 # Native Reference
 
+## Mental Model
+
+Treat `Native Reference` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Complete documentation for interacting with the native C++ engine via P/Invoke.
 
 ## Architecture Overview
@@ -73,29 +77,6 @@ If you need to trace from managed interfaces into `TaleWorlds.Native.dll` v1.3.1
 - `[EngineClass("engine_type")]` - Mark class corresponding to native type
 - `[EngineMethod("native_method")]` - Mark method corresponding to native function
 - `[LibraryInterfaceBase]` - Mark interface as native interface
-
----
-
-## Usage Example
-
-```csharp
-// Create native array
-NativeArray array = NativeArray.Create();
-array.AddElement(42);
-array.AddElement(3.14f);
-int[] managedArray = array.ToArray<int>();
-array.Clear();
-
-// Operate native string
-NativeString str = NativeString.Create();
-str.SetString("Hello, Bannerlord!");
-string result = str.GetString();
-
-// Native object array
-NativeObjectArray objArray = NativeObjectArray.Create();
-objArray.AddElement(someNativeObject);
-int count = objArray.Count;
-```
 
 ---
 

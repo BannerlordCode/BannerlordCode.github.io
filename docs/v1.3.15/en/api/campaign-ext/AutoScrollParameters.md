@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `AutoScrollParameters`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # AutoScrollParameters
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class AutoScrollParameters`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `AutoScrollParameters` is a class in the `TaleWorlds.GauntletUI.BaseTypes` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`AutoScrollParameters` lives in `TaleWorlds.GauntletUI.BaseTypes`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -36,61 +39,59 @@
 | `VerticalScrollbar` | `public ScrollbarWidget VerticalScrollbar { get; set; }` |
 | `IsInterpolating` | `public bool IsInterpolating { get; }` |
 
-
 ## Key Methods
 
 ### ResetTweenSpeed
+`public void ResetTweenSpeed()`
 
-```csharp
-public void ResetTweenSpeed()
-```
+**Purpose:** Resets `tween speed` to its initial state.
 
 ### ScrollToChild
+`public void ScrollToChild(Widget targetWidget, ScrollablePanel.AutoScrollParameters scrollParameters = null)`
 
-```csharp
-public void ScrollToChild(Widget targetWidget, ScrollablePanel.AutoScrollParameters scrollParameters = null)
-```
+**Purpose:** Handles logic related to `scroll to child`.
 
 ### SetVerticalScrollTarget
+`public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)`
 
-```csharp
-public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)
-```
+**Purpose:** Sets the value or state of `vertical scroll target`.
 
 ### SetHorizontalScrollTarget
+`public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)`
 
-```csharp
-public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)
-```
+**Purpose:** Sets the value or state of `horizontal scroll target`.
 
 ### SetControlledScrollbar
+`public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-```csharp
-public void SetControlledScrollbar(ScrollbarWidget scrollbar)
-```
+**Purpose:** Sets the value or state of `controlled scrollbar`.
 
 ### StartInterpolation
+`public void StartInterpolation(float targetValue, float duration)`
 
-```csharp
-public void StartInterpolation(float targetValue, float duration)
-```
+**Purpose:** Handles logic related to `start interpolation`.
 
 ### StopInterpolation
+`public void StopInterpolation()`
 
-```csharp
-public void StopInterpolation()
-```
+**Purpose:** Handles logic related to `stop interpolation`.
 
 ### GetValue
+`public float GetValue()`
 
-```csharp
-public float GetValue()
-```
+**Purpose:** Gets the current value of `value`.
 
 ### Tick
+`public void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
+
+## Usage Example
 
 ```csharp
-public void Tick(float dt)
+// First obtain a AutoScrollParameters instance from game state, then call one of its public methods
+var value = new AutoScrollParameters();
+value.ResetTweenSpeed();
 ```
 
 ## See Also

@@ -2,20 +2,23 @@
 **Home** → **API Index** → **Area** → `TutorialAnimState`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TutorialAnimState
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
-**Type:** enum
-**Area:** Mount & Blade
+**Type:** `public enum TutorialAnimState`
+**Area:** mission-ext
 
 ## Overview
 
-> This is an auto-generated stub. `TutorialAnimState` is a enum in the `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TutorialAnimState` lives in `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -24,6 +27,12 @@
 | `Idle` |
 | `Start` |
 | `FirstFrame` |
+
+## Usage Example
+
+```csharp
+TutorialAnimState example = TutorialAnimState.Idle;
+```
 
 ## See Also
 

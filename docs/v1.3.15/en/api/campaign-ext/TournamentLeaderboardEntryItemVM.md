@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `TournamentLeaderboardEntryItemVM`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # TournamentLeaderboardEntryItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class TournamentLeaderboardEntryItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TournamentLeaderboard/TournamentLeaderboardEntryItemVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `TournamentLeaderboardEntryItemVM` is a class in the `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`TournamentLeaderboardEntryItemVM` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
@@ -33,16 +37,20 @@
 | `PrizeStr` | `public string PrizeStr { get; set; }` |
 | `PlacementOnLeaderboard` | `public int PlacementOnLeaderboard { get; set; }` |
 
-
 ## Key Methods
 
 ### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Refreshes the display or cache of `values`.
+
+## Usage Example
 
 ```csharp
-public override void RefreshValues()
+var value = new TournamentLeaderboardEntryItemVM();
+value.RefreshValues();
 ```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

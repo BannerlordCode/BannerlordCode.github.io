@@ -2,6 +2,7 @@
 **首页** → **API 目录** → **本领域** → `UdpNetworkComponent`
 - [← 本领域 / 返回 mission-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # UdpNetworkComponent
@@ -14,80 +15,83 @@
 
 ## 概述
 
-`UdpNetworkComponent` 是一个 AgentComponent——附加在 Agent 上的每-agent 状态/逻辑组件。通过 `agent.GetComponent<UdpNetworkComponent>()` 访问（部分组件在 agent 上有强类型属性）。继承 AgentComponent 可添加自定义组件。
+`UdpNetworkComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
+## 心智模型
+
+把 `UdpNetworkComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
 ### OnUdpNetworkHandlerClose
-```csharp
-public virtual void OnUdpNetworkHandlerClose()
-```
+`public virtual void OnUdpNetworkHandlerClose()`
+
+**用途 / Purpose:** 当 `udp network handler close` 事件触发时调用此方法。
 
 ### OnUdpNetworkHandlerTick
-```csharp
-public virtual void OnUdpNetworkHandlerTick(float dt)
-```
+`public virtual void OnUdpNetworkHandlerTick(float dt)`
+
+**用途 / Purpose:** 当 `udp network handler tick` 事件触发时调用此方法。
 
 ### HandleNewClientConnect
-```csharp
-public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)
-```
+`public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)`
+
+**用途 / Purpose:** 处理 `new client connect` 事件或回调。
 
 ### HandleEarlyNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `early new client after loading finished` 事件或回调。
 
 ### HandleNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `new client after loading finished` 事件或回调。
 
 ### HandleLateNewClientAfterLoadingFinished
-```csharp
-public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `late new client after loading finished` 事件或回调。
 
 ### HandleNewClientAfterSynchronized
-```csharp
-public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `new client after synchronized` 事件或回调。
 
 ### HandleLateNewClientAfterSynchronized
-```csharp
-public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)
-```
+`public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `late new client after synchronized` 事件或回调。
 
 ### OnEveryoneUnSynchronized
-```csharp
-public virtual void OnEveryoneUnSynchronized()
-```
+`public virtual void OnEveryoneUnSynchronized()`
+
+**用途 / Purpose:** 当 `everyone un synchronized` 事件触发时调用此方法。
 
 ### HandleEarlyPlayerDisconnect
-```csharp
-public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)
-```
+`public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `early player disconnect` 事件或回调。
 
 ### HandlePlayerDisconnect
-```csharp
-public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)
-```
+`public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
 
 ### OnPlayerDisconnectedFromServer
-```csharp
-public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)
-```
+`public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
+
+**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
 
 ### OnDisconnectedFromServer
-```csharp
-public virtual void OnDisconnectedFromServer()
-```
+`public virtual void OnDisconnectedFromServer()`
+
+**用途 / Purpose:** 当 `disconnected from server` 事件触发时调用此方法。
 
 ## 使用示例
 
 ```csharp
-// UdpNetworkComponent (Component) 的典型用法
-agent.GetComponent<UdpNetworkComponent>();
+var implementation = new CustomUdpNetworkComponent();
 ```
 
 ## 参见

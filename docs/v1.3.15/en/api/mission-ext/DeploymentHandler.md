@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `DeploymentHandler`
 - [← Area / Back to mission-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # DeploymentHandler
@@ -14,66 +15,69 @@
 
 ## Overview
 
-`DeploymentHandler` is a mission handler (reaction logic). Add via AddMissionBehavior; it reacts to specific mission events.
+`DeploymentHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `DeploymentHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `PlayerTeam` | `public Team PlayerTeam { get { return base.Mission.PlayerTeam; }` |
+| `PlayerTeam` | `public Team PlayerTeam { get; }` |
 
 ## Key Methods
 
 ### OnBehaviorInitialize
-```csharp
-public override void OnBehaviorInitialize()
-```
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Called when the `behavior initialize` event is raised.
 
 ### EarlyStart
-```csharp
-public override void EarlyStart()
-```
+`public override void EarlyStart()`
+
+**Purpose:** Handles logic related to `early start`.
 
 ### AfterStart
-```csharp
-public override void AfterStart()
-```
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
 
 ### OnRemoveBehavior
-```csharp
-public override void OnRemoveBehavior()
-```
+`public override void OnRemoveBehavior()`
+
+**Purpose:** Called when the `remove behavior` event is raised.
 
 ### OnBattleSideDeployed
-```csharp
-public override void OnBattleSideDeployed(BattleSideEnum side)
-```
+`public override void OnBattleSideDeployed(BattleSideEnum side)`
+
+**Purpose:** Called when the `battle side deployed` event is raised.
 
 ### AutoDeployTeamUsingDeploymentPlan
-```csharp
-public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)
-```
+`public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
+
+**Purpose:** Handles logic related to `auto deploy team using deployment plan`.
 
 ### ForceUpdateAllUnits
-```csharp
-public abstract void ForceUpdateAllUnits()
-```
+`public abstract void ForceUpdateAllUnits()`
+
+**Purpose:** Handles logic related to `force update all units`.
 
 ### FinishDeployment
-```csharp
-public virtual void FinishDeployment()
-```
+`public virtual void FinishDeployment()`
+
+**Purpose:** Handles logic related to `finish deployment`.
 
 ### InitializeDeploymentPoints
-```csharp
-public void InitializeDeploymentPoints()
-```
+`public void InitializeDeploymentPoints()`
+
+**Purpose:** Initializes the state, resources, or bindings for `deployment points`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of DeploymentHandler (Handler)
-Mission.Current.AddMissionBehavior(new DeploymentHandler());
+var implementation = new CustomDeploymentHandler();
 ```
 
 ## See Also

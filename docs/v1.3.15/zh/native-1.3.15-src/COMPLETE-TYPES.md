@@ -18,6 +18,10 @@ This file contains type definitions extracted from TaleWorlds.Native.dll - a nat
 
 ---
 
+## 心智模型
+
+先把 `TaleWorlds.Native.dll.h - Complete Type Reference` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ## Statistics
 
 | Category | Count |
@@ -1074,3 +1078,9 @@ These managed assemblies contain C# classes with virtual methods, and their vfta
 ---
 
 *Generated from TaleWorlds.Native.dll.h (IDA Pro/Ghidra decompiler output)*
+
+## 使用示例
+
+```csharp
+var example = new TaleWorlds.Native.dll.h - Complete Type Reference();
+```

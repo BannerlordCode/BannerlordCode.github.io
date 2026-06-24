@@ -2,28 +2,37 @@
 **首页** → **API 目录** → **本领域** → `GeneratedWidgetData`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # GeneratedWidgetData
 
-**命名空间:** TaleWorlds.GauntletUI.Data
-**模块:** TaleWorlds.GauntletUI
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.GauntletUI.Data
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class GeneratedWidgetData : WidgetComponent`
+**Base:** `WidgetComponent`
+**File:** `TaleWorlds.GauntletUI.Data/GeneratedWidgetData.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`GeneratedWidgetData` 是 `TaleWorlds.GauntletUI.Data` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`GeneratedWidgetData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `GeneratedWidgetData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要属性
 
 | Name | Signature |
 |------|-----------|
 | `Data` | `public object Data { get; set; }` |
 
-献文档。
+## 使用示例
+
+```csharp
+var value = new GeneratedWidgetData();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

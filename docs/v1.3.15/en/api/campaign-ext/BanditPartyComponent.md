@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `BanditPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # BanditPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`BanditPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<BanditPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`BanditPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `BanditPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -29,45 +34,44 @@
 ## Key Methods
 
 ### CreateBanditParty
-```csharp
-public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)
-```
+`public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
+
+**Purpose:** Creates a new `bandit party` instance or object.
 
 ### ConvertPartyToBanditParty
-```csharp
-public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)
-```
+`public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)`
+
+**Purpose:** Handles logic related to `convert party to bandit party`.
 
 ### CreateLooterParty
-```csharp
-public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)
-```
+`public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
+
+**Purpose:** Creates a new `looter party` instance or object.
 
 ### ConvertPartyToLooterParty
-```csharp
-public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)
-```
+`public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)`
+
+**Purpose:** Handles logic related to `convert party to looter party`.
 
 ### SetHomeHideout
-```csharp
-public void SetHomeHideout(Hideout hideout)
-```
+`public void SetHomeHideout(Hideout hideout)`
+
+**Purpose:** Sets the value or state of `home hideout`.
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### InitializeBanditOnCreation
-```csharp
-public void InitializeBanditOnCreation(MobileParty mobileParty)
-```
+`public void InitializeBanditOnCreation(MobileParty mobileParty)`
+
+**Purpose:** Initializes the state, resources, or bindings for `bandit on creation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of BanditPartyComponent (Component)
-agent.GetComponent<BanditPartyComponent>();
+var component = agent.GetComponent<BanditPartyComponent>();
 ```
 
 ## See Also

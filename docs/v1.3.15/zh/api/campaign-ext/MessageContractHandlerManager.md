@@ -2,42 +2,48 @@
 **首页** → **API 目录** → **本领域** → `MessageContractHandlerManager`
 - [← 本领域 / 返回 campaign-ext](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # MessageContractHandlerManager
 
-**命名空间:** TaleWorlds.Network
-**模块:** TaleWorlds.Network
-**类型:** 类 class class
-**领域:** 战役系统 Campaign
+**Namespace:** TaleWorlds.Network
+**Module:** TaleWorlds.Network
+**Type:** `public class MessageContractHandlerManager`
+**Base:** 无
+**File:** `TaleWorlds.Network/MessageContractHandlerManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MessageContractHandlerManager` 是 `TaleWorlds.Network` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡
+`MessageContractHandlerManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `MessageContractHandlerManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
 ## 主要方法
 
 ### HandleMessage
+`public void HandleMessage(MessageContract messageContract)`
 
-```csharp
-public void HandleMessage(MessageContract messageContract)
-```
+**用途 / Purpose:** 处理 `message` 事件或回调。
 
 ### HandleNetworkMessage
+`public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-```csharp
-public void HandleNetworkMessage(NetworkMessage networkMessage)
-```
+**用途 / Purpose:** 处理 `network message` 事件或回调。
 
 ### ContainsMessageHandler
+`public bool ContainsMessageHandler(byte id)`
+
+**用途 / Purpose:** 处理 `contains message handler` 相关逻辑。
+
+## 使用示例
 
 ```csharp
-public bool ContainsMessageHandler(byte id)
+var manager = MessageContractHandlerManager.Current;
 ```
-
-献文档。
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

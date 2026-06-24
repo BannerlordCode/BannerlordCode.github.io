@@ -2,21 +2,31 @@
 **首页** → **API 目录** → **本领域** → `ITelemetryManager`
 - [← 本领域 / 返回 core-extra](./)
 - [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
 - [⭐ SDK 总览](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # ITelemetryManager
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** 接口 interface
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `class`
+**Base:** 无
+**File:** `TaleWorlds.Library/ITelemetryManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ITelemetryManager` 是 `TaleWorlds.Library` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`ITelemetryManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `ITelemetryManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+ITelemetryManager implementation = GetTelemetryManagerImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-core)

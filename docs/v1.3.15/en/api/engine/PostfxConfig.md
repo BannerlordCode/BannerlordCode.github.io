@@ -2,20 +2,24 @@
 **Home** → **API Index** → **Area** → `PostfxConfig`
 - [← Area / Back to engine](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # PostfxConfig
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** enum
-**Area:** Engine
+**Type:** `public enum PostfxConfig : uint`
+**Base:** `uint`
+**Area:** engine
 
 ## Overview
 
-> This is an auto-generated stub. `PostfxConfig` is a enum in the `TaleWorlds.Engine` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PostfxConfig` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
 
+## Mental Model
+
+Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Enum Values
 
@@ -51,6 +55,12 @@
 | `pfx_config_lens_flares` |
 | `32768U` |
 | `pfx_config_chromatic_aberration` |
+
+## Usage Example
+
+```csharp
+PostfxConfig example = PostfxConfig.pfx_config_bloom;
+```
 
 ## See Also
 

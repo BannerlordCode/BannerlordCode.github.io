@@ -2,6 +2,7 @@
 **Home** → **API Index** → **Area** → `CaravanPartyComponent`
 - [← Area / Back to campaign-ext](./)
 - [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
 - [⭐ SDK Overview](../../architecture/sdk-overview)
 <!-- END BREADCRUMB -->
 # CaravanPartyComponent
@@ -14,7 +15,11 @@
 
 ## Overview
 
-`CaravanPartyComponent` is an AgentComponent — per-agent state/logic attached to an Agent. Access via `agent.GetComponent<CaravanPartyComponent>()` (some have a typed agent property). Subclass AgentComponent to add your own.
+`CaravanPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `CaravanPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -33,50 +38,49 @@
 ## Key Methods
 
 ### GetDefaultComponentBanner
-```csharp
-public override Banner GetDefaultComponentBanner()
-```
+`public override Banner GetDefaultComponentBanner()`
+
+**Purpose:** Gets the current value of `default component banner`.
 
 ### ConvertPartyToCaravanParty
-```csharp
-public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)
-```
+`public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
+
+**Purpose:** Handles logic related to `convert party to caravan party`.
 
 ### ClearCachedName
-```csharp
-public override void ClearCachedName()
-```
+`public override void ClearCachedName()`
+
+**Purpose:** Handles logic related to `clear cached name`.
 
 ### CreateCaravanParty
-```csharp
-public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)
-```
+`public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
+
+**Purpose:** Creates a new `caravan party` instance or object.
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
-```csharp
-public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)
-```
+`public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
+
+**Purpose:** Gets the current value of `mount and harness visual ids for party icon`.
 
 ### TransferCaravanOwnership
-```csharp
-public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)
-```
+`public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)`
+
+**Purpose:** Handles logic related to `transfer caravan ownership`.
 
 ### ChangeHomeSettlement
-```csharp
-public void ChangeHomeSettlement(Settlement newHomeSettlement)
-```
+`public void ChangeHomeSettlement(Settlement newHomeSettlement)`
+
+**Purpose:** Handles logic related to `change home settlement`.
 
 ### InitializeCaravanOnCreation
-```csharp
-public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)
-```
+`public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)`
+
+**Purpose:** Initializes the state, resources, or bindings for `caravan on creation`.
 
 ## Usage Example
 
 ```csharp
-// Typical usage of CaravanPartyComponent (Component)
-agent.GetComponent<CaravanPartyComponent>();
+var component = agent.GetComponent<CaravanPartyComponent>();
 ```
 
 ## See Also

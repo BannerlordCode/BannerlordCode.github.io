@@ -8,6 +8,7 @@ import { execSync } from 'child_process';
 
 const namesFile = process.argv[2] || 'undocumented_types.txt';
 const batchSize = parseInt(process.argv[3] || '50', 10);
+const ver = process.argv[4] || '1.3.15';
 
 const names = readFileSync(namesFile, 'utf8').split('\n').map(s => s.trim()).filter(Boolean);
 console.log('Total names to process: ' + names.length);
@@ -19,7 +20,7 @@ let fail = 0;
 
 for (let i = 0; i < names.length; i += batchSize) {
   const batch = names.slice(i, i + batchSize);
-  const cmd = 'node BannerlordCode.github.io/tools/gen-class-ref.mjs ' + batch.map(n => '"' + n + '"').join(' ');
+  const cmd = 'node BannerlordCode.github.io/tools/gen-class-ref.mjs --ver ' + ver + ' ' + batch.map(n => '"' + n + '"').join(' ');
   try {
     const out = execSync(cmd, { cwd: '.', encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
     const lines = out.split('\n').filter(Boolean);
@@ -36,6 +37,6 @@ for (let i = 0; i < names.length; i += batchSize) {
 
 console.log('\n=== DONE ===');
 console.log('Generated: ' + ok);
-console.log('Skipped (not found in 1.3.15): ' + skip);
+console.log('Skipped (not found in ' + ver + '): ' + skip);
 console.log('Failed: ' + fail);
 console.log('Total processed: ' + names.length);

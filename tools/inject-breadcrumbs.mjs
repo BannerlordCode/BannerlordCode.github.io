@@ -74,24 +74,14 @@ function buildBlocks(version, lang, area, className, relBase) {
   // From docs/<version>/<lang>/api/<area>/Class.md:
   //   ./        → docs/<version>/<lang>/api/<area>/        (area index)
   //   ../       → docs/<version>/<lang>/api/               (api root)
-  // For the canonical version (v1.3.15): SDK overview is local.
-  // For other versions (v1.3.0/v1.4.5): link to the canonical v1.3.15 SDK overview
-  //   (those versions don't ship their own sdk-overview.md).
-  //   From docs/v1.3.0/zh/api/core/X.md → ../../../v1.3.15/zh/architecture/sdk-overview
-  const areaLink = './';
-  const apiRootLink = '../';
   const isCanonical = version === 'v1.3.15';
   // From docs/<version>/<lang>/api/<area>/Class.md:
   //   ../              → docs/<version>/<lang>/api/
   //   ../../           → docs/<version>/<lang>/
   //   ../../../        → docs/<version>/
   //   ../../../../     → docs/           ← need this depth to reach a sibling version
-  // Canonical version: SDK overview is local at ../../architecture/sdk-overview
-  // Other versions:    link to canonical at ../../../../v1.3.15/<lang>/architecture/sdk-overview
-  const sdkLink = isCanonical
-    ? '../../architecture/sdk-overview'
-    : '../../../../v1.3.15/' + lang + '/architecture/sdk-overview';
-  const sdkLabelSuffix = isCanonical ? '' : (lang === 'zh' ? '（规范版）' : ' (canonical)');
+  const sdkLink = isCanonical ? '../../architecture/sdk-overview' : '../../architecture/';
+  const sdkLabel = isCanonical ? L.sdkOverview : (lang === 'zh' ? '版本架构' : 'Version Architecture');
 
   const breadcrumb = [
     `<!-- BEGIN BREADCRUMB -->`,
@@ -100,7 +90,8 @@ function buildBlocks(version, lang, area, className, relBase) {
     ``,
     `- [← ${L.area} / ${L.back} ${area}](./)`,
     `- [↑ ${L.apiRoot}](../)`,
-    `- [⭐ ${L.sdkOverview}${sdkLabelSuffix}](${sdkLink})`,
+    `- [🏠 ${L.home} ${version}](../../)`,
+    `- [⭐ ${sdkLabel}](${sdkLink})`,
     crossVersionClasses.has(className) ? `- [🔀 ${L.crossVersion} /versions/${className}](/versions/${className})` : null,
     `<!-- END BREADCRUMB -->`,
     ``,
@@ -121,7 +112,8 @@ function injectIntoFile(filePath) {
   if (fileName === 'index') return false;
   if (onlyVersion && version !== onlyVersion) return false;
 
-  const className = fileName;
+  const headingMatch = raw.match(/^#\s+(.+)$/m);
+  const className = headingMatch ? headingMatch[1].trim().replace(/\s*\(v\d+\.\d+\.\d+\)$/, '') : fileName.split('__')[0];
   const { breadcrumb } = buildBlocks(version, lang, area, className, rel);
 
   // Strip any existing breadcrumb block (sentinel-bounded) so we can re-inject cleanly.

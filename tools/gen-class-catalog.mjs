@@ -42,24 +42,58 @@ for (const ns of Object.keys(byNs)) {
   const seen = new Set(); byNs[ns] = byNs[ns].filter(x => { const k = x.name; if (seen.has(k)) return false; seen.add(k); return true; });
 }
 
-// Discover documented class page basenames. For 1.3.15: its own api tree. For 1.4.5: v1.3.15 api tree + cross-version pages (deep content lives there).
+// Discover documented class page basenames.
 const documented = new Set();
+const relCurrent = {};
 const rel315 = {};
 const versionPage = new Set();
-function docWalk(d, set, relMap) { let e; try { e = readdirSync(d); } catch { return; } for (const x of e) { const p = join(d, x); let s; try { s = statSync(p); } catch { continue; } if (s.isDirectory()) docWalk(p, set, relMap); else if (x.endsWith('.md') && x !== 'index.md') { const base = x.replace(/\.md$/, ''); set.add(base); if (relMap) relMap[base] = p.replace(/\\/g, '/').replace(/.*\/api\//, ''); } } }
-if (VER === '1.3.15') {
-  docWalk(join(OUT, 'en/api'), documented, rel315);
-} else {
+function docKey(ns, name) { return `${ns}|${name}`; }
+function parseDocMeta(path) {
+  const text = readFileSync(path, 'utf8');
+  const title = text.match(/^#\s+(.+)$/m)?.[1]?.trim().replace(/\s*\(v\d+\.\d+\.\d+\)$/, '') || path.replace(/\\/g, '/').split('/').pop()?.replace(/\.md$/, '').split('__')[0] || '';
+  const namespaceLine = text.split(/\r?\n/).find((line) => line.startsWith('**Namespace:**') || line.startsWith('**命名空间:**')) || '';
+  const namespace = namespaceLine.replace(/^\*\*(?:Namespace|命名空间):\*\*\s*/, '').trim();
+  if (!title || !namespace) return null;
+  return { key: docKey(namespace, title), rel: path.replace(/\\/g, '/').replace(/.*\/api\//, '') };
+}
+function docWalk(d, set, relMap) {
+  let e; try { e = readdirSync(d); } catch { return; }
+  for (const x of e) {
+    const p = join(d, x);
+    let s; try { s = statSync(p); } catch { continue; }
+    if (s.isDirectory()) {
+      docWalk(p, set, relMap);
+    } else if (x.endsWith('.md') && x !== 'index.md') {
+      const meta = parseDocMeta(p);
+      if (!meta) continue;
+      set.add(meta.key);
+      if (relMap) {
+        const current = relMap[meta.key];
+        if (!current) {
+          relMap[meta.key] = meta.rel;
+        } else if (current.includes('-ext/') && !meta.rel.includes('-ext/')) {
+          relMap[meta.key] = meta.rel;
+        }
+      }
+    }
+  }
+}
+docWalk(join(OUT, 'en/api'), documented, relCurrent);
+if (VER !== '1.3.15') {
   docWalk(join('BannerlordCode.github.io/docs/v1.3.15/en/api'), documented, rel315);
   docWalk(join('BannerlordCode.github.io/docs/versions'), versionPage, null);
 }
 
-function docLink(name, lang) {
-  if (!documented.has(name)) return null;
-  if (VER === '1.3.15') return './' + rel315[name];
-  if (rel315[name]) return `/v1.3.15/${lang}/api/${rel315[name]}`;
+function docLink(ns, name, lang) {
+  const key = docKey(ns, name);
+  if (relCurrent[key]) return './' + relCurrent[key];
+  if (VER === '1.3.15') return null;
+  if (rel315[key]) return `/v1.3.15/${lang}/api/${rel315[key]}`;
   if (versionPage.has(name)) return `/versions/${name}`;
   return null;
+}
+function isDocumented(ns, name, lang) {
+  return docLink(ns, name, lang) !== null;
 }
 
 // Area mapping: top-level grouping
@@ -108,7 +142,7 @@ function renderArea(areaKey, lang) {
   const nss = areaTypes[areaKey] || {};
   const nsNames = Object.keys(nss).sort();
   let total = 0, docced = 0;
-  for (const ns of nsNames) for (const ty of nss[ns]) { total++; if (documented.has(ty.name)) docced++; }
+  for (const ns of nsNames) for (const ty of nss[ns]) { total++; if (isDocumented(ns, ty.name, lang)) docced++; }
   const L = lang === 'zh';
   const out = [];
   out.push('---');
@@ -131,7 +165,7 @@ function renderArea(areaKey, lang) {
     out.push('| | 名称 Name | 文档 Doc |');
     out.push('|---|---|---|');
     for (const ty of types) {
-      const dl = docLink(ty.name, lang);
+      const dl = docLink(ns, ty.name, lang);
       const nameCell = dl ? `[${ty.name}](${dl})` : ty.name;
       out.push(`| ${KIND_ICON[ty.kind]} | ${nameCell} | ${dl ? '🔗' : '—'} |`);
     }
@@ -155,7 +189,7 @@ function renderIndex(lang) {
   for (const key of Object.keys(AREAS)) {
     const nss = areaTypes[key] || {};
     let t = 0, d = 0;
-    for (const ns of Object.keys(nss)) for (const ty of nss[ns]) { t++; if (documented.has(ty.name)) d++; }
+    for (const ns of Object.keys(nss)) for (const ty of nss[ns]) { t++; if (isDocumented(ns, ty.name, lang)) d++; }
     grandTotal += t; grandDoc += d;
     const file = key === 'campaign' ? 'catalog-campaign' : 'catalog-' + key;
     rows.push(`| [${L ? AREAS[key].zh : AREAS[key].en}](./${file}) | ${t} | ${d} | ${t ? Math.round(d / t * 100) : 0}% |`);

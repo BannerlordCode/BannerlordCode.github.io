@@ -106,11 +106,15 @@ function renderStub(name, kind, ns, dir, lang) {
   lines.push('');
   if (L) {
     lines.push('> \u672c\u9875\u4e3a\u81ea\u52a8\u751f\u6210\u7684\u5b58\u6839\u3002`' + name + '` \u662f `' + ns + '` \u547d\u540d\u7a7a\u95f4\u4e0b\u7684\u4e00\u4e2a' + kindName + '\u3002');
-    lines.push('> \u5982\u9700\u4e86\u89e3\u5176\u5c5e\u6027\u3001\u65b9\u6cd5\u548c\u5f00\u53d1\u8005\u7528\u4f8b\uff0c\u8bf7\u53c2\u8003\u6e90\u7801\u6216\u8d21\u732e\u6587\u6863\u3002');
+    lines.push('> \u5982\u9700\u4e86\u89e3\u5176\u5c5e\u6027\u3001\u65b9\u6cd5\u548c\u5f00\u53d1\u8005\u7528\u4f8b\uff0c\u8bf7\u4ece\u76ee\u5f55\u9875\u8ffd\u8e2a\u5230\u5177\u4f53\u7c7b\u9875\u3002');
   } else {
     lines.push('> This is an auto-generated stub. `' + name + '` is a ' + kindName + ' in the `' + ns + '` namespace.');
-    lines.push('> For properties, methods, and developer use-cases, refer to source code or contribute documentation.');
+    lines.push('> Follow the catalog to reach the class page, then use breadcrumbs to return to this area.');
   }
+  lines.push('');
+  lines.push('## ' + (L ? '\u5fc3\u667a\u6a21\u578b' : 'Mental Model'));
+  lines.push('');
+  lines.push(L ? '> 这是一页目录存根：先从领域目录确认它属于哪条开发链路，再跳到具体类页补充行为、方法和示例。' : '> This is a directory stub: identify the developer workflow it belongs to from the area catalog, then open the class page for behavior, methods, and examples.');
   lines.push('');
   lines.push('## ' + (L ? '\u53c2\u89c1' : 'See Also'));
   lines.push('');

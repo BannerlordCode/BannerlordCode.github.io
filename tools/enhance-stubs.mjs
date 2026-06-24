@@ -5,10 +5,12 @@
    Run from repo root.
 */
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'fs';
-import { join } from 'path';
+import { basename, dirname, join } from 'path';
+import * as docFragments from './doc-fragments.mjs';
 
-const ROOT = 'bannerlord-1.3.15';
-const DOCS = 'BannerlordCode.github.io/docs/v1.3.15';
+const VER = process.argv[2] || '1.3.15';
+const ROOT = 'bannerlord-' + VER;
+const DOCS = 'BannerlordCode.github.io/docs/v' + VER;
 
 /* Walk all .cs files and build type name -> file path index */
 function buildTypeIndex() {
@@ -50,14 +52,18 @@ function extractSignatures(filePath, typeName) {
 
   const kindM = cleaned.match(new RegExp('\\b(class|struct|enum|interface)\\s+' + typeName + '\\b'));
   const kind = kindM ? kindM[1] : 'class';
+  const declM = cleaned.match(new RegExp('((?:public|internal|sealed|abstract|static|partial|new)\\s+)*(class|struct|enum|interface)\\s+' + typeName + '(?:<[^>]*>)?(?:\\s*:\\s*[^\\{]*)?'));
+  const decl = declM ? declM[0].trim() : `${kind} ${typeName}`;
+  const baseM = decl.match(/:\s*([^\{]+)/);
+  const base = baseM ? baseM[1].trim().split(',')[0].trim() : '';
 
   if (kind === 'enum') {
     const enumM = cleaned.match(new RegExp('enum\\s+' + typeName + '\\s*[:{][^}]*}'));
     if (enumM) {
       const vals = enumM[0].match(/\b(\w+)\s*[=,]/g);
-      if (vals) return { ns, kind, enumValues: vals.map(v => v.replace(/[=,]/g, '').trim()).slice(0, 30) };
+      if (vals) return { ns, kind, decl, base, enumValues: vals.map(v => v.replace(/[=,]/g, '').trim()).slice(0, 30) };
     }
-    return { ns, kind, enumValues: [] };
+    return { ns, kind, decl, base, enumValues: [] };
   }
 
   const methods = [];
@@ -91,7 +97,79 @@ function extractSignatures(filePath, typeName) {
     if (nm) props.push({ sig: s, name: nm[1] });
   }
 
-  return { ns, kind, methods: methods.slice(0, 20), props: props.slice(0, 20) };
+  return { ns, kind, decl, base, methods: methods.slice(0, 20), props: props.slice(0, 20) };
+}
+
+function areaToCatalog(dir) {
+  const mapping = {
+    'campaign-ext': 'catalog-campaign',
+    'campaign': 'catalog-campaign',
+    'mission-ext': 'catalog-mountandblade',
+    'mission': 'catalog-mountandblade',
+    'core-extra': 'catalog-core',
+    'core': 'catalog-core',
+    'engine': 'catalog-engine',
+    'save-system': 'catalog-save',
+    'localization': 'catalog-localization',
+    'gui': 'catalog-ui',
+    'items': 'catalog-other',
+    'viewmodel': 'catalog-ui',
+  };
+  return mapping[dir] || 'catalog';
+}
+
+function splitBreadcrumb(content) {
+  const start = content.indexOf('<!-- BEGIN BREADCRUMB -->');
+  const endMarker = '<!-- END BREADCRUMB -->';
+  if (start < 0) return { breadcrumb: '', body: content };
+  const end = content.indexOf(endMarker, start);
+  if (end < 0) return { breadcrumb: '', body: content };
+  const breadcrumb = content.slice(start, end + endMarker.length).trim();
+  const body = content.slice(end + endMarker.length).replace(/^\s+/, '');
+  return { breadcrumb, body };
+}
+
+function buildStubPage(stubPath, typeName, sigData, lang, breadcrumb) {
+  const isZh = lang === 'zh';
+  const dirName = basename(dirname(stubPath));
+  const catalog = areaToCatalog(dirName);
+  const kind = docFragments.kindOf(typeName);
+  const overview = kind ? docFragments.kindOverview(typeName, kind, lang) : (isZh
+    ? `\`${typeName}\` 位于 \`${sigData.ns}\`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。`
+    : `\`${typeName}\` lives in \`${sigData.ns}\`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.`);
+  const usage = kind ? docFragments.kindUsage(typeName, kind, lang) : docFragments.genericUsage(typeName, sigData.methods || [], lang);
+  const lines = [];
+  if (breadcrumb) lines.push(breadcrumb);
+  lines.push(`# ${typeName}`);
+  lines.push('');
+  lines.push(`**${isZh ? '命名空间' : 'Namespace'}:** ${sigData.ns}`);
+  lines.push(`**${isZh ? '模块' : 'Module'}:** ${docFragments.moduleFromNamespace(sigData.ns)}`);
+  lines.push(`**${isZh ? '类型' : 'Type'}:** ${sigData.decl ? `\`${sigData.decl}\`` : docFragments.kindLabel(sigData.kind, lang)}`);
+  if (sigData.base) lines.push(`**${isZh ? 'Base' : 'Base'}:** \`${sigData.base}\``);
+  lines.push(`**${isZh ? '领域' : 'Area'}:** ${dirName}`);
+  lines.push('');
+  lines.push(`## ${isZh ? '概述' : 'Overview'}`);
+  lines.push('');
+  lines.push(overview);
+  lines.push('');
+  lines.push(`## ${isZh ? '心智模型' : 'Mental Model'}`);
+  lines.push('');
+  lines.push(docFragments.mentalModel(typeName, kind, sigData.ns, lang));
+  lines.push('');
+  lines.push(...docFragments.renderEnumTable(sigData.enumValues, lang));
+  lines.push(...docFragments.renderPropertyTable(sigData.props, lang));
+  lines.push(...docFragments.renderMethodBlocks(sigData.methods, lang));
+  lines.push(`## ${isZh ? '使用示例' : 'Usage Example'}`);
+  lines.push('');
+  lines.push('```csharp');
+  lines.push(usage);
+  lines.push('```');
+  lines.push('');
+  lines.push(`## ${isZh ? '参见' : 'See Also'}`);
+  lines.push('');
+  lines.push(`- [${isZh ? '完整类目录' : 'Complete Class Catalog'}](../catalog)`);
+  lines.push(`- [${isZh ? '本领域目录' : 'Area catalog'}](../${catalog})`);
+  return lines.join('\n');
 }
 
 /* Update a stub file with extracted signatures */
@@ -104,44 +182,9 @@ function enhanceStub(stubPath, typeName, sigData, lang) {
   /* Only enhance stubs that have the placeholder */
   if (!content.includes('auto-generated stub') && !content.includes('\u81ea\u52a8\u751f\u6210\u7684\u5b58\u6839')) return false;
 
-  const kindMap = { class: L ? '\u7c7b class' : 'class', struct: L ? '\u7ed3\u6784\u4f53 struct' : 'struct', enum: L ? '\u679a\u4e3e enum' : 'enum', interface: L ? '\u63a5\u53e3 interface' : 'interface' };
-  const kindName = kindMap[sigData.kind] || 'type';
-
-  let insert = '';
-  if (sigData.kind === 'enum' && sigData.enumValues && sigData.enumValues.length) {
-    insert += '\n## ' + (L ? '\u679a\u4e3e\u503c' : 'Enum Values') + '\n\n';
-    insert += '| Name |\n|------|\n';
-    for (const v of sigData.enumValues) insert += '| `' + v + '` |\n';
-    insert += '\n';
-  } else {
-    if (sigData.props && sigData.props.length) {
-      insert += '\n## ' + (L ? '\u4e3b\u8981\u5c5e\u6027' : 'Key Properties') + '\n\n';
-      insert += '| Name | Signature |\n|------|-----------|\n';
-      for (const p of sigData.props) insert += '| `' + p.name + '` | `' + p.sig + '` |\n';
-      insert += '\n';
-    }
-    if (sigData.methods && sigData.methods.length) {
-      insert += '\n## ' + (L ? '\u4e3b\u8981\u65b9\u6cd5' : 'Key Methods') + '\n\n';
-      for (const me of sigData.methods) {
-        insert += '### ' + me.name + '\n\n```csharp\n' + me.sig + '\n```\n\n';
-      }
-    }
-  }
-
-  if (!insert) return false;
-
-  /* Insert before See Also section */
-  const seeAlsoMarker = L ? '## \u53c2\u89c1' : '## See Also';
-  const idx = content.indexOf(seeAlsoMarker);
-  if (idx < 0) return false;
-
-  /* Update overview to include kind info */
-  const kindLine = '**' + (L ? '\u7c7b\u578b' : 'Type') + ':** ' + kindName;
-  content = content.replace(/\*\*(?:\u7c7b\u578b|Type):\*\*\s*\S+/m, kindLine);
-
-  /* Insert signatures */
-  content = content.slice(0, idx) + insert + content.slice(idx);
-  writeFileSync(stubPath, content);
+  const { breadcrumb } = splitBreadcrumb(content);
+  const rebuilt = buildStubPage(stubPath, typeName, sigData, lang, breadcrumb);
+  writeFileSync(stubPath, rebuilt + '\n');
   return true;
 }
 

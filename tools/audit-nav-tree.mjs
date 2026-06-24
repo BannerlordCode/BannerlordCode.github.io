@@ -5,7 +5,7 @@
 //   3. Bidirectional cross-version: every /versions/X.md links back to v1.3.15 class doc,
 //      and every v1.3.15 class doc that has a cross-version page links to it (via breadcrumb)
 //   4. Every class doc (non-index .md in api/<area>/) has a breadcrumb block
-//   5. No orphan class docs: every class doc is reachable from its area index.md
+//   5. Every scanned class doc includes the breadcrumb sentinel
 //
 // Usage:  node tools/audit-nav-tree.mjs
 // Exit code 0 = clean, 1 = issues found.
@@ -134,7 +134,7 @@ if (crossMissingBack.length) {
 
 // ── 4. Breadcrumb presence on class docs ──
 const areaDirs = ['core', 'core-extra', 'mission', 'mission-ext', 'items', 'campaign',
-  'campaign-ext', 'gui', 'save-system', 'viewmodel', 'localization', 'engine'];
+  'campaign-ext', 'gui', 'save-system', 'viewmodel', 'localization', 'engine', 'system', 'gameplay'];
 const missingBreadcrumb = [];
 for (const v of ['v1.3.15', 'v1.3.0', 'v1.4.5']) {
   for (const lang of ['zh', 'en']) {

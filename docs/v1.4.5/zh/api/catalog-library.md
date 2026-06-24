@@ -5,7 +5,11 @@ sidebar: auto
 
 # 基础库 Library 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **202** 个类型，其中 **201** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `基础库 Library 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **202** 个类型，其中 **193** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -20,7 +24,7 @@ sidebar: auto
 | E | [ApplicationVersionType](/v1.3.15/zh/api/core-extra/ApplicationVersionType.md) | 🔗 |
 | S | [AreaInformation](/v1.3.15/zh/api/core-extra/AreaInformation.md) | 🔗 |
 | C | [AssemblyLoader](/v1.3.15/zh/api/core-extra/AssemblyLoader.md) | 🔗 |
-| E | AssemblyLoadResult | — |
+| E | [AssemblyLoadResult](./core-extra/AssemblyLoadResult.md) | 🔗 |
 | C | [AsyncRunner](/v1.3.15/zh/api/core-extra/AsyncRunner.md) | 🔗 |
 | S | [AtmosphereInfo](/v1.3.15/zh/api/core-extra/AtmosphereInfo.md) | 🔗 |
 | C | [AwaitableAsyncRunner](/v1.3.15/zh/api/core-extra/AwaitableAsyncRunner.md) | 🔗 |
@@ -42,7 +46,7 @@ sidebar: auto
 | C | [ConfigurationManager](/v1.3.15/zh/api/core-extra/ConfigurationManager.md) | 🔗 |
 | S | [Corners](/v1.3.15/zh/api/core-extra/Corners.md) | 🔗 |
 | C | [CubicBezier](/v1.3.15/zh/api/core-extra/CubicBezier.md) | 🔗 |
-| C | [DataSourceProperty](/v1.3.15/zh/api/viewmodel/DataSourceProperty.md) | 🔗 |
+| C | DataSourceProperty | — |
 | C | [Debug](/v1.3.15/zh/api/core-extra/Debug.md) | 🔗 |
 | E | [DebugColor](/v1.3.15/zh/api/core-extra/DebugColor.md) | 🔗 |
 | E | [DebugSystemFilter](/v1.3.15/zh/api/core-extra/DebugSystemFilter.md) | 🔗 |
@@ -53,7 +57,7 @@ sidebar: auto
 | C | [EngineMethod](/v1.3.15/zh/api/core-extra/EngineMethod.md) | 🔗 |
 | E | [EngineType](/v1.3.15/zh/api/core-extra/EngineType.md) | 🔗 |
 | C | [EnumHelper](/v1.3.15/zh/api/core-extra/EnumHelper.md) | 🔗 |
-| C | [Extensions](/v1.3.15/zh/api/engine/Extensions.md) | 🔗 |
+| C | Extensions | — |
 | C | [FileHelper](/v1.3.15/zh/api/core-extra/FileHelper.md) | 🔗 |
 | C | [FileHelperExtensions](/v1.3.15/zh/api/core-extra/FileHelperExtensions.md) | 🔗 |
 | S | [FogInformation](/v1.3.15/zh/api/core-extra/FogInformation.md) | 🔗 |
@@ -88,17 +92,17 @@ sidebar: auto
 | S | [ManagedArray](/v1.3.15/zh/api/core-extra/ManagedArray.md) | 🔗 |
 | C | [ManagedDllFolder](/v1.3.15/zh/api/core-extra/ManagedDllFolder.md) | 🔗 |
 | S | [Mat2](/v1.3.15/zh/api/core-extra/Mat2.md) | 🔗 |
-| S | [Mat3](/v1.3.15/zh/api/core-extra/Mat3.md) | 🔗 |
+| S | Mat3 | — |
 | C | [MathF](/v1.3.15/zh/api/core-extra/MathF.md) | 🔗 |
 | S | [MatrixFrame](/v1.3.15/zh/api/core-extra/MatrixFrame.md) | 🔗 |
 | C | [MBArrayList](/v1.3.15/zh/api/core-extra/MBArrayList.md) | 🔗 |
 | C | [MBBindingList](/v1.3.15/zh/api/core-extra/MBBindingList.md) | 🔗 |
-| C | [MBList](/v1.3.15/zh/api/core-extra/MBList.md) | 🔗 |
+| C | MBList | — |
 | C | [MBList2D](/v1.3.15/zh/api/core-extra/MBList2D.md) | 🔗 |
 | C | [MBMath](/v1.3.15/zh/api/core-extra/MBMath.md) | 🔗 |
 | C | [MBQueue](/v1.3.15/zh/api/core-extra/MBQueue.md) | 🔗 |
 | C | [MBReadOnlyDictionary](/v1.3.15/zh/api/core-extra/MBReadOnlyDictionary.md) | 🔗 |
-| C | [MBReadOnlyList](/v1.3.15/zh/api/core-extra/MBReadOnlyList.md) | 🔗 |
+| C | MBReadOnlyList | — |
 | C | [MBReadOnlyQueue](/v1.3.15/zh/api/core-extra/MBReadOnlyQueue.md) | 🔗 |
 | C | [MBSortedMultiList](/v1.3.15/zh/api/core-extra/MBSortedMultiList.md) | 🔗 |
 | S | [MBStringBuilder](/v1.3.15/zh/api/core-extra/MBStringBuilder.md) | 🔗 |
@@ -111,7 +115,7 @@ sidebar: auto
 | C | [ParameterContainer](/v1.3.15/zh/api/core-extra/ParameterContainer.md) | 🔗 |
 | C | [ParameterFile](/v1.3.15/zh/api/core-extra/ParameterFile.md) | 🔗 |
 | C | [ParameterLoader](/v1.3.15/zh/api/core-extra/ParameterLoader.md) | 🔗 |
-| C | [Parameters](/v1.3.15/zh/api/mission-ext/Parameters.md) | 🔗 |
+| C | [Parameters](/v1.3.15/zh/api/core-extra/Parameters.md) | 🔗 |
 | S | [PathFaceRecord](/v1.3.15/zh/api/core-extra/PathFaceRecord.md) | 🔗 |
 | C | [PathFinder](/v1.3.15/zh/api/core-extra/PathFinder.md) | 🔗 |
 | C | [PerformanceTestBlock](/v1.3.15/zh/api/core-extra/PerformanceTestBlock.md) | 🔗 |
@@ -174,11 +178,11 @@ sidebar: auto
 | C | [TWXmlLoadException](/v1.3.15/zh/api/core-extra/TWXmlLoadException.md) | 🔗 |
 | C | [UiStringHelper](/v1.3.15/zh/api/core-extra/UiStringHelper.md) | 🔗 |
 | C | [UniqueSceneId](/v1.3.15/zh/api/core-extra/UniqueSceneId.md) | 🔗 |
-| S | [Vec2](/v1.3.15/zh/api/core-extra/Vec2.md) | 🔗 |
+| S | Vec2 | — |
 | S | [Vec2i](/v1.3.15/zh/api/core-extra/Vec2i.md) | 🔗 |
-| S | [Vec3](/v1.3.15/zh/api/core-extra/Vec3.md) | 🔗 |
+| S | Vec3 | — |
 | S | [Vec3i](/v1.3.15/zh/api/core-extra/Vec3i.md) | 🔗 |
-| C | [ViewModel](/v1.3.15/zh/api/viewmodel/ViewModel.md) | 🔗 |
+| C | ViewModel | — |
 | C | [VirtualDirectoryAttribute](/v1.3.15/zh/api/core-extra/VirtualDirectoryAttribute.md) | 🔗 |
 | C | [VirtualFileAttribute](/v1.3.15/zh/api/core-extra/VirtualFileAttribute.md) | 🔗 |
 | C | [VirtualFolders](/v1.3.15/zh/api/core-extra/VirtualFolders.md) | 🔗 |
@@ -209,7 +213,7 @@ sidebar: auto
 |---|---|---|
 | C | [DictionaryByType](/v1.3.15/zh/api/core-extra/DictionaryByType.md) | 🔗 |
 | C | [EventBase](/v1.3.15/zh/api/core-extra/EventBase.md) | 🔗 |
-| C | [EventManager](/v1.3.15/zh/api/campaign-ext/EventManager.md) | 🔗 |
+| C | EventManager | — |
 
 ## TaleWorlds.Library.Graph (3)
 

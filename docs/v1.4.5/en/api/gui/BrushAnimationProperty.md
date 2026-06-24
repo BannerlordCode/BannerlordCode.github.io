@@ -1,0 +1,66 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `BrushAnimationProperty`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# BrushAnimationProperty
+
+**Namespace:** TaleWorlds.GauntletUI
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class BrushAnimationProperty`
+**Base:** none
+**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushAnimationProperty.cs`
+
+## Overview
+
+`BrushAnimationProperty` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `LayerName` | `public string LayerName { get; set; }` |
+
+## Key Methods
+
+### GetFrameAfter
+`public BrushAnimationKeyFrame GetFrameAfter(float time)`
+
+**Purpose:** Gets the current value of `frame after`.
+
+### GetFrameAt
+`public BrushAnimationKeyFrame GetFrameAt(int i)`
+
+**Purpose:** Gets the current value of `frame at`.
+
+### Clone
+`public BrushAnimationProperty Clone()`
+
+**Purpose:** Handles logic related to `clone`.
+
+### AddKeyFrame
+`public void AddKeyFrame(BrushAnimationKeyFrame keyFrame)`
+
+**Purpose:** Adds `key frame` to the current collection or state.
+
+### RemoveKeyFrame
+`public void RemoveKeyFrame(BrushAnimationKeyFrame keyFrame)`
+
+**Purpose:** Removes `key frame` from the current collection or state.
+
+## Usage Example
+
+```csharp
+var value = new BrushAnimationProperty();
+value.GetFrameAfter(0);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

@@ -1,0 +1,59 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Concept`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# Concept
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class Concept : MBObjectBase`
+**Base:** `MBObjectBase`
+**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Concept.cs`
+
+## Overview
+
+`Concept` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Title` | `public TextObject Title { get; }` |
+| `Description` | `public TextObject Description { get; }` |
+| `FilterGroup` | `public string FilterGroup { get; }` |
+| `LinkID` | `public string LinkID { get; }` |
+
+## Key Methods
+
+### Deserialize
+`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+
+**Purpose:** Handles logic related to `deserialize`.
+
+### IsGroupMember
+`public static bool IsGroupMember(string groupName, Concept c)`
+
+**Purpose:** Handles logic related to `is group member`.
+
+### SetConceptTextLinks
+`public static void SetConceptTextLinks()`
+
+**Purpose:** Sets the value or state of `concept text links`.
+
+## Usage Example
+
+```csharp
+var value = new Concept();
+value.Deserialize(objectManager, node);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

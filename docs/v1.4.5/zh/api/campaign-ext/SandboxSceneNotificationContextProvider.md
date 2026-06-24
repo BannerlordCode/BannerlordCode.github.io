@@ -1,16 +1,40 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SandboxSceneNotificationContextProvider`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # SandboxSceneNotificationContextProvider
 
-**命名空间:** SandBox.GauntletUI
-**模块:** SandBox.GauntletUI
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.GauntletUI
+**Module:** SandBox.GauntletUI
+**Type:** `public class SandboxSceneNotificationContextProvider : ISceneNotificationContextProvider`
+**Base:** `ISceneNotificationContextProvider`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandboxSceneNotificationContextProvider.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SandboxSceneNotificationContextProvider` 是 `SandBox.GauntletUI` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`SandboxSceneNotificationContextProvider` 位于 `SandBox.GauntletUI`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `SandBox.GauntletUI` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要方法
+
+### IsContextAllowed
+`public bool IsContextAllowed(RelevantContextType relevantType)`
+
+**用途 / Purpose:** 处理 `is context allowed` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var value = new SandboxSceneNotificationContextProvider();
+value.IsContextAllowed(relevantType);
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

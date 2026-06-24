@@ -1,14 +1,54 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `DeploymentVisualizationPreference`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # DeploymentVisualizationPreference
 
 **命名空间:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **模块:** TaleWorlds.MountAndBlade
-**类型:** 枚举 enum
-**领域:** 战斗系统 MountAndBlade
+**类型:** `public enum DeploymentVisualizationPreference`
+**领域:** mission-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`DeploymentVisualizationPreference` 是 `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` 命名空间下的一个枚举 enum。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`DeploymentVisualizationPreference` 位于 `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 枚举值
+
+| Name |
+|------|
+| `ShowUndeployed` |
+| `1` |
+| `Line` |
+| `2` |
+| `Arc` |
+| `4` |
+| `Banner` |
+| `8` |
+| `Path` |
+| `16` |
+| `Ghost` |
+| `32` |
+| `Contour` |
+| `64` |
+| `LiftLadders` |
+| `128` |
+| `Light` |
+| `256` |
+| `AllEnabled` |
+
+## 使用示例
+
+```csharp
+DeploymentVisualizationPreference example = DeploymentVisualizationPreference.ShowUndeployed;
+```
 
 ## 参见
 

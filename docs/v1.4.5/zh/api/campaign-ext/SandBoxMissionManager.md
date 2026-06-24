@@ -1,16 +1,54 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SandBoxMissionManager`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # SandBoxMissionManager
 
-**命名空间:** SandBox
-**模块:** SandBox
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox
+**Module:** SandBox
+**Type:** `public class SandBoxMissionManager : ISandBoxMissionManager`
+**Base:** `ISandBoxMissionManager`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxMissionManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SandBoxMissionManager` 是 `SandBox` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`SandBoxMissionManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `SandBoxMissionManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### OpenTournamentFightMission
+`public IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
+
+**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+
+### OpenTournamentHorseRaceMission
+`public IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
+
+**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+
+### OpenTournamentJoustingMission
+`public IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
+
+**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+
+### OpenTournamentArcheryMission
+`public IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
+
+**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var manager = SandBoxMissionManager.Current;
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

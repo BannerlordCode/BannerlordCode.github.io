@@ -5,7 +5,11 @@ sidebar: auto
 
 # 玩法模块 SandBox/StoryMode 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **819** 个类型，其中 **11** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `玩法模块 SandBox/StoryMode 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **819** 个类型，其中 **807** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -13,1307 +17,1307 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | Add1000GoldCheat | — |
-| C | Add100InfluenceCheat | — |
-| C | Add100RenownCheat | — |
-| C | AddCraftingMaterialsCheat | — |
-| C | [AgentNavigator](/v1.3.15/zh/api/mission-ext/AgentNavigator.md) | 🔗 |
-| C | BoostSkillCheatGroup | — |
-| C | BoostSkillCheeat | — |
-| C | CampaignAgentComponent | — |
-| C | CampaignMapSiegePrefabEntityCache | — |
-| C | CampaignMissionManager | — |
-| C | CompleteBuildingProjectCheat | — |
-| C | EditorSceneMissionManager | — |
-| C | FillCraftingStaminaCheat | — |
-| C | GameplayCheatBase | — |
-| C | GameplayCheatGroup | — |
-| C | GameplayCheatItem | — |
-| C | GameplayCheatsManager | — |
-| C | Give10GrainCheat | — |
-| C | Give10WarhorsesCheat | — |
-| C | Give5TroopsToPlayerCheat | — |
-| C | HealMainHeroCheat | — |
-| C | HealPlayerPartyCheat | — |
-| C | LocationCharacterMissionExtensions | — |
-| C | MapScene | — |
-| C | MapSceneCreator | — |
-| C | MapSceneHelper | — |
-| C | MissionHelper | — |
+| C | [Add1000GoldCheat](./campaign-ext/Add1000GoldCheat.md) | 🔗 |
+| C | [Add100InfluenceCheat](./campaign-ext/Add100InfluenceCheat.md) | 🔗 |
+| C | [Add100RenownCheat](./campaign-ext/Add100RenownCheat.md) | 🔗 |
+| C | [AddCraftingMaterialsCheat](./campaign-ext/AddCraftingMaterialsCheat.md) | 🔗 |
+| C | AgentNavigator | — |
+| C | [BoostSkillCheatGroup](./campaign-ext/BoostSkillCheatGroup.md) | 🔗 |
+| C | [BoostSkillCheeat](./campaign-ext/BoostSkillCheeat.md) | 🔗 |
+| C | [CampaignAgentComponent](./campaign-ext/CampaignAgentComponent.md) | 🔗 |
+| C | [CampaignMapSiegePrefabEntityCache](./campaign-ext/CampaignMapSiegePrefabEntityCache.md) | 🔗 |
+| C | [CampaignMissionManager](./campaign-ext/CampaignMissionManager.md) | 🔗 |
+| C | [CompleteBuildingProjectCheat](./campaign-ext/CompleteBuildingProjectCheat.md) | 🔗 |
+| C | [EditorSceneMissionManager](./campaign-ext/EditorSceneMissionManager.md) | 🔗 |
+| C | [FillCraftingStaminaCheat](./campaign-ext/FillCraftingStaminaCheat.md) | 🔗 |
+| C | [GameplayCheatBase](./campaign-ext/GameplayCheatBase.md) | 🔗 |
+| C | [GameplayCheatGroup](./campaign-ext/GameplayCheatGroup.md) | 🔗 |
+| C | [GameplayCheatItem](./campaign-ext/GameplayCheatItem.md) | 🔗 |
+| C | [GameplayCheatsManager](./campaign-ext/GameplayCheatsManager.md) | 🔗 |
+| C | [Give10GrainCheat](./campaign-ext/Give10GrainCheat.md) | 🔗 |
+| C | [Give10WarhorsesCheat](./campaign-ext/Give10WarhorsesCheat.md) | 🔗 |
+| C | [Give5TroopsToPlayerCheat](./campaign-ext/Give5TroopsToPlayerCheat.md) | 🔗 |
+| C | [HealMainHeroCheat](./campaign-ext/HealMainHeroCheat.md) | 🔗 |
+| C | [HealPlayerPartyCheat](./campaign-ext/HealPlayerPartyCheat.md) | 🔗 |
+| C | [LocationCharacterMissionExtensions](./campaign-ext/LocationCharacterMissionExtensions.md) | 🔗 |
+| C | [MapScene](./campaign-ext/MapScene.md) | 🔗 |
+| C | [MapSceneCreator](./campaign-ext/MapSceneCreator.md) | 🔗 |
+| C | [MapSceneHelper](./campaign-ext/MapSceneHelper.md) | 🔗 |
+| C | [MissionHelper](./campaign-ext/MissionHelper.md) | 🔗 |
 | C | [MultiplayerItemTestMissionController](/v1.3.15/zh/api/campaign-ext/MultiplayerItemTestMissionController.md) | 🔗 |
-| E | NavigationState | — |
-| C | SandboxBattleBannerBearersModel | — |
-| C | SandBoxGameManager | — |
-| C | SandBoxHelpers | — |
-| C | SandBoxMissionManager | — |
-| C | SandBoxMissions | — |
-| C | SandBoxSaveHelper | — |
-| C | SandBoxSaveManager | — |
-| C | SandBoxSubModule | — |
-| C | SaveableSandBoxTypeDefiner | — |
-| E | SaveHelperState | — |
-| C | UnlockAllCraftingRecipesCheat | — |
-| C | UnlockFogOfWarCheat | — |
-| C | WoundAllEnemiesCheat | — |
+| E | [NavigationState](./campaign-ext/NavigationState.md) | 🔗 |
+| C | [SandboxBattleBannerBearersModel](./campaign-ext/SandboxBattleBannerBearersModel.md) | 🔗 |
+| C | [SandBoxGameManager](./campaign-ext/SandBoxGameManager.md) | 🔗 |
+| C | [SandBoxHelpers](./campaign-ext/SandBoxHelpers.md) | 🔗 |
+| C | [SandBoxMissionManager](./campaign-ext/SandBoxMissionManager.md) | 🔗 |
+| C | [SandBoxMissions](./campaign-ext/SandBoxMissions.md) | 🔗 |
+| C | [SandBoxSaveHelper](./campaign-ext/SandBoxSaveHelper.md) | 🔗 |
+| C | [SandBoxSaveManager](./campaign-ext/SandBoxSaveManager.md) | 🔗 |
+| C | [SandBoxSubModule](./campaign-ext/SandBoxSubModule.md) | 🔗 |
+| C | [SaveableSandBoxTypeDefiner](./campaign-ext/SaveableSandBoxTypeDefiner.md) | 🔗 |
+| E | [SaveHelperState](./campaign-ext/SaveHelperState.md) | 🔗 |
+| C | [UnlockAllCraftingRecipesCheat](./campaign-ext/UnlockAllCraftingRecipesCheat.md) | 🔗 |
+| C | [UnlockFogOfWarCheat](./campaign-ext/UnlockFogOfWarCheat.md) | 🔗 |
+| C | [WoundAllEnemiesCheat](./campaign-ext/WoundAllEnemiesCheat.md) | 🔗 |
 
 ## SandBox.AI (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AgentBehaviorManager | — |
-| C | PassageAI | — |
-| C | UsablePlaceAI | — |
+| C | [AgentBehaviorManager](./campaign-ext/AgentBehaviorManager.md) | 🔗 |
+| C | [PassageAI](./campaign-ext/PassageAI.md) | 🔗 |
+| C | [UsablePlaceAI](./campaign-ext/UsablePlaceAI.md) | 🔗 |
 
 ## SandBox.BoardGames (17)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BarrierInfo | — |
-| C | BoardGameBaghChal | — |
-| C | BoardGameBase | — |
-| C | BoardGameKonane | — |
-| C | BoardGameMuTorere | — |
-| C | BoardGamePuluc | — |
-| C | BoardGameSeega | — |
-| E | BoardGameSide | — |
-| C | BoardGameTablut | — |
-| S | BoardInformation | — |
-| C | CapturedPawnsPool | — |
-| E | GameOverEnum | — |
-| S | Move | — |
-| S | PawnInformation | — |
-| E | PlayerTurn | — |
-| E | [State](/v1.3.15/zh/api/mission-ext/State.md) | 🔗 |
-| S | TileBaseInformation | — |
+| C | [BarrierInfo](./campaign-ext/BarrierInfo.md) | 🔗 |
+| C | [BoardGameBaghChal](./campaign-ext/BoardGameBaghChal.md) | 🔗 |
+| C | [BoardGameBase](./campaign-ext/BoardGameBase.md) | 🔗 |
+| C | [BoardGameKonane](./campaign-ext/BoardGameKonane.md) | 🔗 |
+| C | [BoardGameMuTorere](./campaign-ext/BoardGameMuTorere.md) | 🔗 |
+| C | [BoardGamePuluc](./campaign-ext/BoardGamePuluc.md) | 🔗 |
+| C | [BoardGameSeega](./campaign-ext/BoardGameSeega.md) | 🔗 |
+| E | [BoardGameSide](./campaign-ext/BoardGameSide.md) | 🔗 |
+| C | [BoardGameTablut](./campaign-ext/BoardGameTablut.md) | 🔗 |
+| S | [BoardInformation](./campaign-ext/BoardInformation.md) | 🔗 |
+| C | [CapturedPawnsPool](./campaign-ext/CapturedPawnsPool.md) | 🔗 |
+| E | [GameOverEnum](./campaign-ext/GameOverEnum.md) | 🔗 |
+| S | [Move](./campaign-ext/Move.md) | 🔗 |
+| S | [PawnInformation](./campaign-ext/PawnInformation.md) | 🔗 |
+| E | [PlayerTurn](./campaign-ext/PlayerTurn.md) | 🔗 |
+| E | State | — |
+| S | [TileBaseInformation](./campaign-ext/TileBaseInformation.md) | 🔗 |
 
 ## SandBox.BoardGames.AI (9)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | AIState | — |
-| C | BoardGameAIBaghChal | — |
-| C | BoardGameAIBase | — |
-| C | BoardGameAIKonane | — |
-| C | BoardGameAIMuTorere | — |
-| C | BoardGameAIPuluc | — |
-| C | BoardGameAISeega | — |
-| C | BoardGameAITablut | — |
-| C | TreeNodeTablut | — |
+| E | [AIState](./campaign-ext/AIState.md) | 🔗 |
+| C | [BoardGameAIBaghChal](./campaign-ext/BoardGameAIBaghChal.md) | 🔗 |
+| C | [BoardGameAIBase](./campaign-ext/BoardGameAIBase.md) | 🔗 |
+| C | [BoardGameAIKonane](./campaign-ext/BoardGameAIKonane.md) | 🔗 |
+| C | [BoardGameAIMuTorere](./campaign-ext/BoardGameAIMuTorere.md) | 🔗 |
+| C | [BoardGameAIPuluc](./campaign-ext/BoardGameAIPuluc.md) | 🔗 |
+| C | [BoardGameAISeega](./campaign-ext/BoardGameAISeega.md) | 🔗 |
+| C | [BoardGameAITablut](./campaign-ext/BoardGameAITablut.md) | 🔗 |
+| C | [TreeNodeTablut](./campaign-ext/TreeNodeTablut.md) | 🔗 |
 
 ## SandBox.BoardGames.MissionLogics (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionBoardGameDebugHandler | — |
-| C | MissionBoardGameLogic | — |
+| C | [MissionBoardGameDebugHandler](./campaign-ext/MissionBoardGameDebugHandler.md) | 🔗 |
+| C | [MissionBoardGameLogic](./campaign-ext/MissionBoardGameLogic.md) | 🔗 |
 
 ## SandBox.BoardGames.Objects (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BoardGameDecal | — |
-| C | Tile | — |
+| C | [BoardGameDecal](./campaign-ext/BoardGameDecal.md) | 🔗 |
+| C | [Tile](./campaign-ext/Tile.md) | 🔗 |
 
 ## SandBox.BoardGames.Pawns (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | MovementState | — |
-| C | PawnBaghChal | — |
-| C | PawnBase | — |
-| C | PawnKonane | — |
-| C | PawnMuTorere | — |
-| C | PawnPuluc | — |
-| C | PawnSeega | — |
-| C | PawnTablut | — |
+| E | [MovementState](./campaign-ext/MovementState.md) | 🔗 |
+| C | [PawnBaghChal](./campaign-ext/PawnBaghChal.md) | 🔗 |
+| C | [PawnBase](./campaign-ext/PawnBase.md) | 🔗 |
+| C | [PawnKonane](./campaign-ext/PawnKonane.md) | 🔗 |
+| C | [PawnMuTorere](./campaign-ext/PawnMuTorere.md) | 🔗 |
+| C | [PawnPuluc](./campaign-ext/PawnPuluc.md) | 🔗 |
+| C | [PawnSeega](./campaign-ext/PawnSeega.md) | 🔗 |
+| C | [PawnTablut](./campaign-ext/PawnTablut.md) | 🔗 |
 
 ## SandBox.BoardGames.Tiles (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | Tile1D | — |
-| C | Tile2D | — |
-| C | TileBase | — |
-| C | TileMuTorere | — |
-| C | TilePuluc | — |
+| C | [Tile1D](./campaign-ext/Tile1D.md) | 🔗 |
+| C | [Tile2D](./campaign-ext/Tile2D.md) | 🔗 |
+| C | [TileBase](./campaign-ext/TileBase.md) | 🔗 |
+| C | [TileMuTorere](./campaign-ext/TileMuTorere.md) | 🔗 |
+| C | [TilePuluc](./campaign-ext/TilePuluc.md) | 🔗 |
 
 ## SandBox.CampaignBehaviors (25)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AlleyCampaignBehavior | — |
-| C | AlleyCampaignBehaviorTypeDefiner | — |
-| C | ArenaMasterCampaignBehavior | — |
-| C | BarberCampaignBehavior | — |
-| C | BoardGameCampaignBehavior | — |
-| C | CheckpointCampaignBehavior | — |
-| C | ClanMemberRolesCampaignBehavior | — |
-| C | CommonTownsfolkCampaignBehavior | — |
-| C | CommonVillagersCampaignBehavior | — |
-| C | ConversationAnimationToolCampaignBehavior | — |
-| C | DefaultCutscenesCampaignBehavior | — |
-| C | DefaultNotificationsCampaignBehavior | — |
-| C | DumpIntegrityCampaignBehavior | — |
-| C | GuardsCampaignBehavior | — |
-| C | HeirSelectionCampaignBehavior | — |
-| C | HideoutConversationsCampaignBehavior | — |
-| C | PrisonBreakCampaignBehavior | — |
-| C | RecruitmentAgentSpawnBehavior | — |
-| C | RetirementCampaignBehavior | — |
-| C | SettlementMusiciansCampaignBehavior | — |
-| C | StatisticsCampaignBehavior | — |
-| C | StealthCharactersCampaignBehavior | — |
-| C | TavernEmployeesCampaignBehavior | — |
-| C | TownMerchantsCampaignBehavior | — |
-| C | TradersCampaignBehavior | — |
+| C | [AlleyCampaignBehavior](./campaign-ext/AlleyCampaignBehavior.md) | 🔗 |
+| C | [AlleyCampaignBehaviorTypeDefiner](./campaign-ext/AlleyCampaignBehaviorTypeDefiner.md) | 🔗 |
+| C | [ArenaMasterCampaignBehavior](./campaign-ext/ArenaMasterCampaignBehavior.md) | 🔗 |
+| C | [BarberCampaignBehavior](./campaign-ext/BarberCampaignBehavior.md) | 🔗 |
+| C | [BoardGameCampaignBehavior](./campaign-ext/BoardGameCampaignBehavior.md) | 🔗 |
+| C | [CheckpointCampaignBehavior](./campaign-ext/CheckpointCampaignBehavior.md) | 🔗 |
+| C | [ClanMemberRolesCampaignBehavior](./campaign-ext/ClanMemberRolesCampaignBehavior.md) | 🔗 |
+| C | [CommonTownsfolkCampaignBehavior](./campaign-ext/CommonTownsfolkCampaignBehavior.md) | 🔗 |
+| C | [CommonVillagersCampaignBehavior](./campaign-ext/CommonVillagersCampaignBehavior.md) | 🔗 |
+| C | [ConversationAnimationToolCampaignBehavior](./campaign-ext/ConversationAnimationToolCampaignBehavior.md) | 🔗 |
+| C | [DefaultCutscenesCampaignBehavior](./campaign-ext/DefaultCutscenesCampaignBehavior.md) | 🔗 |
+| C | [DefaultNotificationsCampaignBehavior](./campaign-ext/DefaultNotificationsCampaignBehavior.md) | 🔗 |
+| C | [DumpIntegrityCampaignBehavior](./campaign-ext/DumpIntegrityCampaignBehavior.md) | 🔗 |
+| C | [GuardsCampaignBehavior](./campaign-ext/GuardsCampaignBehavior.md) | 🔗 |
+| C | [HeirSelectionCampaignBehavior](./campaign-ext/HeirSelectionCampaignBehavior.md) | 🔗 |
+| C | [HideoutConversationsCampaignBehavior](./campaign-ext/HideoutConversationsCampaignBehavior.md) | 🔗 |
+| C | [PrisonBreakCampaignBehavior](./campaign-ext/PrisonBreakCampaignBehavior.md) | 🔗 |
+| C | [RecruitmentAgentSpawnBehavior](./campaign-ext/RecruitmentAgentSpawnBehavior.md) | 🔗 |
+| C | [RetirementCampaignBehavior](./campaign-ext/RetirementCampaignBehavior.md) | 🔗 |
+| C | [SettlementMusiciansCampaignBehavior](./campaign-ext/SettlementMusiciansCampaignBehavior.md) | 🔗 |
+| C | [StatisticsCampaignBehavior](./campaign-ext/StatisticsCampaignBehavior.md) | 🔗 |
+| C | [StealthCharactersCampaignBehavior](./campaign-ext/StealthCharactersCampaignBehavior.md) | 🔗 |
+| C | [TavernEmployeesCampaignBehavior](./campaign-ext/TavernEmployeesCampaignBehavior.md) | 🔗 |
+| C | [TownMerchantsCampaignBehavior](./campaign-ext/TownMerchantsCampaignBehavior.md) | 🔗 |
+| C | [TradersCampaignBehavior](./campaign-ext/TradersCampaignBehavior.md) | 🔗 |
 
 ## SandBox.Conversation (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ConversationMission | — |
+| C | [ConversationMission](./campaign-ext/ConversationMission.md) | 🔗 |
 
 ## SandBox.Conversation.MissionLogics (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ConversationMissionLogic | — |
-| C | MissionConversationLogic | — |
+| C | [ConversationMissionLogic](./campaign-ext/ConversationMissionLogic.md) | 🔗 |
+| C | [MissionConversationLogic](./campaign-ext/MissionConversationLogic.md) | 🔗 |
 
 ## SandBox.GameComponents (11)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| I | IMissionPlayerFollowerHandler | — |
-| C | SandboxAgentApplyDamageModel | — |
-| C | SandboxAgentDecideKilledOrUnconsciousModel | — |
-| C | SandboxAgentStatCalculateModel | — |
-| C | SandboxApplyWeatherEffectsModel | — |
-| C | SandboxAutoBlockModel | — |
-| C | SandboxBattleInitializationModel | — |
-| C | SandboxBattleMoraleModel | — |
-| C | SandboxBattleSpawnModel | — |
-| C | SandboxMissionDifficultyModel | — |
-| C | SandboxStrikeMagnitudeModel | — |
+| I | [IMissionPlayerFollowerHandler](./campaign-ext/IMissionPlayerFollowerHandler.md) | 🔗 |
+| C | [SandboxAgentApplyDamageModel](./campaign-ext/SandboxAgentApplyDamageModel.md) | 🔗 |
+| C | [SandboxAgentDecideKilledOrUnconsciousModel](./campaign-ext/SandboxAgentDecideKilledOrUnconsciousModel.md) | 🔗 |
+| C | [SandboxAgentStatCalculateModel](./campaign-ext/SandboxAgentStatCalculateModel.md) | 🔗 |
+| C | [SandboxApplyWeatherEffectsModel](./campaign-ext/SandboxApplyWeatherEffectsModel.md) | 🔗 |
+| C | [SandboxAutoBlockModel](./campaign-ext/SandboxAutoBlockModel.md) | 🔗 |
+| C | [SandboxBattleInitializationModel](./campaign-ext/SandboxBattleInitializationModel.md) | 🔗 |
+| C | [SandboxBattleMoraleModel](./campaign-ext/SandboxBattleMoraleModel.md) | 🔗 |
+| C | [SandboxBattleSpawnModel](./campaign-ext/SandboxBattleSpawnModel.md) | 🔗 |
+| C | [SandboxMissionDifficultyModel](./campaign-ext/SandboxMissionDifficultyModel.md) | 🔗 |
+| C | [SandboxStrikeMagnitudeModel](./campaign-ext/SandboxStrikeMagnitudeModel.md) | 🔗 |
 
 ## SandBox.GauntletUI (15)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | GauntletBarberScreen | — |
-| C | GauntletCharacterDeveloperScreen | — |
-| C | GauntletClanScreen | — |
-| C | GauntletCraftingScreen | — |
-| C | GauntletEducationScreen | — |
-| C | GauntletGameOverScreen | — |
-| C | GauntletInventoryScreen | — |
-| C | GauntletKingdomScreen | — |
-| C | GauntletPartyScreen | — |
-| C | GauntletQuestsScreen | — |
-| C | GauntletSaveLoadScreen | — |
-| C | MapConversationTextureProvider | — |
-| C | SandBoxGauntletGameNotification | — |
-| C | SandBoxGauntletUISubModule | — |
-| C | SandboxSceneNotificationContextProvider | — |
+| C | [GauntletBarberScreen](./campaign-ext/GauntletBarberScreen.md) | 🔗 |
+| C | [GauntletCharacterDeveloperScreen](./campaign-ext/GauntletCharacterDeveloperScreen.md) | 🔗 |
+| C | [GauntletClanScreen](./campaign-ext/GauntletClanScreen.md) | 🔗 |
+| C | [GauntletCraftingScreen](./campaign-ext/GauntletCraftingScreen.md) | 🔗 |
+| C | [GauntletEducationScreen](./campaign-ext/GauntletEducationScreen.md) | 🔗 |
+| C | [GauntletGameOverScreen](./campaign-ext/GauntletGameOverScreen.md) | 🔗 |
+| C | [GauntletInventoryScreen](./campaign-ext/GauntletInventoryScreen.md) | 🔗 |
+| C | [GauntletKingdomScreen](./campaign-ext/GauntletKingdomScreen.md) | 🔗 |
+| C | [GauntletPartyScreen](./campaign-ext/GauntletPartyScreen.md) | 🔗 |
+| C | [GauntletQuestsScreen](./campaign-ext/GauntletQuestsScreen.md) | 🔗 |
+| C | [GauntletSaveLoadScreen](./campaign-ext/GauntletSaveLoadScreen.md) | 🔗 |
+| C | [MapConversationTextureProvider](./campaign-ext/MapConversationTextureProvider.md) | 🔗 |
+| C | [SandBoxGauntletGameNotification](./campaign-ext/SandBoxGauntletGameNotification.md) | 🔗 |
+| C | [SandBoxGauntletUISubModule](./campaign-ext/SandBoxGauntletUISubModule.md) | 🔗 |
+| C | [SandboxSceneNotificationContextProvider](./campaign-ext/SandboxSceneNotificationContextProvider.md) | 🔗 |
 
 ## SandBox.GauntletUI.BannerEditor (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BannerEditorView | — |
-| C | GauntletBannerEditorScreen | — |
+| C | [BannerEditorView](./campaign-ext/BannerEditorView.md) | 🔗 |
+| C | [GauntletBannerEditorScreen](./campaign-ext/GauntletBannerEditorScreen.md) | 🔗 |
 
 ## SandBox.GauntletUI.CharacterCreation (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CharacterCreationBannerEditorView | — |
-| C | CharacterCreationClanNamingStageView | — |
-| C | CharacterCreationCultureStageView | — |
-| C | CharacterCreationFaceGeneratorView | — |
-| C | CharacterCreationNarrativeStageView | — |
-| C | CharacterCreationOptionsStageView | — |
-| C | CharacterCreationReviewStageView | — |
+| C | [CharacterCreationBannerEditorView](./campaign-ext/CharacterCreationBannerEditorView.md) | 🔗 |
+| C | [CharacterCreationClanNamingStageView](./campaign-ext/CharacterCreationClanNamingStageView.md) | 🔗 |
+| C | [CharacterCreationCultureStageView](./campaign-ext/CharacterCreationCultureStageView.md) | 🔗 |
+| C | [CharacterCreationFaceGeneratorView](./campaign-ext/CharacterCreationFaceGeneratorView.md) | 🔗 |
+| C | [CharacterCreationNarrativeStageView](./campaign-ext/CharacterCreationNarrativeStageView.md) | 🔗 |
+| C | [CharacterCreationOptionsStageView](./campaign-ext/CharacterCreationOptionsStageView.md) | 🔗 |
+| C | [CharacterCreationReviewStageView](./campaign-ext/CharacterCreationReviewStageView.md) | 🔗 |
 
 ## SandBox.GauntletUI.Encyclopedia (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | EncyclopediaData | — |
-| C | EncyclopediaListViewDataController | — |
-| C | GauntletMapEncyclopediaView | — |
+| C | [EncyclopediaData](./campaign-ext/EncyclopediaData.md) | 🔗 |
+| C | [EncyclopediaListViewDataController](./campaign-ext/EncyclopediaListViewDataController.md) | 🔗 |
+| C | [GauntletMapEncyclopediaView](./campaign-ext/GauntletMapEncyclopediaView.md) | 🔗 |
 
 ## SandBox.GauntletUI.Map (25)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | GauntletHeirSelectionPopupView | — |
-| C | GauntletMapBarGlobalLayer | — |
-| C | GauntletMapBarView | — |
-| C | GauntletMapBasicView | — |
-| C | GauntletMapBattleSimulationView | — |
-| C | GauntletMapCampaignOptionsView | — |
-| C | GauntletMapCheatsView | — |
-| C | GauntletMapConversationBarterView | — |
-| C | GauntletMapConversationView | — |
-| C | GauntletMapEscapeMenuView | — |
-| C | GauntletMapEventVisual | — |
-| C | GauntletMapEventVisualCreator | — |
-| C | GauntletMapEventVisualsView | — |
-| C | GauntletMapIncidentView | — |
-| C | GauntletMapNotificationView | — |
-| C | GauntletMapOverlayView | — |
-| C | GauntletMapParleyAnimationView | — |
-| C | GauntletMapPartyNameplateView | — |
-| C | GauntletMapReadyView | — |
-| C | GauntletMapSaveView | — |
-| C | GauntletMapSettlementNameplateView | — |
-| C | GauntletMapSiegeOverlayView | — |
-| C | GauntletMapTrackersView | — |
-| C | GauntletMarriageOfferPopupView | — |
-| I | IGauntletMapEventVisualHandler | — |
+| C | [GauntletHeirSelectionPopupView](./campaign-ext/GauntletHeirSelectionPopupView.md) | 🔗 |
+| C | [GauntletMapBarGlobalLayer](./campaign-ext/GauntletMapBarGlobalLayer.md) | 🔗 |
+| C | [GauntletMapBarView](./campaign-ext/GauntletMapBarView.md) | 🔗 |
+| C | [GauntletMapBasicView](./campaign-ext/GauntletMapBasicView.md) | 🔗 |
+| C | [GauntletMapBattleSimulationView](./campaign-ext/GauntletMapBattleSimulationView.md) | 🔗 |
+| C | [GauntletMapCampaignOptionsView](./campaign-ext/GauntletMapCampaignOptionsView.md) | 🔗 |
+| C | [GauntletMapCheatsView](./campaign-ext/GauntletMapCheatsView.md) | 🔗 |
+| C | [GauntletMapConversationBarterView](./campaign-ext/GauntletMapConversationBarterView.md) | 🔗 |
+| C | [GauntletMapConversationView](./campaign-ext/GauntletMapConversationView.md) | 🔗 |
+| C | [GauntletMapEscapeMenuView](./campaign-ext/GauntletMapEscapeMenuView.md) | 🔗 |
+| C | [GauntletMapEventVisual](./campaign-ext/GauntletMapEventVisual.md) | 🔗 |
+| C | [GauntletMapEventVisualCreator](./campaign-ext/GauntletMapEventVisualCreator.md) | 🔗 |
+| C | [GauntletMapEventVisualsView](./campaign-ext/GauntletMapEventVisualsView.md) | 🔗 |
+| C | [GauntletMapIncidentView](./campaign-ext/GauntletMapIncidentView.md) | 🔗 |
+| C | [GauntletMapNotificationView](./campaign-ext/GauntletMapNotificationView.md) | 🔗 |
+| C | [GauntletMapOverlayView](./campaign-ext/GauntletMapOverlayView.md) | 🔗 |
+| C | [GauntletMapParleyAnimationView](./campaign-ext/GauntletMapParleyAnimationView.md) | 🔗 |
+| C | [GauntletMapPartyNameplateView](./campaign-ext/GauntletMapPartyNameplateView.md) | 🔗 |
+| C | [GauntletMapReadyView](./campaign-ext/GauntletMapReadyView.md) | 🔗 |
+| C | [GauntletMapSaveView](./campaign-ext/GauntletMapSaveView.md) | 🔗 |
+| C | [GauntletMapSettlementNameplateView](./campaign-ext/GauntletMapSettlementNameplateView.md) | 🔗 |
+| C | [GauntletMapSiegeOverlayView](./campaign-ext/GauntletMapSiegeOverlayView.md) | 🔗 |
+| C | [GauntletMapTrackersView](./campaign-ext/GauntletMapTrackersView.md) | 🔗 |
+| C | [GauntletMarriageOfferPopupView](./campaign-ext/GauntletMarriageOfferPopupView.md) | 🔗 |
+| I | [IGauntletMapEventVisualHandler](./campaign-ext/IGauntletMapEventVisualHandler.md) | 🔗 |
 
 ## SandBox.GauntletUI.Menu (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | GauntletMenuBackground | — |
-| C | GauntletMenuBaseView | — |
-| C | GauntletMenuOverlayBaseView | — |
-| C | GauntletMenuRecruitVolunteersView | — |
-| C | GauntletMenuTournamentLeaderboardView | — |
-| C | GauntletMenuTownManagementView | — |
-| C | GauntletMenuTroopSelectionView | — |
+| C | [GauntletMenuBackground](./campaign-ext/GauntletMenuBackground.md) | 🔗 |
+| C | [GauntletMenuBaseView](./campaign-ext/GauntletMenuBaseView.md) | 🔗 |
+| C | [GauntletMenuOverlayBaseView](./campaign-ext/GauntletMenuOverlayBaseView.md) | 🔗 |
+| C | [GauntletMenuRecruitVolunteersView](./campaign-ext/GauntletMenuRecruitVolunteersView.md) | 🔗 |
+| C | [GauntletMenuTournamentLeaderboardView](./campaign-ext/GauntletMenuTournamentLeaderboardView.md) | 🔗 |
+| C | [GauntletMenuTownManagementView](./campaign-ext/GauntletMenuTownManagementView.md) | 🔗 |
+| C | [GauntletMenuTroopSelectionView](./campaign-ext/GauntletMenuTroopSelectionView.md) | 🔗 |
 
 ## SandBox.GauntletUI.Missions (14)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionGauntletAgentAlarmStateView | — |
-| C | MissionGauntletArenaPracticeFightView | — |
-| C | MissionGauntletBarterView | — |
-| C | MissionGauntletBoardGameView | — |
-| C | MissionGauntletCheatView | — |
-| C | MissionGauntletConversationView | — |
-| C | MissionGauntletEavesdroppingCameraView | — |
-| C | MissionGauntletHideoutAmbushCinematicView | — |
-| C | MissionGauntletNameMarkerView | — |
-| C | MissionGauntletObjectiveView | — |
-| C | MissionGauntletQuestBarView | — |
-| C | MissionGauntletStealthFailCounterView | — |
-| C | MissionGauntletStoryModeCheatView | — |
-| C | MissionGauntletTournamentView | — |
+| C | [MissionGauntletAgentAlarmStateView](./campaign-ext/MissionGauntletAgentAlarmStateView.md) | 🔗 |
+| C | [MissionGauntletArenaPracticeFightView](./campaign-ext/MissionGauntletArenaPracticeFightView.md) | 🔗 |
+| C | [MissionGauntletBarterView](./campaign-ext/MissionGauntletBarterView.md) | 🔗 |
+| C | [MissionGauntletBoardGameView](./campaign-ext/MissionGauntletBoardGameView.md) | 🔗 |
+| C | [MissionGauntletCheatView](./campaign-ext/MissionGauntletCheatView.md) | 🔗 |
+| C | [MissionGauntletConversationView](./campaign-ext/MissionGauntletConversationView.md) | 🔗 |
+| C | [MissionGauntletEavesdroppingCameraView](./campaign-ext/MissionGauntletEavesdroppingCameraView.md) | 🔗 |
+| C | [MissionGauntletHideoutAmbushCinematicView](./campaign-ext/MissionGauntletHideoutAmbushCinematicView.md) | 🔗 |
+| C | [MissionGauntletNameMarkerView](./campaign-ext/MissionGauntletNameMarkerView.md) | 🔗 |
+| C | [MissionGauntletObjectiveView](./campaign-ext/MissionGauntletObjectiveView.md) | 🔗 |
+| C | [MissionGauntletQuestBarView](./campaign-ext/MissionGauntletQuestBarView.md) | 🔗 |
+| C | [MissionGauntletStealthFailCounterView](./campaign-ext/MissionGauntletStealthFailCounterView.md) | 🔗 |
+| C | [MissionGauntletStoryModeCheatView](./campaign-ext/MissionGauntletStoryModeCheatView.md) | 🔗 |
+| C | [MissionGauntletTournamentView](./campaign-ext/MissionGauntletTournamentView.md) | 🔗 |
 
 ## SandBox.GauntletUI.Tutorial (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | GauntletTutorialSystem | — |
-| C | TutorialAttribute | — |
-| C | TutorialHelper | — |
-| C | TutorialItemBase | — |
+| C | [GauntletTutorialSystem](./campaign-ext/GauntletTutorialSystem.md) | 🔗 |
+| C | [TutorialAttribute](./campaign-ext/TutorialAttribute.md) | 🔗 |
+| C | [TutorialHelper](./campaign-ext/TutorialHelper.md) | 🔗 |
+| C | [TutorialItemBase](./campaign-ext/TutorialItemBase.md) | 🔗 |
 
 ## SandBox.Issues (30)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | FamilyFeudIssue | — |
-| C | FamilyFeudIssueBehavior | — |
-| C | FamilyFeudIssueMissionBehavior | — |
-| C | FamilyFeudIssueQuest | — |
-| C | FamilyFeudIssueTypeDefiner | — |
-| C | NotableWantsDaughterFoundIssue | — |
-| C | NotableWantsDaughterFoundIssueBehavior | — |
-| C | NotableWantsDaughterFoundIssueQuest | — |
-| C | NotableWantsDaughterFoundIssueTypeDefiner | — |
-| C | ProdigalSonIssue | — |
-| C | ProdigalSonIssueBehavior | — |
-| C | ProdigalSonIssueQuest | — |
-| C | ProdigalSonIssueTypeDefiner | — |
-| C | RivalGangMovingInIssue | — |
-| C | RivalGangMovingInIssueBehavior | — |
-| C | RivalGangMovingInIssueQuest | — |
-| C | RivalGangMovingInIssueTypeDefiner | — |
-| C | RuralNotableInnAndOutIssue | — |
-| C | RuralNotableInnAndOutIssueBehavior | — |
-| C | RuralNotableInnAndOutIssueQuest | — |
-| C | RuralNotableInnAndOutIssueTypeDefiner | — |
-| C | SnareTheWealthyIssue | — |
-| C | SnareTheWealthyIssueBehavior | — |
-| C | SnareTheWealthyIssueQuest | — |
-| C | SnareTheWealthyIssueTypeDefiner | — |
-| S | SuspectNpc | — |
-| C | TheSpyPartyIssue | — |
-| C | TheSpyPartyIssueQuest | — |
-| C | TheSpyPartyIssueQuestBehavior | — |
-| C | TheSpyPartyIssueQuestTypeDefiner | — |
+| C | [FamilyFeudIssue](./campaign-ext/FamilyFeudIssue.md) | 🔗 |
+| C | [FamilyFeudIssueBehavior](./campaign-ext/FamilyFeudIssueBehavior.md) | 🔗 |
+| C | [FamilyFeudIssueMissionBehavior](./campaign-ext/FamilyFeudIssueMissionBehavior.md) | 🔗 |
+| C | [FamilyFeudIssueQuest](./campaign-ext/FamilyFeudIssueQuest.md) | 🔗 |
+| C | [FamilyFeudIssueTypeDefiner](./campaign-ext/FamilyFeudIssueTypeDefiner.md) | 🔗 |
+| C | [NotableWantsDaughterFoundIssue](./campaign-ext/NotableWantsDaughterFoundIssue.md) | 🔗 |
+| C | [NotableWantsDaughterFoundIssueBehavior](./campaign-ext/NotableWantsDaughterFoundIssueBehavior.md) | 🔗 |
+| C | [NotableWantsDaughterFoundIssueQuest](./campaign-ext/NotableWantsDaughterFoundIssueQuest.md) | 🔗 |
+| C | [NotableWantsDaughterFoundIssueTypeDefiner](./campaign-ext/NotableWantsDaughterFoundIssueTypeDefiner.md) | 🔗 |
+| C | [ProdigalSonIssue](./campaign-ext/ProdigalSonIssue.md) | 🔗 |
+| C | [ProdigalSonIssueBehavior](./campaign-ext/ProdigalSonIssueBehavior.md) | 🔗 |
+| C | [ProdigalSonIssueQuest](./campaign-ext/ProdigalSonIssueQuest.md) | 🔗 |
+| C | [ProdigalSonIssueTypeDefiner](./campaign-ext/ProdigalSonIssueTypeDefiner.md) | 🔗 |
+| C | [RivalGangMovingInIssue](./campaign-ext/RivalGangMovingInIssue.md) | 🔗 |
+| C | [RivalGangMovingInIssueBehavior](./campaign-ext/RivalGangMovingInIssueBehavior.md) | 🔗 |
+| C | [RivalGangMovingInIssueQuest](./campaign-ext/RivalGangMovingInIssueQuest.md) | 🔗 |
+| C | [RivalGangMovingInIssueTypeDefiner](./campaign-ext/RivalGangMovingInIssueTypeDefiner.md) | 🔗 |
+| C | [RuralNotableInnAndOutIssue](./campaign-ext/RuralNotableInnAndOutIssue.md) | 🔗 |
+| C | [RuralNotableInnAndOutIssueBehavior](./campaign-ext/RuralNotableInnAndOutIssueBehavior.md) | 🔗 |
+| C | [RuralNotableInnAndOutIssueQuest](./campaign-ext/RuralNotableInnAndOutIssueQuest.md) | 🔗 |
+| C | [RuralNotableInnAndOutIssueTypeDefiner](./campaign-ext/RuralNotableInnAndOutIssueTypeDefiner.md) | 🔗 |
+| C | [SnareTheWealthyIssue](./campaign-ext/SnareTheWealthyIssue.md) | 🔗 |
+| C | [SnareTheWealthyIssueBehavior](./campaign-ext/SnareTheWealthyIssueBehavior.md) | 🔗 |
+| C | [SnareTheWealthyIssueQuest](./campaign-ext/SnareTheWealthyIssueQuest.md) | 🔗 |
+| C | [SnareTheWealthyIssueTypeDefiner](./campaign-ext/SnareTheWealthyIssueTypeDefiner.md) | 🔗 |
+| S | [SuspectNpc](./campaign-ext/SuspectNpc.md) | 🔗 |
+| C | [TheSpyPartyIssue](./campaign-ext/TheSpyPartyIssue.md) | 🔗 |
+| C | [TheSpyPartyIssueQuest](./campaign-ext/TheSpyPartyIssueQuest.md) | 🔗 |
+| C | [TheSpyPartyIssueQuestBehavior](./campaign-ext/TheSpyPartyIssueQuestBehavior.md) | 🔗 |
+| C | [TheSpyPartyIssueQuestTypeDefiner](./campaign-ext/TheSpyPartyIssueQuestTypeDefiner.md) | 🔗 |
 
 ## SandBox.Issues.IssueQuestTasks (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ArenaDuelQuestTask | — |
-| C | BeginConversationInitiatedByAIQuestTask | — |
-| C | FollowAgentQuestTask | — |
+| C | [ArenaDuelQuestTask](./campaign-ext/ArenaDuelQuestTask.md) | 🔗 |
+| C | [BeginConversationInitiatedByAIQuestTask](./campaign-ext/BeginConversationInitiatedByAIQuestTask.md) | 🔗 |
+| C | [FollowAgentQuestTask](./campaign-ext/FollowAgentQuestTask.md) | 🔗 |
 
 ## SandBox.Missions (12)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CameraJumpScript | — |
-| C | ChangeLightIntensityScript | — |
-| C | CheckpointLoadedMissionEvent | — |
-| C | CheckpointMissionLogic | — |
-| C | CivilianPortShipSpawnMissionLogic | — |
-| C | CoverAnimalAgentComponent | — |
-| C | EavesdroppingMissionLogic | — |
-| C | EavesdropSound | — |
-| C | OnStealthMissionCounterFailedEvent | — |
-| C | RotateObjectScript | — |
-| C | SabotageMissionController | — |
-| C | StealthFailCounterMissionLogic | — |
+| C | [CameraJumpScript](./campaign-ext/CameraJumpScript.md) | 🔗 |
+| C | [ChangeLightIntensityScript](./campaign-ext/ChangeLightIntensityScript.md) | 🔗 |
+| C | [CheckpointLoadedMissionEvent](./campaign-ext/CheckpointLoadedMissionEvent.md) | 🔗 |
+| C | [CheckpointMissionLogic](./campaign-ext/CheckpointMissionLogic.md) | 🔗 |
+| C | [CivilianPortShipSpawnMissionLogic](./campaign-ext/CivilianPortShipSpawnMissionLogic.md) | 🔗 |
+| C | [CoverAnimalAgentComponent](./campaign-ext/CoverAnimalAgentComponent.md) | 🔗 |
+| C | [EavesdroppingMissionLogic](./campaign-ext/EavesdroppingMissionLogic.md) | 🔗 |
+| C | [EavesdropSound](./campaign-ext/EavesdropSound.md) | 🔗 |
+| C | [OnStealthMissionCounterFailedEvent](./campaign-ext/OnStealthMissionCounterFailedEvent.md) | 🔗 |
+| C | [RotateObjectScript](./campaign-ext/RotateObjectScript.md) | 🔗 |
+| C | [SabotageMissionController](./campaign-ext/SabotageMissionController.md) | 🔗 |
+| C | [StealthFailCounterMissionLogic](./campaign-ext/StealthFailCounterMissionLogic.md) | 🔗 |
 
 ## SandBox.Missions.AgentBehaviors (20)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AgentBehavior | — |
-| C | AgentBehaviorGroup | — |
-| C | AlarmedBehaviorGroup | — |
-| C | BehaviorSets | — |
-| C | CautiousBehavior | — |
-| C | ChangeLocationBehavior | — |
-| C | DailyBehaviorGroup | — |
-| C | EscortAgentBehavior | — |
-| C | FightBehavior | — |
-| C | FleeBehavior | — |
-| C | FollowAgentBehavior | — |
-| C | IdleAgentBehavior | — |
-| C | InterruptingBehaviorGroup | — |
-| C | NotableSpawnPointHandler | — |
-| C | PatrolAgentBehavior | — |
-| C | PatrollingGuardBehavior | — |
-| C | ScriptBehavior | — |
-| C | StandGuardBehavior | — |
-| C | TalkBehavior | — |
-| C | WalkingBehavior | — |
+| C | [AgentBehavior](./campaign-ext/AgentBehavior.md) | 🔗 |
+| C | [AgentBehaviorGroup](./campaign-ext/AgentBehaviorGroup.md) | 🔗 |
+| C | [AlarmedBehaviorGroup](./campaign-ext/AlarmedBehaviorGroup.md) | 🔗 |
+| C | [BehaviorSets](./campaign-ext/BehaviorSets.md) | 🔗 |
+| C | [CautiousBehavior](./campaign-ext/CautiousBehavior.md) | 🔗 |
+| C | [ChangeLocationBehavior](./campaign-ext/ChangeLocationBehavior.md) | 🔗 |
+| C | [DailyBehaviorGroup](./campaign-ext/DailyBehaviorGroup.md) | 🔗 |
+| C | [EscortAgentBehavior](./campaign-ext/EscortAgentBehavior.md) | 🔗 |
+| C | [FightBehavior](./campaign-ext/FightBehavior.md) | 🔗 |
+| C | [FleeBehavior](./campaign-ext/FleeBehavior.md) | 🔗 |
+| C | [FollowAgentBehavior](./campaign-ext/FollowAgentBehavior.md) | 🔗 |
+| C | [IdleAgentBehavior](./campaign-ext/IdleAgentBehavior.md) | 🔗 |
+| C | [InterruptingBehaviorGroup](./campaign-ext/InterruptingBehaviorGroup.md) | 🔗 |
+| C | [NotableSpawnPointHandler](./campaign-ext/NotableSpawnPointHandler.md) | 🔗 |
+| C | [PatrolAgentBehavior](./campaign-ext/PatrolAgentBehavior.md) | 🔗 |
+| C | [PatrollingGuardBehavior](./campaign-ext/PatrollingGuardBehavior.md) | 🔗 |
+| C | [ScriptBehavior](./campaign-ext/ScriptBehavior.md) | 🔗 |
+| C | [StandGuardBehavior](./campaign-ext/StandGuardBehavior.md) | 🔗 |
+| C | [TalkBehavior](./campaign-ext/TalkBehavior.md) | 🔗 |
+| C | [WalkingBehavior](./campaign-ext/WalkingBehavior.md) | 🔗 |
 
 ## SandBox.Missions.BattleScore (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | SandboxMissionBattleScoreContext | — |
-| C | SandboxSimulationBattleScoreContext | — |
+| C | [SandboxMissionBattleScoreContext](./campaign-ext/SandboxMissionBattleScoreContext.md) | 🔗 |
+| C | [SandboxSimulationBattleScoreContext](./campaign-ext/SandboxSimulationBattleScoreContext.md) | 🔗 |
 
 ## SandBox.Missions.MissionEvents (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionAIActivationDeactivationEventListenerLogic | — |
-| C | OpenInventoryWithGivenItemsEventListenerLogic | — |
-| C | ShowQuickInformationEventListenerLogic | — |
+| C | [MissionAIActivationDeactivationEventListenerLogic](./campaign-ext/MissionAIActivationDeactivationEventListenerLogic.md) | 🔗 |
+| C | [OpenInventoryWithGivenItemsEventListenerLogic](./campaign-ext/OpenInventoryWithGivenItemsEventListenerLogic.md) | 🔗 |
+| C | [ShowQuickInformationEventListenerLogic](./campaign-ext/ShowQuickInformationEventListenerLogic.md) | 🔗 |
 
 ## SandBox.Missions.MissionLogics (55)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | AgentTrackTypes | — |
-| C | BattleAgentLogic | — |
-| C | BattleSurgeonLogic | — |
-| C | CampaignMissionComponent | — |
-| C | CampaignSiegeStateHandler | — |
-| C | CombatMissionWithDialogueController | — |
-| C | CorpseDraggingMissionLogic | — |
-| C | CrossRoadScoreData | — |
-| C | DisguiseMissionLogic | — |
-| C | EnemyAgentAIDeactivationMissionLogic | — |
-| C | HeroSkillHandler | — |
-| C | HouseMissionController | — |
-| I | IMissionProgressTracker | — |
-| C | IndoorMissionController | — |
-| C | ItemCatalogController | — |
-| C | LeaveMissionLogic | — |
-| C | LocationCharacterAgentSpawnedMissionEvent | — |
-| C | LocationItemSpawnHandler | — |
-| C | LookBackPointData | — |
-| C | MissionAgentHandler | — |
-| C | MissionAgentLookHandler | — |
-| C | MissionAlleyHandler | — |
-| C | MissionBasicTeamLogic | — |
-| C | MissionCaravanOrVillagerTacticsHandler | — |
-| C | MissionCrimeHandler | — |
-| C | MissionFightHandler | — |
-| C | MissionLocationLogic | — |
-| C | MissionPathGenerationLogic | — |
-| C | MissionSettlementPrepareLogic | — |
-| C | MountAgentLogic | — |
-| C | NavigationPathData | — |
-| C | PointOfInterestBaseData | — |
-| E | PointOfInterests | — |
-| C | PointOfInterestScorePair | — |
-| C | RetirementMissionLogic | — |
-| C | SandBoxBattleMissionSpawnHandler | — |
-| C | SandboxGeneralsAndCaptainsAssignmentLogic | — |
-| C | SandboxHighlightsController | — |
-| C | SandBoxMissionHandler | — |
-| C | SandBoxMissionSpawnHandler | — |
-| C | SandBoxSallyOutMissionController | — |
-| C | SandBoxSiegeMissionSpawnHandler | — |
-| C | SearchBodyMissionHandler | — |
-| C | ShadowingAgentOffenseInfo | — |
-| C | StandingGuardSpawnData | — |
-| C | StealthAreaData | — |
-| C | StealthAreaMissionLogic | — |
-| C | StealthMissionController | — |
-| E | StealthOffenseTypes | — |
-| C | StealthPatrolPointMissionLogic | — |
-| C | UsableMachineData | — |
-| C | VillageMissionController | — |
-| C | VisitPointNodeScoreData | — |
-| C | VisualTrackerMissionBehavior | — |
-| C | WhileEnteringSettlementBattleMissionController | — |
+| E | [AgentTrackTypes](./campaign-ext/AgentTrackTypes.md) | 🔗 |
+| C | [BattleAgentLogic](./campaign-ext/BattleAgentLogic.md) | 🔗 |
+| C | [BattleSurgeonLogic](./campaign-ext/BattleSurgeonLogic.md) | 🔗 |
+| C | [CampaignMissionComponent](./campaign-ext/CampaignMissionComponent.md) | 🔗 |
+| C | [CampaignSiegeStateHandler](./campaign-ext/CampaignSiegeStateHandler.md) | 🔗 |
+| C | [CombatMissionWithDialogueController](./campaign-ext/CombatMissionWithDialogueController.md) | 🔗 |
+| C | [CorpseDraggingMissionLogic](./campaign-ext/CorpseDraggingMissionLogic.md) | 🔗 |
+| C | [CrossRoadScoreData](./campaign-ext/CrossRoadScoreData.md) | 🔗 |
+| C | [DisguiseMissionLogic](./campaign-ext/DisguiseMissionLogic.md) | 🔗 |
+| C | [EnemyAgentAIDeactivationMissionLogic](./campaign-ext/EnemyAgentAIDeactivationMissionLogic.md) | 🔗 |
+| C | [HeroSkillHandler](./campaign-ext/HeroSkillHandler.md) | 🔗 |
+| C | [HouseMissionController](./campaign-ext/HouseMissionController.md) | 🔗 |
+| I | [IMissionProgressTracker](./campaign-ext/IMissionProgressTracker.md) | 🔗 |
+| C | [IndoorMissionController](./campaign-ext/IndoorMissionController.md) | 🔗 |
+| C | [ItemCatalogController](./campaign-ext/ItemCatalogController.md) | 🔗 |
+| C | [LeaveMissionLogic](./campaign-ext/LeaveMissionLogic.md) | 🔗 |
+| C | [LocationCharacterAgentSpawnedMissionEvent](./campaign-ext/LocationCharacterAgentSpawnedMissionEvent.md) | 🔗 |
+| C | [LocationItemSpawnHandler](./campaign-ext/LocationItemSpawnHandler.md) | 🔗 |
+| C | [LookBackPointData](./campaign-ext/LookBackPointData.md) | 🔗 |
+| C | [MissionAgentHandler](./campaign-ext/MissionAgentHandler.md) | 🔗 |
+| C | [MissionAgentLookHandler](./campaign-ext/MissionAgentLookHandler.md) | 🔗 |
+| C | [MissionAlleyHandler](./campaign-ext/MissionAlleyHandler.md) | 🔗 |
+| C | [MissionBasicTeamLogic](./campaign-ext/MissionBasicTeamLogic.md) | 🔗 |
+| C | [MissionCaravanOrVillagerTacticsHandler](./campaign-ext/MissionCaravanOrVillagerTacticsHandler.md) | 🔗 |
+| C | [MissionCrimeHandler](./campaign-ext/MissionCrimeHandler.md) | 🔗 |
+| C | [MissionFightHandler](./campaign-ext/MissionFightHandler.md) | 🔗 |
+| C | [MissionLocationLogic](./campaign-ext/MissionLocationLogic.md) | 🔗 |
+| C | [MissionPathGenerationLogic](./campaign-ext/MissionPathGenerationLogic.md) | 🔗 |
+| C | [MissionSettlementPrepareLogic](./campaign-ext/MissionSettlementPrepareLogic.md) | 🔗 |
+| C | [MountAgentLogic](./campaign-ext/MountAgentLogic.md) | 🔗 |
+| C | [NavigationPathData](./campaign-ext/NavigationPathData.md) | 🔗 |
+| C | [PointOfInterestBaseData](./campaign-ext/PointOfInterestBaseData.md) | 🔗 |
+| E | [PointOfInterests](./campaign-ext/PointOfInterests.md) | 🔗 |
+| C | [PointOfInterestScorePair](./campaign-ext/PointOfInterestScorePair.md) | 🔗 |
+| C | [RetirementMissionLogic](./campaign-ext/RetirementMissionLogic.md) | 🔗 |
+| C | [SandBoxBattleMissionSpawnHandler](./campaign-ext/SandBoxBattleMissionSpawnHandler.md) | 🔗 |
+| C | [SandboxGeneralsAndCaptainsAssignmentLogic](./campaign-ext/SandboxGeneralsAndCaptainsAssignmentLogic.md) | 🔗 |
+| C | [SandboxHighlightsController](./campaign-ext/SandboxHighlightsController.md) | 🔗 |
+| C | [SandBoxMissionHandler](./campaign-ext/SandBoxMissionHandler.md) | 🔗 |
+| C | [SandBoxMissionSpawnHandler](./campaign-ext/SandBoxMissionSpawnHandler.md) | 🔗 |
+| C | [SandBoxSallyOutMissionController](./campaign-ext/SandBoxSallyOutMissionController.md) | 🔗 |
+| C | [SandBoxSiegeMissionSpawnHandler](./campaign-ext/SandBoxSiegeMissionSpawnHandler.md) | 🔗 |
+| C | [SearchBodyMissionHandler](./campaign-ext/SearchBodyMissionHandler.md) | 🔗 |
+| C | [ShadowingAgentOffenseInfo](./campaign-ext/ShadowingAgentOffenseInfo.md) | 🔗 |
+| C | [StandingGuardSpawnData](./campaign-ext/StandingGuardSpawnData.md) | 🔗 |
+| C | [StealthAreaData](./campaign-ext/StealthAreaData.md) | 🔗 |
+| C | [StealthAreaMissionLogic](./campaign-ext/StealthAreaMissionLogic.md) | 🔗 |
+| C | [StealthMissionController](./campaign-ext/StealthMissionController.md) | 🔗 |
+| E | [StealthOffenseTypes](./campaign-ext/StealthOffenseTypes.md) | 🔗 |
+| C | [StealthPatrolPointMissionLogic](./campaign-ext/StealthPatrolPointMissionLogic.md) | 🔗 |
+| C | [UsableMachineData](./campaign-ext/UsableMachineData.md) | 🔗 |
+| C | [VillageMissionController](./campaign-ext/VillageMissionController.md) | 🔗 |
+| C | [VisitPointNodeScoreData](./campaign-ext/VisitPointNodeScoreData.md) | 🔗 |
+| C | [VisualTrackerMissionBehavior](./campaign-ext/VisualTrackerMissionBehavior.md) | 🔗 |
+| C | [WhileEnteringSettlementBattleMissionController](./campaign-ext/WhileEnteringSettlementBattleMissionController.md) | 🔗 |
 
 ## SandBox.Missions.MissionLogics.Arena (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ArenaAgentStateDeciderLogic | — |
-| C | ArenaDuelMissionBehavior | — |
-| C | ArenaDuelMissionController | — |
-| C | ArenaPracticeFightMissionController | — |
+| C | [ArenaAgentStateDeciderLogic](./campaign-ext/ArenaAgentStateDeciderLogic.md) | 🔗 |
+| C | [ArenaDuelMissionBehavior](./campaign-ext/ArenaDuelMissionBehavior.md) | 🔗 |
+| C | [ArenaDuelMissionController](./campaign-ext/ArenaDuelMissionController.md) | 🔗 |
+| C | [ArenaPracticeFightMissionController](./campaign-ext/ArenaPracticeFightMissionController.md) | 🔗 |
 
 ## SandBox.Missions.MissionLogics.Hideout (9)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | HideoutAgentType | — |
-| C | HideoutAmbushBossFightCinematicController | — |
-| C | HideoutAmbushMissionController | — |
-| C | HideoutCinematicController | — |
-| E | HideoutCinematicState | — |
-| C | HideoutMissionController | — |
-| E | HideoutPostCinematicPhase | — |
-| E | HideoutPreCinematicPhase | — |
-| C | TroopData | — |
+| E | [HideoutAgentType](./campaign-ext/HideoutAgentType.md) | 🔗 |
+| C | [HideoutAmbushBossFightCinematicController](./campaign-ext/HideoutAmbushBossFightCinematicController.md) | 🔗 |
+| C | [HideoutAmbushMissionController](./campaign-ext/HideoutAmbushMissionController.md) | 🔗 |
+| C | [HideoutCinematicController](./campaign-ext/HideoutCinematicController.md) | 🔗 |
+| E | [HideoutCinematicState](./campaign-ext/HideoutCinematicState.md) | 🔗 |
+| C | [HideoutMissionController](./campaign-ext/HideoutMissionController.md) | 🔗 |
+| E | [HideoutPostCinematicPhase](./campaign-ext/HideoutPostCinematicPhase.md) | 🔗 |
+| E | [HideoutPreCinematicPhase](./campaign-ext/HideoutPreCinematicPhase.md) | 🔗 |
+| C | [TroopData](./campaign-ext/TroopData.md) | 🔗 |
 
 ## SandBox.Missions.MissionLogics.Hideout.Objectives (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ClearTheMainCampObjective | — |
-| C | LocateTheMainCampObjective | — |
+| C | [ClearTheMainCampObjective](./campaign-ext/ClearTheMainCampObjective.md) | 🔗 |
+| C | [LocateTheMainCampObjective](./campaign-ext/LocateTheMainCampObjective.md) | 🔗 |
 
 ## SandBox.Missions.MissionLogics.Towns (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AlleyFightMissionHandler | — |
-| C | PrisonBreakMissionController | — |
-| C | TownCenterMissionController | — |
-| C | WorkshopMissionHandler | — |
+| C | [AlleyFightMissionHandler](./campaign-ext/AlleyFightMissionHandler.md) | 🔗 |
+| C | [PrisonBreakMissionController](./campaign-ext/PrisonBreakMissionController.md) | 🔗 |
+| C | [TownCenterMissionController](./campaign-ext/TownCenterMissionController.md) | 🔗 |
+| C | [WorkshopMissionHandler](./campaign-ext/WorkshopMissionHandler.md) | 🔗 |
 
 ## SandBox.Objects (13)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CheckpointArea | — |
-| C | DefaultMusicInstrumentData | — |
-| C | DynamicPatrolAreaParent | — |
-| C | GenericMissionEventBox | — |
-| C | GroupSpawnPoint | — |
-| C | InstrumentData | — |
-| C | PassageUsePoint | — |
-| C | PatrolPoint | — |
-| C | SettlementMusicData | — |
-| C | StealthIndoorLightingArea | — |
-| C | StealthZone | — |
-| E | TeleportType | — |
-| C | TeleportUsePoint | — |
+| C | [CheckpointArea](./campaign-ext/CheckpointArea.md) | 🔗 |
+| C | [DefaultMusicInstrumentData](./campaign-ext/DefaultMusicInstrumentData.md) | 🔗 |
+| C | [DynamicPatrolAreaParent](./campaign-ext/DynamicPatrolAreaParent.md) | 🔗 |
+| C | [GenericMissionEventBox](./campaign-ext/GenericMissionEventBox.md) | 🔗 |
+| C | [GroupSpawnPoint](./campaign-ext/GroupSpawnPoint.md) | 🔗 |
+| C | [InstrumentData](./campaign-ext/InstrumentData.md) | 🔗 |
+| C | [PassageUsePoint](./campaign-ext/PassageUsePoint.md) | 🔗 |
+| C | [PatrolPoint](./campaign-ext/PatrolPoint.md) | 🔗 |
+| C | [SettlementMusicData](./campaign-ext/SettlementMusicData.md) | 🔗 |
+| C | [StealthIndoorLightingArea](./campaign-ext/StealthIndoorLightingArea.md) | 🔗 |
+| C | [StealthZone](./campaign-ext/StealthZone.md) | 🔗 |
+| E | [TeleportType](./campaign-ext/TeleportType.md) | 🔗 |
+| C | [TeleportUsePoint](./campaign-ext/TeleportUsePoint.md) | 🔗 |
 
 ## SandBox.Objects.AnimationPoints (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AnimationPoint | — |
-| C | ChairUsePoint | — |
-| C | DynamicObjectAnimationPoint | — |
-| C | ItemForBone | — |
-| C | PlayMusicPoint | — |
+| C | [AnimationPoint](./campaign-ext/AnimationPoint.md) | 🔗 |
+| C | [ChairUsePoint](./campaign-ext/ChairUsePoint.md) | 🔗 |
+| C | [DynamicObjectAnimationPoint](./campaign-ext/DynamicObjectAnimationPoint.md) | 🔗 |
+| C | [ItemForBone](./campaign-ext/ItemForBone.md) | 🔗 |
+| C | [PlayMusicPoint](./campaign-ext/PlayMusicPoint.md) | 🔗 |
 
 ## SandBox.Objects.AreaMarkers (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AnimatedBasicAreaIndicator | — |
-| C | BasicAreaIndicator | — |
-| C | CommonAreaMarker | — |
-| C | StealthAreaMarker | — |
-| C | WorkshopAreaMarker | — |
+| C | [AnimatedBasicAreaIndicator](./campaign-ext/AnimatedBasicAreaIndicator.md) | 🔗 |
+| C | [BasicAreaIndicator](./campaign-ext/BasicAreaIndicator.md) | 🔗 |
+| C | [CommonAreaMarker](./campaign-ext/CommonAreaMarker.md) | 🔗 |
+| C | [StealthAreaMarker](./campaign-ext/StealthAreaMarker.md) | 🔗 |
+| C | [WorkshopAreaMarker](./campaign-ext/WorkshopAreaMarker.md) | 🔗 |
 
 ## SandBox.Objects.Cinematics (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CinematicBurningArrow | — |
-| C | HideoutBossFightBehavior | — |
-| C | SkeletonAnimatedCamera | — |
+| C | [CinematicBurningArrow](./campaign-ext/CinematicBurningArrow.md) | 🔗 |
+| C | [HideoutBossFightBehavior](./campaign-ext/HideoutBossFightBehavior.md) | 🔗 |
+| C | [SkeletonAnimatedCamera](./campaign-ext/SkeletonAnimatedCamera.md) | 🔗 |
 
 ## SandBox.Objects.Usables (11)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | Chair | — |
-| C | CheckpointUsePoint | — |
-| C | DisguiseMissionUsePoint | — |
-| C | MusicianGroup | — |
-| C | Passage | — |
-| C | PatrolArea | — |
-| C | ShadowingSecureZoneUsePoint | — |
-| E | SittableType | — |
-| C | SmithingMachine | — |
-| C | StealthAreaUsePoint | — |
-| C | UsablePlace | — |
+| C | [Chair](./campaign-ext/Chair.md) | 🔗 |
+| C | [CheckpointUsePoint](./campaign-ext/CheckpointUsePoint.md) | 🔗 |
+| C | [DisguiseMissionUsePoint](./campaign-ext/DisguiseMissionUsePoint.md) | 🔗 |
+| C | [MusicianGroup](./campaign-ext/MusicianGroup.md) | 🔗 |
+| C | [Passage](./campaign-ext/Passage.md) | 🔗 |
+| C | [PatrolArea](./campaign-ext/PatrolArea.md) | 🔗 |
+| C | [ShadowingSecureZoneUsePoint](./campaign-ext/ShadowingSecureZoneUsePoint.md) | 🔗 |
+| E | [SittableType](./campaign-ext/SittableType.md) | 🔗 |
+| C | [SmithingMachine](./campaign-ext/SmithingMachine.md) | 🔗 |
+| C | [StealthAreaUsePoint](./campaign-ext/StealthAreaUsePoint.md) | 🔗 |
+| C | [UsablePlace](./campaign-ext/UsablePlace.md) | 🔗 |
 
 ## SandBox.Source.Missions.AgentBehaviors (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BoardGameAgentBehavior | — |
+| C | [BoardGameAgentBehavior](./campaign-ext/BoardGameAgentBehavior.md) | 🔗 |
 
 ## SandBox.Tournaments (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| I | ITournamentGameBehavior | — |
-| C | TournamentMissionStarter | — |
+| I | [ITournamentGameBehavior](./campaign-ext/ITournamentGameBehavior.md) | 🔗 |
+| C | [TournamentMissionStarter](./campaign-ext/TournamentMissionStarter.md) | 🔗 |
 
 ## SandBox.Tournaments.AgentControllers (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ArcheryTournamentAgentController | — |
-| C | JoustingAgentController | — |
-| E | JoustingAgentState | — |
-| C | TownHorseRaceAgentController | — |
+| C | [ArcheryTournamentAgentController](./campaign-ext/ArcheryTournamentAgentController.md) | 🔗 |
+| C | [JoustingAgentController](./campaign-ext/JoustingAgentController.md) | 🔗 |
+| E | [JoustingAgentState](./campaign-ext/JoustingAgentState.md) | 🔗 |
+| C | [TownHorseRaceAgentController](./campaign-ext/TownHorseRaceAgentController.md) | 🔗 |
 
 ## SandBox.Tournaments.MissionLogics (6)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CheckPoint | — |
-| C | TournamentArcheryMissionController | — |
-| C | TournamentBehavior | — |
-| C | TournamentFightMissionController | — |
-| C | TournamentJoustingMissionController | — |
-| C | TownHorseRaceMissionController | — |
+| C | [CheckPoint](./campaign-ext/CheckPoint.md) | 🔗 |
+| C | [TournamentArcheryMissionController](./campaign-ext/TournamentArcheryMissionController.md) | 🔗 |
+| C | [TournamentBehavior](./campaign-ext/TournamentBehavior.md) | 🔗 |
+| C | [TournamentFightMissionController](./campaign-ext/TournamentFightMissionController.md) | 🔗 |
+| C | [TournamentJoustingMissionController](./campaign-ext/TournamentJoustingMissionController.md) | 🔗 |
+| C | [TownHorseRaceMissionController](./campaign-ext/TownHorseRaceMissionController.md) | 🔗 |
 
 ## SandBox.View (10)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CampaignMusicHandler | — |
-| I | IChangeableScreen | — |
-| C | MainHeroSaveVisualSupplier | — |
-| C | PreloadScreen | — |
-| C | SandboxView | — |
-| C | SandBoxViewCheats | — |
-| C | SandBoxViewCreator | — |
-| C | SandBoxViewSubModule | — |
-| C | SandBoxViewVisualManager | — |
-| C | SaveLoadScreen | — |
+| C | [CampaignMusicHandler](./campaign-ext/CampaignMusicHandler.md) | 🔗 |
+| I | [IChangeableScreen](./campaign-ext/IChangeableScreen.md) | 🔗 |
+| C | [MainHeroSaveVisualSupplier](./campaign-ext/MainHeroSaveVisualSupplier.md) | 🔗 |
+| C | [PreloadScreen](./campaign-ext/PreloadScreen.md) | 🔗 |
+| C | [SandboxView](./campaign-ext/SandboxView.md) | 🔗 |
+| C | [SandBoxViewCheats](./campaign-ext/SandBoxViewCheats.md) | 🔗 |
+| C | [SandBoxViewCreator](./campaign-ext/SandBoxViewCreator.md) | 🔗 |
+| C | [SandBoxViewSubModule](./campaign-ext/SandBoxViewSubModule.md) | 🔗 |
+| C | [SandBoxViewVisualManager](./campaign-ext/SandBoxViewVisualManager.md) | 🔗 |
+| C | [SaveLoadScreen](./campaign-ext/SaveLoadScreen.md) | 🔗 |
 
 ## SandBox.View.CharacterCreation (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CharacterCreationScreen | — |
-| C | CharacterCreationStageViewAttribute | — |
-| C | CharacterCreationStageViewBase | — |
+| C | [CharacterCreationScreen](./campaign-ext/CharacterCreationScreen.md) | 🔗 |
+| C | [CharacterCreationStageViewAttribute](./campaign-ext/CharacterCreationStageViewAttribute.md) | 🔗 |
+| C | [CharacterCreationStageViewBase](./campaign-ext/CharacterCreationStageViewBase.md) | 🔗 |
 
 ## SandBox.View.Conversation (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ConversationViewEventHandler | — |
-| C | ConversationViewManager | — |
-| E | [EventType](/v1.3.15/zh/api/campaign-ext/EventType.md) | 🔗 |
+| C | [ConversationViewEventHandler](./campaign-ext/ConversationViewEventHandler.md) | 🔗 |
+| C | [ConversationViewManager](./campaign-ext/ConversationViewManager.md) | 🔗 |
+| E | EventType | — |
 
 ## SandBox.View.Map (42)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BattleSimulationMapView | — |
-| C | BlockadePositionScript | — |
-| E | CameraFollowMode | — |
-| C | CampaignEntityVisualComponent | — |
-| S | ConversationPlayArgs | — |
-| S | DecalEntity | — |
-| C | DefaultMapConversationDataProvider | — |
-| C | HeirSelectionPopupView | — |
-| I | IMapConversationDataProvider | — |
-| S | InputInformation | — |
-| C | MainMapCameraMoveEvent | — |
-| C | MapBarView | — |
-| C | MapBasicView | — |
-| C | MapCameraView | — |
-| C | MapCampaignOptionsView | — |
-| C | MapCheatsView | — |
-| C | MapConversationMission | — |
-| C | MapConversationTableau | — |
-| C | MapConversationTableauData | — |
-| C | MapConversationView | — |
-| C | MapCursor | — |
-| C | MapEncyclopediaView | — |
-| C | MapEscapeMenuView | — |
-| C | MapEventVisualsView | — |
-| C | MapGamepadEffectsView | — |
-| C | MapIncidentView | — |
-| C | MapNotificationView | — |
-| E | MapOverlayType | — |
-| C | MapOverlayView | — |
-| C | MapParleyAnimationView | — |
-| C | MapPartyNameplateView | — |
-| C | MapReadyView | — |
-| C | MapSaveView | — |
-| C | MapScreen | — |
-| C | MapSettlementNameplateView | — |
-| C | MapSiegeOverlayView | — |
-| C | MapTrackersView | — |
-| C | MapView | — |
-| C | MapViewsContainer | — |
-| C | MarriageOfferPopupView | — |
-| C | SettlementPositionScript | — |
-| C | SnowAndRainTextureDefiner | — |
+| C | [BattleSimulationMapView](./campaign-ext/BattleSimulationMapView.md) | 🔗 |
+| C | [BlockadePositionScript](./campaign-ext/BlockadePositionScript.md) | 🔗 |
+| E | [CameraFollowMode](./campaign-ext/CameraFollowMode.md) | 🔗 |
+| C | [CampaignEntityVisualComponent](./campaign-ext/CampaignEntityVisualComponent.md) | 🔗 |
+| S | [ConversationPlayArgs](./campaign-ext/ConversationPlayArgs.md) | 🔗 |
+| S | [DecalEntity](./campaign-ext/DecalEntity.md) | 🔗 |
+| C | [DefaultMapConversationDataProvider](./campaign-ext/DefaultMapConversationDataProvider.md) | 🔗 |
+| C | [HeirSelectionPopupView](./campaign-ext/HeirSelectionPopupView.md) | 🔗 |
+| I | [IMapConversationDataProvider](./campaign-ext/IMapConversationDataProvider.md) | 🔗 |
+| S | [InputInformation](./campaign-ext/InputInformation.md) | 🔗 |
+| C | [MainMapCameraMoveEvent](./campaign-ext/MainMapCameraMoveEvent.md) | 🔗 |
+| C | [MapBarView](./campaign-ext/MapBarView.md) | 🔗 |
+| C | [MapBasicView](./campaign-ext/MapBasicView.md) | 🔗 |
+| C | [MapCameraView](./campaign-ext/MapCameraView.md) | 🔗 |
+| C | [MapCampaignOptionsView](./campaign-ext/MapCampaignOptionsView.md) | 🔗 |
+| C | [MapCheatsView](./campaign-ext/MapCheatsView.md) | 🔗 |
+| C | [MapConversationMission](./campaign-ext/MapConversationMission.md) | 🔗 |
+| C | [MapConversationTableau](./campaign-ext/MapConversationTableau.md) | 🔗 |
+| C | [MapConversationTableauData](./campaign-ext/MapConversationTableauData.md) | 🔗 |
+| C | [MapConversationView](./campaign-ext/MapConversationView.md) | 🔗 |
+| C | [MapCursor](./campaign-ext/MapCursor.md) | 🔗 |
+| C | [MapEncyclopediaView](./campaign-ext/MapEncyclopediaView.md) | 🔗 |
+| C | [MapEscapeMenuView](./campaign-ext/MapEscapeMenuView.md) | 🔗 |
+| C | [MapEventVisualsView](./campaign-ext/MapEventVisualsView.md) | 🔗 |
+| C | [MapGamepadEffectsView](./campaign-ext/MapGamepadEffectsView.md) | 🔗 |
+| C | [MapIncidentView](./campaign-ext/MapIncidentView.md) | 🔗 |
+| C | [MapNotificationView](./campaign-ext/MapNotificationView.md) | 🔗 |
+| E | [MapOverlayType](./campaign-ext/MapOverlayType.md) | 🔗 |
+| C | [MapOverlayView](./campaign-ext/MapOverlayView.md) | 🔗 |
+| C | [MapParleyAnimationView](./campaign-ext/MapParleyAnimationView.md) | 🔗 |
+| C | [MapPartyNameplateView](./campaign-ext/MapPartyNameplateView.md) | 🔗 |
+| C | [MapReadyView](./campaign-ext/MapReadyView.md) | 🔗 |
+| C | [MapSaveView](./campaign-ext/MapSaveView.md) | 🔗 |
+| C | [MapScreen](./campaign-ext/MapScreen.md) | 🔗 |
+| C | [MapSettlementNameplateView](./campaign-ext/MapSettlementNameplateView.md) | 🔗 |
+| C | [MapSiegeOverlayView](./campaign-ext/MapSiegeOverlayView.md) | 🔗 |
+| C | [MapTrackersView](./campaign-ext/MapTrackersView.md) | 🔗 |
+| C | [MapView](./campaign-ext/MapView.md) | 🔗 |
+| C | [MapViewsContainer](./campaign-ext/MapViewsContainer.md) | 🔗 |
+| C | [MarriageOfferPopupView](./campaign-ext/MarriageOfferPopupView.md) | 🔗 |
+| C | [SettlementPositionScript](./campaign-ext/SettlementPositionScript.md) | 🔗 |
+| C | [SnowAndRainTextureDefiner](./campaign-ext/SnowAndRainTextureDefiner.md) | 🔗 |
 
 ## SandBox.View.Map.Managers (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | EntityVisualManagerBase | — |
-| C | MapTracksVisualManager | — |
-| C | MapWeatherVisualManager | — |
-| C | MobilePartyVisualManager | — |
-| C | SettlementVisualManager | — |
+| C | [EntityVisualManagerBase](./campaign-ext/EntityVisualManagerBase.md) | 🔗 |
+| C | [MapTracksVisualManager](./campaign-ext/MapTracksVisualManager.md) | 🔗 |
+| C | [MapWeatherVisualManager](./campaign-ext/MapWeatherVisualManager.md) | 🔗 |
+| C | [MobilePartyVisualManager](./campaign-ext/MobilePartyVisualManager.md) | 🔗 |
+| C | [SettlementVisualManager](./campaign-ext/SettlementVisualManager.md) | 🔗 |
 
 ## SandBox.View.Map.Navigation (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapNavigationElementBase | — |
-| C | MapNavigationHandler | — |
-| C | MapNavigationHelper | — |
+| C | [MapNavigationElementBase](./campaign-ext/MapNavigationElementBase.md) | 🔗 |
+| C | [MapNavigationHandler](./campaign-ext/MapNavigationHandler.md) | 🔗 |
+| C | [MapNavigationHelper](./campaign-ext/MapNavigationHelper.md) | 🔗 |
 
 ## SandBox.View.Map.Navigation.NavigationElements (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CharacterDeveloperNavigationElement | — |
-| C | ClanNavigationElement | — |
-| C | ClanScreenPermissionEvent | — |
-| C | EscapeMenuNavigationElement | — |
-| C | InventoryNavigationElement | — |
-| C | KingdomNavigationElement | — |
-| C | PartyNavigationElement | — |
-| C | QuestsNavigationElement | — |
+| C | [CharacterDeveloperNavigationElement](./campaign-ext/CharacterDeveloperNavigationElement.md) | 🔗 |
+| C | [ClanNavigationElement](./campaign-ext/ClanNavigationElement.md) | 🔗 |
+| C | [ClanScreenPermissionEvent](./campaign-ext/ClanScreenPermissionEvent.md) | 🔗 |
+| C | [EscapeMenuNavigationElement](./campaign-ext/EscapeMenuNavigationElement.md) | 🔗 |
+| C | [InventoryNavigationElement](./campaign-ext/InventoryNavigationElement.md) | 🔗 |
+| C | [KingdomNavigationElement](./campaign-ext/KingdomNavigationElement.md) | 🔗 |
+| C | [PartyNavigationElement](./campaign-ext/PartyNavigationElement.md) | 🔗 |
+| C | [QuestsNavigationElement](./campaign-ext/QuestsNavigationElement.md) | 🔗 |
 
 ## SandBox.View.Map.Visuals (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapEntityVisual | — |
-| C | MapWeatherVisual | — |
-| C | MobilePartyVisual | — |
-| C | SettlementVisual | — |
-| C | TrackVisual | — |
+| C | [MapEntityVisual](./campaign-ext/MapEntityVisual.md) | 🔗 |
+| C | [MapWeatherVisual](./campaign-ext/MapWeatherVisual.md) | 🔗 |
+| C | [MobilePartyVisual](./campaign-ext/MobilePartyVisual.md) | 🔗 |
+| C | [SettlementVisual](./campaign-ext/SettlementVisual.md) | 🔗 |
+| C | [TrackVisual](./campaign-ext/TrackVisual.md) | 🔗 |
 
 ## SandBox.View.Menu (10)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MenuBackgroundView | — |
-| C | MenuBaseView | — |
-| C | MenuOverlayBaseView | — |
-| C | MenuRecruitVolunteersView | — |
-| C | MenuTournamentLeaderboardView | — |
-| C | MenuTownManagementView | — |
-| C | MenuTroopSelectionView | — |
-| C | MenuView | — |
-| C | MenuViewContext | — |
-| C | TutorialScreen | — |
+| C | [MenuBackgroundView](./campaign-ext/MenuBackgroundView.md) | 🔗 |
+| C | [MenuBaseView](./campaign-ext/MenuBaseView.md) | 🔗 |
+| C | [MenuOverlayBaseView](./campaign-ext/MenuOverlayBaseView.md) | 🔗 |
+| C | [MenuRecruitVolunteersView](./campaign-ext/MenuRecruitVolunteersView.md) | 🔗 |
+| C | [MenuTournamentLeaderboardView](./campaign-ext/MenuTournamentLeaderboardView.md) | 🔗 |
+| C | [MenuTownManagementView](./campaign-ext/MenuTownManagementView.md) | 🔗 |
+| C | [MenuTroopSelectionView](./campaign-ext/MenuTroopSelectionView.md) | 🔗 |
+| C | [MenuView](./campaign-ext/MenuView.md) | 🔗 |
+| C | [MenuViewContext](./campaign-ext/MenuViewContext.md) | 🔗 |
+| C | [TutorialScreen](./campaign-ext/TutorialScreen.md) | 🔗 |
 
 ## SandBox.View.Missions (25)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | EavesdroppingMissionCameraView | — |
-| E | GenderEnum | — |
-| C | MissionAgentAlarmStateView | — |
-| C | MissionArenaPracticeFightView | — |
-| C | MissionAudienceHandler | — |
-| C | MissionCampaignBattleSpectatorView | — |
-| C | MissionCampaignView | — |
-| C | MissionConversationCameraView | — |
-| C | MissionConversationPrepareView | — |
-| C | MissionCustomCameraView | — |
-| C | MissionEquipItemToolView | — |
-| C | MissionHideoutAmbushCinematicView | — |
-| C | MissionHideoutCinematicView | — |
-| C | MissionItemCalatogView | — |
-| C | MissionMainAgentDetectionView | — |
-| C | MissionPreloadView | — |
-| C | MissionQuestBarView | — |
-| C | MissionSettlementPrepareView | — |
-| C | MissionSingleplayerViewHandler | — |
-| C | MissionSoundParametersView | — |
-| C | MissionStealthFailCounterView | — |
-| C | OtherMissionViews | — |
-| C | SandBoxMissionViews | — |
-| E | SoundParameterMissionCulture | — |
-| C | StealthMissionUIHandler | — |
+| C | [EavesdroppingMissionCameraView](./campaign-ext/EavesdroppingMissionCameraView.md) | 🔗 |
+| E | [GenderEnum](./campaign-ext/GenderEnum.md) | 🔗 |
+| C | [MissionAgentAlarmStateView](./campaign-ext/MissionAgentAlarmStateView.md) | 🔗 |
+| C | [MissionArenaPracticeFightView](./campaign-ext/MissionArenaPracticeFightView.md) | 🔗 |
+| C | [MissionAudienceHandler](./campaign-ext/MissionAudienceHandler.md) | 🔗 |
+| C | [MissionCampaignBattleSpectatorView](./campaign-ext/MissionCampaignBattleSpectatorView.md) | 🔗 |
+| C | [MissionCampaignView](./campaign-ext/MissionCampaignView.md) | 🔗 |
+| C | [MissionConversationCameraView](./campaign-ext/MissionConversationCameraView.md) | 🔗 |
+| C | [MissionConversationPrepareView](./campaign-ext/MissionConversationPrepareView.md) | 🔗 |
+| C | [MissionCustomCameraView](./campaign-ext/MissionCustomCameraView.md) | 🔗 |
+| C | [MissionEquipItemToolView](./campaign-ext/MissionEquipItemToolView.md) | 🔗 |
+| C | [MissionHideoutAmbushCinematicView](./campaign-ext/MissionHideoutAmbushCinematicView.md) | 🔗 |
+| C | [MissionHideoutCinematicView](./campaign-ext/MissionHideoutCinematicView.md) | 🔗 |
+| C | [MissionItemCalatogView](./campaign-ext/MissionItemCalatogView.md) | 🔗 |
+| C | [MissionMainAgentDetectionView](./campaign-ext/MissionMainAgentDetectionView.md) | 🔗 |
+| C | [MissionPreloadView](./campaign-ext/MissionPreloadView.md) | 🔗 |
+| C | [MissionQuestBarView](./campaign-ext/MissionQuestBarView.md) | 🔗 |
+| C | [MissionSettlementPrepareView](./campaign-ext/MissionSettlementPrepareView.md) | 🔗 |
+| C | [MissionSingleplayerViewHandler](./campaign-ext/MissionSingleplayerViewHandler.md) | 🔗 |
+| C | [MissionSoundParametersView](./campaign-ext/MissionSoundParametersView.md) | 🔗 |
+| C | [MissionStealthFailCounterView](./campaign-ext/MissionStealthFailCounterView.md) | 🔗 |
+| C | [OtherMissionViews](./campaign-ext/OtherMissionViews.md) | 🔗 |
+| C | [SandBoxMissionViews](./campaign-ext/SandBoxMissionViews.md) | 🔗 |
+| E | [SoundParameterMissionCulture](./campaign-ext/SoundParameterMissionCulture.md) | 🔗 |
+| C | [StealthMissionUIHandler](./campaign-ext/StealthMissionUIHandler.md) | 🔗 |
 
 ## SandBox.View.Missions.NameMarkers (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | DefaultMissionNameMarkerHandler | — |
-| C | MissionNameMarkerUIHandler | — |
-| C | StealthNameMarkerProvider | — |
+| C | [DefaultMissionNameMarkerHandler](./campaign-ext/DefaultMissionNameMarkerHandler.md) | 🔗 |
+| C | [MissionNameMarkerUIHandler](./campaign-ext/MissionNameMarkerUIHandler.md) | 🔗 |
+| C | [StealthNameMarkerProvider](./campaign-ext/StealthNameMarkerProvider.md) | 🔗 |
 
 ## SandBox.View.Missions.SandBox (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | SceneType | — |
-| C | SpawnPointDebugView | — |
-| C | SpawnPointUnits | — |
+| E | [SceneType](./campaign-ext/SceneType.md) | 🔗 |
+| C | [SpawnPointDebugView](./campaign-ext/SpawnPointDebugView.md) | 🔗 |
+| C | [SpawnPointUnits](./campaign-ext/SpawnPointUnits.md) | 🔗 |
 
 ## SandBox.View.Missions.Sound.Components (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MusicArenaPracticeMissionView | — |
-| C | MusicTournamentMissionView | — |
+| C | [MusicArenaPracticeMissionView](./campaign-ext/MusicArenaPracticeMissionView.md) | 🔗 |
+| C | [MusicTournamentMissionView](./campaign-ext/MusicTournamentMissionView.md) | 🔗 |
 
 ## SandBox.View.Missions.Tournaments (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionTournamentJoustingView | — |
-| C | MissionTournamentView | — |
-| C | TournamentMissionViews | — |
+| C | [MissionTournamentJoustingView](./campaign-ext/MissionTournamentJoustingView.md) | 🔗 |
+| C | [MissionTournamentView](./campaign-ext/MissionTournamentView.md) | 🔗 |
+| C | [TournamentMissionViews](./campaign-ext/TournamentMissionViews.md) | 🔗 |
 
 ## SandBox.View.Overlay (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | DefaultGameMenuOverlayProvider | — |
+| C | [DefaultGameMenuOverlayProvider](./campaign-ext/DefaultGameMenuOverlayProvider.md) | 🔗 |
 
 ## SandBox.ViewModelCollection (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | MapEventVisualTypes | — |
-| C | PerkObjectComparer | — |
-| C | SandBoxUIHelper | — |
-| E | [SortState](/v1.3.15/zh/api/campaign-ext/SortState.md) | 🔗 |
-| C | SPOrderOfBattleVM | — |
-| C | SPScoreboardVM | — |
-| C | TournamentRewardVM | — |
+| E | [MapEventVisualTypes](./campaign-ext/MapEventVisualTypes.md) | 🔗 |
+| C | [PerkObjectComparer](./campaign-ext/PerkObjectComparer.md) | 🔗 |
+| C | [SandBoxUIHelper](./campaign-ext/SandBoxUIHelper.md) | 🔗 |
+| E | SortState | — |
+| C | [SPOrderOfBattleVM](./campaign-ext/SPOrderOfBattleVM.md) | 🔗 |
+| C | [SPScoreboardVM](./campaign-ext/SPScoreboardVM.md) | 🔗 |
+| C | [TournamentRewardVM](./campaign-ext/TournamentRewardVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.BoardGame (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BoardGameInstructionsVM | — |
-| C | BoardGameInstructionVM | — |
-| C | BoardGameVM | — |
+| C | [BoardGameInstructionsVM](./campaign-ext/BoardGameInstructionsVM.md) | 🔗 |
+| C | [BoardGameInstructionVM](./campaign-ext/BoardGameInstructionVM.md) | 🔗 |
+| C | [BoardGameVM](./campaign-ext/BoardGameVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.GameOver (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | GameOverStatCategoryVM | — |
-| C | GameOverStatItemVM | — |
-| C | GameOverStatsProvider | — |
-| C | GameOverVM | — |
-| C | StatCategory | — |
-| C | StatItem | — |
-| E | StatType | — |
+| C | [GameOverStatCategoryVM](./campaign-ext/GameOverStatCategoryVM.md) | 🔗 |
+| C | [GameOverStatItemVM](./campaign-ext/GameOverStatItemVM.md) | 🔗 |
+| C | [GameOverStatsProvider](./campaign-ext/GameOverStatsProvider.md) | 🔗 |
+| C | [GameOverVM](./campaign-ext/GameOverVM.md) | 🔗 |
+| C | [StatCategory](./campaign-ext/StatCategory.md) | 🔗 |
+| C | [StatItem](./campaign-ext/StatItem.md) | 🔗 |
+| E | [StatType](./campaign-ext/StatType.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Input (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [InputKeyItemVM](/v1.3.15/zh/api/mission-ext/InputKeyItemVM.md) | 🔗 |
+| C | InputKeyItemVM | — |
 
 ## SandBox.ViewModelCollection.Map (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapEventVisualItemVM | — |
-| C | MapEventVisualsVM | — |
+| C | [MapEventVisualItemVM](./campaign-ext/MapEventVisualItemVM.md) | 🔗 |
+| C | [MapEventVisualsVM](./campaign-ext/MapEventVisualsVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Map.Cheat (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CheatActionItemVM | — |
-| C | CheatGroupItemVM | — |
-| C | CheatItemBaseVM | — |
-| C | GameplayCheatsVM | — |
+| C | [CheatActionItemVM](./campaign-ext/CheatActionItemVM.md) | 🔗 |
+| C | [CheatGroupItemVM](./campaign-ext/CheatGroupItemVM.md) | 🔗 |
+| C | [CheatItemBaseVM](./campaign-ext/CheatItemBaseVM.md) | 🔗 |
+| C | [GameplayCheatsVM](./campaign-ext/GameplayCheatsVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Map.Incidents (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapIncidentOptionVM | — |
-| C | MapIncidentVM | — |
+| C | [MapIncidentOptionVM](./campaign-ext/MapIncidentOptionVM.md) | 🔗 |
+| C | [MapIncidentVM](./campaign-ext/MapIncidentVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Map.Tracker (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapArmyTrackItemVM | — |
-| C | MapMarkerTrackerItemVM | — |
-| C | MapMobilePartyTrackItemVM | — |
-| C | MapTrackerCollectionVM | — |
-| C | MapTrackerProvider | — |
+| C | [MapArmyTrackItemVM](./campaign-ext/MapArmyTrackItemVM.md) | 🔗 |
+| C | [MapMarkerTrackerItemVM](./campaign-ext/MapMarkerTrackerItemVM.md) | 🔗 |
+| C | [MapMobilePartyTrackItemVM](./campaign-ext/MapMobilePartyTrackItemVM.md) | 🔗 |
+| C | [MapTrackerCollectionVM](./campaign-ext/MapTrackerCollectionVM.md) | 🔗 |
+| C | [MapTrackerProvider](./campaign-ext/MapTrackerProvider.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.MapSiege (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | MachineTypes | — |
-| C | MapSiegePOIVM | — |
-| C | MapSiegeProductionMachineVM | — |
-| C | MapSiegeProductionVM | — |
-| C | MapSiegeVM | — |
-| C | PlayerStartEngineConstructionEvent | — |
-| E | POIType | — |
-| C | SiegePOIDistanceComparer | — |
+| E | [MachineTypes](./campaign-ext/MachineTypes.md) | 🔗 |
+| C | [MapSiegePOIVM](./campaign-ext/MapSiegePOIVM.md) | 🔗 |
+| C | [MapSiegeProductionMachineVM](./campaign-ext/MapSiegeProductionMachineVM.md) | 🔗 |
+| C | [MapSiegeProductionVM](./campaign-ext/MapSiegeProductionVM.md) | 🔗 |
+| C | [MapSiegeVM](./campaign-ext/MapSiegeVM.md) | 🔗 |
+| C | [PlayerStartEngineConstructionEvent](./campaign-ext/PlayerStartEngineConstructionEvent.md) | 🔗 |
+| E | [POIType](./campaign-ext/POIType.md) | 🔗 |
+| C | [SiegePOIDistanceComparer](./campaign-ext/SiegePOIDistanceComparer.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Missions (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionAgentAlarmStateVM | — |
-| C | MissionAgentAlarmTargetVM | — |
-| C | MissionArenaPracticeFightVM | — |
-| C | MissionQuestBarVM | — |
+| C | [MissionAgentAlarmStateVM](./campaign-ext/MissionAgentAlarmStateVM.md) | 🔗 |
+| C | [MissionAgentAlarmTargetVM](./campaign-ext/MissionAgentAlarmTargetVM.md) | 🔗 |
+| C | [MissionArenaPracticeFightVM](./campaign-ext/MissionArenaPracticeFightVM.md) | 🔗 |
+| C | [MissionQuestBarVM](./campaign-ext/MissionQuestBarVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Missions.MainAgentDetection (6)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | AgentAlarmStateEnum | — |
-| E | AgentStealthOffenseType | — |
-| C | MainAgentDetectionVM | — |
-| C | MissionDisguiseMarkerItemVM | — |
-| C | MissionDisguiseMarkersVM | — |
-| C | MissionLosingTargetVM | — |
+| E | [AgentAlarmStateEnum](./campaign-ext/AgentAlarmStateEnum.md) | 🔗 |
+| E | [AgentStealthOffenseType](./campaign-ext/AgentStealthOffenseType.md) | 🔗 |
+| C | [MainAgentDetectionVM](./campaign-ext/MainAgentDetectionVM.md) | 🔗 |
+| C | [MissionDisguiseMarkerItemVM](./campaign-ext/MissionDisguiseMarkerItemVM.md) | 🔗 |
+| C | [MissionDisguiseMarkersVM](./campaign-ext/MissionDisguiseMarkersVM.md) | 🔗 |
+| C | [MissionLosingTargetVM](./campaign-ext/MissionLosingTargetVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Missions.NameMarker (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| I | INameMarkerProviderContext | — |
-| C | MissionNameMarkerFactory | — |
-| C | MissionNameMarkerHelper | — |
-| C | MissionNameMarkerProvider | — |
-| C | MissionNameMarkerTargetBaseVM | — |
-| C | MissionNameMarkerTargetVM | — |
-| C | MissionNameMarkerToggleEvent | — |
-| C | MissionNameMarkerVM | — |
+| I | [INameMarkerProviderContext](./campaign-ext/INameMarkerProviderContext.md) | 🔗 |
+| C | [MissionNameMarkerFactory](./campaign-ext/MissionNameMarkerFactory.md) | 🔗 |
+| C | [MissionNameMarkerHelper](./campaign-ext/MissionNameMarkerHelper.md) | 🔗 |
+| C | [MissionNameMarkerProvider](./campaign-ext/MissionNameMarkerProvider.md) | 🔗 |
+| C | [MissionNameMarkerTargetBaseVM](./campaign-ext/MissionNameMarkerTargetBaseVM.md) | 🔗 |
+| C | [MissionNameMarkerTargetVM](./campaign-ext/MissionNameMarkerTargetVM.md) | 🔗 |
+| C | [MissionNameMarkerToggleEvent](./campaign-ext/MissionNameMarkerToggleEvent.md) | 🔗 |
+| C | [MissionNameMarkerVM](./campaign-ext/MissionNameMarkerVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Missions.NameMarker.Targets (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionAgentMarkerTargetVM | — |
-| C | MissionAnimatedBasicAreaIndicatorMarkerTargetVM | — |
-| C | MissionBasicAreaIndicatorMarkerTargetVM | — |
-| C | MissionCommonAreaMarkerTargetVM | — |
-| C | MissionGenericMarkerTargetVM | — |
-| C | MissionPassageUsePointNameMarkerTargetVM | — |
-| C | MissionWorkshopNameMarkerTargetVM | — |
+| C | [MissionAgentMarkerTargetVM](./campaign-ext/MissionAgentMarkerTargetVM.md) | 🔗 |
+| C | [MissionAnimatedBasicAreaIndicatorMarkerTargetVM](./campaign-ext/MissionAnimatedBasicAreaIndicatorMarkerTargetVM.md) | 🔗 |
+| C | [MissionBasicAreaIndicatorMarkerTargetVM](./campaign-ext/MissionBasicAreaIndicatorMarkerTargetVM.md) | 🔗 |
+| C | [MissionCommonAreaMarkerTargetVM](./campaign-ext/MissionCommonAreaMarkerTargetVM.md) | 🔗 |
+| C | [MissionGenericMarkerTargetVM](./campaign-ext/MissionGenericMarkerTargetVM.md) | 🔗 |
+| C | [MissionPassageUsePointNameMarkerTargetVM](./campaign-ext/MissionPassageUsePointNameMarkerTargetVM.md) | 🔗 |
+| C | [MissionWorkshopNameMarkerTargetVM](./campaign-ext/MissionWorkshopNameMarkerTargetVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionStealthAreaNameMarkerTargetVM | — |
-| C | MissionStealthAreaUsePointNameMarkerTargetVM | — |
-| C | MissionStealthFailCounterVM | — |
-| C | MissionStealthSentryNameMarkerTargetVM | — |
+| C | [MissionStealthAreaNameMarkerTargetVM](./campaign-ext/MissionStealthAreaNameMarkerTargetVM.md) | 🔗 |
+| C | [MissionStealthAreaUsePointNameMarkerTargetVM](./campaign-ext/MissionStealthAreaUsePointNameMarkerTargetVM.md) | 🔗 |
+| C | [MissionStealthFailCounterVM](./campaign-ext/MissionStealthFailCounterVM.md) | 🔗 |
+| C | [MissionStealthSentryNameMarkerTargetVM](./campaign-ext/MissionStealthSentryNameMarkerTargetVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Nameplate (16)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | IssueTypes | — |
-| E | MainQuestTypes | — |
-| C | NameplateVM | — |
-| C | PartyMarkerItemComparer | — |
-| C | PartyNameplatesVM | — |
-| C | PartyNameplateVM | — |
-| C | PartyPlayerNameplateVM | — |
-| E | RelationType | — |
-| E | SettlementEventType | — |
-| C | SettlementNameplateEventItemVM | — |
-| C | SettlementNameplateEventsVM | — |
-| C | SettlementNameplatePartyMarkerItemVM | — |
-| C | SettlementNameplatePartyMarkersVM | — |
-| C | SettlementNameplatesVM | — |
-| C | SettlementNameplateVM | — |
-| E | [Type](/v1.3.15/zh/api/mission-ext/Type.md) | 🔗 |
+| E | [IssueTypes](./campaign-ext/IssueTypes.md) | 🔗 |
+| E | [MainQuestTypes](./campaign-ext/MainQuestTypes.md) | 🔗 |
+| C | [NameplateVM](./campaign-ext/NameplateVM.md) | 🔗 |
+| C | [PartyMarkerItemComparer](./campaign-ext/PartyMarkerItemComparer.md) | 🔗 |
+| C | [PartyNameplatesVM](./campaign-ext/PartyNameplatesVM.md) | 🔗 |
+| C | [PartyNameplateVM](./campaign-ext/PartyNameplateVM.md) | 🔗 |
+| C | [PartyPlayerNameplateVM](./campaign-ext/PartyPlayerNameplateVM.md) | 🔗 |
+| E | [RelationType](./campaign-ext/RelationType.md) | 🔗 |
+| E | [SettlementEventType](./campaign-ext/SettlementEventType.md) | 🔗 |
+| C | [SettlementNameplateEventItemVM](./campaign-ext/SettlementNameplateEventItemVM.md) | 🔗 |
+| C | [SettlementNameplateEventsVM](./campaign-ext/SettlementNameplateEventsVM.md) | 🔗 |
+| C | [SettlementNameplatePartyMarkerItemVM](./campaign-ext/SettlementNameplatePartyMarkerItemVM.md) | 🔗 |
+| C | [SettlementNameplatePartyMarkersVM](./campaign-ext/SettlementNameplatePartyMarkersVM.md) | 🔗 |
+| C | [SettlementNameplatesVM](./campaign-ext/SettlementNameplatesVM.md) | 🔗 |
+| C | [SettlementNameplateVM](./campaign-ext/SettlementNameplateVM.md) | 🔗 |
+| E | Type | — |
 
 ## SandBox.ViewModelCollection.Nameplate.NameplateNotifications (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | SettlementNotificationItemBaseVM | — |
+| C | [SettlementNotificationItemBaseVM](./campaign-ext/SettlementNotificationItemBaseVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CaravanTransactionNotificationItemVM | — |
-| C | IssueSolvedByLordNotificationItemVM | — |
-| C | ItemSoldNotificationItemVM | — |
-| C | PrisonerSoldNotificationItemVM | — |
-| C | SettlementNameplateNotificationsVM | — |
-| C | ShipSoldNotificationItemVM | — |
-| C | TroopGivenToSettlementNotificationItemVM | — |
-| C | TroopRecruitmentNotificationItemVM | — |
+| C | [CaravanTransactionNotificationItemVM](./campaign-ext/CaravanTransactionNotificationItemVM.md) | 🔗 |
+| C | [IssueSolvedByLordNotificationItemVM](./campaign-ext/IssueSolvedByLordNotificationItemVM.md) | 🔗 |
+| C | [ItemSoldNotificationItemVM](./campaign-ext/ItemSoldNotificationItemVM.md) | 🔗 |
+| C | [PrisonerSoldNotificationItemVM](./campaign-ext/PrisonerSoldNotificationItemVM.md) | 🔗 |
+| C | [SettlementNameplateNotificationsVM](./campaign-ext/SettlementNameplateNotificationsVM.md) | 🔗 |
+| C | [ShipSoldNotificationItemVM](./campaign-ext/ShipSoldNotificationItemVM.md) | 🔗 |
+| C | [TroopGivenToSettlementNotificationItemVM](./campaign-ext/TroopGivenToSettlementNotificationItemVM.md) | 🔗 |
+| C | [TroopRecruitmentNotificationItemVM](./campaign-ext/TroopRecruitmentNotificationItemVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.SaveLoad (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapSaveVM | — |
-| C | SavedGameGroupVM | — |
-| C | SavedGameModuleInfoVM | — |
-| E | SavedGameProperty | — |
-| C | SavedGamePropertyVM | — |
-| C | SavedGameVM | — |
-| C | SaveLoadVM | — |
+| C | [MapSaveVM](./campaign-ext/MapSaveVM.md) | 🔗 |
+| C | [SavedGameGroupVM](./campaign-ext/SavedGameGroupVM.md) | 🔗 |
+| C | [SavedGameModuleInfoVM](./campaign-ext/SavedGameModuleInfoVM.md) | 🔗 |
+| E | [SavedGameProperty](./campaign-ext/SavedGameProperty.md) | 🔗 |
+| C | [SavedGamePropertyVM](./campaign-ext/SavedGamePropertyVM.md) | 🔗 |
+| C | [SavedGameVM](./campaign-ext/SavedGameVM.md) | 🔗 |
+| C | [SaveLoadVM](./campaign-ext/SaveLoadVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Tournament (7)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | TournamentMatchState | — |
-| C | TournamentMatchVM | — |
-| C | TournamentParticipantVM | — |
-| E | TournamentPlayerState | — |
-| C | TournamentRoundVM | — |
-| C | TournamentTeamVM | — |
-| C | TournamentVM | — |
+| E | [TournamentMatchState](./campaign-ext/TournamentMatchState.md) | 🔗 |
+| C | [TournamentMatchVM](./campaign-ext/TournamentMatchVM.md) | 🔗 |
+| C | [TournamentParticipantVM](./campaign-ext/TournamentParticipantVM.md) | 🔗 |
+| E | [TournamentPlayerState](./campaign-ext/TournamentPlayerState.md) | 🔗 |
+| C | [TournamentRoundVM](./campaign-ext/TournamentRoundVM.md) | 🔗 |
+| C | [TournamentTeamVM](./campaign-ext/TournamentTeamVM.md) | 🔗 |
+| C | [TournamentVM](./campaign-ext/TournamentVM.md) | 🔗 |
 
 ## SandBox.ViewModelCollection.Tutorial (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | ItemPlacements | — |
-| C | TutorialItemVM | — |
-| C | TutorialVM | — |
+| E | [ItemPlacements](./campaign-ext/ItemPlacements.md) | 🔗 |
+| C | [TutorialItemVM](./campaign-ext/TutorialItemVM.md) | 🔗 |
+| C | [TutorialVM](./campaign-ext/TutorialVM.md) | 🔗 |
 
 ## StoryMode (17)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | CampaignStoryMode | — |
-| C | ConspiracyQuestMapNotification | — |
-| C | IsArzagosTag | — |
-| C | IsIstianaTag | — |
-| C | IsStoryModeMentorTag | — |
-| C | MainStoryLine | — |
-| E | MainStoryLineSide | — |
-| C | SaveableStoryModeTypeDefiner | — |
-| C | StoryModeCheats | — |
-| C | StoryModeData | — |
-| C | StoryModeEvents | — |
-| C | StoryModeHelpers | — |
-| C | StoryModeManager | — |
-| C | StoryModeQuestBase | — |
-| C | StoryModeSubModule | — |
-| C | TrainingField | — |
-| C | TrainingFieldEncounter | — |
+| C | [CampaignStoryMode](./campaign-ext/CampaignStoryMode.md) | 🔗 |
+| C | [ConspiracyQuestMapNotification](./campaign-ext/ConspiracyQuestMapNotification.md) | 🔗 |
+| C | [IsArzagosTag](./campaign-ext/IsArzagosTag.md) | 🔗 |
+| C | [IsIstianaTag](./campaign-ext/IsIstianaTag.md) | 🔗 |
+| C | [IsStoryModeMentorTag](./campaign-ext/IsStoryModeMentorTag.md) | 🔗 |
+| C | [MainStoryLine](./campaign-ext/MainStoryLine.md) | 🔗 |
+| E | [MainStoryLineSide](./campaign-ext/MainStoryLineSide.md) | 🔗 |
+| C | [SaveableStoryModeTypeDefiner](./campaign-ext/SaveableStoryModeTypeDefiner.md) | 🔗 |
+| C | [StoryModeCheats](./campaign-ext/StoryModeCheats.md) | 🔗 |
+| C | [StoryModeData](./campaign-ext/StoryModeData.md) | 🔗 |
+| C | [StoryModeEvents](./campaign-ext/StoryModeEvents.md) | 🔗 |
+| C | [StoryModeHelpers](./campaign-ext/StoryModeHelpers.md) | 🔗 |
+| C | [StoryModeManager](./campaign-ext/StoryModeManager.md) | 🔗 |
+| C | [StoryModeQuestBase](./campaign-ext/StoryModeQuestBase.md) | 🔗 |
+| C | [StoryModeSubModule](./campaign-ext/StoryModeSubModule.md) | 🔗 |
+| C | [TrainingField](./campaign-ext/TrainingField.md) | 🔗 |
+| C | [TrainingFieldEncounter](./campaign-ext/TrainingFieldEncounter.md) | 🔗 |
 
 ## StoryMode.Extensions (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [Extensions](/v1.3.15/zh/api/engine/Extensions.md) | 🔗 |
-| C | [MetaDataExtensions](/v1.3.15/zh/api/save-system/MetaDataExtensions.md) | 🔗 |
+| C | Extensions | — |
+| C | MetaDataExtensions | — |
 
 ## StoryMode.GameComponents (18)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StoryModeAgentDecideKilledOrUnconsciousModel | — |
-| C | StoryModeBanditDensityModel | — |
-| C | StoryModeBannerItemModel | — |
-| C | StoryModeBattleRewardModel | — |
-| C | StoryModeCombatXpModel | — |
-| C | StoryModeCutsceneSelectionModel | — |
-| C | StoryModeEncounterGameMenuModel | — |
-| C | StoryModeGenericXpModel | — |
-| C | StoryModeHeroDeathProbabilityCalculationModel | — |
-| C | StoryModeIncidentModel | — |
-| C | StoryModeKingdomDecisionPermissionModel | — |
-| C | StoryModeNotableSpawnModel | — |
-| C | StoryModePartySizeLimitModel | — |
-| C | StoryModePartyWageModel | — |
-| C | StoryModePrisonerRecruitmentCalculationModel | — |
-| C | StoryModeTargetScoreCalculatingModel | — |
-| C | StoryModeTroopSupplierProbabilityModel | — |
-| C | StoryModeVoiceOverModel | — |
+| C | [StoryModeAgentDecideKilledOrUnconsciousModel](./campaign-ext/StoryModeAgentDecideKilledOrUnconsciousModel.md) | 🔗 |
+| C | [StoryModeBanditDensityModel](./campaign-ext/StoryModeBanditDensityModel.md) | 🔗 |
+| C | [StoryModeBannerItemModel](./campaign-ext/StoryModeBannerItemModel.md) | 🔗 |
+| C | [StoryModeBattleRewardModel](./campaign-ext/StoryModeBattleRewardModel.md) | 🔗 |
+| C | [StoryModeCombatXpModel](./campaign-ext/StoryModeCombatXpModel.md) | 🔗 |
+| C | [StoryModeCutsceneSelectionModel](./campaign-ext/StoryModeCutsceneSelectionModel.md) | 🔗 |
+| C | [StoryModeEncounterGameMenuModel](./campaign-ext/StoryModeEncounterGameMenuModel.md) | 🔗 |
+| C | [StoryModeGenericXpModel](./campaign-ext/StoryModeGenericXpModel.md) | 🔗 |
+| C | [StoryModeHeroDeathProbabilityCalculationModel](./campaign-ext/StoryModeHeroDeathProbabilityCalculationModel.md) | 🔗 |
+| C | [StoryModeIncidentModel](./campaign-ext/StoryModeIncidentModel.md) | 🔗 |
+| C | [StoryModeKingdomDecisionPermissionModel](./campaign-ext/StoryModeKingdomDecisionPermissionModel.md) | 🔗 |
+| C | [StoryModeNotableSpawnModel](./campaign-ext/StoryModeNotableSpawnModel.md) | 🔗 |
+| C | [StoryModePartySizeLimitModel](./campaign-ext/StoryModePartySizeLimitModel.md) | 🔗 |
+| C | [StoryModePartyWageModel](./campaign-ext/StoryModePartyWageModel.md) | 🔗 |
+| C | [StoryModePrisonerRecruitmentCalculationModel](./campaign-ext/StoryModePrisonerRecruitmentCalculationModel.md) | 🔗 |
+| C | [StoryModeTargetScoreCalculatingModel](./campaign-ext/StoryModeTargetScoreCalculatingModel.md) | 🔗 |
+| C | [StoryModeTroopSupplierProbabilityModel](./campaign-ext/StoryModeTroopSupplierProbabilityModel.md) | 🔗 |
+| C | [StoryModeVoiceOverModel](./campaign-ext/StoryModeVoiceOverModel.md) | 🔗 |
 
 ## StoryMode.GameComponents.CampaignBehaviors (11)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AchievementsCampaignBehavior | — |
-| C | FirstPhaseCampaignBehavior | — |
-| C | LordConversationsStoryModeBehavior | — |
-| C | MainStorylineCampaignBehavior | — |
-| C | SecondPhaseCampaignBehavior | — |
-| C | StoryModeBanditSpawnCampaignBehavior | — |
-| C | StoryModeCharacterCreationCampaignBehavior | — |
-| C | StoryModeTutorialBoxCampaignBehavior | — |
-| C | ThirdPhaseCampaignBehavior | — |
-| C | TrainingFieldCampaignBehavior | — |
-| C | TutorialPhaseCampaignBehavior | — |
+| C | [AchievementsCampaignBehavior](./campaign-ext/AchievementsCampaignBehavior.md) | 🔗 |
+| C | [FirstPhaseCampaignBehavior](./campaign-ext/FirstPhaseCampaignBehavior.md) | 🔗 |
+| C | [LordConversationsStoryModeBehavior](./campaign-ext/LordConversationsStoryModeBehavior.md) | 🔗 |
+| C | [MainStorylineCampaignBehavior](./campaign-ext/MainStorylineCampaignBehavior.md) | 🔗 |
+| C | [SecondPhaseCampaignBehavior](./campaign-ext/SecondPhaseCampaignBehavior.md) | 🔗 |
+| C | [StoryModeBanditSpawnCampaignBehavior](./campaign-ext/StoryModeBanditSpawnCampaignBehavior.md) | 🔗 |
+| C | [StoryModeCharacterCreationCampaignBehavior](./campaign-ext/StoryModeCharacterCreationCampaignBehavior.md) | 🔗 |
+| C | [StoryModeTutorialBoxCampaignBehavior](./campaign-ext/StoryModeTutorialBoxCampaignBehavior.md) | 🔗 |
+| C | [ThirdPhaseCampaignBehavior](./campaign-ext/ThirdPhaseCampaignBehavior.md) | 🔗 |
+| C | [TrainingFieldCampaignBehavior](./campaign-ext/TrainingFieldCampaignBehavior.md) | 🔗 |
+| C | [TutorialPhaseCampaignBehavior](./campaign-ext/TutorialPhaseCampaignBehavior.md) | 🔗 |
 
 ## StoryMode.GauntletUI (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StoryModeGauntletUISubModule | — |
+| C | [StoryModeGauntletUISubModule](./campaign-ext/StoryModeGauntletUISubModule.md) | 🔗 |
 
 ## StoryMode.GauntletUI.Missions (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionGauntletTrainingFieldObjectiveView | — |
+| C | [MissionGauntletTrainingFieldObjectiveView](./campaign-ext/MissionGauntletTrainingFieldObjectiveView.md) | 🔗 |
 
 ## StoryMode.GauntletUI.Tutorial (69)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ArmyCohesionStep1Tutorial | — |
-| C | ArmyCohesionStep2Tutorial | — |
-| C | AssignRolesTutorial | — |
-| C | BombardmentStep1Tutorial | — |
-| C | BuyingFoodStep1Tutorial | — |
-| C | BuyingFoodStep2Tutorial | — |
-| C | BuyingFoodStep3Tutorial | — |
-| C | ChoosingPerkUpgradesStep1Tutorial | — |
-| C | ChoosingPerkUpgradesStep2Tutorial | — |
-| C | ChoosingPerkUpgradesStep3Tutorial | — |
-| C | ChoosingSkillFocusStep1Tutorial | — |
-| C | ChoosingSkillFocusStep2Tutorial | — |
-| C | CraftingOrdersTutorial | — |
-| C | CraftingStep1Tutorial | — |
-| C | CreateArmyStep1Tutorial | — |
-| C | CreateArmyStep2Tutorial | — |
-| C | CreateArmyStep3Tutorial | — |
-| C | CrimeTutorial | — |
-| C | EncyclopediaClansTutorial | — |
-| C | EncyclopediaConceptsTutorial | — |
-| C | EncyclopediaFiltersTutorial | — |
-| C | EncyclopediaFogOfWarTutorial | — |
-| C | EncyclopediaHomeTutorial | — |
-| C | EncyclopediaKingdomsTutorial | — |
-| C | EncyclopediaPageTutorialBase | — |
-| C | EncyclopediaSearchTutorial | — |
-| C | EncyclopediaSettlementsTutorial | — |
-| C | EncyclopediaSortTutorial | — |
-| C | EncyclopediaTrackTutorial | — |
-| C | EncyclopediaTroopsTutorial | — |
-| C | EnterVillageTutorial | — |
-| C | EquipmentSetsTutorial | — |
-| C | GettingCompanionsStep1Tutorial | — |
-| C | GettingCompanionsStep2Tutorial | — |
-| C | GettingCompanionsStep3Tutorial | — |
-| C | InventoryBannerItemTutorial | — |
-| C | KingdomDecisionVotingTutorial | — |
-| C | MovementInMissionTutorial | — |
-| C | NavigateOnMapTutorialStep1 | — |
-| C | NavigateOnMapTutorialStep2 | — |
-| C | OrderHideoutTutorial | — |
-| C | OrderOfBattleTutorialStep1Tutorial | — |
-| C | OrderOfBattleTutorialStep2Tutorial | — |
-| C | OrderOfBattleTutorialStep3Tutorial | — |
-| C | OrderTutorialStep1 | — |
-| C | OrderTutorialStep2 | — |
-| C | PartySpeedTutorial | — |
-| C | PressLeaveToReturnFromMissionTutorial1 | — |
-| C | PressLeaveToReturnFromMissionTutorial2 | — |
-| C | QuestScreenTutorial | — |
-| C | RaidVillageStep1Tutorial | — |
-| C | RansomingPrisonersStep1Tutorial | — |
-| C | RansomingPrisonersStep2Tutorial | — |
-| C | RecruitmentStep1Tutorial | — |
-| C | RecruitmentStep2Tutorial | — |
-| C | SeeMarkersInMissionTutorial | — |
-| C | StealthCrouchTutorial | — |
-| C | StealthDarkZoneTutorial | — |
-| C | StealthDistractionTutorial | — |
-| C | StealthHideCorpseTutorial | — |
-| C | StealthHideInBushesTutorial | — |
-| C | StealthStealthKillTutorial | — |
-| C | StealthWalkSlowTutorial | — |
-| C | TakingPrisonersTutorial | — |
-| C | TalkToNotableTutorialStep1 | — |
-| C | TalkToNotableTutorialStep2 | — |
-| C | UpgradingTroopsStep1Tutorial | — |
-| C | UpgradingTroopsStep2Tutorial | — |
-| C | UpgradingTroopsStep3Tutorial | — |
+| C | [ArmyCohesionStep1Tutorial](./campaign-ext/ArmyCohesionStep1Tutorial.md) | 🔗 |
+| C | [ArmyCohesionStep2Tutorial](./campaign-ext/ArmyCohesionStep2Tutorial.md) | 🔗 |
+| C | [AssignRolesTutorial](./campaign-ext/AssignRolesTutorial.md) | 🔗 |
+| C | [BombardmentStep1Tutorial](./campaign-ext/BombardmentStep1Tutorial.md) | 🔗 |
+| C | [BuyingFoodStep1Tutorial](./campaign-ext/BuyingFoodStep1Tutorial.md) | 🔗 |
+| C | [BuyingFoodStep2Tutorial](./campaign-ext/BuyingFoodStep2Tutorial.md) | 🔗 |
+| C | [BuyingFoodStep3Tutorial](./campaign-ext/BuyingFoodStep3Tutorial.md) | 🔗 |
+| C | [ChoosingPerkUpgradesStep1Tutorial](./campaign-ext/ChoosingPerkUpgradesStep1Tutorial.md) | 🔗 |
+| C | [ChoosingPerkUpgradesStep2Tutorial](./campaign-ext/ChoosingPerkUpgradesStep2Tutorial.md) | 🔗 |
+| C | [ChoosingPerkUpgradesStep3Tutorial](./campaign-ext/ChoosingPerkUpgradesStep3Tutorial.md) | 🔗 |
+| C | [ChoosingSkillFocusStep1Tutorial](./campaign-ext/ChoosingSkillFocusStep1Tutorial.md) | 🔗 |
+| C | [ChoosingSkillFocusStep2Tutorial](./campaign-ext/ChoosingSkillFocusStep2Tutorial.md) | 🔗 |
+| C | [CraftingOrdersTutorial](./campaign-ext/CraftingOrdersTutorial.md) | 🔗 |
+| C | [CraftingStep1Tutorial](./campaign-ext/CraftingStep1Tutorial.md) | 🔗 |
+| C | [CreateArmyStep1Tutorial](./campaign-ext/CreateArmyStep1Tutorial.md) | 🔗 |
+| C | [CreateArmyStep2Tutorial](./campaign-ext/CreateArmyStep2Tutorial.md) | 🔗 |
+| C | [CreateArmyStep3Tutorial](./campaign-ext/CreateArmyStep3Tutorial.md) | 🔗 |
+| C | [CrimeTutorial](./campaign-ext/CrimeTutorial.md) | 🔗 |
+| C | [EncyclopediaClansTutorial](./campaign-ext/EncyclopediaClansTutorial.md) | 🔗 |
+| C | [EncyclopediaConceptsTutorial](./campaign-ext/EncyclopediaConceptsTutorial.md) | 🔗 |
+| C | [EncyclopediaFiltersTutorial](./campaign-ext/EncyclopediaFiltersTutorial.md) | 🔗 |
+| C | [EncyclopediaFogOfWarTutorial](./campaign-ext/EncyclopediaFogOfWarTutorial.md) | 🔗 |
+| C | [EncyclopediaHomeTutorial](./campaign-ext/EncyclopediaHomeTutorial.md) | 🔗 |
+| C | [EncyclopediaKingdomsTutorial](./campaign-ext/EncyclopediaKingdomsTutorial.md) | 🔗 |
+| C | [EncyclopediaPageTutorialBase](./campaign-ext/EncyclopediaPageTutorialBase.md) | 🔗 |
+| C | [EncyclopediaSearchTutorial](./campaign-ext/EncyclopediaSearchTutorial.md) | 🔗 |
+| C | [EncyclopediaSettlementsTutorial](./campaign-ext/EncyclopediaSettlementsTutorial.md) | 🔗 |
+| C | [EncyclopediaSortTutorial](./campaign-ext/EncyclopediaSortTutorial.md) | 🔗 |
+| C | [EncyclopediaTrackTutorial](./campaign-ext/EncyclopediaTrackTutorial.md) | 🔗 |
+| C | [EncyclopediaTroopsTutorial](./campaign-ext/EncyclopediaTroopsTutorial.md) | 🔗 |
+| C | [EnterVillageTutorial](./campaign-ext/EnterVillageTutorial.md) | 🔗 |
+| C | [EquipmentSetsTutorial](./campaign-ext/EquipmentSetsTutorial.md) | 🔗 |
+| C | [GettingCompanionsStep1Tutorial](./campaign-ext/GettingCompanionsStep1Tutorial.md) | 🔗 |
+| C | [GettingCompanionsStep2Tutorial](./campaign-ext/GettingCompanionsStep2Tutorial.md) | 🔗 |
+| C | [GettingCompanionsStep3Tutorial](./campaign-ext/GettingCompanionsStep3Tutorial.md) | 🔗 |
+| C | [InventoryBannerItemTutorial](./campaign-ext/InventoryBannerItemTutorial.md) | 🔗 |
+| C | [KingdomDecisionVotingTutorial](./campaign-ext/KingdomDecisionVotingTutorial.md) | 🔗 |
+| C | [MovementInMissionTutorial](./campaign-ext/MovementInMissionTutorial.md) | 🔗 |
+| C | [NavigateOnMapTutorialStep1](./campaign-ext/NavigateOnMapTutorialStep1.md) | 🔗 |
+| C | [NavigateOnMapTutorialStep2](./campaign-ext/NavigateOnMapTutorialStep2.md) | 🔗 |
+| C | [OrderHideoutTutorial](./campaign-ext/OrderHideoutTutorial.md) | 🔗 |
+| C | [OrderOfBattleTutorialStep1Tutorial](./campaign-ext/OrderOfBattleTutorialStep1Tutorial.md) | 🔗 |
+| C | [OrderOfBattleTutorialStep2Tutorial](./campaign-ext/OrderOfBattleTutorialStep2Tutorial.md) | 🔗 |
+| C | [OrderOfBattleTutorialStep3Tutorial](./campaign-ext/OrderOfBattleTutorialStep3Tutorial.md) | 🔗 |
+| C | [OrderTutorialStep1](./campaign-ext/OrderTutorialStep1.md) | 🔗 |
+| C | [OrderTutorialStep2](./campaign-ext/OrderTutorialStep2.md) | 🔗 |
+| C | [PartySpeedTutorial](./campaign-ext/PartySpeedTutorial.md) | 🔗 |
+| C | [PressLeaveToReturnFromMissionTutorial1](./campaign-ext/PressLeaveToReturnFromMissionTutorial1.md) | 🔗 |
+| C | [PressLeaveToReturnFromMissionTutorial2](./campaign-ext/PressLeaveToReturnFromMissionTutorial2.md) | 🔗 |
+| C | [QuestScreenTutorial](./campaign-ext/QuestScreenTutorial.md) | 🔗 |
+| C | [RaidVillageStep1Tutorial](./campaign-ext/RaidVillageStep1Tutorial.md) | 🔗 |
+| C | [RansomingPrisonersStep1Tutorial](./campaign-ext/RansomingPrisonersStep1Tutorial.md) | 🔗 |
+| C | [RansomingPrisonersStep2Tutorial](./campaign-ext/RansomingPrisonersStep2Tutorial.md) | 🔗 |
+| C | [RecruitmentStep1Tutorial](./campaign-ext/RecruitmentStep1Tutorial.md) | 🔗 |
+| C | [RecruitmentStep2Tutorial](./campaign-ext/RecruitmentStep2Tutorial.md) | 🔗 |
+| C | [SeeMarkersInMissionTutorial](./campaign-ext/SeeMarkersInMissionTutorial.md) | 🔗 |
+| C | [StealthCrouchTutorial](./campaign-ext/StealthCrouchTutorial.md) | 🔗 |
+| C | [StealthDarkZoneTutorial](./campaign-ext/StealthDarkZoneTutorial.md) | 🔗 |
+| C | [StealthDistractionTutorial](./campaign-ext/StealthDistractionTutorial.md) | 🔗 |
+| C | [StealthHideCorpseTutorial](./campaign-ext/StealthHideCorpseTutorial.md) | 🔗 |
+| C | [StealthHideInBushesTutorial](./campaign-ext/StealthHideInBushesTutorial.md) | 🔗 |
+| C | [StealthStealthKillTutorial](./campaign-ext/StealthStealthKillTutorial.md) | 🔗 |
+| C | [StealthWalkSlowTutorial](./campaign-ext/StealthWalkSlowTutorial.md) | 🔗 |
+| C | [TakingPrisonersTutorial](./campaign-ext/TakingPrisonersTutorial.md) | 🔗 |
+| C | [TalkToNotableTutorialStep1](./campaign-ext/TalkToNotableTutorialStep1.md) | 🔗 |
+| C | [TalkToNotableTutorialStep2](./campaign-ext/TalkToNotableTutorialStep2.md) | 🔗 |
+| C | [UpgradingTroopsStep1Tutorial](./campaign-ext/UpgradingTroopsStep1Tutorial.md) | 🔗 |
+| C | [UpgradingTroopsStep2Tutorial](./campaign-ext/UpgradingTroopsStep2Tutorial.md) | 🔗 |
+| C | [UpgradingTroopsStep3Tutorial](./campaign-ext/UpgradingTroopsStep3Tutorial.md) | 🔗 |
 
 ## StoryMode.Missions (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | MouseObjectives | — |
-| E | ObjectivePerformingType | — |
-| C | StoryModeMissions | — |
-| C | TrainingFieldMissionController | — |
-| C | TutorialObjective | — |
+| E | [MouseObjectives](./campaign-ext/MouseObjectives.md) | 🔗 |
+| E | [ObjectivePerformingType](./campaign-ext/ObjectivePerformingType.md) | 🔗 |
+| C | [StoryModeMissions](./campaign-ext/StoryModeMissions.md) | 🔗 |
+| C | [TrainingFieldMissionController](./campaign-ext/TrainingFieldMissionController.md) | 🔗 |
+| C | [TutorialObjective](./campaign-ext/TutorialObjective.md) | 🔗 |
 
 ## StoryMode.Quests.FirstPhase (9)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ArzagosBannerPieceQuest | — |
-| C | AssembleTheBannerQuest | — |
-| C | BannerInvestigationQuest | — |
-| C | CreateKingdomQuest | — |
+| C | [ArzagosBannerPieceQuest](./campaign-ext/ArzagosBannerPieceQuest.md) | 🔗 |
+| C | [AssembleTheBannerQuest](./campaign-ext/AssembleTheBannerQuest.md) | 🔗 |
+| C | [BannerInvestigationQuest](./campaign-ext/BannerInvestigationQuest.md) | 🔗 |
+| C | [CreateKingdomQuest](./campaign-ext/CreateKingdomQuest.md) | 🔗 |
 | E | HideoutBattleEndState | — |
-| C | IstianasBannerPieceQuest | — |
-| C | MeetWithArzagosQuest | — |
-| C | MeetWithIstianaQuest | — |
-| C | SupportKingdomQuest | — |
+| C | [IstianasBannerPieceQuest](./campaign-ext/IstianasBannerPieceQuest.md) | 🔗 |
+| C | [MeetWithArzagosQuest](./campaign-ext/MeetWithArzagosQuest.md) | 🔗 |
+| C | [MeetWithIstianaQuest](./campaign-ext/MeetWithIstianaQuest.md) | 🔗 |
+| C | [SupportKingdomQuest](./campaign-ext/SupportKingdomQuest.md) | 🔗 |
 
 ## StoryMode.Quests.PlayerClanQuests (4)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | RebuildPlayerClanQuest | — |
-| C | RebuildPlayerClanQuestBehaviorTypeDefiner | — |
-| C | RescueFamilyQuest | — |
-| C | RescueFamilyQuestBehavior | — |
+| C | [RebuildPlayerClanQuest](./campaign-ext/RebuildPlayerClanQuest.md) | 🔗 |
+| C | [RebuildPlayerClanQuestBehaviorTypeDefiner](./campaign-ext/RebuildPlayerClanQuestBehaviorTypeDefiner.md) | 🔗 |
+| C | [RescueFamilyQuest](./campaign-ext/RescueFamilyQuest.md) | 🔗 |
+| C | [RescueFamilyQuestBehavior](./campaign-ext/RescueFamilyQuestBehavior.md) | 🔗 |
 
 ## StoryMode.Quests.QuestTasks (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | PurchaseItemTutorialQuestTask | — |
-| C | RecruitTroopTutorialQuestTask | — |
+| C | [PurchaseItemTutorialQuestTask](./campaign-ext/PurchaseItemTutorialQuestTask.md) | 🔗 |
+| C | [RecruitTroopTutorialQuestTask](./campaign-ext/RecruitTroopTutorialQuestTask.md) | 🔗 |
 
 ## StoryMode.Quests.SecondPhase (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | AssembleEmpireQuest | — |
-| C | AssembleEmpireQuestBehavior | — |
-| C | AssembleEmpireQuestBehaviorTypeDefiner | — |
-| C | ConspiracyProgressQuest | — |
-| C | ConspiracyQuestBase | — |
-| C | WeakenEmpireQuest | — |
-| C | WeakenEmpireQuestBehavior | — |
-| C | WeakenEmpireQuestBehaviorTypeDefiner | — |
+| C | [AssembleEmpireQuest](./campaign-ext/AssembleEmpireQuest.md) | 🔗 |
+| C | [AssembleEmpireQuestBehavior](./campaign-ext/AssembleEmpireQuestBehavior.md) | 🔗 |
+| C | [AssembleEmpireQuestBehaviorTypeDefiner](./campaign-ext/AssembleEmpireQuestBehaviorTypeDefiner.md) | 🔗 |
+| C | [ConspiracyProgressQuest](./campaign-ext/ConspiracyProgressQuest.md) | 🔗 |
+| C | [ConspiracyQuestBase](./campaign-ext/ConspiracyQuestBase.md) | 🔗 |
+| C | [WeakenEmpireQuest](./campaign-ext/WeakenEmpireQuest.md) | 🔗 |
+| C | [WeakenEmpireQuestBehavior](./campaign-ext/WeakenEmpireQuestBehavior.md) | 🔗 |
+| C | [WeakenEmpireQuestBehaviorTypeDefiner](./campaign-ext/WeakenEmpireQuestBehaviorTypeDefiner.md) | 🔗 |
 
 ## StoryMode.Quests.SecondPhase.ConspiracyQuests (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ConspiracyBaseOfOperationsDiscoveredConspiracyQuest | — |
-| C | DestroyRaidersConspiracyQuest | — |
-| C | DisruptSupplyLinesConspiracyQuest | — |
+| C | [ConspiracyBaseOfOperationsDiscoveredConspiracyQuest](./campaign-ext/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest.md) | 🔗 |
+| C | [DestroyRaidersConspiracyQuest](./campaign-ext/DestroyRaidersConspiracyQuest.md) | 🔗 |
+| C | [DisruptSupplyLinesConspiracyQuest](./campaign-ext/DisruptSupplyLinesConspiracyQuest.md) | 🔗 |
 
 ## StoryMode.Quests.ThirdPhase (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | DefeatTheConspiracyQuest | — |
-| C | DefeatTheConspiracyQuestBehavior | — |
-| C | DefeatTheConspiracyQuestBehaviorTypeDefiner | — |
+| C | [DefeatTheConspiracyQuest](./campaign-ext/DefeatTheConspiracyQuest.md) | 🔗 |
+| C | [DefeatTheConspiracyQuestBehavior](./campaign-ext/DefeatTheConspiracyQuestBehavior.md) | 🔗 |
+| C | [DefeatTheConspiracyQuestBehaviorTypeDefiner](./campaign-ext/DefeatTheConspiracyQuestBehaviorTypeDefiner.md) | 🔗 |
 
 ## StoryMode.Quests.TutorialPhase (8)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | FindHideoutTutorialQuest | — |
+| C | [FindHideoutTutorialQuest](./campaign-ext/FindHideoutTutorialQuest.md) | 🔗 |
 | E | HideoutBattleEndState | — |
-| C | LocateAndRescueTravellerTutorialQuest | — |
-| C | PurchaseGrainTutorialQuest | — |
-| C | RecruitTroopsTutorialQuest | — |
-| C | TalkToTheHeadmanTutorialQuest | — |
-| C | TravelToVillageTutorialQuest | — |
-| C | VillagersInNeed | — |
+| C | [LocateAndRescueTravellerTutorialQuest](./campaign-ext/LocateAndRescueTravellerTutorialQuest.md) | 🔗 |
+| C | [PurchaseGrainTutorialQuest](./campaign-ext/PurchaseGrainTutorialQuest.md) | 🔗 |
+| C | [RecruitTroopsTutorialQuest](./campaign-ext/RecruitTroopsTutorialQuest.md) | 🔗 |
+| C | [TalkToTheHeadmanTutorialQuest](./campaign-ext/TalkToTheHeadmanTutorialQuest.md) | 🔗 |
+| C | [TravelToVillageTutorialQuest](./campaign-ext/TravelToVillageTutorialQuest.md) | 🔗 |
+| C | [VillagersInNeed](./campaign-ext/VillagersInNeed.md) | 🔗 |
 
 ## StoryMode.StoryModeObjects (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StoryModeBannerEffects | — |
-| C | StoryModeHeroes | — |
+| C | [StoryModeBannerEffects](./campaign-ext/StoryModeBannerEffects.md) | 🔗 |
+| C | [StoryModeHeroes](./campaign-ext/StoryModeHeroes.md) | 🔗 |
 
 ## StoryMode.StoryModePhases (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | FirstPhase | — |
-| C | SecondPhase | — |
-| C | ThirdPhase | — |
-| C | TutorialPhase | — |
-| E | TutorialQuestPhase | — |
+| C | [FirstPhase](./campaign-ext/FirstPhase.md) | 🔗 |
+| C | [SecondPhase](./campaign-ext/SecondPhase.md) | 🔗 |
+| C | [ThirdPhase](./campaign-ext/ThirdPhase.md) | 🔗 |
+| C | [TutorialPhase](./campaign-ext/TutorialPhase.md) | 🔗 |
+| E | [TutorialQuestPhase](./campaign-ext/TutorialQuestPhase.md) | 🔗 |
 
 ## StoryMode.View (2)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StoryModeViewCreator | — |
-| C | StoryModeViewSubModule | — |
+| C | [StoryModeViewCreator](./campaign-ext/StoryModeViewCreator.md) | 🔗 |
+| C | [StoryModeViewSubModule](./campaign-ext/StoryModeViewSubModule.md) | 🔗 |
 
 ## StoryMode.View.MarkerProviders (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StealthTutorialMarkerProvider | — |
+| C | [StealthTutorialMarkerProvider](./campaign-ext/StealthTutorialMarkerProvider.md) | 🔗 |
 
 ## StoryMode.View.Missions (3)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MissionTrainingFieldObjectiveView | — |
-| C | StealthTutorialView | — |
-| C | StoryModeMissionViews | — |
+| C | [MissionTrainingFieldObjectiveView](./campaign-ext/MissionTrainingFieldObjectiveView.md) | 🔗 |
+| C | [StealthTutorialView](./campaign-ext/StealthTutorialView.md) | 🔗 |
+| C | [StoryModeMissionViews](./campaign-ext/StoryModeMissionViews.md) | 🔗 |
 
 ## StoryMode.View.Permissions (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | StoryModePermissionsSystem | — |
+| C | [StoryModePermissionsSystem](./campaign-ext/StoryModePermissionsSystem.md) | 🔗 |
 
 ## StoryMode.ViewModelCollection.Map (1)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | ConspiracyQuestMapNotificationItemVM | — |
+| C | [ConspiracyQuestMapNotificationItemVM](./campaign-ext/ConspiracyQuestMapNotificationItemVM.md) | 🔗 |
 
 ## StoryMode.ViewModelCollection.Missions (9)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| S | ControllerStickInput | — |
-| E | [InputTypes](/v1.3.15/zh/api/mission-ext/InputTypes.md) | 🔗 |
-| S | KeyInput | — |
-| S | MouseAndClickInput | — |
-| E | MouseClickTypes | — |
-| E | [MovementTypes](/v1.3.15/zh/api/mission-ext/MovementTypes.md) | 🔗 |
-| C | TrainingFieldObjectiveItemVM | — |
-| C | TrainingFieldObjectivesVM | — |
-| C | TrainingObjectiveKeyVM | — |
+| S | [ControllerStickInput](./campaign-ext/ControllerStickInput.md) | 🔗 |
+| E | InputTypes | — |
+| S | [KeyInput](./campaign-ext/KeyInput.md) | 🔗 |
+| S | [MouseAndClickInput](./campaign-ext/MouseAndClickInput.md) | 🔗 |
+| E | [MouseClickTypes](./campaign-ext/MouseClickTypes.md) | 🔗 |
+| E | MovementTypes | — |
+| C | [TrainingFieldObjectiveItemVM](./campaign-ext/TrainingFieldObjectiveItemVM.md) | 🔗 |
+| C | [TrainingFieldObjectivesVM](./campaign-ext/TrainingFieldObjectivesVM.md) | 🔗 |
+| C | [TrainingObjectiveKeyVM](./campaign-ext/TrainingObjectiveKeyVM.md) | 🔗 |

@@ -5,6 +5,10 @@ description: v1.3.0 MobileParty、Kingdom 入门 / v1.3.0 MobileParty, Kingdom i
 
 # Campaign 系统基础 / Campaign System Basics
 
+## 心智模型
+
+先把 `Campaign 系统基础` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **v1.3.0 版本**
 
 > 注意：本页面介绍 v1.3.0 的 Campaign 系统基础。v1.3.15 有更多功能。如需完整内容，请查看 [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system.md)。
@@ -90,3 +94,9 @@ Town nearestTown = Settlement.FindNearestTown(position);
 
 - [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system.md)
 - [API 参考](../api/campaign/)
+
+## 使用示例
+
+```csharp
+var example = new Campaign 系统基础();
+```

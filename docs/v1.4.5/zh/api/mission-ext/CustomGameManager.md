@@ -1,16 +1,44 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `CustomGameManager`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # CustomGameManager
 
-**命名空间:** TaleWorlds.MountAndBlade.CustomBattle
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.CustomBattle
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class CustomGameManager : MBGameManager`
+**Base:** `MBGameManager`
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomGameManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CustomGameManager` 是 `TaleWorlds.MountAndBlade.CustomBattle` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`CustomGameManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `CustomGameManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### OnAfterCampaignStart
+`public override void OnAfterCampaignStart(Game game)`
+
+**用途 / Purpose:** 当 `after campaign start` 事件触发时调用此方法。
+
+### OnLoadFinished
+`public override void OnLoadFinished()`
+
+**用途 / Purpose:** 当 `load finished` 事件触发时调用此方法。
+
+## 使用示例
+
+```csharp
+var manager = CustomGameManager.Current;
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

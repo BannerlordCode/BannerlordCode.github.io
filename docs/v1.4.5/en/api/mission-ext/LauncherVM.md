@@ -1,0 +1,76 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `LauncherVM`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# LauncherVM
+
+**Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class LauncherVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherVM.cs`
+
+## Overview
+
+`LauncherVM` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `GameTypeArgument` | `public string GameTypeArgument { get; }` |
+| `ContinueGameArgument` | `public string ContinueGameArgument { get; set; }` |
+| `IsSingleplayer` | `public bool IsSingleplayer { get; set; }` |
+| `IsMultiplayer` | `public bool IsMultiplayer { get; set; }` |
+| `IsDigitalCompanion` | `public bool IsDigitalCompanion { get; set; }` |
+| `IsSingleplayerAvailable` | `public bool IsSingleplayerAvailable { get; set; }` |
+| `IsDigitalCompanionAvailable` | `public bool IsDigitalCompanionAvailable { get; set; }` |
+| `VersionText` | `public string VersionText { get; set; }` |
+| `News` | `public LauncherNewsVM News { get; set; }` |
+| `ConfirmStart` | `public LauncherConfirmStartVM ConfirmStart { get; set; }` |
+| `ModsData` | `public LauncherModsVM ModsData { get; set; }` |
+| `Hint` | `public LauncherInformationVM Hint { get; set; }` |
+| `PlayText` | `public string PlayText { get; set; }` |
+| `ContinueText` | `public string ContinueText { get; set; }` |
+| `LaunchText` | `public string LaunchText { get; set; }` |
+| `SingleplayerText` | `public string SingleplayerText { get; set; }` |
+| `DigitalCompanionText` | `public string DigitalCompanionText { get; set; }` |
+| `MultiplayerText` | `public string MultiplayerText { get; set; }` |
+| `NewsText` | `public string NewsText { get; set; }` |
+| `DlcText` | `public string DlcText { get; set; }` |
+| `ModsText` | `public string ModsText { get; set; }` |
+
+## Key Methods
+
+### ExecuteStartGame
+`public void ExecuteStartGame(int mode)`
+
+**Purpose:** Executes the `start game` operation or workflow.
+
+### ExecuteClose
+`public void ExecuteClose()`
+
+**Purpose:** Executes the `close` operation or workflow.
+
+### ExecuteMinimize
+`public void ExecuteMinimize()`
+
+**Purpose:** Executes the `minimize` operation or workflow.
+
+## Usage Example
+
+```csharp
+var value = new LauncherVM();
+value.ExecuteStartGame(0);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

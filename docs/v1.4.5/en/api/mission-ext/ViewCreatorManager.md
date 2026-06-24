@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ViewCreatorManager`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # ViewCreatorManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public static class ViewCreatorManager`
+**Base:** none
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ViewCreatorManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ViewCreatorManager` is a class in the `TaleWorlds.MountAndBlade.View` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ViewCreatorManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ViewCreatorManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+var manager = ViewCreatorManager.Current;
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

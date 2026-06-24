@@ -5,7 +5,11 @@ sidebar: auto
 
 # 网络/平台/服务 Network & Platform 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **246** 个类型，其中 **246** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `网络/平台/服务 Network & Platform 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **246** 个类型，其中 **237** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -172,7 +176,7 @@ sidebar: auto
 | C | [DotNetObject](/v1.3.15/zh/api/campaign-ext/DotNetObject.md) | 🔗 |
 | C | [EditableScriptComponentVariable](/v1.3.15/zh/api/campaign-ext/EditableScriptComponentVariable.md) | 🔗 |
 | C | [EngineBaseClass](/v1.3.15/zh/api/campaign-ext/EngineBaseClass.md) | 🔗 |
-| C | [EngineClass](/v1.3.15/zh/api/engine/EngineClass.md) | 🔗 |
+| C | EngineClass | — |
 | C | [EngineStruct](/v1.3.15/zh/api/campaign-ext/EngineStruct.md) | 🔗 |
 | C | [GameApplicationDomainController](/v1.3.15/zh/api/campaign-ext/GameApplicationDomainController.md) | 🔗 |
 | I | [ICallbackManager](/v1.3.15/zh/api/campaign-ext/ICallbackManager.md) | 🔗 |
@@ -185,7 +189,7 @@ sidebar: auto
 | C | [ManagedToUnmanagedScopedCallCounter](/v1.3.15/zh/api/campaign-ext/ManagedToUnmanagedScopedCallCounter.md) | 🔗 |
 | C | [NativeArray](/v1.3.15/zh/api/campaign-ext/NativeArray.md) | 🔗 |
 | C | [NativeArrayEnumerator](/v1.3.15/zh/api/campaign-ext/NativeArrayEnumerator.md) | 🔗 |
-| C | [NativeObject](/v1.3.15/zh/api/engine/NativeObject.md) | 🔗 |
+| C | NativeObject | — |
 | C | [NativeObjectArray](/v1.3.15/zh/api/campaign-ext/NativeObjectArray.md) | 🔗 |
 | C | [NativeString](/v1.3.15/zh/api/campaign-ext/NativeString.md) | 🔗 |
 | C | [NativeTelemetryManager](/v1.3.15/zh/api/campaign-ext/NativeTelemetryManager.md) | 🔗 |
@@ -239,12 +243,12 @@ sidebar: auto
 | S | [MBGUID](/v1.3.15/zh/api/campaign-ext/MBGUID.md) | 🔗 |
 | C | [MBIllegalRegisterException](/v1.3.15/zh/api/campaign-ext/MBIllegalRegisterException.md) | 🔗 |
 | C | [MBInvalidReferenceException](/v1.3.15/zh/api/campaign-ext/MBInvalidReferenceException.md) | 🔗 |
-| C | [MBObjectBase](/v1.3.15/zh/api/core/MBObjectBase.md) | 🔗 |
-| C | [MBObjectManager](/v1.3.15/zh/api/core/MBObjectManager.md) | 🔗 |
+| C | MBObjectBase | — |
+| C | MBObjectManager | — |
 | S | [MbObjectXmlInformation](/v1.3.15/zh/api/campaign-ext/MbObjectXmlInformation.md) | 🔗 |
-| C | [MBOutOfRangeException](/v1.3.15/zh/api/core-extra/MBOutOfRangeException.md) | 🔗 |
+| C | MBOutOfRangeException | — |
 | C | [MBTooManyRegisteredTypesException](/v1.3.15/zh/api/campaign-ext/MBTooManyRegisteredTypesException.md) | 🔗 |
-| C | [MBTypeMismatchException](/v1.3.15/zh/api/core-extra/MBTypeMismatchException.md) | 🔗 |
+| C | MBTypeMismatchException | — |
 | C | [MBTypeNotRegisteredException](/v1.3.15/zh/api/campaign-ext/MBTypeNotRegisteredException.md) | 🔗 |
 | C | [ObjectSystemException](/v1.3.15/zh/api/campaign-ext/ObjectSystemException.md) | 🔗 |
 | C | [SaveableObjectSystemTypeDefiner](/v1.3.15/zh/api/campaign-ext/SaveableObjectSystemTypeDefiner.md) | 🔗 |
@@ -262,7 +266,7 @@ sidebar: auto
 | I | [IPlatformServices](/v1.3.15/zh/api/campaign-ext/IPlatformServices.md) | 🔗 |
 | I | [ISessionService](/v1.3.15/zh/api/campaign-ext/ISessionService.md) | 🔗 |
 | C | [NullPlatformServices](/v1.3.15/zh/api/campaign-ext/NullPlatformServices.md) | 🔗 |
-| E | [Permission](/v1.3.15/zh/api/mission-ext/Permission.md) | 🔗 |
+| E | [Permission](/v1.3.15/zh/api/campaign-ext/Permission.md) | 🔗 |
 | E | [PlatformInviteResponse](/v1.3.15/zh/api/campaign-ext/PlatformInviteResponse.md) | 🔗 |
 | C | [PlatformServices](/v1.3.15/zh/api/campaign-ext/PlatformServices.md) | 🔗 |
 | E | [Privilege](/v1.3.15/zh/api/campaign-ext/Privilege.md) | 🔗 |
@@ -305,14 +309,14 @@ sidebar: auto
 | C | [SteamModuleExtension](/v1.3.15/zh/api/campaign-ext/SteamModuleExtension.md) | 🔗 |
 | C | [SteamPlatformAvatarService](/v1.3.15/zh/api/campaign-ext/SteamPlatformAvatarService.md) | 🔗 |
 | C | [SteamPlatformServices](/v1.3.15/zh/api/campaign-ext/SteamPlatformServices.md) | 🔗 |
-| C | [SteamPlayerIdExtensions](/v1.3.15/zh/api/campaign-ext/SteamPlayerIdExtensions.md) | 🔗 |
+| C | SteamPlayerIdExtensions | — |
 
 ## TaleWorlds.PlayerServices (5)
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | S | [PlayerId](/v1.3.15/zh/api/campaign-ext/PlayerId.md) | 🔗 |
-| C | [PlayerIdExtensions](/v1.3.15/zh/api/campaign-ext/PlayerIdExtensions.md) | 🔗 |
+| C | PlayerIdExtensions | — |
 | C | [PlayerIdJsonConverter](/v1.3.15/zh/api/campaign-ext/PlayerIdJsonConverter.md) | 🔗 |
 | E | [PlayerIdProvidedTypes](/v1.3.15/zh/api/campaign-ext/PlayerIdProvidedTypes.md) | 🔗 |
 | C | [TimeoutWebClient](/v1.3.15/zh/api/campaign-ext/TimeoutWebClient.md) | 🔗 |
@@ -343,7 +347,7 @@ sidebar: auto
 | C | [ScreenBase](/v1.3.15/zh/api/campaign-ext/ScreenBase.md) | 🔗 |
 | C | [ScreenComponent](/v1.3.15/zh/api/campaign-ext/ScreenComponent.md) | 🔗 |
 | C | [ScreenLayer](/v1.3.15/zh/api/campaign-ext/ScreenLayer.md) | 🔗 |
-| C | [ScreenManager](/v1.3.15/zh/api/gui/ScreenManager.md) | 🔗 |
+| C | ScreenManager | — |
 
 ## TaleWorlds.ServiceDiscovery.Client (5)
 

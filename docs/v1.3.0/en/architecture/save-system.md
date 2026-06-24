@@ -6,6 +6,10 @@
 
 The save system in v1.3.0 is implemented through the TaleWorlds.SaveSystem namespace, providing game data serialization and deserialization.
 
+## Mental Model
+
+Treat `Save System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## Differences from v1.3.15
 
 - v1.3.0 does **NOT** have a separate TaleWorlds.SaveSystem module

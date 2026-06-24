@@ -5,7 +5,11 @@ sidebar: auto
 
 # 引擎 Engine 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **154** 个类型，其中 **154** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `引擎 Engine 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **154** 个类型，其中 **150** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -98,7 +102,7 @@ sidebar: auto
 | C | [RenderTargetComponent](/v1.3.15/zh/api/engine/RenderTargetComponent.md) | 🔗 |
 | C | [Resource](/v1.3.15/zh/api/engine/Resource.md) | 🔗 |
 | E | [RglScriptFieldType](/v1.3.15/zh/api/engine/RglScriptFieldType.md) | 🔗 |
-| C | [Scene](/v1.3.15/zh/api/engine/Scene.md) | 🔗 |
+| C | Scene | — |
 | S | [SceneInitializationData](/v1.3.15/zh/api/engine/SceneInitializationData.md) | 🔗 |
 | C | [SceneProblemChecker](/v1.3.15/zh/api/engine/SceneProblemChecker.md) | 🔗 |
 | C | [SceneView](/v1.3.15/zh/api/engine/SceneView.md) | 🔗 |
@@ -111,7 +115,7 @@ sidebar: auto
 | E | [ShadowType](/v1.3.15/zh/api/engine/ShadowType.md) | 🔗 |
 | E | [Significance](/v1.3.15/zh/api/engine/Significance.md) | 🔗 |
 | C | [SimpleButton](/v1.3.15/zh/api/engine/SimpleButton.md) | 🔗 |
-| C | [Skeleton](/v1.3.15/zh/api/engine/Skeleton.md) | 🔗 |
+| C | Skeleton | — |
 | C | [SoundEvent](/v1.3.15/zh/api/engine/SoundEvent.md) | 🔗 |
 | S | [SoundEventParameter](/v1.3.15/zh/api/engine/SoundEventParameter.md) | 🔗 |
 | C | [SoundManager](/v1.3.15/zh/api/engine/SoundManager.md) | 🔗 |
@@ -129,9 +133,9 @@ sidebar: auto
 | S | [TwoDimensionMeshDrawData](/v1.3.15/zh/api/engine/TwoDimensionMeshDrawData.md) | 🔗 |
 | S | [TwoDimensionTextMeshDrawData](/v1.3.15/zh/api/engine/TwoDimensionTextMeshDrawData.md) | 🔗 |
 | C | [TwoDimensionView](/v1.3.15/zh/api/engine/TwoDimensionView.md) | 🔗 |
-| E | [Type](/v1.3.15/zh/api/mission-ext/Type.md) | 🔗 |
+| E | [Type](/v1.3.15/zh/api/engine/Type.md) | 🔗 |
 | E | [UpgradeLevelMask](/v1.3.15/zh/api/engine/UpgradeLevelMask.md) | 🔗 |
-| C | [Utilities](/v1.3.15/zh/api/engine/Utilities.md) | 🔗 |
+| C | Utilities | — |
 | C | [VideoPlayerView](/v1.3.15/zh/api/engine/VideoPlayerView.md) | 🔗 |
 | C | [View](/v1.3.15/zh/api/engine/View.md) | 🔗 |
 | E | [ViewRenderOptions](/v1.3.15/zh/api/engine/ViewRenderOptions.md) | 🔗 |
@@ -149,7 +153,7 @@ sidebar: auto
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | C | [EngineTexture](/v1.3.15/zh/api/engine/EngineTexture.md) | 🔗 |
-| C | [Extensions](/v1.3.15/zh/api/engine/Extensions.md) | 🔗 |
+| C | Extensions | — |
 | C | [GauntletLayer](/v1.3.15/zh/api/engine/GauntletLayer.md) | 🔗 |
 | C | [GauntletMovieIdentifier](/v1.3.15/zh/api/engine/GauntletMovieIdentifier.md) | 🔗 |
 | C | [TwoDimensionEnginePlatform](/v1.3.15/zh/api/engine/TwoDimensionEnginePlatform.md) | 🔗 |

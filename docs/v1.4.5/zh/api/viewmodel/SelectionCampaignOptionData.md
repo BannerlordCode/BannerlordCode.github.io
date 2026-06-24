@@ -1,0 +1,45 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SelectionCampaignOptionData`
+- [← 本领域 / 返回 viewmodel](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# SelectionCampaignOptionData
+
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SelectionCampaignOptionData : CampaignOptionData`
+**Base:** `CampaignOptionData`
+**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/SelectionCampaignOptionData.cs`
+
+## 概述
+
+`SelectionCampaignOptionData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `SelectionCampaignOptionData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Selections` | `public List<TextObject> Selections { get; }` |
+
+## 主要方法
+
+### GetDataType
+`public override CampaignOptionDataType GetDataType()`
+
+**用途 / Purpose:** 获取 `data type` 的当前值。
+
+## 使用示例
+
+```csharp
+var value = new SelectionCampaignOptionData();
+```
+
+## 参见
+
+- [完整类目录](../catalog)

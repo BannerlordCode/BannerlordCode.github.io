@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ThumbnailCreationData`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # ThumbnailCreationData
 
-**命名空间:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class ThumbnailCreationData`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/ThumbnailCreationData.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`ThumbnailCreationData` 是 `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`ThumbnailCreationData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `ThumbnailCreationData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsProcessed` | `public bool IsProcessed { get; set; }` |
+| `RenderId` | `public string RenderId { get; set; }` |
+
+## 使用示例
+
+```csharp
+var implementation = new CustomThumbnailCreationData();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

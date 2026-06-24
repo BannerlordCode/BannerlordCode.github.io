@@ -5,8 +5,12 @@ description: Bannerlord v1.4.5 modding docs
 
 # Bannerlord v1.4.5
 
+## Mental Model
+
+Treat `Bannerlord v1.4.5` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ::: tip Source now available
-Decompiled v1.4.5 source is organized in `bannerlord-1.4.5/Bannerlord.Source/`: gameplay modules (SandBox / StoryMode / Multiplayer / CustomBattle / FastMode / BirthAndDeath / Native extensions) total 2361 .cs files / 2523 types; core `TaleWorlds.*` assemblies ship as DLLs in `bin/`. Full class reference will be added gradually.
+Decompiled v1.4.5 source is organized in `bannerlord-1.4.5/Bannerlord.Source/`: gameplay modules (SandBox / StoryMode / Multiplayer / CustomBattle / FastMode / BirthAndDeath / Native extensions) total 2361 .cs files / 2523 types; core `TaleWorlds.*` assemblies ship as DLLs in `bin/`. Start from the API catalog, then follow each class page's breadcrumb back here.
 :::
 
 ## Module list
@@ -35,6 +39,19 @@ bannerlord-1.4.5/Bannerlord.Source/
 
 ## Navigation
 
+- [v1.4.5 API Catalog](./api/catalog)
 - [v1.3.15 docs (recommended)](../../v1.3.15/en/)
 - [v1.3.0 docs](../../v1.3.0/en/)
 - [中文](../zh/)
+
+## How to Use
+
+1. Start here to place the version and module boundaries.
+2. Enter the [API catalog](./api/catalog) to choose the subsystem you need.
+3. Jump to [cross-version compare](../../versions/) only when you need migration guidance.
+
+## Usage Example
+
+```csharp
+var example = new Bannerlord v1.4.5();
+```

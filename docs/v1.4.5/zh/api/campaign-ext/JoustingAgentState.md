@@ -1,14 +1,43 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `JoustingAgentState`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # JoustingAgentState
 
 **命名空间:** SandBox.Tournaments.AgentControllers
 **模块:** SandBox.Tournaments
-**类型:** 枚举 enum
-**领域:** 战役系统 Campaign
+**类型:** `public enum JoustingAgentState`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`JoustingAgentState` 是 `SandBox.Tournaments.AgentControllers` 命名空间下的一个枚举 enum。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`JoustingAgentState` 位于 `SandBox.Tournaments.AgentControllers`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `SandBox.Tournaments.AgentControllers` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 枚举值
+
+| Name |
+|------|
+| `GoingToBackStart` |
+| `GoToStartPosition` |
+| `WaitInStartPosition` |
+| `WaitingOpponent` |
+| `Ready` |
+| `StartRiding` |
+| `Riding` |
+| `RidingAtWrongSide` |
+
+## 使用示例
+
+```csharp
+JoustingAgentState example = JoustingAgentState.GoingToBackStart;
+```
 
 ## 参见
 

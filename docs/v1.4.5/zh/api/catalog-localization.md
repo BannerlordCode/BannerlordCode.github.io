@@ -5,7 +5,11 @@ sidebar: auto
 
 # 本地化 Localization 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **21** 个类型，其中 **21** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `本地化 Localization 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **21** 个类型，其中 **18** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -15,11 +19,11 @@ sidebar: auto
 |---|---|---|
 | C | [DateRange](/v1.3.15/zh/api/localization/DateRange.md) | 🔗 |
 | C | [LocalizationException](/v1.3.15/zh/api/localization/LocalizationException.md) | 🔗 |
-| C | [LocalizedTextManager](/v1.3.15/zh/api/localization/LocalizedTextManager.md) | 🔗 |
+| C | LocalizedTextManager | — |
 | C | [LocalizedVoiceManager](/v1.3.15/zh/api/localization/LocalizedVoiceManager.md) | 🔗 |
-| C | [MBTextManager](/v1.3.15/zh/api/localization/MBTextManager.md) | 🔗 |
+| C | MBTextManager | — |
 | C | [SaveableLocalizationTypeDefiner](/v1.3.15/zh/api/localization/SaveableLocalizationTypeDefiner.md) | 🔗 |
-| C | [TextObject](/v1.3.15/zh/api/localization/TextObject.md) | 🔗 |
+| C | TextObject | — |
 | C | [VoiceObject](/v1.3.15/zh/api/localization/VoiceObject.md) | 🔗 |
 
 ## TaleWorlds.Localization.TextProcessor (5)

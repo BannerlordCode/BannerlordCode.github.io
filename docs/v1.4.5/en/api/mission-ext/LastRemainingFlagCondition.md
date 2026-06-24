@@ -1,16 +1,45 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `LastRemainingFlagCondition`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # LastRemainingFlagCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class LastRemainingFlagCondition : MPPerkCondition<MissionMultiplayerFlagDomination>`
+**Base:** `MPPerkCondition<MissionMultiplayerFlagDomination>`
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/LastRemainingFlagCondition.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `LastRemainingFlagCondition` is a class in the `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`LastRemainingFlagCondition` lives in `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### Check
+`public override bool Check(MissionPeer peer)`
+
+**Purpose:** Handles logic related to `check`.
+
+### Check
+`public override bool Check(Agent agent)`
+
+**Purpose:** Handles logic related to `check`.
+
+## Usage Example
+
+```csharp
+var value = new LastRemainingFlagCondition();
+value.Check(peer);
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

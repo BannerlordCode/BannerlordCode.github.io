@@ -5,6 +5,10 @@ description: v1.3.0 GauntletMovie 入门 / v1.3.0 GauntletMovie introduction
 
 # UI 系统基础 / UI System Basics
 
+## 心智模型
+
+先把 `UI 系统基础` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **v1.3.0 版本**
 
 > 注意：本页面介绍 v1.3.0 的 UI 系统基础。v1.3.15 有增强的 Gauntlet UI。如需完整内容，请查看 [v1.3.15 Gauntlet UI](../../../v1.3.15/zh/guide/gauntlet-ui.md)。
@@ -55,3 +59,9 @@ namespace MyModule.UI
 
 - [v1.3.15 Gauntlet UI](../../../v1.3.15/zh/guide/gauntlet-ui.md)
 - [API 参考](../api/)
+
+## 使用示例
+
+```csharp
+var example = new UI 系统基础();
+```

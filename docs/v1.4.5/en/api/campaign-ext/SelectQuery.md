@@ -1,16 +1,50 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `SelectQuery`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # SelectQuery
 
 **Namespace:** System.Management
 **Module:** System.Management
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SelectQuery : WqlObjectQuery`
+**Base:** `WqlObjectQuery`
+**File:** `Bannerlord.Source/bin/System.Management/System.Management/SelectQuery.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SelectQuery` is a class in the `System.Management` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SelectQuery` lives in `System.Management` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `System.Management` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `ClassName` | `public string ClassName { get; set; }` |
+| `Condition` | `public string Condition { get; set; }` |
+| `IsSchemaQuery` | `public bool IsSchemaQuery { get; set; }` |
+| `QueryString` | `public override string QueryString { get; set; }` |
+| `SelectedProperties` | `public StringCollection SelectedProperties { get; set; }` |
+
+## Key Methods
+
+### Clone
+`public override object Clone()`
+
+**Purpose:** Handles logic related to `clone`.
+
+## Usage Example
+
+```csharp
+var value = new SelectQuery();
+value.Clone();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

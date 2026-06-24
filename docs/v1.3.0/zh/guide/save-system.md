@@ -5,6 +5,10 @@ description: v1.3.0 存档实现 / v1.3.0 save implementation
 
 # 存档系统 / Save System
 
+## 心智模型
+
+先把 `存档系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **v1.3.0 版本**
 
 ## 概述 / Overview
@@ -84,3 +88,9 @@ public class MyBehavior : CampaignBehaviorBase
 ## 相关文档 / Related Documentation
 
 - [v1.3.15 存档系统](../../../v1.3.15/zh/guide/save-system-guide.md)
+
+## 使用示例
+
+```csharp
+var example = new 存档系统();
+```

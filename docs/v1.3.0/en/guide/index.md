@@ -5,6 +5,10 @@ description: Quick start guide for Bannerlord v1.3.0 modding
 
 # Getting Started Guide
 
+## Mental Model
+
+Treat `Getting Started Guide` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Welcome to the Bannerlord v1.3.0 modding getting started guide. This guide covers the basics for v1.3.0.
 
 ::: warning Note
@@ -156,15 +160,6 @@ namespace MyModule
 
 1. Set breakpoints (F9) in Visual Studio
 2. Press `F5` to start debugging
-
-### Output Debug Information
-
-```csharp
-Debug.Print("Debug message");
-MBInformationManager.AddQuickInformation(
-    new InformationMessage("Info text")
-);
-```
 
 ### Log File Location
 

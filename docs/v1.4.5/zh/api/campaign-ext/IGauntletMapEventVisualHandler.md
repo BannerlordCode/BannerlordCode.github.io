@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `IGauntletMapEventVisualHandler`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # IGauntletMapEventVisualHandler
 
-**命名空间:** SandBox.GauntletUI.Map
-**模块:** SandBox.GauntletUI
-**类型:** 接口 interface
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.GauntletUI.Map
+**Module:** SandBox.GauntletUI
+**Type:** `class`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/IGauntletMapEventVisualHandler.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IGauntletMapEventVisualHandler` 是 `SandBox.GauntletUI.Map` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IGauntletMapEventVisualHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `IGauntletMapEventVisualHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IGauntletMapEventVisualHandler implementation = GetGauntletMapEventVisualHandlerImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

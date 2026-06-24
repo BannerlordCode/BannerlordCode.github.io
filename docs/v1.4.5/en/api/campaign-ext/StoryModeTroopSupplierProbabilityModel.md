@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `StoryModeTroopSupplierProbabilityModel`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # StoryModeTroopSupplierProbabilityModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class StoryModeTroopSupplierProbabilityModel : TroopSupplierProbabilityModel`
+**Base:** `TroopSupplierProbabilityModel`
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeTroopSupplierProbabilityModel.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StoryModeTroopSupplierProbabilityModel` is a class in the `StoryMode.GameComponents` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StoryModeTroopSupplierProbabilityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `StoryModeTroopSupplierProbabilityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
+`public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
+
+**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
+
+## Usage Example
+
+```csharp
+Game.Current.ReplaceModel<StoryModeTroopSupplierProbabilityModel>(new MyStoryModeTroopSupplierProbabilityModel());
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

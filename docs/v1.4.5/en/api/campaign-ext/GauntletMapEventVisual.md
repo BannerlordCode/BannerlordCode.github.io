@@ -1,16 +1,58 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `GauntletMapEventVisual`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # GauntletMapEventVisual
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GauntletMapEventVisual : IMapEventVisual`
+**Base:** `IMapEventVisual`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisual.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GauntletMapEventVisual` is a class in the `SandBox.GauntletUI.Map` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GauntletMapEventVisual` lives in `SandBox.GauntletUI.Map` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `MapEvent` | `public MapEvent MapEvent { get; }` |
+| `WorldPosition` | `public Vec2 WorldPosition { get; }` |
+| `IsVisible` | `public bool IsVisible { get; }` |
+
+## Key Methods
+
+### Initialize
+`public void Initialize(CampaignVec2 position, bool isVisible)`
+
+**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+
+### OnMapEventEnd
+`public void OnMapEventEnd()`
+
+**Purpose:** Called when the `map event end` event is raised.
+
+### SetVisibility
+`public void SetVisibility(bool isVisible)`
+
+**Purpose:** Sets the value or state of `visibility`.
+
+## Usage Example
+
+```csharp
+var value = new GauntletMapEventVisual();
+value.Initialize(position, false);
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

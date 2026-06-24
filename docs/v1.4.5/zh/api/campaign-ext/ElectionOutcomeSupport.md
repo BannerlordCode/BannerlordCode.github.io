@@ -1,14 +1,38 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ElectionOutcomeSupport`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # ElectionOutcomeSupport
 
 **命名空间:** TaleWorlds.CampaignSystem.Election
 **模块:** TaleWorlds.CampaignSystem
-**类型:** 枚举 enum
-**领域:** 战役系统 Campaign
+**类型:** `public enum ElectionOutcomeSupport`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`ElectionOutcomeSupport` 是 `TaleWorlds.CampaignSystem.Election` 命名空间下的一个枚举 enum。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`ElectionOutcomeSupport` 位于 `TaleWorlds.CampaignSystem.Election`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.Election` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 枚举值
+
+| Name |
+|------|
+| `LowSupport` |
+| `SlightSupport` |
+| `GoodSupport` |
+
+## 使用示例
+
+```csharp
+ElectionOutcomeSupport example = ElectionOutcomeSupport.LowSupport;
+```
 
 ## 参见
 

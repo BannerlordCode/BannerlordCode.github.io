@@ -1,16 +1,52 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MultiplayerAdminPanelToggleOptionVM`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelToggleOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MultiplayerAdminPanelToggleOptionVM : MultiplayerAdminPanelOptionBaseVM`
+**Base:** `MultiplayerAdminPanelOptionBaseVM`
+**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelToggleOptionVM.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MultiplayerAdminPanelToggleOptionVM` is a class in the `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MultiplayerAdminPanelToggleOptionVM` lives in `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsToggleOption` | `public bool IsToggleOption { get; set; }` |
+| `ToggleValue` | `public bool ToggleValue { get; set; }` |
+
+## Key Methods
+
+### UpdateValues
+`public override void UpdateValues()`
+
+**Purpose:** Updates the state or data of `values`.
+
+### ExecuteToggle
+`public void ExecuteToggle()`
+
+**Purpose:** Executes the `toggle` operation or workflow.
+
+## Usage Example
+
+```csharp
+var value = new MultiplayerAdminPanelToggleOptionVM();
+value.UpdateValues();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

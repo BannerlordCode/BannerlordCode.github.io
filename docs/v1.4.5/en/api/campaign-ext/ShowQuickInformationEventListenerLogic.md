@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ShowQuickInformationEventListenerLogic`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # ShowQuickInformationEventListenerLogic
 
 **Namespace:** SandBox.Missions.MissionEvents
 **Module:** SandBox.Missions
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class ShowQuickInformationEventListenerLogic : MissionLogic`
+**Base:** `MissionLogic`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/ShowQuickInformationEventListenerLogic.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ShowQuickInformationEventListenerLogic` is a class in the `SandBox.Missions.MissionEvents` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ShowQuickInformationEventListenerLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+
+## Mental Model
+
+Treat `ShowQuickInformationEventListenerLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+Mission.Current.AddMissionBehavior(new ShowQuickInformationEventListenerLogic());
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

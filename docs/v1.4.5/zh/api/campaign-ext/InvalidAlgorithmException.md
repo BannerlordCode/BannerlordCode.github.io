@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `InvalidAlgorithmException`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # InvalidAlgorithmException
 
-**命名空间:** Jose
-**模块:** Jose
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** Jose
+**Module:** Jose
+**Type:** `public class InvalidAlgorithmException : JoseException`
+**Base:** `JoseException`
+**File:** `Bannerlord.Source/bin/jose-jwt/Jose/InvalidAlgorithmException.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`InvalidAlgorithmException` 是 `Jose` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`InvalidAlgorithmException` 是一个异常类型，用来表达某种明确的错误条件；调用方需要决定是捕获、转换还是让它继续向上抛出。
+
+## 心智模型
+
+把 `InvalidAlgorithmException` 当作一个 Exception 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+try { CallInvalidAlgorithmException(); } catch (InvalidAlgorithmException exception) { Handle(exception); }
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

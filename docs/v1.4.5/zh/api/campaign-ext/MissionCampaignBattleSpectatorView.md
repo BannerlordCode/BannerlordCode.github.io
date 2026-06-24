@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MissionCampaignBattleSpectatorView`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # MissionCampaignBattleSpectatorView
 
-**命名空间:** SandBox.View.Missions
-**模块:** SandBox.View
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.View.Missions
+**Module:** SandBox.View
+**Type:** `public class MissionCampaignBattleSpectatorView : MissionView`
+**Base:** `MissionView`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCampaignBattleSpectatorView.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MissionCampaignBattleSpectatorView` 是 `SandBox.View.Missions` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`MissionCampaignBattleSpectatorView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `MissionCampaignBattleSpectatorView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### AfterStart
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var view = new MissionCampaignBattleSpectatorView();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

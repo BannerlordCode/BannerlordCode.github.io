@@ -1,16 +1,44 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `TownCenterMissionController`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # TownCenterMissionController
 
-**命名空间:** SandBox.Missions.MissionLogics.Towns
-**模块:** SandBox.Missions
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.Missions.MissionLogics.Towns
+**Module:** SandBox.Missions
+**Type:** `public class TownCenterMissionController : MissionLogic`
+**Base:** `MissionLogic`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/TownCenterMissionController.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`TownCenterMissionController` 是 `SandBox.Missions.MissionLogics.Towns` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`TownCenterMissionController` 是一个控制器，重点不在存储数据，而在接收输入后把系统推向下一个状态。
+
+## 心智模型
+
+把 `TownCenterMissionController` 当作一个 Controller 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### OnCreated
+`public override void OnCreated()`
+
+**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+
+### AfterStart
+`public override void AfterStart()`
+
+**用途 / Purpose:** 处理 `after start` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var controller = Mission.Current.GetMissionBehavior<TownCenterMissionController>();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

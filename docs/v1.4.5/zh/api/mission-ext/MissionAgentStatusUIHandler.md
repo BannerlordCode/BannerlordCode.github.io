@@ -1,16 +1,49 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MissionAgentStatusUIHandler`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # MissionAgentStatusUIHandler
 
-**命名空间:** TaleWorlds.MountAndBlade.View.MissionViews
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionAgentStatusUIHandler : MissionBattleUIBaseView, IInteractionInterfaceHandler`
+**Base:** `MissionBattleUIBaseView`
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentStatusUIHandler.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MissionAgentStatusUIHandler` 是 `TaleWorlds.MountAndBlade.View.MissionViews` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`MissionAgentStatusUIHandler` 是一个处理器，用于在特定事件发生时执行约定好的响应逻辑。
+
+## 心智模型
+
+把 `MissionAgentStatusUIHandler` 当作一个 Handler 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### AddInteractionMessage
+`public virtual void AddInteractionMessage(MissionInteractionItemBaseVM message)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `interaction message`。
+
+### RemoveInteractionMessage
+`public virtual void RemoveInteractionMessage(MissionInteractionItemBaseVM message)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `interaction message`。
+
+### HasInteractionMessage
+`public virtual bool HasInteractionMessage(MissionInteractionItemBaseVM message)`
+
+**用途 / Purpose:** 判断当前对象是否包含/拥有 `interaction message`。
+
+## 使用示例
+
+```csharp
+MissionAgentStatusUIHandler implementation = GetMissionAgentStatusUIHandlerImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

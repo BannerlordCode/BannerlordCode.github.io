@@ -13,6 +13,10 @@ description: v1.3.0 GauntletMovie introduction
 
 v1.3.0's Gauntlet UI system can already create custom interfaces.
 
+## Mental Model
+
+Treat `UI System Basics` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## GauntletMovie
 
 ### Basic Structure
@@ -53,3 +57,9 @@ namespace MyModule.UI
 
 - [v1.3.15 Gauntlet UI](../../../v1.3.15/en/guide/gauntlet-ui.md)
 - [API Reference](../api/)
+
+## Usage Example
+
+```csharp
+var example = new UI System Basics();
+```

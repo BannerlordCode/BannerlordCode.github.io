@@ -2,32 +2,128 @@
 **Home** → **API Index** → **Area** → `MBSubModuleBase`
 - [← Area / Back to core](./)
 - [↑ API Index](../)
-- [⭐ SDK Overview (canonical)](../../../../v1.3.15/en/architecture/sdk-overview)
+- [🏠 Home v1.3.0](../../)
+- [⭐ Version Architecture](../../architecture/)
 <!-- END BREADCRUMB -->
-# MBSubModuleBase (v1.3.0)
+# MBSubModuleBase
 
-**Namespace**: TaleWorlds.MountAndBlade
-**Module**: TaleWorlds.MountAndBlade
-**Version**: v1.3.0
-**Type**: Abstract class (`public abstract class`)
-
-> v1.3.0 documentation for `MBSubModuleBase`. For the full API reference (properties, methods, examples) see the canonical version:
-> [v1.3.15 `MBSubModuleBase`](../../../../v1.3.15/en/api/core/MBSubModuleBase)
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class MBSubModuleBase`
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`
 
 ## Overview
 
-`MBSubModuleBase` is the main entry point for every mod. When you declare a SubModule in `SubModule.xml`, you must create a class inheriting from `MBSubModuleBase` to respond to game events. In v1.3.0 the class is declared `public abstract class` and defines about 29 `virtual` lifecycle hooks (such as `OnSubModuleLoad`, `OnGameStart`, `OnMissionBehaviorInitialize`, `OnApplicationTick`); all hooks ship with default empty implementations and mods override only what they need.
+`MBSubModuleBase` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
-## v1.3.0 Notes
+## Mental Model
 
-- Abstract class in the `TaleWorlds.MountAndBlade` namespace, source file `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`.
-- Provides about 29 virtual method hooks covering module load, game start/end, campaign/mission initialization, and per-frame tick lifecycle points.
-- Key method signatures as they exist in v1.3.0: `protected internal virtual void OnSubModuleLoad()`, `protected internal virtual void OnGameStart(Game, IGameStarter)`, `public virtual void OnCampaignStart(Game, object)`, `public virtual void OnMissionBehaviorInitialize(Mission)`, `protected internal virtual void OnApplicationTick(float dt)`, `public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`, `public virtual void OnGameLoaded(Game, object)`.
-- Compared to v1.3.15: missing some later-added lifecycle hooks; total method count is slightly lower (about 29 vs more in canonical).
-- No `AgentComponent` system integration (introduced later in v1.3.15).
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### OnConfigChanged
+`public virtual void OnConfigChanged()`
+
+**Purpose:** Called when the `config changed` event is raised.
+
+### OnGameLoaded
+`public virtual void OnGameLoaded(Game game, object initializerObject)`
+
+**Purpose:** Called when the `game loaded` event is raised.
+
+### OnAfterGameLoaded
+`public virtual void OnAfterGameLoaded(Game game)`
+
+**Purpose:** Called when the `after game loaded` event is raised.
+
+### OnNewGameCreated
+`public virtual void OnNewGameCreated(Game game, object initializerObject)`
+
+**Purpose:** Called when the `new game created` event is raised.
+
+### BeginGameStart
+`public virtual void BeginGameStart(Game game)`
+
+**Purpose:** Handles logic related to `begin game start`.
+
+### OnCampaignStart
+`public virtual void OnCampaignStart(Game game, object starterObject)`
+
+**Purpose:** Called when the `campaign start` event is raised.
+
+### RegisterSubModuleObjects
+`public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`
+
+**Purpose:** Handles logic related to `register sub module objects`.
+
+### AfterRegisterSubModuleObjects
+`public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
+
+**Purpose:** Handles logic related to `after register sub module objects`.
+
+### OnMultiplayerGameStart
+`public virtual void OnMultiplayerGameStart(Game game, object starterObject)`
+
+**Purpose:** Called when the `multiplayer game start` event is raised.
+
+### OnGameInitializationFinished
+`public virtual void OnGameInitializationFinished(Game game)`
+
+**Purpose:** Called when the `game initialization finished` event is raised.
+
+### OnAfterGameInitializationFinished
+`public virtual void OnAfterGameInitializationFinished(Game game, object starterObject)`
+
+**Purpose:** Called when the `after game initialization finished` event is raised.
+
+### DoLoading
+`public virtual bool DoLoading(Game game)`
+
+**Purpose:** Handles logic related to `do loading`.
+
+### OnGameEnd
+`public virtual void OnGameEnd(Game game)`
+
+**Purpose:** Called when the `game end` event is raised.
+
+### OnMissionBehaviorInitialize
+`public virtual void OnMissionBehaviorInitialize(Mission mission)`
+
+**Purpose:** Called when the `mission behavior initialize` event is raised.
+
+### OnBeforeMissionBehaviorInitialize
+`public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)`
+
+**Purpose:** Called when the `before mission behavior initialize` event is raised.
+
+### OnInitialState
+`public virtual void OnInitialState()`
+
+**Purpose:** Called when the `initial state` event is raised.
+
+### OnSubModuleActivated
+`public virtual void OnSubModuleActivated()`
+
+**Purpose:** Called when the `sub module activated` event is raised.
+
+### OnSubModuleDeactivated
+`public virtual void OnSubModuleDeactivated()`
+
+**Purpose:** Called when the `sub module deactivated` event is raised.
+
+### InitializeSubModuleGameObjects
+`public virtual void InitializeSubModuleGameObjects(Game game)`
+
+**Purpose:** Initializes the state, resources, or bindings for `sub module game objects`.
+
+## Usage Example
+
+```csharp
+var implementation = new CustomMBSubModuleBase();
+```
 
 ## See Also
 
-- [v1.3.15 full documentation](../../../../v1.3.15/en/api/core/MBSubModuleBase)
-- [Area API index](./)
-- [v1.3.0 API overview](../)
+- [Complete Class Catalog](../catalog)

@@ -1,16 +1,44 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ChatLogMessageManager`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # ChatLogMessageManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class ChatLogMessageManager : MessageManagerBase`
+**Base:** `MessageManagerBase`
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/ChatLogMessageManager.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ChatLogMessageManager` is a class in the `TaleWorlds.MountAndBlade.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ChatLogMessageManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+
+## Mental Model
+
+Treat `ChatLogMessageManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### ChatLineData
+`public struct ChatLineData(string text, uint color)`
+
+**Purpose:** Handles logic related to `chat line data`.
+
+### Update
+`public void Update()`
+
+**Purpose:** Updates the state or data of `update`.
+
+## Usage Example
+
+```csharp
+var manager = ChatLogMessageManager.Current;
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

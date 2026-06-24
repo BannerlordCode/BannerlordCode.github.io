@@ -1,16 +1,86 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `RuralNotableInnAndOutIssueBehavior`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # RuralNotableInnAndOutIssueBehavior
 
 **Namespace:** SandBox.Issues
 **Module:** SandBox.Issues
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class RuralNotableInnAndOutIssueBehavior : CampaignBehaviorBase`
+**Base:** `CampaignBehaviorBase`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Issues/RuralNotableInnAndOutIssueBehavior.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `RuralNotableInnAndOutIssueBehavior` is a class in the `SandBox.Issues` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`RuralNotableInnAndOutIssueBehavior` lives in `SandBox.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `SandBox.Issues` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Description` | `public override TextObject Description { get; }` |
+| `IssueBriefByIssueGiver` | `public override TextObject IssueBriefByIssueGiver { get; }` |
+| `IssueQuestSolutionExplanationByIssueGiver` | `public override TextObject IssueQuestSolutionExplanationByIssueGiver { get; }` |
+| `IssueAlternativeSolutionExplanationByIssueGiver` | `public override TextObject IssueAlternativeSolutionExplanationByIssueGiver { get; }` |
+| `IssueAlternativeSolutionAcceptByPlayer` | `public override TextObject IssueAlternativeSolutionAcceptByPlayer { get; }` |
+| `IssueAlternativeSolutionResponseByIssueGiver` | `public override TextObject IssueAlternativeSolutionResponseByIssueGiver { get; }` |
+
+## Key Methods
+
+### AlternativeSolutionCondition
+`public override bool AlternativeSolutionCondition(out TextObject explanation)`
+
+**Purpose:** Handles logic related to `alternative solution condition`.
+
+### DoTroopsSatisfyAlternativeSolution
+`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
+
+**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+
+### GetFrequency
+`public override IssueFrequency GetFrequency()`
+
+**Purpose:** Gets the current value of `frequency`.
+
+### IssueStayAliveConditions
+`public override bool IssueStayAliveConditions()`
+
+**Purpose:** Handles logic related to `issue stay alive conditions`.
+
+### IsLocationTrackedByQuest
+`public override IssueQuestFlags IsLocationTrackedByQuest(Location location)`
+
+**Purpose:** Handles logic related to `is location tracked by quest`.
+
+### RegisterEvents
+`public override void RegisterEvents()`
+
+**Purpose:** Handles logic related to `register events`.
+
+### SyncData
+`public override void SyncData(IDataStore dataStore)`
+
+**Purpose:** Handles logic related to `sync data`.
+
+### OnCheckForIssue
+`public void OnCheckForIssue(Hero hero)`
+
+**Purpose:** Called when the `check for issue` event is raised.
+
+## Usage Example
+
+```csharp
+var value = new RuralNotableInnAndOutIssueBehavior();
+value.AlternativeSolutionCondition(explanation);
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

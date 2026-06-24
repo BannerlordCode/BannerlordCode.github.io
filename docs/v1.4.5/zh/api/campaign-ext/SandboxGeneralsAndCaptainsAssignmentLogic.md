@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SandboxGeneralsAndCaptainsAssignmentLogic`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # SandboxGeneralsAndCaptainsAssignmentLogic
 
-**命名空间:** SandBox.Missions.MissionLogics
-**模块:** SandBox.Missions
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.Missions.MissionLogics
+**Module:** SandBox.Missions
+**Type:** `public class SandboxGeneralsAndCaptainsAssignmentLogic : GeneralsAndCaptainsAssignmentLogic`
+**Base:** `GeneralsAndCaptainsAssignmentLogic`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandboxGeneralsAndCaptainsAssignmentLogic.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SandboxGeneralsAndCaptainsAssignmentLogic` 是 `SandBox.Missions.MissionLogics` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`SandboxGeneralsAndCaptainsAssignmentLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `SandboxGeneralsAndCaptainsAssignmentLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+Mission.Current.AddMissionBehavior(new SandboxGeneralsAndCaptainsAssignmentLogic());
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

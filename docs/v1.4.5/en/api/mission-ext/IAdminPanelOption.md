@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `IAdminPanelOption`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # IAdminPanelOption
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Admin
 **Module:** TaleWorlds.MountAndBlade
-**Type:** interface
-**Area:** Mount & Blade
+**Type:** `class`
+**Base:** none
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelOption.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `IAdminPanelOption` is a interface in the `TaleWorlds.MountAndBlade.Multiplayer.Admin` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`IAdminPanelOption` lives in `TaleWorlds.MountAndBlade.Multiplayer.Admin` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+IAdminPanelOption implementation = GetAdminPanelOptionImplementation();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

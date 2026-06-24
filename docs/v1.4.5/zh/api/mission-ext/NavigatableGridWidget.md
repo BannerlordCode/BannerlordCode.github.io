@@ -1,0 +1,47 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `NavigatableGridWidget`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# NavigatableGridWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class NavigatableGridWidget : GridWidget`
+**Base:** `GridWidget`
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigatableGridWidget.cs`
+
+## 概述
+
+`NavigatableGridWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 心智模型
+
+把 `NavigatableGridWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `ParentPanel` | `public ScrollablePanel ParentPanel { get; set; }` |
+| `AutoScrollTopOffset` | `public int AutoScrollTopOffset { get; set; }` |
+| `AutoScrollBottomOffset` | `public int AutoScrollBottomOffset { get; set; }` |
+| `AutoScrollLeftOffset` | `public int AutoScrollLeftOffset { get; set; }` |
+| `AutoScrollRightOffset` | `public int AutoScrollRightOffset { get; set; }` |
+| `MinIndex` | `public int MinIndex { get; set; }` |
+| `MaxIndex` | `public int MaxIndex { get; set; }` |
+| `StepSize` | `public int StepSize { get; set; }` |
+| `UseSelfIndexForMinimum` | `public bool UseSelfIndexForMinimum { get; set; }` |
+| `EmptyNavigationWidget` | `public Widget EmptyNavigationWidget { get; set; }` |
+
+## 使用示例
+
+```csharp
+var widget = new NavigatableGridWidget(context);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

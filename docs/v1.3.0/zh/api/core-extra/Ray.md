@@ -1,0 +1,49 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `Ray`
+- [← 本领域 / 返回 core-extra](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.3.0](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# Ray
+
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public struct Ray`
+**Base:** 无
+**File:** `TaleWorlds.Library/Ray.cs`
+
+## 概述
+
+`Ray` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Origin` | `public Vec3 Origin { get; }` |
+| `Direction` | `public Vec3 Direction { get; }` |
+| `MaxDistance` | `public float MaxDistance { get; }` |
+| `EndPoint` | `public Vec3 EndPoint { get; }` |
+
+## 主要方法
+
+### Reset
+`public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
+
+**用途 / Purpose:** 将 `reset` 重置为初始状态。
+
+## 使用示例
+
+```csharp
+var value = new Ray();
+value.Reset(origin, direction, 0);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

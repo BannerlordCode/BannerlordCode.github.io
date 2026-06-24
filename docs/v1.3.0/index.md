@@ -5,6 +5,10 @@ description: Bannerlord 模块编辑器 v1.3.0 完整文档 / Complete documenta
 
 # Bannerlord v1.3.0 / 骑砍2 v1.3.0
 
+## Mental Model
+
+Treat `Bannerlord v1.3.0` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 欢迎来到 Bannerlord v1.3.0 模块编辑文档。
 
 Welcome to the Bannerlord v1.3.0 modding documentation.
@@ -23,3 +27,9 @@ Welcome to the Bannerlord v1.3.0 modding documentation.
 - **发布日期**: 2023
 - **备注**: v1.3.0 是 v1.3.15 之前的版本
 
+
+## Usage Example
+
+```csharp
+var example = new Bannerlord v1.3.0();
+```

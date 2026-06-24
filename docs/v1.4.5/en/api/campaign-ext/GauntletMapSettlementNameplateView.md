@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `GauntletMapSettlementNameplateView`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # GauntletMapSettlementNameplateView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class GauntletMapSettlementNameplateView : MapView, IGauntletMapEventVisualHandler`
+**Base:** `MapView`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapSettlementNameplateView.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `GauntletMapSettlementNameplateView` is a class in the `SandBox.GauntletUI.Map` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`GauntletMapSettlementNameplateView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `GauntletMapSettlementNameplateView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+var view = new GauntletMapSettlementNameplateView();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

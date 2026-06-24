@@ -5,6 +5,10 @@ description: Complete English documentation for Bannerlord modding SDK v1.3.0
 
 # Bannerlord v1.3.0
 
+## Mental Model
+
+Treat `Bannerlord v1.3.0` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Welcome to the Bannerlord v1.3.0 modding documentation (English).
 
 ## Navigation
@@ -27,3 +31,9 @@ Welcome to the Bannerlord v1.3.0 modding documentation (English).
 |----------|-------------|
 | [TaleWorlds.MountAndBlade](./api/TaleWorlds.MountAndBlade/) | Core game classes |
 | [Native](./native/) | NativeObject, INativeArray |
+
+## Usage Example
+
+```csharp
+var example = new Bannerlord v1.3.0();
+```

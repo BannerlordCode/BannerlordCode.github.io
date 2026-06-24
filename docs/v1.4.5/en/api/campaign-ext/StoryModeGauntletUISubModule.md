@@ -1,16 +1,45 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `StoryModeGauntletUISubModule`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # StoryModeGauntletUISubModule
 
 **Namespace:** StoryMode.GauntletUI
 **Module:** StoryMode.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class StoryModeGauntletUISubModule : MBSubModuleBase`
+**Base:** `MBSubModuleBase`
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI/StoryModeGauntletUISubModule.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StoryModeGauntletUISubModule` is a class in the `StoryMode.GauntletUI` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StoryModeGauntletUISubModule` lives in `StoryMode.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `StoryMode.GauntletUI` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### OnGameInitializationFinished
+`public override void OnGameInitializationFinished(Game game)`
+
+**Purpose:** Called when the `game initialization finished` event is raised.
+
+### OnGameEnd
+`public override void OnGameEnd(Game game)`
+
+**Purpose:** Called when the `game end` event is raised.
+
+## Usage Example
+
+```csharp
+var value = new StoryModeGauntletUISubModule();
+value.OnGameInitializationFinished(game);
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

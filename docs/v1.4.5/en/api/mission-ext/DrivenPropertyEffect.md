@@ -1,16 +1,45 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `DrivenPropertyEffect`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # DrivenPropertyEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class DrivenPropertyEffect : MPPerkEffect`
+**Base:** `MPPerkEffect`
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DrivenPropertyEffect.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `DrivenPropertyEffect` is a class in the `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`DrivenPropertyEffect` lives in `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### OnUpdate
+`public override void OnUpdate(Agent agent, bool newState)`
+
+**Purpose:** Called when the `update` event is raised.
+
+### GetDrivenPropertyBonus
+`public override float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
+
+**Purpose:** Gets the current value of `driven property bonus`.
+
+## Usage Example
+
+```csharp
+var value = new DrivenPropertyEffect();
+value.OnUpdate(agent, false);
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

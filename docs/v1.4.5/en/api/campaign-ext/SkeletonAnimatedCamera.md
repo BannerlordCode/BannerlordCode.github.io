@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `SkeletonAnimatedCamera`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # SkeletonAnimatedCamera
 
 **Namespace:** SandBox.Objects.Cinematics
 **Module:** SandBox.Objects
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class SkeletonAnimatedCamera : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Cinematics/SkeletonAnimatedCamera.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `SkeletonAnimatedCamera` is a class in the `SandBox.Objects.Cinematics` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`SkeletonAnimatedCamera` lives in `SandBox.Objects.Cinematics` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `SandBox.Objects.Cinematics` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+var value = new SkeletonAnimatedCamera();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

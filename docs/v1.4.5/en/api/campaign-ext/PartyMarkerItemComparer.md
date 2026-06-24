@@ -1,14 +1,56 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `PartyMarkerItemComparer`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # PartyMarkerItemComparer
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class PartyMarkerItemComparer : IComparer<SettlementNameplatePartyMarkerItemVM>`
+**Base:** `IComparer<SettlementNameplatePartyMarkerItemVM>`
+**Area:** campaign-ext
 
 ## Overview
 
-> This is an auto-generated stub. `PartyMarkerItemComparer` is a class in the `SandBox.ViewModelCollection.Nameplate` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`PartyMarkerItemComparer` lives in `SandBox.ViewModelCollection.Nameplate`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+
+## Mental Model
+
+Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `PartiesInSettlement` | `public MBBindingList<SettlementNameplatePartyMarkerItemVM> PartiesInSettlement { get; set; }` |
+
+## Key Methods
+
+### Compare
+`public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
+
+**Purpose:** Handles logic related to `compare`.
+
+### RegisterEvents
+`public void RegisterEvents()`
+
+**Purpose:** Handles logic related to `register events`.
+
+### UnloadEvents
+`public void UnloadEvents()`
+
+**Purpose:** Handles logic related to `unload events`.
+
+## Usage Example
+
+```csharp
+// First obtain a PartyMarkerItemComparer instance from game state, then call one of its public methods
+var value = new PartyMarkerItemComparer();
+value.Compare(x, y);
+```
 
 ## See Also
 

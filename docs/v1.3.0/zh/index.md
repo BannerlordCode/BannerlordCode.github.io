@@ -5,6 +5,10 @@ description: Bannerlord 模块编辑器 v1.3.0 完整中文文档 / Complete Chi
 
 # Bannerlord v1.3.0 / 骑砍2 v1.3.0
 
+## 心智模型
+
+先把 `Bannerlord v1.3.0` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 欢迎来到 Bannerlord v1.3.0 中文模块编辑文档。
 
 Welcome to the Bannerlord v1.3.0 modding documentation (Chinese).
@@ -29,3 +33,9 @@ Welcome to the Bannerlord v1.3.0 modding documentation (Chinese).
 |------|------|
 | [TaleWorlds.MountAndBlade](./api/TaleWorlds.MountAndBlade/) | 核心游戏类 |
 | [Native 原生](./native/) | NativeObject, INativeArray |
+
+## 使用示例
+
+```csharp
+var example = new Bannerlord v1.3.0();
+```

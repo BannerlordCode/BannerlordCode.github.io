@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `StealthTutorialView`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # StealthTutorialView
 
 **Namespace:** StoryMode.View.Missions
 **Module:** StoryMode.View
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class StealthTutorialView : MissionView`
+**Base:** `MissionView`
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.View/StoryMode.View.Missions/StealthTutorialView.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `StealthTutorialView` is a class in the `StoryMode.View.Missions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`StealthTutorialView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `StealthTutorialView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### AfterStart
+`public override void AfterStart()`
+
+**Purpose:** Handles logic related to `after start`.
+
+## Usage Example
+
+```csharp
+var view = new StealthTutorialView();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

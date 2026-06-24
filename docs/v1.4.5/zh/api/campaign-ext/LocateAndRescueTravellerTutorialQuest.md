@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `LocateAndRescueTravellerTutorialQuest`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # LocateAndRescueTravellerTutorialQuest
 
-**命名空间:** StoryMode.Quests.TutorialPhase
-**模块:** StoryMode.Quests
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** StoryMode.Quests.TutorialPhase
+**Module:** StoryMode.Quests
+**Type:** `public class LocateAndRescueTravellerTutorialQuest : StoryModeQuestBase`
+**Base:** `StoryModeQuestBase`
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`LocateAndRescueTravellerTutorialQuest` 是 `StoryMode.Quests.TutorialPhase` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`LocateAndRescueTravellerTutorialQuest` 位于 `StoryMode.Quests.TutorialPhase`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `StoryMode.Quests.TutorialPhase` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 使用示例
+
+```csharp
+var value = new LocateAndRescueTravellerTutorialQuest();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

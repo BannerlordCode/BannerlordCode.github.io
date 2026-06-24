@@ -5,6 +5,10 @@ description: v1.3.0 native P/Invoke interface
 
 # Native Interface (v1.3.0)
 
+## Mental Model
+
+Treat `Native Interface` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 Native interface docs for v1.3.0 are brief. For the full P/Invoke interface and type references (`NativeObject`, `INativeArray`, etc.) see v1.3.15:
 
 - [v1.3.15 Native P/Invoke](../../../v1.3.15/en/native/)

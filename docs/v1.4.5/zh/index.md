@@ -5,8 +5,12 @@ description: Bannerlord v1.4.5 模块编辑文档
 
 # Bannerlord v1.4.5
 
+## 心智模型
+
+先把 `Bannerlord v1.4.5` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 ::: tip 源码已就绪 / Source now available
-v1.4.5 反编译源码已整理在 `bannerlord-1.4.5/Bannerlord.Source/`：玩法模块（SandBox / StoryMode / Multiplayer / CustomBattle / FastMode / BirthAndDeath / Native 扩展）共 2361 个 .cs 文件 / 2523 个类型；核心 `TaleWorlds.*` 程序集以 DLL 形式位于 `bin/`。完整类参考将逐步添加。
+v1.4.5 反编译源码已整理在 `bannerlord-1.4.5/Bannerlord.Source/`：玩法模块（SandBox / StoryMode / Multiplayer / CustomBattle / FastMode / BirthAndDeath / Native 扩展）共 2361 个 .cs 文件 / 2523 个类型；核心 `TaleWorlds.*` 程序集以 DLL 形式位于 `bin/`。这页是入口，先去 API 目录，再沿类页面 breadcrumb 返回。
 :::
 
 ## 模块清单
@@ -35,6 +39,19 @@ bannerlord-1.4.5/Bannerlord.Source/
 
 ## 导航
 
+- [v1.4.5 API 目录](./api/catalog)
 - [v1.3.15 文档（推荐）](../../v1.3.15/zh/)
 - [v1.3.0 文档](../../v1.3.0/zh/)
 - [English](../en/)
+
+## 使用方式
+
+1. 先从本页确认版本和模块边界。
+2. 再进入 [API 目录](./api/catalog) 选择具体子系统。
+3. 若要比较迁移差异，再跳到 [跨版本类对比](../../versions/)。
+
+## 使用示例
+
+```csharp
+var example = new Bannerlord v1.4.5();
+```

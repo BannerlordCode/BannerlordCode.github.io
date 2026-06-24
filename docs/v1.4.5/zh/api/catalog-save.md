@@ -5,7 +5,11 @@ sidebar: auto
 
 # 存档系统 Save System 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **56** 个类型，其中 **56** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `存档系统 Save System 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **56** 个类型，其中 **55** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -14,7 +18,7 @@ sidebar: auto
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | C | [AsyncFileSaveDriver](/v1.3.15/zh/api/save-system/AsyncFileSaveDriver.md) | 🔗 |
-| E | [ContainerType](/v1.3.15/zh/api/save-system/ContainerType.md) | 🔗 |
+| E | [ContainerType](/v1.3.15/zh/api/campaign-ext/ContainerType.md) | 🔗 |
 | S | [EntryId](/v1.3.15/zh/api/save-system/EntryId.md) | 🔗 |
 | C | [FileDriver](/v1.3.15/zh/api/save-system/FileDriver.md) | 🔗 |
 | S | [FolderId](/v1.3.15/zh/api/save-system/FolderId.md) | 🔗 |
@@ -27,7 +31,7 @@ sidebar: auto
 | C | [LoadData](/v1.3.15/zh/api/save-system/LoadData.md) | 🔗 |
 | C | [LoadInitializationCallback](/v1.3.15/zh/api/save-system/LoadInitializationCallback.md) | 🔗 |
 | C | [MetaData](/v1.3.15/zh/api/save-system/MetaData.md) | 🔗 |
-| C | [MetaDataExtensions](/v1.3.15/zh/api/save-system/MetaDataExtensions.md) | 🔗 |
+| C | MetaDataExtensions | — |
 | C | [SaveableBasicTypeDefiner](/v1.3.15/zh/api/save-system/SaveableBasicTypeDefiner.md) | 🔗 |
 | C | [SaveableFieldAttribute](/v1.3.15/zh/api/save-system/SaveableFieldAttribute.md) | 🔗 |
 | C | [SaveableInterfaceAttribute](/v1.3.15/zh/api/save-system/SaveableInterfaceAttribute.md) | 🔗 |

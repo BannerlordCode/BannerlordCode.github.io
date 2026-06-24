@@ -13,6 +13,10 @@ description: v1.3.0 MobileParty, Kingdom introduction
 
 Campaign is Bannerlord's world map/macro-level system. In v1.3.0, the Campaign system is already quite complete.
 
+## Mental Model
+
+Treat `Campaign System Basics` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## CampaignBehavior
 
 ### Basic Structure
@@ -88,3 +92,9 @@ Town nearestTown = Settlement.FindNearestTown(position);
 
 - [v1.3.15 Campaign System](../../../v1.3.15/en/guide/campaign-system.md)
 - [API Reference](../api/campaign/)
+
+## Usage Example
+
+```csharp
+var example = new Campaign System Basics();
+```

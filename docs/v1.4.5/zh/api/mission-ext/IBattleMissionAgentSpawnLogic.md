@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `IBattleMissionAgentSpawnLogic`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # IBattleMissionAgentSpawnLogic
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 接口 interface
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `class`
+**Base:** 无
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IBattleMissionAgentSpawnLogic.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`IBattleMissionAgentSpawnLogic` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个接口 interface。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`IBattleMissionAgentSpawnLogic` 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。
+
+## 心智模型
+
+把 `IBattleMissionAgentSpawnLogic` 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 使用示例
+
+```csharp
+IBattleMissionAgentSpawnLogic implementation = GetBattleMissionAgentSpawnLogicImplementation();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

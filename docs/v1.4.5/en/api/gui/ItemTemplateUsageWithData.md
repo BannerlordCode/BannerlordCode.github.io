@@ -1,0 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ItemTemplateUsageWithData`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# ItemTemplateUsageWithData
+
+**Namespace:** TaleWorlds.GauntletUI.Data
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class ItemTemplateUsageWithData`
+**Base:** none
+**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/ItemTemplateUsageWithData.cs`
+
+## Overview
+
+`ItemTemplateUsageWithData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+
+## Mental Model
+
+Treat `ItemTemplateUsageWithData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `GivenParameters` | `public Dictionary<string, WidgetAttributeTemplate> GivenParameters { get; }` |
+| `ItemTemplateUsage` | `public ItemTemplateUsage ItemTemplateUsage { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new ItemTemplateUsageWithData();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

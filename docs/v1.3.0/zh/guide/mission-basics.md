@@ -5,6 +5,10 @@ description: v1.3.0 Mission 和 MissionBehavior 入门 / v1.3.0 Mission and Miss
 
 # Mission 系统基础 / Mission System Basics
 
+## 心智模型
+
+先把 `Mission 系统基础` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **v1.3.0 版本**
 
 > 注意：本页面介绍 v1.3.0 的 Mission 系统基础。v1.3.15 有更多功能和 API。如需完整内容，请查看 [v1.3.15 Mission 系统](../../../v1.3.15/zh/guide/mission-system.md)。
@@ -79,3 +83,9 @@ float health = agent.Health;
 
 - [v1.3.15 Mission 系统](../../../v1.3.15/zh/guide/mission-system.md)
 - [API 参考](../api/mission/)
+
+## 使用示例
+
+```csharp
+var example = new Mission 系统基础();
+```

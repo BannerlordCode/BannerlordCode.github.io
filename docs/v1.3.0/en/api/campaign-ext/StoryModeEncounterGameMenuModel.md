@@ -1,0 +1,59 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `StoryModeEncounterGameMenuModel`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.0](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# StoryModeEncounterGameMenuModel
+
+**Namespace:** StoryMode.GameComponents
+**Module:** StoryMode.GameComponents
+**Type:** `public class StoryModeEncounterGameMenuModel : EncounterGameMenuModel`
+**Base:** `EncounterGameMenuModel`
+**File:** `StoryMode/GameComponents/StoryModeEncounterGameMenuModel.cs`
+
+## Overview
+
+`StoryModeEncounterGameMenuModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `StoryModeEncounterGameMenuModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### GetEncounterMenu
+`public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
+
+**Purpose:** Gets the current value of `encounter menu`.
+
+### GetGenericStateMenu
+`public override string GetGenericStateMenu()`
+
+**Purpose:** Gets the current value of `generic state menu`.
+
+### GetNewPartyJoinMenu
+`public override string GetNewPartyJoinMenu(MobileParty newParty)`
+
+**Purpose:** Gets the current value of `new party join menu`.
+
+### GetRaidCompleteMenu
+`public override string GetRaidCompleteMenu()`
+
+**Purpose:** Gets the current value of `raid complete menu`.
+
+### IsPlunderMenu
+`public override bool IsPlunderMenu(string menuId)`
+
+**Purpose:** Handles logic related to `is plunder menu`.
+
+## Usage Example
+
+```csharp
+StoryModeEncounterGameMenuModel example = StoryModeEncounterGameMenuModel.Value;
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

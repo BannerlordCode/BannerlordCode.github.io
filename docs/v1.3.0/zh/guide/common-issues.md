@@ -5,6 +5,10 @@ description: v1.3.0 常见错误和解决方案 / v1.3.0 common errors and solut
 
 # 常见问题 / Common Issues
 
+## 心智模型
+
+先把 `常见问题` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 **v1.3.0 版本**
 
 ## 模块问题
@@ -58,3 +62,9 @@ v1.3.0 的代码在 v1.3.15 可能需要修改：
 
 - [版本差异](./index.md#版本差异)
 - [v1.3.15 故障排除](../../../v1.3.15/zh/guide/troubleshooting.md)
+
+## 使用示例
+
+```csharp
+var example = new 常见问题();
+```

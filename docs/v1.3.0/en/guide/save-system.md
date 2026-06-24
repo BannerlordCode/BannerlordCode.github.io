@@ -11,6 +11,10 @@ description: v1.3.0 save implementation
 
 v1.3.0 uses `IDataStore` interface for saving, without a separate TaleWorlds.SaveSystem module.
 
+## Mental Model
+
+Treat `Save System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## IDataStore Usage
 
 ### Basic Structure

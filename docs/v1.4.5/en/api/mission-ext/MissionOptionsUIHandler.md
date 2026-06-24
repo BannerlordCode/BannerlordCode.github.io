@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MissionOptionsUIHandler`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # MissionOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionOptionsUIHandler : MissionView`
+**Base:** `MissionView`
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionOptionsUIHandler.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionOptionsUIHandler` is a class in the `TaleWorlds.MountAndBlade.View.MissionViews` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionOptionsUIHandler` is a handler used to run agreed response logic when a specific event occurs.
+
+## Mental Model
+
+Treat `MissionOptionsUIHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+Mission.Current.AddMissionBehavior(new MissionOptionsUIHandler());
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

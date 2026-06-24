@@ -13,6 +13,10 @@ description: v1.3.0 Mission and MissionBehavior introduction
 
 Mission is the core of Bannerlord's combat system. In v1.3.0, the Mission system is relatively simple.
 
+## Mental Model
+
+Treat `Mission System Basics` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 ## MissionBehavior
 
 ### Basic Structure
@@ -77,3 +81,9 @@ float health = agent.Health;
 
 - [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system.md)
 - [API Reference](../api/mission/)
+
+## Usage Example
+
+```csharp
+var example = new Mission System Basics();
+```

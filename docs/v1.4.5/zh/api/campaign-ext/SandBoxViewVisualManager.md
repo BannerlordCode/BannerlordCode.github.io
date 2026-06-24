@@ -1,16 +1,69 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SandBoxViewVisualManager`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # SandBoxViewVisualManager
 
-**命名空间:** SandBox.View
-**模块:** SandBox.View
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.View
+**Module:** SandBox.View
+**Type:** `public class SandBoxViewVisualManager`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewVisualManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SandBoxViewVisualManager` 是 `SandBox.View` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`SandBoxViewVisualManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `SandBoxViewVisualManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### VisualTick
+`public static void VisualTick(MapScreen screen, float realDt, float dt)`
+
+**用途 / Purpose:** 处理 `visual tick` 相关逻辑。
+
+### OnTick
+`public static void OnTick(float realDt, float dt)`
+
+**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+
+### ClearVisualMemory
+`public static void ClearVisualMemory()`
+
+**用途 / Purpose:** 处理 `clear visual memory` 相关逻辑。
+
+### OnFrameTick
+`public static void OnFrameTick(float dt)`
+
+**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+
+### OnMouseClick
+`public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
+
+**用途 / Purpose:** 当 `mouse click` 事件触发时调用此方法。
+
+### OnGameLoadFinished
+`public static void OnGameLoadFinished()`
+
+**用途 / Purpose:** 当 `game load finished` 事件触发时调用此方法。
+
+### GetComponents
+`public MBList<CampaignEntityVisualComponent> GetComponents()`
+
+**用途 / Purpose:** 获取 `components` 的当前值。
+
+## 使用示例
+
+```csharp
+var manager = SandBoxViewVisualManager.Current;
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

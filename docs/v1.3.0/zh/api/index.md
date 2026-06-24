@@ -5,6 +5,10 @@ description: Bannerlord SDK API 完整参考 / Complete API reference for Banner
 
 # API 参考 / API Reference
 
+## 心智模型
+
+先把 `API 参考` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 v1.3.0 版本的完整 API 参考文档。
 
 Complete API reference for v1.3.0.

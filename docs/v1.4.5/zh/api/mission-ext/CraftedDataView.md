@@ -1,16 +1,67 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `CraftedDataView`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # CraftedDataView
 
-**命名空间:** TaleWorlds.MountAndBlade.View
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.View
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class CraftedDataView`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataView.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`CraftedDataView` 是 `TaleWorlds.MountAndBlade.View` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`CraftedDataView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `CraftedDataView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `CraftedData` | `public WeaponDesign CraftedData { get; }` |
+| `WeaponMesh` | `public MetaMesh WeaponMesh { get; }` |
+| `HolsterMeshWithWeapon` | `public MetaMesh HolsterMeshWithWeapon { get; }` |
+
+## 主要方法
+
+### OnMeshBuiltDelegate
+`public delegate void OnMeshBuiltDelegate(WeaponDesign weaponDesign, ref MetaMesh builtMesh)`
+
+**用途 / Purpose:** 当 `mesh built delegate` 事件触发时调用此方法。
+
+### Clear
+`public void Clear()`
+
+**用途 / Purpose:** 处理 `clear` 相关逻辑。
+
+### BuildWeaponMesh
+`public static MetaMesh BuildWeaponMesh(WeaponDesign craftedData, float pivotDiff, bool pieceTypeHidingEnabledForHolster, bool batchAllMeshes)`
+
+**用途 / Purpose:** 处理 `build weapon mesh` 相关逻辑。
+
+### BuildHolsterMesh
+`public static MetaMesh BuildHolsterMesh(WeaponDesign craftedData)`
+
+**用途 / Purpose:** 处理 `build holster mesh` 相关逻辑。
+
+### BuildHolsterMeshWithWeapon
+`public static MetaMesh BuildHolsterMeshWithWeapon(WeaponDesign craftedData, float pivotDiff, bool batchAllMeshes)`
+
+**用途 / Purpose:** 处理 `build holster mesh with weapon` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var view = new CraftedDataView();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

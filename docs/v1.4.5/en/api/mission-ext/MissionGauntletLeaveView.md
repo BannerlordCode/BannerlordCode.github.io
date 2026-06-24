@@ -1,16 +1,59 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MissionGauntletLeaveView`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # MissionGauntletLeaveView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class MissionGauntletLeaveView : MissionView`
+**Base:** `MissionView`
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletLeaveView.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionGauntletLeaveView` is a class in the `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionGauntletLeaveView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `MissionGauntletLeaveView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### OnMissionScreenInitialize
+`public override void OnMissionScreenInitialize()`
+
+**Purpose:** Called when the `mission screen initialize` event is raised.
+
+### OnMissionScreenFinalize
+`public override void OnMissionScreenFinalize()`
+
+**Purpose:** Called when the `mission screen finalize` event is raised.
+
+### OnMissionTick
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Called when the `mission tick` event is raised.
+
+### OnPhotoModeActivated
+`public override void OnPhotoModeActivated()`
+
+**Purpose:** Called when the `photo mode activated` event is raised.
+
+### OnPhotoModeDeactivated
+`public override void OnPhotoModeDeactivated()`
+
+**Purpose:** Called when the `photo mode deactivated` event is raised.
+
+## Usage Example
+
+```csharp
+var view = new MissionGauntletLeaveView();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

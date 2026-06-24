@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MainStoryLineSide`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # MainStoryLineSide
 
 **Namespace:** StoryMode
 **Module:** StoryMode
-**Type:** enum
-**Area:** Campaign System
+**Type:** `class`
+**Base:** none
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/MainStoryLineSide.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MainStoryLineSide` is a enum in the `StoryMode` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MainStoryLineSide` lives in `StoryMode` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `StoryMode` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+var value = new MainStoryLineSide();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

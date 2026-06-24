@@ -5,7 +5,11 @@ sidebar: auto
 
 # 战役系统 Campaign System 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **1838** 个类型，其中 **1828** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `战役系统 Campaign System 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **1838** 个类型，其中 **1805** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -22,7 +26,7 @@ sidebar: auto
 | S | [BattleResultPartyData](/v1.3.15/zh/api/campaign-ext/BattleResultPartyData.md) | 🔗 |
 | C | [BattleSimulation](/v1.3.15/zh/api/campaign-ext/BattleSimulation.md) | 🔗 |
 | E | [BoardGameType](/v1.3.15/zh/api/campaign-ext/BoardGameType.md) | 🔗 |
-| C | [Campaign](/v1.3.15/zh/api/campaign-ext/Campaign.md) | 🔗 |
+| C | Campaign | — |
 | C | [CampaignBehaviorBase](/v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase.md) | 🔗 |
 | C | [CampaignCheats](/v1.3.15/zh/api/campaign-ext/CampaignCheats.md) | 🔗 |
 | C | [CampaignData](/v1.3.15/zh/api/campaign-ext/CampaignData.md) | 🔗 |
@@ -44,11 +48,11 @@ sidebar: auto
 | C | [CampaignTutorial](/v1.3.15/zh/api/campaign-ext/CampaignTutorial.md) | 🔗 |
 | S | [CampaignVec2](/v1.3.15/zh/api/campaign-ext/CampaignVec2.md) | 🔗 |
 | C | [CharacterData](/v1.3.15/zh/api/campaign-ext/CharacterData.md) | 🔗 |
-| C | [CharacterObject](/v1.3.15/zh/api/items/CharacterObject.md) | 🔗 |
+| C | CharacterObject | — |
 | C | [CharacterRelationManager](/v1.3.15/zh/api/campaign-ext/CharacterRelationManager.md) | 🔗 |
 | E | [CharacterRestrictionFlags](/v1.3.15/zh/api/campaign-ext/CharacterRestrictionFlags.md) | 🔗 |
 | E | [CharacterStates](/v1.3.15/zh/api/campaign-ext/CharacterStates.md) | 🔗 |
-| C | [Clan](/v1.3.15/zh/api/campaign/Clan.md) | 🔗 |
+| C | Clan | — |
 | C | [Concept](/v1.3.15/zh/api/campaign-ext/Concept.md) | 🔗 |
 | E | [ConversationContext](/v1.3.15/zh/api/campaign-ext/ConversationContext.md) | 🔗 |
 | S | [ConversationSceneData](/v1.3.15/zh/api/campaign-ext/ConversationSceneData.md) | 🔗 |
@@ -89,7 +93,7 @@ sidebar: auto
 | I | [ITrackableCampaignObject](/v1.3.15/zh/api/campaign-ext/ITrackableCampaignObject.md) | 🔗 |
 | I | [IViewDataTracker](/v1.3.15/zh/api/campaign-ext/IViewDataTracker.md) | 🔗 |
 | C | [JournalLog](/v1.3.15/zh/api/campaign-ext/JournalLog.md) | 🔗 |
-| C | [Kingdom](/v1.3.15/zh/api/campaign/Kingdom.md) | 🔗 |
+| C | Kingdom | — |
 | C | [KingdomManager](/v1.3.15/zh/api/campaign-ext/KingdomManager.md) | 🔗 |
 | E | [LogType](/v1.3.15/zh/api/campaign-ext/LogType.md) | 🔗 |
 | C | [ManagedParameters](/v1.3.15/zh/api/core-extra/ManagedParameters.md) | 🔗 |
@@ -404,7 +408,7 @@ sidebar: auto
 | C | [TeleportationCampaignBehaviorTypeDefiner](/v1.3.15/zh/api/campaign-ext/TeleportationCampaignBehaviorTypeDefiner.md) | 🔗 |
 | C | [TownMercenaryData](/v1.3.15/zh/api/campaign-ext/TownMercenaryData.md) | 🔗 |
 | C | [TownSecurityCampaignBehavior](/v1.3.15/zh/api/campaign-ext/TownSecurityCampaignBehavior.md) | 🔗 |
-| S | TradeAgreement | — |
+| S | [TradeAgreement](./campaign-ext/TradeAgreement.md) | 🔗 |
 | C | [TradeAgreementsCampaignBehavior](/v1.3.15/zh/api/campaign-ext/TradeAgreementsCampaignBehavior.md) | 🔗 |
 | C | [TradeAgreementsCampaignBehaviorTypeDefiner](/v1.3.15/zh/api/campaign-ext/TradeAgreementsCampaignBehaviorTypeDefiner.md) | 🔗 |
 | C | [TradeCampaignBehavior](/v1.3.15/zh/api/campaign-ext/TradeCampaignBehavior.md) | 🔗 |
@@ -503,7 +507,7 @@ sidebar: auto
 | C | [Athletics](/v1.3.15/zh/api/campaign-ext/Athletics.md) | 🔗 |
 | C | [Bow](/v1.3.15/zh/api/campaign-ext/Bow.md) | 🔗 |
 | C | [Charm](/v1.3.15/zh/api/campaign-ext/Charm.md) | 🔗 |
-| C | [Crafting](/v1.3.15/zh/api/core-extra/Crafting.md) | 🔗 |
+| C | [Crafting](/v1.3.15/zh/api/campaign-ext/Crafting.md) | 🔗 |
 | C | [Crossbow](/v1.3.15/zh/api/campaign-ext/Crossbow.md) | 🔗 |
 | C | [DefaultCulturalFeats](/v1.3.15/zh/api/campaign-ext/DefaultCulturalFeats.md) | 🔗 |
 | C | [DefaultPerks](/v1.3.15/zh/api/campaign-ext/DefaultPerks.md) | 🔗 |
@@ -560,7 +564,7 @@ sidebar: auto
 | C | [CharacterDevelopmentModel](/v1.3.15/zh/api/campaign-ext/CharacterDevelopmentModel.md) | 🔗 |
 | C | [CharacterStatsModel](/v1.3.15/zh/api/campaign-ext/CharacterStatsModel.md) | 🔗 |
 | C | [ClanFinanceModel](/v1.3.15/zh/api/campaign-ext/ClanFinanceModel.md) | 🔗 |
-| C | ClanMemberPartyRoleModel | — |
+| C | [ClanMemberPartyRoleModel](./campaign-ext/ClanMemberPartyRoleModel.md) | 🔗 |
 | C | [ClanPoliticsModel](/v1.3.15/zh/api/campaign-ext/ClanPoliticsModel.md) | 🔗 |
 | C | [ClanTierModel](/v1.3.15/zh/api/campaign-ext/ClanTierModel.md) | 🔗 |
 | C | [CombatSimulationModel](/v1.3.15/zh/api/campaign-ext/CombatSimulationModel.md) | 🔗 |
@@ -827,7 +831,7 @@ sidebar: auto
 | C | [DecisionOutcome](/v1.3.15/zh/api/campaign-ext/DecisionOutcome.md) | 🔗 |
 | C | [DeclareWarDecision](/v1.3.15/zh/api/campaign-ext/DeclareWarDecision.md) | 🔗 |
 | C | [DeclareWarDecisionOutcome](/v1.3.15/zh/api/campaign-ext/DeclareWarDecisionOutcome.md) | 🔗 |
-| E | ElectionOutcomeSupport | — |
+| E | [ElectionOutcomeSupport](./campaign-ext/ElectionOutcomeSupport.md) | 🔗 |
 | C | [ExpelClanDecisionOutcome](/v1.3.15/zh/api/campaign-ext/ExpelClanDecisionOutcome.md) | 🔗 |
 | C | [ExpelClanFromKingdomDecision](/v1.3.15/zh/api/campaign-ext/ExpelClanFromKingdomDecision.md) | 🔗 |
 | C | [KingdomDecision](/v1.3.15/zh/api/campaign-ext/KingdomDecision.md) | 🔗 |
@@ -906,7 +910,7 @@ sidebar: auto
 | C | [ItemObjectExtensions](/v1.3.15/zh/api/campaign-ext/ItemObjectExtensions.md) | 🔗 |
 | C | [Items](/v1.3.15/zh/api/campaign-ext/Items.md) | 🔗 |
 | C | [MBEquipmentRosterExtensions](/v1.3.15/zh/api/campaign-ext/MBEquipmentRosterExtensions.md) | 🔗 |
-| C | [MetaDataExtensions](/v1.3.15/zh/api/save-system/MetaDataExtensions.md) | 🔗 |
+| C | [MetaDataExtensions](/v1.3.15/zh/api/core-extra/MetaDataExtensions.md) | 🔗 |
 | C | [SiegeEngineTypes](/v1.3.15/zh/api/campaign-ext/SiegeEngineTypes.md) | 🔗 |
 | C | [Skills](/v1.3.15/zh/api/campaign-ext/Skills.md) | 🔗 |
 | C | [TextObjectExtensions](/v1.3.15/zh/api/campaign-ext/TextObjectExtensions.md) | 🔗 |
@@ -915,8 +919,8 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | FastModeOptionsProvider | — |
-| C | FastModeSubModule | — |
+| C | [FastModeOptionsProvider](./campaign-ext/FastModeOptionsProvider.md) | 🔗 |
+| C | [FastModeSubModule](./campaign-ext/FastModeSubModule.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.GameComponents (126)
 
@@ -946,7 +950,7 @@ sidebar: auto
 | C | [DefaultCharacterDevelopmentModel](/v1.3.15/zh/api/campaign-ext/DefaultCharacterDevelopmentModel.md) | 🔗 |
 | C | [DefaultCharacterStatsModel](/v1.3.15/zh/api/campaign-ext/DefaultCharacterStatsModel.md) | 🔗 |
 | C | [DefaultClanFinanceModel](/v1.3.15/zh/api/campaign-ext/DefaultClanFinanceModel.md) | 🔗 |
-| C | DefaultClanMemberPartyRoleModel | — |
+| C | [DefaultClanMemberPartyRoleModel](./campaign-ext/DefaultClanMemberPartyRoleModel.md) | 🔗 |
 | C | [DefaultClanPoliticsModel](/v1.3.15/zh/api/campaign-ext/DefaultClanPoliticsModel.md) | 🔗 |
 | C | [DefaultClanTierModel](/v1.3.15/zh/api/campaign-ext/DefaultClanTierModel.md) | 🔗 |
 | C | [DefaultCombatSimulationModel](/v1.3.15/zh/api/campaign-ext/DefaultCombatSimulationModel.md) | 🔗 |
@@ -1207,7 +1211,7 @@ sidebar: auto
 | C | [HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner](/v1.3.15/zh/api/campaign-ext/HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner.md) | 🔗 |
 | C | [HeadmanVillageNeedsDraughtAnimalsIssueQuest](/v1.3.15/zh/api/campaign-ext/HeadmanVillageNeedsDraughtAnimalsIssueQuest.md) | 🔗 |
 | C | [HeroRelatedIssueCoolDownData](/v1.3.15/zh/api/campaign-ext/HeroRelatedIssueCoolDownData.md) | 🔗 |
-| C | [IssueBase](/v1.3.15/zh/api/campaign-ext/IssueBase.md) | 🔗 |
+| C | IssueBase | — |
 | C | [IssueCoolDownData](/v1.3.15/zh/api/campaign-ext/IssueCoolDownData.md) | 🔗 |
 | C | [IssueEffect](/v1.3.15/zh/api/campaign-ext/IssueEffect.md) | 🔗 |
 | E | [IssueFrequency](/v1.3.15/zh/api/campaign-ext/IssueFrequency.md) | 🔗 |
@@ -1406,7 +1410,7 @@ sidebar: auto
 | C | [FieldBattleEventComponent](/v1.3.15/zh/api/campaign-ext/FieldBattleEventComponent.md) | 🔗 |
 | C | [ForceSuppliesEventComponent](/v1.3.15/zh/api/campaign-ext/ForceSuppliesEventComponent.md) | 🔗 |
 | C | [ForceVolunteersEventComponent](/v1.3.15/zh/api/campaign-ext/ForceVolunteersEventComponent.md) | 🔗 |
-| E | HideoutBattleEndState | — |
+| E | [HideoutBattleEndState](./campaign-ext/HideoutBattleEndState.md) | 🔗 |
 | C | [HideoutEventComponent](/v1.3.15/zh/api/campaign-ext/HideoutEventComponent.md) | 🔗 |
 | I | [IMapEventVisual](/v1.3.15/zh/api/campaign-ext/IMapEventVisual.md) | 🔗 |
 | C | [MapEvent](/v1.3.15/zh/api/campaign-ext/MapEvent.md) | 🔗 |
@@ -1485,7 +1489,7 @@ sidebar: auto
 | C | [TroopComparer](/v1.3.15/zh/api/campaign-ext/TroopComparer.md) | 🔗 |
 | E | [TroopSortType](/v1.3.15/zh/api/campaign-ext/TroopSortType.md) | 🔗 |
 | S | [TroopTradeDifference](/v1.3.15/zh/api/campaign-ext/TroopTradeDifference.md) | 🔗 |
-| E | [TroopType](/v1.3.15/zh/api/core-extra/TroopType.md) | 🔗 |
+| E | [TroopType](/v1.3.15/zh/api/campaign-ext/TroopType.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.Party.PartyComponents (11)
 
@@ -1575,13 +1579,13 @@ sidebar: auto
 | E | [ProsperityLevel](/v1.3.15/zh/api/campaign-ext/ProsperityLevel.md) | 🔗 |
 | C | [RetirementSettlementComponent](/v1.3.15/zh/api/campaign-ext/RetirementSettlementComponent.md) | 🔗 |
 | S | [SellLog](/v1.3.15/zh/api/campaign-ext/SellLog.md) | 🔗 |
-| C | [Settlement](/v1.3.15/zh/api/campaign-ext/Settlement.md) | 🔗 |
+| C | Settlement | — |
 | C | [SettlementArea](/v1.3.15/zh/api/campaign-ext/SettlementArea.md) | 🔗 |
 | C | [SettlementComponent](/v1.3.15/zh/api/campaign-ext/SettlementComponent.md) | 🔗 |
 | E | [SiegeState](/v1.3.15/zh/api/campaign-ext/SiegeState.md) | 🔗 |
 | C | [Town](/v1.3.15/zh/api/campaign-ext/Town.md) | 🔗 |
 | C | [TownMarketData](/v1.3.15/zh/api/campaign-ext/TownMarketData.md) | 🔗 |
-| C | [Village](/v1.3.15/zh/api/campaign-ext/Village.md) | 🔗 |
+| C | Village | — |
 | C | [VillageMarketData](/v1.3.15/zh/api/campaign-ext/VillageMarketData.md) | 🔗 |
 | E | [VillageStates](/v1.3.15/zh/api/campaign-ext/VillageStates.md) | 🔗 |
 | C | [VillageType](/v1.3.15/zh/api/campaign-ext/VillageType.md) | 🔗 |
@@ -1613,7 +1617,7 @@ sidebar: auto
 | | 名称 Name | 文档 Doc |
 |---|---|---|
 | S | [Production](/v1.3.15/zh/api/campaign-ext/Production.md) | 🔗 |
-| C | [Workshop](/v1.3.15/zh/api/campaign-ext/Workshop.md) | 🔗 |
+| C | Workshop | — |
 | C | [WorkshopType](/v1.3.15/zh/api/campaign-ext/WorkshopType.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.Siege (14)
@@ -1681,7 +1685,7 @@ sidebar: auto
 | C | [HeroVM](/v1.3.15/zh/api/campaign-ext/HeroVM.md) | 🔗 |
 | I | [ICampaignOptionData](/v1.3.15/zh/api/campaign-ext/ICampaignOptionData.md) | 🔗 |
 | I | [ICampaignOptionProvider](/v1.3.15/zh/api/campaign-ext/ICampaignOptionProvider.md) | 🔗 |
-| E | [IssueQuestFlags](/v1.3.15/zh/api/campaign-ext/IssueQuestFlags.md) | 🔗 |
+| E | IssueQuestFlags | — |
 | C | [MobilePartyPrecedenceComparer](/v1.3.15/zh/api/campaign-ext/MobilePartyPrecedenceComparer.md) | 🔗 |
 | C | [NumericCampaignOptionData](/v1.3.15/zh/api/campaign-ext/NumericCampaignOptionData.md) | 🔗 |
 | C | [PlayerInspectedPartySpeedEvent](/v1.3.15/zh/api/campaign-ext/PlayerInspectedPartySpeedEvent.md) | 🔗 |
@@ -1727,8 +1731,8 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | BirthAndDeathOptionsProvider | — |
-| C | BirthAndDeathSubModule | — |
+| C | [BirthAndDeathOptionsProvider](./campaign-ext/BirthAndDeathOptionsProvider.md) | 🔗 |
+| C | [BirthAndDeathSubModule](./campaign-ext/BirthAndDeathSubModule.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation (13)
 
@@ -1818,12 +1822,12 @@ sidebar: auto
 | C | [ClanMembersVM](/v1.3.15/zh/api/campaign-ext/ClanMembersVM.md) | 🔗 |
 | C | [ClanPartiesSortControllerVM](/v1.3.15/zh/api/campaign-ext/ClanPartiesSortControllerVM.md) | 🔗 |
 | C | [ClanPartiesVM](/v1.3.15/zh/api/campaign-ext/ClanPartiesVM.md) | 🔗 |
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
+| C | ItemComparerBase | — |
 | C | [ItemGovernorComparer](/v1.3.15/zh/api/campaign-ext/ItemGovernorComparer.md) | 🔗 |
 | C | [ItemLocationComparer](/v1.3.15/zh/api/campaign-ext/ItemLocationComparer.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
+| C | ItemNameComparer | — |
 | C | [ItemProfitComparer](/v1.3.15/zh/api/campaign-ext/ItemProfitComparer.md) | 🔗 |
-| C | [ItemShipCountComparer](/v1.3.15/zh/api/campaign-ext/ItemShipCountComparer.md) | 🔗 |
+| C | ItemShipCountComparer | — |
 | C | [ItemSizeComparer](/v1.3.15/zh/api/campaign-ext/ItemSizeComparer.md) | 🔗 |
 | C | [SupporterItemComparerBase](/v1.3.15/zh/api/campaign-ext/SupporterItemComparerBase.md) | 🔗 |
 | C | [SupporterItemIncomeComparer](/v1.3.15/zh/api/campaign-ext/SupporterItemIncomeComparer.md) | 🔗 |
@@ -1987,8 +1991,8 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
+| C | ItemComparerBase | — |
+| C | ItemNameComparer | — |
 | C | [ItemPlacementComparer](/v1.3.15/zh/api/campaign-ext/ItemPlacementComparer.md) | 🔗 |
 | C | [ItemPrizeComparer](/v1.3.15/zh/api/campaign-ext/ItemPrizeComparer.md) | 🔗 |
 | C | [ItemVictoriesComparer](/v1.3.15/zh/api/campaign-ext/ItemVictoriesComparer.md) | 🔗 |
@@ -2000,7 +2004,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| E | [DescriptionType](/v1.3.15/zh/api/campaign-ext/DescriptionType.md) | 🔗 |
+| E | DescriptionType | — |
 | C | [SettlementBuildingProjectVM](/v1.3.15/zh/api/campaign-ext/SettlementBuildingProjectVM.md) | 🔗 |
 | C | [SettlementDailyProjectVM](/v1.3.15/zh/api/campaign-ext/SettlementDailyProjectVM.md) | 🔗 |
 | C | [SettlementGovernorSelectionItemVM](/v1.3.15/zh/api/campaign-ext/SettlementGovernorSelectionItemVM.md) | 🔗 |
@@ -2025,7 +2029,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [InputKeyItemVM](/v1.3.15/zh/api/mission-ext/InputKeyItemVM.md) | 🔗 |
+| C | [InputKeyItemVM](/v1.3.15/zh/api/campaign-ext/InputKeyItemVM.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.ViewModelCollection.Inventory (22)
 
@@ -2041,11 +2045,11 @@ sidebar: auto
 | E | [InventoryItemSortState](/v1.3.15/zh/api/campaign-ext/InventoryItemSortState.md) | 🔗 |
 | C | [InventoryTradeVM](/v1.3.15/zh/api/campaign-ext/InventoryTradeVM.md) | 🔗 |
 | C | [ItemComparer](/v1.3.15/zh/api/campaign-ext/ItemComparer.md) | 🔗 |
-| C | [ItemCostComparer](/v1.3.15/zh/api/campaign-ext/ItemCostComparer.md) | 🔗 |
+| C | ItemCostComparer | — |
 | C | [ItemFlagVM](/v1.3.15/zh/api/campaign-ext/ItemFlagVM.md) | 🔗 |
 | C | [ItemMenuTooltipPropertyVM](/v1.3.15/zh/api/campaign-ext/ItemMenuTooltipPropertyVM.md) | 🔗 |
 | C | [ItemMenuVM](/v1.3.15/zh/api/campaign-ext/ItemMenuVM.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
+| C | ItemNameComparer | — |
 | C | [ItemPreviewVM](/v1.3.15/zh/api/campaign-ext/ItemPreviewVM.md) | 🔗 |
 | C | [ItemQuantityComparer](/v1.3.15/zh/api/campaign-ext/ItemQuantityComparer.md) | 🔗 |
 | C | [ItemTypeComparer](/v1.3.15/zh/api/campaign-ext/ItemTypeComparer.md) | 🔗 |
@@ -2068,12 +2072,12 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
-| C | [ItemDistanceComparer](/v1.3.15/zh/api/campaign-ext/ItemDistanceComparer.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
+| C | ItemComparerBase | — |
+| C | ItemDistanceComparer | — |
+| C | ItemNameComparer | — |
 | C | [ItemOwnerComparer](/v1.3.15/zh/api/campaign-ext/ItemOwnerComparer.md) | 🔗 |
 | C | [ItemPartiesComparer](/v1.3.15/zh/api/campaign-ext/ItemPartiesComparer.md) | 🔗 |
-| C | [ItemStrengthComparer](/v1.3.15/zh/api/campaign-ext/ItemStrengthComparer.md) | 🔗 |
+| C | ItemStrengthComparer | — |
 | C | [KingdomArmyItemVM](/v1.3.15/zh/api/campaign-ext/KingdomArmyItemVM.md) | 🔗 |
 | C | [KingdomArmyPartyItemVM](/v1.3.15/zh/api/campaign-ext/KingdomArmyPartyItemVM.md) | 🔗 |
 | C | [KingdomArmySortControllerVM](/v1.3.15/zh/api/campaign-ext/KingdomArmySortControllerVM.md) | 🔗 |
@@ -2084,12 +2088,12 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
+| C | ItemComparerBase | — |
 | C | [ItemFiefsComparer](/v1.3.15/zh/api/campaign-ext/ItemFiefsComparer.md) | 🔗 |
 | C | [ItemInfluenceComparer](/v1.3.15/zh/api/campaign-ext/ItemInfluenceComparer.md) | 🔗 |
 | C | [ItemMembersComparer](/v1.3.15/zh/api/campaign-ext/ItemMembersComparer.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
-| C | [ItemTypeComparer](/v1.3.15/zh/api/campaign-ext/ItemTypeComparer.md) | 🔗 |
+| C | ItemNameComparer | — |
+| C | ItemTypeComparer | — |
 | C | [KingdomClanFiefItemVM](/v1.3.15/zh/api/campaign-ext/KingdomClanFiefItemVM.md) | 🔗 |
 | C | [KingdomClanItemVM](/v1.3.15/zh/api/campaign-ext/KingdomClanItemVM.md) | 🔗 |
 | C | [KingdomClanSortControllerVM](/v1.3.15/zh/api/campaign-ext/KingdomClanSortControllerVM.md) | 🔗 |
@@ -2125,7 +2129,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
+| C | ItemComparerBase | — |
 | C | [ItemScoreComparer](/v1.3.15/zh/api/campaign-ext/ItemScoreComparer.md) | 🔗 |
 | C | [KingdomDiplomacyFactionItemVM](/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyFactionItemVM.md) | 🔗 |
 | C | [KingdomDiplomacyItemVM](/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyItemVM.md) | 🔗 |
@@ -2148,14 +2152,14 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemClanComparer](/v1.3.15/zh/api/campaign-ext/ItemClanComparer.md) | 🔗 |
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
+| C | ItemClanComparer | — |
+| C | ItemComparerBase | — |
 | C | [ItemFoodComparer](/v1.3.15/zh/api/campaign-ext/ItemFoodComparer.md) | 🔗 |
 | C | [ItemGarrisonComparer](/v1.3.15/zh/api/campaign-ext/ItemGarrisonComparer.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
-| C | [ItemOwnerComparer](/v1.3.15/zh/api/campaign-ext/ItemOwnerComparer.md) | 🔗 |
+| C | ItemNameComparer | — |
+| C | ItemOwnerComparer | — |
 | C | [ItemProsperityComparer](/v1.3.15/zh/api/campaign-ext/ItemProsperityComparer.md) | 🔗 |
-| C | [ItemTypeComparer](/v1.3.15/zh/api/campaign-ext/ItemTypeComparer.md) | 🔗 |
+| C | ItemTypeComparer | — |
 | C | [ItemVillagesComparer](/v1.3.15/zh/api/campaign-ext/ItemVillagesComparer.md) | 🔗 |
 | C | [KingdomSettlementItemVM](/v1.3.15/zh/api/campaign-ext/KingdomSettlementItemVM.md) | 🔗 |
 | C | [KingdomSettlementSortControllerVM](/v1.3.15/zh/api/campaign-ext/KingdomSettlementSortControllerVM.md) | 🔗 |
@@ -2244,7 +2248,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | MapTrackerItemVM | — |
+| C | [MapTrackerItemVM](./campaign-ext/MapTrackerItemVM.md) | 🔗 |
 
 ## TaleWorlds.CampaignSystem.ViewModelCollection.Party (11)
 
@@ -2307,9 +2311,9 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [ItemComparerBase](/v1.3.15/zh/api/campaign-ext/ItemComparerBase.md) | 🔗 |
-| C | [ItemNameComparer](/v1.3.15/zh/api/campaign-ext/ItemNameComparer.md) | 🔗 |
-| C | [ItemTypeComparer](/v1.3.15/zh/api/campaign-ext/ItemTypeComparer.md) | 🔗 |
+| C | ItemComparerBase | — |
+| C | ItemNameComparer | — |
+| C | ItemTypeComparer | — |
 | C | [ItemYieldComparer](/v1.3.15/zh/api/campaign-ext/ItemYieldComparer.md) | 🔗 |
 | C | [SmeltingItemVM](/v1.3.15/zh/api/campaign-ext/SmeltingItemVM.md) | 🔗 |
 | C | [SmeltingSortControllerVM](/v1.3.15/zh/api/campaign-ext/SmeltingSortControllerVM.md) | 🔗 |

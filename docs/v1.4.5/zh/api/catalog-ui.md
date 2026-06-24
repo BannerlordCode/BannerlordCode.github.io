@@ -5,7 +5,11 @@ sidebar: auto
 
 # Gauntlet UI 类目录
 
-本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **265** 个类型，其中 **264** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+## 心智模型
+
+先把 `Gauntlet UI 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.4.5 源码中该领域全部公开类型，按命名空间分组。共 **265** 个类型，其中 **258** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
 
 > 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
 
@@ -62,12 +66,12 @@ sidebar: auto
 | C | [StyleLayer](/v1.3.15/zh/api/campaign-ext/StyleLayer.md) | 🔗 |
 | C | [TextureProvider](/v1.3.15/zh/api/campaign-ext/TextureProvider.md) | 🔗 |
 | C | [TextureProviderFactory](/v1.3.15/zh/api/campaign-ext/TextureProviderFactory.md) | 🔗 |
-| E | [Type](/v1.3.15/zh/api/mission-ext/Type.md) | 🔗 |
+| E | Type | — |
 | C | [UIContext](/v1.3.15/zh/api/campaign-ext/UIContext.md) | 🔗 |
 | E | [ValueType](/v1.3.15/zh/api/campaign-ext/ValueType.md) | 🔗 |
 | E | [VerticalAlignment](/v1.3.15/zh/api/campaign-ext/VerticalAlignment.md) | 🔗 |
 | C | [VisualDefinition](/v1.3.15/zh/api/campaign-ext/VisualDefinition.md) | 🔗 |
-| C | [VisualState](/v1.3.15/zh/api/mission-ext/VisualState.md) | 🔗 |
+| C | [VisualState](/v1.3.15/zh/api/campaign-ext/VisualState.md) | 🔗 |
 | E | [VisualStateAnimationState](/v1.3.15/zh/api/campaign-ext/VisualStateAnimationState.md) | 🔗 |
 | C | [WidgetComponent](/v1.3.15/zh/api/campaign-ext/WidgetComponent.md) | 🔗 |
 | C | [WidgetInfo](/v1.3.15/zh/api/campaign-ext/WidgetInfo.md) | 🔗 |
@@ -87,7 +91,7 @@ sidebar: auto
 | C | [EditableTextWidget](/v1.3.15/zh/api/campaign-ext/EditableTextWidget.md) | 🔗 |
 | C | [FloatInputTextWidget](/v1.3.15/zh/api/campaign-ext/FloatInputTextWidget.md) | 🔗 |
 | C | [GridWidget](/v1.3.15/zh/api/campaign-ext/GridWidget.md) | 🔗 |
-| E | [ImageSizePolicies](/v1.3.15/zh/api/mission-ext/ImageSizePolicies.md) | 🔗 |
+| E | [ImageSizePolicies](/v1.3.15/zh/api/campaign-ext/ImageSizePolicies.md) | 🔗 |
 | C | [ImageWidget](/v1.3.15/zh/api/campaign-ext/ImageWidget.md) | 🔗 |
 | C | [IntegerInputPercentageTextWidget](/v1.3.15/zh/api/campaign-ext/IntegerInputPercentageTextWidget.md) | 🔗 |
 | C | [IntegerInputTextWidget](/v1.3.15/zh/api/campaign-ext/IntegerInputTextWidget.md) | 🔗 |
@@ -110,7 +114,7 @@ sidebar: auto
 
 | | 名称 Name | 文档 Doc |
 |---|---|---|
-| C | [GauntletMovie](/v1.3.15/zh/api/gui/GauntletMovie.md) | 🔗 |
+| C | GauntletMovie | — |
 | C | [GauntletView](/v1.3.15/zh/api/campaign-ext/GauntletView.md) | 🔗 |
 | C | [GeneratedGauntletMovie](/v1.3.15/zh/api/campaign-ext/GeneratedGauntletMovie.md) | 🔗 |
 | C | [GeneratedWidgetData](/v1.3.15/zh/api/campaign-ext/GeneratedWidgetData.md) | 🔗 |
@@ -153,7 +157,7 @@ sidebar: auto
 | C | [TooltipWidget](/v1.3.15/zh/api/campaign-ext/TooltipWidget.md) | 🔗 |
 | C | [TwoWaySliderWidget](/v1.3.15/zh/api/campaign-ext/TwoWaySliderWidget.md) | 🔗 |
 | C | [ValueBasedVisibilityWidget](/v1.3.15/zh/api/campaign-ext/ValueBasedVisibilityWidget.md) | 🔗 |
-| E | [WatchTypes](/v1.3.15/zh/api/mission-ext/WatchTypes.md) | 🔗 |
+| E | [WatchTypes](/v1.3.15/zh/api/campaign-ext/WatchTypes.md) | 🔗 |
 
 ## TaleWorlds.GauntletUI.ExtraWidgets.Graph (3)
 
@@ -238,10 +242,10 @@ sidebar: auto
 | I | [ILanguage](/v1.3.15/zh/api/campaign-ext/ILanguage.md) | 🔗 |
 | S | [ImageDrawObject](/v1.3.15/zh/api/campaign-ext/ImageDrawObject.md) | 🔗 |
 | I | [IText](/v1.3.15/zh/api/campaign-ext/IText.md) | 🔗 |
-| I | [ITexture](/v1.3.15/zh/api/campaign-ext/ITexture.md) | 🔗 |
+| I | ITexture | — |
 | I | [ITwoDimensionPlatform](/v1.3.15/zh/api/campaign-ext/ITwoDimensionPlatform.md) | 🔗 |
 | I | [ITwoDimensionResourceContext](/v1.3.15/zh/api/campaign-ext/ITwoDimensionResourceContext.md) | 🔗 |
-| C | [Material](/v1.3.15/zh/api/engine/Material.md) | 🔗 |
+| C | Material | — |
 | C | [MaterialPool](/v1.3.15/zh/api/campaign-ext/MaterialPool.md) | 🔗 |
 | C | [Mathf](/v1.3.15/zh/api/campaign-ext/Mathf.md) | 🔗 |
 | E | [MeshTopology](/v1.3.15/zh/api/campaign-ext/MeshTopology.md) | 🔗 |
@@ -274,9 +278,9 @@ sidebar: auto
 | C | [TextParser](/v1.3.15/zh/api/campaign-ext/TextParser.md) | 🔗 |
 | C | [TextPart](/v1.3.15/zh/api/campaign-ext/TextPart.md) | 🔗 |
 | C | [TextToken](/v1.3.15/zh/api/campaign-ext/TextToken.md) | 🔗 |
-| C | [Texture](/v1.3.15/zh/api/engine/Texture.md) | 🔗 |
+| C | Texture | — |
 | E | [TextVerticalAlignment](/v1.3.15/zh/api/campaign-ext/TextVerticalAlignment.md) | 🔗 |
-| E | [TokenType](/v1.3.15/zh/api/campaign-ext/TokenType.md) | 🔗 |
+| E | TokenType | — |
 | C | [TwoDimensionContext](/v1.3.15/zh/api/campaign-ext/TwoDimensionContext.md) | 🔗 |
 | C | [TwoDimensionContextObject](/v1.3.15/zh/api/campaign-ext/TwoDimensionContextObject.md) | 🔗 |
 | C | [TwoDimensionDrawContext](/v1.3.15/zh/api/campaign-ext/TwoDimensionDrawContext.md) | 🔗 |
@@ -291,9 +295,9 @@ sidebar: auto
 | I | [IMessageCommunicator](/v1.3.15/zh/api/campaign-ext/IMessageCommunicator.md) | 🔗 |
 | C | [InputData](/v1.3.15/zh/api/campaign-ext/InputData.md) | 🔗 |
 | C | [LayeredWindowController](/v1.3.15/zh/api/campaign-ext/LayeredWindowController.md) | 🔗 |
-| C | MatrixExtensions | — |
+| C | [MatrixExtensions](./campaign-ext/MatrixExtensions.md) | 🔗 |
 | C | [OpenGLTexture](/v1.3.15/zh/api/campaign-ext/OpenGLTexture.md) | 🔗 |
-| C | [Shader](/v1.3.15/zh/api/engine/Shader.md) | 🔗 |
+| C | Shader | — |
 | C | [StandaloneInputManager](/v1.3.15/zh/api/campaign-ext/StandaloneInputManager.md) | 🔗 |
 | C | [TwoDimensionPlatform](/v1.3.15/zh/api/campaign-ext/TwoDimensionPlatform.md) | 🔗 |
 | C | [VertexArrayObject](/v1.3.15/zh/api/campaign-ext/VertexArrayObject.md) | 🔗 |

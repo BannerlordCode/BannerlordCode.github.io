@@ -5,6 +5,10 @@ description: 快速上手 Bannerlord v1.3.0 模块开发 / Quick start guide for
 
 # 入门指南 / Getting Started Guide
 
+## 心智模型
+
+先把 `入门指南` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
 欢迎来到 Bannerlord v1.3.0 模块开发入门指南。本指南涵盖 v1.3.0 版本的基础内容。
 
 ::: warning 注意
@@ -156,15 +160,6 @@ namespace MyModule
 
 1. 在 Visual Studio 设置断点 (F9)
 2. 按 `F5` 启动调试
-
-### 输出调试信息
-
-```csharp
-Debug.Print("Debug message");
-MBInformationManager.AddQuickInformation(
-    new InformationMessage("Info text")
-);
-```
 
 ### 日志文件位置
 

@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `DedicatedServerConsoleCommandManager`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # DedicatedServerConsoleCommandManager
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class DedicatedServerConsoleCommandManager`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DedicatedServerConsoleCommandManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`DedicatedServerConsoleCommandManager` 是 `TaleWorlds.MountAndBlade` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`DedicatedServerConsoleCommandManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `DedicatedServerConsoleCommandManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### AddType
+`public static void AddType(Type type)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `type`。
+
+## 使用示例
+
+```csharp
+var manager = DedicatedServerConsoleCommandManager.Current;
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

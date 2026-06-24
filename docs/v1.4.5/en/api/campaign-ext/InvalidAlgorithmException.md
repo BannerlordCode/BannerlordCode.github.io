@@ -1,16 +1,32 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `InvalidAlgorithmException`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # InvalidAlgorithmException
 
 **Namespace:** Jose
 **Module:** Jose
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class InvalidAlgorithmException : JoseException`
+**Base:** `JoseException`
+**File:** `Bannerlord.Source/bin/jose-jwt/Jose/InvalidAlgorithmException.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `InvalidAlgorithmException` is a class in the `Jose` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`InvalidAlgorithmException` is an exception type used to signal a specific error condition; callers decide whether to catch it, translate it, or let it bubble up.
+
+## Mental Model
+
+Treat `InvalidAlgorithmException` as a Exception-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Usage Example
+
+```csharp
+try { CallInvalidAlgorithmException(); } catch (InvalidAlgorithmException exception) { Handle(exception); }
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

@@ -5,6 +5,10 @@ description: v1.3.0 common errors and solutions
 
 # Common Issues
 
+## Mental Model
+
+Treat `Common Issues` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
 **v1.3.0 Version**
 
 ## Module Issues
@@ -58,3 +62,9 @@ v1.3.0 code may need modification for v1.3.15:
 
 - [Version Differences](./index.md#version-differences)
 - [v1.3.15 Troubleshooting](../../../v1.3.15/en/guide/troubleshooting.md)
+
+## Usage Example
+
+```csharp
+var example = new Common Issues();
+```

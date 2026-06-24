@@ -1,16 +1,38 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `EventArrivedEventArgs`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # EventArrivedEventArgs
 
 **Namespace:** System.Management
 **Module:** System.Management
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class EventArrivedEventArgs : ManagementEventArgs`
+**Base:** `ManagementEventArgs`
+**File:** `Bannerlord.Source/bin/System.Management/System.Management/EventArrivedEventArgs.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `EventArrivedEventArgs` is a class in the `System.Management` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`EventArrivedEventArgs` lives in `System.Management` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `System.Management` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `NewEvent` | `public ManagementBaseObject NewEvent { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new EventArrivedEventArgs();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

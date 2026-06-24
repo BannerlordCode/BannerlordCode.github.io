@@ -1,16 +1,42 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `StoryModeManager`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # StoryModeManager
 
-**命名空间:** StoryMode
-**模块:** StoryMode
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** StoryMode
+**Module:** StoryMode
+**Type:** `public class StoryModeManager`
+**Base:** 无
+**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeManager.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`StoryModeManager` 是 `StoryMode` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`StoryModeManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+
+## 心智模型
+
+把 `StoryModeManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Current` | `public static StoryModeManager Current { get; }` |
+| `StoryModeEvents` | `public StoryModeEvents StoryModeEvents { get; }` |
+| `MainStoryLine` | `public MainStoryLine MainStoryLine { get; }` |
+| `StoryModeHeroes` | `public StoryModeHeroes StoryModeHeroes { get; }` |
+| `StoryModeBannerEffects` | `public StoryModeBannerEffects StoryModeBannerEffects { get; }` |
+
+## 使用示例
+
+```csharp
+var manager = StoryModeManager.Current;
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

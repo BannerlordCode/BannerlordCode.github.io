@@ -1,16 +1,53 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MPLobbyRecentGamePlayerItemVM`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # MPLobbyRecentGamePlayerItemVM
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
-**模块:** TaleWorlds.MountAndBlade
-**类型:** 类 class
-**领域:** 战斗系统 MountAndBlade
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MPLobbyRecentGamePlayerItemVM : MPLobbyPlayerBaseVM`
+**Base:** `MPLobbyPlayerBaseVM`
+**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGamePlayerItemVM.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`MPLobbyRecentGamePlayerItemVM` 是 `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`MPLobbyRecentGamePlayerItemVM` 位于 `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `KillCount` | `public int KillCount { get; set; }` |
+| `DeathCount` | `public int DeathCount { get; set; }` |
+| `AssistCount` | `public int AssistCount { get; set; }` |
+
+## 主要方法
+
+### MPLobbyRecentGamePlayerItemVM
+`public unsafe MPLobbyRecentGamePlayerItemVM(PlayerId playerId, MatchHistoryData matchOfThePlayer, Action<MPLobbyRecentGamePlayerItemVM> onActivatePlayerActions)`
+
+**用途 / Purpose:** 处理 `m p lobby recent game player item v m` 相关逻辑。
+
+### RefreshValues
+`public override void RefreshValues()`
+
+**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+
+## 使用示例
+
+```csharp
+var value = new MPLobbyRecentGamePlayerItemVM();
+value.MPLobbyRecentGamePlayerItemVM(playerId, matchOfThePlayer, onActivatePlayerActions);
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)

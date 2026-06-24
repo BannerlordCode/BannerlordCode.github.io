@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `SpawnPointDebugView`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # SpawnPointDebugView
 
-**命名空间:** SandBox.View.Missions.SandBox
-**模块:** SandBox.View
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**Namespace:** SandBox.View.Missions.SandBox
+**Module:** SandBox.View
+**Type:** `public class SpawnPointDebugView : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.SandBox/SpawnPointDebugView.cs`
 
 ## 概述
 
-> 本页为自动生成的存根。`SpawnPointDebugView` 是 `SandBox.View.Missions.SandBox` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`SpawnPointDebugView` 表示一个视图层对象，通常负责把游戏状态投影到屏幕、场景或可交互界面。
+
+## 心智模型
+
+把 `SpawnPointDebugView` 当作一个 View 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### GetTickRequirement
+`public override TickRequirement GetTickRequirement()`
+
+**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+
+## 使用示例
+
+```csharp
+var view = new SpawnPointDebugView();
+```
 
 ## 参见
 
 - [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)

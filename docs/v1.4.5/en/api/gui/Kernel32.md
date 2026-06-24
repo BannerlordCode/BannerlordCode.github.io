@@ -1,0 +1,59 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `Kernel32`
+- [← Area / Back to gui](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# Kernel32
+
+**Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public static class Kernel32`
+**Base:** none
+**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Kernel32.cs`
+
+## Overview
+
+`Kernel32` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### LoadLibrary
+`public static extern IntPtr LoadLibrary(string lpFileName)`
+
+**Purpose:** Loads `library` data.
+
+### GetModuleHandle
+`public static extern IntPtr GetModuleHandle(string lpModuleName)`
+
+**Purpose:** Gets the current value of `module handle`.
+
+### GetLastError
+`public static extern int GetLastError()`
+
+**Purpose:** Gets the current value of `last error`.
+
+### GetConsoleWindow
+`public static extern IntPtr GetConsoleWindow()`
+
+**Purpose:** Gets the current value of `console window`.
+
+### GetUserGeoID
+`public static extern int GetUserGeoID(GeoTypeId type)`
+
+**Purpose:** Gets the current value of `user geo i d`.
+
+## Usage Example
+
+```csharp
+Kernel32.LoadLibrary("example");
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

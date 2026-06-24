@@ -1,16 +1,49 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `MissionGauntletQuestBarView`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # MissionGauntletQuestBarView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
-**Type:** class
-**Area:** Campaign System
+**Type:** `public class MissionGauntletQuestBarView : MissionQuestBarView`
+**Base:** `MissionQuestBarView`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletQuestBarView.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `MissionGauntletQuestBarView` is a class in the `SandBox.GauntletUI.Missions` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`MissionGauntletQuestBarView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `MissionGauntletQuestBarView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### OnMissionScreenInitialize
+`public override void OnMissionScreenInitialize()`
+
+**Purpose:** Called when the `mission screen initialize` event is raised.
+
+### OnMissionScreenFinalize
+`public override void OnMissionScreenFinalize()`
+
+**Purpose:** Called when the `mission screen finalize` event is raised.
+
+### OnMissionScreenTick
+`public override void OnMissionScreenTick(float dt)`
+
+**Purpose:** Called when the `mission screen tick` event is raised.
+
+## Usage Example
+
+```csharp
+var view = new MissionGauntletQuestBarView();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)

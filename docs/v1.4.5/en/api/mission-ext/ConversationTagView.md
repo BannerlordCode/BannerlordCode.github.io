@@ -1,16 +1,39 @@
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ConversationTagView`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
 # ConversationTagView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
-**Type:** class
-**Area:** Mount & Blade
+**Type:** `public class ConversationTagView`
+**Base:** none
+**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ConversationTagView.cs`
 
 ## Overview
 
-> This is an auto-generated stub. `ConversationTagView` is a class in the `TaleWorlds.MountAndBlade.View` namespace.
-> For properties, methods, and developer use-cases, refer to source code or contribute documentation.
+`ConversationTagView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `ConversationTagView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### GetSkillMeshName
+`public static string GetSkillMeshName(SkillObject skillEnum, bool isOn = false)`
+
+**Purpose:** Gets the current value of `skill mesh name`.
+
+## Usage Example
+
+```csharp
+var view = new ConversationTagView();
+```
 
 ## See Also
 
 - [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)

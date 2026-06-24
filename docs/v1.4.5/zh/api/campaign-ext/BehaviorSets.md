@@ -1,14 +1,98 @@
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `BehaviorSets`
+- [← 本领域 / 返回 campaign-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
 # BehaviorSets
 
 **命名空间:** SandBox.Missions.AgentBehaviors
 **模块:** SandBox.Missions
-**类型:** 类 class
-**领域:** 战役系统 Campaign
+**类型:** `public class BehaviorSets`
+**领域:** campaign-ext
 
 ## 概述
 
-> 本页为自动生成的存根。`BehaviorSets` 是 `SandBox.Missions.AgentBehaviors` 命名空间下的一个类 class。
-> 如需了解其属性、方法和开发者用例，请参考源码或贡献文档。
+`BehaviorSets` 位于 `SandBox.Missions.AgentBehaviors`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+
+## 心智模型
+
+先从命名空间 `SandBox.Missions.AgentBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要方法
+
+### AddQuestCharacterBehaviors
+`public static void AddQuestCharacterBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `quest character behaviors`。
+
+### AddWandererBehaviors
+`public static void AddWandererBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `wanderer behaviors`。
+
+### AddOutdoorWandererBehaviors
+`public static void AddOutdoorWandererBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `outdoor wanderer behaviors`。
+
+### AddIndoorWandererBehaviors
+`public static void AddIndoorWandererBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `indoor wanderer behaviors`。
+
+### AddFixedCharacterBehaviors
+`public static void AddFixedCharacterBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `fixed character behaviors`。
+
+### AddPatrollingThugBehaviors
+`public static void AddPatrollingThugBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `patrolling thug behaviors`。
+
+### AddStandGuardBehaviors
+`public static void AddStandGuardBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `stand guard behaviors`。
+
+### AddFixedGuardBehaviors
+`public static void AddFixedGuardBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `fixed guard behaviors`。
+
+### StealthAgentBehaviors
+`public static void StealthAgentBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 处理 `stealth agent behaviors` 相关逻辑。
+
+### AddPatrollingGuardBehaviors
+`public static void AddPatrollingGuardBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `patrolling guard behaviors`。
+
+### AddCompanionBehaviors
+`public static void AddCompanionBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `companion behaviors`。
+
+### AddBodyguardBehaviors
+`public static void AddBodyguardBehaviors(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `bodyguard behaviors`。
+
+### AddFirstCompanionBehavior
+`public static void AddFirstCompanionBehavior(IAgent agent)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `first companion behavior`。
+
+## 使用示例
+
+```csharp
+// 先准备该类型需要的上下文，然后直接调用静态入口
+BehaviorSets.AddQuestCharacterBehaviors(agent);
+```
 
 ## 参见
 

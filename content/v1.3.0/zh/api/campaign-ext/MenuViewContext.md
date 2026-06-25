@@ -30,7 +30,7 @@ description: "MenuViewContext 的自动生成类参考。"
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext menuContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 menu context 的最新表示。
+**用途 / Purpose:** 重新计算并更新 menu context 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -41,7 +41,7 @@ menuViewContext.UpdateMenuContext(menuContext);
 ### AddLayer
 `public void AddLayer(ScreenLayer layer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 layer 添加到当前容器或状态中。
+**用途 / Purpose:** 将 layer 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -52,7 +52,7 @@ menuViewContext.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(ScreenLayer layer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 layer。
+**用途 / Purpose:** 从当前容器或状态中移除 layer。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -63,7 +63,7 @@ menuViewContext.RemoveLayer(layer);
 ### OnFrameTick
 `public void OnFrameTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -74,7 +74,7 @@ menuViewContext.OnFrameTick(0);
 ### OnResume
 `public void OnResume()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 resume 事件触发时调用此回调。
+**用途 / Purpose:** 在 resume 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -85,7 +85,7 @@ menuViewContext.OnResume();
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -96,7 +96,7 @@ menuViewContext.OnHourlyTick();
 ### OnActivate
 `public void OnActivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 activate 事件触发时调用此回调。
+**用途 / Purpose:** 在 activate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -107,7 +107,7 @@ menuViewContext.OnActivate();
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deactivate 事件触发时调用此回调。
+**用途 / Purpose:** 在 deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -118,7 +118,7 @@ menuViewContext.OnDeactivate();
 ### OnInitialize
 `public void OnInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -129,7 +129,7 @@ menuViewContext.OnInitialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -140,7 +140,7 @@ menuViewContext.OnFinalize();
 ### StopAllSounds
 `public void StopAllSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止all sounds流程或状态机。
+**用途 / Purpose:** 停止all sounds流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -151,7 +151,7 @@ menuViewContext.StopAllSounds();
 ### OnMapConversationActivated
 `public void OnMapConversationActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map conversation activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 map conversation activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -162,7 +162,7 @@ menuViewContext.OnMapConversationActivated();
 ### OnMapConversationDeactivated
 `public void OnMapConversationDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map conversation deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 map conversation deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -173,7 +173,7 @@ menuViewContext.OnMapConversationDeactivated();
 ### OnGameStateDeactivate
 `public void OnGameStateDeactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game state deactivate 事件触发时调用此回调。
+**用途 / Purpose:** 在 game state deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -184,7 +184,7 @@ menuViewContext.OnGameStateDeactivate();
 ### OnGameStateInitialize
 `public void OnGameStateInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game state initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 game state initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -195,7 +195,7 @@ menuViewContext.OnGameStateInitialize();
 ### OnGameStateFinalize
 `public void OnGameStateFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game state finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 game state finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -206,7 +206,7 @@ menuViewContext.OnGameStateFinalize();
 ### CloseCharacterDeveloper
 `public void CloseCharacterDeveloper()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭character developer对应的资源或界面。
+**用途 / Purpose:** 关闭character developer对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -217,7 +217,7 @@ menuViewContext.CloseCharacterDeveloper();
 ### RemoveMenuView
 `public void RemoveMenuView(MenuView menuView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 menu view。
+**用途 / Purpose:** 从当前容器或状态中移除 menu view。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -228,7 +228,7 @@ menuViewContext.RemoveMenuView(menuView);
 ### CloseTownManagement
 `public void CloseTownManagement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭town management对应的资源或界面。
+**用途 / Purpose:** 关闭town management对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -239,7 +239,7 @@ menuViewContext.CloseTownManagement();
 ### CloseRecruitVolunteers
 `public void CloseRecruitVolunteers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭recruit volunteers对应的资源或界面。
+**用途 / Purpose:** 关闭recruit volunteers对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -250,7 +250,7 @@ menuViewContext.CloseRecruitVolunteers();
 ### CloseTournamentLeaderboard
 `public void CloseTournamentLeaderboard()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭tournament leaderboard对应的资源或界面。
+**用途 / Purpose:** 关闭tournament leaderboard对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例
@@ -261,7 +261,7 @@ menuViewContext.CloseTournamentLeaderboard();
 ### CloseTroopSelection
 `public void CloseTroopSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭troop selection对应的资源或界面。
+**用途 / Purpose:** 关闭troop selection对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuViewContext 实例

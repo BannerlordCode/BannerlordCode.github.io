@@ -23,7 +23,7 @@ Treat `DefaultSettlementEconomyModel` as a Model-style extension point: first id
 ### GetValueOfCategory
 `public int GetValueOfCategory(ItemCategory category)`
 
-**Purpose:** **Purpose:** Reads and returns the value of category value held by the this instance.
+**Purpose:** Reads and returns the value of category value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementEconomyModel.GetValueOfCategory(category);
 ### GetDailyDemandForCategory
 `public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
 
-**Purpose:** **Purpose:** Reads and returns the daily demand for category value held by the this instance.
+**Purpose:** Reads and returns the daily demand for category value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultSettlementEconomyModel.GetDailyDemandForCategory(town, categ
 ### GetTownGoldChange
 `public override int GetTownGoldChange(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the town gold change value held by the this instance.
+**Purpose:** Reads and returns the town gold change value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultSettlementEconomyModel.GetTownGoldChange(town);
 ### CalculateDailySettlementBudgetForItemCategory
 `public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of daily settlement budget for item category.
+**Purpose:** Calculates the current value or result of daily settlement budget for item category.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultSettlementEconomyModel.CalculateDailySettlementBudgetForItem
 ### GetDemandChangeFromValue
 `public override float GetDemandChangeFromValue(float purchaseValue)`
 
-**Purpose:** **Purpose:** Reads and returns the demand change from value value held by the this instance.
+**Purpose:** Reads and returns the demand change from value value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultSettlementEconomyModel.GetDemandChangeFromValue(0);
 ### GetEstimatedDemandForCategory
 `public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**Purpose:** **Purpose:** Reads and returns the estimated demand for category value held by the this instance.
+**Purpose:** Reads and returns the estimated demand for category value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first

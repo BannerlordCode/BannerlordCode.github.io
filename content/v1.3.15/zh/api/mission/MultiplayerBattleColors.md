@@ -23,7 +23,7 @@ description: "MultiplayerBattleColors 的自动生成类参考。"
 ### CreateWith
 `public static MultiplayerBattleColors CreateWith(BasicCultureObject attackerCulture, BasicCultureObject defenderCulture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 with 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 with 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerBattleColors.CreateWith(attackerCulture, defenderCulture);
 ### GetPeerColors
 `public MultiplayerBattleColors.MultiplayerCultureColorInfo GetPeerColors(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 peer colors 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 peer colors 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleColors 实例

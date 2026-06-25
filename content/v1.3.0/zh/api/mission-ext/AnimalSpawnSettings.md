@@ -23,7 +23,7 @@ description: "AnimalSpawnSettings 的自动生成类参考。"
 ### CheckAndSetAnimalAgentFlags
 `public static void CheckAndSetAnimalAgentFlags(GameEntity spawnEntity, Agent animalAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查and set animal agent flags在当前对象中是否成立。
+**用途 / Purpose:** 检查and set animal agent flags在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例

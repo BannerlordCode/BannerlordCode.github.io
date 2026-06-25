@@ -23,7 +23,7 @@ Treat `HttpDriverManager` as a Manager-style extension point: first identify who
 ### AddHttpDriver
 `public static void AddHttpDriver(string name, IHttpDriver driver)`
 
-**Purpose:** **Purpose:** Adds http driver to the current collection or state.
+**Purpose:** Adds http driver to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ HttpDriverManager.AddHttpDriver("example", driver);
 ### SetDefault
 `public static void SetDefault(string name)`
 
-**Purpose:** **Purpose:** Assigns a new value to default and updates the object's internal state.
+**Purpose:** Assigns a new value to default and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ HttpDriverManager.SetDefault("example");
 ### GetHttpDriver
 `public static IHttpDriver GetHttpDriver(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the http driver value held by the this instance.
+**Purpose:** Reads and returns the http driver value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ HttpDriverManager.GetHttpDriver("example");
 ### GetDefaultHttpDriver
 `public static IHttpDriver GetDefaultHttpDriver()`
 
-**Purpose:** **Purpose:** Reads and returns the default http driver value held by the this instance.
+**Purpose:** Reads and returns the default http driver value held by the this instance.
 
 ```csharp
 // Static call; no instance required

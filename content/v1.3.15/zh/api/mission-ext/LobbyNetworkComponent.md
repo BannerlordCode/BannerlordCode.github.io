@@ -23,7 +23,7 @@ description: "LobbyNetworkComponent 的自动生成类参考。"
 ### HandleEarlyNewClientAfterLoadingFinished
 `public override void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 early new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 early new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyNetworkComponent 实例
@@ -34,7 +34,7 @@ lobbyNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterLoadingFinished
 `public override void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyNetworkComponent 实例
@@ -45,7 +45,7 @@ lobbyNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
 ### HandleLateNewClientAfterLoadingFinished
 `public override void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 late new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 late new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyNetworkComponent 实例
@@ -56,7 +56,7 @@ lobbyNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
+**用途 / Purpose:** 响应 player disconnect 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyNetworkComponent 实例
@@ -67,7 +67,7 @@ lobbyNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyNetworkComponent 实例

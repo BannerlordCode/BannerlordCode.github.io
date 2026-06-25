@@ -29,7 +29,7 @@ Treat `MapParleyAnimationParentBrushWidget` as a Widget-style extension point: f
 ### MapParleyAnimationParentBrushWidget
 `public class MapParleyAnimationParentBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the MapParleyAnimationParentBrushWidget logic.
+**Purpose:** Executes the MapParleyAnimationParentBrushWidget logic.
 
 ```csharp
 // Obtain an instance of MapParleyAnimationParentBrushWidget from the subsystem API first

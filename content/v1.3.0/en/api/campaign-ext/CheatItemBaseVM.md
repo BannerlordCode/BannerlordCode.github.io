@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### ExecuteAction
 `public abstract void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of CheatItemBaseVM from the subsystem API first

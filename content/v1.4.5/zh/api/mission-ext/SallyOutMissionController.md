@@ -23,7 +23,7 @@ description: "SallyOutMissionController 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionController 实例
@@ -34,7 +34,7 @@ sallyOutMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionController 实例
@@ -45,7 +45,7 @@ sallyOutMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionController 实例
@@ -56,7 +56,7 @@ sallyOutMissionController.OnMissionTick(0);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionController 实例
@@ -67,7 +67,7 @@ sallyOutMissionController.OnDeploymentFinished();
 ### GetBesiegerSiegeEngines
 `public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 besieger siege engines 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 besieger siege engines 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ SallyOutMissionController.GetBesiegerSiegeEngines();
 ### DisableSiegeEngines
 `public static void DisableSiegeEngines()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableSiegeEngines 对应的操作。
+**用途 / Purpose:** 调用 DisableSiegeEngines 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

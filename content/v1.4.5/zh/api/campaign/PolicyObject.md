@@ -33,7 +33,7 @@ description: "PolicyObject 的自动生成类参考。"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyObject 实例
@@ -44,7 +44,7 @@ policyObject.Initialize(name, description, logEntryDescription, secondaryEffects
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyObject 实例

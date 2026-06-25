@@ -23,7 +23,7 @@ Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** **Purpose:** Invoked when the mission start event is raised.
+**Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ sandboxBattleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** **Purpose:** Invoked when the mission end event is raised.
+**Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
@@ -45,7 +45,7 @@ sandboxBattleSpawnModel.OnMissionEnd();
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
+**Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = sandboxBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troo
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
+**Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first

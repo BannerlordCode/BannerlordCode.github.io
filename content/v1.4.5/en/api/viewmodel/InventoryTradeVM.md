@@ -48,7 +48,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -59,7 +59,7 @@ inventoryTradeVM.RefreshValues();
 ### UpdateItemData
 `public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of item data.
+**Purpose:** Recalculates and stores the latest representation of item data.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -70,7 +70,7 @@ inventoryTradeVM.UpdateItemData(itemRoster, side, false);
 ### GetAveragePrice
 `public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)`
 
-**Purpose:** **Purpose:** Reads and returns the average price value held by the this instance.
+**Purpose:** Reads and returns the average price value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -81,7 +81,7 @@ var result = inventoryTradeVM.GetAveragePrice(0, 0, false);
 ### ExecuteIncreaseThisStock
 `public void ExecuteIncreaseThisStock()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with increase this stock.
+**Purpose:** Runs the operation or workflow associated with increase this stock.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -92,7 +92,7 @@ inventoryTradeVM.ExecuteIncreaseThisStock();
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with increase other stock.
+**Purpose:** Runs the operation or workflow associated with increase other stock.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -103,7 +103,7 @@ inventoryTradeVM.ExecuteIncreaseOtherStock();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
+**Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -114,7 +114,7 @@ inventoryTradeVM.ExecuteReset();
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with apply transaction.
+**Purpose:** Runs the operation or workflow associated with apply transaction.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first
@@ -125,7 +125,7 @@ inventoryTradeVM.ExecuteApplyTransaction();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove zero counts.
+**Purpose:** Runs the operation or workflow associated with remove zero counts.
 
 ```csharp
 // Obtain an instance of InventoryTradeVM from the subsystem API first

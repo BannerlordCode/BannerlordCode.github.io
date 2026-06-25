@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### DeleteOutdatedLogs
 `public void DeleteOutdatedLogs()`
 
-**Purpose:** **Purpose:** Executes the DeleteOutdatedLogs logic.
+**Purpose:** Executes the DeleteOutdatedLogs logic.
 
 ```csharp
 // Obtain an instance of LogEntryHistory from the subsystem API first
@@ -40,7 +40,7 @@ logEntryHistory.DeleteOutdatedLogs();
 ### GetStartIndexForComments
 `public int GetStartIndexForComments()`
 
-**Purpose:** **Purpose:** Reads and returns the start index for comments value held by the this instance.
+**Purpose:** Reads and returns the start index for comments value held by the this instance.
 
 ```csharp
 // Obtain an instance of LogEntryHistory from the subsystem API first
@@ -51,7 +51,7 @@ var result = logEntryHistory.GetStartIndexForComments();
 ### GetRelevantComment
 `public LogEntry GetRelevantComment(Hero conversationHero, out int bestScore, out string bestRelatedLogEntryTag)`
 
-**Purpose:** **Purpose:** Reads and returns the relevant comment value held by the this instance.
+**Purpose:** Reads and returns the relevant comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of LogEntryHistory from the subsystem API first

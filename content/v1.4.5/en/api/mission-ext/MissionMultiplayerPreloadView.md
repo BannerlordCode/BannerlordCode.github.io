@@ -23,7 +23,7 @@ Treat `MissionMultiplayerPreloadView` as a View-style extension point: first ide
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first
@@ -34,7 +34,7 @@ missionMultiplayerPreloadView.OnPreMissionTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
+**Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first
@@ -45,7 +45,7 @@ missionMultiplayerPreloadView.OnSceneRenderingStarted();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the mission state deactivated event is raised.
+**Purpose:** Invoked when the mission state deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first

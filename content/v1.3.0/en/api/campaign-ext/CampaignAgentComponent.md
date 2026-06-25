@@ -30,7 +30,7 @@ Treat `CampaignAgentComponent` as a Component-style extension point: first ident
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Constructs a new agent navigator entity and returns it to the caller.
+**Purpose:** Constructs a new agent navigator entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -41,7 +41,7 @@ var result = campaignAgentComponent.CreateAgentNavigator(locationCharacter);
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator()`
 
-**Purpose:** **Purpose:** Constructs a new agent navigator entity and returns it to the caller.
+**Purpose:** Constructs a new agent navigator entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -52,7 +52,7 @@ var result = campaignAgentComponent.CreateAgentNavigator();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -63,7 +63,7 @@ campaignAgentComponent.OnAgentRemoved(agent);
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -74,7 +74,7 @@ campaignAgentComponent.OnTick(0);
 ### GetMoraleDecreaseConstant
 `public override float GetMoraleDecreaseConstant()`
 
-**Purpose:** **Purpose:** Reads and returns the morale decrease constant value held by the this instance.
+**Purpose:** Reads and returns the morale decrease constant value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -85,7 +85,7 @@ var result = campaignAgentComponent.GetMoraleDecreaseConstant();
 ### GetMoraleAddition
 `public override float GetMoraleAddition()`
 
-**Purpose:** **Purpose:** Reads and returns the morale addition value held by the this instance.
+**Purpose:** Reads and returns the morale addition value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first
@@ -96,7 +96,7 @@ var result = campaignAgentComponent.GetMoraleAddition();
 ### OnStopUsingGameObject
 `public override void OnStopUsingGameObject()`
 
-**Purpose:** **Purpose:** Invoked when the stop using game object event is raised.
+**Purpose:** Invoked when the stop using game object event is raised.
 
 ```csharp
 // Obtain an instance of CampaignAgentComponent from the subsystem API first

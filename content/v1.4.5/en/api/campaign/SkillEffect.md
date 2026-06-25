@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(TextObject description, SkillObject effectedSkill, PartyRole role, float bonus, EffectIncrementType incrementType, float baseValue = 0f, float limitMin = float.MinValue, float limitMax = float.MaxValue)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SkillEffect from the subsystem API first
@@ -46,7 +46,7 @@ skillEffect.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0,
 ### GetSkillEffectValue
 `public float GetSkillEffectValue(int skillLevel)`
 
-**Purpose:** **Purpose:** Reads and returns the skill effect value value held by the this instance.
+**Purpose:** Reads and returns the skill effect value value held by the this instance.
 
 ```csharp
 // Obtain an instance of SkillEffect from the subsystem API first

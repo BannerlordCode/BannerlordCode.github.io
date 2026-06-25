@@ -23,7 +23,7 @@ Treat `MissionSoundParametersView` as a View-style extension point: first identi
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionSoundParametersView from the subsystem API first
@@ -34,7 +34,7 @@ missionSoundParametersView.EarlyStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionSoundParametersView from the subsystem API first
@@ -45,7 +45,7 @@ missionSoundParametersView.OnMissionScreenFinalize();
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** **Purpose:** Invoked when the mission mode change event is raised.
+**Purpose:** Invoked when the mission mode change event is raised.
 
 ```csharp
 // Obtain an instance of MissionSoundParametersView from the subsystem API first

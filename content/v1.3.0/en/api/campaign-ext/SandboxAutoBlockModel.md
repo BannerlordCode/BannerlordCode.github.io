@@ -23,7 +23,7 @@ Treat `SandboxAutoBlockModel` as a Model-style extension point: first identify w
 ### GetBlockDirection
 `public override Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** **Purpose:** Reads and returns the block direction value held by the this instance.
+**Purpose:** Reads and returns the block direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxAutoBlockModel from the subsystem API first

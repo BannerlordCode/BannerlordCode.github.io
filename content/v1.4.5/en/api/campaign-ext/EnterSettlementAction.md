@@ -19,7 +19,7 @@ EnterSettlementAction is a set of static methods that trigger "EnterSettlement" 
 public static void ApplyForParty(MobileParty mobileParty, Settlement settlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for party to the this instance.
+**Purpose:** Applies the effect of for party to the this instance.
 
 ### ApplyForPartyEntersAlley
 
@@ -27,7 +27,7 @@ public static void ApplyForParty(MobileParty mobileParty, Settlement settlement)
 public static void ApplyForPartyEntersAlley(MobileParty party, Settlement settlement, Alley alley, bool isPlayerInvolved = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for party enters alley to the this instance.
+**Purpose:** Applies the effect of for party enters alley to the this instance.
 
 ### ApplyForCharacterOnly
 
@@ -35,7 +35,7 @@ public static void ApplyForPartyEntersAlley(MobileParty party, Settlement settle
 public static void ApplyForCharacterOnly(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for character only to the this instance.
+**Purpose:** Applies the effect of for character only to the this instance.
 
 ### ApplyForPrisoner
 
@@ -43,7 +43,7 @@ public static void ApplyForCharacterOnly(Hero hero, Settlement settlement)
 public static void ApplyForPrisoner(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for prisoner to the this instance.
+**Purpose:** Applies the effect of for prisoner to the this instance.
 
 ## Usage Example
 

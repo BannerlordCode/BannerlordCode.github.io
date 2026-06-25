@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**Purpose:** **Purpose:** Assigns a new value to dynamic patrol area and updates the object's internal state.
+**Purpose:** Assigns a new value to dynamic patrol area and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PatrolAgentBehavior from the subsystem API first
@@ -34,7 +34,7 @@ patrolAgentBehavior.SetDynamicPatrolArea(parentPatrolPoint);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of PatrolAgentBehavior from the subsystem API first
@@ -45,7 +45,7 @@ patrolAgentBehavior.Tick(0, false);
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
+**Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of PatrolAgentBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = patrolAgentBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
+**Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of PatrolAgentBehavior from the subsystem API first

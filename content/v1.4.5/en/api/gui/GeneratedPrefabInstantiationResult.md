@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### AddData
 `public void AddData(string tag, object data)`
 
-**Purpose:** **Purpose:** Adds data to the current collection or state.
+**Purpose:** Adds data to the current collection or state.
 
 ```csharp
 // Obtain an instance of GeneratedPrefabInstantiationResult from the subsystem API first
@@ -40,7 +40,7 @@ generatedPrefabInstantiationResult.AddData("example", data);
 ### GetExtensionData
 `public object GetExtensionData(string tag)`
 
-**Purpose:** **Purpose:** Reads and returns the extension data value held by the this instance.
+**Purpose:** Reads and returns the extension data value held by the this instance.
 
 ```csharp
 // Obtain an instance of GeneratedPrefabInstantiationResult from the subsystem API first

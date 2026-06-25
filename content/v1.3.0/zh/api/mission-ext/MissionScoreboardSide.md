@@ -30,7 +30,7 @@ description: "MissionScoreboardSide 的自动生成类参考。"
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 player 添加到当前容器或状态中。
+**用途 / Purpose:** 将 player 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -41,7 +41,7 @@ missionScoreboardSide.AddPlayer(peer);
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 player。
+**用途 / Purpose:** 从当前容器或状态中移除 player。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -52,7 +52,7 @@ missionScoreboardSide.RemovePlayer(peer);
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 values of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 values of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -63,7 +63,7 @@ var result = missionScoreboardSide.GetValuesOf(peer);
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 header names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 header names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -74,7 +74,7 @@ var result = missionScoreboardSide.GetHeaderNames();
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 header ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 header ids 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -85,7 +85,7 @@ var result = missionScoreboardSide.GetHeaderIds();
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -96,7 +96,7 @@ var result = missionScoreboardSide.GetScore(peer);
 ### UpdateHeader
 `public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 header 的最新表示。
+**用途 / Purpose:** 重新计算并更新 header 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -107,7 +107,7 @@ missionScoreboardSide.UpdateHeader(headers);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例
@@ -118,7 +118,7 @@ missionScoreboardSide.Clear();
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算and get m v p score with peer的当前值或结果。
+**用途 / Purpose:** 计算and get m v p score with peer的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSide 实例

@@ -31,7 +31,7 @@ Treat `AutoClosePopupClosingWidget` as a Widget-style extension point: first ide
 ### ShouldClosePopup
 `public bool ShouldClosePopup()`
 
-**Purpose:** **Purpose:** Executes the ShouldClosePopup logic.
+**Purpose:** Executes the ShouldClosePopup logic.
 
 ```csharp
 // Obtain an instance of AutoClosePopupClosingWidget from the subsystem API first

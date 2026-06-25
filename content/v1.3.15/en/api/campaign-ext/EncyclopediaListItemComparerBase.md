@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort order and updates the object's internal state.
+**Purpose:** Assigns a new value to sort order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
@@ -40,7 +40,7 @@ encyclopediaListItemComparerBase.SetSortOrder(false);
 ### SwitchSortOrder
 `public void SwitchSortOrder()`
 
-**Purpose:** **Purpose:** Executes the SwitchSortOrder logic.
+**Purpose:** Executes the SwitchSortOrder logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
@@ -51,7 +51,7 @@ encyclopediaListItemComparerBase.SwitchSortOrder();
 ### SetDefaultSortOrder
 `public void SetDefaultSortOrder()`
 
-**Purpose:** **Purpose:** Assigns a new value to default sort order and updates the object's internal state.
+**Purpose:** Assigns a new value to default sort order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
@@ -62,7 +62,7 @@ encyclopediaListItemComparerBase.SetDefaultSortOrder();
 ### Compare
 `public abstract int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
@@ -73,7 +73,7 @@ var result = encyclopediaListItemComparerBase.Compare(x, y);
 ### GetComparedValueText
 `public abstract string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** **Purpose:** Reads and returns the compared value text value held by the this instance.
+**Purpose:** Reads and returns the compared value text value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first

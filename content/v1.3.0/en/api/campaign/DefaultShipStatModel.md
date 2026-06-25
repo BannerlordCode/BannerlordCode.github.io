@@ -23,7 +23,7 @@ Treat `DefaultShipStatModel` as a Model-style extension point: first identify wh
 ### GetShipTierf
 `public override float GetShipTierf(Ship ship)`
 
-**Purpose:** **Purpose:** Reads and returns the ship tierf value held by the this instance.
+**Purpose:** Reads and returns the ship tierf value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipStatModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultShipStatModel.GetShipTierf(ship);
 ### GetShipFlagshipScore
 `public override float GetShipFlagshipScore(Ship ship)`
 
-**Purpose:** **Purpose:** Reads and returns the ship flagship score value held by the this instance.
+**Purpose:** Reads and returns the ship flagship score value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipStatModel from the subsystem API first

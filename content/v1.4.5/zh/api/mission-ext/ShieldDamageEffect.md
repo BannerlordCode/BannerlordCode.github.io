@@ -23,7 +23,7 @@ description: "ShieldDamageEffect 的自动生成类参考。"
 ### GetShieldDamage
 `public override float GetShieldDamage(bool isCorrectSideBlock)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shield damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shield damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ShieldDamageEffect 实例

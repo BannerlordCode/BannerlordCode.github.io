@@ -23,7 +23,7 @@ Treat `StrikeMagnitudeCalculationModel` as a Model-style extension point: first 
 ### CalculateStrikeMagnitudeForMissile
 `public abstract float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for missile.
+**Purpose:** Calculates the current value or result of strike magnitude for missile.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForMissile(
 ### CalculateStrikeMagnitudeForSwing
 `public abstract float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for swing.
+**Purpose:** Calculates the current value or result of strike magnitude for swing.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForSwing(at
 ### CalculateStrikeMagnitudeForThrust
 `public abstract float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for thrust.
+**Purpose:** Calculates the current value or result of strike magnitude for thrust.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForThrust(a
 ### ComputeRawDamage
 `public abstract float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**Purpose:** **Purpose:** Executes the ComputeRawDamage logic.
+**Purpose:** Executes the ComputeRawDamage logic.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = strikeMagnitudeCalculationModel.ComputeRawDamage(damageType, 0, 0, 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public abstract float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for unarmed attack.
+**Purpose:** Calculates the current value or result of strike magnitude for unarmed attack.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForUnarmedA
 ### GetBluntDamageFactorByDamageType
 `public abstract float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**Purpose:** **Purpose:** Reads and returns the blunt damage factor by damage type value held by the this instance.
+**Purpose:** Reads and returns the blunt damage factor by damage type value held by the this instance.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = strikeMagnitudeCalculationModel.GetBluntDamageFactorByDamageType(da
 ### CalculateHorseArcheryFactor
 `public abstract float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of horse archery factor.
+**Purpose:** Calculates the current value or result of horse archery factor.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = strikeMagnitudeCalculationModel.CalculateHorseArcheryFactor(charact
 ### CalculateAdjustedArmorForBlow
 `public virtual float CalculateAdjustedArmorForBlow(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseArmor, BasicCharacterObject attackerCharacter, BasicCharacterObject attackerCaptainCharacter, BasicCharacterObject victimCharacter, BasicCharacterObject victimCaptainCharacter, WeaponComponentData weaponComponent)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of adjusted armor for blow.
+**Purpose:** Calculates the current value or result of adjusted armor for blow.
 
 ```csharp
 // Obtain an instance of StrikeMagnitudeCalculationModel from the subsystem API first

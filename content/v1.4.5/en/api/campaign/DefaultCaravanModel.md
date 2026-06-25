@@ -23,7 +23,7 @@ Treat `DefaultCaravanModel` as a Model-style extension point: first identify who
 ### GetEliteCaravanSpawnChance
 `public override float GetEliteCaravanSpawnChance(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the elite caravan spawn chance value held by the this instance.
+**Purpose:** Reads and returns the elite caravan spawn chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultCaravanModel.GetEliteCaravanSpawnChance(hero);
 ### GetPowerChangeAfterCaravanCreation
 `public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**Purpose:** **Purpose:** Reads and returns the power change after caravan creation value held by the this instance.
+**Purpose:** Reads and returns the power change after caravan creation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultCaravanModel.GetPowerChangeAfterCaravanCreation(hero, carava
 ### CanHeroCreateCaravan
 `public override bool CanHeroCreateCaravan(Hero hero)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero create caravan.
+**Purpose:** Checks whether the this instance meets the preconditions for hero create caravan.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultCaravanModel.CanHeroCreateCaravan(hero);
 ### GetCaravanFormingCost
 `public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)`
 
-**Purpose:** **Purpose:** Reads and returns the caravan forming cost value held by the this instance.
+**Purpose:** Reads and returns the caravan forming cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultCaravanModel.GetCaravanFormingCost(false, false);
 ### GetInitialTradeGold
 `public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)`
 
-**Purpose:** **Purpose:** Reads and returns the initial trade gold value held by the this instance.
+**Purpose:** Reads and returns the initial trade gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultCaravanModel.GetInitialTradeGold(owner, false, false);
 ### GetMaxGoldToSpendOnOneItemCategory
 `public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**Purpose:** **Purpose:** Reads and returns the max gold to spend on one item category value held by the this instance.
+**Purpose:** Reads and returns the max gold to spend on one item category value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCaravanModel from the subsystem API first

@@ -34,7 +34,7 @@ description: "SiegeWeapon 的自动生成类参考。"
 ### SetForcedUse
 `public void SetForcedUse(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced use 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced use 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -45,7 +45,7 @@ siegeWeapon.SetForcedUse(false);
 ### GetSiegeEngineType
 `public abstract SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -56,7 +56,7 @@ var result = siegeWeapon.GetSiegeEngineType();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -67,7 +67,7 @@ var result = siegeWeapon.GetTickRequirement();
 ### TickAuxForInit
 `public void TickAuxForInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进aux for init的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进aux for init的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -78,7 +78,7 @@ siegeWeapon.TickAuxForInit();
 ### ShouldAutoLeaveDetachmentWhenDisabled
 `public override bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldAutoLeaveDetachmentWhenDisabled 对应的操作。
+**用途 / Purpose:** 调用 ShouldAutoLeaveDetachmentWhenDisabled 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -89,7 +89,7 @@ var result = siegeWeapon.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
 ### AutoAttachUserToFormation
 `public override bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AutoAttachUserToFormation 对应的操作。
+**用途 / Purpose:** 调用 AutoAttachUserToFormation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -100,7 +100,7 @@ var result = siegeWeapon.AutoAttachUserToFormation(sideEnum);
 ### HasToBeDefendedByUser
 `public override bool HasToBeDefendedByUser(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 to be defended by user。
+**用途 / Purpose:** 判断当前对象是否已经持有 to be defended by user。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -111,7 +111,7 @@ var result = siegeWeapon.HasToBeDefendedByUser(sideEnum);
 ### GetTargetEntity
 `public WeakGameEntity GetTargetEntity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target entity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -122,7 +122,7 @@ var result = siegeWeapon.GetTargetEntity();
 ### GetTargetingOffset
 `public Vec3 GetTargetingOffset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 targeting offset 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 targeting offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -133,7 +133,7 @@ var result = siegeWeapon.GetTargetingOffset();
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -144,7 +144,7 @@ var result = siegeWeapon.GetSide();
 ### GetTargetGlobalVelocity
 `public Vec3 GetTargetGlobalVelocity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target global velocity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target global velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -155,7 +155,7 @@ var result = siegeWeapon.GetTargetGlobalVelocity();
 ### IsDestructable
 `public bool IsDestructable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 destructable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 destructable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -166,7 +166,7 @@ var result = siegeWeapon.IsDestructable();
 ### Entity
 `public WeakGameEntity Entity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Entity 对应的操作。
+**用途 / Purpose:** 调用 Entity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -177,7 +177,7 @@ var result = siegeWeapon.Entity();
 ### GetPhysicsGlobalBoxMax
 `public Vec3 GetPhysicsGlobalBoxMax()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 physics global box max 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 physics global box max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -188,7 +188,7 @@ var result = siegeWeapon.GetPhysicsGlobalBoxMax();
 ### GetPhysicsGlobalBoxMin
 `public Vec3 GetPhysicsGlobalBoxMin()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 physics global box min 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 physics global box min 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -199,7 +199,7 @@ var result = siegeWeapon.GetPhysicsGlobalBoxMin();
 ### GetTargetFlags
 `public abstract TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -210,7 +210,7 @@ var result = siegeWeapon.GetTargetFlags();
 ### GetTargetValue
 `public abstract float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### SetFunction
 `public void SetFunction(string functionName, MBTextModel functionBody)`
 
-**Purpose:** **Purpose:** Assigns a new value to function and updates the object's internal state.
+**Purpose:** Assigns a new value to function and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextProcessingContext from the subsystem API first
@@ -34,7 +34,7 @@ textProcessingContext.SetFunction("example", functionBody);
 ### ResetFunctions
 `public void ResetFunctions()`
 
-**Purpose:** **Purpose:** Returns functions to its default or initial condition.
+**Purpose:** Returns functions to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TextProcessingContext from the subsystem API first
@@ -45,7 +45,7 @@ textProcessingContext.ResetFunctions();
 ### GetFunctionBody
 `public MBTextModel GetFunctionBody(string functionName)`
 
-**Purpose:** **Purpose:** Reads and returns the function body value held by the this instance.
+**Purpose:** Reads and returns the function body value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextProcessingContext from the subsystem API first
@@ -56,7 +56,7 @@ var result = textProcessingContext.GetFunctionBody("example");
 ### GetFunctionParam
 `public TextObject GetFunctionParam(string rawValue)`
 
-**Purpose:** **Purpose:** Reads and returns the function param value held by the this instance.
+**Purpose:** Reads and returns the function param value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextProcessingContext from the subsystem API first
@@ -67,7 +67,7 @@ var result = textProcessingContext.GetFunctionParam("example");
 ### GetFunctionParamWithoutEvaluate
 `public TextObject GetFunctionParamWithoutEvaluate(string rawValue)`
 
-**Purpose:** **Purpose:** Reads and returns the function param without evaluate value held by the this instance.
+**Purpose:** Reads and returns the function param without evaluate value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextProcessingContext from the subsystem API first

@@ -29,7 +29,7 @@ Treat `MPPerkSelectionManager` as a Manager-style extension point: first identif
 ### FreeInstance
 `public static void FreeInstance()`
 
-**Purpose:** **Purpose:** Executes the FreeInstance logic.
+**Purpose:** Executes the FreeInstance logic.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MPPerkSelectionManager.FreeInstance();
 ### InitializeForUser
 `public void InitializeForUser(string username, PlayerId playerId)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for user.
+**Purpose:** Prepares the resources, state, or bindings required by for user.
 
 ```csharp
 // Obtain an instance of MPPerkSelectionManager from the subsystem API first
@@ -50,7 +50,7 @@ mPPerkSelectionManager.InitializeForUser("example", playerId);
 ### ResetPendingChanges
 `public void ResetPendingChanges()`
 
-**Purpose:** **Purpose:** Returns pending changes to its default or initial condition.
+**Purpose:** Returns pending changes to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MPPerkSelectionManager from the subsystem API first
@@ -61,7 +61,7 @@ mPPerkSelectionManager.ResetPendingChanges();
 ### TryToApplyAndSavePendingChanges
 `public void TryToApplyAndSavePendingChanges()`
 
-**Purpose:** **Purpose:** Attempts to retrieve to apply and save pending changes, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve to apply and save pending changes, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MPPerkSelectionManager from the subsystem API first
@@ -72,7 +72,7 @@ mPPerkSelectionManager.TryToApplyAndSavePendingChanges();
 ### GetSelectionsForHeroClass
 `public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
-**Purpose:** **Purpose:** Reads and returns the selections for hero class value held by the this instance.
+**Purpose:** Reads and returns the selections for hero class value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPPerkSelectionManager from the subsystem API first
@@ -83,7 +83,7 @@ var result = mPPerkSelectionManager.GetSelectionsForHeroClass(currentHeroClass);
 ### SetSelectionsForHeroClassTemporarily
 `public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
 
-**Purpose:** **Purpose:** Assigns a new value to selections for hero class temporarily and updates the object's internal state.
+**Purpose:** Assigns a new value to selections for hero class temporarily and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPPerkSelectionManager from the subsystem API first

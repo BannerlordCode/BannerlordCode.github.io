@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### CopyFrom
 `public void CopyFrom(TextMaterial sourceMaterial)`
 
-**Purpose:** **Purpose:** Copies the from state of the this instance to a target.
+**Purpose:** Copies the from state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of TextMaterial from the subsystem API first

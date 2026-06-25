@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### GetSkillXpProgress
 `public int GetSkillXpProgress(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the skill xp progress value held by the this instance.
+**Purpose:** Reads and returns the skill xp progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -43,7 +43,7 @@ var result = heroDeveloper.GetSkillXpProgress(skill);
 ### GetSkillXp
 `public float GetSkillXp(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the skill xp value held by the this instance.
+**Purpose:** Reads and returns the skill xp value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -54,7 +54,7 @@ var result = heroDeveloper.GetSkillXp(skill);
 ### ClearUnspentPoints
 `public void ClearUnspentPoints()`
 
-**Purpose:** **Purpose:** Removes all unspent points from the this instance.
+**Purpose:** Removes all unspent points from the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -65,7 +65,7 @@ heroDeveloper.ClearUnspentPoints();
 ### ResetCharacterStats
 `public void ResetCharacterStats()`
 
-**Purpose:** **Purpose:** Returns character stats to its default or initial condition.
+**Purpose:** Returns character stats to its default or initial condition.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -76,7 +76,7 @@ heroDeveloper.ResetCharacterStats();
 ### ClearHero
 `public void ClearHero()`
 
-**Purpose:** **Purpose:** Removes all hero from the this instance.
+**Purpose:** Removes all hero from the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -87,7 +87,7 @@ heroDeveloper.ClearHero();
 ### InitializeHeroDeveloper
 `public void InitializeHeroDeveloper()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by hero developer.
+**Purpose:** Prepares the resources, state, or bindings required by hero developer.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -98,7 +98,7 @@ heroDeveloper.InitializeHeroDeveloper();
 ### DevelopCharacterStats
 `public void DevelopCharacterStats()`
 
-**Purpose:** **Purpose:** Executes the DevelopCharacterStats logic.
+**Purpose:** Executes the DevelopCharacterStats logic.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -109,7 +109,7 @@ heroDeveloper.DevelopCharacterStats();
 ### GetTotalSkillPoints
 `public int GetTotalSkillPoints()`
 
-**Purpose:** **Purpose:** Reads and returns the total skill points value held by the this instance.
+**Purpose:** Reads and returns the total skill points value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -120,7 +120,7 @@ var result = heroDeveloper.GetTotalSkillPoints();
 ### ChangeSkillLevel
 `public void ChangeSkillLevel(SkillObject skill, int changeAmount, bool shouldNotify = true)`
 
-**Purpose:** **Purpose:** Executes the ChangeSkillLevel logic.
+**Purpose:** Executes the ChangeSkillLevel logic.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -131,7 +131,7 @@ heroDeveloper.ChangeSkillLevel(skill, 0, false);
 ### SetInitialSkillLevel
 `public void SetInitialSkillLevel(SkillObject skill, int newSkillValue)`
 
-**Purpose:** **Purpose:** Assigns a new value to initial skill level and updates the object's internal state.
+**Purpose:** Assigns a new value to initial skill level and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -142,7 +142,7 @@ heroDeveloper.SetInitialSkillLevel(skill, 0);
 ### AddSkillXp
 `public void AddSkillXp(SkillObject skill, float rawXp, bool isAffectedByFocusFactor = true, bool shouldNotify = true)`
 
-**Purpose:** **Purpose:** Adds skill xp to the current collection or state.
+**Purpose:** Adds skill xp to the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -153,7 +153,7 @@ heroDeveloper.AddSkillXp(skill, 0, false, false);
 ### GetFocusFactor
 `public float GetFocusFactor(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the focus factor value held by the this instance.
+**Purpose:** Reads and returns the focus factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -164,7 +164,7 @@ var result = heroDeveloper.GetFocusFactor(skill);
 ### CheckLevel
 `public void CheckLevel(bool shouldNotify)`
 
-**Purpose:** **Purpose:** Verifies whether level holds true for the this instance.
+**Purpose:** Verifies whether level holds true for the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -175,7 +175,7 @@ heroDeveloper.CheckLevel(false);
 ### ResetTotalXpForPlayerCharacter
 `public void ResetTotalXpForPlayerCharacter()`
 
-**Purpose:** **Purpose:** Returns total xp for player character to its default or initial condition.
+**Purpose:** Returns total xp for player character to its default or initial condition.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -186,7 +186,7 @@ heroDeveloper.ResetTotalXpForPlayerCharacter();
 ### SetInitialLevel
 `public void SetInitialLevel(int level)`
 
-**Purpose:** **Purpose:** Assigns a new value to initial level and updates the object's internal state.
+**Purpose:** Assigns a new value to initial level and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -197,7 +197,7 @@ heroDeveloper.SetInitialLevel(0);
 ### AddPerk
 `public void AddPerk(PerkObject perk)`
 
-**Purpose:** **Purpose:** Adds perk to the current collection or state.
+**Purpose:** Adds perk to the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -208,7 +208,7 @@ heroDeveloper.AddPerk(perk);
 ### GetXpRequiredForLevel
 `public int GetXpRequiredForLevel(int level)`
 
-**Purpose:** **Purpose:** Reads and returns the xp required for level value held by the this instance.
+**Purpose:** Reads and returns the xp required for level value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -219,7 +219,7 @@ var result = heroDeveloper.GetXpRequiredForLevel(0);
 ### RemoveAttribute
 `public void RemoveAttribute(CharacterAttribute attrib, int changeAmount)`
 
-**Purpose:** **Purpose:** Removes attribute from the current collection or state.
+**Purpose:** Removes attribute from the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -230,7 +230,7 @@ heroDeveloper.RemoveAttribute(attrib, 0);
 ### AddAttribute
 `public void AddAttribute(CharacterAttribute attrib, int changeAmount, bool checkUnspentPoints = true)`
 
-**Purpose:** **Purpose:** Adds attribute to the current collection or state.
+**Purpose:** Adds attribute to the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -241,7 +241,7 @@ heroDeveloper.AddAttribute(attrib, 0, false);
 ### AddFocus
 `public void AddFocus(SkillObject skill, int changeAmount, bool checkUnspentFocusPoints = true)`
 
-**Purpose:** **Purpose:** Adds focus to the current collection or state.
+**Purpose:** Adds focus to the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -252,7 +252,7 @@ heroDeveloper.AddFocus(skill, 0, false);
 ### RemoveFocus
 `public void RemoveFocus(SkillObject skill, int changeAmount)`
 
-**Purpose:** **Purpose:** Removes focus from the current collection or state.
+**Purpose:** Removes focus from the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -263,7 +263,7 @@ heroDeveloper.RemoveFocus(skill, 0);
 ### CanAddFocusToSkill
 `public bool CanAddFocusToSkill(SkillObject skill)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for add focus to skill.
+**Purpose:** Checks whether the this instance meets the preconditions for add focus to skill.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -274,7 +274,7 @@ var result = heroDeveloper.CanAddFocusToSkill(skill);
 ### GetRequiredFocusPointsToAddFocus
 `public int GetRequiredFocusPointsToAddFocus(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the required focus points to add focus value held by the this instance.
+**Purpose:** Reads and returns the required focus points to add focus value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -285,7 +285,7 @@ var result = heroDeveloper.GetRequiredFocusPointsToAddFocus(skill);
 ### GetFocus
 `public int GetFocus(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the focus value held by the this instance.
+**Purpose:** Reads and returns the focus value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -296,7 +296,7 @@ var result = heroDeveloper.GetFocus(skill);
 ### GetPerkValue
 `public bool GetPerkValue(PerkObject perk)`
 
-**Purpose:** **Purpose:** Reads and returns the perk value value held by the this instance.
+**Purpose:** Reads and returns the perk value value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -307,7 +307,7 @@ var result = heroDeveloper.GetPerkValue(perk);
 ### InitializeSkillXp
 `public void InitializeSkillXp(SkillObject skill)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by skill xp.
+**Purpose:** Prepares the resources, state, or bindings required by skill xp.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first
@@ -318,7 +318,7 @@ heroDeveloper.InitializeSkillXp(skill);
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** **Purpose:** Executes the AfterLoad logic.
+**Purpose:** Executes the AfterLoad logic.
 
 ```csharp
 // Obtain an instance of HeroDeveloper from the subsystem API first

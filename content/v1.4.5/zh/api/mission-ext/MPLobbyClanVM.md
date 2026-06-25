@@ -33,7 +33,7 @@ description: "MPLobbyClanVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -44,7 +44,7 @@ mPLobbyClanVM.RefreshValues();
 ### OnClanInfoChanged
 `public async void OnClanInfoChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -55,7 +55,7 @@ mPLobbyClanVM.OnClanInfoChanged();
 ### TrySetClanSubPage
 `public async void TrySetClanSubPage(ClanSubPages newPage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 set clan sub page 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 set clan sub page 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -66,7 +66,7 @@ mPLobbyClanVM.TrySetClanSubPage(newPage);
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 notification received 事件触发时调用此回调。
+**用途 / Purpose:** 在 notification received 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -77,7 +77,7 @@ mPLobbyClanVM.OnNotificationReceived(notification);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -88,7 +88,7 @@ mPLobbyClanVM.OnPlayerNameUpdated("example");
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例
@@ -99,7 +99,7 @@ mPLobbyClanVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanVM 实例

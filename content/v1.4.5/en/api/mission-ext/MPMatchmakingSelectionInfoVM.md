@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first
@@ -43,7 +43,7 @@ mPMatchmakingSelectionInfoVM.RefreshValues();
 ### UpdateForGameType
 `public void UpdateForGameType(string gameTypeStr)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of for game type.
+**Purpose:** Recalculates and stores the latest representation of for game type.
 
 ```csharp
 // Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first
@@ -54,7 +54,7 @@ mPMatchmakingSelectionInfoVM.UpdateForGameType("example");
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first

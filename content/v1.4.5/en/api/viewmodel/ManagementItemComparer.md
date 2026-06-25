@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ManagementItemComparer from the subsystem API first

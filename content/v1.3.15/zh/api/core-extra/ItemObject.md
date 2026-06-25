@@ -91,7 +91,7 @@ description: "ItemObject 的自动生成类参考。"
 ### InitializeTradeGood
 `public static ItemObject InitializeTradeGood(ItemObject item, TextObject name, string meshName, ItemCategory category, int value, float weight, ItemObject.ItemTypeEnum itemType, bool isFood = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 trade good 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 trade good 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -101,7 +101,7 @@ ItemObject.InitializeTradeGood(item, name, "example", category, 0, 0, itemType, 
 ### InitAsPlayerCraftedItem
 `public static void InitAsPlayerCraftedItem(ref ItemObject itemObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as player crafted item 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 as player crafted item 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -111,7 +111,7 @@ ItemObject.InitAsPlayerCraftedItem(itemObject);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -122,7 +122,7 @@ var result = itemObject.GetHashCode();
 ### SetItemFlagsForCosmetics
 `public void SetItemFlagsForCosmetics(ItemFlags newFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 item flags for cosmetics 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 item flags for cosmetics 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -133,7 +133,7 @@ itemObject.SetItemFlagsForCosmetics(newFlags);
 ### DetermineItemCategoryForItem
 `public void DetermineItemCategoryForItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定item category for item的结果。
+**用途 / Purpose:** 根据当前状态判定item category for item的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -144,7 +144,7 @@ itemObject.DetermineItemCategoryForItem();
 ### GetCraftedItemObjectFromHashedCode
 `public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafted item object from hashed code 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafted item object from hashed code 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -154,7 +154,7 @@ ItemObject.GetCraftedItemObjectFromHashedCode("example");
 ### AddWeapon
 `public void AddWeapon(WeaponComponentData weapon, ItemModifierGroup itemModifierGroup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 weapon 添加到当前容器或状态中。
+**用途 / Purpose:** 将 weapon 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -165,7 +165,7 @@ itemObject.AddWeapon(weapon, itemModifierGroup);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -176,7 +176,7 @@ itemObject.Deserialize(objectManager, node);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例
@@ -187,7 +187,7 @@ var result = itemObject.ToString();
 ### GetItemFromWeaponKind
 `public static ItemObject GetItemFromWeaponKind(int weaponKind)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item from weapon kind 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item from weapon kind 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -197,7 +197,7 @@ ItemObject.GetItemFromWeaponKind(0);
 ### GetAmmoTypeForItemType
 `public static ItemObject.ItemTypeEnum GetAmmoTypeForItemType(ItemObject.ItemTypeEnum itemType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ammo type for item type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ammo type for item type 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -207,7 +207,7 @@ ItemObject.GetAmmoTypeForItemType(itemType);
 ### GetAirFrictionConstant
 `public static float GetAirFrictionConstant(WeaponClass weaponClass, WeaponFlags weaponFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 air friction constant 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 air friction constant 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -217,7 +217,7 @@ ItemObject.GetAirFrictionConstant(weaponClass, weaponFlags);
 ### GetWeaponWithUsageIndex
 `public WeaponComponentData GetWeaponWithUsageIndex(int usageIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon with usage index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapon with usage index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemObject 实例

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CalculatePassbySoundParametersMT
 `public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of passby sound parameters m t.
+**Purpose:** Calculates the current value or result of passby sound parameters m t.
 
 ```csharp
 // Obtain an instance of Missile from the subsystem API first
@@ -44,7 +44,7 @@ missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ### CalculateBounceBackVelocity
 `public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of bounce back velocity.
+**Purpose:** Calculates the current value or result of bounce back velocity.
 
 ```csharp
 // Obtain an instance of Missile from the subsystem API first
@@ -55,7 +55,7 @@ missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angu
 ### PassThroughEntity
 `public void PassThroughEntity(GameEntity entity)`
 
-**Purpose:** **Purpose:** Executes the PassThroughEntity logic.
+**Purpose:** Executes the PassThroughEntity logic.
 
 ```csharp
 // Obtain an instance of Missile from the subsystem API first

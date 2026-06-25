@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### UpdateCurrentProgress
 `public void UpdateCurrentProgress(int progress)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of current progress.
+**Purpose:** Recalculates and stores the latest representation of current progress.
 
 ```csharp
 // Obtain an instance of JournalLog from the subsystem API first
@@ -40,7 +40,7 @@ journalLog.UpdateCurrentProgress(0);
 ### HasBeenCompleted
 `public bool HasBeenCompleted()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds been completed.
+**Purpose:** Determines whether the this instance already holds been completed.
 
 ```csharp
 // Obtain an instance of JournalLog from the subsystem API first
@@ -51,7 +51,7 @@ var result = journalLog.HasBeenCompleted();
 ### GetTimeText
 `public TextObject GetTimeText()`
 
-**Purpose:** **Purpose:** Reads and returns the time text value held by the this instance.
+**Purpose:** Reads and returns the time text value held by the this instance.
 
 ```csharp
 // Obtain an instance of JournalLog from the subsystem API first

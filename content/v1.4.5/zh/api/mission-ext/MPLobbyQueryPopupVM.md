@@ -34,7 +34,7 @@ description: "MPLobbyQueryPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -45,7 +45,7 @@ mPLobbyQueryPopupVM.RefreshValues();
 ### ShowMessage
 `public void ShowMessage(TextObject title, TextObject message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示message对应的界面或元素。
+**用途 / Purpose:** 显示message对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -56,7 +56,7 @@ mPLobbyQueryPopupVM.ShowMessage(title, message);
 ### ShowInquiry
 `public void ShowInquiry(TextObject title, TextObject message, Action onAccepted, Action onDeclined)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示inquiry对应的界面或元素。
+**用途 / Purpose:** 显示inquiry对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -67,7 +67,7 @@ mPLobbyQueryPopupVM.ShowInquiry(title, message, onAccepted, onDeclined);
 ### ExecuteAccept
 `public void ExecuteAccept()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 accept 对应的操作或工作流。
+**用途 / Purpose:** 执行 accept 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -78,7 +78,7 @@ mPLobbyQueryPopupVM.ExecuteAccept();
 ### ExecuteDecline
 `public void ExecuteDecline()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 decline 对应的操作或工作流。
+**用途 / Purpose:** 执行 decline 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -89,7 +89,7 @@ mPLobbyQueryPopupVM.ExecuteDecline();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
@@ -100,7 +100,7 @@ mPLobbyQueryPopupVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例

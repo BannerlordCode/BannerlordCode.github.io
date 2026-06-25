@@ -29,7 +29,7 @@ Treat `MapTrackModel` as a Model-style extension point: first identify who creat
 ### GetSkipTrackChance
 `public abstract float GetSkipTrackChance(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the skip track chance value held by the this instance.
+**Purpose:** Reads and returns the skip track chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = mapTrackModel.GetSkipTrackChance(mobileParty);
 ### GetMaxTrackSpottingDistanceForMainParty
 `public abstract float GetMaxTrackSpottingDistanceForMainParty()`
 
-**Purpose:** **Purpose:** Reads and returns the max track spotting distance for main party value held by the this instance.
+**Purpose:** Reads and returns the max track spotting distance for main party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = mapTrackModel.GetMaxTrackSpottingDistanceForMainParty();
 ### CanPartyLeaveTrack
 `public abstract bool CanPartyLeaveTrack(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party leave track.
+**Purpose:** Checks whether the this instance meets the preconditions for party leave track.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = mapTrackModel.CanPartyLeaveTrack(mobileParty);
 ### GetTrackDetectionDifficultyForMainParty
 `public abstract float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
 
-**Purpose:** **Purpose:** Reads and returns the track detection difficulty for main party value held by the this instance.
+**Purpose:** Reads and returns the track detection difficulty for main party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = mapTrackModel.GetTrackDetectionDifficultyForMainParty(track, 0);
 ### GetSkillFromTrackDetected
 `public abstract float GetSkillFromTrackDetected(Track track)`
 
-**Purpose:** **Purpose:** Reads and returns the skill from track detected value held by the this instance.
+**Purpose:** Reads and returns the skill from track detected value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = mapTrackModel.GetSkillFromTrackDetected(track);
 ### GetTrackLife
 `public abstract int GetTrackLife(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the track life value held by the this instance.
+**Purpose:** Reads and returns the track life value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -95,7 +95,7 @@ var result = mapTrackModel.GetTrackLife(mobileParty);
 ### TrackTitle
 `public abstract TextObject TrackTitle(Track track)`
 
-**Purpose:** **Purpose:** Executes the TrackTitle logic.
+**Purpose:** Executes the TrackTitle logic.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -106,7 +106,7 @@ var result = mapTrackModel.TrackTitle(track);
 ### GetTrackColor
 `public abstract uint GetTrackColor(Track track)`
 
-**Purpose:** **Purpose:** Reads and returns the track color value held by the this instance.
+**Purpose:** Reads and returns the track color value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first
@@ -117,7 +117,7 @@ var result = mapTrackModel.GetTrackColor(track);
 ### GetTrackScale
 `public abstract float GetTrackScale(Track track)`
 
-**Purpose:** **Purpose:** Reads and returns the track scale value held by the this instance.
+**Purpose:** Reads and returns the track scale value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTrackModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "ParticleSystem 的自动生成类参考。"
 ### CreateParticleSystemAttachedToBone
 `public static ParticleSystem CreateParticleSystemAttachedToBone(string systemName, Skeleton skeleton, sbyte boneIndex, ref MatrixFrame boneLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 particle system attached to bone 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 particle system attached to bone 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ParticleSystem.CreateParticleSystemAttachedToBone("example", skeleton, 0, boneLo
 ### CreateParticleSystemAttachedToBone
 `public static ParticleSystem CreateParticleSystemAttachedToBone(int systemRuntimeId, Skeleton skeleton, sbyte boneIndex, ref MatrixFrame boneLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 particle system attached to bone 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 particle system attached to bone 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ParticleSystem.CreateParticleSystemAttachedToBone(0, skeleton, 0, boneLocalFrame
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(string systemName, GameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 particle system attached to entity 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 particle system attached to entity 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ParticleSystem.CreateParticleSystemAttachedToEntity("example", parentEntity, bon
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(int systemRuntimeId, GameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 particle system attached to entity 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 particle system attached to entity 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ParticleSystem.CreateParticleSystemAttachedToEntity(0, parentEntity, boneLocalFr
 ### AddMesh
 `public void AddMesh(Mesh mesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -74,7 +74,7 @@ particleSystem.AddMesh(mesh);
 ### SetEnable
 `public void SetEnable(bool enable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -85,7 +85,7 @@ particleSystem.SetEnable(false);
 ### SetRuntimeEmissionRateMultiplier
 `public void SetRuntimeEmissionRateMultiplier(float multiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 runtime emission rate multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 runtime emission rate multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -96,7 +96,7 @@ particleSystem.SetRuntimeEmissionRateMultiplier(0);
 ### Restart
 `public void Restart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Restart 对应的操作。
+**用途 / Purpose:** 调用 Restart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -107,7 +107,7 @@ particleSystem.Restart();
 ### SetLocalFrame
 `public void SetLocalFrame(in MatrixFrame newLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 local frame 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 local frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -118,7 +118,7 @@ particleSystem.SetLocalFrame(newLocalFrame);
 ### SetPreviousGlobalFrame
 `public void SetPreviousGlobalFrame(in MatrixFrame globalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 previous global frame 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 previous global frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -129,7 +129,7 @@ particleSystem.SetPreviousGlobalFrame(globalFrame);
 ### GetLocalFrame
 `public MatrixFrame GetLocalFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例
@@ -140,7 +140,7 @@ var result = particleSystem.GetLocalFrame();
 ### SetParticleEffectByName
 `public void SetParticleEffectByName(string effectName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 particle effect by name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 particle effect by name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ParticleSystem 实例

@@ -31,7 +31,7 @@ description: "ImageIdentifier 的自动生成类参考。"
 ### Equals
 `public bool Equals(ImageIdentifier other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 ImageIdentifier 实例

@@ -34,7 +34,7 @@ description: "QuestBase 的自动生成类参考。"
 ### StartQuest
 `public void StartQuest()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动quest流程或状态机。
+**用途 / Purpose:** 启动quest流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -45,7 +45,7 @@ questBase.StartQuest();
 ### CompleteQuestWithSuccess
 `public void CompleteQuestWithSuccess()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteQuestWithSuccess 对应的操作。
+**用途 / Purpose:** 调用 CompleteQuestWithSuccess 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -56,7 +56,7 @@ questBase.CompleteQuestWithSuccess();
 ### CompleteQuestWithTimeOut
 `public void CompleteQuestWithTimeOut(TextObject timeOutLog = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteQuestWithTimeOut 对应的操作。
+**用途 / Purpose:** 调用 CompleteQuestWithTimeOut 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -67,7 +67,7 @@ questBase.CompleteQuestWithTimeOut(null);
 ### CompleteQuestWithFail
 `public void CompleteQuestWithFail(TextObject cancelLog = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteQuestWithFail 对应的操作。
+**用途 / Purpose:** 调用 CompleteQuestWithFail 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -78,7 +78,7 @@ questBase.CompleteQuestWithFail(null);
 ### CompleteQuestWithBetrayal
 `public void CompleteQuestWithBetrayal(TextObject betrayLog = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteQuestWithBetrayal 对应的操作。
+**用途 / Purpose:** 调用 CompleteQuestWithBetrayal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -89,7 +89,7 @@ questBase.CompleteQuestWithBetrayal(null);
 ### CompleteQuestWithCancel
 `public void CompleteQuestWithCancel(TextObject cancelLog = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteQuestWithCancel 对应的操作。
+**用途 / Purpose:** 调用 CompleteQuestWithCancel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -100,7 +100,7 @@ questBase.CompleteQuestWithCancel(null);
 ### InitializeQuestOnLoadWithQuestManager
 `public void InitializeQuestOnLoadWithQuestManager()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 quest on load with quest manager 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 quest on load with quest manager 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -111,7 +111,7 @@ questBase.InitializeQuestOnLoadWithQuestManager();
 ### AddLog
 `public JournalLog AddLog(TextObject text, bool hideInformation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 log 添加到当前容器或状态中。
+**用途 / Purpose:** 将 log 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -122,7 +122,7 @@ var result = questBase.AddLog(text, false);
 ### AddDiscreteLog
 `public JournalLog AddDiscreteLog(TextObject text, TextObject taskName, int currentProgress, int targetProgress, TextObject shortText = null, bool hideInformation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 discrete log 添加到当前容器或状态中。
+**用途 / Purpose:** 将 discrete log 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -133,7 +133,7 @@ var result = questBase.AddDiscreteLog(text, taskName, 0, 0, null, false);
 ### AddTwoWayContinuousLog
 `public JournalLog AddTwoWayContinuousLog(TextObject text, TextObject taskName, int currentProgress, int range, bool hideInformation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 two way continuous log 添加到当前容器或状态中。
+**用途 / Purpose:** 将 two way continuous log 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -144,7 +144,7 @@ var result = questBase.AddTwoWayContinuousLog(text, taskName, 0, 0, false);
 ### IsLocationTrackedByQuest
 `public virtual GameMenuOption.IssueQuestFlags IsLocationTrackedByQuest(Location location)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 location tracked by quest 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 location tracked by quest 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -155,7 +155,7 @@ var result = questBase.IsLocationTrackedByQuest(location);
 ### GetCurrentProgress
 `public virtual int GetCurrentProgress()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -166,7 +166,7 @@ var result = questBase.GetCurrentProgress();
 ### GetMaxProgress
 `public virtual int GetMaxProgress()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -177,7 +177,7 @@ var result = questBase.GetMaxProgress();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -188,7 +188,7 @@ var result = questBase.ToString();
 ### GetPrefabName
 `public virtual string GetPrefabName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prefab name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prefab name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -199,7 +199,7 @@ var result = questBase.GetPrefabName();
 ### AddTrackedObject
 `public void AddTrackedObject(ITrackableCampaignObject trackedObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 tracked object 添加到当前容器或状态中。
+**用途 / Purpose:** 将 tracked object 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -210,7 +210,7 @@ questBase.AddTrackedObject(trackedObject);
 ### RemoveTrackedObject
 `public void RemoveTrackedObject(ITrackableCampaignObject trackedObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tracked object。
+**用途 / Purpose:** 从当前容器或状态中移除 tracked object。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -221,7 +221,7 @@ questBase.RemoveTrackedObject(trackedObject);
 ### IsTracked
 `public bool IsTracked(ITrackableCampaignObject o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 tracked 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 tracked 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -232,7 +232,7 @@ var result = questBase.IsTracked(o);
 ### ToggleTrackedObjects
 `public void ToggleTrackedObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleTrackedObjects 对应的操作。
+**用途 / Purpose:** 调用 ToggleTrackedObjects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -243,7 +243,7 @@ questBase.ToggleTrackedObjects();
 ### AddGameMenu
 `public void AddGameMenu(string menuId, TextObject menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 game menu 添加到当前容器或状态中。
+**用途 / Purpose:** 将 game menu 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -254,7 +254,7 @@ questBase.AddGameMenu("example", menuText, initDelegate, gameMenu.MenuOverlayTyp
 ### AddGameMenuOption
 `public void AddGameMenuOption(string menuId, string optionId, TextObject optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool Isleave = false, int index = -1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 game menu option 添加到当前容器或状态中。
+**用途 / Purpose:** 将 game menu option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -265,7 +265,7 @@ questBase.AddGameMenuOption("example", "example", optionText, condition, consequ
 ### ChangeQuestDueTime
 `public void ChangeQuestDueTime(CampaignTime questDueTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeQuestDueTime 对应的操作。
+**用途 / Purpose:** 调用 ChangeQuestDueTime 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -276,7 +276,7 @@ questBase.ChangeQuestDueTime(questDueTime);
 ### OnFailed
 `public virtual void OnFailed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 failed 事件触发时调用此回调。
+**用途 / Purpose:** 在 failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -287,7 +287,7 @@ questBase.OnFailed();
 ### OnCanceled
 `public virtual void OnCanceled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 canceled 事件触发时调用此回调。
+**用途 / Purpose:** 在 canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -298,7 +298,7 @@ questBase.OnCanceled();
 ### QuestPreconditions
 `public virtual bool QuestPreconditions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 QuestPreconditions 对应的操作。
+**用途 / Purpose:** 调用 QuestPreconditions 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -309,7 +309,7 @@ var result = questBase.QuestPreconditions();
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -320,7 +320,7 @@ questBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### OnHeroCanMarryInfoIsRequested
 `public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can marry info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can marry info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -331,7 +331,7 @@ questBase.OnHeroCanMarryInfoIsRequested(hero, result);
 ### OnHeroCanLeadPartyInfoIsRequested
 `public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can lead party info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can lead party info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -342,7 +342,7 @@ questBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can have party role or be governor info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can have party role or be governor info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -353,7 +353,7 @@ questBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
 ### OnHeroCanDieInfoIsRequested
 `public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can die info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can die info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -364,7 +364,7 @@ questBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
 ### OnHeroCanBecomePrisonerInfoIsRequested
 `public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can become prisoner info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can become prisoner info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -375,7 +375,7 @@ questBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can be selected in inventory info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can be selected in inventory info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -386,7 +386,7 @@ questBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can move to settlement info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can move to settlement info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例

@@ -29,7 +29,7 @@ Treat `BoostCohesionPopupWidget` as a Widget-style extension point: first identi
 ### ClosePopup
 `public void ClosePopup(Widget widget)`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with popup.
+**Purpose:** Closes the resource or UI associated with popup.
 
 ```csharp
 // Obtain an instance of BoostCohesionPopupWidget from the subsystem API first

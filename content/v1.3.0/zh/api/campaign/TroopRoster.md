@@ -37,7 +37,7 @@ description: "TroopRoster 的自动生成类参考。"
 ### CreateDummyTroopRoster
 `public static TroopRoster CreateDummyTroopRoster()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 dummy troop roster 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 dummy troop roster 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -47,7 +47,7 @@ TroopRoster.CreateDummyTroopRoster();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -58,7 +58,7 @@ var result = troopRoster.GetHashCode();
 ### CalculateCachedStatsOnLoad
 `public static void CalculateCachedStatsOnLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算cached stats on load的当前值或结果。
+**用途 / Purpose:** 计算cached stats on load的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -68,7 +68,7 @@ TroopRoster.CalculateCachedStatsOnLoad();
 ### ToFlattenedRoster
 `public FlattenedTroopRoster ToFlattenedRoster()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToFlattenedRoster 对应的操作。
+**用途 / Purpose:** 调用 ToFlattenedRoster 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -79,7 +79,7 @@ var result = troopRoster.ToFlattenedRoster();
 ### Add
 `public void Add(TroopRoster troopRoster)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -90,7 +90,7 @@ troopRoster.Add(troopRoster);
 ### Add
 `public void Add(TroopRosterElement troopRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -101,7 +101,7 @@ troopRoster.Add(troopRosterElement);
 ### RemoveIf
 `public ICollection<TroopRosterElement> RemoveIf(Predicate<TroopRosterElement> match)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 if。
+**用途 / Purpose:** 从当前容器或状态中移除 if。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -112,7 +112,7 @@ var result = troopRoster.RemoveIf(match);
 ### FindIndexOfTroop
 `public int FindIndexOfTroop(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的index of troop。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的index of troop。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -123,7 +123,7 @@ var result = troopRoster.FindIndexOfTroop(character);
 ### RemoveNumberOfNonHeroTroopsRandomly
 `public TroopRoster RemoveNumberOfNonHeroTroopsRandomly(int numberOfMen)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 number of non hero troops randomly。
+**用途 / Purpose:** 从当前容器或状态中移除 number of non hero troops randomly。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -134,7 +134,7 @@ var result = troopRoster.RemoveNumberOfNonHeroTroopsRandomly(0);
 ### WoundNumberOfNonHeroTroopsRandomly
 `public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WoundNumberOfNonHeroTroopsRandomly 对应的操作。
+**用途 / Purpose:** 调用 WoundNumberOfNonHeroTroopsRandomly 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -145,7 +145,7 @@ troopRoster.WoundNumberOfNonHeroTroopsRandomly(0);
 ### SwapTroopsAtIndices
 `public void SwapTroopsAtIndices(int firstIndex, int secondIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwapTroopsAtIndices 对应的操作。
+**用途 / Purpose:** 调用 SwapTroopsAtIndices 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -156,7 +156,7 @@ troopRoster.SwapTroopsAtIndices(0, 0);
 ### ShiftTroopToIndex
 `public void ShiftTroopToIndex(int troopIndex, int targetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShiftTroopToIndex 对应的操作。
+**用途 / Purpose:** 调用 ShiftTroopToIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -167,7 +167,7 @@ troopRoster.ShiftTroopToIndex(0, 0);
 ### AddToCountsAtIndex
 `public int AddToCountsAtIndex(int index, int countChange, int woundedCountChange = 0, int xpChange = 0, bool removeDepleted = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to counts at index 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to counts at index 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -178,7 +178,7 @@ var result = troopRoster.AddToCountsAtIndex(0, 0, 0, 0, false);
 ### CheckValidity
 `public void CheckValidity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查validity在当前对象中是否成立。
+**用途 / Purpose:** 检查validity在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -189,7 +189,7 @@ troopRoster.CheckValidity();
 ### AddToCounts
 `public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to counts 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to counts 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -200,7 +200,7 @@ var result = troopRoster.AddToCounts(character, 0, false, 0, 0, false, 0);
 ### GetTroopCount
 `public int GetTroopCount(CharacterObject troop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -211,7 +211,7 @@ var result = troopRoster.GetTroopCount(troop);
 ### RemoveZeroCounts
 `public void RemoveZeroCounts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 zero counts。
+**用途 / Purpose:** 从当前容器或状态中移除 zero counts。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -222,7 +222,7 @@ troopRoster.RemoveZeroCounts();
 ### GetElementCopyAtIndex
 `public TroopRosterElement GetElementCopyAtIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element copy at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element copy at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -233,7 +233,7 @@ var result = troopRoster.GetElementCopyAtIndex(0);
 ### SetElementNumber
 `public void SetElementNumber(int index, int number)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 element number 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 element number 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -244,7 +244,7 @@ troopRoster.SetElementNumber(0, 0);
 ### GetElementNumber
 `public int GetElementNumber(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -255,7 +255,7 @@ var result = troopRoster.GetElementNumber(0);
 ### GetElementNumber
 `public int GetElementNumber(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -266,7 +266,7 @@ var result = troopRoster.GetElementNumber(character);
 ### SetElementWoundedNumber
 `public void SetElementWoundedNumber(int index, int number)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 element wounded number 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 element wounded number 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -277,7 +277,7 @@ troopRoster.SetElementWoundedNumber(0, 0);
 ### GetElementWoundedNumber
 `public int GetElementWoundedNumber(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element wounded number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element wounded number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -288,7 +288,7 @@ var result = troopRoster.GetElementWoundedNumber(0);
 ### SetElementXp
 `public void SetElementXp(int index, int number)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 element xp 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 element xp 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -299,7 +299,7 @@ troopRoster.SetElementXp(0, 0);
 ### GetElementXp
 `public int GetElementXp(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element xp 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element xp 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -310,7 +310,7 @@ var result = troopRoster.GetElementXp(0);
 ### GetElementXp
 `public int GetElementXp(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element xp 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 element xp 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -321,7 +321,7 @@ var result = troopRoster.GetElementXp(character);
 ### GetCharacterAtIndex
 `public CharacterObject GetCharacterAtIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 character at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -332,7 +332,7 @@ var result = troopRoster.GetCharacterAtIndex(0);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -343,7 +343,7 @@ var result = troopRoster.Equals(obj);
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RostersAreIdentical 对应的操作。
+**用途 / Purpose:** 调用 RostersAreIdentical 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -353,7 +353,7 @@ TroopRoster.RostersAreIdentical(a, b);
 ### Contains
 `public bool Contains(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含指定项。
+**用途 / Purpose:** 检查当前对象是否含有目标项。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -364,7 +364,7 @@ var result = troopRoster.Contains(character);
 ### ValidateTroopListCache
 `public void ValidateTroopListCache()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查troop list cache是否满足约束条件，通常返回布尔值。
+**用途 / Purpose:** 检查troop list cache是否满足约束条件，通常返回布尔值。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -375,7 +375,7 @@ troopRoster.ValidateTroopListCache();
 ### GetTroopRoster
 `public MBList<TroopRosterElement> GetTroopRoster()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop roster 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop roster 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -386,7 +386,7 @@ var result = troopRoster.GetTroopRoster();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -397,7 +397,7 @@ troopRoster.Clear();
 ### RemoveTroop
 `public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor), int xp = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 troop。
+**用途 / Purpose:** 从当前容器或状态中移除 troop。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -408,7 +408,7 @@ troopRoster.RemoveTroop(troop, 0, default(UniqueTroopDescriptor), 0);
 ### WoundTroop
 `public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WoundTroop 对应的操作。
+**用途 / Purpose:** 调用 WoundTroop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -419,7 +419,7 @@ troopRoster.WoundTroop(troop, 0, default(UniqueTroopDescriptor));
 ### Sum
 `public int Sum(Func<TroopRosterElement, int> selector)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Sum 对应的操作。
+**用途 / Purpose:** 调用 Sum 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -430,7 +430,7 @@ var result = troopRoster.Sum(func<TroopRosterElement, 0);
 ### OnHeroHealthStatusChanged
 `public void OnHeroHealthStatusChanged(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero health status changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero health status changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -441,7 +441,7 @@ troopRoster.OnHeroHealthStatusChanged(hero);
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version 的最新表示。
+**用途 / Purpose:** 重新计算并更新 version 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -452,7 +452,7 @@ troopRoster.UpdateVersion();
 ### CloneRosterData
 `public TroopRoster CloneRosterData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新的roster data实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新的roster data实例。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -463,7 +463,7 @@ var result = troopRoster.CloneRosterData();
 ### AddXpToTroop
 `public void AddXpToTroop(CharacterObject troop, int xpAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 xp to troop 添加到当前容器或状态中。
+**用途 / Purpose:** 将 xp to troop 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -474,7 +474,7 @@ troopRoster.AddXpToTroop(troop, 0);
 ### AddXpToTroopAtIndex
 `public void AddXpToTroopAtIndex(int index, int xpAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 xp to troop at index 添加到当前容器或状态中。
+**用途 / Purpose:** 将 xp to troop at index 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例

@@ -23,7 +23,7 @@ description: "DefaultBattleCaptainModel 的自动生成类参考。"
 ### GetCaptainRatingForTroopUsages
 `public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 captain rating for troop usages 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 captain rating for troop usages 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleCaptainModel 实例

@@ -23,7 +23,7 @@ Treat `MapSceneHelper` as a Helper-style extension point: first identify who cre
 ### GetRegionMapping
 `public static bool GetRegionMapping(PartyNavigationModel model)`
 
-**Purpose:** **Purpose:** Reads and returns the region mapping value held by the this instance.
+**Purpose:** Reads and returns the region mapping value held by the this instance.
 
 ```csharp
 // Static call; no instance required

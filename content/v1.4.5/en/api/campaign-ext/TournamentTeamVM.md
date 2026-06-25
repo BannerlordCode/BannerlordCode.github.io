@@ -40,7 +40,7 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentTeamVM from the subsystem API first
@@ -51,7 +51,7 @@ tournamentTeamVM.RefreshValues();
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TournamentTeamVM from the subsystem API first
@@ -62,7 +62,7 @@ tournamentTeamVM.Initialize();
 ### Initialize
 `public void Initialize(TournamentTeam team)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TournamentTeamVM from the subsystem API first
@@ -73,7 +73,7 @@ tournamentTeamVM.Initialize(team);
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentTeamVM from the subsystem API first
@@ -84,7 +84,7 @@ tournamentTeamVM.Refresh();
 ### GetParticipants
 `public IEnumerable<TournamentParticipantVM> GetParticipants()`
 
-**Purpose:** **Purpose:** Reads and returns the participants value held by the this instance.
+**Purpose:** Reads and returns the participants value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentTeamVM from the subsystem API first

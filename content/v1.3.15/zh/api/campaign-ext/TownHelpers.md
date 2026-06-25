@@ -23,7 +23,7 @@ description: "TownHelpers 的自动生成类参考。"
 ### GetTownFoodAndMarketStocks
 `public static ValueTuple<int, int> GetTownFoodAndMarketStocks(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 town food and market stocks 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 town food and market stocks 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TownHelpers.GetTownFoodAndMarketStocks(town);
 ### IsThereAnyoneToMeetInTown
 `public static bool IsThereAnyoneToMeetInTown(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there anyone to meet in town 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there anyone to meet in town 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TownHelpers.IsThereAnyoneToMeetInTown(settlement);
 ### GetHeroesToMeetInTown
 `public static List<Hero> GetHeroesToMeetInTown(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 heroes to meet in town 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 heroes to meet in town 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TownHelpers.GetHeroesToMeetInTown(settlement);
 ### GetHeroesInSettlement
 `public static MBList<Hero> GetHeroesInSettlement(Settlement settlement, Predicate<Hero> predicate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 heroes in settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 heroes in settlement 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ TownHelpers.GetHeroesInSettlement(settlement, null);
 ### RequestAMeetingPartyCondition
 `public static bool RequestAMeetingPartyCondition(MobileParty party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestAMeetingPartyCondition 对应的操作。
+**用途 / Purpose:** 调用 RequestAMeetingPartyCondition 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TownHelpers.RequestAMeetingPartyCondition(party);
 ### RequestAMeetingHeroWithoutPartyCondition
 `public static bool RequestAMeetingHeroWithoutPartyCondition(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestAMeetingHeroWithoutPartyCondition 对应的操作。
+**用途 / Purpose:** 调用 RequestAMeetingHeroWithoutPartyCondition 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ TownHelpers.RequestAMeetingHeroWithoutPartyCondition(hero);
 ### CalculatePriceDeviationRatio
 `public static float CalculatePriceDeviationRatio(Town town, EquipmentElement equipmentElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算price deviation ratio的当前值或结果。
+**用途 / Purpose:** 计算price deviation ratio的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `MultiplayerGlobalMutedPlayersManager` as a Manager-style extension point:
 ### MutePlayer
 `public static void MutePlayer(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Executes the MutePlayer logic.
+**Purpose:** Executes the MutePlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerGlobalMutedPlayersManager.MutePlayer(playerId);
 ### UnmutePlayer
 `public static void UnmutePlayer(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Executes the UnmutePlayer logic.
+**Purpose:** Executes the UnmutePlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerGlobalMutedPlayersManager.UnmutePlayer(playerId);
 ### IsUserMuted
 `public static bool IsUserMuted(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the user muted state or condition.
+**Purpose:** Determines whether the this instance is in the user muted state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MultiplayerGlobalMutedPlayersManager.IsUserMuted(playerId);
 ### ClearMutedPlayers
 `public static void ClearMutedPlayers()`
 
-**Purpose:** **Purpose:** Removes all muted players from the this instance.
+**Purpose:** Removes all muted players from the this instance.
 
 ```csharp
 // Static call; no instance required

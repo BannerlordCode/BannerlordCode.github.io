@@ -23,7 +23,7 @@ Treat `SandboxMissionDifficultyModel` as a Model-style extension point: first id
 ### GetDamageMultiplierOfCombatDifficulty
 `public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**Purpose:** **Purpose:** Reads and returns the damage multiplier of combat difficulty value held by the this instance.
+**Purpose:** Reads and returns the damage multiplier of combat difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxMissionDifficultyModel from the subsystem API first

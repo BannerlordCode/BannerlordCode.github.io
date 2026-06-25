@@ -23,7 +23,7 @@ Treat `StealthMissionUIHandler` as a Handler-style extension point: first identi
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** **Purpose:** Invoked when the object used event is raised.
+**Purpose:** Invoked when the object used event is raised.
 
 ```csharp
 // Obtain an instance of StealthMissionUIHandler from the subsystem API first

@@ -33,7 +33,7 @@ description: "EffectInfo 的自动生成类参考。"
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effect value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effect value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EffectInfo 实例

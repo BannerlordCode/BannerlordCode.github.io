@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### Process
 `public static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`
 
-**Purpose:** **Purpose:** Executes the Process logic.
+**Purpose:** Executes the Process logic.
 
 ```csharp
 // Static call; no instance required

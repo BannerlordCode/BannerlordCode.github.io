@@ -29,7 +29,7 @@ description: "ClanSupporterItemVM 的自动生成类参考。"
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 open tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterItemVM 实例
@@ -40,7 +40,7 @@ clanSupporterItemVM.ExecuteOpenTooltip();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterItemVM 实例

@@ -23,7 +23,7 @@ Treat `SingleThreadedSynchronizationContextManager` as a Manager-style extension
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SingleThreadedSynchronizationContextManager.Initialize();
 ### Tick
 `public static void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Static call; no instance required

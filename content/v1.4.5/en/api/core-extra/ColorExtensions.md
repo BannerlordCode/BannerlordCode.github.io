@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### AddFactorInHSB
 `public static Color AddFactorInHSB(this Color rgbColor, float hueDifference, float saturationDifference, float brighnessDifference)`
 
-**Purpose:** **Purpose:** Adds factor in h s b to the current collection or state.
+**Purpose:** Adds factor in h s b to the current collection or state.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Parse
 `public static List<TextToken> Parse(string text, ILanguage currentLanguage)`
 
-**Purpose:** **Purpose:** Parses external input into a parse the current system understands.
+**Purpose:** Parses external input into a parse the current system understands.
 
 ```csharp
 // Static call; no instance required

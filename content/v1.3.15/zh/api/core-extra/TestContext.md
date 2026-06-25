@@ -23,7 +23,7 @@ description: "TestContext 的自动生成类参考。"
 ### RunTestAux
 `public void RunTestAux(string commandLine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RunTestAux 对应的操作。
+**用途 / Purpose:** 调用 RunTestAux 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例
@@ -34,7 +34,7 @@ testContext.RunTestAux("example");
 ### OnApplicationTick
 `public void OnApplicationTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 application tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 application tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例
@@ -45,7 +45,7 @@ testContext.OnApplicationTick(0);
 ### TickTest
 `public void TickTest(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进test的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进test的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例
@@ -56,7 +56,7 @@ testContext.TickTest(0);
 ### FinalizeContext
 `public void FinalizeContext()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeContext 对应的操作。
+**用途 / Purpose:** 调用 FinalizeContext 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例

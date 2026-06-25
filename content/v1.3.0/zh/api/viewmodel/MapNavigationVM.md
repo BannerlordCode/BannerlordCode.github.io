@@ -33,7 +33,7 @@ description: "MapNavigationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -44,7 +44,7 @@ mapNavigationVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -55,7 +55,7 @@ mapNavigationVM.OnFinalize();
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -66,7 +66,7 @@ mapNavigationVM.Refresh();
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -77,7 +77,7 @@ mapNavigationVM.Tick();
 ### ExecuteOpenQuests
 `public void ExecuteOpenQuests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open quests 对应的操作或工作流。
+**用途 / Purpose:** 执行 open quests 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -88,7 +88,7 @@ mapNavigationVM.ExecuteOpenQuests();
 ### ExecuteOpenInventory
 `public void ExecuteOpenInventory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open inventory 对应的操作或工作流。
+**用途 / Purpose:** 执行 open inventory 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -99,7 +99,7 @@ mapNavigationVM.ExecuteOpenInventory();
 ### ExecuteOpenParty
 `public void ExecuteOpenParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open party 对应的操作或工作流。
+**用途 / Purpose:** 执行 open party 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -110,7 +110,7 @@ mapNavigationVM.ExecuteOpenParty();
 ### ExecuteOpenCharacterDeveloper
 `public void ExecuteOpenCharacterDeveloper()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open character developer 对应的操作或工作流。
+**用途 / Purpose:** 执行 open character developer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -121,7 +121,7 @@ mapNavigationVM.ExecuteOpenCharacterDeveloper();
 ### ExecuteOpenKingdom
 `public void ExecuteOpenKingdom()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open kingdom 对应的操作或工作流。
+**用途 / Purpose:** 执行 open kingdom 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -132,7 +132,7 @@ mapNavigationVM.ExecuteOpenKingdom();
 ### ExecuteOpenClan
 `public void ExecuteOpenClan()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open clan 对应的操作或工作流。
+**用途 / Purpose:** 执行 open clan 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -143,7 +143,7 @@ mapNavigationVM.ExecuteOpenClan();
 ### ExecuteOpenEscapeMenu
 `public void ExecuteOpenEscapeMenu()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open escape menu 对应的操作或工作流。
+**用途 / Purpose:** 执行 open escape menu 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -154,7 +154,7 @@ mapNavigationVM.ExecuteOpenEscapeMenu();
 ### ExecuteOpenMainHeroEncyclopedia
 `public void ExecuteOpenMainHeroEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open main hero encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open main hero encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -165,7 +165,7 @@ mapNavigationVM.ExecuteOpenMainHeroEncyclopedia();
 ### ExecuteOpenMainHeroClanEncyclopedia
 `public void ExecuteOpenMainHeroClanEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open main hero clan encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open main hero clan encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例
@@ -176,7 +176,7 @@ mapNavigationVM.ExecuteOpenMainHeroClanEncyclopedia();
 ### ExecuteOpenMainHeroKingdomEncyclopedia
 `public void ExecuteOpenMainHeroKingdomEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open main hero kingdom encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open main hero kingdom encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationVM 实例

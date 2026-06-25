@@ -23,7 +23,7 @@ description: "PurchaseItemTutorialQuestTask 的自动生成类参考。"
 ### InitializeTaskOnLoad
 `public void InitializeTaskOnLoad(int targetItemAmount, ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 task on load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 task on load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PurchaseItemTutorialQuestTask 实例
@@ -34,7 +34,7 @@ purchaseItemTutorialQuestTask.InitializeTaskOnLoad(0, item);
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PurchaseItemTutorialQuestTask 实例

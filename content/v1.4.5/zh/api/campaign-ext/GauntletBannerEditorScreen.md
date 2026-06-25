@@ -23,7 +23,7 @@ description: "GauntletBannerEditorScreen 的自动生成类参考。"
 ### OnDone
 `public void OnDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 done 事件触发时调用此回调。
+**用途 / Purpose:** 在 done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletBannerEditorScreen 实例
@@ -34,7 +34,7 @@ gauntletBannerEditorScreen.OnDone();
 ### OnCancel
 `public void OnCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 cancel 事件触发时调用此回调。
+**用途 / Purpose:** 在 cancel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletBannerEditorScreen 实例

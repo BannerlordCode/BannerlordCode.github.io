@@ -23,7 +23,7 @@ description: "InquiryElement 的自动生成类参考。"
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 same content with。
+**用途 / Purpose:** 判断当前对象是否已经持有 same content with。
 
 ```csharp
 // 先通过子系统 API 拿到 InquiryElement 实例

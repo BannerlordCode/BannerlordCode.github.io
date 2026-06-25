@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetRelation
 `public int GetRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** **Purpose:** Reads and returns the relation value held by the this instance.
+**Purpose:** Reads and returns the relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroRelations from the subsystem API first
@@ -34,7 +34,7 @@ var result = heroRelations.GetRelation(hero1, hero2);
 ### SetRelation
 `public void SetRelation(Hero hero1, Hero hero2, int value)`
 
-**Purpose:** **Purpose:** Assigns a new value to relation and updates the object's internal state.
+**Purpose:** Assigns a new value to relation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HeroRelations from the subsystem API first
@@ -45,7 +45,7 @@ heroRelations.SetRelation(hero1, hero2, 0);
 ### Remove
 `public void Remove(Hero hero)`
 
-**Purpose:** **Purpose:** Removes an item from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of HeroRelations from the subsystem API first
@@ -56,7 +56,7 @@ heroRelations.Remove(hero);
 ### ClearOldData
 `public void ClearOldData()`
 
-**Purpose:** **Purpose:** Removes all old data from the this instance.
+**Purpose:** Removes all old data from the this instance.
 
 ```csharp
 // Obtain an instance of HeroRelations from the subsystem API first

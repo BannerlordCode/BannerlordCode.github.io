@@ -32,7 +32,7 @@ description: "WidgetInstantiationResult 的自动生成类参考。"
 ### AddExtensionData
 `public void AddExtensionData(string name, object data, bool passToChildWidgetCreation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetInstantiationResult 实例
@@ -43,7 +43,7 @@ widgetInstantiationResult.AddExtensionData("example", data, false);
 ### AddExtensionData
 `public void AddExtensionData(object data, bool passToChildWidgetCreation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetInstantiationResult 实例
@@ -54,7 +54,7 @@ widgetInstantiationResult.AddExtensionData(data, false);
 ### GetLogicalOrDefaultChildrenLocation
 `public WidgetInstantiationResult GetLogicalOrDefaultChildrenLocation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 logical or default children location 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 logical or default children location 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetInstantiationResult 实例

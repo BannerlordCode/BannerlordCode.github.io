@@ -31,7 +31,7 @@ description: "MPLobbySigilItemVM 的自动生成类参考。"
 ### RefreshWith
 `public void RefreshWith(int iconID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbySigilItemVM 实例
@@ -42,7 +42,7 @@ mPLobbySigilItemVM.RefreshWith(0);
 ### RefreshWith
 `public void RefreshWith(Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbySigilItemVM 实例
@@ -53,7 +53,7 @@ mPLobbySigilItemVM.RefreshWith(banner);
 ### RefreshWith
 `public void RefreshWith(string bannerCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbySigilItemVM 实例

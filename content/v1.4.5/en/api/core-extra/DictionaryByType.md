@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library.EventSystem` to place it in the stack, 
 ### GetClone
 `public IDictionary<Type, object> GetClone()`
 
-**Purpose:** **Purpose:** Reads and returns the clone value held by the this instance.
+**Purpose:** Reads and returns the clone value held by the this instance.
 
 ```csharp
 // Obtain an instance of DictionaryByType from the subsystem API first
@@ -34,7 +34,7 @@ var result = dictionaryByType.GetClone();
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of DictionaryByType from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### TryGetHistoryData
 `public bool TryGetHistoryData(string matchId, out MatchHistoryData historyData)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get history data, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get history data, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MatchHistoryDataContainer from the subsystem API first

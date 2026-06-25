@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### Update
 `public void Update(float progress, float relativeDurationToMaxDuration)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of ReloadPhaseItemVM from the subsystem API first

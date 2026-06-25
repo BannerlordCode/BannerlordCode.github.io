@@ -19,7 +19,7 @@ BreakInOutBesiegedSettlementAction 是一组静态方法，用于在战役中以
 public static void ApplyBreakIn(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 break in 的效果应用到当前对象。
+**用途 / Purpose:** 将 break in 的效果应用到当前对象。
 
 ### ApplyBreakOut
 
@@ -27,7 +27,7 @@ public static void ApplyBreakIn(out TroopRoster casualties, out int armyCasualti
 public static void ApplyBreakOut(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 break out 的效果应用到当前对象。
+**用途 / Purpose:** 将 break out 的效果应用到当前对象。
 
 ## 使用示例
 

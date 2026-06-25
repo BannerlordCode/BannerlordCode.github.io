@@ -41,7 +41,7 @@ description: "ModuleInfo 的自动生成类参考。"
 ### LoadWithFullPath
 `public void LoadWithFullPath(string fullPath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 with full path。
+**用途 / Purpose:** 从持久化存储或流中读取 with full path。
 
 ```csharp
 // 先通过子系统 API 拿到 ModuleInfo 实例
@@ -52,7 +52,7 @@ moduleInfo.LoadWithFullPath("example");
 ### ActivateModule
 `public void ActivateModule()`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活module对应的资源、状态或功能。
+**用途 / Purpose:** 激活module对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 ModuleInfo 实例
@@ -63,7 +63,7 @@ moduleInfo.ActivateModule();
 ### DeactivateModule
 `public void DeactivateModule()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用module对应的资源、状态或功能。
+**用途 / Purpose:** 停用module对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 ModuleInfo 实例
@@ -74,7 +74,7 @@ moduleInfo.DeactivateModule();
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version change set 的最新表示。
+**用途 / Purpose:** 重新计算并更新 version change set 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ModuleInfo 实例

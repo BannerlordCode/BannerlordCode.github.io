@@ -35,7 +35,7 @@ Treat `DefaultClanTierModel` as a Model-style extension point: first identify wh
 ### CalculateInitialRenown
 `public override int CalculateInitialRenown(Clan clan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of initial renown.
+**Purpose:** Calculates the current value or result of initial renown.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -46,7 +46,7 @@ var result = defaultClanTierModel.CalculateInitialRenown(clan);
 ### CalculateInitialInfluence
 `public override int CalculateInitialInfluence(Clan clan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of initial influence.
+**Purpose:** Calculates the current value or result of initial influence.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -57,7 +57,7 @@ var result = defaultClanTierModel.CalculateInitialInfluence(clan);
 ### CalculateTier
 `public override int CalculateTier(Clan clan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of tier.
+**Purpose:** Calculates the current value or result of tier.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -68,7 +68,7 @@ var result = defaultClanTierModel.CalculateTier(clan);
 ### HasUpcomingTier
 `public override ValueTuple<ExplainedNumber, bool> HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds upcoming tier.
+**Purpose:** Determines whether the this instance already holds upcoming tier.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -79,7 +79,7 @@ var result = defaultClanTierModel.HasUpcomingTier(clan, extraExplanation, false)
 ### GetRequiredRenownForTier
 `public override int GetRequiredRenownForTier(int tier)`
 
-**Purpose:** **Purpose:** Reads and returns the required renown for tier value held by the this instance.
+**Purpose:** Reads and returns the required renown for tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -90,7 +90,7 @@ var result = defaultClanTierModel.GetRequiredRenownForTier(0);
 ### GetPartyLimitForTier
 `public override int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**Purpose:** **Purpose:** Reads and returns the party limit for tier value held by the this instance.
+**Purpose:** Reads and returns the party limit for tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first
@@ -101,7 +101,7 @@ var result = defaultClanTierModel.GetPartyLimitForTier(clan, 0);
 ### GetCompanionLimit
 `public override int GetCompanionLimit(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the companion limit value held by the this instance.
+**Purpose:** Reads and returns the companion limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanTierModel from the subsystem API first

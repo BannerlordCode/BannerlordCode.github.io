@@ -40,7 +40,7 @@ description: "ClanMembersVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersVM 实例
@@ -51,7 +51,7 @@ clanMembersVM.RefreshValues();
 ### RefreshMembersList
 `public void RefreshMembersList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 members list 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 members list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersVM 实例
@@ -62,7 +62,7 @@ clanMembersVM.RefreshMembersList();
 ### SelectMember
 `public void SelectMember(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectMember 对应的操作。
+**用途 / Purpose:** 调用 SelectMember 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersVM 实例
@@ -73,7 +73,7 @@ clanMembersVM.SelectMember(hero);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersVM 实例

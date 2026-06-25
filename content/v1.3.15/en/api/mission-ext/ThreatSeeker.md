@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming target from task operation.
+**Purpose:** Finishes prerequisite setup for the upcoming target from task operation.
 
 ```csharp
 // Obtain an instance of ThreatSeeker from the subsystem API first
@@ -34,7 +34,7 @@ var result = threatSeeker.PrepareTargetFromTask();
 ### UpdateThreatSeekerTask
 `public bool UpdateThreatSeekerTask()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of threat seeker task.
+**Purpose:** Recalculates and stores the latest representation of threat seeker task.
 
 ```csharp
 // Obtain an instance of ThreatSeeker from the subsystem API first
@@ -45,7 +45,7 @@ var result = threatSeeker.UpdateThreatSeekerTask();
 ### PrepareThreatSeekerTask
 `public void PrepareThreatSeekerTask(Action lastAction)`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming threat seeker task operation.
+**Purpose:** Finishes prerequisite setup for the upcoming threat seeker task operation.
 
 ```csharp
 // Obtain an instance of ThreatSeeker from the subsystem API first
@@ -56,7 +56,7 @@ threatSeeker.PrepareThreatSeekerTask(lastAction);
 ### Release
 `public void Release()`
 
-**Purpose:** **Purpose:** Executes the Release logic.
+**Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of ThreatSeeker from the subsystem API first
@@ -67,7 +67,7 @@ threatSeeker.Release();
 ### GetAllThreats
 `public List<Threat> GetAllThreats()`
 
-**Purpose:** **Purpose:** Reads and returns the all threats value held by the this instance.
+**Purpose:** Reads and returns the all threats value held by the this instance.
 
 ```csharp
 // Obtain an instance of ThreatSeeker from the subsystem API first
@@ -78,7 +78,7 @@ var result = threatSeeker.GetAllThreats();
 ### GetTargetFlagsOfFormation
 `public static TargetFlags GetTargetFlagsOfFormation()`
 
-**Purpose:** **Purpose:** Reads and returns the target flags of formation value held by the this instance.
+**Purpose:** Reads and returns the target flags of formation value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -88,7 +88,7 @@ ThreatSeeker.GetTargetFlagsOfFormation();
 ### GetMaxThreat
 `public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
 
-**Purpose:** **Purpose:** Reads and returns the max threat value held by the this instance.
+**Purpose:** Reads and returns the max threat value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `MultiplayerItemTestMissionController` as a Controller-style extension poi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MultiplayerItemTestMissionController from the subsystem API first

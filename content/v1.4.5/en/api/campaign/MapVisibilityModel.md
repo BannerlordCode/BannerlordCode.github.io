@@ -23,7 +23,7 @@ Treat `MapVisibilityModel` as a Model-style extension point: first identify who 
 ### MaximumSeeingRange
 `public abstract float MaximumSeeingRange()`
 
-**Purpose:** **Purpose:** Executes the MaximumSeeingRange logic.
+**Purpose:** Executes the MaximumSeeingRange logic.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = mapVisibilityModel.MaximumSeeingRange();
 ### GetPartySeeingRangeBase
 `public abstract float GetPartySeeingRangeBase(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the party seeing range base value held by the this instance.
+**Purpose:** Reads and returns the party seeing range base value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapVisibilityModel.GetPartySeeingRangeBase(party);
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Reads and returns the party spotting range value held by the this instance.
+**Purpose:** Reads and returns the party spotting range value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapVisibilityModel.GetPartySpottingRange(party, false);
 ### GetPartySpottingRatioForMainPartySeeingRange
 `public abstract float GetPartySpottingRatioForMainPartySeeingRange(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the party spotting ratio for main party seeing range value held by the this instance.
+**Purpose:** Reads and returns the party spotting ratio for main party seeing range value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = mapVisibilityModel.GetPartySpottingRatioForMainPartySeeingRange(par
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**Purpose:** **Purpose:** Reads and returns the hideout spotting distance value held by the this instance.
+**Purpose:** Reads and returns the hideout spotting distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first

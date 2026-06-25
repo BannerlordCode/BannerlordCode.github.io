@@ -23,7 +23,7 @@ description: "MultiplayerRidingModel 的自动生成类参考。"
 ### CalculateAcceleration
 `public override float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算acceleration的当前值或结果。
+**用途 / Purpose:** 计算acceleration的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRidingModel 实例

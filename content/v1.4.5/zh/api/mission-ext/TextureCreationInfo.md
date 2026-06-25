@@ -30,7 +30,7 @@ description: "TextureCreationInfo 的自动生成类参考。"
 ### WithNewTexture
 `public static TextureCreationInfo WithNewTexture(Texture texture = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WithNewTexture 对应的操作。
+**用途 / Purpose:** 调用 WithNewTexture 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ TextureCreationInfo.WithNewTexture(null);
 ### WithExistingTexture
 `public static TextureCreationInfo WithExistingTexture(Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WithExistingTexture 对应的操作。
+**用途 / Purpose:** 调用 WithExistingTexture 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ TextureCreationInfo.WithExistingTexture(texture);
 ### Fail
 `public static TextureCreationInfo Fail()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Fail 对应的操作。
+**用途 / Purpose:** 调用 Fail 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

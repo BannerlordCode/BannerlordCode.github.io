@@ -29,7 +29,7 @@ description: "LinearFrictionTerm 的自动生成类参考。"
 ### ElementWiseProduct
 `public LinearFrictionTerm ElementWiseProduct(LinearFrictionTerm o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ElementWiseProduct 对应的操作。
+**用途 / Purpose:** 调用 ElementWiseProduct 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LinearFrictionTerm 实例
@@ -40,7 +40,7 @@ var result = linearFrictionTerm.ElementWiseProduct(o);
 ### NearlyEquals
 `public bool NearlyEquals(in LinearFrictionTerm o, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NearlyEquals 对应的操作。
+**用途 / Purpose:** 调用 NearlyEquals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LinearFrictionTerm 实例

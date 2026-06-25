@@ -29,7 +29,7 @@ description: "MPPerkSelectionManager 的自动生成类参考。"
 ### FreeInstance
 `public static void FreeInstance()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FreeInstance 对应的操作。
+**用途 / Purpose:** 调用 FreeInstance 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MPPerkSelectionManager.FreeInstance();
 ### InitializeForUser
 `public void InitializeForUser(string username, PlayerId playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 for user 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 for user 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkSelectionManager 实例
@@ -50,7 +50,7 @@ mPPerkSelectionManager.InitializeForUser("example", playerId);
 ### ResetPendingChanges
 `public void ResetPendingChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 pending changes 重置回默认或初始状态。
+**用途 / Purpose:** 将 pending changes 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkSelectionManager 实例
@@ -61,7 +61,7 @@ mPPerkSelectionManager.ResetPendingChanges();
 ### TryToApplyAndSavePendingChanges
 `public void TryToApplyAndSavePendingChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 to apply and save pending changes 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 to apply and save pending changes 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkSelectionManager 实例
@@ -72,7 +72,7 @@ mPPerkSelectionManager.TryToApplyAndSavePendingChanges();
 ### GetSelectionsForHeroClass
 `public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 selections for hero class 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 selections for hero class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkSelectionManager 实例
@@ -83,7 +83,7 @@ var result = mPPerkSelectionManager.GetSelectionsForHeroClass(currentHeroClass);
 ### SetSelectionsForHeroClassTemporarily
 `public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 selections for hero class temporarily 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 selections for hero class temporarily 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkSelectionManager 实例

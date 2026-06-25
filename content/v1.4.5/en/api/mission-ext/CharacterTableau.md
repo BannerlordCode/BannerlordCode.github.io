@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -43,7 +43,7 @@ characterTableau.OnTick(0);
 ### GetCustomAnimationProgressRatio
 `public float GetCustomAnimationProgressRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the custom animation progress ratio value held by the this instance.
+**Purpose:** Reads and returns the custom animation progress ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -54,7 +54,7 @@ var result = characterTableau.GetCustomAnimationProgressRatio();
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -65,7 +65,7 @@ characterTableau.SetEnabled(false);
 ### SetLeftHandWieldedEquipmentIndex
 `public void SetLeftHandWieldedEquipmentIndex(int index)`
 
-**Purpose:** **Purpose:** Assigns a new value to left hand wielded equipment index and updates the object's internal state.
+**Purpose:** Assigns a new value to left hand wielded equipment index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -76,7 +76,7 @@ characterTableau.SetLeftHandWieldedEquipmentIndex(0);
 ### SetRightHandWieldedEquipmentIndex
 `public void SetRightHandWieldedEquipmentIndex(int index)`
 
-**Purpose:** **Purpose:** Assigns a new value to right hand wielded equipment index and updates the object's internal state.
+**Purpose:** Assigns a new value to right hand wielded equipment index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -87,7 +87,7 @@ characterTableau.SetRightHandWieldedEquipmentIndex(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -98,7 +98,7 @@ characterTableau.SetTargetSize(0, 0);
 ### SetCharStringID
 `public void SetCharStringID(string charStringId)`
 
-**Purpose:** **Purpose:** Assigns a new value to char string i d and updates the object's internal state.
+**Purpose:** Assigns a new value to char string i d and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -109,7 +109,7 @@ characterTableau.SetCharStringID("example");
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -120,7 +120,7 @@ characterTableau.OnFinalize();
 ### SetBodyProperties
 `public void SetBodyProperties(string bodyPropertiesCode)`
 
-**Purpose:** **Purpose:** Assigns a new value to body properties and updates the object's internal state.
+**Purpose:** Assigns a new value to body properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -131,7 +131,7 @@ characterTableau.SetBodyProperties("example");
 ### SetStanceIndex
 `public void SetStanceIndex(int index)`
 
-**Purpose:** **Purpose:** Assigns a new value to stance index and updates the object's internal state.
+**Purpose:** Assigns a new value to stance index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -142,7 +142,7 @@ characterTableau.SetStanceIndex(0);
 ### SetCustomRenderScale
 `public void SetCustomRenderScale(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom render scale and updates the object's internal state.
+**Purpose:** Assigns a new value to custom render scale and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -153,7 +153,7 @@ characterTableau.SetCustomRenderScale(0);
 ### SetIsFemale
 `public void SetIsFemale(bool isFemale)`
 
-**Purpose:** **Purpose:** Assigns a new value to is female and updates the object's internal state.
+**Purpose:** Assigns a new value to is female and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -164,7 +164,7 @@ characterTableau.SetIsFemale(false);
 ### SetIsBannerShownInBackground
 `public void SetIsBannerShownInBackground(bool isBannerShownInBackground)`
 
-**Purpose:** **Purpose:** Assigns a new value to is banner shown in background and updates the object's internal state.
+**Purpose:** Assigns a new value to is banner shown in background and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -175,7 +175,7 @@ characterTableau.SetIsBannerShownInBackground(false);
 ### SetRace
 `public void SetRace(int race)`
 
-**Purpose:** **Purpose:** Assigns a new value to race and updates the object's internal state.
+**Purpose:** Assigns a new value to race and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -186,7 +186,7 @@ characterTableau.SetRace(0);
 ### SetIdleAction
 `public void SetIdleAction(string idleAction)`
 
-**Purpose:** **Purpose:** Assigns a new value to idle action and updates the object's internal state.
+**Purpose:** Assigns a new value to idle action and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -197,7 +197,7 @@ characterTableau.SetIdleAction("example");
 ### SetCustomAnimation
 `public void SetCustomAnimation(string animation)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom animation and updates the object's internal state.
+**Purpose:** Assigns a new value to custom animation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -208,7 +208,7 @@ characterTableau.SetCustomAnimation("example");
 ### StartCustomAnimation
 `public void StartCustomAnimation()`
 
-**Purpose:** **Purpose:** Starts the custom animation flow or state machine.
+**Purpose:** Starts the custom animation flow or state machine.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -219,7 +219,7 @@ characterTableau.StartCustomAnimation();
 ### StopCustomAnimation
 `public void StopCustomAnimation()`
 
-**Purpose:** **Purpose:** Stops the custom animation flow or state machine.
+**Purpose:** Stops the custom animation flow or state machine.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -230,7 +230,7 @@ characterTableau.StopCustomAnimation();
 ### SetIdleFaceAnim
 `public void SetIdleFaceAnim(string idleFaceAnim)`
 
-**Purpose:** **Purpose:** Assigns a new value to idle face anim and updates the object's internal state.
+**Purpose:** Assigns a new value to idle face anim and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -241,7 +241,7 @@ characterTableau.SetIdleFaceAnim("example");
 ### SetEquipmentCode
 `public void SetEquipmentCode(string equipmentCode)`
 
-**Purpose:** **Purpose:** Assigns a new value to equipment code and updates the object's internal state.
+**Purpose:** Assigns a new value to equipment code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -252,7 +252,7 @@ characterTableau.SetEquipmentCode("example");
 ### SetIsEquipmentAnimActive
 `public void SetIsEquipmentAnimActive(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to is equipment anim active and updates the object's internal state.
+**Purpose:** Assigns a new value to is equipment anim active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -263,7 +263,7 @@ characterTableau.SetIsEquipmentAnimActive(false);
 ### SetMountCreationKey
 `public void SetMountCreationKey(string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to mount creation key and updates the object's internal state.
+**Purpose:** Assigns a new value to mount creation key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -274,7 +274,7 @@ characterTableau.SetMountCreationKey("example");
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
+**Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -285,7 +285,7 @@ characterTableau.SetBannerCode("example");
 ### SetArmorColor1
 `public void SetArmorColor1(uint clothColor1)`
 
-**Purpose:** **Purpose:** Assigns a new value to armor color1 and updates the object's internal state.
+**Purpose:** Assigns a new value to armor color1 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -296,7 +296,7 @@ characterTableau.SetArmorColor1(0);
 ### SetArmorColor2
 `public void SetArmorColor2(uint clothColor2)`
 
-**Purpose:** **Purpose:** Assigns a new value to armor color2 and updates the object's internal state.
+**Purpose:** Assigns a new value to armor color2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -307,7 +307,7 @@ characterTableau.SetArmorColor2(0);
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**Purpose:** **Purpose:** Executes the RotateCharacter logic.
+**Purpose:** Executes the RotateCharacter logic.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -318,7 +318,7 @@ characterTableau.RotateCharacter(false);
 ### TriggerCharacterMountPlacesSwap
 `public void TriggerCharacterMountPlacesSwap()`
 
-**Purpose:** **Purpose:** Triggers the logic or event associated with character mount places swap.
+**Purpose:** Triggers the logic or event associated with character mount places swap.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first
@@ -329,7 +329,7 @@ characterTableau.TriggerCharacterMountPlacesSwap();
 ### OnCharacterTableauMouseMove
 `public void OnCharacterTableauMouseMove(int mouseMoveX)`
 
-**Purpose:** **Purpose:** Invoked when the character tableau mouse move event is raised.
+**Purpose:** Invoked when the character tableau mouse move event is raised.
 
 ```csharp
 // Obtain an instance of CharacterTableau from the subsystem API first

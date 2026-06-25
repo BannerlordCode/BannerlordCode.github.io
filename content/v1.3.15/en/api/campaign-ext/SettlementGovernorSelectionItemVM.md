@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementGovernorSelectionItemVM from the subsystem API first
@@ -43,7 +43,7 @@ settlementGovernorSelectionItemVM.RefreshValues();
 ### OnSelection
 `public void OnSelection()`
 
-**Purpose:** **Purpose:** Invoked when the selection event is raised.
+**Purpose:** Invoked when the selection event is raised.
 
 ```csharp
 // Obtain an instance of SettlementGovernorSelectionItemVM from the subsystem API first

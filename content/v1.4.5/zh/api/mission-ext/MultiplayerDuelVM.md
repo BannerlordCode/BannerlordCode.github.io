@@ -39,7 +39,7 @@ description: "MultiplayerDuelVM 的自动生成类参考。"
 ### DuelArenaProperties
 `public struct DuelArenaProperties(GameEntity flagEntity, int index, TroopType arenaTroopType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DuelArenaProperties 对应的操作。
+**用途 / Purpose:** 调用 DuelArenaProperties 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -50,7 +50,7 @@ var result = multiplayerDuelVM.DuelArenaProperties(flagEntity, 0, arenaTroopType
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -61,7 +61,7 @@ multiplayerDuelVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -72,7 +72,7 @@ multiplayerDuelVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -83,7 +83,7 @@ multiplayerDuelVM.OnFinalize();
 ### OnScreenResolutionChanged
 `public void OnScreenResolutionChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 screen resolution changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 screen resolution changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -94,7 +94,7 @@ multiplayerDuelVM.OnScreenResolutionChanged();
 ### OnMainAgentRemoved
 `public void OnMainAgentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 main agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -105,7 +105,7 @@ multiplayerDuelVM.OnMainAgentRemoved();
 ### OnMainAgentBuild
 `public void OnMainAgentBuild()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main agent build 事件触发时调用此回调。
+**用途 / Purpose:** 在 main agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerDuelVM 实例
@@ -116,7 +116,7 @@ multiplayerDuelVM.OnMainAgentBuild();
 ### GetAgentDefaultPreferredArenaType
 `public static TroopType GetAgentDefaultPreferredArenaType(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent default preferred arena type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agent default preferred arena type 的结果。
 
 ```csharp
 // 静态调用，不需要实例

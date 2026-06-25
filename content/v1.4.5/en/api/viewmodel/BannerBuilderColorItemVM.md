@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
+**Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of BannerBuilderColorItemVM from the subsystem API first

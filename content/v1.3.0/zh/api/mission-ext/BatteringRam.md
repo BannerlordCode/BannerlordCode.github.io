@@ -43,7 +43,7 @@ description: "BatteringRam 的自动生成类参考。"
 ### HasCompletedAction
 `public bool HasCompletedAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 completed action。
+**用途 / Purpose:** 判断当前对象是否已经持有 completed action。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -54,7 +54,7 @@ var result = batteringRam.HasCompletedAction();
 ### Disable
 `public override void Disable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disable 对应的操作。
+**用途 / Purpose:** 调用 Disable 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -65,7 +65,7 @@ batteringRam.Disable();
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -76,7 +76,7 @@ var result = batteringRam.GetSiegeEngineType();
 ### GetInitialFrame
 `public MatrixFrame GetInitialFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 initial frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -87,7 +87,7 @@ var result = batteringRam.GetInitialFrame();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -98,7 +98,7 @@ var result = batteringRam.GetTickRequirement();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -109,7 +109,7 @@ var result = batteringRam.CreateAIBehaviorObject();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to network写入目标位置。
+**用途 / Purpose:** 将to network写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -120,7 +120,7 @@ batteringRam.WriteToNetwork();
 ### HighlightPath
 `public void HighlightPath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HighlightPath 对应的操作。
+**用途 / Purpose:** 调用 HighlightPath 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -131,7 +131,7 @@ batteringRam.HighlightPath();
 ### SwitchGhostEntityMovementMode
 `public void SwitchGhostEntityMovementMode(bool isGhostEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchGhostEntityMovementMode 对应的操作。
+**用途 / Purpose:** 调用 SwitchGhostEntityMovementMode 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -142,7 +142,7 @@ batteringRam.SwitchGhostEntityMovementMode(false);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -153,7 +153,7 @@ var result = batteringRam.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -164,7 +164,7 @@ var result = batteringRam.GetActionTextForStandingPoint(usableGameObject);
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -175,7 +175,7 @@ var result = batteringRam.GetOrder(side);
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -186,7 +186,7 @@ var result = batteringRam.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -197,7 +197,7 @@ var result = batteringRam.GetTargetValue(weaponPos);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -208,7 +208,7 @@ batteringRam.SetSpawnedFromSpawner();
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string gateTag, string sideTag, int bridgeNavMeshID1, int bridgeNavMeshID2, int ditchNavMeshID1, int ditchNavMeshID2, int groundToBridgeNavMeshID1, int groundToBridgeNavMeshID2, string pathEntityName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AssignParametersFromSpawner 对应的操作。
+**用途 / Purpose:** 调用 AssignParametersFromSpawner 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -219,7 +219,7 @@ batteringRam.AssignParametersFromSpawner("example", "example", 0, 0, 0, 0, 0, 0,
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
+**用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -230,7 +230,7 @@ batteringRam.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableR
 ### GetNavmeshFaceIds
 `public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navmesh face ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navmesh face ids 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -241,7 +241,7 @@ var result = batteringRam.GetNavmeshFaceIds(navmeshFaceIds);
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
+**用途 / Purpose:** 从当前实例读取from network相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例

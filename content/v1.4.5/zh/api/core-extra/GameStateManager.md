@@ -32,7 +32,7 @@ description: "GameStateManager 的自动生成类参考。"
 ### RegisterListener
 `public bool RegisterListener(IGameStateManagerListener listener)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将listener注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将listener注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -43,7 +43,7 @@ var result = gameStateManager.RegisterListener(listener);
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateManagerListener listener)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销listener。
+**用途 / Purpose:** 从当前系统中注销listener。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -54,7 +54,7 @@ var result = gameStateManager.UnregisterListener(listener);
 ### RegisterActiveStateDisableRequest
 `public void RegisterActiveStateDisableRequest(object requestingInstance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将active state disable request注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将active state disable request注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -65,7 +65,7 @@ gameStateManager.RegisterActiveStateDisableRequest(requestingInstance);
 ### UnregisterActiveStateDisableRequest
 `public void UnregisterActiveStateDisableRequest(object requestingInstance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销active state disable request。
+**用途 / Purpose:** 从当前系统中注销active state disable request。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -76,7 +76,7 @@ gameStateManager.UnregisterActiveStateDisableRequest(requestingInstance);
 ### OnSavedGameLoadFinished
 `public void OnSavedGameLoadFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 saved game load finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 saved game load finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -87,7 +87,7 @@ gameStateManager.OnSavedGameLoadFinished();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -98,7 +98,7 @@ gameStateManager.OnTick(0);
 ### PushState
 `public void PushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PushState 对应的操作。
+**用途 / Purpose:** 调用 PushState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -109,7 +109,7 @@ gameStateManager.PushState(gameState, 0);
 ### PopState
 `public void PopState(int level = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PopState 对应的操作。
+**用途 / Purpose:** 调用 PopState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -120,7 +120,7 @@ gameStateManager.PopState(0);
 ### CleanAndPushState
 `public void CleanAndPushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CleanAndPushState 对应的操作。
+**用途 / Purpose:** 调用 CleanAndPushState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -131,7 +131,7 @@ gameStateManager.CleanAndPushState(gameState, 0);
 ### CleanStates
 `public void CleanStates(int level = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CleanStates 对应的操作。
+**用途 / Purpose:** 调用 CleanStates 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例

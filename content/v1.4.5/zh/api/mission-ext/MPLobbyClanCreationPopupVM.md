@@ -49,7 +49,7 @@ description: "MPLobbyClanCreationPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -60,7 +60,7 @@ mPLobbyClanCreationPopupVM.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -71,7 +71,7 @@ mPLobbyClanCreationPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -82,7 +82,7 @@ mPLobbyClanCreationPopupVM.ExecuteClosePopup();
 ### UpdateFactionErrorText
 `public void UpdateFactionErrorText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 faction error text 的最新表示。
+**用途 / Purpose:** 重新计算并更新 faction error text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -93,7 +93,7 @@ mPLobbyClanCreationPopupVM.UpdateFactionErrorText();
 ### UpdateSigilIconErrorText
 `public void UpdateSigilIconErrorText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 sigil icon error text 的最新表示。
+**用途 / Purpose:** 重新计算并更新 sigil icon error text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -104,7 +104,7 @@ mPLobbyClanCreationPopupVM.UpdateSigilIconErrorText();
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 confirmation 的最新表示。
+**用途 / Purpose:** 重新计算并更新 confirmation 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -115,7 +115,7 @@ mPLobbyClanCreationPopupVM.UpdateConfirmation(playerId, answer);
 ### ExecuteSwitchToWaiting
 `public void ExecuteSwitchToWaiting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch to waiting 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch to waiting 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -126,7 +126,7 @@ mPLobbyClanCreationPopupVM.ExecuteSwitchToWaiting();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
@@ -137,7 +137,7 @@ mPLobbyClanCreationPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例

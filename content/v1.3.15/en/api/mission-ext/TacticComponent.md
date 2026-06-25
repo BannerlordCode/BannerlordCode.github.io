@@ -29,7 +29,7 @@ Treat `TacticComponent` as a Component-style extension point: first identify who
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of TacticComponent from the subsystem API first
@@ -40,7 +40,7 @@ tacticComponent.TickOccasionally();
 ### ResetTactic
 `public void ResetTactic()`
 
-**Purpose:** **Purpose:** Returns tactic to its default or initial condition.
+**Purpose:** Returns tactic to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TacticComponent from the subsystem API first
@@ -51,7 +51,7 @@ tacticComponent.ResetTactic();
 ### SetDefaultBehaviorWeights
 `public static void SetDefaultBehaviorWeights(Formation f)`
 
-**Purpose:** **Purpose:** Assigns a new value to default behavior weights and updates the object's internal state.
+**Purpose:** Assigns a new value to default behavior weights and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

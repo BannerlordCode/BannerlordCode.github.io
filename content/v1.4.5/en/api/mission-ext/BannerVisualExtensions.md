@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetTableauTextureSmallForBannerEditor
 `public static Texture GetTableauTextureSmallForBannerEditor(this Banner banner, in BannerDebugInfo debugInfo, Action<Texture> setAction, out BannerEditorTextureCreationData textureCreationData)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture small for banner editor value held by the this instance.
+**Purpose:** Reads and returns the tableau texture small for banner editor value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BannerVisualExtensions.GetTableauTextureSmallForBannerEditor(banner, debugInfo, 
 ### GetTableauTextureLargeForBannerEditor
 `public static Texture GetTableauTextureLargeForBannerEditor(this Banner banner, in BannerDebugInfo debugInfo, Action<Texture> setAction, out BannerEditorTextureCreationData textureCreationData)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture large for banner editor value held by the this instance.
+**Purpose:** Reads and returns the tableau texture large for banner editor value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ BannerVisualExtensions.GetTableauTextureLargeForBannerEditor(banner, debugInfo, 
 ### GetTableauTextureSmall
 `public static Texture GetTableauTextureSmall(this Banner banner, in BannerDebugInfo debugInfo, Action<Texture> setAction)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture small value held by the this instance.
+**Purpose:** Reads and returns the tableau texture small value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BannerVisualExtensions.GetTableauTextureSmall(banner, debugInfo, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, in BannerDebugInfo debugInfo, Action<Texture> setAction)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
+**Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, debugInfo, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, in BannerDebugInfo debugInfo, Action<Texture> setAction, out BannerTextureCreationData creationData)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
+**Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, debugInfo, setAction, crea
 ### ConvertToMultiMesh
 `public static MetaMesh ConvertToMultiMesh(this Banner banner)`
 
-**Purpose:** **Purpose:** Converts to multi mesh into another representation or type.
+**Purpose:** Converts to multi mesh into another representation or type.
 
 ```csharp
 // Static call; no instance required

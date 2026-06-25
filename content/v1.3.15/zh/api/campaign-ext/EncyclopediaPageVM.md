@@ -35,7 +35,7 @@ description: "EncyclopediaPageVM 的自动生成类参考。"
 ### GetName
 `public virtual string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageVM 实例
@@ -46,7 +46,7 @@ var result = encyclopediaPageVM.GetName();
 ### GetNavigationBarURL
 `public virtual string GetNavigationBarURL()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageVM 实例
@@ -57,7 +57,7 @@ var result = encyclopediaPageVM.GetNavigationBarURL();
 ### Refresh
 `public virtual void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageVM 实例
@@ -68,7 +68,7 @@ encyclopediaPageVM.Refresh();
 ### OnTick
 `public virtual void OnTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageVM 实例
@@ -79,7 +79,7 @@ encyclopediaPageVM.OnTick();
 ### ExecuteSwitchBookmarkedState
 `public virtual void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageVM 实例

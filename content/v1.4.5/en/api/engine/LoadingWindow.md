@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** **Purpose:** Executes the Destroy logic.
+**Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ LoadingWindow.Destroy();
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**Purpose:** **Purpose:** Executes the DisableGlobalLoadingWindow logic.
+**Purpose:** Executes the DisableGlobalLoadingWindow logic.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ LoadingWindow.DisableGlobalLoadingWindow();
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**Purpose:** **Purpose:** Executes the EnableGlobalLoadingWindow logic.
+**Purpose:** Executes the EnableGlobalLoadingWindow logic.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ LoadingWindow.EnableGlobalLoadingWindow();
 ### SetCurrentModeIsMultiplayer
 `public static void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** **Purpose:** Assigns a new value to current mode is multiplayer and updates the object's internal state.
+**Purpose:** Assigns a new value to current mode is multiplayer and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

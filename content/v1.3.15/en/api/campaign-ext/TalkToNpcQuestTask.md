@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### IsTaskCharacter
 `public bool IsTaskCharacter()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the task character state or condition.
+**Purpose:** Determines whether the this instance is in the task character state or condition.
 
 ```csharp
 // Obtain an instance of TalkToNpcQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ var result = talkToNpcQuestTask.IsTaskCharacter();
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TalkToNpcQuestTask from the subsystem API first

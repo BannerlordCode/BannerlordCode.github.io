@@ -23,7 +23,7 @@ Treat `DefaultFormationArrangementModel` as a Model-style extension point: first
 ### GetBannerBearerPositions
 `public override List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**Purpose:** **Purpose:** Reads and returns the banner bearer positions value held by the this instance.
+**Purpose:** Reads and returns the banner bearer positions value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationArrangementModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultFormationArrangementModel.GetBannerBearerPositions(formation
 ### GetArrangementPosition
 `public FormationArrangementModel.ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
 
-**Purpose:** **Purpose:** Reads and returns the arrangement position value held by the this instance.
+**Purpose:** Reads and returns the arrangement position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationArrangementModel from the subsystem API first

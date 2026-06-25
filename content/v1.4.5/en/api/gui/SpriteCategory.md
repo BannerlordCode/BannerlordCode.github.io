@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Compare
 `public int Compare(SpritePart x, SpritePart y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -47,7 +47,7 @@ var result = spriteCategory.Compare(x, y);
 ### Load
 `public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -58,7 +58,7 @@ spriteCategory.Load(resourceContext, resourceDepot);
 ### Unload
 `public void Unload()`
 
-**Purpose:** **Purpose:** Executes the Unload logic.
+**Purpose:** Executes the Unload logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -69,7 +69,7 @@ spriteCategory.Unload();
 ### Reload
 `public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-**Purpose:** **Purpose:** Executes the Reload logic.
+**Purpose:** Executes the Reload logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -80,7 +80,7 @@ spriteCategory.Reload(resourceContext, resourceDepot, newCategoryInfo);
 ### InitializePartialLoad
 `public void InitializePartialLoad()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by partial load.
+**Purpose:** Prepares the resources, state, or bindings required by partial load.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -91,7 +91,7 @@ spriteCategory.InitializePartialLoad();
 ### ReleasePartialLoad
 `public void ReleasePartialLoad()`
 
-**Purpose:** **Purpose:** Executes the ReleasePartialLoad logic.
+**Purpose:** Executes the ReleasePartialLoad logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -102,7 +102,7 @@ spriteCategory.ReleasePartialLoad();
 ### PartialLoadAtIndex
 `public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-**Purpose:** **Purpose:** Executes the PartialLoadAtIndex logic.
+**Purpose:** Executes the PartialLoadAtIndex logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -113,7 +113,7 @@ spriteCategory.PartialLoadAtIndex(resourceContext, resourceDepot, 0);
 ### PartialUnloadAtIndex
 `public void PartialUnloadAtIndex(int sheetIndex)`
 
-**Purpose:** **Purpose:** Executes the PartialUnloadAtIndex logic.
+**Purpose:** Executes the PartialUnloadAtIndex logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -124,7 +124,7 @@ spriteCategory.PartialUnloadAtIndex(0);
 ### SortList
 `public void SortList()`
 
-**Purpose:** **Purpose:** Executes the SortList logic.
+**Purpose:** Executes the SortList logic.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first
@@ -135,7 +135,7 @@ spriteCategory.SortList();
 ### IsCategoryFullyLoaded
 `public bool IsCategoryFullyLoaded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the category fully loaded state or condition.
+**Purpose:** Determines whether the this instance is in the category fully loaded state or condition.
 
 ```csharp
 // Obtain an instance of SpriteCategory from the subsystem API first

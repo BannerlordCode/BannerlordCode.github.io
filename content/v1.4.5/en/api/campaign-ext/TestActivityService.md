@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ### GetActivityTransition
 `public ActivityTransition GetActivityTransition(string activityId)`
 
-**Purpose:** **Purpose:** Reads and returns the activity transition value held by the this instance.
+**Purpose:** Reads and returns the activity transition value held by the this instance.
 
 ```csharp
 // Obtain an instance of TestActivityService from the subsystem API first

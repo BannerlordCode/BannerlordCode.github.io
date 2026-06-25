@@ -23,7 +23,7 @@ description: "CampaignOptionsManager 的自动生成类参考。"
 ### GetOptionWithIdExists
 `public static bool GetOptionWithIdExists(string identifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option with id exists 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option with id exists 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CampaignOptionsManager.GetOptionWithIdExists("example");
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ CampaignOptionsManager.Initialize();
 ### ClearCachedOptions
 `public static void ClearCachedOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached options。
+**用途 / Purpose:** 清空当前对象中的cached options。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ CampaignOptionsManager.ClearCachedOptions();
 ### GetGameplayCampaignOptions
 `public static List<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gameplay campaign options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 gameplay campaign options 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ CampaignOptionsManager.GetGameplayCampaignOptions();
 ### GetCharacterCreationCampaignOptions
 `public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character creation campaign options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 character creation campaign options 的结果。
 
 ```csharp
 // 静态调用，不需要实例

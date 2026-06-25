@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### RelaxMinMaxWithPoint
 `public void RelaxMinMaxWithPoint(in Vec3 point)`
 
-**Purpose:** **Purpose:** Executes the RelaxMinMaxWithPoint logic.
+**Purpose:** Executes the RelaxMinMaxWithPoint logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -40,7 +40,7 @@ boundingBox.RelaxMinMaxWithPoint(point);
 ### RelaxMinMaxWithPointAndRadius
 `public void RelaxMinMaxWithPointAndRadius(in Vec3 point, float radius)`
 
-**Purpose:** **Purpose:** Executes the RelaxMinMaxWithPointAndRadius logic.
+**Purpose:** Executes the RelaxMinMaxWithPointAndRadius logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -51,7 +51,7 @@ boundingBox.RelaxMinMaxWithPointAndRadius(point, 0);
 ### RecomputeRadius
 `public void RecomputeRadius()`
 
-**Purpose:** **Purpose:** Recomputes radius and returns the result.
+**Purpose:** Recomputes radius and returns the result.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -62,7 +62,7 @@ boundingBox.RecomputeRadius();
 ### GetTransformedTipPointsToParent
 `public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame parentFrame)`
 
-**Purpose:** **Purpose:** Reads and returns the transformed tip points to parent value held by the this instance.
+**Purpose:** Reads and returns the transformed tip points to parent value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -73,7 +73,7 @@ var result = boundingBox.GetTransformedTipPointsToParent(parentFrame);
 ### GetTransformedTipPointsToChild
 `public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
 
-**Purpose:** **Purpose:** Reads and returns the transformed tip points to child value held by the this instance.
+**Purpose:** Reads and returns the transformed tip points to child value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -84,7 +84,7 @@ var result = boundingBox.GetTransformedTipPointsToChild(childFrame);
 ### RelaxWithBoundingBox
 `public void RelaxWithBoundingBox(BoundingBox modifiedBoundingBox)`
 
-**Purpose:** **Purpose:** Executes the RelaxWithBoundingBox logic.
+**Purpose:** Executes the RelaxWithBoundingBox logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -95,7 +95,7 @@ boundingBox.RelaxWithBoundingBox(modifiedBoundingBox);
 ### RelaxWithArbitraryBoundingBox
 `public void RelaxWithArbitraryBoundingBox(BoundingBox otherBoundingBox, MatrixFrame otherGlobalFrame, MatrixFrame globalFrameOfThisBoundingBox)`
 
-**Purpose:** **Purpose:** Executes the RelaxWithArbitraryBoundingBox logic.
+**Purpose:** Executes the RelaxWithArbitraryBoundingBox logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -106,7 +106,7 @@ boundingBox.RelaxWithArbitraryBoundingBox(otherBoundingBox, otherGlobalFrame, gl
 ### RelaxWithChildBoundingBox
 `public void RelaxWithChildBoundingBox(BoundingBox childBoundingBox, MatrixFrame childFrame)`
 
-**Purpose:** **Purpose:** Executes the RelaxWithChildBoundingBox logic.
+**Purpose:** Executes the RelaxWithChildBoundingBox logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -117,7 +117,7 @@ boundingBox.RelaxWithChildBoundingBox(childBoundingBox, childFrame);
 ### BeginRelaxation
 `public void BeginRelaxation()`
 
-**Purpose:** **Purpose:** Executes the BeginRelaxation logic.
+**Purpose:** Executes the BeginRelaxation logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -128,7 +128,7 @@ boundingBox.BeginRelaxation();
 ### ArrangeWithAnotherBoundingBox
 `public static bool ArrangeWithAnotherBoundingBox(ref BoundingBox boundingBox, BoundingBox otherBoundingBox, float changeAmount)`
 
-**Purpose:** **Purpose:** Executes the ArrangeWithAnotherBoundingBox logic.
+**Purpose:** Executes the ArrangeWithAnotherBoundingBox logic.
 
 ```csharp
 // Static call; no instance required
@@ -138,7 +138,7 @@ BoundingBox.ArrangeWithAnotherBoundingBox(boundingBox, otherBoundingBox, 0);
 ### PointInsideBox
 `public bool PointInsideBox(Vec3 point, float epsilon)`
 
-**Purpose:** **Purpose:** Executes the PointInsideBox logic.
+**Purpose:** Executes the PointInsideBox logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first
@@ -149,7 +149,7 @@ var result = boundingBox.PointInsideBox(point, 0);
 ### GetLongestHalfDimensionOfBoundingBox
 `public static float GetLongestHalfDimensionOfBoundingBox(BoundingBox boundingBox)`
 
-**Purpose:** **Purpose:** Reads and returns the longest half dimension of bounding box value held by the this instance.
+**Purpose:** Reads and returns the longest half dimension of bounding box value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ BoundingBox.GetLongestHalfDimensionOfBoundingBox(boundingBox);
 ### RenderBoundingBox
 `public void RenderBoundingBox()`
 
-**Purpose:** **Purpose:** Executes the RenderBoundingBox logic.
+**Purpose:** Executes the RenderBoundingBox logic.
 
 ```csharp
 // Obtain an instance of BoundingBox from the subsystem API first

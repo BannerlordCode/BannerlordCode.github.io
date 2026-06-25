@@ -23,7 +23,7 @@ Treat `CustomWidgetManager` as a Manager-style extension point: first identify w
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**Purpose:** **Purpose:** Executes the TouchAssembly logic.
+**Purpose:** Executes the TouchAssembly logic.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ description: "ItemCatalogController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCatalogController 实例
@@ -40,7 +40,7 @@ itemCatalogController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCatalogController 实例
@@ -51,7 +51,7 @@ itemCatalogController.OnMissionTick(0);
 ### BeforeCatalogTickDelegate
 `public delegate void BeforeCatalogTickDelegate(int currentItemIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeforeCatalogTickDelegate 对应的操作。
+**用途 / Purpose:** 调用 BeforeCatalogTickDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCatalogController 实例

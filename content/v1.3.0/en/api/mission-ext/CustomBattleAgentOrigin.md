@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetWounded
 `public void SetWounded()`
 
-**Purpose:** **Purpose:** Assigns a new value to wounded and updates the object's internal state.
+**Purpose:** Assigns a new value to wounded and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
@@ -48,7 +48,7 @@ customBattleAgentOrigin.SetWounded();
 ### SetKilled
 `public void SetKilled()`
 
-**Purpose:** **Purpose:** Assigns a new value to killed and updates the object's internal state.
+**Purpose:** Assigns a new value to killed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
@@ -59,7 +59,7 @@ customBattleAgentOrigin.SetKilled();
 ### SetRouted
 `public void SetRouted()`
 
-**Purpose:** **Purpose:** Assigns a new value to routed and updates the object's internal state.
+**Purpose:** Assigns a new value to routed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
@@ -70,7 +70,7 @@ customBattleAgentOrigin.SetRouted();
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
@@ -81,7 +81,7 @@ customBattleAgentOrigin.OnAgentRemoved(0);
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**Purpose:** **Purpose:** Assigns a new value to banner and updates the object's internal state.
+**Purpose:** Assigns a new value to banner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentOrigin from the subsystem API first

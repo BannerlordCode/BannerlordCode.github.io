@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshState
 `public void RefreshState()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of state in sync with the underlying state.
+**Purpose:** Keeps the display or cache of state in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PerkVM from the subsystem API first
@@ -49,7 +49,7 @@ perkVM.RefreshState();
 ### ExecuteShowPerkConcept
 `public void ExecuteShowPerkConcept()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show perk concept.
+**Purpose:** Runs the operation or workflow associated with show perk concept.
 
 ```csharp
 // Obtain an instance of PerkVM from the subsystem API first
@@ -60,7 +60,7 @@ perkVM.ExecuteShowPerkConcept();
 ### ExecuteStartSelection
 `public void ExecuteStartSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with start selection.
+**Purpose:** Runs the operation or workflow associated with start selection.
 
 ```csharp
 // Obtain an instance of PerkVM from the subsystem API first

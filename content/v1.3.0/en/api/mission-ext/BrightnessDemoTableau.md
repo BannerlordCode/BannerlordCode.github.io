@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### SetDemoType
 `public void SetDemoType(int demoType)`
 
-**Purpose:** **Purpose:** Assigns a new value to demo type and updates the object's internal state.
+**Purpose:** Assigns a new value to demo type and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrightnessDemoTableau from the subsystem API first
@@ -40,7 +40,7 @@ brightnessDemoTableau.SetDemoType(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrightnessDemoTableau from the subsystem API first
@@ -51,7 +51,7 @@ brightnessDemoTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BrightnessDemoTableau from the subsystem API first
@@ -62,7 +62,7 @@ brightnessDemoTableau.OnFinalize();
 ### SetScene
 `public void SetScene()`
 
-**Purpose:** **Purpose:** Assigns a new value to scene and updates the object's internal state.
+**Purpose:** Assigns a new value to scene and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrightnessDemoTableau from the subsystem API first
@@ -73,7 +73,7 @@ brightnessDemoTableau.SetScene();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of BrightnessDemoTableau from the subsystem API first

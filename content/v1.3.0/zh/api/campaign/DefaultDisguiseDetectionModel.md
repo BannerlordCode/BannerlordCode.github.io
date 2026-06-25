@@ -23,7 +23,7 @@ description: "DefaultDisguiseDetectionModel 的自动生成类参考。"
 ### CalculateDisguiseDetectionProbability
 `public override float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算disguise detection probability的当前值或结果。
+**用途 / Purpose:** 计算disguise detection probability的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDisguiseDetectionModel 实例

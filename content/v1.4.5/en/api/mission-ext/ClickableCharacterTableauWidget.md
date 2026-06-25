@@ -23,7 +23,7 @@ Treat `ClickableCharacterTableauWidget` as a Widget-style extension point: first
 ### ClickableCharacterTableauWidget
 `public class ClickableCharacterTableauWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ClickableCharacterTableauWidget logic.
+**Purpose:** Executes the ClickableCharacterTableauWidget logic.
 
 ```csharp
 // Obtain an instance of ClickableCharacterTableauWidget from the subsystem API first

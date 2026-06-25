@@ -29,7 +29,7 @@ description: "BrightnessDemoTableau 的自动生成类参考。"
 ### SetDemoType
 `public void SetDemoType(int demoType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 demo type 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 demo type 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrightnessDemoTableau 实例
@@ -40,7 +40,7 @@ brightnessDemoTableau.SetDemoType(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrightnessDemoTableau 实例
@@ -51,7 +51,7 @@ brightnessDemoTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BrightnessDemoTableau 实例
@@ -62,7 +62,7 @@ brightnessDemoTableau.OnFinalize();
 ### SetScene
 `public void SetScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrightnessDemoTableau 实例
@@ -73,7 +73,7 @@ brightnessDemoTableau.SetScene();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BrightnessDemoTableau 实例

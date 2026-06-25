@@ -23,7 +23,7 @@ description: "VisualShipFactory 的自动生成类参考。"
 ### InitializeShipEntityCache
 `public static void InitializeShipEntityCache(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ship entity cache 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ship entity cache 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ VisualShipFactory.InitializeShipEntityCache(scene);
 ### DeregisterVisualShipCache
 `public static void DeregisterVisualShipCache()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeregisterVisualShipCache 对应的操作。
+**用途 / Purpose:** 调用 DeregisterVisualShipCache 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ VisualShipFactory.DeregisterVisualShipCache();
 ### CreateVisualShip
 `public static GameEntity CreateVisualShip(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, float hitPointRatio, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U, bool createPhysics = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 visual ship 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 visual ship 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ VisualShipFactory.CreateVisualShip("example", scene, upgrades, 0, 0, 0, 0, false
 ### CreateVisualShipForCampaign
 `public static GameEntity CreateVisualShipForCampaign(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, string shipCustomSailPatternId, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 visual ship for campaign 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 visual ship for campaign 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ VisualShipFactory.CreateVisualShipForCampaign("example", scene, upgrades, 0, "ex
 ### RefreshUpgrades
 `public static void RefreshUpgrades(WeakGameEntity shipEntity, List<ShipVisualSlotInfo> upgrades)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 upgrades 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 upgrades 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例

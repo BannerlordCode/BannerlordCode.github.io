@@ -30,7 +30,7 @@ description: "PropertySaveData 的自动生成类参考。"
 ### Initialize
 `public override void Initialize(TypeDefinitionBase typeDefinition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertySaveData 实例
@@ -41,7 +41,7 @@ propertySaveData.Initialize(typeDefinition);
 ### InitializeAsCustomStruct
 `public override void InitializeAsCustomStruct(int structId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as custom struct 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 as custom struct 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertySaveData 实例

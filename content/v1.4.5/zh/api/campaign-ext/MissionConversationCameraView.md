@@ -23,7 +23,7 @@ description: "MissionConversationCameraView 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationCameraView 实例
@@ -34,7 +34,7 @@ missionConversationCameraView.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationCameraView 实例
@@ -45,7 +45,7 @@ missionConversationCameraView.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationCameraView 实例
@@ -56,7 +56,7 @@ missionConversationCameraView.OnMissionScreenTick(0);
 ### UpdateOverridenCamera
 `public override bool UpdateOverridenCamera(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 overriden camera 的最新表示。
+**用途 / Purpose:** 重新计算并更新 overriden camera 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationCameraView 实例

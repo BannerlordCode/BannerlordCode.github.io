@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### FillWithCurrentTypes
 `public void FillWithCurrentTypes()`
 
-**Purpose:** **Purpose:** Executes the FillWithCurrentTypes logic.
+**Purpose:** Executes the FillWithCurrentTypes logic.
 
 ```csharp
 // Obtain an instance of DefinitionContext from the subsystem API first
@@ -34,7 +34,7 @@ definitionContext.FillWithCurrentTypes();
 ### TryGetTypeDefinition
 `public TypeDefinitionBase TryGetTypeDefinition(SaveId saveId)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get type definition, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get type definition, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of DefinitionContext from the subsystem API first
@@ -45,7 +45,7 @@ var result = definitionContext.TryGetTypeDefinition(saveId);
 ### GenerateCode
 `public void GenerateCode(SaveCodeGenerationContext context)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of code.
+**Purpose:** Generates an instance, data, or representation of code.
 
 ```csharp
 // Obtain an instance of DefinitionContext from the subsystem API first

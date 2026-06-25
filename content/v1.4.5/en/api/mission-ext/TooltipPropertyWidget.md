@@ -50,7 +50,7 @@ Treat `TooltipPropertyWidget` as a Widget-style extension point: first identify 
 ### SetBattleScope
 `public void SetBattleScope(bool battleScope)`
 
-**Purpose:** **Purpose:** Assigns a new value to battle scope and updates the object's internal state.
+**Purpose:** Assigns a new value to battle scope and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TooltipPropertyWidget from the subsystem API first
@@ -61,7 +61,7 @@ tooltipPropertyWidget.SetBattleScope(false);
 ### RefreshSize
 `public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of size in sync with the underlying state.
+**Purpose:** Keeps the display or cache of size in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TooltipPropertyWidget from the subsystem API first

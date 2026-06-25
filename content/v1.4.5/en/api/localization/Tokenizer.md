@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### Tokenize
 `public List<MBTextToken> Tokenize(string text)`
 
-**Purpose:** **Purpose:** Executes the Tokenize logic.
+**Purpose:** Executes the Tokenize logic.
 
 ```csharp
 // Obtain an instance of Tokenizer from the subsystem API first

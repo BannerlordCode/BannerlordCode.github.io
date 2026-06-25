@@ -23,7 +23,7 @@ description: "GenericMissionObjectiveTargetBuilder 的自动生成类参考。"
 ### SetIsActiveCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is active callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is active callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
@@ -34,7 +34,7 @@ var result = genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, fa
 ### SetGetGlobalPositionCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 get global position callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 get global position callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
@@ -45,7 +45,7 @@ var result = genericMissionObjectiveTargetBuilder.SetGetGlobalPositionCallback(f
 ### SetGetNameCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 get name callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 get name callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
@@ -56,7 +56,7 @@ var result = genericMissionObjectiveTargetBuilder.SetGetNameCallback(func<T, cal
 ### Build
 `public MissionObjectiveTarget<T> Build()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建当前对象的实例或表示。
+**用途 / Purpose:** 构建当前对象的实例或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例

@@ -23,7 +23,7 @@ description: "RetreatPositionCacheSystem 的自动生成类参考。"
 ### GetRetreatPositionFromCache
 `public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 retreat position from cache 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 retreat position from cache 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RetreatPositionCacheSystem 实例
@@ -34,7 +34,7 @@ var result = retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPositio
 ### AddNewPositionToCache
 `public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 new position to cache 添加到当前容器或状态中。
+**用途 / Purpose:** 将 new position to cache 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 RetreatPositionCacheSystem 实例

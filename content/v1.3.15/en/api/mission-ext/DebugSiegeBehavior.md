@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SiegeDebug
 `public static void SiegeDebug(UsableMachine usableMachine)`
 
-**Purpose:** **Purpose:** Executes the SiegeDebug logic.
+**Purpose:** Executes the SiegeDebug logic.
 
 ```csharp
 // Static call; no instance required

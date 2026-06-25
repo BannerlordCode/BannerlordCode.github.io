@@ -37,7 +37,7 @@ description: "CircularAutoScrollablePanelWidget 的自动生成类参考。"
 ### SetScrollMouse
 `public void SetScrollMouse()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scroll mouse 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scroll mouse 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例
@@ -48,7 +48,7 @@ circularAutoScrollablePanelWidget.SetScrollMouse();
 ### SetHoverBegin
 `public void SetHoverBegin()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hover begin 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hover begin 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例
@@ -59,7 +59,7 @@ circularAutoScrollablePanelWidget.SetHoverBegin();
 ### SetHoverEnd
 `public void SetHoverEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hover end 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hover end 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例

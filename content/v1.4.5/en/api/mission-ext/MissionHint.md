@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Hints` to place it in th
 ### CreateWithKeyAndAction
 `public static MissionHint CreateWithKeyAndAction(TextObject actionText, string hotKeyId)`
 
-**Purpose:** **Purpose:** Constructs a new with key and action entity and returns it to the caller.
+**Purpose:** Constructs a new with key and action entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

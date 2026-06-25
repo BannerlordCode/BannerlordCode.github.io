@@ -33,7 +33,7 @@ description: "MissionOrderDeploymentControllerVM 的自动生成类参考。"
 ### SetMissionParameters
 `public void SetMissionParameters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mission parameters 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mission parameters 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -44,7 +44,7 @@ missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploy
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 callbacks 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 callbacks 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -55,7 +55,7 @@ missionOrderDeploymentControllerVM.SetCallbacks(callbacks);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -66,7 +66,7 @@ missionOrderDeploymentControllerVM.RefreshValues();
 ### OnRefreshSelectedDeploymentPoint
 `public void OnRefreshSelectedDeploymentPoint(DeploymentSiegeMachineVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 refresh selected deployment point 事件触发时调用此回调。
+**用途 / Purpose:** 在 refresh selected deployment point 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -77,7 +77,7 @@ missionOrderDeploymentControllerVM.OnRefreshSelectedDeploymentPoint(item);
 ### OnEntityHover
 `public void OnEntityHover(WeakGameEntity hoveredEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 entity hover 事件触发时调用此回调。
+**用途 / Purpose:** 在 entity hover 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -88,7 +88,7 @@ missionOrderDeploymentControllerVM.OnEntityHover(hoveredEntity);
 ### OnEntityHover
 `public void OnEntityHover(DeploymentPoint deploymentPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 entity hover 事件触发时调用此回调。
+**用途 / Purpose:** 在 entity hover 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -99,7 +99,7 @@ missionOrderDeploymentControllerVM.OnEntityHover(deploymentPoint);
 ### OnEntitySelect
 `public void OnEntitySelect(WeakGameEntity selectedEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 entity select 事件触发时调用此回调。
+**用途 / Purpose:** 在 entity select 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -110,7 +110,7 @@ missionOrderDeploymentControllerVM.OnEntitySelect(selectedEntity);
 ### RefreshSelectedDeploymentPoint
 `public void RefreshSelectedDeploymentPoint(DeploymentPoint selectedDeploymentPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 selected deployment point 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 selected deployment point 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -121,7 +121,7 @@ missionOrderDeploymentControllerVM.RefreshSelectedDeploymentPoint(selectedDeploy
 ### ExecuteCancelSelectedDeploymentPoint
 `public void ExecuteCancelSelectedDeploymentPoint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel selected deployment point 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel selected deployment point 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -132,7 +132,7 @@ missionOrderDeploymentControllerVM.ExecuteCancelSelectedDeploymentPoint();
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin mission 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin mission 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -143,7 +143,7 @@ missionOrderDeploymentControllerVM.ExecuteBeginMission();
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 auto deploy 对应的操作或工作流。
+**用途 / Purpose:** 执行 auto deploy 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -154,7 +154,7 @@ missionOrderDeploymentControllerVM.ExecuteAutoDeploy();
 ### ExecuteDeployPlayerSide
 `public void ExecuteDeployPlayerSide()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 deploy player side 对应的操作或工作流。
+**用途 / Purpose:** 执行 deploy player side 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -165,7 +165,7 @@ missionOrderDeploymentControllerVM.ExecuteDeployPlayerSide();
 ### FinalizeDeployment
 `public void FinalizeDeployment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeDeployment 对应的操作。
+**用途 / Purpose:** 调用 FinalizeDeployment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
@@ -176,7 +176,7 @@ missionOrderDeploymentControllerVM.FinalizeDeployment();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例

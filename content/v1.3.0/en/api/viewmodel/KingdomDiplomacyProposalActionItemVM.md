@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomDiplomacyProposalActionItemVM from the subsystem API first
@@ -44,7 +44,7 @@ kingdomDiplomacyProposalActionItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of KingdomDiplomacyProposalActionItemVM from the subsystem API first

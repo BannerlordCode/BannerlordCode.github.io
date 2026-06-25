@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of WaveFloater from the subsystem API first

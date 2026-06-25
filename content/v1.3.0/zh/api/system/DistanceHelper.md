@@ -23,7 +23,7 @@ description: "DistanceHelper 的自动生成类参考。"
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isFromPort, out bool isTargetingPort, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static bool FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromSettlementToSettlement
 `public static bool FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static bool FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, float maxDistance, out float distance, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to mobile party。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromSettlementToPoint
 `public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out bool isFromPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to point。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to point。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, n
 ### FindClosestDistanceFromMapPointToSettlement
 `public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from map point to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from map point to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlemen
 ### FindClosestDistanceFromSettlementToPoint
 `public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to point。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from settlement to point。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, n
 ### FindClosestDistanceFromMobilePartyToPoint
 `public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to point。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to point。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point,
 ### FindClosestDistanceFromMobilePartyToPoint
 `public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to point。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from mobile party to point。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point,
 ### FindClosestDistanceFromMapPointToSettlement
 `public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from map point to settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest distance from map point to settlement。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlemen
 ### GetDistanceBetweenMobilePartyToMobileParty
 `public static float GetDistanceBetweenMobilePartyToMobileParty(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance between mobile party to mobile party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance between mobile party to mobile party 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `ChatLineData` as a Data-style extension point: first identify who creates
 ### ChatLineData
 `public struct ChatLineData(string text, uint color)`
 
-**Purpose:** **Purpose:** Executes the ChatLineData logic.
+**Purpose:** Executes the ChatLineData logic.
 
 ```csharp
 // Obtain an instance of ChatLineData from the subsystem API first

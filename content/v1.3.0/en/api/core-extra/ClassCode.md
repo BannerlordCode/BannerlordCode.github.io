@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of into.
+**Purpose:** Generates an instance, data, or representation of into.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first
@@ -51,7 +51,7 @@ classCode.GenerateInto(codeGenerationFile);
 ### AddVariable
 `public void AddVariable(VariableCode variableCode)`
 
-**Purpose:** **Purpose:** Adds variable to the current collection or state.
+**Purpose:** Adds variable to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first
@@ -62,7 +62,7 @@ classCode.AddVariable(variableCode);
 ### AddNestedClass
 `public void AddNestedClass(ClassCode clasCode)`
 
-**Purpose:** **Purpose:** Adds nested class to the current collection or state.
+**Purpose:** Adds nested class to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first
@@ -73,7 +73,7 @@ classCode.AddNestedClass(clasCode);
 ### AddMethod
 `public void AddMethod(MethodCode methodCode)`
 
-**Purpose:** **Purpose:** Adds method to the current collection or state.
+**Purpose:** Adds method to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first
@@ -84,7 +84,7 @@ classCode.AddMethod(methodCode);
 ### AddConsturctor
 `public void AddConsturctor(ConstructorCode constructorCode)`
 
-**Purpose:** **Purpose:** Adds consturctor to the current collection or state.
+**Purpose:** Adds consturctor to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first
@@ -95,7 +95,7 @@ classCode.AddConsturctor(constructorCode);
 ### AddInterface
 `public void AddInterface(string interfaceName)`
 
-**Purpose:** **Purpose:** Adds interface to the current collection or state.
+**Purpose:** Adds interface to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClassCode from the subsystem API first

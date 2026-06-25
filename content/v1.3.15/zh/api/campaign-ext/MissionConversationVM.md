@@ -58,7 +58,7 @@ description: "MissionConversationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -69,7 +69,7 @@ missionConversationVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -80,7 +80,7 @@ missionConversationVM.Tick(0);
 ### OnConversationContinue
 `public void OnConversationContinue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 conversation continue 事件触发时调用此回调。
+**用途 / Purpose:** 在 conversation continue 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -91,7 +91,7 @@ missionConversationVM.OnConversationContinue();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
+**用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -102,7 +102,7 @@ missionConversationVM.ExecuteLink("example");
 ### ExecuteConversedHeroLink
 `public void ExecuteConversedHeroLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 conversed hero link 对应的操作或工作流。
+**用途 / Purpose:** 执行 conversed hero link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -113,7 +113,7 @@ missionConversationVM.ExecuteConversedHeroLink();
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -124,7 +124,7 @@ missionConversationVM.Refresh();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -135,7 +135,7 @@ missionConversationVM.ExecuteCloseTooltip();
 ### ExecuteHeroTooltip
 `public void ExecuteHeroTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 hero tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 hero tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -146,7 +146,7 @@ missionConversationVM.ExecuteHeroTooltip();
 ### ExecuteFinalizeSelection
 `public void ExecuteFinalizeSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 finalize selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 finalize selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -157,7 +157,7 @@ missionConversationVM.ExecuteFinalizeSelection();
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 continue 对应的操作或工作流。
+**用途 / Purpose:** 执行 continue 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例
@@ -168,7 +168,7 @@ missionConversationVM.ExecuteContinue();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationVM 实例

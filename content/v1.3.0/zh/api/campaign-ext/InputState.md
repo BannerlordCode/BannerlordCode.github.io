@@ -36,7 +36,7 @@ description: "InputState 的自动生成类参考。"
 ### UpdateMousePosition
 `public bool UpdateMousePosition(float mousePositionX, float mousePositionY)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 mouse position 的最新表示。
+**用途 / Purpose:** 重新计算并更新 mouse position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 InputState 实例
@@ -47,7 +47,7 @@ var result = inputState.UpdateMousePosition(0, 0);
 ### UpdateMouseScroll
 `public bool UpdateMouseScroll(float mouseScrollValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 mouse scroll 的最新表示。
+**用途 / Purpose:** 重新计算并更新 mouse scroll 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 InputState 实例

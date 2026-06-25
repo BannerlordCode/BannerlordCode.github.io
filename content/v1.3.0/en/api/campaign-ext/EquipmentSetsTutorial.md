@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of EquipmentSetsTutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = equipmentSetsTutorial.IsConditionsMetForCompletion();
 ### OnInventoryEquipmentTypeChange
 `public override void OnInventoryEquipmentTypeChange(InventoryEquipmentTypeChangedEvent obj)`
 
-**Purpose:** **Purpose:** Invoked when the inventory equipment type change event is raised.
+**Purpose:** Invoked when the inventory equipment type change event is raised.
 
 ```csharp
 // Obtain an instance of EquipmentSetsTutorial from the subsystem API first
@@ -45,7 +45,7 @@ equipmentSetsTutorial.OnInventoryEquipmentTypeChange(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
+**Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSetsTutorial from the subsystem API first
@@ -56,7 +56,7 @@ var result = equipmentSetsTutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of EquipmentSetsTutorial from the subsystem API first

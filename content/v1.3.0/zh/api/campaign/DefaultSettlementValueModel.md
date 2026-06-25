@@ -23,7 +23,7 @@ description: "DefaultSettlementValueModel 的自动生成类参考。"
 ### FindMostSuitableHomeSettlement
 `public override Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的most suitable home settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的most suitable home settlement。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
@@ -34,7 +34,7 @@ var result = defaultSettlementValueModel.FindMostSuitableHomeSettlement(clan);
 ### CalculateSettlementBaseValue
 `public override float CalculateSettlementBaseValue(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement base value的当前值或结果。
+**用途 / Purpose:** 计算settlement base value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
@@ -45,7 +45,7 @@ var result = defaultSettlementValueModel.CalculateSettlementBaseValue(settlement
 ### CalculateSettlementValueForFaction
 `public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement value for faction的当前值或结果。
+**用途 / Purpose:** 计算settlement value for faction的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
@@ -56,7 +56,7 @@ var result = defaultSettlementValueModel.CalculateSettlementValueForFaction(sett
 ### CalculateSettlementValueForEnemyHero
 `public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement value for enemy hero的当前值或结果。
+**用途 / Purpose:** 计算settlement value for enemy hero的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementValueModel 实例

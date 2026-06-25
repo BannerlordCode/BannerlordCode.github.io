@@ -23,7 +23,7 @@ description: "MBSubModuleBase 的自动生成类参考。"
 ### OnConfigChanged
 `public virtual void OnConfigChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 config changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 config changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -34,7 +34,7 @@ mBSubModuleBase.OnConfigChanged();
 ### OnGameLoaded
 `public virtual void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -45,7 +45,7 @@ mBSubModuleBase.OnGameLoaded(game, initializerObject);
 ### OnAfterGameLoaded
 `public virtual void OnAfterGameLoaded(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after game loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 after game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -56,7 +56,7 @@ mBSubModuleBase.OnAfterGameLoaded(game);
 ### OnNewGameCreated
 `public virtual void OnNewGameCreated(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 new game created 事件触发时调用此回调。
+**用途 / Purpose:** 在 new game created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -67,7 +67,7 @@ mBSubModuleBase.OnNewGameCreated(game, initializerObject);
 ### BeginGameStart
 `public virtual void BeginGameStart(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginGameStart 对应的操作。
+**用途 / Purpose:** 调用 BeginGameStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -78,7 +78,7 @@ mBSubModuleBase.BeginGameStart(game);
 ### OnCampaignStart
 `public virtual void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -89,7 +89,7 @@ mBSubModuleBase.OnCampaignStart(game, starterObject);
 ### RegisterSubModuleObjects
 `public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将sub module objects注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将sub module objects注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -100,7 +100,7 @@ mBSubModuleBase.RegisterSubModuleObjects(false);
 ### AfterRegisterSubModuleObjects
 `public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterRegisterSubModuleObjects 对应的操作。
+**用途 / Purpose:** 调用 AfterRegisterSubModuleObjects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -111,7 +111,7 @@ mBSubModuleBase.AfterRegisterSubModuleObjects(false);
 ### OnMultiplayerGameStart
 `public virtual void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 multiplayer game start 事件触发时调用此回调。
+**用途 / Purpose:** 在 multiplayer game start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -122,7 +122,7 @@ mBSubModuleBase.OnMultiplayerGameStart(game, starterObject);
 ### OnGameInitializationFinished
 `public virtual void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game initialization finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -133,7 +133,7 @@ mBSubModuleBase.OnGameInitializationFinished(game);
 ### OnAfterGameInitializationFinished
 `public virtual void OnAfterGameInitializationFinished(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -144,7 +144,7 @@ mBSubModuleBase.OnAfterGameInitializationFinished(game, starterObject);
 ### DoLoading
 `public virtual bool DoLoading(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoLoading 对应的操作。
+**用途 / Purpose:** 调用 DoLoading 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -155,7 +155,7 @@ var result = mBSubModuleBase.DoLoading(game);
 ### OnGameEnd
 `public virtual void OnGameEnd(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
+**用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -166,7 +166,7 @@ mBSubModuleBase.OnGameEnd(game);
 ### OnMissionBehaviorInitialize
 `public virtual void OnMissionBehaviorInitialize(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -177,7 +177,7 @@ mBSubModuleBase.OnMissionBehaviorInitialize(mission);
 ### OnBeforeMissionBehaviorInitialize
 `public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before mission behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 before mission behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -188,7 +188,7 @@ mBSubModuleBase.OnBeforeMissionBehaviorInitialize(mission);
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initial state 事件触发时调用此回调。
+**用途 / Purpose:** 在 initial state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -199,7 +199,7 @@ mBSubModuleBase.OnInitialState();
 ### OnSubModuleActivated
 `public virtual void OnSubModuleActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 sub module activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 sub module activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -210,7 +210,7 @@ mBSubModuleBase.OnSubModuleActivated();
 ### OnSubModuleDeactivated
 `public virtual void OnSubModuleDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 sub module deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 sub module deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -221,7 +221,7 @@ mBSubModuleBase.OnSubModuleDeactivated();
 ### InitializeSubModuleGameObjects
 `public virtual void InitializeSubModuleGameObjects(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sub module game objects 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 sub module game objects 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例

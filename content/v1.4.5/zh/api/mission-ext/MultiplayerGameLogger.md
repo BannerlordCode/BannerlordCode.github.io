@@ -23,7 +23,7 @@ description: "MultiplayerGameLogger 的自动生成类参考。"
 ### Log
 `public void Log(GameLog log)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Log 对应的操作。
+**用途 / Purpose:** 调用 Log 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameLogger 实例
@@ -34,7 +34,7 @@ multiplayerGameLogger.Log(log);
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before save 事件触发时调用此回调。
+**用途 / Purpose:** 在 before save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameLogger 实例
@@ -45,7 +45,7 @@ multiplayerGameLogger.OnBeforeSave();
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after save 事件触发时调用此回调。
+**用途 / Purpose:** 在 after save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameLogger 实例

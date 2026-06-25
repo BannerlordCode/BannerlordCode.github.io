@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateFrom
 `public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ MBBodyProperty.CreateFrom(bodyProperty);
 ### Init
 `public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBBodyProperty from the subsystem API first
@@ -52,7 +52,7 @@ mBBodyProperty.Init(bodyPropertyMin, bodyPropertyMax);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MBBodyProperty from the subsystem API first

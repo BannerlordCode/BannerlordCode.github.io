@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
@@ -55,7 +55,7 @@ teamSelectTeamInstanceVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
@@ -66,7 +66,7 @@ teamSelectTeamInstanceVM.OnFinalize();
 ### RefreshFriends
 `public void RefreshFriends(IEnumerable<MissionPeer> friends)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of friends in sync with the underlying state.
+**Purpose:** Keeps the display or cache of friends in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
@@ -77,7 +77,7 @@ teamSelectTeamInstanceVM.RefreshFriends(friends);
 ### SetIsDisabled
 `public void SetIsDisabled(bool isCurrentTeam, bool disabledForBalance)`
 
-**Purpose:** **Purpose:** Assigns a new value to is disabled and updates the object's internal state.
+**Purpose:** Assigns a new value to is disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
@@ -88,7 +88,7 @@ teamSelectTeamInstanceVM.SetIsDisabled(false, false);
 ### ExecuteSelectTeam
 `public void ExecuteSelectTeam()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select team.
+**Purpose:** Runs the operation or workflow associated with select team.
 
 ```csharp
 // Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first

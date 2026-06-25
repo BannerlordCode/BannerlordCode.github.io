@@ -23,7 +23,7 @@ Treat `BattleAgentLogic` as a Logic-style extension point: first identify who cr
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -34,7 +34,7 @@ battleAgentLogic.AfterStart();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -45,7 +45,7 @@ battleAgentLogic.OnAgentBuild(agent, banner);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -56,7 +56,7 @@ battleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent team changed event is raised.
+**Purpose:** Invoked when the agent team changed event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -67,7 +67,7 @@ battleAgentLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** **Purpose:** Invoked when the score hit event is raised.
+**Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -78,7 +78,7 @@ battleAgentLogic.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false,
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -89,7 +89,7 @@ battleAgentLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killin
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** **Purpose:** Invoked when the agent fleeing event is raised.
+**Purpose:** Invoked when the agent fleeing event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first
@@ -100,7 +100,7 @@ battleAgentLogic.OnAgentFleeing(affectedAgent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of BattleAgentLogic from the subsystem API first

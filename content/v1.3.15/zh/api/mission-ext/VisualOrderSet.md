@@ -33,7 +33,7 @@ description: "VisualOrderSet 的自动生成类参考。"
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderSet 实例
@@ -44,7 +44,7 @@ var result = visualOrderSet.GetName(orderController);
 ### AddOrder
 `public void AddOrder(VisualOrder order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 order 添加到当前容器或状态中。
+**用途 / Purpose:** 将 order 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderSet 实例
@@ -55,7 +55,7 @@ visualOrderSet.AddOrder(order);
 ### RemoveOrder
 `public void RemoveOrder(VisualOrder order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 order。
+**用途 / Purpose:** 从当前容器或状态中移除 order。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderSet 实例
@@ -66,7 +66,7 @@ visualOrderSet.RemoveOrder(order);
 ### ClearOrders
 `public void ClearOrders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的orders。
+**用途 / Purpose:** 清空当前对象中的orders。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderSet 实例

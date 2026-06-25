@@ -23,7 +23,7 @@ Treat `MultiplayerLobbyCosmeticAnimationPartWidget` as a Widget-style extension 
 ### InitializeAnimationParameters
 `public void InitializeAnimationParameters()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by animation parameters.
+**Purpose:** Prepares the resources, state, or bindings required by animation parameters.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerLobbyCosmeticAnimationPartWidget.InitializeAnimationParameters();
 ### StartAnimation
 `public void StartAnimation(float alphaChangeDuration, float minAlpha, float maxAlpha)`
 
-**Purpose:** **Purpose:** Starts the animation flow or state machine.
+**Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerLobbyCosmeticAnimationPartWidget.StartAnimation(0, 0, 0);
 ### StopAnimation
 `public void StopAnimation()`
 
-**Purpose:** **Purpose:** Stops the animation flow or state machine.
+**Purpose:** Stops the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first

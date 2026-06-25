@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -56,7 +56,7 @@ sceneNotificationVM.RefreshValues();
 ### CreateNotification
 `public void CreateNotification(SceneNotificationData data)`
 
-**Purpose:** **Purpose:** Constructs a new notification entity and returns it to the caller.
+**Purpose:** Constructs a new notification entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -67,7 +67,7 @@ sceneNotificationVM.CreateNotification(data);
 ### ClearData
 `public void ClearData()`
 
-**Purpose:** **Purpose:** Removes all data from the this instance.
+**Purpose:** Removes all data from the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -78,7 +78,7 @@ sceneNotificationVM.ClearData();
 ### ExecuteAffirmativeProcess
 `public void ExecuteAffirmativeProcess()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with affirmative process.
+**Purpose:** Runs the operation or workflow associated with affirmative process.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -89,7 +89,7 @@ sceneNotificationVM.ExecuteAffirmativeProcess();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -100,7 +100,7 @@ sceneNotificationVM.ExecuteClose();
 ### ExecuteNegativeProcess
 `public void ExecuteNegativeProcess()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with negative process.
+**Purpose:** Runs the operation or workflow associated with negative process.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first
@@ -111,7 +111,7 @@ sceneNotificationVM.ExecuteNegativeProcess();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationVM from the subsystem API first

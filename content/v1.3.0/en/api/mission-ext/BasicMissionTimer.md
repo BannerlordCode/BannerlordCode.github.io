@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BasicMissionTimer from the subsystem API first
@@ -40,7 +40,7 @@ basicMissionTimer.Reset();
 ### Set
 `public void Set(float newElapsedTime)`
 
-**Purpose:** **Purpose:** Assigns a new value to the this instance's property or state.
+**Purpose:** Assigns a new value to the this instance's property or state.
 
 ```csharp
 // Obtain an instance of BasicMissionTimer from the subsystem API first

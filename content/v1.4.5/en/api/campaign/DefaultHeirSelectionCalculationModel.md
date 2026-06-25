@@ -23,7 +23,7 @@ Treat `DefaultHeirSelectionCalculationModel` as a Model-style extension point: f
 ### CalculateHeirSelectionPoint
 `public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of heir selection point.
+**Purpose:** Calculates the current value or result of heir selection point.
 
 ```csharp
 // Obtain an instance of DefaultHeirSelectionCalculationModel from the subsystem API first

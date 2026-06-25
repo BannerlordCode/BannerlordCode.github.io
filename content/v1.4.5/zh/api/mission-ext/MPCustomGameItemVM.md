@@ -50,7 +50,7 @@ description: "MPCustomGameItemVM 的自动生成类参考。"
 ### UpdateIsFavorite
 `public void UpdateIsFavorite()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 is favorite 的最新表示。
+**用途 / Purpose:** 重新计算并更新 is favorite 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameItemVM 实例
@@ -61,7 +61,7 @@ mPCustomGameItemVM.UpdateIsFavorite();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select 对应的操作或工作流。
+**用途 / Purpose:** 执行 select 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameItemVM 实例
@@ -72,7 +72,7 @@ mPCustomGameItemVM.ExecuteSelect();
 ### ExecuteFavorite
 `public void ExecuteFavorite()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 favorite 对应的操作或工作流。
+**用途 / Purpose:** 执行 favorite 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameItemVM 实例
@@ -83,7 +83,7 @@ mPCustomGameItemVM.ExecuteFavorite();
 ### ExecuteJoin
 `public void ExecuteJoin()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 join 对应的操作或工作流。
+**用途 / Purpose:** 执行 join 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameItemVM 实例
@@ -94,7 +94,7 @@ mPCustomGameItemVM.ExecuteJoin();
 ### ExecuteViewHostOptions
 `public void ExecuteViewHostOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 view host options 对应的操作或工作流。
+**用途 / Purpose:** 执行 view host options 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameItemVM 实例

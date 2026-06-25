@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Update
 `public void Update(string paramName, float value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of SoundEventParameter from the subsystem API first

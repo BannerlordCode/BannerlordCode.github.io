@@ -19,7 +19,7 @@ LiftSiegeAction is a set of static methods that trigger "LiftSiege" in the campa
 public static void GetGameAction(MobileParty side1Party)
 ```
 
-**Purpose:** **Purpose:** Reads and returns the game action value held by the this instance.
+**Purpose:** Reads and returns the game action value held by the this instance.
 
 ## Usage Example
 

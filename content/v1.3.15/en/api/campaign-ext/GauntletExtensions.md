@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### SetGlobalAlphaRecursively
 `public static void SetGlobalAlphaRecursively(this Widget widget, float alphaFactor)`
 
-**Purpose:** **Purpose:** Assigns a new value to global alpha recursively and updates the object's internal state.
+**Purpose:** Assigns a new value to global alpha recursively and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GauntletExtensions.SetGlobalAlphaRecursively(widget, 0);
 ### SetAlpha
 `public static void SetAlpha(this Widget widget, float alphaFactor)`
 
-**Purpose:** **Purpose:** Assigns a new value to alpha and updates the object's internal state.
+**Purpose:** Assigns a new value to alpha and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ GauntletExtensions.SetAlpha(widget, 0);
 ### RegisterBrushStatesOfWidget
 `public static void RegisterBrushStatesOfWidget(this Widget widget)`
 
-**Purpose:** **Purpose:** Registers brush states of widget with the current system so it can later be observed or dispatched.
+**Purpose:** Registers brush states of widget with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ GauntletExtensions.RegisterBrushStatesOfWidget(widget);
 ### GetFullIDPath
 `public static string GetFullIDPath(this Widget widget)`
 
-**Purpose:** **Purpose:** Reads and returns the full i d path value held by the this instance.
+**Purpose:** Reads and returns the full i d path value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ GauntletExtensions.GetFullIDPath(widget);
 ### ApplyActionForThisAndAllChildren
 `public static void ApplyActionForThisAndAllChildren(this Widget widget, Action<Widget> action)`
 
-**Purpose:** **Purpose:** Applies the effect of action for this and all children to the this instance.
+**Purpose:** Applies the effect of action for this and all children to the this instance.
 
 ```csharp
 // Static call; no instance required

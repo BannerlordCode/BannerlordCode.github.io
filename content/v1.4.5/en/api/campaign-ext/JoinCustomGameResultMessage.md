@@ -33,7 +33,7 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ### CreateSuccess
 `public static JoinCustomGameResultMessage CreateSuccess(JoinGameData joinGameData, string matchId, bool isAdmin)`
 
-**Purpose:** **Purpose:** Constructs a new success entity and returns it to the caller.
+**Purpose:** Constructs a new success entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
 ### CreateFailed
 `public static JoinCustomGameResultMessage CreateFailed(CustomGameJoinResponse response)`
 
-**Purpose:** **Purpose:** Constructs a new failed entity and returns it to the caller.
+**Purpose:** Constructs a new failed entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

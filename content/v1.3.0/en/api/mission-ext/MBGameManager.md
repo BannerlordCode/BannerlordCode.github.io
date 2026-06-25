@@ -36,7 +36,7 @@ Treat `MBGameManager` as a Manager-style extension point: first identify who cre
 ### StartNewGame
 `public static void StartNewGame(MBGameManager gameLoader)`
 
-**Purpose:** **Purpose:** Starts the new game flow or state machine.
+**Purpose:** Starts the new game flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -46,7 +46,7 @@ MBGameManager.StartNewGame(gameLoader);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** **Purpose:** Executes the BeginGameStart logic.
+**Purpose:** Executes the BeginGameStart logic.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -57,7 +57,7 @@ mBGameManager.BeginGameStart(game);
 ### OnNewCampaignStart
 `public override void OnNewCampaignStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the new campaign start event is raised.
+**Purpose:** Invoked when the new campaign start event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -68,7 +68,7 @@ mBGameManager.OnNewCampaignStart(game, starterObject);
 ### InitializeSubModuleGameObjects
 `public override void InitializeSubModuleGameObjects(Game game)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
+**Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -79,7 +79,7 @@ mBGameManager.InitializeSubModuleGameObjects(game);
 ### RegisterSubModuleObjects
 `public override void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** **Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
+**Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -90,7 +90,7 @@ mBGameManager.RegisterSubModuleObjects(false);
 ### RegisterSubModuleTypes
 `public override void RegisterSubModuleTypes()`
 
-**Purpose:** **Purpose:** Registers sub module types with the current system so it can later be observed or dispatched.
+**Purpose:** Registers sub module types with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -101,7 +101,7 @@ mBGameManager.RegisterSubModuleTypes();
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** **Purpose:** Executes the AfterRegisterSubModuleObjects logic.
+**Purpose:** Executes the AfterRegisterSubModuleObjects logic.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -112,7 +112,7 @@ mBGameManager.AfterRegisterSubModuleObjects(false);
 ### InitializeGameStarter
 `public override void InitializeGameStarter(Game game, IGameStarter starterObject)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by game starter.
+**Purpose:** Prepares the resources, state, or bindings required by game starter.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -123,7 +123,7 @@ mBGameManager.InitializeGameStarter(game, starterObject);
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
+**Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -134,7 +134,7 @@ mBGameManager.OnGameInitializationFinished(game);
 ### OnAfterGameInitializationFinished
 `public override void OnAfterGameInitializationFinished(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the after game initialization finished event is raised.
+**Purpose:** Invoked when the after game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -145,7 +145,7 @@ mBGameManager.OnAfterGameInitializationFinished(game, initializerObject);
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
+**Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -156,7 +156,7 @@ mBGameManager.OnGameLoaded(game, initializerObject);
 ### OnAfterGameLoaded
 `public override void OnAfterGameLoaded(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after game loaded event is raised.
+**Purpose:** Invoked when the after game loaded event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -167,7 +167,7 @@ mBGameManager.OnAfterGameLoaded(game);
 ### OnNewGameCreated
 `public override void OnNewGameCreated(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the new game created event is raised.
+**Purpose:** Invoked when the new game created event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -178,7 +178,7 @@ mBGameManager.OnNewGameCreated(game, initializerObject);
 ### OnGameStart
 `public override void OnGameStart(Game game, IGameStarter gameStarter)`
 
-**Purpose:** **Purpose:** Invoked when the game start event is raised.
+**Purpose:** Invoked when the game start event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -189,7 +189,7 @@ mBGameManager.OnGameStart(game, gameStarter);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -200,7 +200,7 @@ mBGameManager.OnGameEnd(game);
 ### EndGame
 `public static async void EndGame()`
 
-**Purpose:** **Purpose:** Executes the EndGame logic.
+**Purpose:** Executes the EndGame logic.
 
 ```csharp
 // Static call; no instance required
@@ -210,7 +210,7 @@ MBGameManager.EndGame();
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the load finished event is raised.
+**Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -221,7 +221,7 @@ mBGameManager.OnLoadFinished();
 ### CheckAndSetEnding
 `public bool CheckAndSetEnding()`
 
-**Purpose:** **Purpose:** Verifies whether and set ending holds true for the this instance.
+**Purpose:** Verifies whether and set ending holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -232,7 +232,7 @@ var result = mBGameManager.CheckAndSetEnding();
 ### OnSessionInvitationAccepted
 `public virtual void OnSessionInvitationAccepted(SessionInvitationType targetGameType)`
 
-**Purpose:** **Purpose:** Invoked when the session invitation accepted event is raised.
+**Purpose:** Invoked when the session invitation accepted event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first
@@ -243,7 +243,7 @@ mBGameManager.OnSessionInvitationAccepted(targetGameType);
 ### OnPlatformRequestedMultiplayer
 `public virtual void OnPlatformRequestedMultiplayer()`
 
-**Purpose:** **Purpose:** Invoked when the platform requested multiplayer event is raised.
+**Purpose:** Invoked when the platform requested multiplayer event is raised.
 
 ```csharp
 // Obtain an instance of MBGameManager from the subsystem API first

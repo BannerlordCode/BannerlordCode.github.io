@@ -23,7 +23,7 @@ Treat `PartyTrainingModel` as a Model-style extension point: first identify who 
 ### GenerateSharedXp
 `public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of shared xp.
+**Purpose:** Generates an instance, data, or representation of shared xp.
 
 ```csharp
 // Obtain an instance of PartyTrainingModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
 ### CalculateXpGainFromBattles
 `public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of xp gain from battles.
+**Purpose:** Calculates the current value or result of xp gain from battles.
 
 ```csharp
 // Obtain an instance of PartyTrainingModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, p
 ### GetXpReward
 `public abstract int GetXpReward(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the xp reward value held by the this instance.
+**Purpose:** Reads and returns the xp reward value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTrainingModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyTrainingModel.GetXpReward(character);
 ### GetEffectiveDailyExperience
 `public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)`
 
-**Purpose:** **Purpose:** Reads and returns the effective daily experience value held by the this instance.
+**Purpose:** Reads and returns the effective daily experience value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTrainingModel from the subsystem API first

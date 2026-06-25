@@ -35,7 +35,7 @@ description: "OrderSiegeMachineVM 的自动生成类参考。"
 ### RefreshSiegeWeapon
 `public void RefreshSiegeWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 siege weapon 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 siege weapon 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderSiegeMachineVM 实例
@@ -46,7 +46,7 @@ orderSiegeMachineVM.RefreshSiegeWeapon();
 ### GetSiegeType
 `public static SiegeEngineType GetSiegeType(Type t, BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege type 的结果。
 
 ```csharp
 // 静态调用，不需要实例

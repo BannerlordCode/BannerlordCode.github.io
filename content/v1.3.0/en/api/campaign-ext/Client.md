@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first
@@ -42,7 +42,7 @@ client.Update();
 ### HandleMessage
 `public void HandleMessage(Message message)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with message.
+**Purpose:** Executes the response logic associated with message.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first
@@ -53,7 +53,7 @@ client.HandleMessage(message);
 ### OnConnected
 `public virtual void OnConnected()`
 
-**Purpose:** **Purpose:** Invoked when the connected event is raised.
+**Purpose:** Invoked when the connected event is raised.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first
@@ -64,7 +64,7 @@ client.OnConnected();
 ### OnCantConnect
 `public virtual void OnCantConnect()`
 
-**Purpose:** **Purpose:** Invoked when the cant connect event is raised.
+**Purpose:** Invoked when the cant connect event is raised.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first
@@ -75,7 +75,7 @@ client.OnCantConnect();
 ### OnDisconnected
 `public virtual void OnDisconnected()`
 
-**Purpose:** **Purpose:** Invoked when the disconnected event is raised.
+**Purpose:** Invoked when the disconnected event is raised.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first
@@ -86,7 +86,7 @@ client.OnDisconnected();
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**Purpose:** **Purpose:** Verifies whether connection holds true for the this instance.
+**Purpose:** Verifies whether connection holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Client from the subsystem API first

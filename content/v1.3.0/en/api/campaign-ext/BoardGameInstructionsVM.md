@@ -35,7 +35,7 @@ Start from namespace `SandBox.ViewModelCollection.BoardGame` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BoardGameInstructionsVM from the subsystem API first
@@ -46,7 +46,7 @@ boardGameInstructionsVM.RefreshValues();
 ### ExecuteShowPrevious
 `public void ExecuteShowPrevious()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show previous.
+**Purpose:** Runs the operation or workflow associated with show previous.
 
 ```csharp
 // Obtain an instance of BoardGameInstructionsVM from the subsystem API first
@@ -57,7 +57,7 @@ boardGameInstructionsVM.ExecuteShowPrevious();
 ### ExecuteShowNext
 `public void ExecuteShowNext()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show next.
+**Purpose:** Runs the operation or workflow associated with show next.
 
 ```csharp
 // Obtain an instance of BoardGameInstructionsVM from the subsystem API first

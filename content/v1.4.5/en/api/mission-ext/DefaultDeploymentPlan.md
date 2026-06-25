@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateInitialPlan
 `public static DefaultDeploymentPlan CreateInitialPlan(Mission mission, Team team)`
 
-**Purpose:** **Purpose:** Constructs a new initial plan entity and returns it to the caller.
+**Purpose:** Constructs a new initial plan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -45,7 +45,7 @@ DefaultDeploymentPlan.CreateInitialPlan(mission, team);
 ### CreateReinforcementPlan
 `public static DefaultDeploymentPlan CreateReinforcementPlan(Mission mission, Team team)`
 
-**Purpose:** **Purpose:** Constructs a new reinforcement plan entity and returns it to the caller.
+**Purpose:** Constructs a new reinforcement plan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ DefaultDeploymentPlan.CreateReinforcementPlan(mission, team);
 ### CreateReinforcementPlanWithSpawnPath
 `public static DefaultDeploymentPlan CreateReinforcementPlanWithSpawnPath(Mission mission, Team team, SpawnPathData spawnPathData)`
 
-**Purpose:** **Purpose:** Constructs a new reinforcement plan with spawn path entity and returns it to the caller.
+**Purpose:** Constructs a new reinforcement plan with spawn path entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ DefaultDeploymentPlan.CreateReinforcementPlanWithSpawnPath(mission, team, spawnP
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to spawn with horses and updates the object's internal state.
+**Purpose:** Assigns a new value to spawn with horses and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -76,7 +76,7 @@ defaultDeploymentPlan.SetSpawnWithHorses(false);
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null)`
 
-**Purpose:** **Purpose:** Executes the MakeDeploymentPlan logic.
+**Purpose:** Executes the MakeDeploymentPlan logic.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -87,7 +87,7 @@ defaultDeploymentPlan.MakeDeploymentPlan(0, 0, null);
 ### ClearPlan
 `public void ClearPlan()`
 
-**Purpose:** **Purpose:** Removes all plan from the this instance.
+**Purpose:** Removes all plan from the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -98,7 +98,7 @@ defaultDeploymentPlan.ClearPlan();
 ### ClearAddedTroops
 `public void ClearAddedTroops()`
 
-**Purpose:** **Purpose:** Removes all added troops from the this instance.
+**Purpose:** Removes all added troops from the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -109,7 +109,7 @@ defaultDeploymentPlan.ClearAddedTroops();
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount)`
 
-**Purpose:** **Purpose:** Adds troops to the current collection or state.
+**Purpose:** Adds troops to the current collection or state.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -120,7 +120,7 @@ defaultDeploymentPlan.AddTroops(formationClass, 0, 0);
 ### GetFormationPlan
 `public DefaultFormationDeploymentPlan GetFormationPlan(FormationClass fClass)`
 
-**Purpose:** **Purpose:** Reads and returns the formation plan value held by the this instance.
+**Purpose:** Reads and returns the formation plan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -131,7 +131,7 @@ var result = defaultDeploymentPlan.GetFormationPlan(fClass);
 ### GetFormationDeploymentFrame
 `public bool GetFormationDeploymentFrame(FormationClass fClass, out MatrixFrame frame)`
 
-**Purpose:** **Purpose:** Reads and returns the formation deployment frame value held by the this instance.
+**Purpose:** Reads and returns the formation deployment frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -142,7 +142,7 @@ var result = defaultDeploymentPlan.GetFormationDeploymentFrame(fClass, frame);
 ### GetFirstValidFormationDeploymentFrame
 `public bool GetFirstValidFormationDeploymentFrame(out MatrixFrame frame)`
 
-**Purpose:** **Purpose:** Reads and returns the first valid formation deployment frame value held by the this instance.
+**Purpose:** Reads and returns the first valid formation deployment frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -153,7 +153,7 @@ var result = defaultDeploymentPlan.GetFirstValidFormationDeploymentFrame(frame);
 ### IsPlanSuitableForFormations
 `public bool IsPlanSuitableForFormations((int, int) troopDataPerFormationClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the plan suitable for formations state or condition.
+**Purpose:** Determines whether the this instance is in the plan suitable for formations state or condition.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -164,7 +164,7 @@ var result = defaultDeploymentPlan.IsPlanSuitableForFormations((int, 0);
 ### UpdateSafetyScore
 `public void UpdateSafetyScore()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of safety score.
+**Purpose:** Recalculates and stores the latest representation of safety score.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first
@@ -175,7 +175,7 @@ defaultDeploymentPlan.UpdateSafetyScore();
 ### GetFrameFromFormationSpawnEntity
 `public WorldFrame GetFrameFromFormationSpawnEntity(GameEntity formationSpawnEntity, float depthOffset = 0f)`
 
-**Purpose:** **Purpose:** Reads and returns the frame from formation spawn entity value held by the this instance.
+**Purpose:** Reads and returns the frame from formation spawn entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDeploymentPlan from the subsystem API first

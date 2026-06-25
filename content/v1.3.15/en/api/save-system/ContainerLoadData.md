@@ -33,7 +33,7 @@ Treat `ContainerLoadData` as a Data-style extension point: first identify who cr
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by readers.
+**Purpose:** Prepares the resources, state, or bindings required by readers.
 
 ```csharp
 // Obtain an instance of ContainerLoadData from the subsystem API first
@@ -44,7 +44,7 @@ containerLoadData.InitializeReaders(saveEntryFolder);
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**Purpose:** **Purpose:** Executes the FillCreatedObject logic.
+**Purpose:** Executes the FillCreatedObject logic.
 
 ```csharp
 // Obtain an instance of ContainerLoadData from the subsystem API first
@@ -55,7 +55,7 @@ containerLoadData.FillCreatedObject();
 ### Read
 `public void Read()`
 
-**Purpose:** **Purpose:** Reads the data or state of the this instance.
+**Purpose:** Reads the data or state of the this instance.
 
 ```csharp
 // Obtain an instance of ContainerLoadData from the subsystem API first
@@ -66,7 +66,7 @@ containerLoadData.Read();
 ### FillObject
 `public void FillObject()`
 
-**Purpose:** **Purpose:** Executes the FillObject logic.
+**Purpose:** Executes the FillObject logic.
 
 ```csharp
 // Obtain an instance of ContainerLoadData from the subsystem API first

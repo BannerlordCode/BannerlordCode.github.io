@@ -29,7 +29,7 @@ description: "Persuasion 的自动生成类参考。"
 ### CommitProgress
 `public void CommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CommitProgress 对应的操作。
+**用途 / Purpose:** 调用 CommitProgress 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Persuasion 实例
@@ -40,7 +40,7 @@ persuasion.CommitProgress(persuasionOptionArgs);
 ### GetChosenOptions
 `public IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetChosenOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 chosen options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 chosen options 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Persuasion 实例

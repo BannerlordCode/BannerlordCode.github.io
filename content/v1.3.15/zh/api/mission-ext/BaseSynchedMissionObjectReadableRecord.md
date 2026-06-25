@@ -44,7 +44,7 @@ description: "BaseSynchedMissionObjectReadableRecord 的自动生成类参考。
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
+**用途 / Purpose:** 从当前实例读取from network相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseSynchedMissionObjectReadableRecord 实例
@@ -55,7 +55,7 @@ var result = baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadVa
 ### SetSetVisibilityExcludeParents
 `public void SetSetVisibilityExcludeParents(bool visible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 set visibility exclude parents 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 set visibility exclude parents 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseSynchedMissionObjectReadableRecord 实例
@@ -66,7 +66,7 @@ baseSynchedMissionObjectReadableRecord.SetSetVisibilityExcludeParents(false);
 ### CreateFromNetworkWithTypeIndex
 `public static ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> CreateFromNetworkWithTypeIndex(int typeIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from network with type index 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from network with type index 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

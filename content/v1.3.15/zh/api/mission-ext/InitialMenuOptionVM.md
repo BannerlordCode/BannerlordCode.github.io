@@ -33,7 +33,7 @@ description: "InitialMenuOptionVM 的自动生成类参考。"
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
+**用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuOptionVM 实例
@@ -44,7 +44,7 @@ initialMenuOptionVM.ExecuteAction();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuOptionVM 实例

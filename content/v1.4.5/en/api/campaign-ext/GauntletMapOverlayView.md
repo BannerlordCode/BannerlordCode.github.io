@@ -29,7 +29,7 @@ Treat `GauntletMapOverlayView` as a View-style extension point: first identify w
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(MapScreen.MapOverlayType mapOverlayType)`
 
-**Purpose:** **Purpose:** Reads and returns the overlay value held by the this instance.
+**Purpose:** Reads and returns the overlay value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletMapOverlayView from the subsystem API first

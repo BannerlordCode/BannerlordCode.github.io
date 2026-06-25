@@ -29,7 +29,7 @@ description: "DefaultDelayedTeleportationModel 的自动生成类参考。"
 ### GetTeleportationDelayAsHours
 `public override ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 teleportation delay as hours 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 teleportation delay as hours 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDelayedTeleportationModel 实例
@@ -40,7 +40,7 @@ var result = defaultDelayedTeleportationModel.GetTeleportationDelayAsHours(telep
 ### CanPerformImmediateTeleport
 `public override bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 perform immediate teleport 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 perform immediate teleport 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDelayedTeleportationModel 实例

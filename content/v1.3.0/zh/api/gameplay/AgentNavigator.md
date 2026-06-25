@@ -36,7 +36,7 @@ description: "AgentNavigator 的自动生成类参考。"
 ### OnStopUsingGameObject
 `public void OnStopUsingGameObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 stop using game object 事件触发时调用此回调。
+**用途 / Purpose:** 在 stop using game object 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -47,7 +47,7 @@ agentNavigator.OnStopUsingGameObject();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -58,7 +58,7 @@ agentNavigator.OnAgentRemoved(agent);
 ### SetTarget
 `public void SetTarget(UsableMachine usableMachine, bool isInitialTarget = false, Agent.AIScriptedFrameFlags customFlags = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -69,7 +69,7 @@ agentNavigator.SetTarget(usableMachine, false, 0);
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, float rotationThreshold = -10f, Agent.AIScriptedFrameFlags flags = 0, bool disableClearTargetWhenTargetIsReached = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target frame 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -80,7 +80,7 @@ agentNavigator.SetTargetFrame(position, 0, 0, 0, 0, false);
 ### ClearTarget
 `public void ClearTarget()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的target。
+**用途 / Purpose:** 清空当前对象中的target。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -91,7 +91,7 @@ agentNavigator.ClearTarget();
 ### Tick
 `public void Tick(float dt, bool isSimulation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -102,7 +102,7 @@ agentNavigator.Tick(0, false);
 ### GetDistanceToTarget
 `public float GetDistanceToTarget(UsableMachine target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance to target 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance to target 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -113,7 +113,7 @@ var result = agentNavigator.GetDistanceToTarget(target);
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 target reached 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 target reached 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -124,7 +124,7 @@ var result = agentNavigator.IsTargetReached();
 ### HoldAndHideRecentlyUsedMeshes
 `public void HoldAndHideRecentlyUsedMeshes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HoldAndHideRecentlyUsedMeshes 对应的操作。
+**用途 / Purpose:** 调用 HoldAndHideRecentlyUsedMeshes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -135,7 +135,7 @@ agentNavigator.HoldAndHideRecentlyUsedMeshes();
 ### RecoverRecentlyUsedMeshes
 `public void RecoverRecentlyUsedMeshes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RecoverRecentlyUsedMeshes 对应的操作。
+**用途 / Purpose:** 调用 RecoverRecentlyUsedMeshes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -146,7 +146,7 @@ agentNavigator.RecoverRecentlyUsedMeshes();
 ### CanSeeAgent
 `public bool CanSeeAgent(Agent otherAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 see agent 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 see agent 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -157,7 +157,7 @@ var result = agentNavigator.CanSeeAgent(otherAgent);
 ### IsCarryingSomething
 `public bool IsCarryingSomething()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 carrying something 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 carrying something 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -168,7 +168,7 @@ var result = agentNavigator.IsCarryingSomething();
 ### SetPrefabVisibility
 `public void SetPrefabVisibility(sbyte realBoneIndex, string prefabName, bool isVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 prefab visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 prefab visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -179,7 +179,7 @@ agentNavigator.SetPrefabVisibility(0, "example", false);
 ### GetPrefabVisibility
 `public bool GetPrefabVisibility(sbyte realBoneIndex, string prefabName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prefab visibility 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prefab visibility 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -190,7 +190,7 @@ var result = agentNavigator.GetPrefabVisibility(0, "example");
 ### SetSpecialItem
 `public void SetSpecialItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 special item 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 special item 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -201,7 +201,7 @@ agentNavigator.SetSpecialItem();
 ### SetItemsVisibility
 `public void SetItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 items visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 items visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -212,7 +212,7 @@ agentNavigator.SetItemsVisibility(false);
 ### SetCommonArea
 `public void SetCommonArea(Alley alley)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 common area 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 common area 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -223,7 +223,7 @@ agentNavigator.SetCommonArea(alley);
 ### ForceThink
 `public void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceThink 对应的操作。
+**用途 / Purpose:** 调用 ForceThink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -234,7 +234,7 @@ agentNavigator.ForceThink(0);
 ### RefreshBehaviorGroups
 `public void RefreshBehaviorGroups(bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 behavior groups 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 behavior groups 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -245,7 +245,7 @@ agentNavigator.RefreshBehaviorGroups(false);
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active behavior 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active behavior 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -256,7 +256,7 @@ var result = agentNavigator.GetActiveBehavior();
 ### GetActiveBehaviorGroup
 `public AgentBehaviorGroup GetActiveBehaviorGroup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active behavior group 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active behavior group 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例

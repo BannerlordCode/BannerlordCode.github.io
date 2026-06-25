@@ -23,7 +23,7 @@ description: "LayeredWindowController 的自动生成类参考。"
 ### SetSize
 `public void SetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LayeredWindowController 实例
@@ -34,7 +34,7 @@ layeredWindowController.SetSize(0, 0);
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PostRender 对应的操作。
+**用途 / Purpose:** 调用 PostRender 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LayeredWindowController 实例
@@ -45,7 +45,7 @@ layeredWindowController.PostRender();
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LayeredWindowController 实例

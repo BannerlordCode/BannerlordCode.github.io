@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first
@@ -46,7 +46,7 @@ upgradeTargetVM.RefreshValues();
 ### Refresh
 `public void Refresh(int upgradableAmount, bool isAvailable, bool isInsufficient, bool itemRequirementsMet, bool perkRequirementsMet, string hintString)`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first
@@ -57,7 +57,7 @@ upgradeTargetVM.Refresh(0, false, false, false, false, "example");
 ### ExecuteUpgradeEncyclopediaLink
 `public void ExecuteUpgradeEncyclopediaLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with upgrade encyclopedia link.
+**Purpose:** Runs the operation or workflow associated with upgrade encyclopedia link.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first
@@ -68,7 +68,7 @@ upgradeTargetVM.ExecuteUpgradeEncyclopediaLink();
 ### ExecuteUpgrade
 `public void ExecuteUpgrade()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with upgrade.
+**Purpose:** Runs the operation or workflow associated with upgrade.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first
@@ -79,7 +79,7 @@ upgradeTargetVM.ExecuteUpgrade();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
+**Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first
@@ -90,7 +90,7 @@ upgradeTargetVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
+**Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of UpgradeTargetVM from the subsystem API first

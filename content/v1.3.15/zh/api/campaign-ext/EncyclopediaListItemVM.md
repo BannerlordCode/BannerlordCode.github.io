@@ -36,7 +36,7 @@ description: "EncyclopediaListItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemVM 实例
@@ -47,7 +47,7 @@ encyclopediaListItemVM.RefreshValues();
 ### Execute
 `public void Execute()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行当前对象代表的操作或工作流。
+**用途 / Purpose:** 执行当前对象代表的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemVM 实例
@@ -58,7 +58,7 @@ encyclopediaListItemVM.Execute();
 ### SetComparedValue
 `public void SetComparedValue(EncyclopediaListItemComparerBase comparer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 compared value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 compared value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemVM 实例
@@ -69,7 +69,7 @@ encyclopediaListItemVM.SetComparedValue(comparer);
 ### ExecuteBeginTooltip
 `public void ExecuteBeginTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemVM 实例
@@ -80,7 +80,7 @@ encyclopediaListItemVM.ExecuteBeginTooltip();
 ### ExecuteEndTooltip
 `public void ExecuteEndTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 end tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 end tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemVM 实例

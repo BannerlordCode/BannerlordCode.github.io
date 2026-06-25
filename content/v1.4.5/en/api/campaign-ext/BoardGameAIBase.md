@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculatePreMovementStageMove
 `public virtual Move CalculatePreMovementStageMove()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of pre movement stage move.
+**Purpose:** Calculates the current value or result of pre movement stage move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -40,7 +40,7 @@ var result = boardGameAIBase.CalculatePreMovementStageMove();
 ### CalculateMovementStageMove
 `public abstract Move CalculateMovementStageMove()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of movement stage move.
+**Purpose:** Calculates the current value or result of movement stage move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -51,7 +51,7 @@ var result = boardGameAIBase.CalculateMovementStageMove();
 ### WantsToForfeit
 `public virtual bool WantsToForfeit()`
 
-**Purpose:** **Purpose:** Executes the WantsToForfeit logic.
+**Purpose:** Executes the WantsToForfeit logic.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -62,7 +62,7 @@ var result = boardGameAIBase.WantsToForfeit();
 ### OnSetGameOver
 `public virtual void OnSetGameOver()`
 
-**Purpose:** **Purpose:** Invoked when the set game over event is raised.
+**Purpose:** Invoked when the set game over event is raised.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -73,7 +73,7 @@ boardGameAIBase.OnSetGameOver();
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -84,7 +84,7 @@ boardGameAIBase.Initialize();
 ### SetDifficulty
 `public void SetDifficulty(AIDifficulty difficulty)`
 
-**Purpose:** **Purpose:** Assigns a new value to difficulty and updates the object's internal state.
+**Purpose:** Assigns a new value to difficulty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -95,7 +95,7 @@ boardGameAIBase.SetDifficulty(difficulty);
 ### HowLongDidAIThinkAboutMove
 `public float HowLongDidAIThinkAboutMove()`
 
-**Purpose:** **Purpose:** Executes the HowLongDidAIThinkAboutMove logic.
+**Purpose:** Executes the HowLongDidAIThinkAboutMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -106,7 +106,7 @@ var result = boardGameAIBase.HowLongDidAIThinkAboutMove();
 ### UpdateThinkingAboutMove
 `public void UpdateThinkingAboutMove(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of thinking about move.
+**Purpose:** Recalculates and stores the latest representation of thinking about move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -117,7 +117,7 @@ boardGameAIBase.UpdateThinkingAboutMove(0);
 ### ResetThinking
 `public void ResetThinking()`
 
-**Purpose:** **Purpose:** Returns thinking to its default or initial condition.
+**Purpose:** Returns thinking to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first
@@ -128,7 +128,7 @@ boardGameAIBase.ResetThinking();
 ### CanMakeMove
 `public bool CanMakeMove()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make move.
+**Purpose:** Checks whether the this instance meets the preconditions for make move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBase from the subsystem API first

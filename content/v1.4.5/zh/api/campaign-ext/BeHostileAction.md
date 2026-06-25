@@ -19,7 +19,7 @@ BeHostileAction 是一组静态方法，用于在战役中以特定原因触发"
 public static void ApplyHostileAction(PartyBase attackerParty, PartyBase defenderParty, float value)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 hostile action 的效果应用到当前对象。
+**用途 / Purpose:** 将 hostile action 的效果应用到当前对象。
 
 ### ApplyMinorCoercionHostileAction
 
@@ -27,7 +27,7 @@ public static void ApplyHostileAction(PartyBase attackerParty, PartyBase defende
 public static void ApplyMinorCoercionHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 minor coercion hostile action 的效果应用到当前对象。
+**用途 / Purpose:** 将 minor coercion hostile action 的效果应用到当前对象。
 
 ### ApplyMajorCoercionHostileAction
 
@@ -35,7 +35,7 @@ public static void ApplyMinorCoercionHostileAction(PartyBase attackerParty, Part
 public static void ApplyMajorCoercionHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 major coercion hostile action 的效果应用到当前对象。
+**用途 / Purpose:** 将 major coercion hostile action 的效果应用到当前对象。
 
 ### ApplyEncounterHostileAction
 
@@ -43,7 +43,7 @@ public static void ApplyMajorCoercionHostileAction(PartyBase attackerParty, Part
 public static void ApplyEncounterHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 encounter hostile action 的效果应用到当前对象。
+**用途 / Purpose:** 将 encounter hostile action 的效果应用到当前对象。
 
 ## 使用示例
 

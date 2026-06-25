@@ -23,7 +23,7 @@ Treat `EnumHelper` as a Helper-style extension point: first identify who creates
 ### GetCombinedULongEnumFlagsValue
 `public static ulong GetCombinedULongEnumFlagsValue(Type type)`
 
-**Purpose:** **Purpose:** Reads and returns the combined u long enum flags value value held by the this instance.
+**Purpose:** Reads and returns the combined u long enum flags value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ EnumHelper.GetCombinedULongEnumFlagsValue(type);
 ### GetCombinedUIntEnumFlagsValue
 `public static uint GetCombinedUIntEnumFlagsValue(Type type)`
 
-**Purpose:** **Purpose:** Reads and returns the combined u int enum flags value value held by the this instance.
+**Purpose:** Reads and returns the combined u int enum flags value value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -35,7 +35,7 @@ description: "QuestStageVM 的自动生成类参考。"
 ### ExecuteResetUpdated
 `public void ExecuteResetUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset updated 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset updated 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestStageVM 实例
@@ -46,7 +46,7 @@ questStageVM.ExecuteResetUpdated();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
+**用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestStageVM 实例
@@ -57,7 +57,7 @@ questStageVM.ExecuteLink("example");
 ### UpdateIsNew
 `public void UpdateIsNew()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 is new 的最新表示。
+**用途 / Purpose:** 重新计算并更新 is new 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestStageVM 实例

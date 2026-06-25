@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateLine
 `public string GenerateLine()`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of line.
+**Purpose:** Generates an instance, data, or representation of line.
 
 ```csharp
 // Obtain an instance of VariableCode from the subsystem API first

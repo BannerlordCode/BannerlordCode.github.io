@@ -29,7 +29,7 @@ Treat `DelayedTeleportationModel` as a Model-style extension point: first identi
 ### GetTeleportationDelayAsHours
 `public abstract ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**Purpose:** **Purpose:** Reads and returns the teleportation delay as hours value held by the this instance.
+**Purpose:** Reads and returns the teleportation delay as hours value held by the this instance.
 
 ```csharp
 // Obtain an instance of DelayedTeleportationModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = delayedTeleportationModel.GetTeleportationDelayAsHours(teleportingH
 ### CanPerformImmediateTeleport
 `public abstract bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for perform immediate teleport.
+**Purpose:** Checks whether the this instance meets the preconditions for perform immediate teleport.
 
 ```csharp
 // Obtain an instance of DelayedTeleportationModel from the subsystem API first

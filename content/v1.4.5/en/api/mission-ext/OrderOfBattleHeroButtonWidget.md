@@ -31,7 +31,7 @@ Treat `OrderOfBattleHeroButtonWidget` as a Widget-style extension point: first i
 ### OrderOfBattleHeroButtonWidget
 `public class OrderOfBattleHeroButtonWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the OrderOfBattleHeroButtonWidget logic.
+**Purpose:** Executes the OrderOfBattleHeroButtonWidget logic.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroButtonWidget from the subsystem API first

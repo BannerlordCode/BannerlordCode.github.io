@@ -23,7 +23,7 @@ description: "ChangeLocationBehavior 的自动生成类参考。"
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ChangeLocationBehavior 实例
@@ -34,7 +34,7 @@ changeLocationBehavior.Tick(0, false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ChangeLocationBehavior 实例
@@ -45,7 +45,7 @@ var result = changeLocationBehavior.GetDebugInfo();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ChangeLocationBehavior 实例

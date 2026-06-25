@@ -23,7 +23,7 @@ description: "MissionViewsContainer 的自动生成类参考。"
 ### Add
 `public void Add(MissionView missionView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionViewsContainer 实例
@@ -34,7 +34,7 @@ missionViewsContainer.Add(missionView);
 ### Remove
 `public void Remove(MissionView missionView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionViewsContainer 实例
@@ -45,7 +45,7 @@ missionViewsContainer.Remove(missionView);
 ### Contains
 `public bool Contains(MissionView missionView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含指定项。
+**用途 / Purpose:** 检查当前对象是否含有目标项。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionViewsContainer 实例
@@ -56,7 +56,7 @@ var result = missionViewsContainer.Contains(missionView);
 ### ForEach
 `public void ForEach(Action<MissionView> action)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForEach 对应的操作。
+**用途 / Purpose:** 调用 ForEach 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionViewsContainer 实例

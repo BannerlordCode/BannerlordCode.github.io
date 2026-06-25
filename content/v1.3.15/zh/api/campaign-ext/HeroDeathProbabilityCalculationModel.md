@@ -23,7 +23,7 @@ description: "HeroDeathProbabilityCalculationModel 的自动生成类参考。"
 ### CalculateHeroDeathProbability
 `public abstract float CalculateHeroDeathProbability(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算hero death probability的当前值或结果。
+**用途 / Purpose:** 计算hero death probability的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeathProbabilityCalculationModel 实例

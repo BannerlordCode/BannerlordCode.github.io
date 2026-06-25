@@ -23,7 +23,7 @@ Treat `TextureView` as a View-style extension point: first identify who creates 
 ### CreateTextureView
 `public static TextureView CreateTextureView()`
 
-**Purpose:** **Purpose:** Constructs a new texture view entity and returns it to the caller.
+**Purpose:** Constructs a new texture view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TextureView.CreateTextureView();
 ### SetTexture
 `public void SetTexture(Texture texture)`
 
-**Purpose:** **Purpose:** Assigns a new value to texture and updates the object's internal state.
+**Purpose:** Assigns a new value to texture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextureView from the subsystem API first

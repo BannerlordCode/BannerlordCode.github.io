@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### SetActiveTab
 `public void SetActiveTab(string tabName)`
 
-**Purpose:** **Purpose:** Assigns a new value to active tab and updates the object's internal state.
+**Purpose:** Assigns a new value to active tab and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TabControl from the subsystem API first

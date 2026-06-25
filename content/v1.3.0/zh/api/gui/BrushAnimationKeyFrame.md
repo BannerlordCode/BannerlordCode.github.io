@@ -30,7 +30,7 @@ description: "BrushAnimationKeyFrame 的自动生成类参考。"
 ### InitializeAsFloat
 `public void InitializeAsFloat(float time, float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as float 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 as float 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -41,7 +41,7 @@ brushAnimationKeyFrame.InitializeAsFloat(0, 0);
 ### InitializeAsColor
 `public void InitializeAsColor(float time, Color value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as color 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 as color 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -52,7 +52,7 @@ brushAnimationKeyFrame.InitializeAsColor(0, value);
 ### InitializeAsSprite
 `public void InitializeAsSprite(float time, Sprite value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as sprite 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 as sprite 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -63,7 +63,7 @@ brushAnimationKeyFrame.InitializeAsSprite(0, value);
 ### InitializeIndex
 `public void InitializeIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 index 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 index 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -74,7 +74,7 @@ brushAnimationKeyFrame.InitializeIndex(0);
 ### GetValueAsFloat
 `public float GetValueAsFloat()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -85,7 +85,7 @@ var result = brushAnimationKeyFrame.GetValueAsFloat();
 ### GetValueAsColor
 `public Color GetValueAsColor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -96,7 +96,7 @@ var result = brushAnimationKeyFrame.GetValueAsColor();
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -107,7 +107,7 @@ var result = brushAnimationKeyFrame.GetValueAsSprite();
 ### GetValueAsObject
 `public object GetValueAsObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
@@ -118,7 +118,7 @@ var result = brushAnimationKeyFrame.GetValueAsObject();
 ### Clone
 `public BrushAnimationKeyFrame Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例

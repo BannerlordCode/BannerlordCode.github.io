@@ -50,7 +50,7 @@ description: "KingdomPoliciesVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPoliciesVM 实例
@@ -61,7 +61,7 @@ kingdomPoliciesVM.RefreshValues();
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectPolicy 对应的操作。
+**用途 / Purpose:** 调用 SelectPolicy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPoliciesVM 实例
@@ -72,7 +72,7 @@ kingdomPoliciesVM.SelectPolicy(policy);
 ### RefreshPolicyList
 `public void RefreshPolicyList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 policy list 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 policy list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPoliciesVM 实例

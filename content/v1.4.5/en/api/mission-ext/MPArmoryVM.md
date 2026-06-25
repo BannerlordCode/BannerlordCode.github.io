@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -53,7 +53,7 @@ mPArmoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -64,7 +64,7 @@ mPArmoryVM.OnFinalize();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -75,7 +75,7 @@ mPArmoryVM.OnTick(0);
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of player data in sync with the underlying state.
+**Purpose:** Keeps the display or cache of player data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -86,7 +86,7 @@ mPArmoryVM.RefreshPlayerData(playerData);
 ### ForceRefreshCharacter
 `public void ForceRefreshCharacter()`
 
-**Purpose:** **Purpose:** Executes the ForceRefreshCharacter logic.
+**Purpose:** Executes the ForceRefreshCharacter logic.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -97,7 +97,7 @@ mPArmoryVM.ForceRefreshCharacter();
 ### SetCanOpenFacegen
 `public void SetCanOpenFacegen(bool enabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to can open facegen and updates the object's internal state.
+**Purpose:** Assigns a new value to can open facegen and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -108,7 +108,7 @@ mPArmoryVM.SetCanOpenFacegen(false);
 ### ExecuteClearTauntSelection
 `public void ExecuteClearTauntSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with clear taunt selection.
+**Purpose:** Runs the operation or workflow associated with clear taunt selection.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -119,7 +119,7 @@ mPArmoryVM.ExecuteClearTauntSelection();
 ### ExecuteToggleManageTauntsState
 `public void ExecuteToggleManageTauntsState()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle manage taunts state.
+**Purpose:** Runs the operation or workflow associated with toggle manage taunts state.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -130,7 +130,7 @@ mPArmoryVM.ExecuteToggleManageTauntsState();
 ### ExecuteSelectFocusedSlot
 `public void ExecuteSelectFocusedSlot()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select focused slot.
+**Purpose:** Runs the operation or workflow associated with select focused slot.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -141,7 +141,7 @@ mPArmoryVM.ExecuteSelectFocusedSlot();
 ### ExecuteEmptyFocusedSlot
 `public void ExecuteEmptyFocusedSlot()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with empty focused slot.
+**Purpose:** Runs the operation or workflow associated with empty focused slot.
 
 ```csharp
 // Obtain an instance of MPArmoryVM from the subsystem API first
@@ -152,7 +152,7 @@ mPArmoryVM.ExecuteEmptyFocusedSlot();
 ### ApplyPerkEffectsToEquipment
 `public static void ApplyPerkEffectsToEquipment(ref Equipment equipment, List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** **Purpose:** Applies the effect of perk effects to equipment to the this instance.
+**Purpose:** Applies the effect of perk effects to equipment to the this instance.
 
 ```csharp
 // Static call; no instance required

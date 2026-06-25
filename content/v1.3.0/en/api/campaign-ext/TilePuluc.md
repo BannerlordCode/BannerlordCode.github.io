@@ -32,7 +32,7 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ### UpdateTilePosition
 `public void UpdateTilePosition()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of tile position.
+**Purpose:** Recalculates and stores the latest representation of tile position.
 
 ```csharp
 // Obtain an instance of TilePuluc from the subsystem API first

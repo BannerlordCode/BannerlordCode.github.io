@@ -23,7 +23,7 @@ Treat `InventoryImageIdentifierWidget` as a Widget-style extension point: first 
 ### SetRenderRequestedPreviousFrame
 `public void SetRenderRequestedPreviousFrame(bool isRequested)`
 
-**Purpose:** **Purpose:** Assigns a new value to render requested previous frame and updates the object's internal state.
+**Purpose:** Assigns a new value to render requested previous frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InventoryImageIdentifierWidget from the subsystem API first

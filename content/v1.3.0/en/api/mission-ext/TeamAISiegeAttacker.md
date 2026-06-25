@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** **Purpose:** Invoked when the unit added to formation for the first time event is raised.
+**Purpose:** Invoked when the unit added to formation for the first time event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISiegeAttacker from the subsystem API first
@@ -40,7 +40,7 @@ teamAISiegeAttacker.OnUnitAddedToFormationForTheFirstTime(formation);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISiegeAttacker from the subsystem API first
@@ -51,7 +51,7 @@ teamAISiegeAttacker.OnDeploymentFinished();
 ### OnFormationFrameChanged
 `public override void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
 
-**Purpose:** **Purpose:** Invoked when the formation frame changed event is raised.
+**Purpose:** Invoked when the formation frame changed event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISiegeAttacker from the subsystem API first

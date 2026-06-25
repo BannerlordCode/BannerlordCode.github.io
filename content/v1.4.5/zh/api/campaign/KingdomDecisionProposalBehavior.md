@@ -29,7 +29,7 @@ description: "KingdomDecisionProposalBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionProposalBehavior 实例
@@ -40,7 +40,7 @@ kingdomDecisionProposalBehavior.RegisterEvents();
 ### UpdateKingdomDecisions
 `public void UpdateKingdomDecisions(Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 kingdom decisions 的最新表示。
+**用途 / Purpose:** 重新计算并更新 kingdom decisions 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionProposalBehavior 实例
@@ -51,7 +51,7 @@ kingdomDecisionProposalBehavior.UpdateKingdomDecisions(kingdom);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionProposalBehavior 实例

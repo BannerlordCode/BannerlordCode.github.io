@@ -29,7 +29,7 @@ description: "BaseNetworkComponentData 的自动生成类参考。"
 ### UpdateCurrentBattleIndex
 `public void UpdateCurrentBattleIndex(int currentBattleIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 current battle index 的最新表示。
+**用途 / Purpose:** 重新计算并更新 current battle index 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponentData 实例

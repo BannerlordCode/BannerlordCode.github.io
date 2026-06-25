@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**Purpose:** **Purpose:** Executes the For logic.
+**Purpose:** Executes the For logic.
 
 ```csharp
 // Obtain an instance of DefaultParallelDriver from the subsystem API first
@@ -34,7 +34,7 @@ defaultParallelDriver.For(0, 0, body, 0);
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
 
-**Purpose:** **Purpose:** Executes the For logic.
+**Purpose:** Executes the For logic.
 
 ```csharp
 // Obtain an instance of DefaultParallelDriver from the subsystem API first
@@ -45,7 +45,7 @@ defaultParallelDriver.For(0, 0, 0, body, 0);
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**Purpose:** **Purpose:** Reads and returns the main thread id value held by the this instance.
+**Purpose:** Reads and returns the main thread id value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultParallelDriver from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultParallelDriver.GetMainThreadId();
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**Purpose:** **Purpose:** Reads and returns the current thread id value held by the this instance.
+**Purpose:** Reads and returns the current thread id value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultParallelDriver from the subsystem API first

@@ -30,7 +30,7 @@ description: "MilitiaPartyComponent 的自动生成类参考。"
 ### InitializeMilitiaPartyProperties
 `public void InitializeMilitiaPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 militia party properties 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 militia party properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MilitiaPartyComponent 实例
@@ -41,7 +41,7 @@ militiaPartyComponent.InitializeMilitiaPartyProperties(mobileParty, settlement);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MilitiaPartyComponent 实例
@@ -52,7 +52,7 @@ var result = militiaPartyComponent.GetDefaultComponentBanner();
 ### CreateMilitiaParty
 `public static MobileParty CreateMilitiaParty(string stringId, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 militia party 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 militia party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ MilitiaPartyComponent.CreateMilitiaParty("example", settlement);
 ### ConvertPartyToMilitiaParty
 `public static void ConvertPartyToMilitiaParty(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把party to militia party转换为另一种表示或类型。
+**用途 / Purpose:** 把party to militia party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ MilitiaPartyComponent.ConvertPartyToMilitiaParty(mobileParty, settlement);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
+**用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 MilitiaPartyComponent 实例

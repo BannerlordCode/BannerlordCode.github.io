@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ commonVillagersCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ commonVillagersCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** **Purpose:** Invoked when the session launched event is raised.
+**Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ commonVillagersCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** **Purpose:** Invoked when the settlement owner changed event is raised.
+**Purpose:** Invoked when the settlement owner changed event is raised.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ commonVillagersCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newO
 ### conversation_town_or_village_escort_complete_on_condition
 `public bool conversation_town_or_village_escort_complete_on_condition()`
 
-**Purpose:** **Purpose:** Executes the conversation_town_or_village_escort_complete_on_condition logic.
+**Purpose:** Executes the conversation_town_or_village_escort_complete_on_condition logic.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = commonVillagersCampaignBehavior.conversation_town_or_village_escort
 ### conversation_town_or_village_escort_complete_on_consequence
 `public void conversation_town_or_village_escort_complete_on_consequence()`
 
-**Purpose:** **Purpose:** Executes the conversation_town_or_village_escort_complete_on_consequence logic.
+**Purpose:** Executes the conversation_town_or_village_escort_complete_on_consequence logic.
 
 ```csharp
 // Obtain an instance of CommonVillagersCampaignBehavior from the subsystem API first

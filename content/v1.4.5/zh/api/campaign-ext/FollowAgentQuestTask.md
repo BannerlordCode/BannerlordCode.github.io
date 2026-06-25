@@ -23,7 +23,7 @@ description: "FollowAgentQuestTask 的自动生成类参考。"
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionTick 对应的操作。
+**用途 / Purpose:** 调用 MissionTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FollowAgentQuestTask 实例
@@ -34,7 +34,7 @@ followAgentQuestTask.MissionTick(0);
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FollowAgentQuestTask 实例

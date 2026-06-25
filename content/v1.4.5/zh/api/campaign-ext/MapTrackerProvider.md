@@ -29,7 +29,7 @@ description: "MapTrackerProvider 的自动生成类参考。"
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trackers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 trackers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -40,7 +40,7 @@ var result = mapTrackerProvider.GetTrackers();
 ### HasTrackerFor
 `public bool HasTrackerFor(ITrackableCampaignObject trackable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 tracker for。
+**用途 / Purpose:** 判断当前对象是否已经持有 tracker for。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -51,7 +51,7 @@ var result = mapTrackerProvider.HasTrackerFor(trackable);
 ### GetTrackerFor
 `public MapTrackerItemVM GetTrackerFor(ITrackableCampaignObject trackable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tracker for 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tracker for 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -62,7 +62,7 @@ var result = mapTrackerProvider.GetTrackerFor(trackable);
 ### AddTracker
 `public void AddTracker(MapTrackerItemVM tracker)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 tracker 添加到当前容器或状态中。
+**用途 / Purpose:** 将 tracker 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -73,7 +73,7 @@ mapTrackerProvider.AddTracker(tracker);
 ### RemoveTracker
 `public void RemoveTracker(MapTrackerItemVM tracker)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tracker。
+**用途 / Purpose:** 从当前容器或状态中移除 tracker。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -84,7 +84,7 @@ mapTrackerProvider.RemoveTracker(tracker);
 ### ClearTrackers
 `public void ClearTrackers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的trackers。
+**用途 / Purpose:** 清空当前对象中的trackers。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -95,7 +95,7 @@ mapTrackerProvider.ClearTrackers();
 ### OnTrackerAddedOrRemovedDelegate
 `public delegate void OnTrackerAddedOrRemovedDelegate(MapTrackerItemVM tracker, bool added)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tracker added or removed delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 tracker added or removed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例
@@ -106,7 +106,7 @@ mapTrackerProvider.OnTrackerAddedOrRemovedDelegate(tracker, false);
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trackers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 trackers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerProvider 实例

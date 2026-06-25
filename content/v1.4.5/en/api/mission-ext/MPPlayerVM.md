@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### UpdateDisabled
 `public void UpdateDisabled()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of disabled.
+**Purpose:** Recalculates and stores the latest representation of disabled.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -53,7 +53,7 @@ mPPlayerVM.UpdateDisabled();
 ### RefreshDivision
 `public void RefreshDivision(bool useCultureColors = false)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of division in sync with the underlying state.
+**Purpose:** Keeps the display or cache of division in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -64,7 +64,7 @@ mPPlayerVM.RefreshDivision(false);
 ### RefreshGold
 `public void RefreshGold()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of gold in sync with the underlying state.
+**Purpose:** Keeps the display or cache of gold in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -75,7 +75,7 @@ mPPlayerVM.RefreshGold();
 ### RefreshTeam
 `public void RefreshTeam()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of team in sync with the underlying state.
+**Purpose:** Keeps the display or cache of team in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -86,7 +86,7 @@ mPPlayerVM.RefreshTeam();
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of properties in sync with the underlying state.
+**Purpose:** Keeps the display or cache of properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -97,7 +97,7 @@ mPPlayerVM.RefreshProperties();
 ### RefreshPreview
 `public void RefreshPreview(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, bool isFemale)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of preview in sync with the underlying state.
+**Purpose:** Keeps the display or cache of preview in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -108,7 +108,7 @@ mPPlayerVM.RefreshPreview(character, dynamicBodyProperties, false);
 ### RefreshActivePerks
 `public void RefreshActivePerks()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of active perks in sync with the underlying state.
+**Purpose:** Keeps the display or cache of active perks in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -119,7 +119,7 @@ mPPlayerVM.RefreshActivePerks();
 ### RefreshAvatar
 `public void RefreshAvatar()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of avatar in sync with the underlying state.
+**Purpose:** Keeps the display or cache of avatar in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -130,7 +130,7 @@ mPPlayerVM.RefreshAvatar();
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focus begin.
+**Purpose:** Runs the operation or workflow associated with focus begin.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first
@@ -141,7 +141,7 @@ mPPlayerVM.ExecuteFocusBegin();
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focus end.
+**Purpose:** Runs the operation or workflow associated with focus end.
 
 ```csharp
 // Obtain an instance of MPPlayerVM from the subsystem API first

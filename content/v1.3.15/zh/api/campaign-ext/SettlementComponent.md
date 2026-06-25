@@ -41,7 +41,7 @@ description: "SettlementComponent 的自动生成类参考。"
 ### GetProsperityLevel
 `public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prosperity level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prosperity level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -52,7 +52,7 @@ var result = settlementComponent.GetProsperityLevel();
 ### GetDefaultComponentBanner
 `public virtual Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -63,7 +63,7 @@ var result = settlementComponent.GetDefaultComponentBanner();
 ### OnPartyEntered
 `public virtual void OnPartyEntered(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party entered 事件触发时调用此回调。
+**用途 / Purpose:** 在 party entered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -74,7 +74,7 @@ settlementComponent.OnPartyEntered(mobileParty);
 ### OnPartyLeft
 `public virtual void OnPartyLeft(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party left 事件触发时调用此回调。
+**用途 / Purpose:** 在 party left 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -85,7 +85,7 @@ settlementComponent.OnPartyLeft(mobileParty);
 ### OnInit
 `public virtual void OnInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 init 事件触发时调用此回调。
+**用途 / Purpose:** 在 init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -96,7 +96,7 @@ settlementComponent.OnInit();
 ### OnSessionStart
 `public virtual void OnSessionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session start 事件触发时调用此回调。
+**用途 / Purpose:** 在 session start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -107,7 +107,7 @@ settlementComponent.OnSessionStart();
 ### ChangeGold
 `public void ChangeGold(int changeAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeGold 对应的操作。
+**用途 / Purpose:** 调用 ChangeGold 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -118,7 +118,7 @@ settlementComponent.ChangeGold(0);
 ### GetNumberOfTroops
 `public int GetNumberOfTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -129,7 +129,7 @@ var result = settlementComponent.GetNumberOfTroops();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -140,7 +140,7 @@ settlementComponent.Deserialize(objectManager, node);
 ### GetItemPrice
 `public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -151,7 +151,7 @@ var result = settlementComponent.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -162,7 +162,7 @@ var result = settlementComponent.GetItemPrice(itemRosterElement, null, false);
 ### OnRelatedPartyRemoved
 `public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 related party removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 related party removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例
@@ -173,7 +173,7 @@ settlementComponent.OnRelatedPartyRemoved(mobileParty);
 ### GetPrisonerHeroes
 `public List<CharacterObject> GetPrisonerHeroes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prisoner heroes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prisoner heroes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementComponent 实例

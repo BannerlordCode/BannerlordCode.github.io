@@ -23,7 +23,7 @@ description: "TwoDimensionEnginePlatform 的自动生成类参考。"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例
@@ -34,7 +34,7 @@ twoDimensionEnginePlatform.Reset();
 ### Equals
 `public bool Equals(TwoDimensionEnginePlatform.MaterialTuple other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例
@@ -45,7 +45,7 @@ var result = twoDimensionEnginePlatform.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例

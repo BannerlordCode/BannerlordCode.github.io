@@ -43,7 +43,7 @@ description: "Crafting 的自动生成类参考。"
 ### SetCraftedWeaponName
 `public void SetCraftedWeaponName(TextObject weaponName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 crafted weapon name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 crafted weapon name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -54,7 +54,7 @@ crafting.SetCraftedWeaponName(weaponName);
 ### Init
 `public void Init()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -65,7 +65,7 @@ crafting.Init();
 ### GetRandomPieceOfType
 `public WeaponDesignElement GetRandomPieceOfType(CraftingPiece.PieceTypes pieceType, bool randomScale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random piece of type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 random piece of type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -76,7 +76,7 @@ var result = crafting.GetRandomPieceOfType(pieceType, false);
 ### SwitchToCraftedItem
 `public void SwitchToCraftedItem(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchToCraftedItem 对应的操作。
+**用途 / Purpose:** 调用 SwitchToCraftedItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -87,7 +87,7 @@ crafting.SwitchToCraftedItem(item);
 ### Randomize
 `public void Randomize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Randomize 对应的操作。
+**用途 / Purpose:** 调用 Randomize 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -98,7 +98,7 @@ crafting.Randomize();
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement piece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchToPiece 对应的操作。
+**用途 / Purpose:** 调用 SwitchToPiece 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -109,7 +109,7 @@ crafting.SwitchToPiece(piece);
 ### ScaleThePiece
 `public void ScaleThePiece(CraftingPiece.PieceTypes scalingPieceType, int percentage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScaleThePiece 对应的操作。
+**用途 / Purpose:** 调用 ScaleThePiece 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -120,7 +120,7 @@ crafting.ScaleThePiece(scalingPieceType, 0);
 ### ReIndex
 `public void ReIndex(bool enforceReCreation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReIndex 对应的操作。
+**用途 / Purpose:** 调用 ReIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -131,7 +131,7 @@ crafting.ReIndex(false);
 ### Undo
 `public bool Undo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Undo 对应的操作。
+**用途 / Purpose:** 调用 Undo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -142,7 +142,7 @@ var result = crafting.Undo();
 ### Redo
 `public bool Redo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Redo 对应的操作。
+**用途 / Purpose:** 调用 Redo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -153,7 +153,7 @@ var result = crafting.Redo();
 ### UpdateHistory
 `public void UpdateHistory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 history 的最新表示。
+**用途 / Purpose:** 重新计算并更新 history 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -164,7 +164,7 @@ crafting.UpdateHistory();
 ### GetRandomCraftName
 `public TextObject GetRandomCraftName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random craft name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 random craft name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -175,7 +175,7 @@ var result = crafting.GetRandomCraftName();
 ### GenerateItem
 `public static void GenerateItem(WeaponDesign weaponDesignTemplate, TextObject name, BasicCultureObject culture, ItemModifierGroup itemModifierGroup, ref ItemObject itemObject, string customId = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成item的实例、数据或表示。
+**用途 / Purpose:** 生成item的实例、数据或表示。
 
 ```csharp
 // 静态调用，不需要实例
@@ -185,7 +185,7 @@ Crafting.GenerateItem(weaponDesignTemplate, name, culture, itemModifierGroup, it
 ### GetCurrentCraftedItemObject
 `public ItemObject GetCurrentCraftedItemObject(bool forceReCreate = false, string customId = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current crafted item object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current crafted item object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -196,7 +196,7 @@ var result = crafting.GetCurrentCraftedItemObject(false, "example");
 ### GetStatDatasFromTemplate
 `public static IEnumerable<CraftingStatData> GetStatDatasFromTemplate(int usageIndex, ItemObject craftedItemObject, CraftingTemplate template)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat datas from template 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 stat datas from template 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -206,7 +206,7 @@ Crafting.GetStatDatasFromTemplate(0, craftedItemObject, template);
 ### GetStatDatas
 `public IEnumerable<CraftingStatData> GetStatDatas(int usageIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat datas 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 stat datas 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -217,7 +217,7 @@ var result = crafting.GetStatDatas(0);
 ### GetXmlCodeForCurrentItem
 `public string GetXmlCodeForCurrentItem(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xml code for current item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 xml code for current item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -228,7 +228,7 @@ var result = crafting.GetXmlCodeForCurrentItem(item);
 ### TryGetWeaponPropertiesFromXmlCode
 `public bool TryGetWeaponPropertiesFromXmlCode(string xmlCode, out CraftingTemplate craftingTemplate, out ValueTuple<CraftingPiece, int> pieces)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get weapon properties from xml code 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get weapon properties from xml code 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -239,7 +239,7 @@ var result = crafting.TryGetWeaponPropertiesFromXmlCode("example", craftingTempl
 ### CreatePreCraftedWeaponOnDeserialize
 `public static ItemObject CreatePreCraftedWeaponOnDeserialize(ItemObject itemObject, WeaponDesignElement usedPieces, string templateId, TextObject craftedWeaponName, ItemModifierGroup itemModifierGroup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 pre crafted weapon on deserialize 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 pre crafted weapon on deserialize 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -249,7 +249,7 @@ Crafting.CreatePreCraftedWeaponOnDeserialize(itemObject, usedPieces, "example", 
 ### InitializePreCraftedWeaponOnLoad
 `public static ItemObject InitializePreCraftedWeaponOnLoad(ItemObject itemObject, WeaponDesign craftedData, TextObject itemName, BasicCultureObject culture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 pre crafted weapon on load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 pre crafted weapon on load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -259,7 +259,7 @@ Crafting.InitializePreCraftedWeaponOnLoad(itemObject, craftedData, itemName, cul
 ### GenerateCraftedItem
 `public static ItemObject GenerateCraftedItem(ItemObject item, WeaponDesign weaponDesign, ItemModifierGroup itemModifierGroup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成crafted item的实例、数据或表示。
+**用途 / Purpose:** 生成crafted item的实例、数据或表示。
 
 ```csharp
 // 静态调用，不需要实例
@@ -269,7 +269,7 @@ Crafting.GenerateCraftedItem(item, weaponDesign, itemModifierGroup);
 ### FillWeapon
 `public static void FillWeapon(ItemObject item, WeaponDescription weaponDescription, WeaponFlags weaponFlags, bool isAlternative, out WeaponComponentData filledWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillWeapon 对应的操作。
+**用途 / Purpose:** 调用 FillWeapon 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

@@ -32,7 +32,7 @@ description: "MultiplayerBattleResultColorizedWidget 的自动生成类参考。
 ### MultiplayerBattleResultColorizedWidget
 `public class MultiplayerBattleResultColorizedWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerBattleResultColorizedWidget 对应的操作。
+**用途 / Purpose:** 调用 MultiplayerBattleResultColorizedWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleResultColorizedWidget 实例

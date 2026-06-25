@@ -29,7 +29,7 @@ Start from namespace `SandBox.Tournaments.MissionLogics` to place it in the stac
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the best target position value held by the this instance.
+**Purpose:** Reads and returns the best target position value held by the this instance.
 
 ```csharp
 // Obtain an instance of CheckPoint from the subsystem API first
@@ -40,7 +40,7 @@ var result = checkPoint.GetBestTargetPosition();
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**Purpose:** **Purpose:** Adds to check list to the current collection or state.
+**Purpose:** Adds to check list to the current collection or state.
 
 ```csharp
 // Obtain an instance of CheckPoint from the subsystem API first
@@ -51,7 +51,7 @@ checkPoint.AddToCheckList(agent);
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**Purpose:** **Purpose:** Removes from check list from the current collection or state.
+**Purpose:** Removes from check list from the current collection or state.
 
 ```csharp
 // Obtain an instance of CheckPoint from the subsystem API first

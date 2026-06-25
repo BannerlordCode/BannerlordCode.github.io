@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshValue
 `public void RefreshValue()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of value in sync with the underlying state.
+**Purpose:** Keeps the display or cache of value in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TooltipProperty from the subsystem API first
@@ -46,7 +46,7 @@ tooltipProperty.RefreshValue();
 ### RefreshDefinition
 `public void RefreshDefinition()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of definition in sync with the underlying state.
+**Purpose:** Keeps the display or cache of definition in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TooltipProperty from the subsystem API first
@@ -57,7 +57,7 @@ tooltipProperty.RefreshDefinition();
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** **Purpose:** Restores from from serialized data.
+**Purpose:** Restores from from serialized data.
 
 ```csharp
 // Obtain an instance of TooltipProperty from the subsystem API first
@@ -68,7 +68,7 @@ tooltipProperty.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** **Purpose:** Serializes to into a storable or transmittable format.
+**Purpose:** Serializes to into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of TooltipProperty from the subsystem API first

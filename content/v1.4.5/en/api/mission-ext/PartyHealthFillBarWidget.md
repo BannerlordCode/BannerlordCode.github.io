@@ -31,7 +31,7 @@ Treat `PartyHealthFillBarWidget` as a Widget-style extension point: first identi
 ### PartyHealthFillBarWidget
 `public class PartyHealthFillBarWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the PartyHealthFillBarWidget logic.
+**Purpose:** Executes the PartyHealthFillBarWidget logic.
 
 ```csharp
 // Obtain an instance of PartyHealthFillBarWidget from the subsystem API first

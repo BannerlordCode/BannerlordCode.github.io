@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CheerReactionTimeSettings
 `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
 
-**Purpose:** **Purpose:** Executes the CheerReactionTimeSettings logic.
+**Purpose:** Executes the CheerReactionTimeSettings logic.
 
 ```csharp
 // Obtain an instance of CheerReactionTimeSettings from the subsystem API first

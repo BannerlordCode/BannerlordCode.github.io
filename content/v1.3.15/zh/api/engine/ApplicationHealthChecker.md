@@ -23,7 +23,7 @@ description: "ApplicationHealthChecker 的自动生成类参考。"
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ApplicationHealthChecker 实例
@@ -34,7 +34,7 @@ applicationHealthChecker.Start();
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止当前对象的流程或状态机。
+**用途 / Purpose:** 停止当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ApplicationHealthChecker 实例
@@ -45,7 +45,7 @@ applicationHealthChecker.Stop();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ApplicationHealthChecker 实例

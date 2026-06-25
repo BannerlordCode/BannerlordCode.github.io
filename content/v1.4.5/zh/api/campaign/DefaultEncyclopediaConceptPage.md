@@ -23,7 +23,7 @@ description: "DefaultEncyclopediaConceptPage 的自动生成类参考。"
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 view fully qualified name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 view fully qualified name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
@@ -34,7 +34,7 @@ var result = defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
@@ -45,7 +45,7 @@ var result = defaultEncyclopediaConceptPage.GetName();
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
@@ -56,7 +56,7 @@ var result = defaultEncyclopediaConceptPage.GetDescriptionText();
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string i d 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 string i d 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
@@ -67,7 +67,7 @@ var result = defaultEncyclopediaConceptPage.GetStringID();
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid encyclopedia item 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid encyclopedia item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例

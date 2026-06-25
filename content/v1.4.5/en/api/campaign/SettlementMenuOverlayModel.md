@@ -23,7 +23,7 @@ Treat `SettlementMenuOverlayModel` as a Model-style extension point: first ident
 ### GetOverlayHeroes
 `public abstract Dictionary<Hero, bool> GetOverlayHeroes()`
 
-**Purpose:** **Purpose:** Reads and returns the overlay heroes value held by the this instance.
+**Purpose:** Reads and returns the overlay heroes value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayModel from the subsystem API first

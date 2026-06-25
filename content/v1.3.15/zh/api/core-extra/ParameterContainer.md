@@ -29,7 +29,7 @@ description: "ParameterContainer 的自动生成类参考。"
 ### AddParameter
 `public void AddParameter(string key, string value, bool overwriteIfExists)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 parameter 添加到当前容器或状态中。
+**用途 / Purpose:** 将 parameter 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -40,7 +40,7 @@ parameterContainer.AddParameter("example", "example", false);
 ### AddParameterConcurrent
 `public void AddParameterConcurrent(string key, string value, bool overwriteIfExists)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 parameter concurrent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 parameter concurrent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -51,7 +51,7 @@ parameterContainer.AddParameterConcurrent("example", "example", false);
 ### AddParametersConcurrent
 `public void AddParametersConcurrent(IEnumerable<KeyValuePair<string, string>> parameters, bool overwriteIfExists)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 parameters concurrent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 parameters concurrent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -62,7 +62,7 @@ parameterContainer.AddParametersConcurrent(iEnumerable<KeyValuePair<string, "exa
 ### ClearParameters
 `public void ClearParameters()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的parameters。
+**用途 / Purpose:** 清空当前对象中的parameters。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -73,7 +73,7 @@ parameterContainer.ClearParameters();
 ### TryGetParameter
 `public bool TryGetParameter(string key, out string outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -84,7 +84,7 @@ var result = parameterContainer.TryGetParameter("example", outValue);
 ### TryGetParameterAsBool
 `public bool TryGetParameterAsBool(string key, out bool outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as bool 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as bool 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -95,7 +95,7 @@ var result = parameterContainer.TryGetParameterAsBool("example", outValue);
 ### TryGetParameterAsInt
 `public bool TryGetParameterAsInt(string key, out int outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as int 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as int 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -106,7 +106,7 @@ var result = parameterContainer.TryGetParameterAsInt("example", outValue);
 ### TryGetParameterAsUInt16
 `public bool TryGetParameterAsUInt16(string key, out ushort outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as u int16 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as u int16 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -117,7 +117,7 @@ var result = parameterContainer.TryGetParameterAsUInt16("example", outValue);
 ### TryGetParameterAsFloat
 `public bool TryGetParameterAsFloat(string key, out float outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as float 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as float 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -128,7 +128,7 @@ var result = parameterContainer.TryGetParameterAsFloat("example", outValue);
 ### TryGetParameterAsByte
 `public bool TryGetParameterAsByte(string key, out byte outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as byte 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as byte 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -139,7 +139,7 @@ var result = parameterContainer.TryGetParameterAsByte("example", outValue);
 ### TryGetParameterAsSByte
 `public bool TryGetParameterAsSByte(string key, out sbyte outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as s byte 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as s byte 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -150,7 +150,7 @@ var result = parameterContainer.TryGetParameterAsSByte("example", outValue);
 ### TryGetParameterAsVec3
 `public bool TryGetParameterAsVec3(string key, out Vec3 outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as vec3 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as vec3 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -161,7 +161,7 @@ var result = parameterContainer.TryGetParameterAsVec3("example", outValue);
 ### TryGetParameterAsVec2
 `public bool TryGetParameterAsVec2(string key, out Vec2 outValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get parameter as vec2 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get parameter as vec2 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -172,7 +172,7 @@ var result = parameterContainer.TryGetParameterAsVec2("example", outValue);
 ### GetParameter
 `public string GetParameter(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parameter 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 parameter 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例
@@ -183,7 +183,7 @@ var result = parameterContainer.GetParameter("example");
 ### Clone
 `public ParameterContainer Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 ParameterContainer 实例

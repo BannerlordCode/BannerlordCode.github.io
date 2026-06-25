@@ -71,7 +71,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### Compare
 `public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -82,7 +82,7 @@ var result = settlementMenuOverlayVM.Compare(x, y);
 ### Compare
 `public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -93,7 +93,7 @@ var result = settlementMenuOverlayVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -104,7 +104,7 @@ settlementMenuOverlayVM.RefreshValues();
 ### ExecuteOnOverlayClosed
 `public override void ExecuteOnOverlayClosed()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with on overlay closed.
+**Purpose:** Runs the operation or workflow associated with on overlay closed.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -115,7 +115,7 @@ settlementMenuOverlayVM.ExecuteOnOverlayClosed();
 ### UpdateOverlayType
 `public override void UpdateOverlayType(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType newType)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of overlay type.
+**Purpose:** Recalculates and stores the latest representation of overlay type.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -126,7 +126,7 @@ settlementMenuOverlayVM.UpdateOverlayType(newType);
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -137,7 +137,7 @@ settlementMenuOverlayVM.Refresh();
 ### ExecuteAddCompanion
 `public void ExecuteAddCompanion()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add companion.
+**Purpose:** Runs the operation or workflow associated with add companion.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
@@ -148,7 +148,7 @@ settlementMenuOverlayVM.ExecuteAddCompanion();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SettlementMenuOverlayVM from the subsystem API first

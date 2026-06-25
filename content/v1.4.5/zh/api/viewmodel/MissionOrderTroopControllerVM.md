@@ -48,7 +48,7 @@ description: "MissionOrderTroopControllerVM 的自动生成类参考。"
 ### Compare
 `public int Compare(OrderTroopItemVM x, OrderTroopItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -59,7 +59,7 @@ var result = missionOrderTroopControllerVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -70,7 +70,7 @@ missionOrderTroopControllerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -81,7 +81,7 @@ missionOrderTroopControllerVM.OnFinalize();
 ### ExecuteSelectAll
 `public void ExecuteSelectAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select all 对应的操作或工作流。
+**用途 / Purpose:** 执行 select all 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -92,7 +92,7 @@ missionOrderTroopControllerVM.ExecuteSelectAll();
 ### ExecuteSelectTransferTroop
 `public void ExecuteSelectTransferTroop(OrderTroopItemVM targetTroop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select transfer troop 对应的操作或工作流。
+**用途 / Purpose:** 执行 select transfer troop 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -103,7 +103,7 @@ missionOrderTroopControllerVM.ExecuteSelectTransferTroop(targetTroop);
 ### ExecuteConfirmTransfer
 `public void ExecuteConfirmTransfer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 confirm transfer 对应的操作或工作流。
+**用途 / Purpose:** 执行 confirm transfer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -114,7 +114,7 @@ missionOrderTroopControllerVM.ExecuteConfirmTransfer();
 ### ExecuteCancelTransfer
 `public void ExecuteCancelTransfer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel transfer 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel transfer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -125,7 +125,7 @@ missionOrderTroopControllerVM.ExecuteCancelTransfer();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -136,7 +136,7 @@ missionOrderTroopControllerVM.ExecuteReset();
 ### SetTroopActiveOrders
 `public void SetTroopActiveOrders(OrderTroopItemVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 troop active orders 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 troop active orders 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -147,7 +147,7 @@ missionOrderTroopControllerVM.SetTroopActiveOrders(item);
 ### SelectAllFormations
 `public virtual void SelectAllFormations(bool uiFeedback = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectAllFormations 对应的操作。
+**用途 / Purpose:** 调用 SelectAllFormations 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -158,7 +158,7 @@ missionOrderTroopControllerVM.SelectAllFormations(false);
 ### AddSelectedFormation
 `public virtual void AddSelectedFormation(OrderTroopItemVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 selected formation 添加到当前容器或状态中。
+**用途 / Purpose:** 将 selected formation 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -169,7 +169,7 @@ missionOrderTroopControllerVM.AddSelectedFormation(item);
 ### SetSelectedFormation
 `public void SetSelectedFormation(OrderTroopItemVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 selected formation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 selected formation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -180,7 +180,7 @@ missionOrderTroopControllerVM.SetSelectedFormation(item);
 ### OnDeselectFormation
 `public void OnDeselectFormation(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deselect formation 事件触发时调用此回调。
+**用途 / Purpose:** 在 deselect formation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -191,7 +191,7 @@ missionOrderTroopControllerVM.OnDeselectFormation(0);
 ### OnDeselectFormation
 `public void OnDeselectFormation(OrderTroopItemVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deselect formation 事件触发时调用此回调。
+**用途 / Purpose:** 在 deselect formation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -202,7 +202,7 @@ missionOrderTroopControllerVM.OnDeselectFormation(item);
 ### OnSelectFormation
 `public void OnSelectFormation(OrderTroopItemVM item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 select formation 事件触发时调用此回调。
+**用途 / Purpose:** 在 select formation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -213,7 +213,7 @@ missionOrderTroopControllerVM.OnSelectFormation(item);
 ### UpdateTroops
 `public void UpdateTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 troops 的最新表示。
+**用途 / Purpose:** 重新计算并更新 troops 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -224,7 +224,7 @@ missionOrderTroopControllerVM.UpdateTroops();
 ### AddTroops
 `public void AddTroops(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 troops 添加到当前容器或状态中。
+**用途 / Purpose:** 将 troops 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -235,7 +235,7 @@ missionOrderTroopControllerVM.AddTroops(agent);
 ### RemoveTroops
 `public void RemoveTroops(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 troops。
+**用途 / Purpose:** 从当前容器或状态中移除 troops。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -246,7 +246,7 @@ missionOrderTroopControllerVM.RemoveTroops(agent);
 ### OnTroopOrderIssued
 `public void OnTroopOrderIssued(List<OrderTroopItemVM> selectedFormations, OrderItemVM orderItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop order issued 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop order issued 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -257,7 +257,7 @@ missionOrderTroopControllerVM.OnTroopOrderIssued(selectedFormations, orderItem);
 ### IntervalUpdate
 `public void IntervalUpdate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 IntervalUpdate 对应的操作。
+**用途 / Purpose:** 调用 IntervalUpdate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -268,7 +268,7 @@ missionOrderTroopControllerVM.IntervalUpdate();
 ### RefreshTroopFormationTargetVisuals
 `public void RefreshTroopFormationTargetVisuals()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 troop formation target visuals 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 troop formation target visuals 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -279,7 +279,7 @@ missionOrderTroopControllerVM.RefreshTroopFormationTargetVisuals();
 ### OnSelectFormationWithIndex
 `public void OnSelectFormationWithIndex(int formationTroopIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 select formation with index 事件触发时调用此回调。
+**用途 / Purpose:** 在 select formation with index 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -290,7 +290,7 @@ missionOrderTroopControllerVM.OnSelectFormationWithIndex(0);
 ### SetCurrentActiveOrders
 `public void SetCurrentActiveOrders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current active orders 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current active orders 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -301,7 +301,7 @@ missionOrderTroopControllerVM.SetCurrentActiveOrders();
 ### OnFiltersSet
 `public void OnFiltersSet(List<MissionOrderVM.FormationConfiguration> filterData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 filters set 事件触发时调用此回调。
+**用途 / Purpose:** 在 filters set 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -312,7 +312,7 @@ missionOrderTroopControllerVM.OnFiltersSet(filterData);
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -323,7 +323,7 @@ missionOrderTroopControllerVM.OnDeploymentFinished();
 ### OnAfterDeploymentFinished
 `public void OnAfterDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 after deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -334,7 +334,7 @@ missionOrderTroopControllerVM.OnAfterDeploymentFinished();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -345,7 +345,7 @@ missionOrderTroopControllerVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -356,7 +356,7 @@ missionOrderTroopControllerVM.SetCancelInputKey(hotKey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例

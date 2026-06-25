@@ -23,7 +23,7 @@ description: "ChairUsePoint 的自动生成类参考。"
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 use 事件触发时调用此回调。
+**用途 / Purpose:** 在 use 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ChairUsePoint 实例

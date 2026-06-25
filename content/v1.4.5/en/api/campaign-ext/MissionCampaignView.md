@@ -23,7 +23,7 @@ Treat `MissionCampaignView` as a View-style extension point: first identify who 
 ### OnMissionScreenPreLoad
 `public override void OnMissionScreenPreLoad()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen pre load event is raised.
+**Purpose:** Invoked when the mission screen pre load event is raised.
 
 ```csharp
 // Obtain an instance of MissionCampaignView from the subsystem API first
@@ -34,7 +34,7 @@ missionCampaignView.OnMissionScreenPreLoad();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionCampaignView from the subsystem API first
@@ -45,7 +45,7 @@ missionCampaignView.OnMissionScreenFinalize();
 ### GetFaceAndHelmetInfoOfFollowedAgent
 `public static string GetFaceAndHelmetInfoOfFollowedAgent(List<string> strings)`
 
-**Purpose:** **Purpose:** Reads and returns the face and helmet info of followed agent value held by the this instance.
+**Purpose:** Reads and returns the face and helmet info of followed agent value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ MissionCampaignView.GetFaceAndHelmetInfoOfFollowedAgent(strings);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionCampaignView from the subsystem API first

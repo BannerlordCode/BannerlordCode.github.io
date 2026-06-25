@@ -30,7 +30,7 @@ Treat `SandBoxGameManager` as a Manager-style extension point: first identify wh
 ### CampaignCreatorDelegate
 `public delegate Campaign CampaignCreatorDelegate()`
 
-**Purpose:** **Purpose:** Executes the CampaignCreatorDelegate logic.
+**Purpose:** Executes the CampaignCreatorDelegate logic.
 
 ```csharp
 // Obtain an instance of SandBoxGameManager from the subsystem API first
@@ -41,7 +41,7 @@ var result = sandBoxGameManager.CampaignCreatorDelegate();
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGameManager from the subsystem API first
@@ -52,7 +52,7 @@ sandBoxGameManager.OnGameEnd(game);
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after campaign start event is raised.
+**Purpose:** Invoked when the after campaign start event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGameManager from the subsystem API first
@@ -63,7 +63,7 @@ sandBoxGameManager.OnAfterCampaignStart(game);
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the load finished event is raised.
+**Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGameManager from the subsystem API first

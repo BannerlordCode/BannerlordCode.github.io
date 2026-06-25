@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### GetName
 `public virtual string GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageVM from the subsystem API first
@@ -46,7 +46,7 @@ var result = encyclopediaPageVM.GetName();
 ### GetNavigationBarURL
 `public virtual string GetNavigationBarURL()`
 
-**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
+**Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageVM from the subsystem API first
@@ -57,7 +57,7 @@ var result = encyclopediaPageVM.GetNavigationBarURL();
 ### Refresh
 `public virtual void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageVM from the subsystem API first
@@ -68,7 +68,7 @@ encyclopediaPageVM.Refresh();
 ### OnTick
 `public virtual void OnTick()`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageVM from the subsystem API first
@@ -79,7 +79,7 @@ encyclopediaPageVM.OnTick();
 ### ExecuteSwitchBookmarkedState
 `public virtual void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch bookmarked state.
+**Purpose:** Runs the operation or workflow associated with switch bookmarked state.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageVM from the subsystem API first

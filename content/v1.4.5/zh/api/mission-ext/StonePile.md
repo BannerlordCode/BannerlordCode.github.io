@@ -32,7 +32,7 @@ description: "StonePile 的自动生成类参考。"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
+**用途 / Purpose:** 从当前实例读取from network相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -43,7 +43,7 @@ var result = stonePile.ReadFromNetwork(bufferReadValid);
 ### CanUseAttackEntity
 `public bool CanUseAttackEntity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 use attack entity 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 use attack entity 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -54,7 +54,7 @@ var result = stonePile.CanUseAttackEntity();
 ### SetAmmo
 `public void SetAmmo(int ammoLeft)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -65,7 +65,7 @@ stonePile.SetAmmo(0);
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -76,7 +76,7 @@ stonePile.AfterMissionStart();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -87,7 +87,7 @@ var result = stonePile.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -98,7 +98,7 @@ var result = stonePile.GetDescriptionText(gameEntity);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -109,7 +109,7 @@ var result = stonePile.CreateAIBehaviorObject();
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 in range to check alternative points 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 in range to check alternative points 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -120,7 +120,7 @@ var result = stonePile.IsInRangeToCheckAlternativePoints(agent);
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best point alternative to 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 best point alternative to 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -131,7 +131,7 @@ var result = stonePile.GetBestPointAlternativeTo(standingPoint, agent);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例
@@ -142,7 +142,7 @@ var result = stonePile.GetTickRequirement();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to network写入目标位置。
+**用途 / Purpose:** 将to network写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 StonePile 实例

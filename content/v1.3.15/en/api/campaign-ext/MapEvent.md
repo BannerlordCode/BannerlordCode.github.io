@@ -69,7 +69,7 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### BeginWait
 `public void BeginWait()`
 
-**Purpose:** **Purpose:** Executes the BeginWait logic.
+**Purpose:** Executes the BeginWait logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -80,7 +80,7 @@ mapEvent.BeginWait();
 ### GetMapEventSide
 `public MapEventSide GetMapEventSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the map event side value held by the this instance.
+**Purpose:** Reads and returns the map event side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -91,7 +91,7 @@ var result = mapEvent.GetMapEventSide(side);
 ### PartiesOnSide
 `public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Executes the PartiesOnSide logic.
+**Purpose:** Executes the PartiesOnSide logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -102,7 +102,7 @@ var result = mapEvent.PartiesOnSide(side);
 ### GetBattleRewards
 `public void GetBattleRewards(PartyBase party, out float renownChange, out float influenceChange, out float moraleChange, out float goldChange, out float playerEarnedLootPercentage)`
 
-**Purpose:** **Purpose:** Reads and returns the battle rewards value held by the this instance.
+**Purpose:** Reads and returns the battle rewards value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -113,7 +113,7 @@ mapEvent.GetBattleRewards(party, renownChange, influenceChange, moraleChange, go
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -124,7 +124,7 @@ var result = mapEvent.ToString();
 ### GetNumberOfInvolvedMen
 `public int GetNumberOfInvolvedMen()`
 
-**Purpose:** **Purpose:** Reads and returns the number of involved men value held by the this instance.
+**Purpose:** Reads and returns the number of involved men value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -135,7 +135,7 @@ var result = mapEvent.GetNumberOfInvolvedMen();
 ### GetNumberOfInvolvedMen
 `public int GetNumberOfInvolvedMen(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the number of involved men value held by the this instance.
+**Purpose:** Reads and returns the number of involved men value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -146,7 +146,7 @@ var result = mapEvent.GetNumberOfInvolvedMen(side);
 ### FinishBattleAndKeepSiegeEvent
 `public void FinishBattleAndKeepSiegeEvent()`
 
-**Purpose:** **Purpose:** Concludes the battle and keep siege event flow and performs any cleanup.
+**Purpose:** Concludes the battle and keep siege event flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -157,7 +157,7 @@ mapEvent.FinishBattleAndKeepSiegeEvent();
 ### SimulateBattleSetup
 `public void SimulateBattleSetup(FlattenedTroopRoster priorTroops)`
 
-**Purpose:** **Purpose:** Executes the SimulateBattleSetup logic.
+**Purpose:** Executes the SimulateBattleSetup logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -168,7 +168,7 @@ mapEvent.SimulateBattleSetup(priorTroops);
 ### SimulateBattleRound
 `public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)`
 
-**Purpose:** **Purpose:** Executes the SimulateBattleRound logic.
+**Purpose:** Executes the SimulateBattleRound logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -179,7 +179,7 @@ mapEvent.SimulateBattleRound(0, 0);
 ### SetOverrideWinner
 `public void SetOverrideWinner(BattleSideEnum winner)`
 
-**Purpose:** **Purpose:** Assigns a new value to override winner and updates the object's internal state.
+**Purpose:** Assigns a new value to override winner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -190,7 +190,7 @@ mapEvent.SetOverrideWinner(winner);
 ### SetDefenderPulledBack
 `public void SetDefenderPulledBack()`
 
-**Purpose:** **Purpose:** Assigns a new value to defender pulled back and updates the object's internal state.
+**Purpose:** Assigns a new value to defender pulled back and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -201,7 +201,7 @@ mapEvent.SetDefenderPulledBack();
 ### ResetBattleState
 `public void ResetBattleState()`
 
-**Purpose:** **Purpose:** Returns battle state to its default or initial condition.
+**Purpose:** Returns battle state to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -212,7 +212,7 @@ mapEvent.ResetBattleState();
 ### IsPlayerSergeant
 `public bool IsPlayerSergeant()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player sergeant state or condition.
+**Purpose:** Determines whether the this instance is in the player sergeant state or condition.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -223,7 +223,7 @@ var result = mapEvent.IsPlayerSergeant();
 ### FinalizeEvent
 `public void FinalizeEvent()`
 
-**Purpose:** **Purpose:** Executes the FinalizeEvent logic.
+**Purpose:** Executes the FinalizeEvent logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -234,7 +234,7 @@ mapEvent.FinalizeEvent();
 ### HasTroopsOnBothSides
 `public bool HasTroopsOnBothSides()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds troops on both sides.
+**Purpose:** Determines whether the this instance already holds troops on both sides.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -245,7 +245,7 @@ var result = mapEvent.HasTroopsOnBothSides();
 ### GetLeaderParty
 `public PartyBase GetLeaderParty(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the leader party value held by the this instance.
+**Purpose:** Reads and returns the leader party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -256,7 +256,7 @@ var result = mapEvent.GetLeaderParty(side);
 ### GetRenownValue
 `public float GetRenownValue(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the renown value value held by the this instance.
+**Purpose:** Reads and returns the renown value value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -267,7 +267,7 @@ var result = mapEvent.GetRenownValue(side);
 ### RecalculateRenownAndInfluenceValues
 `public void RecalculateRenownAndInfluenceValues(PartyBase party)`
 
-**Purpose:** **Purpose:** Recalculates renown and influence values to reflect the latest state.
+**Purpose:** Recalculates renown and influence values to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -278,7 +278,7 @@ mapEvent.RecalculateRenownAndInfluenceValues(party);
 ### RecalculateStrengthOfSides
 `public void RecalculateStrengthOfSides()`
 
-**Purpose:** **Purpose:** Recalculates strength of sides to reflect the latest state.
+**Purpose:** Recalculates strength of sides to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -289,7 +289,7 @@ mapEvent.RecalculateStrengthOfSides();
 ### DoSurrender
 `public void DoSurrender(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Executes the DoSurrender logic.
+**Purpose:** Executes the DoSurrender logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -300,7 +300,7 @@ mapEvent.DoSurrender(side);
 ### EndByRunAway
 `public void EndByRunAway()`
 
-**Purpose:** **Purpose:** Executes the EndByRunAway logic.
+**Purpose:** Executes the EndByRunAway logic.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -311,7 +311,7 @@ mapEvent.EndByRunAway();
 ### GetOtherSide
 `public BattleSideEnum GetOtherSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the other side value held by the this instance.
+**Purpose:** Reads and returns the other side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -322,7 +322,7 @@ var result = mapEvent.GetOtherSide(side);
 ### CanPartyJoinBattle
 `public bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party join battle.
+**Purpose:** Checks whether the this instance meets the preconditions for party join battle.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -333,7 +333,7 @@ var result = mapEvent.CanPartyJoinBattle(party, side);
 ### GetStrengthsRelativeToParty
 `public void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)`
 
-**Purpose:** **Purpose:** Reads and returns the strengths relative to party value held by the this instance.
+**Purpose:** Reads and returns the strengths relative to party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -344,7 +344,7 @@ mapEvent.GetStrengthsRelativeToParty(partySide, partySideStrength, opposingSideS
 ### CheckIfBattleShouldContinueAfterBattleMission
 `public bool CheckIfBattleShouldContinueAfterBattleMission(CampaignBattleResult campaignBattleResult)`
 
-**Purpose:** **Purpose:** Verifies whether if battle should continue after battle mission holds true for the this instance.
+**Purpose:** Verifies whether if battle should continue after battle mission holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -355,7 +355,7 @@ var result = mapEvent.CheckIfBattleShouldContinueAfterBattleMission(campaignBatt
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**Purpose:** **Purpose:** Assigns a new value to position after map change and updates the object's internal state.
+**Purpose:** Assigns a new value to position after map change and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first
@@ -366,7 +366,7 @@ mapEvent.SetPositionAfterMapChange(newPosition);
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** **Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
+**Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MapEvent from the subsystem API first

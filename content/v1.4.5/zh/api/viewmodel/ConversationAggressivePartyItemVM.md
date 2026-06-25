@@ -31,7 +31,7 @@ description: "ConversationAggressivePartyItemVM 的自动生成类参考。"
 ### ExecuteShowPartyTooltip
 `public void ExecuteShowPartyTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 show party tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 show party tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationAggressivePartyItemVM 实例
@@ -42,7 +42,7 @@ conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationAggressivePartyItemVM 实例

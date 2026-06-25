@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
@@ -57,7 +57,7 @@ weaponDesignResultPopupVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
@@ -68,7 +68,7 @@ weaponDesignResultPopupVM.OnFinalize();
 ### ExecuteFinalizeCrafting
 `public void ExecuteFinalizeCrafting()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with finalize crafting.
+**Purpose:** Runs the operation or workflow associated with finalize crafting.
 
 ```csharp
 // Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
@@ -79,7 +79,7 @@ weaponDesignResultPopupVM.ExecuteFinalizeCrafting();
 ### ExecuteRandomCraftName
 `public void ExecuteRandomCraftName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with random craft name.
+**Purpose:** Runs the operation or workflow associated with random craft name.
 
 ```csharp
 // Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
@@ -90,7 +90,7 @@ weaponDesignResultPopupVM.ExecuteRandomCraftName();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first

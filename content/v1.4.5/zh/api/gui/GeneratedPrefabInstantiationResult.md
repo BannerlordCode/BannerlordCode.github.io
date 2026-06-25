@@ -29,7 +29,7 @@ description: "GeneratedPrefabInstantiationResult 的自动生成类参考。"
 ### AddData
 `public void AddData(string tag, object data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedPrefabInstantiationResult 实例
@@ -40,7 +40,7 @@ generatedPrefabInstantiationResult.AddData("example", data);
 ### GetExtensionData
 `public object GetExtensionData(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 extension data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 extension data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedPrefabInstantiationResult 实例

@@ -29,7 +29,7 @@ description: "MatchmakingWaitTimeRegionStats 的自动生成类参考。"
 ### SetGameTypeAverage
 `public void SetGameTypeAverage(string gameType, WaitTimeStatType statType, int average)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 game type average 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 game type average 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例
@@ -40,7 +40,7 @@ matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
 ### HasStatsForGameType
 `public bool HasStatsForGameType(string gameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 stats for game type。
+**用途 / Purpose:** 判断当前对象是否已经持有 stats for game type。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例
@@ -51,7 +51,7 @@ var result = matchmakingWaitTimeRegionStats.HasStatsForGameType("example");
 ### GetWaitTime
 `public int GetWaitTime(string gameType, WaitTimeStatType statType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 wait time 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 wait time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例

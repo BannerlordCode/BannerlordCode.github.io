@@ -23,7 +23,7 @@ Treat `MessageManager` as a Manager-style extension point: first identify who cr
 ### DisplayMessage
 `public static void DisplayMessage(string message)`
 
-**Purpose:** **Purpose:** Executes the DisplayMessage logic.
+**Purpose:** Executes the DisplayMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MessageManager.DisplayMessage("example");
 ### DisplayMessage
 `public static void DisplayMessage(string message, uint color)`
 
-**Purpose:** **Purpose:** Executes the DisplayMessage logic.
+**Purpose:** Executes the DisplayMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MessageManager.DisplayMessage("example", 0);
 ### DisplayDebugMessage
 `public static void DisplayDebugMessage(string message)`
 
-**Purpose:** **Purpose:** Executes the DisplayDebugMessage logic.
+**Purpose:** Executes the DisplayDebugMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MessageManager.DisplayDebugMessage("example");
 ### DisplayMultilineMessage
 `public static void DisplayMultilineMessage(string message, uint color)`
 
-**Purpose:** **Purpose:** Executes the DisplayMultilineMessage logic.
+**Purpose:** Executes the DisplayMultilineMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MessageManager.DisplayMultilineMessage("example", 0);
 ### EraseMessageLines
 `public static void EraseMessageLines()`
 
-**Purpose:** **Purpose:** Executes the EraseMessageLines logic.
+**Purpose:** Executes the EraseMessageLines logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MessageManager.EraseMessageLines();
 ### SetMessageManager
 `public static void SetMessageManager(MessageManagerBase messageManager)`
 
-**Purpose:** **Purpose:** Assigns a new value to message manager and updates the object's internal state.
+**Purpose:** Assigns a new value to message manager and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

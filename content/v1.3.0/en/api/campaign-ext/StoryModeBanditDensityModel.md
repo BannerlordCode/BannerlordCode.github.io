@@ -37,7 +37,7 @@ Treat `StoryModeBanditDensityModel` as a Model-style extension point: first iden
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
@@ -48,7 +48,7 @@ var result = storyModeBanditDensityModel.GetMaximumTroopCountForHideoutMission(p
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
+**Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
 
 ```csharp
 // Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
@@ -59,7 +59,7 @@ var result = storyModeBanditDensityModel.IsPositionInsideNavalSafeZone(position)
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
+**Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
@@ -70,7 +70,7 @@ var result = storyModeBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(c
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBanditDensityModel from the subsystem API first

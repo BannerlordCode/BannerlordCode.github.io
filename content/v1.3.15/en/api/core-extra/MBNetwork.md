@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public static void Initialize(INetworkCommunication networkCommunication)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required

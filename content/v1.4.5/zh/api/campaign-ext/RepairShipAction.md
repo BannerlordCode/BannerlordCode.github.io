@@ -19,7 +19,7 @@ RepairShipAction 是一组静态方法，用于在战役中以特定原因触发
 public static void Apply(Ship ship, Settlement repairPort)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ### ApplyForFree
 
@@ -27,7 +27,7 @@ public static void Apply(Ship ship, Settlement repairPort)
 public static void ApplyForFree(Ship ship)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for free 的效果应用到当前对象。
+**用途 / Purpose:** 将 for free 的效果应用到当前对象。
 
 ### ApplyForBanditShip
 
@@ -35,7 +35,7 @@ public static void ApplyForFree(Ship ship)
 public static void ApplyForBanditShip(Ship ship)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for bandit ship 的效果应用到当前对象。
+**用途 / Purpose:** 将 for bandit ship 的效果应用到当前对象。
 
 ## 使用示例
 

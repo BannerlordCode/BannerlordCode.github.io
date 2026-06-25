@@ -33,7 +33,7 @@ description: "GraphicsContext 的自动生成类参考。"
 ### CreateContext
 `public void CreateContext(ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 context 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 context 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -44,7 +44,7 @@ graphicsContext.CreateContext(resourceDepot);
 ### SetActive
 `public void SetActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -55,7 +55,7 @@ graphicsContext.SetActive();
 ### BeginFrame
 `public void BeginFrame(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFrame 对应的操作。
+**用途 / Purpose:** 调用 BeginFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -66,7 +66,7 @@ graphicsContext.BeginFrame(0, 0);
 ### SwapBuffers
 `public void SwapBuffers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwapBuffers 对应的操作。
+**用途 / Purpose:** 调用 SwapBuffers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -77,7 +77,7 @@ graphicsContext.SwapBuffers();
 ### DestroyContext
 `public void DestroyContext()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DestroyContext 对应的操作。
+**用途 / Purpose:** 调用 DestroyContext 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -88,7 +88,7 @@ graphicsContext.DestroyContext();
 ### SetScissor
 `public void SetScissor(ScissorTestInfo scissorTestInfo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scissor 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scissor 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -99,7 +99,7 @@ graphicsContext.SetScissor(scissorTestInfo);
 ### ResetScissor
 `public void ResetScissor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 scissor 重置回默认或初始状态。
+**用途 / Purpose:** 将 scissor 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -110,7 +110,7 @@ graphicsContext.ResetScissor();
 ### GetOrLoadShader
 `public Shader GetOrLoadShader(string shaderName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 or load shader 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 or load shader 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -121,7 +121,7 @@ var result = graphicsContext.GetOrLoadShader("example");
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawImage 对应的操作。
+**用途 / Purpose:** 调用 DrawImage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -132,7 +132,7 @@ graphicsContext.DrawImage(material, drawObject);
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawText 对应的操作。
+**用途 / Purpose:** 调用 DrawText 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -143,7 +143,7 @@ graphicsContext.DrawText(material, drawObject);
 ### DrawPolygon
 `public void DrawPolygon(PrimitivePolygonMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawPolygon 对应的操作。
+**用途 / Purpose:** 调用 DrawPolygon 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -154,7 +154,7 @@ graphicsContext.DrawPolygon(material, drawObject);
 ### LoadTextureUsing
 `public void LoadTextureUsing(OpenGLTexture texture, ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 texture using。
+**用途 / Purpose:** 从持久化存储或流中读取 texture using。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -165,7 +165,7 @@ graphicsContext.LoadTextureUsing(texture, resourceDepot, "example");
 ### LoadTexture
 `public OpenGLTexture LoadTexture(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 texture。
+**用途 / Purpose:** 从持久化存储或流中读取 texture。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -176,7 +176,7 @@ var result = graphicsContext.LoadTexture(resourceDepot, "example");
 ### GetTexture
 `public OpenGLTexture GetTexture(string textureName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -187,7 +187,7 @@ var result = graphicsContext.GetTexture("example");
 ### SetBlending
 `public void SetBlending(bool enable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 blending 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 blending 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -198,7 +198,7 @@ graphicsContext.SetBlending(false);
 ### SetVertexArrayClientState
 `public void SetVertexArrayClientState(bool enable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vertex array client state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vertex array client state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -209,7 +209,7 @@ graphicsContext.SetVertexArrayClientState(false);
 ### SetTextureCoordArrayClientState
 `public void SetTextureCoordArrayClientState(bool enable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 texture coord array client state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 texture coord array client state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例

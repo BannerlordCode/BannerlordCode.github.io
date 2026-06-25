@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### SetSuccessful
 `public void SetSuccessful(bool successful, string successfulReason)`
 
-**Purpose:** **Purpose:** Assigns a new value to successful and updates the object's internal state.
+**Purpose:** Assigns a new value to successful and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RestResponse from the subsystem API first
@@ -44,7 +44,7 @@ restResponse.SetSuccessful(false, "example");
 ### Create
 `public static RestResponse Create(bool successful, string successfulReason)`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ RestResponse.Create(false, "example");
 ### TryDequeueMessage
 `public RestResponseMessage TryDequeueMessage()`
 
-**Purpose:** **Purpose:** Attempts to retrieve dequeue message, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve dequeue message, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of RestResponse from the subsystem API first
@@ -65,7 +65,7 @@ var result = restResponse.TryDequeueMessage();
 ### ClearMessageQueue
 `public void ClearMessageQueue()`
 
-**Purpose:** **Purpose:** Removes all message queue from the this instance.
+**Purpose:** Removes all message queue from the this instance.
 
 ```csharp
 // Obtain an instance of RestResponse from the subsystem API first
@@ -76,7 +76,7 @@ restResponse.ClearMessageQueue();
 ### EnqueueMessage
 `public void EnqueueMessage(RestResponseMessage message)`
 
-**Purpose:** **Purpose:** Executes the EnqueueMessage logic.
+**Purpose:** Executes the EnqueueMessage logic.
 
 ```csharp
 // Obtain an instance of RestResponse from the subsystem API first

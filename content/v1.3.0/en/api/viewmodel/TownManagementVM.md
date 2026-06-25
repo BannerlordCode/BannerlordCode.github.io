@@ -56,7 +56,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TownManagementVM from the subsystem API first
@@ -67,7 +67,7 @@ townManagementVM.RefreshValues();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of TownManagementVM from the subsystem API first
@@ -78,7 +78,7 @@ townManagementVM.ExecuteDone();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of TownManagementVM from the subsystem API first
@@ -89,7 +89,7 @@ townManagementVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TownManagementVM from the subsystem API first

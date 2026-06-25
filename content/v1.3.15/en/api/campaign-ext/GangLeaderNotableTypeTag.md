@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the applicable to state or condition.
+**Purpose:** Determines whether the this instance is in the applicable to state or condition.
 
 ```csharp
 // Obtain an instance of GangLeaderNotableTypeTag from the subsystem API first

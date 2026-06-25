@@ -30,7 +30,7 @@ description: "FamilyFeudIssueQuest 的自动生成类参考。"
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can be selected in inventory info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can be selected in inventory info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -41,7 +41,7 @@ familyFeudIssueQuest.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result)
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can have party role or be governor info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can have party role or be governor info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -52,7 +52,7 @@ familyFeudIssueQuest.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, res
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can lead party info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can lead party info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -63,7 +63,7 @@ familyFeudIssueQuest.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -74,7 +74,7 @@ familyFeudIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### OnMissionStarted
 `public void OnMissionStarted(IMission iMission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission started 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -85,7 +85,7 @@ familyFeudIssueQuest.OnMissionStarted(iMission);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 settlement left 事件触发时调用此回调。
+**用途 / Purpose:** 在 settlement left 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例
@@ -96,7 +96,7 @@ familyFeudIssueQuest.OnSettlementLeft(party, settlement);
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before mission opened 事件触发时调用此回调。
+**用途 / Purpose:** 在 before mission opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FamilyFeudIssueQuest 实例

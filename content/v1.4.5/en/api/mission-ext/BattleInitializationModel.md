@@ -29,7 +29,7 @@ Treat `BattleInitializationModel` as a Model-style extension point: first identi
 ### GetAllAvailableTroopTypes
 `public abstract List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** **Purpose:** Reads and returns the all available troop types value held by the this instance.
+**Purpose:** Reads and returns the all available troop types value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleInitializationModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = battleInitializationModel.GetAllAvailableTroopTypes();
 ### CanPlayerSideDeployWithOrderOfBattle
 `public bool CanPlayerSideDeployWithOrderOfBattle()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player side deploy with order of battle.
+**Purpose:** Checks whether the this instance meets the preconditions for player side deploy with order of battle.
 
 ```csharp
 // Obtain an instance of BattleInitializationModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = battleInitializationModel.CanPlayerSideDeployWithOrderOfBattle();
 ### InitializeModel
 `public void InitializeModel()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by model.
+**Purpose:** Prepares the resources, state, or bindings required by model.
 
 ```csharp
 // Obtain an instance of BattleInitializationModel from the subsystem API first
@@ -62,7 +62,7 @@ battleInitializationModel.InitializeModel();
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**Purpose:** **Purpose:** Executes the FinalizeModel logic.
+**Purpose:** Executes the FinalizeModel logic.
 
 ```csharp
 // Obtain an instance of BattleInitializationModel from the subsystem API first
@@ -73,7 +73,7 @@ battleInitializationModel.FinalizeModel();
 ### SetBypassPlayerDeployment
 `public static void SetBypassPlayerDeployment(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to bypass player deployment and updates the object's internal state.
+**Purpose:** Assigns a new value to bypass player deployment and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

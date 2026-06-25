@@ -23,7 +23,7 @@ Treat `SimpleMountedPlayerMissionController` as a Controller-style extension poi
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
@@ -34,7 +34,7 @@ simpleMountedPlayerMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
@@ -45,7 +45,7 @@ simpleMountedPlayerMissionController.AfterStart();
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** **Purpose:** Executes the MissionEnded logic.
+**Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first

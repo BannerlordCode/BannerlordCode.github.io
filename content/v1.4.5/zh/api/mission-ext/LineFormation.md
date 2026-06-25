@@ -34,7 +34,7 @@ description: "LineFormation 的自动生成类参考。"
 ### GetFileCountFromWidth
 `public int GetFileCountFromWidth(float width)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 file count from width 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 file count from width 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -45,7 +45,7 @@ var result = lineFormation.GetFileCountFromWidth(0);
 ### Clone
 `public virtual IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -56,7 +56,7 @@ var result = lineFormation.Clone(formation);
 ### DeepCopyFrom
 `public virtual void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeepCopyFrom 对应的操作。
+**用途 / Purpose:** 调用 DeepCopyFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -67,7 +67,7 @@ lineFormation.DeepCopyFrom(arrangement);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -78,7 +78,7 @@ lineFormation.Reset();
 ### IsUnitPositionAvailable
 `public bool IsUnitPositionAvailable(int fileIndex, int rankIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 unit position available 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 unit position available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -89,7 +89,7 @@ var result = lineFormation.IsUnitPositionAvailable(0, 0);
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local position of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local position of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -100,7 +100,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefault(0);
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -111,7 +111,7 @@ var result = lineFormation.GetLocalDirectionOfUnitOrDefault(0);
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 world position of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 world position of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -122,7 +122,7 @@ var result = lineFormation.GetWorldPositionOfUnitOrDefault(0);
 ### GetUnavailableUnitPositions
 `public IEnumerable<Vec2> GetUnavailableUnitPositions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unavailable unit positions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unavailable unit positions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -133,7 +133,7 @@ var result = lineFormation.GetUnavailableUnitPositions();
 ### AddUnit
 `public bool AddUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 unit 添加到当前容器或状态中。
+**用途 / Purpose:** 将 unit 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -144,7 +144,7 @@ var result = lineFormation.AddUnit(unit);
 ### RemoveUnit
 `public void RemoveUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 unit。
+**用途 / Purpose:** 从当前容器或状态中移除 unit。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -155,7 +155,7 @@ lineFormation.RemoveUnit(unit);
 ### GetUnit
 `public IFormationUnit GetUnit(int fileIndex, int rankIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -166,7 +166,7 @@ var result = lineFormation.GetUnit(0, 0);
 ### OnBatchRemoveStart
 `public void OnBatchRemoveStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 batch remove start 事件触发时调用此回调。
+**用途 / Purpose:** 在 batch remove start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -177,7 +177,7 @@ lineFormation.OnBatchRemoveStart();
 ### OnBatchRemoveEnd
 `public void OnBatchRemoveEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 batch remove end 事件触发时调用此回调。
+**用途 / Purpose:** 在 batch remove end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -188,7 +188,7 @@ lineFormation.OnBatchRemoveEnd();
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 units to pop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 units to pop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -199,7 +199,7 @@ var result = lineFormation.GetUnitsToPop(0);
 ### GetUnitsToPopWithCondition
 `public IEnumerable<IFormationUnit> GetUnitsToPopWithCondition(int count, Func<IFormationUnit, bool> currentCondition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 units to pop with condition 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 units to pop with condition 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -210,7 +210,7 @@ var result = lineFormation.GetUnitsToPopWithCondition(0, func<IFormationUnit, fa
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count, Vec3 targetPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 units to pop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 units to pop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -221,7 +221,7 @@ var result = lineFormation.GetUnitsToPop(0, targetPosition);
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local position of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local position of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -232,7 +232,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefault(unit);
 ### GetLocalPositionOfUnitOrDefaultWithAdjustment
 `public Vec2? GetLocalPositionOfUnitOrDefaultWithAdjustment(IFormationUnit unit, float distanceBetweenAgentsAdjustment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local position of unit or default with adjustment 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local position of unit or default with adjustment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -243,7 +243,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefaultWithAdjustment(unit, 0
 ### GetLocalDirectionOfUnitOrDefault
 `public virtual Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -254,7 +254,7 @@ var result = lineFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 world position of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 world position of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -265,7 +265,7 @@ var result = lineFormation.GetWorldPositionOfUnitOrDefault(unit);
 ### GetPlayerUnit
 `public IFormationUnit GetPlayerUnit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player unit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player unit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -276,7 +276,7 @@ var result = lineFormation.GetPlayerUnit();
 ### GetAllUnits
 `public MBReadOnlyList<IFormationUnit> GetAllUnits()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all units 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all units 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -287,7 +287,7 @@ var result = lineFormation.GetAllUnits();
 ### GetAllUnits
 `public void GetAllUnits(in MBList<IFormationUnit> allUnitsListToBeFilledIn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all units 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all units 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -298,7 +298,7 @@ lineFormation.GetAllUnits(allUnitsListToBeFilledIn);
 ### GetUnpositionedUnits
 `public MBList<IFormationUnit> GetUnpositionedUnits()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unpositioned units 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unpositioned units 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -309,7 +309,7 @@ var result = lineFormation.GetUnpositionedUnits();
 ### GetLocalDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local direction of relative formation location 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local direction of relative formation location 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -320,7 +320,7 @@ var result = lineFormation.GetLocalDirectionOfRelativeFormationLocation(unit);
 ### GetLocalWallDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalWallDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local wall direction of relative formation location 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local wall direction of relative formation location 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -331,7 +331,7 @@ var result = lineFormation.GetLocalWallDirectionOfRelativeFormationLocation(unit
 ### GetFormationInfo
 `public void GetFormationInfo(out int fileCount, out int rankCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation info 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 formation info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -342,7 +342,7 @@ lineFormation.GetFormationInfo(fileCount, rankCount);
 ### GetUnitsDistanceToFrontLine
 `public float GetUnitsDistanceToFrontLine(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 units distance to front line 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 units distance to front line 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -353,7 +353,7 @@ var result = lineFormation.GetUnitsDistanceToFrontLine(unit);
 ### GetNeighborUnitOfLeftSide
 `public IFormationUnit GetNeighborUnitOfLeftSide(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbor unit of left side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 neighbor unit of left side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -364,7 +364,7 @@ var result = lineFormation.GetNeighborUnitOfLeftSide(unit);
 ### GetNeighborUnitOfRightSide
 `public IFormationUnit GetNeighborUnitOfRightSide(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbor unit of right side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 neighbor unit of right side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -375,7 +375,7 @@ var result = lineFormation.GetNeighborUnitOfRightSide(unit);
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchUnitLocationsWithUnpositionedUnit 对应的操作。
+**用途 / Purpose:** 调用 SwitchUnitLocationsWithUnpositionedUnit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -386,7 +386,7 @@ lineFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchUnitLocations 对应的操作。
+**用途 / Purpose:** 调用 SwitchUnitLocations 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -397,7 +397,7 @@ lineFormation.SwitchUnitLocations(firstUnit, secondUnit);
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchUnitLocationsWithBackMostUnit 对应的操作。
+**用途 / Purpose:** 调用 SwitchUnitLocationsWithBackMostUnit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -408,7 +408,7 @@ lineFormation.SwitchUnitLocationsWithBackMostUnit(unit);
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeforeFormationFrameChange 对应的操作。
+**用途 / Purpose:** 调用 BeforeFormationFrameChange 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -419,7 +419,7 @@ lineFormation.BeforeFormationFrameChange();
 ### BatchUnitPositionAvailabilities
 `public void BatchUnitPositionAvailabilities(bool isUpdatingCachedOrderedLocalPositions = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BatchUnitPositionAvailabilities 对应的操作。
+**用途 / Purpose:** 调用 BatchUnitPositionAvailabilities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -430,7 +430,7 @@ lineFormation.BatchUnitPositionAvailabilities(false);
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(bool updateCachedOrderedLocalPositions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 formation frame changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 formation frame changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -441,7 +441,7 @@ lineFormation.OnFormationFrameChanged(false);
 ### UpdateLocalPositionErrors
 `public void UpdateLocalPositionErrors(bool recalculateErrors)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 local position errors 的最新表示。
+**用途 / Purpose:** 重新计算并更新 local position errors 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -452,7 +452,7 @@ lineFormation.UpdateLocalPositionErrors(false);
 ### OnFormationDispersed
 `public void OnFormationDispersed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 formation dispersed 事件触发时调用此回调。
+**用途 / Purpose:** 在 formation dispersed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -463,7 +463,7 @@ lineFormation.OnFormationDispersed();
 ### OnUnitLostMount
 `public void OnUnitLostMount(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 unit lost mount 事件触发时调用此回调。
+**用途 / Purpose:** 在 unit lost mount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -474,7 +474,7 @@ lineFormation.OnUnitLostMount(unit);
 ### IsTurnBackwardsNecessary
 `public bool IsTurnBackwardsNecessary(Vec2 previousPosition, WorldPosition? newPosition, Vec2 previousDirection, bool hasNewDirection, Vec2? newDirection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 turn backwards necessary 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 turn backwards necessary 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -485,7 +485,7 @@ var result = lineFormation.IsTurnBackwardsNecessary(previousPosition, newPositio
 ### TurnBackwards
 `public virtual void TurnBackwards()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TurnBackwards 对应的操作。
+**用途 / Purpose:** 调用 TurnBackwards 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -496,7 +496,7 @@ lineFormation.TurnBackwards();
 ### GetOccupationWidth
 `public float GetOccupationWidth(int unitCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 occupation width 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 occupation width 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -507,7 +507,7 @@ var result = lineFormation.GetOccupationWidth(0);
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateCacheOfUnitAux 对应的操作。
+**用途 / Purpose:** 调用 InvalidateCacheOfUnitAux 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -518,7 +518,7 @@ lineFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
 ### CreateNewPosition
 `public Vec2? CreateNewPosition(int unitIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new position 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 new position 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -529,7 +529,7 @@ var result = lineFormation.CreateNewPosition(0);
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RearrangeFrom 对应的操作。
+**用途 / Purpose:** 调用 RearrangeFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -540,7 +540,7 @@ lineFormation.RearrangeFrom(arrangement);
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RearrangeTo 对应的操作。
+**用途 / Purpose:** 调用 RearrangeTo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -551,7 +551,7 @@ lineFormation.RearrangeTo(arrangement);
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RearrangeTransferUnits 对应的操作。
+**用途 / Purpose:** 调用 RearrangeTransferUnits 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -562,7 +562,7 @@ lineFormation.RearrangeTransferUnits(arrangement);
 ### CalculateWidth
 `public static float CalculateWidth(float interval, float unitDiameter, int unitCountOnLine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算width的当前值或结果。
+**用途 / Purpose:** 计算width的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -572,7 +572,7 @@ LineFormation.CalculateWidth(0, 0, 0);
 ### FormFromFlankWidth
 `public void FormFromFlankWidth(int unitCountOnLine, bool skipSingleFileChangesForPerformance = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FormFromFlankWidth 对应的操作。
+**用途 / Purpose:** 调用 FormFromFlankWidth 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -583,7 +583,7 @@ lineFormation.FormFromFlankWidth(0, false);
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReserveMiddleFrontUnitPosition 对应的操作。
+**用途 / Purpose:** 调用 ReserveMiddleFrontUnitPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -594,7 +594,7 @@ lineFormation.ReserveMiddleFrontUnitPosition(vanguard);
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseMiddleFrontUnitPosition 对应的操作。
+**用途 / Purpose:** 调用 ReleaseMiddleFrontUnitPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -605,7 +605,7 @@ lineFormation.ReleaseMiddleFrontUnitPosition();
 ### GetLocalPositionOfReservedUnitPosition
 `public Vec2 GetLocalPositionOfReservedUnitPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local position of reserved unit position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local position of reserved unit position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -616,7 +616,7 @@ var result = lineFormation.GetLocalPositionOfReservedUnitPosition();
 ### OnTickOccasionally
 `public void OnTickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick occasionally 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick occasionally 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -627,7 +627,7 @@ lineFormation.OnTickOccasionally();
 ### GetDirectionChangeTendencyOfUnit
 `public virtual float GetDirectionChangeTendencyOfUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 direction change tendency of unit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 direction change tendency of unit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -638,7 +638,7 @@ var result = lineFormation.GetDirectionChangeTendencyOfUnit(unit);
 ### GetCachedOrderedAndAvailableUnitPositionIndicesCount
 `public int GetCachedOrderedAndAvailableUnitPositionIndicesCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cached ordered and available unit position indices count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cached ordered and available unit position indices count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -649,7 +649,7 @@ var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndicesCount(
 ### GetCachedOrderedAndAvailableUnitPositionIndexAt
 `public Vec2i GetCachedOrderedAndAvailableUnitPositionIndexAt(int i)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cached ordered and available unit position index at 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cached ordered and available unit position index at 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -660,7 +660,7 @@ var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndexAt(0);
 ### GetGlobalPositionAtIndex
 `public WorldPosition GetGlobalPositionAtIndex(int indexX, int indexY)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global position at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 global position at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例

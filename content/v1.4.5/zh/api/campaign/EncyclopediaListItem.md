@@ -23,7 +23,7 @@ description: "EncyclopediaListItem 的自动生成类参考。"
 ### EncyclopediaListItem
 `public struct EncyclopediaListItem(object obj, string name, string description, string id, string typeName, bool playerCanSeeValues, Action onShowTooltip = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EncyclopediaListItem 对应的操作。
+**用途 / Purpose:** 调用 EncyclopediaListItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItem 实例

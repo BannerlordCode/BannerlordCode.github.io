@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateServerPeer
 `public static void CreateServerPeer()`
 
-**Purpose:** **Purpose:** Constructs a new server peer entity and returns it to the caller.
+**Purpose:** Constructs a new server peer entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ BannerlordNetwork.CreateServerPeer();
 ### StartMultiplayerLobbyMission
 `public static void StartMultiplayerLobbyMission(LobbyMissionType lobbyMissionType)`
 
-**Purpose:** **Purpose:** Starts the multiplayer lobby mission flow or state machine.
+**Purpose:** Starts the multiplayer lobby mission flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ BannerlordNetwork.StartMultiplayerLobbyMission(lobbyMissionType);
 ### EndMultiplayerLobbyMission
 `public static void EndMultiplayerLobbyMission()`
 
-**Purpose:** **Purpose:** Executes the EndMultiplayerLobbyMission logic.
+**Purpose:** Executes the EndMultiplayerLobbyMission logic.
 
 ```csharp
 // Static call; no instance required

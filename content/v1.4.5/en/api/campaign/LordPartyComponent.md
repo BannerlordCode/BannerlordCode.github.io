@@ -30,7 +30,7 @@ Treat `LordPartyComponent` as a Component-style extension point: first identify 
 ### InitializeLordPartyProperties
 `public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by lord party properties.
+**Purpose:** Prepares the resources, state, or bindings required by lord party properties.
 
 ```csharp
 // Obtain an instance of LordPartyComponent from the subsystem API first
@@ -41,7 +41,7 @@ lordPartyComponent.InitializeLordPartyProperties(mobileParty, owner);
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** **Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
+**Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LordPartyComponent from the subsystem API first
@@ -52,7 +52,7 @@ lordPartyComponent.SetWagePaymentLimit(0);
 ### CreateLordParty
 `public static MobileParty CreateLordParty(string stringId, Hero hero, CampaignVec2 position, float spawnRadius, Settlement spawnSettlement, Hero partyLeader)`
 
-**Purpose:** **Purpose:** Constructs a new lord party entity and returns it to the caller.
+**Purpose:** Constructs a new lord party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ LordPartyComponent.CreateLordParty("example", hero, position, 0, spawnSettlement
 ### ConvertPartyToLordParty
 `public static void ConvertPartyToLordParty(MobileParty mobileParty, Hero owner, Hero partyLeader)`
 
-**Purpose:** **Purpose:** Converts party to lord party into another representation or type.
+**Purpose:** Converts party to lord party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -72,7 +72,7 @@ LordPartyComponent.ConvertPartyToLordParty(mobileParty, owner, partyLeader);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** **Purpose:** Removes all cached name from the this instance.
+**Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of LordPartyComponent from the subsystem API first

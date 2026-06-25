@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Create
 `public static IntegerValue Create()`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ MultiplayerOptions.Create();
 ### UpdateValue
 `public void UpdateValue(int value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -53,7 +53,7 @@ multiplayerOptions.UpdateValue(0);
 ### Create
 `public static StringValue Create()`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MultiplayerOptions.Create();
 ### UpdateValue
 `public void UpdateValue(string value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -74,7 +74,7 @@ multiplayerOptions.UpdateValue("example");
 ### CreateMultiplayerOption
 `public static MultiplayerOption CreateMultiplayerOption(OptionType optionType)`
 
-**Purpose:** **Purpose:** Constructs a new multiplayer option entity and returns it to the caller.
+**Purpose:** Constructs a new multiplayer option entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ MultiplayerOptions.CreateMultiplayerOption(optionType);
 ### CopyMultiplayerOption
 `public static MultiplayerOption CopyMultiplayerOption(MultiplayerOption option)`
 
-**Purpose:** **Purpose:** Copies the multiplayer option state of the this instance to a target.
+**Purpose:** Copies the multiplayer option state of the this instance to a target.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ MultiplayerOptions.CopyMultiplayerOption(option);
 ### UpdateValue
 `public MultiplayerOption UpdateValue(bool value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -105,7 +105,7 @@ var result = multiplayerOptions.UpdateValue(false);
 ### UpdateValue
 `public MultiplayerOption UpdateValue(int value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -116,7 +116,7 @@ var result = multiplayerOptions.UpdateValue(0);
 ### UpdateValue
 `public MultiplayerOption UpdateValue(string value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -127,7 +127,7 @@ var result = multiplayerOptions.UpdateValue("example");
 ### GetValue
 `public void GetValue(out bool value)`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -138,7 +138,7 @@ multiplayerOptions.GetValue(value);
 ### GetValue
 `public void GetValue(out int value)`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -149,7 +149,7 @@ multiplayerOptions.GetValue(value);
 ### GetValue
 `public void GetValue(out string value)`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -160,7 +160,7 @@ multiplayerOptions.GetValue(value);
 ### GetOptionFromOptionType
 `public MultiplayerOption GetOptionFromOptionType(OptionType optionType)`
 
-**Purpose:** **Purpose:** Reads and returns the option from option type value held by the this instance.
+**Purpose:** Reads and returns the option from option type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -171,7 +171,7 @@ var result = multiplayerOptions.GetOptionFromOptionType(optionType);
 ### CreateOption
 `public void CreateOption(OptionType optionType)`
 
-**Purpose:** **Purpose:** Constructs a new option entity and returns it to the caller.
+**Purpose:** Constructs a new option entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -182,7 +182,7 @@ multiplayerOptions.CreateOption(optionType);
 ### UpdateOptionValue
 `public void UpdateOptionValue(OptionType optionType, int value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of option value.
+**Purpose:** Recalculates and stores the latest representation of option value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -193,7 +193,7 @@ multiplayerOptions.UpdateOptionValue(optionType, 0);
 ### UpdateOptionValue
 `public void UpdateOptionValue(OptionType optionType, string value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of option value.
+**Purpose:** Recalculates and stores the latest representation of option value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -204,7 +204,7 @@ multiplayerOptions.UpdateOptionValue(optionType, "example");
 ### UpdateOptionValue
 `public void UpdateOptionValue(OptionType optionType, bool value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of option value.
+**Purpose:** Recalculates and stores the latest representation of option value.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -215,7 +215,7 @@ multiplayerOptions.UpdateOptionValue(optionType, false);
 ### CopyAllValuesTo
 `public void CopyAllValuesTo(MultiplayerOptionsContainer other)`
 
-**Purpose:** **Purpose:** Copies the all values to state of the this instance to a target.
+**Purpose:** Copies the all values to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -226,7 +226,7 @@ multiplayerOptions.CopyAllValuesTo(other);
 ### Release
 `public static void Release()`
 
-**Purpose:** **Purpose:** Executes the Release logic.
+**Purpose:** Executes the Release logic.
 
 ```csharp
 // Static call; no instance required
@@ -236,7 +236,7 @@ MultiplayerOptions.Release();
 ### GetOptionFromOptionType
 `public MultiplayerOption GetOptionFromOptionType(OptionType optionType, MultiplayerOptionsAccessMode mode = MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** **Purpose:** Reads and returns the option from option type value held by the this instance.
+**Purpose:** Reads and returns the option from option type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -247,7 +247,7 @@ var result = multiplayerOptions.GetOptionFromOptionType(optionType, multiplayerO
 ### OnGameTypeChanged
 `public void OnGameTypeChanged(MultiplayerOptionsAccessMode mode = MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** **Purpose:** Invoked when the game type changed event is raised.
+**Purpose:** Invoked when the game type changed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -258,7 +258,7 @@ multiplayerOptions.OnGameTypeChanged(multiplayerOptionsAccessMode.CurrentMapOpti
 ### InitializeNextAndDefaultOptionContainers
 `public void InitializeNextAndDefaultOptionContainers()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by next and default option containers.
+**Purpose:** Prepares the resources, state, or bindings required by next and default option containers.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -269,7 +269,7 @@ multiplayerOptions.InitializeNextAndDefaultOptionContainers();
 ### GetNumberOfPlayersForGameMode
 `public int GetNumberOfPlayersForGameMode(string gameModeID)`
 
-**Purpose:** **Purpose:** Reads and returns the number of players for game mode value held by the this instance.
+**Purpose:** Reads and returns the number of players for game mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -280,7 +280,7 @@ var result = multiplayerOptions.GetNumberOfPlayersForGameMode("example");
 ### GetRoundCountForGameMode
 `public int GetRoundCountForGameMode(string gameModeID)`
 
-**Purpose:** **Purpose:** Reads and returns the round count for game mode value held by the this instance.
+**Purpose:** Reads and returns the round count for game mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -291,7 +291,7 @@ var result = multiplayerOptions.GetRoundCountForGameMode("example");
 ### GetRoundTimeLimitInMinutesForGameMode
 `public int GetRoundTimeLimitInMinutesForGameMode(string gameModeID)`
 
-**Purpose:** **Purpose:** Reads and returns the round time limit in minutes for game mode value held by the this instance.
+**Purpose:** Reads and returns the round time limit in minutes for game mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -302,7 +302,7 @@ var result = multiplayerOptions.GetRoundTimeLimitInMinutesForGameMode("example")
 ### InitializeFromCommandList
 `public void InitializeFromCommandList(List<string> arguments)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by from command list.
+**Purpose:** Prepares the resources, state, or bindings required by from command list.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -313,7 +313,7 @@ multiplayerOptions.InitializeFromCommandList(arguments);
 ### ResetDefaultsToCurrent
 `public void ResetDefaultsToCurrent()`
 
-**Purpose:** **Purpose:** Returns defaults to current to its default or initial condition.
+**Purpose:** Returns defaults to current to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -324,7 +324,7 @@ multiplayerOptions.ResetDefaultsToCurrent();
 ### GetMultiplayerOptionsTextList
 `public List<string> GetMultiplayerOptionsTextList(OptionType optionType)`
 
-**Purpose:** **Purpose:** Reads and returns the multiplayer options text list value held by the this instance.
+**Purpose:** Reads and returns the multiplayer options text list value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -335,7 +335,7 @@ var result = multiplayerOptions.GetMultiplayerOptionsTextList(optionType);
 ### GetMultiplayerOptionsList
 `public List<string> GetMultiplayerOptionsList(OptionType optionType)`
 
-**Purpose:** **Purpose:** Reads and returns the multiplayer options list value held by the this instance.
+**Purpose:** Reads and returns the multiplayer options list value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -346,7 +346,7 @@ var result = multiplayerOptions.GetMultiplayerOptionsList(optionType);
 ### InitializeAllOptionsFromNext
 `public void InitializeAllOptionsFromNext()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by all options from next.
+**Purpose:** Prepares the resources, state, or bindings required by all options from next.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -357,7 +357,7 @@ multiplayerOptions.InitializeAllOptionsFromNext();
 ### GetMapList
 `public MBList<string> GetMapList()`
 
-**Purpose:** **Purpose:** Reads and returns the map list value held by the this instance.
+**Purpose:** Reads and returns the map list value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -368,7 +368,7 @@ var result = multiplayerOptions.GetMapList();
 ### GetValueTextForOptionWithMultipleSelection
 `public string GetValueTextForOptionWithMultipleSelection(OptionType optionType)`
 
-**Purpose:** **Purpose:** Reads and returns the value text for option with multiple selection value held by the this instance.
+**Purpose:** Reads and returns the value text for option with multiple selection value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -379,7 +379,7 @@ var result = multiplayerOptions.GetValueTextForOptionWithMultipleSelection(optio
 ### SetValueForOptionWithMultipleSelectionFromText
 `public void SetValueForOptionWithMultipleSelectionFromText(OptionType optionType, string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to value for option with multiple selection from text and updates the object's internal state.
+**Purpose:** Assigns a new value to value for option with multiple selection from text and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerOptions from the subsystem API first
@@ -390,7 +390,7 @@ multiplayerOptions.SetValueForOptionWithMultipleSelectionFromText(optionType, "e
 ### TryGetOptionTypeFromString
 `public static bool TryGetOptionTypeFromString(string optionTypeString, out OptionType optionType, out MultiplayerOptionsProperty optionAttribute)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get option type from string, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get option type from string, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `BribeCalculationModel` as a Model-style extension point: first identify w
 ### GetBribeToEnterLordsHall
 `public abstract int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the bribe to enter lords hall value held by the this instance.
+**Purpose:** Reads and returns the bribe to enter lords hall value held by the this instance.
 
 ```csharp
 // Obtain an instance of BribeCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = bribeCalculationModel.GetBribeToEnterLordsHall(settlement);
 ### GetBribeToEnterDungeon
 `public abstract int GetBribeToEnterDungeon(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the bribe to enter dungeon value held by the this instance.
+**Purpose:** Reads and returns the bribe to enter dungeon value held by the this instance.
 
 ```csharp
 // Obtain an instance of BribeCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = bribeCalculationModel.GetBribeToEnterDungeon(settlement);
 ### IsBribeNotNeededToEnterKeep
 `public abstract bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the bribe not needed to enter keep state or condition.
+**Purpose:** Determines whether the this instance is in the bribe not needed to enter keep state or condition.
 
 ```csharp
 // Obtain an instance of BribeCalculationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = bribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement);
 ### IsBribeNotNeededToEnterDungeon
 `public abstract bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the bribe not needed to enter dungeon state or condition.
+**Purpose:** Determines whether the this instance is in the bribe not needed to enter dungeon state or condition.
 
 ```csharp
 // Obtain an instance of BribeCalculationModel from the subsystem API first

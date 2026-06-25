@@ -23,7 +23,7 @@ description: "ArcheryTournamentAgentController 的自动生成类参考。"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
@@ -34,7 +34,7 @@ archeryTournamentAgentController.OnInitialize();
 ### OnTick
 `public void OnTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
@@ -45,7 +45,7 @@ archeryTournamentAgentController.OnTick();
 ### SetTargets
 `public void SetTargets(List<DestructableComponent> targetList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 targets 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 targets 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
@@ -56,7 +56,7 @@ archeryTournamentAgentController.SetTargets(targetList);
 ### OnTargetHit
 `public void OnTargetHit(Agent agent, DestructableComponent target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 target hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 target hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例

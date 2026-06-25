@@ -161,7 +161,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -172,7 +172,7 @@ sPInventoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -183,7 +183,7 @@ sPInventoryVM.OnFinalize();
 ### RefreshCallbacks
 `public void RefreshCallbacks()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of callbacks in sync with the underlying state.
+**Purpose:** Keeps the display or cache of callbacks in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -194,7 +194,7 @@ sPInventoryVM.RefreshCallbacks();
 ### ExecuteShowRecap
 `public void ExecuteShowRecap()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show recap.
+**Purpose:** Runs the operation or workflow associated with show recap.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -205,7 +205,7 @@ sPInventoryVM.ExecuteShowRecap();
 ### ExecuteCancelRecap
 `public void ExecuteCancelRecap()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel recap.
+**Purpose:** Runs the operation or workflow associated with cancel recap.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -216,7 +216,7 @@ sPInventoryVM.ExecuteCancelRecap();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove zero counts.
+**Purpose:** Runs the operation or workflow associated with remove zero counts.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -227,7 +227,7 @@ sPInventoryVM.ExecuteRemoveZeroCounts();
 ### ClosePreview
 `public void ClosePreview()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with preview.
+**Purpose:** Closes the resource or UI associated with preview.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -238,7 +238,7 @@ sPInventoryVM.ClosePreview();
 ### ProcessItemTooltip
 `public void ProcessItemTooltip(ItemVM item)`
 
-**Purpose:** **Purpose:** Executes the ProcessItemTooltip logic.
+**Purpose:** Executes the ProcessItemTooltip logic.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -249,7 +249,7 @@ sPInventoryVM.ProcessItemTooltip(item);
 ### ResetSelectedItem
 `public void ResetSelectedItem()`
 
-**Purpose:** **Purpose:** Returns selected item to its default or initial condition.
+**Purpose:** Returns selected item to its default or initial condition.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -260,7 +260,7 @@ sPInventoryVM.ResetSelectedItem();
 ### RefreshComparedItem
 `public void RefreshComparedItem()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of compared item in sync with the underlying state.
+**Purpose:** Keeps the display or cache of compared item in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -271,7 +271,7 @@ sPInventoryVM.RefreshComparedItem();
 ### IsItemEquipmentPossible
 `public bool IsItemEquipmentPossible(SPItemVM itemVM)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the item equipment possible state or condition.
+**Purpose:** Determines whether the this instance is in the item equipment possible state or condition.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -282,7 +282,7 @@ var result = sPInventoryVM.IsItemEquipmentPossible(itemVM);
 ### CompareNextItem
 `public void CompareNextItem()`
 
-**Purpose:** **Purpose:** Compares two next item objects and returns an ordering result.
+**Purpose:** Compares two next item objects and returns an ordering result.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -293,7 +293,7 @@ sPInventoryVM.CompareNextItem();
 ### ExecuteSelectItem
 `public void ExecuteSelectItem(ItemVM item)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select item.
+**Purpose:** Runs the operation or workflow associated with select item.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -304,7 +304,7 @@ sPInventoryVM.ExecuteSelectItem(item);
 ### ExecuteClearSelectedItem
 `public void ExecuteClearSelectedItem()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with clear selected item.
+**Purpose:** Runs the operation or workflow associated with clear selected item.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -315,7 +315,7 @@ sPInventoryVM.ExecuteClearSelectedItem();
 ### IsAnyEquippedItemSelected
 `public bool IsAnyEquippedItemSelected()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any equipped item selected state or condition.
+**Purpose:** Determines whether the this instance is in the any equipped item selected state or condition.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -326,7 +326,7 @@ var result = sPInventoryVM.IsAnyEquippedItemSelected();
 ### ExecuteSelectStealthOutfit
 `public void ExecuteSelectStealthOutfit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select stealth outfit.
+**Purpose:** Runs the operation or workflow associated with select stealth outfit.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -337,7 +337,7 @@ sPInventoryVM.ExecuteSelectStealthOutfit();
 ### ExecuteSelectBattleOutfit
 `public void ExecuteSelectBattleOutfit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select battle outfit.
+**Purpose:** Runs the operation or workflow associated with select battle outfit.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -348,7 +348,7 @@ sPInventoryVM.ExecuteSelectBattleOutfit();
 ### ExecuteSelectCivilianOutfit
 `public void ExecuteSelectCivilianOutfit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select civilian outfit.
+**Purpose:** Runs the operation or workflow associated with select civilian outfit.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -359,7 +359,7 @@ sPInventoryVM.ExecuteSelectCivilianOutfit();
 ### ExecuteBuyAllItems
 `public void ExecuteBuyAllItems()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with buy all items.
+**Purpose:** Runs the operation or workflow associated with buy all items.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -370,7 +370,7 @@ sPInventoryVM.ExecuteBuyAllItems();
 ### ExecuteSellAllItems
 `public void ExecuteSellAllItems()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sell all items.
+**Purpose:** Runs the operation or workflow associated with sell all items.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -381,7 +381,7 @@ sPInventoryVM.ExecuteSellAllItems();
 ### ExecuteBuyItemTest
 `public void ExecuteBuyItemTest()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with buy item test.
+**Purpose:** Runs the operation or workflow associated with buy item test.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -392,7 +392,7 @@ sPInventoryVM.ExecuteBuyItemTest();
 ### ExecuteResetTranstactions
 `public void ExecuteResetTranstactions()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset transtactions.
+**Purpose:** Runs the operation or workflow associated with reset transtactions.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -403,7 +403,7 @@ sPInventoryVM.ExecuteResetTranstactions();
 ### ExecuteResetAndCompleteTranstactions
 `public void ExecuteResetAndCompleteTranstactions()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset and complete transtactions.
+**Purpose:** Runs the operation or workflow associated with reset and complete transtactions.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -414,7 +414,7 @@ sPInventoryVM.ExecuteResetAndCompleteTranstactions();
 ### ExecuteCompleteTranstactions
 `public void ExecuteCompleteTranstactions()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with complete transtactions.
+**Purpose:** Runs the operation or workflow associated with complete transtactions.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -425,7 +425,7 @@ sPInventoryVM.ExecuteCompleteTranstactions();
 ### ExecuteTransferWithParameters
 `public void ExecuteTransferWithParameters(SPItemVM item, int index, string targetTag)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with transfer with parameters.
+**Purpose:** Runs the operation or workflow associated with transfer with parameters.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -436,7 +436,7 @@ sPInventoryVM.ExecuteTransferWithParameters(item, 0, "example");
 ### ExecuteFilterNone
 `public void ExecuteFilterNone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter none.
+**Purpose:** Runs the operation or workflow associated with filter none.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -447,7 +447,7 @@ sPInventoryVM.ExecuteFilterNone();
 ### ExecuteFilterWeapons
 `public void ExecuteFilterWeapons()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter weapons.
+**Purpose:** Runs the operation or workflow associated with filter weapons.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -458,7 +458,7 @@ sPInventoryVM.ExecuteFilterWeapons();
 ### ExecuteFilterArmors
 `public void ExecuteFilterArmors()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter armors.
+**Purpose:** Runs the operation or workflow associated with filter armors.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -469,7 +469,7 @@ sPInventoryVM.ExecuteFilterArmors();
 ### ExecuteFilterShieldsAndRanged
 `public void ExecuteFilterShieldsAndRanged()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter shields and ranged.
+**Purpose:** Runs the operation or workflow associated with filter shields and ranged.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -480,7 +480,7 @@ sPInventoryVM.ExecuteFilterShieldsAndRanged();
 ### ExecuteFilterMounts
 `public void ExecuteFilterMounts()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter mounts.
+**Purpose:** Runs the operation or workflow associated with filter mounts.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -491,7 +491,7 @@ sPInventoryVM.ExecuteFilterMounts();
 ### ExecuteFilterMisc
 `public void ExecuteFilterMisc()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with filter misc.
+**Purpose:** Runs the operation or workflow associated with filter misc.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -502,7 +502,7 @@ sPInventoryVM.ExecuteFilterMisc();
 ### CycleBetweenWeaponSlots
 `public void CycleBetweenWeaponSlots()`
 
-**Purpose:** **Purpose:** Executes the CycleBetweenWeaponSlots logic.
+**Purpose:** Executes the CycleBetweenWeaponSlots logic.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -513,7 +513,7 @@ sPInventoryVM.CycleBetweenWeaponSlots();
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
+**Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -524,7 +524,7 @@ sPInventoryVM.SetResetInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey gameKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -535,7 +535,7 @@ sPInventoryVM.SetCancelInputKey(gameKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -546,7 +546,7 @@ sPInventoryVM.SetDoneInputKey(hotKey);
 ### SetPreviousCharacterInputKey
 `public void SetPreviousCharacterInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to previous character input key and updates the object's internal state.
+**Purpose:** Assigns a new value to previous character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -557,7 +557,7 @@ sPInventoryVM.SetPreviousCharacterInputKey(hotKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to next character input key and updates the object's internal state.
+**Purpose:** Assigns a new value to next character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -568,7 +568,7 @@ sPInventoryVM.SetNextCharacterInputKey(hotKey);
 ### SetBuyAllInputKey
 `public void SetBuyAllInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to buy all input key and updates the object's internal state.
+**Purpose:** Assigns a new value to buy all input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -579,7 +579,7 @@ sPInventoryVM.SetBuyAllInputKey(hotKey);
 ### SetSellAllInputKey
 `public void SetSellAllInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to sell all input key and updates the object's internal state.
+**Purpose:** Assigns a new value to sell all input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -590,7 +590,7 @@ sPInventoryVM.SetSellAllInputKey(hotKey);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**Purpose:** **Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
+**Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first
@@ -601,7 +601,7 @@ sPInventoryVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
 ### Compare
 `public int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventoryVM from the subsystem API first

@@ -29,7 +29,7 @@ description: "IssueModel 的自动生成类参考。"
 ### GetIssueDifficultyMultiplier
 `public abstract float GetIssueDifficultyMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue difficulty multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 issue difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -40,7 +40,7 @@ var result = issueModel.GetIssueDifficultyMultiplier();
 ### GetIssueEffectsOfSettlement
 `public abstract void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effects of settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 issue effects of settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -51,7 +51,7 @@ issueModel.GetIssueEffectsOfSettlement(issueEffect, settlement, explainedNumber)
 ### GetIssueEffectOfHero
 `public abstract void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effect of hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 issue effect of hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -62,7 +62,7 @@ issueModel.GetIssueEffectOfHero(issueEffect, hero, explainedNumber);
 ### GetIssueEffectOfClan
 `public abstract void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effect of clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 issue effect of clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -73,7 +73,7 @@ issueModel.GetIssueEffectOfClan(issueEffect, clan, explainedNumber);
 ### GetFailureRiskForHero
 `public abstract float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 failure risk for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 failure risk for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -84,7 +84,7 @@ var result = issueModel.GetFailureRiskForHero(alternativeSolutionHero, issue);
 ### GetDurationOfResolutionForHero
 `public abstract CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 duration of resolution for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 duration of resolution for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -95,7 +95,7 @@ var result = issueModel.GetDurationOfResolutionForHero(alternativeSolutionHero, 
 ### GetTroopsRequiredForHero
 `public abstract int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops required for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troops required for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例
@@ -106,7 +106,7 @@ var result = issueModel.GetTroopsRequiredForHero(alternativeSolutionHero, issue)
 ### CanTroopsReturnFromAlternativeSolution
 `public abstract bool CanTroopsReturnFromAlternativeSolution()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 troops return from alternative solution 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 troops return from alternative solution 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueModel 实例

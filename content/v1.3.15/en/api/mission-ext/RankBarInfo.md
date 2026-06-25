@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ### CreateBarInfo
 `public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-**Purpose:** **Purpose:** Constructs a new bar info entity and returns it to the caller.
+**Purpose:** Constructs a new bar info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 ### CreateUnrankedInfo
 `public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
 
-**Purpose:** **Purpose:** Constructs a new unranked info entity and returns it to the caller.
+**Purpose:** Constructs a new unranked info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

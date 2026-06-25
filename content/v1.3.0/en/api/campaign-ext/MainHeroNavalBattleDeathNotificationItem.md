@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
+**Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of MainHeroNavalBattleDeathNotificationItem from the subsystem API first
@@ -43,7 +43,7 @@ var result = mainHeroNavalBattleDeathNotificationItem.GetSceneNotificationCharac
 ### GetShips
 `public override SceneNotificationData.SceneNotificationShip GetShips()`
 
-**Purpose:** **Purpose:** Reads and returns the ships value held by the this instance.
+**Purpose:** Reads and returns the ships value held by the this instance.
 
 ```csharp
 // Obtain an instance of MainHeroNavalBattleDeathNotificationItem from the subsystem API first

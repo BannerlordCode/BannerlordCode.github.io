@@ -51,7 +51,7 @@ description: "EncyclopediaFactionPageVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionPageVM 实例
@@ -62,7 +62,7 @@ encyclopediaFactionPageVM.RefreshValues();
 ### Refresh
 `public override void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionPageVM 实例
@@ -73,7 +73,7 @@ encyclopediaFactionPageVM.Refresh();
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionPageVM 实例
@@ -84,7 +84,7 @@ var result = encyclopediaFactionPageVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionPageVM 实例
@@ -95,7 +95,7 @@ var result = encyclopediaFactionPageVM.GetNavigationBarURL();
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionPageVM 实例

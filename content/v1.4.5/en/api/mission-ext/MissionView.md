@@ -30,7 +30,7 @@ Treat `MissionView` as a View-style extension point: first identify who creates 
 ### OnMissionScreenTick
 `public virtual void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -41,7 +41,7 @@ missionView.OnMissionScreenTick(0);
 ### OnEscape
 `public virtual bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -52,7 +52,7 @@ var result = missionView.OnEscape();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public virtual bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
+**Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -63,7 +63,7 @@ var result = missionView.IsOpeningEscapeMenuOnFocusChangeAllowed();
 ### IsPhotoModeAllowed
 `public virtual bool IsPhotoModeAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the photo mode allowed state or condition.
+**Purpose:** Determines whether the this instance is in the photo mode allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -74,7 +74,7 @@ var result = missionView.IsPhotoModeAllowed();
 ### OnFocusChangeOnGameWindow
 `public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** **Purpose:** Invoked when the focus change on game window event is raised.
+**Purpose:** Invoked when the focus change on game window event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -85,7 +85,7 @@ missionView.OnFocusChangeOnGameWindow(false);
 ### OnSceneRenderingStarted
 `public virtual void OnSceneRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
+**Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -96,7 +96,7 @@ missionView.OnSceneRenderingStarted();
 ### OnMissionScreenInitialize
 `public virtual void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -107,7 +107,7 @@ missionView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public virtual void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -118,7 +118,7 @@ missionView.OnMissionScreenFinalize();
 ### OnMissionScreenActivate
 `public virtual void OnMissionScreenActivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen activate event is raised.
+**Purpose:** Invoked when the mission screen activate event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -129,7 +129,7 @@ missionView.OnMissionScreenActivate();
 ### OnMissionScreenDeactivate
 `public virtual void OnMissionScreenDeactivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen deactivate event is raised.
+**Purpose:** Invoked when the mission screen deactivate event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -140,7 +140,7 @@ missionView.OnMissionScreenDeactivate();
 ### UpdateOverridenCamera
 `public virtual bool UpdateOverridenCamera(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of overriden camera.
+**Purpose:** Recalculates and stores the latest representation of overriden camera.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -151,7 +151,7 @@ var result = missionView.UpdateOverridenCamera(0);
 ### IsReady
 `public virtual bool IsReady()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the ready state or condition.
+**Purpose:** Determines whether the this instance is in the ready state or condition.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -162,7 +162,7 @@ var result = missionView.IsReady();
 ### OnPhotoModeActivated
 `public virtual void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -173,7 +173,7 @@ missionView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public virtual void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -184,7 +184,7 @@ missionView.OnPhotoModeDeactivated();
 ### OnConversationBegin
 `public virtual void OnConversationBegin()`
 
-**Purpose:** **Purpose:** Invoked when the conversation begin event is raised.
+**Purpose:** Invoked when the conversation begin event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -195,7 +195,7 @@ missionView.OnConversationBegin();
 ### OnConversationEnd
 `public virtual void OnConversationEnd()`
 
-**Purpose:** **Purpose:** Invoked when the conversation end event is raised.
+**Purpose:** Invoked when the conversation end event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -206,7 +206,7 @@ missionView.OnConversationEnd();
 ### OnDeploymentPlanMade
 `public virtual void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**Purpose:** **Purpose:** Invoked when the deployment plan made event is raised.
+**Purpose:** Invoked when the deployment plan made event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -217,7 +217,7 @@ missionView.OnDeploymentPlanMade(team, false);
 ### SuspendView
 `public void SuspendView()`
 
-**Purpose:** **Purpose:** Executes the SuspendView logic.
+**Purpose:** Executes the SuspendView logic.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -228,7 +228,7 @@ missionView.SuspendView();
 ### ResumeView
 `public void ResumeView()`
 
-**Purpose:** **Purpose:** Executes the ResumeView logic.
+**Purpose:** Executes the ResumeView logic.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -239,7 +239,7 @@ missionView.ResumeView();
 ### OnEndMissionInternal
 `public sealed override void OnEndMissionInternal()`
 
-**Purpose:** **Purpose:** Invoked when the end mission internal event is raised.
+**Purpose:** Invoked when the end mission internal event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first
@@ -250,7 +250,7 @@ missionView.OnEndMissionInternal();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionView from the subsystem API first

@@ -38,7 +38,7 @@ description: "OrderSubjectVM 的自动生成类参考。"
 ### AddActiveOrder
 `public void AddActiveOrder(OrderItemVM order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 active order 添加到当前容器或状态中。
+**用途 / Purpose:** 将 active order 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderSubjectVM 实例
@@ -49,7 +49,7 @@ orderSubjectVM.AddActiveOrder(order);
 ### RemoveActiveOrder
 `public void RemoveActiveOrder(OrderItemVM order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 active order。
+**用途 / Purpose:** 从当前容器或状态中移除 active order。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderSubjectVM 实例
@@ -60,7 +60,7 @@ orderSubjectVM.RemoveActiveOrder(order);
 ### ClearActiveOrders
 `public void ClearActiveOrders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的active orders。
+**用途 / Purpose:** 清空当前对象中的active orders。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderSubjectVM 实例
@@ -71,7 +71,7 @@ orderSubjectVM.ClearActiveOrders();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderSubjectVM 实例

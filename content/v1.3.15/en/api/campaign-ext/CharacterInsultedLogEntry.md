@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**Purpose:** **Purpose:** Reads and returns the historic comment value held by the this instance.
+**Purpose:** Reads and returns the historic comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
@@ -42,7 +42,7 @@ var result = characterInsultedLogEntry.GetHistoricComment(talkTroop);
 ### AsReasonForEnmity
 `public override int AsReasonForEnmity(Hero referenceHero1, Hero referenceHero2)`
 
-**Purpose:** **Purpose:** Executes the AsReasonForEnmity logic.
+**Purpose:** Executes the AsReasonForEnmity logic.
 
 ```csharp
 // Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
@@ -53,7 +53,7 @@ var result = characterInsultedLogEntry.AsReasonForEnmity(referenceHero1, referen
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
@@ -64,7 +64,7 @@ var result = characterInsultedLogEntry.ToString();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
@@ -75,7 +75,7 @@ var result = characterInsultedLogEntry.GetNotificationText();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterInsultedLogEntry from the subsystem API first

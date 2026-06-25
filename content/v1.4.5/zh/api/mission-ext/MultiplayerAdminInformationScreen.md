@@ -29,7 +29,7 @@ description: "MultiplayerAdminInformationScreen 的自动生成类参考。"
 ### OnInitialize
 `public static void OnInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MultiplayerAdminInformationScreen.OnInitialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminInformationScreen 实例
@@ -50,7 +50,7 @@ multiplayerAdminInformationScreen.OnFinalize();
 ### OnRemove
 `public static void OnRemove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

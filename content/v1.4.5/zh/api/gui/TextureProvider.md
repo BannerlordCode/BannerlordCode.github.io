@@ -29,7 +29,7 @@ description: "TextureProvider 的自动生成类参考。"
 ### SetTargetSize
 `public virtual void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例
@@ -40,7 +40,7 @@ textureProvider.SetTargetSize(0, 0);
 ### GetTextureForRender
 `public Texture GetTextureForRender(TwoDimensionContext context, string name = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 texture for render 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 texture for render 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例
@@ -51,7 +51,7 @@ var result = textureProvider.GetTextureForRender(context, "example");
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例
@@ -62,7 +62,7 @@ textureProvider.Tick(0);
 ### Clear
 `public virtual void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例
@@ -73,7 +73,7 @@ textureProvider.Clear(false);
 ### SetProperty
 `public void SetProperty(string name, object value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 property 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 property 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例
@@ -84,7 +84,7 @@ textureProvider.SetProperty("example", value);
 ### GetProperty
 `public object GetProperty(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 property 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureProvider 实例

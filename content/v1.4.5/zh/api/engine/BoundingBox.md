@@ -29,7 +29,7 @@ description: "BoundingBox 的自动生成类参考。"
 ### RelaxMinMaxWithPoint
 `public void RelaxMinMaxWithPoint(in Vec3 point)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RelaxMinMaxWithPoint 对应的操作。
+**用途 / Purpose:** 调用 RelaxMinMaxWithPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -40,7 +40,7 @@ boundingBox.RelaxMinMaxWithPoint(point);
 ### RelaxMinMaxWithPointAndRadius
 `public void RelaxMinMaxWithPointAndRadius(in Vec3 point, float radius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RelaxMinMaxWithPointAndRadius 对应的操作。
+**用途 / Purpose:** 调用 RelaxMinMaxWithPointAndRadius 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -51,7 +51,7 @@ boundingBox.RelaxMinMaxWithPointAndRadius(point, 0);
 ### RecomputeRadius
 `public void RecomputeRadius()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新执行radius相关的计算并返回结果。
+**用途 / Purpose:** 重新执行radius相关的计算并返回结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -62,7 +62,7 @@ boundingBox.RecomputeRadius();
 ### GetTransformedTipPointsToParent
 `public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame parentFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transformed tip points to parent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 transformed tip points to parent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -73,7 +73,7 @@ var result = boundingBox.GetTransformedTipPointsToParent(parentFrame);
 ### GetTransformedTipPointsToChild
 `public TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transformed tip points to child 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 transformed tip points to child 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -84,7 +84,7 @@ var result = boundingBox.GetTransformedTipPointsToChild(childFrame);
 ### RelaxWithBoundingBox
 `public void RelaxWithBoundingBox(BoundingBox modifiedBoundingBox)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RelaxWithBoundingBox 对应的操作。
+**用途 / Purpose:** 调用 RelaxWithBoundingBox 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -95,7 +95,7 @@ boundingBox.RelaxWithBoundingBox(modifiedBoundingBox);
 ### RelaxWithArbitraryBoundingBox
 `public void RelaxWithArbitraryBoundingBox(BoundingBox otherBoundingBox, MatrixFrame otherGlobalFrame, MatrixFrame globalFrameOfThisBoundingBox)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RelaxWithArbitraryBoundingBox 对应的操作。
+**用途 / Purpose:** 调用 RelaxWithArbitraryBoundingBox 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -106,7 +106,7 @@ boundingBox.RelaxWithArbitraryBoundingBox(otherBoundingBox, otherGlobalFrame, gl
 ### RelaxWithChildBoundingBox
 `public void RelaxWithChildBoundingBox(BoundingBox childBoundingBox, MatrixFrame childFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RelaxWithChildBoundingBox 对应的操作。
+**用途 / Purpose:** 调用 RelaxWithChildBoundingBox 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -117,7 +117,7 @@ boundingBox.RelaxWithChildBoundingBox(childBoundingBox, childFrame);
 ### BeginRelaxation
 `public void BeginRelaxation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginRelaxation 对应的操作。
+**用途 / Purpose:** 调用 BeginRelaxation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -128,7 +128,7 @@ boundingBox.BeginRelaxation();
 ### ArrangeWithAnotherBoundingBox
 `public static bool ArrangeWithAnotherBoundingBox(ref BoundingBox boundingBox, BoundingBox otherBoundingBox, float changeAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ArrangeWithAnotherBoundingBox 对应的操作。
+**用途 / Purpose:** 调用 ArrangeWithAnotherBoundingBox 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -138,7 +138,7 @@ BoundingBox.ArrangeWithAnotherBoundingBox(boundingBox, otherBoundingBox, 0);
 ### PointInsideBox
 `public bool PointInsideBox(Vec3 point, float epsilon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PointInsideBox 对应的操作。
+**用途 / Purpose:** 调用 PointInsideBox 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -149,7 +149,7 @@ var result = boundingBox.PointInsideBox(point, 0);
 ### GetLongestHalfDimensionOfBoundingBox
 `public static float GetLongestHalfDimensionOfBoundingBox(BoundingBox boundingBox)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 longest half dimension of bounding box 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 longest half dimension of bounding box 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -159,7 +159,7 @@ BoundingBox.GetLongestHalfDimensionOfBoundingBox(boundingBox);
 ### RenderBoundingBox
 `public void RenderBoundingBox()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RenderBoundingBox 对应的操作。
+**用途 / Purpose:** 调用 RenderBoundingBox 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例

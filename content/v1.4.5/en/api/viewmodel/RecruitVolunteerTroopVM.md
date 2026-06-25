@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -51,7 +51,7 @@ recruitVolunteerTroopVM.RefreshValues();
 ### ExecuteRecruit
 `public void ExecuteRecruit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with recruit.
+**Purpose:** Runs the operation or workflow associated with recruit.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -62,7 +62,7 @@ recruitVolunteerTroopVM.ExecuteRecruit();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
+**Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -73,7 +73,7 @@ recruitVolunteerTroopVM.ExecuteOpenEncyclopedia();
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove from cart.
+**Purpose:** Runs the operation or workflow associated with remove from cart.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -84,7 +84,7 @@ recruitVolunteerTroopVM.ExecuteRemoveFromCart();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
+**Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -95,7 +95,7 @@ recruitVolunteerTroopVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
+**Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -106,7 +106,7 @@ recruitVolunteerTroopVM.ExecuteEndHint();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focus.
+**Purpose:** Runs the operation or workflow associated with focus.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
@@ -117,7 +117,7 @@ recruitVolunteerTroopVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with unfocus.
+**Purpose:** Runs the operation or workflow associated with unfocus.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first

@@ -36,7 +36,7 @@ description: "Vec3 的自动生成类参考。"
 ### Abs
 `public static Vec3 Abs(Vec3 vec)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Abs 对应的操作。
+**用途 / Purpose:** 调用 Abs 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ Vec3.Abs(vec);
 ### Vector3
 `public static explicit operator Vector3(Vec3 vec3)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Vector3 对应的操作。
+**用途 / Purpose:** 调用 Vector3 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ Vec3.Vector3(vec3);
 ### DotProduct
 `public static float DotProduct(Vec3 v1, Vec3 v2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DotProduct 对应的操作。
+**用途 / Purpose:** 调用 DotProduct 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ Vec3.DotProduct(v1, v2);
 ### Lerp
 `public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Lerp 对应的操作。
+**用途 / Purpose:** 调用 Lerp 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ Vec3.Lerp(v1, v2, 0);
 ### Slerp
 `public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Slerp 对应的操作。
+**用途 / Purpose:** 调用 Slerp 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -86,7 +86,7 @@ Vec3.Slerp(start, end, 0);
 ### Vec3Max
 `public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Vec3Max 对应的操作。
+**用途 / Purpose:** 调用 Vec3Max 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -96,7 +96,7 @@ Vec3.Vec3Max(v1, v2);
 ### Vec3Min
 `public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Vec3Min 对应的操作。
+**用途 / Purpose:** 调用 Vec3Min 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ Vec3.Vec3Min(v1, v2);
 ### CrossProduct
 `public static Vec3 CrossProduct(Vec3 va, Vec3 vb)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CrossProduct 对应的操作。
+**用途 / Purpose:** 调用 CrossProduct 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -116,7 +116,7 @@ Vec3.CrossProduct(va, vb);
 ### ElementWiseProduct
 `public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ElementWiseProduct 对应的操作。
+**用途 / Purpose:** 调用 ElementWiseProduct 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -126,7 +126,7 @@ Vec3.ElementWiseProduct(va, vb);
 ### ElementWiseDivision
 `public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ElementWiseDivision 对应的操作。
+**用途 / Purpose:** 调用 ElementWiseDivision 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -136,7 +136,7 @@ Vec3.ElementWiseDivision(va, vb);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -147,7 +147,7 @@ var result = vec3.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -158,7 +158,7 @@ var result = vec3.GetHashCode();
 ### NormalizedCopy
 `public Vec3 NormalizedCopy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将d copy规范化到标准形式或范围内。
+**用途 / Purpose:** 将d copy规范化到标准形式或范围内。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -169,7 +169,7 @@ var result = vec3.NormalizedCopy();
 ### Normalize
 `public float Normalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象规范化为标准形式或范围。
+**用途 / Purpose:** 将当前对象规范化为标准形式或范围。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -180,7 +180,7 @@ var result = vec3.Normalize();
 ### ClampMagnitude
 `public void ClampMagnitude(float min, float max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClampMagnitude 对应的操作。
+**用途 / Purpose:** 调用 ClampMagnitude 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -191,7 +191,7 @@ vec3.ClampMagnitude(0, 0);
 ### ClampedCopy
 `public Vec3 ClampedCopy(float min, float max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClampedCopy 对应的操作。
+**用途 / Purpose:** 调用 ClampedCopy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -202,7 +202,7 @@ var result = vec3.ClampedCopy(0, 0);
 ### ClampedCopy
 `public Vec3 ClampedCopy(float min, float max, out bool valueClamped)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClampedCopy 对应的操作。
+**用途 / Purpose:** 调用 ClampedCopy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -213,7 +213,7 @@ var result = vec3.ClampedCopy(0, 0, valueClamped);
 ### NormalizeWithoutChangingZ
 `public void NormalizeWithoutChangingZ()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将without changing z规范化到标准形式或范围内。
+**用途 / Purpose:** 将without changing z规范化到标准形式或范围内。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -224,7 +224,7 @@ vec3.NormalizeWithoutChangingZ();
 ### CrossProductWithUp
 `public Vec3 CrossProductWithUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CrossProductWithUp 对应的操作。
+**用途 / Purpose:** 调用 CrossProductWithUp 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -235,7 +235,7 @@ var result = vec3.CrossProductWithUp();
 ### CrossProductWithUpAsLeftParameter
 `public Vec3 CrossProductWithUpAsLeftParameter()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CrossProductWithUpAsLeftParameter 对应的操作。
+**用途 / Purpose:** 调用 CrossProductWithUpAsLeftParameter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -246,7 +246,7 @@ var result = vec3.CrossProductWithUpAsLeftParameter();
 ### NearlyEquals
 `public bool NearlyEquals(in Vec3 v, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NearlyEquals 对应的操作。
+**用途 / Purpose:** 调用 NearlyEquals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -257,7 +257,7 @@ var result = vec3.NearlyEquals(v, 0);
 ### RotateAboutX
 `public void RotateAboutX(float a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateAboutX 对应的操作。
+**用途 / Purpose:** 调用 RotateAboutX 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -268,7 +268,7 @@ vec3.RotateAboutX(0);
 ### RotateAboutY
 `public void RotateAboutY(float a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateAboutY 对应的操作。
+**用途 / Purpose:** 调用 RotateAboutY 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -279,7 +279,7 @@ vec3.RotateAboutY(0);
 ### RotateAboutZ
 `public void RotateAboutZ(float a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateAboutZ 对应的操作。
+**用途 / Purpose:** 调用 RotateAboutZ 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -290,7 +290,7 @@ vec3.RotateAboutZ(0);
 ### RotateAboutAnArbitraryVector
 `public Vec3 RotateAboutAnArbitraryVector(Vec3 vec, float a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateAboutAnArbitraryVector 对应的操作。
+**用途 / Purpose:** 调用 RotateAboutAnArbitraryVector 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -301,7 +301,7 @@ var result = vec3.RotateAboutAnArbitraryVector(vec, 0);
 ### Reflect
 `public Vec3 Reflect(Vec3 normal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Reflect 对应的操作。
+**用途 / Purpose:** 调用 Reflect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -312,7 +312,7 @@ var result = vec3.Reflect(normal);
 ### ProjectOnUnitVector
 `public Vec3 ProjectOnUnitVector(Vec3 ov)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProjectOnUnitVector 对应的操作。
+**用途 / Purpose:** 调用 ProjectOnUnitVector 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -323,7 +323,7 @@ var result = vec3.ProjectOnUnitVector(ov);
 ### DistanceSquared
 `public float DistanceSquared(Vec3 v)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DistanceSquared 对应的操作。
+**用途 / Purpose:** 调用 DistanceSquared 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -334,7 +334,7 @@ var result = vec3.DistanceSquared(v);
 ### Distance
 `public float Distance(Vec3 v)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Distance 对应的操作。
+**用途 / Purpose:** 调用 Distance 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -345,7 +345,7 @@ var result = vec3.Distance(v);
 ### RotateVectorToXYPlane
 `public Vec3 RotateVectorToXYPlane()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateVectorToXYPlane 对应的操作。
+**用途 / Purpose:** 调用 RotateVectorToXYPlane 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -356,7 +356,7 @@ var result = vec3.RotateVectorToXYPlane();
 ### AngleBetweenTwoVectors
 `public static float AngleBetweenTwoVectors(Vec3 v1, Vec3 v2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AngleBetweenTwoVectors 对应的操作。
+**用途 / Purpose:** 调用 AngleBetweenTwoVectors 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -366,7 +366,7 @@ Vec3.AngleBetweenTwoVectors(v1, v2);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -377,7 +377,7 @@ var result = vec3.ToString();
 ### ToString
 `public string ToString(string format)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3 实例
@@ -388,7 +388,7 @@ var result = vec3.ToString("example");
 ### Parse
 `public static Vec3 Parse(string input)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将外部输入解析为当前系统可识别的parse。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的parse。
 
 ```csharp
 // 静态调用，不需要实例

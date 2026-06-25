@@ -23,7 +23,7 @@ Treat `CombatSimulationModel` as a Model-style extension point: first identify w
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
 
-**Purpose:** **Purpose:** Executes the SimulateHit logic.
+**Purpose:** Executes the SimulateHit logic.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = combatSimulationModel.SimulateHit(strikerTroop, struckTroop, strike
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
 
-**Purpose:** **Purpose:** Executes the SimulateHit logic.
+**Purpose:** Executes the SimulateHit logic.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = combatSimulationModel.SimulateHit(strikerShip, struckShip, strikerP
 ### GetNumberOfEquipmentsBuilt
 `public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the number of equipments built value held by the this instance.
+**Purpose:** Reads and returns the number of equipments built value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = combatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
 ### GetMaximumSiegeEquipmentProgress
 `public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum siege equipment progress value held by the this instance.
+**Purpose:** Reads and returns the maximum siege equipment progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = combatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
 ### GetSettlementAdvantage
 `public abstract float GetSettlementAdvantage(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the settlement advantage value held by the this instance.
+**Purpose:** Reads and returns the settlement advantage value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = combatSimulationModel.GetSettlementAdvantage(settlement);
 ### GetBattleAdvantage
 `public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
 
-**Purpose:** **Purpose:** Reads and returns the battle advantage value held by the this instance.
+**Purpose:** Reads and returns the battle advantage value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -89,7 +89,7 @@ combatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAd
 ### GetShipSiegeEngineHitChance
 `public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
 
-**Purpose:** **Purpose:** Reads and returns the ship siege engine hit chance value held by the this instance.
+**Purpose:** Reads and returns the ship siege engine hit chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = combatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngine
 ### GetPursuitRoundCount
 `public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Reads and returns the pursuit round count value held by the this instance.
+**Purpose:** Reads and returns the pursuit round count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = combatSimulationModel.GetPursuitRoundCount(mapEvent);
 ### GetBluntDamageChance
 `public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
 
-**Purpose:** **Purpose:** Reads and returns the blunt damage chance value held by the this instance.
+**Purpose:** Reads and returns the blunt damage chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = combatSimulationModel.GetBluntDamageChance(strikerTroop, strikedTro
 ### GetSimulationTickInterval
 `public abstract CampaignTime GetSimulationTickInterval(MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Reads and returns the simulation tick interval value held by the this instance.
+**Purpose:** Reads and returns the simulation tick interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = combatSimulationModel.GetSimulationTickInterval(mapEvent);
 ### GetParticipatingTroopCount
 `public abstract int GetParticipatingTroopCount(MapEventSide side)`
 
-**Purpose:** **Purpose:** Reads and returns the participating troop count value held by the this instance.
+**Purpose:** Reads and returns the participating troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatSimulationModel from the subsystem API first

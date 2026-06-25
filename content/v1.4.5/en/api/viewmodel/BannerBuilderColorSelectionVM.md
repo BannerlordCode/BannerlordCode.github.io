@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### EnableWith
 `public void EnableWith(int selectedColorID, Action<BannerBuilderColorItemVM> onSelection)`
 
-**Purpose:** **Purpose:** Executes the EnableWith logic.
+**Purpose:** Executes the EnableWith logic.
 
 ```csharp
 // Obtain an instance of BannerBuilderColorSelectionVM from the subsystem API first

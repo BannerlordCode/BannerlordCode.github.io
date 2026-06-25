@@ -29,7 +29,7 @@ description: "GauntletInventoryScreen 的自动生成类参考。"
 ### ExecuteLootingScript
 `public void ExecuteLootingScript()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 looting script 对应的操作或工作流。
+**用途 / Purpose:** 执行 looting script 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -40,7 +40,7 @@ gauntletInventoryScreen.ExecuteLootingScript();
 ### ExecuteSellAllLoot
 `public void ExecuteSellAllLoot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sell all loot 对应的操作或工作流。
+**用途 / Purpose:** 执行 sell all loot 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -51,7 +51,7 @@ gauntletInventoryScreen.ExecuteSellAllLoot();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -62,7 +62,7 @@ gauntletInventoryScreen.ExecuteCancel();
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 confirm 对应的操作或工作流。
+**用途 / Purpose:** 执行 confirm 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -73,7 +73,7 @@ gauntletInventoryScreen.ExecuteConfirm();
 ### ExecuteSwitchToPreviousTab
 `public void ExecuteSwitchToPreviousTab()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch to previous tab 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch to previous tab 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -84,7 +84,7 @@ gauntletInventoryScreen.ExecuteSwitchToPreviousTab();
 ### ExecuteSwitchToNextTab
 `public void ExecuteSwitchToNextTab()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch to next tab 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch to next tab 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -95,7 +95,7 @@ gauntletInventoryScreen.ExecuteSwitchToNextTab();
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 buy single 对应的操作或工作流。
+**用途 / Purpose:** 执行 buy single 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -106,7 +106,7 @@ gauntletInventoryScreen.ExecuteBuySingle();
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sell single 对应的操作或工作流。
+**用途 / Purpose:** 执行 sell single 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -117,7 +117,7 @@ gauntletInventoryScreen.ExecuteSellSingle();
 ### ExecuteTakeAll
 `public void ExecuteTakeAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 take all 对应的操作或工作流。
+**用途 / Purpose:** 执行 take all 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -128,7 +128,7 @@ gauntletInventoryScreen.ExecuteTakeAll();
 ### ExecuteGiveAll
 `public void ExecuteGiveAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 give all 对应的操作或工作流。
+**用途 / Purpose:** 执行 give all 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例
@@ -139,7 +139,7 @@ gauntletInventoryScreen.ExecuteGiveAll();
 ### ExecuteBuyConsumableItem
 `public void ExecuteBuyConsumableItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 buy consumable item 对应的操作或工作流。
+**用途 / Purpose:** 执行 buy consumable item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInventoryScreen 实例

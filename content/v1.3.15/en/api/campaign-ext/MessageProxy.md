@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Invoke
 `public abstract Task Invoke(string methodName, params object args)`
 
-**Purpose:** **Purpose:** Executes the Invoke logic.
+**Purpose:** Executes the Invoke logic.
 
 ```csharp
 // Obtain an instance of MessageProxy from the subsystem API first

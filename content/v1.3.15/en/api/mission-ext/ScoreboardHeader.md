@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**Purpose:** **Purpose:** Reads and returns the value of value held by the this instance.
+**Purpose:** Reads and returns the value of value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScoreboardHeader from the subsystem API first
@@ -34,7 +34,7 @@ var result = scoreboardHeader.GetValueOf(missionPeer);
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**Purpose:** **Purpose:** Reads and returns the value of value held by the this instance.
+**Purpose:** Reads and returns the value of value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScoreboardHeader from the subsystem API first

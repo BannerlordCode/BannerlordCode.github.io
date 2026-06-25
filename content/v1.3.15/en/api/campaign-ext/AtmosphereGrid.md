@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of AtmosphereGrid from the subsystem API first
@@ -34,7 +34,7 @@ atmosphereGrid.Initialize();
 ### GetInterpolatedStateInfo
 `public AtmosphereState GetInterpolatedStateInfo(Vec3 pos)`
 
-**Purpose:** **Purpose:** Reads and returns the interpolated state info value held by the this instance.
+**Purpose:** Reads and returns the interpolated state info value held by the this instance.
 
 ```csharp
 // Obtain an instance of AtmosphereGrid from the subsystem API first

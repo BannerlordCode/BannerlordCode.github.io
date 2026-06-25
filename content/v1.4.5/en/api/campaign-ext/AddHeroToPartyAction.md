@@ -19,7 +19,7 @@ AddHeroToPartyAction is a set of static methods that trigger "AddHeroToParty" in
 public static void Apply(Hero hero, MobileParty party, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

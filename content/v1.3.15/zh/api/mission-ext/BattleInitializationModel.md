@@ -23,7 +23,7 @@ description: "BattleInitializationModel 的自动生成类参考。"
 ### GetAllAvailableTroopTypes
 `public abstract List<FormationClass> GetAllAvailableTroopTypes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all available troop types 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all available troop types 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleInitializationModel 实例
@@ -34,7 +34,7 @@ var result = battleInitializationModel.GetAllAvailableTroopTypes();
 ### CanPlayerSideDeployWithOrderOfBattle
 `public bool CanPlayerSideDeployWithOrderOfBattle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 player side deploy with order of battle 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 player side deploy with order of battle 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleInitializationModel 实例
@@ -45,7 +45,7 @@ var result = battleInitializationModel.CanPlayerSideDeployWithOrderOfBattle();
 ### InitializeModel
 `public void InitializeModel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 model 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 model 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleInitializationModel 实例
@@ -56,7 +56,7 @@ battleInitializationModel.InitializeModel();
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeModel 对应的操作。
+**用途 / Purpose:** 调用 FinalizeModel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleInitializationModel 实例

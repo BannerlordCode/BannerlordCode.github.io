@@ -23,7 +23,7 @@ description: "EnumHelper 的自动生成类参考。"
 ### GetCombinedULongEnumFlagsValue
 `public static ulong GetCombinedULongEnumFlagsValue(Type type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combined u long enum flags value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 combined u long enum flags value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ EnumHelper.GetCombinedULongEnumFlagsValue(type);
 ### GetCombinedUIntEnumFlagsValue
 `public static uint GetCombinedUIntEnumFlagsValue(Type type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combined u int enum flags value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 combined u int enum flags value 的结果。
 
 ```csharp
 // 静态调用，不需要实例

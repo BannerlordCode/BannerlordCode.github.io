@@ -23,7 +23,7 @@ description: "AudioData 的自动生成类参考。"
 ### GetFullLengthInMilliseconds
 `public int GetFullLengthInMilliseconds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 full length in milliseconds 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 full length in milliseconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -34,7 +34,7 @@ var result = audioData.GetFullLengthInMilliseconds();
 ### GetPreBeatZoneInMilliseconds
 `public int GetPreBeatZoneInMilliseconds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pre beat zone in milliseconds 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pre beat zone in milliseconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -45,7 +45,7 @@ var result = audioData.GetPreBeatZoneInMilliseconds();
 ### GetPostBeatZoneInMilliseconds
 `public int GetPostBeatZoneInMilliseconds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 post beat zone in milliseconds 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 post beat zone in milliseconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -56,7 +56,7 @@ var result = audioData.GetPostBeatZoneInMilliseconds();
 ### GetSampleCountByMilliseconds
 `public int GetSampleCountByMilliseconds(int milliSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sample count by milliseconds 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sample count by milliseconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例

@@ -35,7 +35,7 @@ description: "EncyclopediaListSortControllerVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例
@@ -46,7 +46,7 @@ encyclopediaListSortControllerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例
@@ -57,7 +57,7 @@ encyclopediaListSortControllerVM.OnFinalize();
 ### SetSortSelection
 `public void SetSortSelection(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sort selection 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sort selection 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例
@@ -68,7 +68,7 @@ encyclopediaListSortControllerVM.SetSortSelection(0);
 ### ExecuteSwitchSortOrder
 `public void ExecuteSwitchSortOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch sort order 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch sort order 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例
@@ -79,7 +79,7 @@ encyclopediaListSortControllerVM.ExecuteSwitchSortOrder();
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sort order 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sort order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例
@@ -90,7 +90,7 @@ encyclopediaListSortControllerVM.SetSortOrder(false);
 ### GetSortOrder
 `public bool GetSortOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sort order 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sort order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSortControllerVM 实例

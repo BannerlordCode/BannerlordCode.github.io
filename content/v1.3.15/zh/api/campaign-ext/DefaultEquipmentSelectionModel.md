@@ -23,7 +23,7 @@ description: "DefaultEquipmentSelectionModel 的自动生成类参考。"
 ### GetEquipmentRostersForHeroComeOfAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero come of age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero come of age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -34,7 +34,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero reaches teen age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero reaches teen age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -45,7 +45,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroReachesTee
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for initial children generation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for initial children generation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -56,7 +56,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForInitialChildre
 ### GetEquipmentRostersForDeliveredOffspring
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for delivered offspring 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for delivered offspring 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -67,7 +67,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForDeliveredOffsp
 ### GetEquipmentRostersForCompanion
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for companion 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for companion 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例

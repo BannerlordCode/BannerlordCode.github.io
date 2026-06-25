@@ -45,7 +45,7 @@ description: "MissionGameModels 的自动生成类参考。"
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 静态调用，不需要实例

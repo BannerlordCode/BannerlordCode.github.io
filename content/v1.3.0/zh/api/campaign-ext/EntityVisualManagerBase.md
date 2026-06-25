@@ -23,7 +23,7 @@ description: "EntityVisualManagerBase 的自动生成类参考。"
 ### GetVisualOfEntity
 `public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EntityVisualManagerBase 实例
@@ -34,7 +34,7 @@ var result = entityVisualManagerBase.GetVisualOfEntity(entity);
 ### GetEntityVisualManagerBase
 `public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entity visual manager base 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entity visual manager base 的结果。
 
 ```csharp
 // 静态调用，不需要实例

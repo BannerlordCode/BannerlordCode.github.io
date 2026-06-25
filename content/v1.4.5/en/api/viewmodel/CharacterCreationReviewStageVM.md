@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ExecuteRandomizeName
 `public void ExecuteRandomizeName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize name.
+**Purpose:** Runs the operation or workflow associated with randomize name.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -49,7 +49,7 @@ characterCreationReviewStageVM.ExecuteRandomizeName();
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** **Purpose:** Invoked when the next stage event is raised.
+**Purpose:** Invoked when the next stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -60,7 +60,7 @@ characterCreationReviewStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** **Purpose:** Invoked when the previous stage event is raised.
+**Purpose:** Invoked when the previous stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -71,7 +71,7 @@ characterCreationReviewStageVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
+**Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -82,7 +82,7 @@ var result = characterCreationReviewStageVM.CanAdvanceToNextStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -93,7 +93,7 @@ characterCreationReviewStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -104,7 +104,7 @@ characterCreationReviewStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -115,7 +115,7 @@ characterCreationReviewStageVM.SetDoneInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -126,7 +126,7 @@ characterCreationReviewStageVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
@@ -137,7 +137,7 @@ characterCreationReviewStageVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first

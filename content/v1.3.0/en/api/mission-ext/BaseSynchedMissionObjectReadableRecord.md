@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** **Purpose:** Reads the data or state of from network.
+**Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of BaseSynchedMissionObjectReadableRecord from the subsystem API first
@@ -55,7 +55,7 @@ var result = baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadVa
 ### CreateFromNetworkWithTypeIndex
 `public static ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> CreateFromNetworkWithTypeIndex(int typeIndex)`
 
-**Purpose:** **Purpose:** Constructs a new from network with type index entity and returns it to the caller.
+**Purpose:** Constructs a new from network with type index entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

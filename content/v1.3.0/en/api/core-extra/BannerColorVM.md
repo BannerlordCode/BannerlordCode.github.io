@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.BannerEditor` to place
 ### ExecuteSelectIcon
 `public void ExecuteSelectIcon()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select icon.
+**Purpose:** Runs the operation or workflow associated with select icon.
 
 ```csharp
 // Obtain an instance of BannerColorVM from the subsystem API first
@@ -43,7 +43,7 @@ bannerColorVM.ExecuteSelectIcon();
 ### SetOnSelectionAction
 `public void SetOnSelectionAction(Action<BannerColorVM> onSelection)`
 
-**Purpose:** **Purpose:** Assigns a new value to on selection action and updates the object's internal state.
+**Purpose:** Assigns a new value to on selection action and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerColorVM from the subsystem API first

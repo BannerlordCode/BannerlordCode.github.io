@@ -23,7 +23,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cheat.
+**Purpose:** Runs the operation or workflow associated with cheat.
 
 ```csharp
 // Obtain an instance of HealMainHeroCheat from the subsystem API first
@@ -34,7 +34,7 @@ healMainHeroCheat.ExecuteCheat();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of HealMainHeroCheat from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DirectoryCopy
 `public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)`
 
-**Purpose:** **Purpose:** Executes the DirectoryCopy logic.
+**Purpose:** Executes the DirectoryCopy logic.
 
 ```csharp
 // Static call; no instance required

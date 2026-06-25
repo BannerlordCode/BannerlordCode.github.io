@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### SetCreateFaceImmediately
 `public void SetCreateFaceImmediately(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to create face immediately and updates the object's internal state.
+**Purpose:** Assigns a new value to create face immediately and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterSpawner from the subsystem API first
@@ -41,7 +41,7 @@ characterSpawner.SetCreateFaceImmediately(false);
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**Purpose:** **Purpose:** Assigns a new value to cloth colors and updates the object's internal state.
+**Purpose:** Assigns a new value to cloth colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterSpawner from the subsystem API first
@@ -52,7 +52,7 @@ characterSpawner.SetClothColors(0, 0);
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**Purpose:** **Purpose:** Executes the SpawnCharacter logic.
+**Purpose:** Executes the SpawnCharacter logic.
 
 ```csharp
 // Obtain an instance of CharacterSpawner from the subsystem API first
@@ -63,7 +63,7 @@ characterSpawner.SpawnCharacter();
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode, bool useBodyProperties = false)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with character.
+**Purpose:** Prepares the resources, state, or bindings required by with character.
 
 ```csharp
 // Obtain an instance of CharacterSpawner from the subsystem API first

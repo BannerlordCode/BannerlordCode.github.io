@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetState
 `public bool GetState(MPConditionalEffect conditionalEffect, Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the state value held by the this instance.
+**Purpose:** Reads and returns the state value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConditionalEffectContainer from the subsystem API first
@@ -40,7 +40,7 @@ var result = conditionalEffectContainer.GetState(conditionalEffect, agent);
 ### SetState
 `public void SetState(MPConditionalEffect conditionalEffect, Agent agent, bool state)`
 
-**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
+**Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ConditionalEffectContainer from the subsystem API first
@@ -51,7 +51,7 @@ conditionalEffectContainer.SetState(conditionalEffect, agent, false);
 ### ResetStates
 `public void ResetStates()`
 
-**Purpose:** **Purpose:** Returns states to its default or initial condition.
+**Purpose:** Returns states to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ConditionalEffectContainer from the subsystem API first

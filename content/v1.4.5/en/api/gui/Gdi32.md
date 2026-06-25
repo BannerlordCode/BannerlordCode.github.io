@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### ChoosePixelFormat
 `public static extern int ChoosePixelFormat(IntPtr hdc, ref PixelFormatDescriptor ppfd)`
 
-**Purpose:** **Purpose:** Executes the ChoosePixelFormat logic.
+**Purpose:** Executes the ChoosePixelFormat logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Gdi32.ChoosePixelFormat(hdc, ppfd);
 ### SetPixelFormat
 `public static extern bool SetPixelFormat(IntPtr hdc, int iPixelFormat, ref PixelFormatDescriptor ppfd)`
 
-**Purpose:** **Purpose:** Assigns a new value to pixel format and updates the object's internal state.
+**Purpose:** Assigns a new value to pixel format and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Gdi32.SetPixelFormat(hdc, 0, ppfd);
 ### SwapBuffers
 `public static extern bool SwapBuffers(IntPtr hdc)`
 
-**Purpose:** **Purpose:** Executes the SwapBuffers logic.
+**Purpose:** Executes the SwapBuffers logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Gdi32.SwapBuffers(hdc);
 ### CreateRectRgn
 `public static extern IntPtr CreateRectRgn(int x1, int y1, int x2, int y2)`
 
-**Purpose:** **Purpose:** Constructs a new rect rgn entity and returns it to the caller.
+**Purpose:** Constructs a new rect rgn entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ Gdi32.CreateRectRgn(0, 0, 0, 0);
 ### CreateSolidBrush
 `public static extern IntPtr CreateSolidBrush(IntPtr colorRef)`
 
-**Purpose:** **Purpose:** Constructs a new solid brush entity and returns it to the caller.
+**Purpose:** Constructs a new solid brush entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ Gdi32.CreateSolidBrush(colorRef);
 ### CreateCompatibleDC
 `public static extern IntPtr CreateCompatibleDC(IntPtr hdc)`
 
-**Purpose:** **Purpose:** Constructs a new compatible d c entity and returns it to the caller.
+**Purpose:** Constructs a new compatible d c entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ Gdi32.CreateCompatibleDC(hdc);
 ### SelectObject
 `public static extern IntPtr SelectObject(IntPtr hdc, IntPtr h)`
 
-**Purpose:** **Purpose:** Executes the SelectObject logic.
+**Purpose:** Executes the SelectObject logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ Gdi32.SelectObject(hdc, h);
 ### DeleteObject
 `public static extern bool DeleteObject(IntPtr ho)`
 
-**Purpose:** **Purpose:** Executes the DeleteObject logic.
+**Purpose:** Executes the DeleteObject logic.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ Gdi32.DeleteObject(ho);
 ### DeleteDC
 `public static extern bool DeleteDC(IntPtr hdc)`
 
-**Purpose:** **Purpose:** Executes the DeleteDC logic.
+**Purpose:** Executes the DeleteDC logic.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ Gdi32.DeleteDC(hdc);
 ### CreateCompatibleBitmap
 `public static extern IntPtr CreateCompatibleBitmap(IntPtr hdc, int cx, int cy)`
 
-**Purpose:** **Purpose:** Constructs a new compatible bitmap entity and returns it to the caller.
+**Purpose:** Constructs a new compatible bitmap entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ Gdi32.CreateCompatibleBitmap(hdc, 0, 0);
 ### StretchDIBits
 `public static extern int StretchDIBits(IntPtr hdc, int xDest, int yDest, int DestWidth, int DestHeight, int xSrc, int ySrc, int SrcWidth, int SrcHeight, byte lpBits, ref BitmapInfo lpbmi, uint iUsage, int rop)`
 
-**Purpose:** **Purpose:** Executes the StretchDIBits logic.
+**Purpose:** Executes the StretchDIBits logic.
 
 ```csharp
 // Static call; no instance required

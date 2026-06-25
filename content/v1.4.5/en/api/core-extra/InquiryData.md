@@ -23,7 +23,7 @@ Treat `InquiryData` as a Data-style extension point: first identify who creates 
 ### SetText
 `public void SetText(string text)`
 
-**Purpose:** **Purpose:** Assigns a new value to text and updates the object's internal state.
+**Purpose:** Assigns a new value to text and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InquiryData from the subsystem API first
@@ -34,7 +34,7 @@ inquiryData.SetText("example");
 ### SetTitleText
 `public void SetTitleText(string titleText)`
 
-**Purpose:** **Purpose:** Assigns a new value to title text and updates the object's internal state.
+**Purpose:** Assigns a new value to title text and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InquiryData from the subsystem API first
@@ -45,7 +45,7 @@ inquiryData.SetTitleText("example");
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
+**Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of InquiryData from the subsystem API first

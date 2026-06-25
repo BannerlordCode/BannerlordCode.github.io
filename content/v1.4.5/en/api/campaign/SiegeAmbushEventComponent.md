@@ -29,7 +29,7 @@ Treat `SiegeAmbushEventComponent` as a Component-style extension point: first id
 ### CreateSiegeAmbushEvent
 `public static SiegeAmbushEventComponent CreateSiegeAmbushEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** **Purpose:** Constructs a new siege ambush event entity and returns it to the caller.
+**Purpose:** Constructs a new siege ambush event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

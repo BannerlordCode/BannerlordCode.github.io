@@ -29,7 +29,7 @@ description: "FileDriver 的自动生成类参考。"
 ### GetSaveFilePath
 `public static PlatformFilePath GetSaveFilePath(string fileName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 save file path 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 save file path 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ FileDriver.GetSaveFilePath("example");
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -50,7 +50,7 @@ var result = fileDriver.Save("example", 0, metaData, gameData);
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 meta data。
+**用途 / Purpose:** 从持久化存储或流中读取 meta data。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -61,7 +61,7 @@ var result = fileDriver.LoadMetaData("example");
 ### Load
 `public LoadData Load(string saveName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -72,7 +72,7 @@ var result = fileDriver.Load("example");
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 save game file infos 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 save game file infos 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -83,7 +83,7 @@ var result = fileDriver.GetSaveGameFileInfos();
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 save game file names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 save game file names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -94,7 +94,7 @@ var result = fileDriver.GetSaveGameFileNames();
 ### Delete
 `public bool Delete(string saveName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Delete 对应的操作。
+**用途 / Purpose:** 调用 Delete 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -105,7 +105,7 @@ var result = fileDriver.Delete("example");
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 save game file exists 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 save game file exists 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例
@@ -116,7 +116,7 @@ var result = fileDriver.IsSaveGameFileExists("example");
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 working async 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 working async 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FileDriver 实例

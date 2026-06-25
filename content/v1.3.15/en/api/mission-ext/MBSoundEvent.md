@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, in Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PlaySound logic.
+**Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBSoundEvent.PlaySound(0, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PlaySound logic.
+**Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBSoundEvent.PlaySound(0, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PlaySound logic.
+**Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MBSoundEvent.PlaySound(0, parameter, position);
 ### PlaySound
 `public static bool PlaySound(string soundPath, ref SoundEventParameter parameter, Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PlaySound logic.
+**Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MBSoundEvent.PlaySound("example", parameter, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, in Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PlaySound logic.
+**Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MBSoundEvent.PlaySound(0, parameter, position);
 ### PlayEventFromSoundBuffer
 `public static void PlayEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** **Purpose:** Executes the PlayEventFromSoundBuffer logic.
+**Purpose:** Executes the PlayEventFromSoundBuffer logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MBSoundEvent.PlayEventFromSoundBuffer("example", 0, scene, false, false);
 ### CreateEventFromExternalFile
 `public static void CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** **Purpose:** Constructs a new event from external file entity and returns it to the caller.
+**Purpose:** Constructs a new event from external file entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

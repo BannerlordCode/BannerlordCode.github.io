@@ -119,7 +119,7 @@ description: "FormationQuerySystem 的自动生成类参考。"
 ### EvaluateAllPreliminaryQueryData
 `public void EvaluateAllPreliminaryQueryData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EvaluateAllPreliminaryQueryData 对应的操作。
+**用途 / Purpose:** 调用 EvaluateAllPreliminaryQueryData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -130,7 +130,7 @@ formationQuerySystem.EvaluateAllPreliminaryQueryData();
 ### ForceExpireCavalryUnitRatio
 `public void ForceExpireCavalryUnitRatio()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceExpireCavalryUnitRatio 对应的操作。
+**用途 / Purpose:** 调用 ForceExpireCavalryUnitRatio 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -141,7 +141,7 @@ formationQuerySystem.ForceExpireCavalryUnitRatio();
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Expire 对应的操作。
+**用途 / Purpose:** 调用 Expire 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -152,7 +152,7 @@ formationQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ExpireAfterUnitAddRemove 对应的操作。
+**用途 / Purpose:** 调用 ExpireAfterUnitAddRemove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -163,7 +163,7 @@ formationQuerySystem.ExpireAfterUnitAddRemove();
 ### GetClassWeightedFactor
 `public float GetClassWeightedFactor(float infantryWeight, float rangedWeight, float cavalryWeight, float rangedCavalryWeight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 class weighted factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 class weighted factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例

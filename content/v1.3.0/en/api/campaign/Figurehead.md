@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, float amount, CultureObject culture, EffectIncrementType effectIncrementType)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Figurehead from the subsystem API first

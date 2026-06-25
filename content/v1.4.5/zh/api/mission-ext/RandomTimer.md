@@ -23,7 +23,7 @@ description: "RandomTimer 的自动生成类参考。"
 ### Check
 `public override bool Check(float gameTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RandomTimer 实例
@@ -34,7 +34,7 @@ var result = randomTimer.Check(0);
 ### ChangeDuration
 `public void ChangeDuration(float min, float max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeDuration 对应的操作。
+**用途 / Purpose:** 调用 ChangeDuration 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RandomTimer 实例
@@ -45,7 +45,7 @@ randomTimer.ChangeDuration(0, 0);
 ### RecomputeDuration
 `public void RecomputeDuration()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新执行duration相关的计算并返回结果。
+**用途 / Purpose:** 重新执行duration相关的计算并返回结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RandomTimer 实例

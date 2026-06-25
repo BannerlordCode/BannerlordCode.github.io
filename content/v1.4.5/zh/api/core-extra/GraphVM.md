@@ -35,7 +35,7 @@ description: "GraphVM 的自动生成类参考。"
 ### Draw
 `public void Draw(IEnumerable<(GraphLineVM line, IEnumerable<GraphLinePointVM> points)> linesWithPoints, in Vec2 horizontalRange, in Vec2 verticalRange, float autoRangeHorizontalCoefficient = 1f, float autoRangeVerticalCoefficient = 1f, bool useAutoHorizontalRange = false, bool useAutoVerticalRange = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Draw 对应的操作。
+**用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphVM 实例

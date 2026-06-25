@@ -29,7 +29,7 @@ Treat `CaravanModel` as a Model-style extension point: first identify who create
 ### GetMaxGoldToSpendOnOneItemCategory
 `public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**Purpose:** **Purpose:** Reads and returns the max gold to spend on one item category value held by the this instance.
+**Purpose:** Reads and returns the max gold to spend on one item category value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = caravanModel.GetMaxGoldToSpendOnOneItemCategory(caravan, itemCatego
 ### GetInitialTradeGold
 `public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)`
 
-**Purpose:** **Purpose:** Reads and returns the initial trade gold value held by the this instance.
+**Purpose:** Reads and returns the initial trade gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = caravanModel.GetInitialTradeGold(owner, false, false);
 ### GetCaravanFormingCost
 `public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)`
 
-**Purpose:** **Purpose:** Reads and returns the caravan forming cost value held by the this instance.
+**Purpose:** Reads and returns the caravan forming cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = caravanModel.GetCaravanFormingCost(false, false);
 ### GetPowerChangeAfterCaravanCreation
 `public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**Purpose:** **Purpose:** Reads and returns the power change after caravan creation value held by the this instance.
+**Purpose:** Reads and returns the power change after caravan creation value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = caravanModel.GetPowerChangeAfterCaravanCreation(hero, caravanParty)
 ### CanHeroCreateCaravan
 `public abstract bool CanHeroCreateCaravan(Hero hero)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero create caravan.
+**Purpose:** Checks whether the this instance meets the preconditions for hero create caravan.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = caravanModel.CanHeroCreateCaravan(hero);
 ### GetEliteCaravanSpawnChance
 `public abstract float GetEliteCaravanSpawnChance(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the elite caravan spawn chance value held by the this instance.
+**Purpose:** Reads and returns the elite caravan spawn chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanModel from the subsystem API first

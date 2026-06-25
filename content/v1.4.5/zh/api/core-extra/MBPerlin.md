@@ -23,7 +23,7 @@ description: "MBPerlin 的自动生成类参考。"
 ### Noise
 `public static float Noise(float x, float y, float z)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Noise 对应的操作。
+**用途 / Purpose:** 调用 Noise 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBPerlin.Noise(0, 0, 0);
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NoiseVec3 对应的操作。
+**用途 / Purpose:** 调用 NoiseVec3 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBPerlin.NoiseVec3(0);
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float x, float y, float z)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NoiseVec3 对应的操作。
+**用途 / Purpose:** 调用 NoiseVec3 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

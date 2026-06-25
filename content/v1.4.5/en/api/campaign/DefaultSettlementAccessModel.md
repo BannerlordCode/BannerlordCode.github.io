@@ -23,7 +23,7 @@ Treat `DefaultSettlementAccessModel` as a Model-style extension point: first ide
 ### CanMainHeroEnterSettlement
 `public override void CanMainHeroEnterSettlement(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero enter settlement.
+**Purpose:** Checks whether the this instance meets the preconditions for main hero enter settlement.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
@@ -34,7 +34,7 @@ defaultSettlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetail
 ### CanMainHeroEnterDungeon
 `public override void CanMainHeroEnterDungeon(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero enter dungeon.
+**Purpose:** Checks whether the this instance meets the preconditions for main hero enter dungeon.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
@@ -45,7 +45,7 @@ defaultSettlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
 ### CanMainHeroEnterLordsHall
 `public override void CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero enter lords hall.
+**Purpose:** Checks whether the this instance meets the preconditions for main hero enter lords hall.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
@@ -56,7 +56,7 @@ defaultSettlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails
 ### CanMainHeroAccessLocation
 `public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero access location.
+**Purpose:** Checks whether the this instance meets the preconditions for main hero access location.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultSettlementAccessModel.CanMainHeroAccessLocation(settlement, 
 ### IsRequestMeetingOptionAvailable
 `public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the request meeting option available state or condition.
+**Purpose:** Determines whether the this instance is in the request meeting option available state or condition.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultSettlementAccessModel.IsRequestMeetingOptionAvailable(settle
 ### CanMainHeroDoSettlementAction
 `public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero do settlement action.
+**Purpose:** Checks whether the this instance meets the preconditions for main hero do settlement action.
 
 ```csharp
 // Obtain an instance of DefaultSettlementAccessModel from the subsystem API first

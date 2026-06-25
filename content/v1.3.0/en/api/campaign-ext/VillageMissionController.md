@@ -23,7 +23,7 @@ Treat `VillageMissionController` as a Controller-style extension point: first id
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** **Purpose:** Invoked when the created event is raised.
+**Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of VillageMissionController from the subsystem API first
@@ -34,7 +34,7 @@ villageMissionController.OnCreated();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of VillageMissionController from the subsystem API first

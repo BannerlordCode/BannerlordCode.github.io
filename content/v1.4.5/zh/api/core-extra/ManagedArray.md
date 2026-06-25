@@ -23,7 +23,7 @@ description: "ManagedArray 的自动生成类参考。"
 ### ManagedArray
 `public struct ManagedArray(IntPtr array, int length)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ManagedArray 对应的操作。
+**用途 / Purpose:** 调用 ManagedArray 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedArray 实例

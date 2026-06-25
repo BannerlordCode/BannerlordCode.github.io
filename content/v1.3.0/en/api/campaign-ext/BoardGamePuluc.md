@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
+**Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -40,7 +40,7 @@ boardGamePuluc.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
+**Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -51,7 +51,7 @@ boardGamePuluc.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
+**Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -62,7 +62,7 @@ boardGamePuluc.InitializeSound();
 ### InitializeDiceBoard
 `public override void InitializeDiceBoard()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by dice board.
+**Purpose:** Prepares the resources, state, or bindings required by dice board.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -73,7 +73,7 @@ boardGamePuluc.InitializeDiceBoard();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -84,7 +84,7 @@ boardGamePuluc.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
+**Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -95,7 +95,7 @@ var result = boardGamePuluc.CalculateValidMoves(pawn);
 ### RollDice
 `public override void RollDice()`
 
-**Purpose:** **Purpose:** Executes the RollDice logic.
+**Purpose:** Executes the RollDice logic.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -106,7 +106,7 @@ boardGamePuluc.RollDice();
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** **Purpose:** Executes the AIMakeMove logic.
+**Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -117,7 +117,7 @@ boardGamePuluc.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardGamePuluc.BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** **Purpose:** Executes the TakeBoardSnapshot logic.
+**Purpose:** Executes the TakeBoardSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first
@@ -128,7 +128,7 @@ var result = boardGamePuluc.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGamePuluc.BoardInformation board)`
 
-**Purpose:** **Purpose:** Executes the UndoMove logic.
+**Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGamePuluc from the subsystem API first

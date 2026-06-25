@@ -39,7 +39,7 @@ description: "PartyComponent 的自动生成类参考。"
 ### SetWagePaymentLimit
 `public virtual void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例
@@ -50,7 +50,7 @@ partyComponent.SetWagePaymentLimit(0);
 ### GetDefaultComponentBanner
 `public abstract Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例
@@ -61,7 +61,7 @@ var result = partyComponent.GetDefaultComponentBanner();
 ### ClearCachedName
 `public virtual void ClearCachedName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
+**用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例
@@ -72,7 +72,7 @@ partyComponent.ClearCachedName();
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangePartyLeader 对应的操作。
+**用途 / Purpose:** 调用 ChangePartyLeader 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例
@@ -83,7 +83,7 @@ partyComponent.ChangePartyLeader(newLeader);
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount and harness visual ids for party icon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount and harness visual ids for party icon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例
@@ -94,7 +94,7 @@ partyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringId, har
 ### OnPartyComponentCreatedDelegate
 `public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party component created delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 party component created delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyComponent 实例

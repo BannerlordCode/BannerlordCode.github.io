@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnCommonAreaOwnerChanged
 `public void OnCommonAreaOwnerChanged(Alley alley, Hero newOwner, Hero oldOwner)`
 
-**Purpose:** **Purpose:** Invoked when the common area owner changed event is raised.
+**Purpose:** Invoked when the common area owner changed event is raised.
 
 ```csharp
 // Obtain an instance of ChangeCommonAreaOwnerQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ changeCommonAreaOwnerQuestTask.OnCommonAreaOwnerChanged(alley, newOwner, oldOwne
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ChangeCommonAreaOwnerQuestTask from the subsystem API first

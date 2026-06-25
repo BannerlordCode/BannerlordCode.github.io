@@ -63,7 +63,7 @@ Treat `TutorialHelper` as a Helper-style extension point: first identify who cre
 ### IsThereAvailableCompanionInLocation
 `public static bool? IsThereAvailableCompanionInLocation(Location location)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the there available companion in location state or condition.
+**Purpose:** Determines whether the this instance is in the there available companion in location state or condition.
 
 ```csharp
 // Static call; no instance required

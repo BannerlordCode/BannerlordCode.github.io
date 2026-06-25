@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreat
 ### CharacterCreationStageSelectionBarListPanel
 `public class CharacterCreationStageSelectionBarListPanel(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the CharacterCreationStageSelectionBarListPanel logic.
+**Purpose:** Executes the CharacterCreationStageSelectionBarListPanel logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageSelectionBarListPanel from the subsystem API first

@@ -23,7 +23,7 @@ description: "EncyclopediaListViewDataController 的自动生成类参考。"
 ### SaveListData
 `public void SaveListData(EncyclopediaListVM list, string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 list data 写入持久化存储或流中。
+**用途 / Purpose:** 将 list data 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListViewDataController 实例
@@ -34,7 +34,7 @@ encyclopediaListViewDataController.SaveListData(list, "example");
 ### LoadListData
 `public void LoadListData(EncyclopediaListVM list)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 list data。
+**用途 / Purpose:** 从持久化存储或流中读取 list data。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListViewDataController 实例

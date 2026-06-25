@@ -19,7 +19,7 @@ DeclareWarAction 是一组静态方法，用于在战役中以特定原因触发
 public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by kingdom decision 的效果应用到当前对象。
+**用途 / Purpose:** 将 by kingdom decision 的效果应用到当前对象。
 
 ### ApplyByDefault
 
@@ -27,7 +27,7 @@ public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2)
 public static void ApplyByDefault(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by default 的效果应用到当前对象。
+**用途 / Purpose:** 将 by default 的效果应用到当前对象。
 
 ### ApplyByPlayerHostility
 
@@ -35,7 +35,7 @@ public static void ApplyByDefault(IFaction faction1, IFaction faction2)
 public static void ApplyByPlayerHostility(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by player hostility 的效果应用到当前对象。
+**用途 / Purpose:** 将 by player hostility 的效果应用到当前对象。
 
 ### ApplyByRebellion
 
@@ -43,7 +43,7 @@ public static void ApplyByPlayerHostility(IFaction faction1, IFaction faction2)
 public static void ApplyByRebellion(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by rebellion 的效果应用到当前对象。
+**用途 / Purpose:** 将 by rebellion 的效果应用到当前对象。
 
 ### ApplyByCrimeRatingChange
 
@@ -51,7 +51,7 @@ public static void ApplyByRebellion(IFaction faction1, IFaction faction2)
 public static void ApplyByCrimeRatingChange(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by crime rating change 的效果应用到当前对象。
+**用途 / Purpose:** 将 by crime rating change 的效果应用到当前对象。
 
 ### ApplyByKingdomCreation
 
@@ -59,7 +59,7 @@ public static void ApplyByCrimeRatingChange(IFaction faction1, IFaction faction2
 public static void ApplyByKingdomCreation(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by kingdom creation 的效果应用到当前对象。
+**用途 / Purpose:** 将 by kingdom creation 的效果应用到当前对象。
 
 ### ApplyByClaimOnThrone
 
@@ -67,7 +67,7 @@ public static void ApplyByKingdomCreation(IFaction faction1, IFaction faction2)
 public static void ApplyByClaimOnThrone(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by claim on throne 的效果应用到当前对象。
+**用途 / Purpose:** 将 by claim on throne 的效果应用到当前对象。
 
 ### ApplyByCallToWarAgreement
 
@@ -75,7 +75,7 @@ public static void ApplyByClaimOnThrone(IFaction faction1, IFaction faction2)
 public static void ApplyByCallToWarAgreement(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by call to war agreement 的效果应用到当前对象。
+**用途 / Purpose:** 将 by call to war agreement 的效果应用到当前对象。
 
 ## 使用示例
 

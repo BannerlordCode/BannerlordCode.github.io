@@ -29,7 +29,7 @@ description: "PrisonerSoldNotificationItemVM 的自动生成类参考。"
 ### AddNewPrisoners
 `public void AddNewPrisoners(TroopRoster newPrisoners)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 new prisoners 添加到当前容器或状态中。
+**用途 / Purpose:** 将 new prisoners 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerSoldNotificationItemVM 实例

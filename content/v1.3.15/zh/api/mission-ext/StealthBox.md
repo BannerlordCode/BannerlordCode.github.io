@@ -23,7 +23,7 @@ description: "StealthBox 的自动生成类参考。"
 ### IsPointInside
 `public bool IsPointInside(Vec3 point)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 point inside 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 point inside 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthBox 实例
@@ -34,7 +34,7 @@ var result = stealthBox.IsPointInside(point);
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent inside 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 agent inside 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthBox 实例

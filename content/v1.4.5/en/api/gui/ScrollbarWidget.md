@@ -39,7 +39,7 @@ Treat `ScrollbarWidget` as a Widget-style extension point: first identify who cr
 ### SetValueForced
 `public void SetValueForced(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to value forced and updates the object's internal state.
+**Purpose:** Assigns a new value to value forced and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScrollbarWidget from the subsystem API first

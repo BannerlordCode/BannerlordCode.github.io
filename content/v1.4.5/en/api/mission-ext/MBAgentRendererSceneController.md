@@ -23,7 +23,7 @@ Treat `MBAgentRendererSceneController` as a Controller-style extension point: fi
 ### SetEnforcedVisibilityForAllAgents
 `public void SetEnforcedVisibilityForAllAgents(Scene scene)`
 
-**Purpose:** **Purpose:** Assigns a new value to enforced visibility for all agents and updates the object's internal state.
+**Purpose:** Assigns a new value to enforced visibility for all agents and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBAgentRendererSceneController from the subsystem API first
@@ -34,7 +34,7 @@ mBAgentRendererSceneController.SetEnforcedVisibilityForAllAgents(scene);
 ### CreateNewAgentRendererSceneController
 `public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)`
 
-**Purpose:** **Purpose:** Constructs a new new agent renderer scene controller entity and returns it to the caller.
+**Purpose:** Constructs a new new agent renderer scene controller entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ MBAgentRendererSceneController.CreateNewAgentRendererSceneController(scene);
 ### SetDoTimerBasedForcedSkeletonUpdates
 `public void SetDoTimerBasedForcedSkeletonUpdates(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to do timer based forced skeleton updates and updates the object's internal state.
+**Purpose:** Assigns a new value to do timer based forced skeleton updates and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBAgentRendererSceneController from the subsystem API first
@@ -55,7 +55,7 @@ mBAgentRendererSceneController.SetDoTimerBasedForcedSkeletonUpdates(false);
 ### DestructAgentRendererSceneController
 `public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)`
 
-**Purpose:** **Purpose:** Executes the DestructAgentRendererSceneController logic.
+**Purpose:** Executes the DestructAgentRendererSceneController logic.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ MBAgentRendererSceneController.DestructAgentRendererSceneController(scene, rende
 ### ValidateAgentVisualsReseted
 `public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)`
 
-**Purpose:** **Purpose:** Checks whether agent visuals reseted satisfies the required constraints, usually returning a boolean.
+**Purpose:** Checks whether agent visuals reseted satisfies the required constraints, usually returning a boolean.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `MapReadyView` as a View-style extension point: first identify who creates
 ### SetIsMapSceneReady
 `public virtual void SetIsMapSceneReady(bool isReady)`
 
-**Purpose:** **Purpose:** Assigns a new value to is map scene ready and updates the object's internal state.
+**Purpose:** Assigns a new value to is map scene ready and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapReadyView from the subsystem API first

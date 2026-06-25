@@ -23,7 +23,7 @@ description: "DefaultPartyTroopUpgradeModel 的自动生成类参考。"
 ### CanPartyUpgradeTroopToTarget
 `public override bool CanPartyUpgradeTroopToTarget(PartyBase upgradingParty, CharacterObject upgradeableCharacter, CharacterObject upgradeTarget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 party upgrade troop to target 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 party upgrade troop to target 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyTroopUpgradeModel.CanPartyUpgradeTroopToTarget(upgradin
 ### IsTroopUpgradeable
 `public override bool IsTroopUpgradeable(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 troop upgradeable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 troop upgradeable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyTroopUpgradeModel.IsTroopUpgradeable(party, character);
 ### GetXpCostForUpgrade
 `public override int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp cost for upgrade 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 xp cost for upgrade 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyTroopUpgradeModel.GetXpCostForUpgrade(party, characterO
 ### GetGoldCostForUpgrade
 `public override ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold cost for upgrade 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 gold cost for upgrade 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -67,7 +67,7 @@ var result = defaultPartyTroopUpgradeModel.GetGoldCostForUpgrade(party, characte
 ### GetSkillXpFromUpgradingTroops
 `public override int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp from upgrading troops 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp from upgrading troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -78,7 +78,7 @@ var result = defaultPartyTroopUpgradeModel.GetSkillXpFromUpgradingTroops(party, 
 ### DoesPartyHaveRequiredItemsForUpgrade
 `public override bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回party have required items for upgrade对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断party have required items for upgrade这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -89,7 +89,7 @@ var result = defaultPartyTroopUpgradeModel.DoesPartyHaveRequiredItemsForUpgrade(
 ### DoesPartyHaveRequiredPerksForUpgrade
 `public override bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回party have required perks for upgrade对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断party have required perks for upgrade这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例
@@ -100,7 +100,7 @@ var result = defaultPartyTroopUpgradeModel.DoesPartyHaveRequiredPerksForUpgrade(
 ### GetUpgradeChanceForTroopUpgrade
 `public override float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade chance for troop upgrade 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 upgrade chance for troop upgrade 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTroopUpgradeModel 实例

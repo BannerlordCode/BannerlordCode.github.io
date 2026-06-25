@@ -34,7 +34,7 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 ### SetTextVariableOfName
 `public void SetTextVariableOfName(string tag, int variable)`
 
-**Purpose:** **Purpose:** Assigns a new value to text variable of name and updates the object's internal state.
+**Purpose:** Assigns a new value to text variable of name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -45,7 +45,7 @@ tutorialObjective.SetTextVariableOfName("example", 0);
 ### GetNameString
 `public string GetNameString()`
 
-**Purpose:** **Purpose:** Reads and returns the name string value held by the this instance.
+**Purpose:** Reads and returns the name string value held by the this instance.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -56,7 +56,7 @@ var result = tutorialObjective.GetNameString();
 ### SetActive
 `public bool SetActive(bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to active and updates the object's internal state.
+**Purpose:** Assigns a new value to active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -67,7 +67,7 @@ var result = tutorialObjective.SetActive(false);
 ### FinishTask
 `public bool FinishTask()`
 
-**Purpose:** **Purpose:** Concludes the task flow and performs any cleanup.
+**Purpose:** Concludes the task flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -78,7 +78,7 @@ var result = tutorialObjective.FinishTask();
 ### FinishSubTask
 `public void FinishSubTask(string subTaskName, float score)`
 
-**Purpose:** **Purpose:** Concludes the sub task flow and performs any cleanup.
+**Purpose:** Concludes the sub task flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -89,7 +89,7 @@ tutorialObjective.FinishSubTask("example", 0);
 ### SetAllSubTasksInactive
 `public bool SetAllSubTasksInactive()`
 
-**Purpose:** **Purpose:** Assigns a new value to all sub tasks inactive and updates the object's internal state.
+**Purpose:** Assigns a new value to all sub tasks inactive and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -100,7 +100,7 @@ var result = tutorialObjective.SetAllSubTasksInactive();
 ### AddSubTask
 `public void AddSubTask(TutorialObjective newSubTask)`
 
-**Purpose:** **Purpose:** Adds sub task to the current collection or state.
+**Purpose:** Adds sub task to the current collection or state.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first
@@ -111,7 +111,7 @@ tutorialObjective.AddSubTask(newSubTask);
 ### RestoreScoreFromSave
 `public void RestoreScoreFromSave(float score)`
 
-**Purpose:** **Purpose:** Executes the RestoreScoreFromSave logic.
+**Purpose:** Executes the RestoreScoreFromSave logic.
 
 ```csharp
 // Obtain an instance of TutorialObjective from the subsystem API first

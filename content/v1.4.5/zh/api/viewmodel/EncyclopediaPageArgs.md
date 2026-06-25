@@ -23,7 +23,7 @@ description: "EncyclopediaPageArgs 的自动生成类参考。"
 ### EncyclopediaPageArgs
 `public struct EncyclopediaPageArgs(object o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EncyclopediaPageArgs 对应的操作。
+**用途 / Purpose:** 调用 EncyclopediaPageArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPageArgs 实例

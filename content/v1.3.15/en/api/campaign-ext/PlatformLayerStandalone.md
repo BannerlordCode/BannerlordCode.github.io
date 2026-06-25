@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PlatformLayerStandalone from the subsystem API first
@@ -34,7 +34,7 @@ platformLayerStandalone.Initialize();
 ### Release
 `public void Release()`
 
-**Purpose:** **Purpose:** Executes the Release logic.
+**Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of PlatformLayerStandalone from the subsystem API first
@@ -45,7 +45,7 @@ platformLayerStandalone.Release();
 ### ConvertFilePathForPlatform
 `public string ConvertFilePathForPlatform(string filepath)`
 
-**Purpose:** **Purpose:** Converts file path for platform into another representation or type.
+**Purpose:** Converts file path for platform into another representation or type.
 
 ```csharp
 // Obtain an instance of PlatformLayerStandalone from the subsystem API first
@@ -56,7 +56,7 @@ var result = platformLayerStandalone.ConvertFilePathForPlatform("example");
 ### GetStreamOnPsaiSoundtrackFile
 `public Stream GetStreamOnPsaiSoundtrackFile(string filepath)`
 
-**Purpose:** **Purpose:** Reads and returns the stream on psai soundtrack file value held by the this instance.
+**Purpose:** Reads and returns the stream on psai soundtrack file value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformLayerStandalone from the subsystem API first

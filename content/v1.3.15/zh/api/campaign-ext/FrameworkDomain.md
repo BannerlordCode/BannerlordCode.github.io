@@ -23,7 +23,7 @@ description: "FrameworkDomain 的自动生成类参考。"
 ### Update
 `public abstract void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 FrameworkDomain 实例
@@ -34,7 +34,7 @@ frameworkDomain.Update();
 ### Destroy
 `public abstract void Destroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
+**用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FrameworkDomain 实例

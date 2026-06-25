@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckValueType
 `public abstract bool CheckValueType(string value)`
 
-**Purpose:** **Purpose:** Verifies whether value type holds true for the this instance.
+**Purpose:** Verifies whether value type holds true for the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeValueType from the subsystem API first
@@ -34,7 +34,7 @@ var result = widgetAttributeValueType.CheckValueType("example");
 ### GetAttributeValue
 `public abstract string GetAttributeValue(string value)`
 
-**Purpose:** **Purpose:** Reads and returns the attribute value value held by the this instance.
+**Purpose:** Reads and returns the attribute value value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeValueType from the subsystem API first
@@ -45,7 +45,7 @@ var result = widgetAttributeValueType.GetAttributeValue("example");
 ### GetSerializedValue
 `public abstract string GetSerializedValue(string value)`
 
-**Purpose:** **Purpose:** Reads and returns the serialized value value held by the this instance.
+**Purpose:** Reads and returns the serialized value value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeValueType from the subsystem API first

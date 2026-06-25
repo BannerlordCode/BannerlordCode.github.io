@@ -29,7 +29,7 @@ Treat `DefaultEmissaryModel` as a Model-style extension point: first identify wh
 ### IsEmissary
 `public override bool IsEmissary(Hero hero)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the emissary state or condition.
+**Purpose:** Determines whether the this instance is in the emissary state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEmissaryModel from the subsystem API first

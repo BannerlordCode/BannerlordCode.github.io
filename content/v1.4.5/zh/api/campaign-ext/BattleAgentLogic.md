@@ -23,7 +23,7 @@ description: "BattleAgentLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -34,7 +34,7 @@ battleAgentLogic.AfterStart();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -45,7 +45,7 @@ battleAgentLogic.OnAgentBuild(agent, banner);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -56,7 +56,7 @@ battleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -67,7 +67,7 @@ battleAgentLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -78,7 +78,7 @@ battleAgentLogic.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false,
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -89,7 +89,7 @@ battleAgentLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killin
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例
@@ -100,7 +100,7 @@ battleAgentLogic.OnAgentFleeing(affectedAgent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleAgentLogic 实例

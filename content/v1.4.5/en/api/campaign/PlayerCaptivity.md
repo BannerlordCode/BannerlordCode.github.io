@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### StartCaptivity
 `public static void StartCaptivity(PartyBase captorParty)`
 
-**Purpose:** **Purpose:** Starts the captivity flow or state machine.
+**Purpose:** Starts the captivity flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ PlayerCaptivity.StartCaptivity(captorParty);
 ### OnPlayerCharacterChanged
 `public static void OnPlayerCharacterChanged()`
 
-**Purpose:** **Purpose:** Invoked when the player character changed event is raised.
+**Purpose:** Invoked when the player character changed event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ PlayerCaptivity.OnPlayerCharacterChanged();
 ### SetRansomAmount
 `public void SetRansomAmount()`
 
-**Purpose:** **Purpose:** Assigns a new value to ransom amount and updates the object's internal state.
+**Purpose:** Assigns a new value to ransom amount and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PlayerCaptivity from the subsystem API first
@@ -62,7 +62,7 @@ playerCaptivity.SetRansomAmount();
 ### EndCaptivity
 `public static void EndCaptivity()`
 
-**Purpose:** **Purpose:** Executes the EndCaptivity logic.
+**Purpose:** Executes the EndCaptivity logic.
 
 ```csharp
 // Static call; no instance required

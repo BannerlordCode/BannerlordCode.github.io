@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
+**Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of CharacterEquipmentItemVM from the subsystem API first
@@ -41,7 +41,7 @@ characterEquipmentItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
+**Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of CharacterEquipmentItemVM from the subsystem API first

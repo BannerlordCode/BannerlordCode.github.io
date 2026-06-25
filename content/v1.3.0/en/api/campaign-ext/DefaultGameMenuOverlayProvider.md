@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Overlay` to place it in the stack, then inspe
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(GameMenu.MenuOverlayType menuOverlayType)`
 
-**Purpose:** **Purpose:** Reads and returns the overlay value held by the this instance.
+**Purpose:** Reads and returns the overlay value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultGameMenuOverlayProvider from the subsystem API first

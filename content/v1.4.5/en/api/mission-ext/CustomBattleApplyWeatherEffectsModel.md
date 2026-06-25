@@ -23,7 +23,7 @@ Treat `CustomBattleApplyWeatherEffectsModel` as a Model-style extension point: f
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**Purpose:** **Purpose:** Applies the effect of weather effects to the this instance.
+**Purpose:** Applies the effect of weather effects to the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleApplyWeatherEffectsModel from the subsystem API first

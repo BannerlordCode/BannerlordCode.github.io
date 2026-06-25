@@ -23,7 +23,7 @@ Treat `MissionGauntletOrderOfBattleUIHandler` as a Handler-style extension point
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletOrderOfBattleUIHandler.OnMissionScreenInitialize();
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the ready state or condition.
+**Purpose:** Determines whether the this instance is in the ready state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionGauntletOrderOfBattleUIHandler.IsReady();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletOrderOfBattleUIHandler.OnMissionTick(0);
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletOrderOfBattleUIHandler.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletOrderOfBattleUIHandler.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -89,7 +89,7 @@ var result = missionGauntletOrderOfBattleUIHandler.OnEscape();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -100,7 +100,7 @@ missionGauntletOrderOfBattleUIHandler.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -111,7 +111,7 @@ missionGauntletOrderOfBattleUIHandler.OnPhotoModeDeactivated();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
+**Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first
@@ -122,7 +122,7 @@ var result = missionGauntletOrderOfBattleUIHandler.IsOpeningEscapeMenuOnFocusCha
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOrderOfBattleUIHandler from the subsystem API first

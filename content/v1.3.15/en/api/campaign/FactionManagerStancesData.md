@@ -23,7 +23,7 @@ Treat `FactionManagerStancesData` as a Data-style extension point: first identif
 ### GetStanceLinks
 `public Dictionary<ValueTuple<IFaction, IFaction>, StanceLink>.ValueCollection GetStanceLinks()`
 
-**Purpose:** **Purpose:** Reads and returns the stance links value held by the this instance.
+**Purpose:** Reads and returns the stance links value held by the this instance.
 
 ```csharp
 // Obtain an instance of FactionManagerStancesData from the subsystem API first
@@ -34,7 +34,7 @@ var result = factionManagerStancesData.GetStanceLinks();
 ### AddStance
 `public void AddStance(StanceLink stance)`
 
-**Purpose:** **Purpose:** Adds stance to the current collection or state.
+**Purpose:** Adds stance to the current collection or state.
 
 ```csharp
 // Obtain an instance of FactionManagerStancesData from the subsystem API first
@@ -45,7 +45,7 @@ factionManagerStancesData.AddStance(stance);
 ### RemoveStance
 `public void RemoveStance(StanceLink stance)`
 
-**Purpose:** **Purpose:** Removes stance from the current collection or state.
+**Purpose:** Removes stance from the current collection or state.
 
 ```csharp
 // Obtain an instance of FactionManagerStancesData from the subsystem API first

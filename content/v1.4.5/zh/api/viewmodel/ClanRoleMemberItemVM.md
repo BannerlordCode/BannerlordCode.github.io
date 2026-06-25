@@ -34,7 +34,7 @@ description: "ClanRoleMemberItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
@@ -45,7 +45,7 @@ clanRoleMemberItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
@@ -56,7 +56,7 @@ clanRoleMemberItemVM.OnFinalize();
 ### ExecuteAssignHeroToRole
 `public void ExecuteAssignHeroToRole()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 assign hero to role 对应的操作或工作流。
+**用途 / Purpose:** 执行 assign hero to role 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
@@ -67,7 +67,7 @@ clanRoleMemberItemVM.ExecuteAssignHeroToRole();
 ### GetEffectsList
 `public string GetEffectsList(PartyRole role)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effects list 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effects list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例

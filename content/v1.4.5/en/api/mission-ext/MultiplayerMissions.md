@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OpenTeamDeathmatchMission
 `public static void OpenTeamDeathmatchMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with team deathmatch mission.
+**Purpose:** Opens the resource or UI associated with team deathmatch mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerMissions.OpenTeamDeathmatchMission("example");
 ### OpenDuelMission
 `public static void OpenDuelMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with duel mission.
+**Purpose:** Opens the resource or UI associated with duel mission.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerMissions.OpenDuelMission("example");
 ### OpenSiegeMission
 `public static void OpenSiegeMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with siege mission.
+**Purpose:** Opens the resource or UI associated with siege mission.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MultiplayerMissions.OpenSiegeMission("example");
 ### OpenBattleMission
 `public static void OpenBattleMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with battle mission.
+**Purpose:** Opens the resource or UI associated with battle mission.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MultiplayerMissions.OpenBattleMission("example");
 ### OpenCaptainMission
 `public static void OpenCaptainMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with captain mission.
+**Purpose:** Opens the resource or UI associated with captain mission.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MultiplayerMissions.OpenCaptainMission("example");
 ### OpenSkirmishMission
 `public static void OpenSkirmishMission(string scene)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with skirmish mission.
+**Purpose:** Opens the resource or UI associated with skirmish mission.
 
 ```csharp
 // Static call; no instance required

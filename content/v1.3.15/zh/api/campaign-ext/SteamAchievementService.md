@@ -23,7 +23,7 @@ description: "SteamAchievementService 的自动生成类参考。"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SteamAchievementService 实例
@@ -34,7 +34,7 @@ steamAchievementService.Tick(0);
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SteamAchievementService 实例

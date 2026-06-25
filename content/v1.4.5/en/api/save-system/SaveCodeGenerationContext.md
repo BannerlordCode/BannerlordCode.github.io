@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### AddAssembly
 `public void AddAssembly(Assembly assembly, string defaultNamespace, string location, string fileName)`
 
-**Purpose:** **Purpose:** Adds assembly to the current collection or state.
+**Purpose:** Adds assembly to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContext from the subsystem API first

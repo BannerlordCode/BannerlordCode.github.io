@@ -29,7 +29,7 @@ description: "GauntletMapOverlayView 的自动生成类参考。"
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(MapScreen.MapOverlayType mapOverlayType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 overlay 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 overlay 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMapOverlayView 实例

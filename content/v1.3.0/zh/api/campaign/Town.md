@@ -67,7 +67,7 @@ description: "Town 的自动生成类参考。"
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defender parties 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 defender parties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -78,7 +78,7 @@ var result = town.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next defender party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 next defender party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -89,7 +89,7 @@ var result = town.GetNextDefenderParty(partyIndex, battleType);
 ### FoodStocksUpperLimit
 `public int FoodStocksUpperLimit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FoodStocksUpperLimit 对应的操作。
+**用途 / Purpose:** 调用 FoodStocksUpperLimit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -100,7 +100,7 @@ var result = town.FoodStocksUpperLimit();
 ### OnInit
 `public override void OnInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 init 事件触发时调用此回调。
+**用途 / Purpose:** 在 init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -111,7 +111,7 @@ town.OnInit();
 ### OnSessionStart
 `public override void OnSessionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session start 事件触发时调用此回调。
+**用途 / Purpose:** 在 session start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -122,7 +122,7 @@ town.OnSessionStart();
 ### InitializeWorkshops
 `public void InitializeWorkshops(int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 workshops 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 workshops 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -133,7 +133,7 @@ town.InitializeWorkshops(0);
 ### AddEffectOfBuildings
 `public void AddEffectOfBuildings(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 effect of buildings 添加到当前容器或状态中。
+**用途 / Purpose:** 将 effect of buildings 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -144,7 +144,7 @@ town.AddEffectOfBuildings(buildingEffect, result);
 ### GetWallLevel
 `public int GetWallLevel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 wall level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 wall level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -155,7 +155,7 @@ var result = town.GetWallLevel();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -166,7 +166,7 @@ var result = town.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -177,7 +177,7 @@ town.Deserialize(objectManager, node);
 ### SetSoldItems
 `public void SetSoldItems(IEnumerable<Town.SellLog> logList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sold items 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sold items 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -188,7 +188,7 @@ town.SetSoldItems(logList);
 ### GetItemPrice
 `public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -199,7 +199,7 @@ var result = town.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -210,7 +210,7 @@ var result = town.GetItemPrice(itemRosterElement, null, false);
 ### GetProsperityLevel
 `public override SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prosperity level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prosperity level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -221,7 +221,7 @@ var result = town.GetProsperityLevel();
 ### GetItemCategoryPriceIndex
 `public float GetItemCategoryPriceIndex(ItemCategory itemCategory)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item category price index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item category price index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -232,7 +232,7 @@ var result = town.GetItemCategoryPriceIndex(itemCategory);
 ### GetNeighborFortifications
 `public MBReadOnlyList<Settlement> GetNeighborFortifications(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbor fortifications 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 neighbor fortifications 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Town 实例
@@ -243,7 +243,7 @@ var result = town.GetNeighborFortifications(navigationType);
 ### AutoGeneratedStaticCollectObjectsSellLog
 `public static void AutoGeneratedStaticCollectObjectsSellLog(object o, List<object> collectedObjects)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AutoGeneratedStaticCollectObjectsSellLog 对应的操作。
+**用途 / Purpose:** 调用 AutoGeneratedStaticCollectObjectsSellLog 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

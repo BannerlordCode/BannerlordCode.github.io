@@ -23,7 +23,7 @@ description: "MPTeammateCompassTargetVM 的自动生成类参考。"
 ### MPTeammateCompassTargetVM
 `public unsafe MPTeammateCompassTargetVM(TargetIconType iconType, uint color, uint color2, Banner banner, bool isAlly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MPTeammateCompassTargetVM 对应的操作。
+**用途 / Purpose:** 调用 MPTeammateCompassTargetVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例
@@ -34,7 +34,7 @@ var result = mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0,
 ### RefreshTargetIconType
 `public unsafe void RefreshTargetIconType(TargetIconType targetIconType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 target icon type 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 target icon type 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例
@@ -45,7 +45,7 @@ mPTeammateCompassTargetVM.RefreshTargetIconType(targetIconType);
 ### RefreshTeam
 `public void RefreshTeam(Banner banner, bool isAlly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 team 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 team 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例

@@ -23,7 +23,7 @@ description: "AssemblyLoader 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AssemblyLoader.Initialize();
 ### LoadFrom
 `public static Assembly LoadFrom(string assemblyFile, bool show_error = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
+**用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 静态调用，不需要实例

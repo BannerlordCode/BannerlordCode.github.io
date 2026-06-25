@@ -29,7 +29,7 @@ description: "NativeTelemetryManager 的自动生成类参考。"
 ### GetTelemetryLevelMask
 `public TelemetryLevelMask GetTelemetryLevelMask()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 telemetry level mask 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 telemetry level mask 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -40,7 +40,7 @@ var result = nativeTelemetryManager.GetTelemetryLevelMask();
 ### StartTelemetryConnection
 `public void StartTelemetryConnection(bool showErrors)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动telemetry connection流程或状态机。
+**用途 / Purpose:** 启动telemetry connection流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -51,7 +51,7 @@ nativeTelemetryManager.StartTelemetryConnection(false);
 ### StopTelemetryConnection
 `public void StopTelemetryConnection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止telemetry connection流程或状态机。
+**用途 / Purpose:** 停止telemetry connection流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -62,7 +62,7 @@ nativeTelemetryManager.StopTelemetryConnection();
 ### BeginTelemetryScopeInternal
 `public void BeginTelemetryScopeInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginTelemetryScopeInternal 对应的操作。
+**用途 / Purpose:** 调用 BeginTelemetryScopeInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -73,7 +73,7 @@ nativeTelemetryManager.BeginTelemetryScopeInternal(levelMask, "example");
 ### EndTelemetryScopeInternal
 `public void EndTelemetryScopeInternal()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndTelemetryScopeInternal 对应的操作。
+**用途 / Purpose:** 调用 EndTelemetryScopeInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -84,7 +84,7 @@ nativeTelemetryManager.EndTelemetryScopeInternal();
 ### BeginTelemetryScopeBaseLevelInternal
 `public void BeginTelemetryScopeBaseLevelInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginTelemetryScopeBaseLevelInternal 对应的操作。
+**用途 / Purpose:** 调用 BeginTelemetryScopeBaseLevelInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -95,7 +95,7 @@ nativeTelemetryManager.BeginTelemetryScopeBaseLevelInternal(levelMask, "example"
 ### EndTelemetryScopeBaseLevelInternal
 `public void EndTelemetryScopeBaseLevelInternal()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndTelemetryScopeBaseLevelInternal 对应的操作。
+**用途 / Purpose:** 调用 EndTelemetryScopeBaseLevelInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例

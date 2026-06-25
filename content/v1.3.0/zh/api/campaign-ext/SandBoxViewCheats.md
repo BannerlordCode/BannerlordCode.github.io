@@ -23,7 +23,7 @@ description: "SandBoxViewCheats 的自动生成类参考。"
 ### KillHero
 `public static string KillHero(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 KillHero 对应的操作。
+**用途 / Purpose:** 调用 KillHero 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SandBoxViewCheats.KillHero(strings);
 ### FocusTournament
 `public static string FocusTournament(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTournament 对应的操作。
+**用途 / Purpose:** 调用 FocusTournament 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ SandBoxViewCheats.FocusTournament(strings);
 ### MakeClanMercenaryOfKingdom
 `public static string MakeClanMercenaryOfKingdom(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeClanMercenaryOfKingdom 对应的操作。
+**用途 / Purpose:** 调用 MakeClanMercenaryOfKingdom 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ SandBoxViewCheats.MakeClanMercenaryOfKingdom(strings);
 ### FocusHostileArmy
 `public static string FocusHostileArmy(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusHostileArmy 对应的操作。
+**用途 / Purpose:** 调用 FocusHostileArmy 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ SandBoxViewCheats.FocusHostileArmy(strings);
 ### FocusMobileParty
 `public static string FocusMobileParty(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusMobileParty 对应的操作。
+**用途 / Purpose:** 调用 FocusMobileParty 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ SandBoxViewCheats.FocusMobileParty(strings);
 ### FocusHero
 `public static string FocusHero(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusHero 对应的操作。
+**用途 / Purpose:** 调用 FocusHero 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ SandBoxViewCheats.FocusHero(strings);
 ### FocusInfestedHideout
 `public static string FocusInfestedHideout(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusInfestedHideout 对应的操作。
+**用途 / Purpose:** 调用 FocusInfestedHideout 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ SandBoxViewCheats.FocusInfestedHideout(strings);
 ### FocusIssues
 `public static string FocusIssues(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusIssues 对应的操作。
+**用途 / Purpose:** 调用 FocusIssues 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

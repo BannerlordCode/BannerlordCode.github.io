@@ -30,7 +30,7 @@ description: "WeakMaterial 的自动生成类参考。"
 ### GetShader
 `public Shader GetShader()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shader 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shader 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -41,7 +41,7 @@ var result = weakMaterial.GetShader();
 ### GetShaderFlags
 `public ulong GetShaderFlags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shader flags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shader flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -52,7 +52,7 @@ var result = weakMaterial.GetShaderFlags();
 ### SetShaderFlags
 `public void SetShaderFlags(ulong flagEntry)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 shader flags 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 shader flags 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -63,7 +63,7 @@ weakMaterial.SetShaderFlags(0);
 ### SetMeshVectorArgument
 `public void SetMeshVectorArgument(float x, float y, float z, float w)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mesh vector argument 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mesh vector argument 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -74,7 +74,7 @@ weakMaterial.SetMeshVectorArgument(0, 0, 0, 0);
 ### SetTexture
 `public void SetTexture(Material.MBTextureType textureType, Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 texture 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 texture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -85,7 +85,7 @@ weakMaterial.SetTexture(textureType, texture);
 ### SetTextureAtSlot
 `public void SetTextureAtSlot(int textureSlot, Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 texture at slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 texture at slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -96,7 +96,7 @@ weakMaterial.SetTextureAtSlot(0, texture);
 ### SetAreaMapScale
 `public void SetAreaMapScale(float scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 area map scale 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 area map scale 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -107,7 +107,7 @@ weakMaterial.SetAreaMapScale(0);
 ### SetEnableSkinning
 `public void SetEnableSkinning(bool enable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 enable skinning 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 enable skinning 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -118,7 +118,7 @@ weakMaterial.SetEnableSkinning(false);
 ### UsingSkinning
 `public bool UsingSkinning()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UsingSkinning 对应的操作。
+**用途 / Purpose:** 调用 UsingSkinning 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -129,7 +129,7 @@ var result = weakMaterial.UsingSkinning();
 ### GetTexture
 `public Texture GetTexture(Material.MBTextureType textureType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 texture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -140,7 +140,7 @@ var result = weakMaterial.GetTexture(textureType);
 ### GetTextureWithSlot
 `public Texture GetTextureWithSlot(int textureSlot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 texture with slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 texture with slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -151,7 +151,7 @@ var result = weakMaterial.GetTextureWithSlot(0);
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string flagName, bool showErrors)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 material shader flag 添加到当前容器或状态中。
+**用途 / Purpose:** 将 material shader flag 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -162,7 +162,7 @@ weakMaterial.AddMaterialShaderFlag("example", false);
 ### RemoveMaterialShaderFlag
 `public void RemoveMaterialShaderFlag(string flagName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 material shader flag。
+**用途 / Purpose:** 从当前容器或状态中移除 material shader flag。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -173,7 +173,7 @@ weakMaterial.RemoveMaterialShaderFlag("example");
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例
@@ -184,7 +184,7 @@ var result = weakMaterial.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakMaterial 实例

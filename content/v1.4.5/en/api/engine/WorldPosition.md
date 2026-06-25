@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetVec3
 `public void SetVec3(UIntPtr navMesh, Vec3 position, bool hasValidZ)`
 
-**Purpose:** **Purpose:** Assigns a new value to vec3 and updates the object's internal state.
+**Purpose:** Assigns a new value to vec3 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -40,7 +40,7 @@ worldPosition.SetVec3(navMesh, position, false);
 ### GetNavMesh
 `public UIntPtr GetNavMesh()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh value held by the this instance.
+**Purpose:** Reads and returns the nav mesh value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -51,7 +51,7 @@ var result = worldPosition.GetNavMesh();
 ### GetNavMeshMT
 `public UIntPtr GetNavMeshMT()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh m t value held by the this instance.
+**Purpose:** Reads and returns the nav mesh m t value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -62,7 +62,7 @@ var result = worldPosition.GetNavMeshMT();
 ### GetNearestNavMesh
 `public UIntPtr GetNearestNavMesh()`
 
-**Purpose:** **Purpose:** Reads and returns the nearest nav mesh value held by the this instance.
+**Purpose:** Reads and returns the nearest nav mesh value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -73,7 +73,7 @@ var result = worldPosition.GetNearestNavMesh();
 ### GetNavMeshZ
 `public float GetNavMeshZ()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh z value held by the this instance.
+**Purpose:** Reads and returns the nav mesh z value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -84,7 +84,7 @@ var result = worldPosition.GetNavMeshZ();
 ### GetNavMeshZMT
 `public float GetNavMeshZMT()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh z m t value held by the this instance.
+**Purpose:** Reads and returns the nav mesh z m t value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -95,7 +95,7 @@ var result = worldPosition.GetNavMeshZMT();
 ### GetGroundZ
 `public float GetGroundZ()`
 
-**Purpose:** **Purpose:** Reads and returns the ground z value held by the this instance.
+**Purpose:** Reads and returns the ground z value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -106,7 +106,7 @@ var result = worldPosition.GetGroundZ();
 ### GetGroundZMT
 `public float GetGroundZMT()`
 
-**Purpose:** **Purpose:** Reads and returns the ground z m t value held by the this instance.
+**Purpose:** Reads and returns the ground z m t value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -117,7 +117,7 @@ var result = worldPosition.GetGroundZMT();
 ### GetNavMeshVec3
 `public Vec3 GetNavMeshVec3()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh vec3 value held by the this instance.
+**Purpose:** Reads and returns the nav mesh vec3 value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -128,7 +128,7 @@ var result = worldPosition.GetNavMeshVec3();
 ### GetNavMeshVec3MT
 `public Vec3 GetNavMeshVec3MT()`
 
-**Purpose:** **Purpose:** Reads and returns the nav mesh vec3 m t value held by the this instance.
+**Purpose:** Reads and returns the nav mesh vec3 m t value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -139,7 +139,7 @@ var result = worldPosition.GetNavMeshVec3MT();
 ### GetGroundVec3
 `public Vec3 GetGroundVec3()`
 
-**Purpose:** **Purpose:** Reads and returns the ground vec3 value held by the this instance.
+**Purpose:** Reads and returns the ground vec3 value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -150,7 +150,7 @@ var result = worldPosition.GetGroundVec3();
 ### GetGroundVec3MT
 `public Vec3 GetGroundVec3MT()`
 
-**Purpose:** **Purpose:** Reads and returns the ground vec3 m t value held by the this instance.
+**Purpose:** Reads and returns the ground vec3 m t value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -161,7 +161,7 @@ var result = worldPosition.GetGroundVec3MT();
 ### GetVec3WithoutValidity
 `public Vec3 GetVec3WithoutValidity()`
 
-**Purpose:** **Purpose:** Reads and returns the vec3 without validity value held by the this instance.
+**Purpose:** Reads and returns the vec3 without validity value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -172,7 +172,7 @@ var result = worldPosition.GetVec3WithoutValidity();
 ### SetVec2MT
 `public void SetVec2MT(Vec2 value)`
 
-**Purpose:** **Purpose:** Assigns a new value to vec2 m t and updates the object's internal state.
+**Purpose:** Assigns a new value to vec2 m t and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -183,7 +183,7 @@ worldPosition.SetVec2MT(value);
 ### SetVec2
 `public void SetVec2(Vec2 value)`
 
-**Purpose:** **Purpose:** Assigns a new value to vec2 and updates the object's internal state.
+**Purpose:** Assigns a new value to vec2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first
@@ -194,7 +194,7 @@ worldPosition.SetVec2(value);
 ### DistanceSquaredWithLimit
 `public float DistanceSquaredWithLimit(in Vec3 targetPoint, float limitSquared)`
 
-**Purpose:** **Purpose:** Executes the DistanceSquaredWithLimit logic.
+**Purpose:** Executes the DistanceSquaredWithLimit logic.
 
 ```csharp
 // Obtain an instance of WorldPosition from the subsystem API first

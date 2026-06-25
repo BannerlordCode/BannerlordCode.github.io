@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
@@ -50,7 +50,7 @@ craftingAvailableHeroItemVM.RefreshValues();
 ### RefreshStamina
 `public void RefreshStamina()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of stamina in sync with the underlying state.
+**Purpose:** Keeps the display or cache of stamina in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
@@ -61,7 +61,7 @@ craftingAvailableHeroItemVM.RefreshStamina();
 ### RefreshOrderAvailability
 `public void RefreshOrderAvailability(CraftingOrder order)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of order availability in sync with the underlying state.
+**Purpose:** Keeps the display or cache of order availability in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
@@ -72,7 +72,7 @@ craftingAvailableHeroItemVM.RefreshOrderAvailability(order);
 ### RefreshSkills
 `public void RefreshSkills()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of skills in sync with the underlying state.
+**Purpose:** Keeps the display or cache of skills in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
@@ -83,7 +83,7 @@ craftingAvailableHeroItemVM.RefreshSkills();
 ### RefreshPerks
 `public void RefreshPerks()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of perks in sync with the underlying state.
+**Purpose:** Keeps the display or cache of perks in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
@@ -94,7 +94,7 @@ craftingAvailableHeroItemVM.RefreshPerks();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
+**Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first

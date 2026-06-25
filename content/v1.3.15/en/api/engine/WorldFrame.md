@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**Purpose:** **Purpose:** Executes the ToGroundMatrixFrame logic.
+**Purpose:** Executes the ToGroundMatrixFrame logic.
 
 ```csharp
 // Obtain an instance of WorldFrame from the subsystem API first
@@ -40,7 +40,7 @@ var result = worldFrame.ToGroundMatrixFrame();
 ### ToGroundMatrixFrameMT
 `public MatrixFrame ToGroundMatrixFrameMT()`
 
-**Purpose:** **Purpose:** Executes the ToGroundMatrixFrameMT logic.
+**Purpose:** Executes the ToGroundMatrixFrameMT logic.
 
 ```csharp
 // Obtain an instance of WorldFrame from the subsystem API first
@@ -51,7 +51,7 @@ var result = worldFrame.ToGroundMatrixFrameMT();
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**Purpose:** **Purpose:** Executes the ToNavMeshMatrixFrame logic.
+**Purpose:** Executes the ToNavMeshMatrixFrame logic.
 
 ```csharp
 // Obtain an instance of WorldFrame from the subsystem API first

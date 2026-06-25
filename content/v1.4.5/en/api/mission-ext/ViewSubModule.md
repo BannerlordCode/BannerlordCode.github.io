@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the campaign start event is raised.
+**Purpose:** Invoked when the campaign start event is raised.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -40,7 +40,7 @@ viewSubModule.OnCampaignStart(game, starterObject);
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the multiplayer game start event is raised.
+**Purpose:** Invoked when the multiplayer game start event is raised.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -51,7 +51,7 @@ viewSubModule.OnMultiplayerGameStart(game, starterObject);
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
+**Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -62,7 +62,7 @@ viewSubModule.OnGameLoaded(game, initializerObject);
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
+**Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -73,7 +73,7 @@ viewSubModule.OnGameInitializationFinished(game);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** **Purpose:** Executes the BeginGameStart logic.
+**Purpose:** Executes the BeginGameStart logic.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -84,7 +84,7 @@ viewSubModule.BeginGameStart(game);
 ### DoLoading
 `public override bool DoLoading(Game game)`
 
-**Purpose:** **Purpose:** Executes the DoLoading logic.
+**Purpose:** Executes the DoLoading logic.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first
@@ -95,7 +95,7 @@ var result = viewSubModule.DoLoading(game);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of ViewSubModule from the subsystem API first

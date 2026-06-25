@@ -33,7 +33,7 @@ description: "MapInfoItemVM 的自动生成类参考。"
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapInfoItemVM 实例
@@ -44,7 +44,7 @@ mapInfoItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapInfoItemVM 实例
@@ -55,7 +55,7 @@ mapInfoItemVM.ExecuteEndHint();
 ### SetOverriddenVisualId
 `public void SetOverriddenVisualId(string visualId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 overridden visual id 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 overridden visual id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapInfoItemVM 实例

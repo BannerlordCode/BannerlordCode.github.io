@@ -23,7 +23,7 @@ description: "DrivenPropertyEffect 的自动生成类参考。"
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 update 事件触发时调用此回调。
+**用途 / Purpose:** 在 update 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DrivenPropertyEffect 实例
@@ -34,7 +34,7 @@ drivenPropertyEffect.OnUpdate(agent, false);
 ### GetDrivenPropertyBonus
 `public override float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 driven property bonus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 driven property bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DrivenPropertyEffect 实例

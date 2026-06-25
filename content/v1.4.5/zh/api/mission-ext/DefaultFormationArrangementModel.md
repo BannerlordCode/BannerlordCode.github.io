@@ -23,7 +23,7 @@ description: "DefaultFormationArrangementModel 的自动生成类参考。"
 ### GetArrangementPosition
 `public ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 arrangement position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 arrangement position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationArrangementModel 实例
@@ -34,7 +34,7 @@ var result = defaultFormationArrangementModel.GetArrangementPosition(0, 0);
 ### GetBannerBearerPositions
 `public override List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationArrangementModel 实例

@@ -23,7 +23,7 @@ description: "ItemHelper 的自动生成类参考。"
 ### IsWeaponComparableWithUsage
 `public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 weapon comparable with usage 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 weapon comparable with usage 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ItemHelper.IsWeaponComparableWithUsage(item, "example");
 ### IsWeaponComparableWithUsage
 `public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId, out int comparableUsageIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 weapon comparable with usage 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 weapon comparable with usage 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ItemHelper.IsWeaponComparableWithUsage(item, "example", comparableUsageIndex);
 ### CheckComparability
 `public static bool CheckComparability(ItemObject item, ItemObject comparedItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查comparability在当前对象中是否成立。
+**用途 / Purpose:** 检查comparability在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ItemHelper.CheckComparability(item, comparedItem);
 ### CheckComparability
 `public static bool CheckComparability(ItemObject item, ItemObject comparedItem, int usageIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查comparability在当前对象中是否成立。
+**用途 / Purpose:** 检查comparability在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ItemHelper.CheckComparability(item, comparedItem, 0);
 ### GetSwingDamageText
 `public static TextObject GetSwingDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 swing damage text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 swing damage text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ ItemHelper.GetSwingDamageText(weapon, itemModifier);
 ### GetMissileDamageText
 `public static TextObject GetMissileDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 missile damage text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 missile damage text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ ItemHelper.GetMissileDamageText(weapon, itemModifier);
 ### GetThrustDamageText
 `public static TextObject GetThrustDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 thrust damage text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 thrust damage text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ ItemHelper.GetThrustDamageText(weapon, itemModifier);
 ### NumberOfItems
 `public static TextObject NumberOfItems(int number, ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NumberOfItems 对应的操作。
+**用途 / Purpose:** 调用 NumberOfItems 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

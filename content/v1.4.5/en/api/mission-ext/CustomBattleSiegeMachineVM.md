@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### SetMachineType
 `public void SetMachineType(SiegeEngineType machine)`
 
-**Purpose:** **Purpose:** Assigns a new value to machine type and updates the object's internal state.
+**Purpose:** Assigns a new value to machine type and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleSiegeMachineVM from the subsystem API first

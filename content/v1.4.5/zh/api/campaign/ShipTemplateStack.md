@@ -23,7 +23,7 @@ description: "ShipTemplateStack 的自动生成类参考。"
 ### ShipTemplateStack
 `public struct ShipTemplateStack(ShipHull shipHull, int minValue, int maxValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShipTemplateStack 对应的操作。
+**用途 / Purpose:** 调用 ShipTemplateStack 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipTemplateStack 实例

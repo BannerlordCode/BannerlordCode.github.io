@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ShipHull from the subsystem API first
@@ -58,7 +58,7 @@ var result = shipHull.ToString();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipHull from the subsystem API first
@@ -69,7 +69,7 @@ var result = shipHull.GetName();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ShipHull from the subsystem API first

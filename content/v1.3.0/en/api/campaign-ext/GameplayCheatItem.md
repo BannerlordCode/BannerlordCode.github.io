@@ -23,7 +23,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public abstract void ExecuteCheat()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cheat.
+**Purpose:** Runs the operation or workflow associated with cheat.
 
 ```csharp
 // Obtain an instance of GameplayCheatItem from the subsystem API first

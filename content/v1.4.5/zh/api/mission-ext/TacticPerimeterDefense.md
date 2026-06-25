@@ -30,7 +30,7 @@ description: "TacticPerimeterDefense 的自动生成类参考。"
 ### UpdateClusterData
 `public void UpdateClusterData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 cluster data 的最新表示。
+**用途 / Purpose:** 重新计算并更新 cluster data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticPerimeterDefense 实例
@@ -41,7 +41,7 @@ tacticPerimeterDefense.UpdateClusterData();
 ### AddToCluster
 `public void AddToCluster(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to cluster 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to cluster 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticPerimeterDefense 实例
@@ -52,7 +52,7 @@ tacticPerimeterDefense.AddToCluster(formation);
 ### RemoveFromCluster
 `public void RemoveFromCluster(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 from cluster。
+**用途 / Purpose:** 从当前容器或状态中移除 from cluster。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticPerimeterDefense 实例
@@ -63,7 +63,7 @@ tacticPerimeterDefense.RemoveFromCluster(formation);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticPerimeterDefense 实例

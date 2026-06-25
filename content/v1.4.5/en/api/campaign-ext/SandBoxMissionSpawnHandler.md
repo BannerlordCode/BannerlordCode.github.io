@@ -23,7 +23,7 @@ Treat `SandBoxMissionSpawnHandler` as a Handler-style extension point: first ide
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxMissionSpawnHandler from the subsystem API first

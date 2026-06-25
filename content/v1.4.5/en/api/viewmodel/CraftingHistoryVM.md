@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -51,7 +51,7 @@ craftingHistoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -62,7 +62,7 @@ craftingHistoryVM.OnFinalize();
 ### RefreshAvailability
 `public void RefreshAvailability()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of availability in sync with the underlying state.
+**Purpose:** Keeps the display or cache of availability in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -73,7 +73,7 @@ craftingHistoryVM.RefreshAvailability();
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open.
+**Purpose:** Runs the operation or workflow associated with open.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -84,7 +84,7 @@ craftingHistoryVM.ExecuteOpen();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -95,7 +95,7 @@ craftingHistoryVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -106,7 +106,7 @@ craftingHistoryVM.ExecuteDone();
 ### SetDoneKey
 `public void SetDoneKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done key and updates the object's internal state.
+**Purpose:** Assigns a new value to done key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first
@@ -117,7 +117,7 @@ craftingHistoryVM.SetDoneKey(hotkey);
 ### SetCancelKey
 `public void SetCancelKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingHistoryVM from the subsystem API first

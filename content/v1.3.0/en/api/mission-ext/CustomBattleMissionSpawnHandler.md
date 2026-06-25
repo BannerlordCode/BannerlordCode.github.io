@@ -23,7 +23,7 @@ Treat `CustomBattleMissionSpawnHandler` as a Handler-style extension point: firs
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CustomBattleMissionSpawnHandler from the subsystem API first

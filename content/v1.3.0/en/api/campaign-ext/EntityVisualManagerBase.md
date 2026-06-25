@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Map.Managers` to place it in the stack, then 
 ### GetVisualOfEntity
 `public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
 
-**Purpose:** **Purpose:** Reads and returns the visual of entity value held by the this instance.
+**Purpose:** Reads and returns the visual of entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of EntityVisualManagerBase from the subsystem API first
@@ -34,7 +34,7 @@ var result = entityVisualManagerBase.GetVisualOfEntity(entity);
 ### GetEntityVisualManagerBase
 `public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
 
-**Purpose:** **Purpose:** Reads and returns the entity visual manager base value held by the this instance.
+**Purpose:** Reads and returns the entity visual manager base value held by the this instance.
 
 ```csharp
 // Static call; no instance required

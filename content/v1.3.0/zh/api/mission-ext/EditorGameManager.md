@@ -23,7 +23,7 @@ description: "EditorGameManager 的自动生成类参考。"
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 after campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EditorGameManager 实例
@@ -34,7 +34,7 @@ editorGameManager.OnAfterCampaignStart(game);
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 load finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 load finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EditorGameManager 实例

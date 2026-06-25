@@ -23,7 +23,7 @@ Treat `CustomBattleInitializationModel` as a Model-style extension point: first 
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** **Purpose:** Reads and returns the all available troop types value held by the this instance.
+**Purpose:** Reads and returns the all available troop types value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleInitializationModel from the subsystem API first

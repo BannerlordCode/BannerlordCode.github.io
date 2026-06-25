@@ -30,7 +30,7 @@ description: "SPKillFeedVM 的自动生成类参考。"
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPKillFeedVM 实例
@@ -41,7 +41,7 @@ sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal kill 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal kill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPKillFeedVM 实例
@@ -52,7 +52,7 @@ sPKillFeedVM.OnPersonalKill(0, false, false, false, "example", false);
 ### OnPersonalDamage
 `public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal damage 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal damage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPKillFeedVM 实例
@@ -63,7 +63,7 @@ sPKillFeedVM.OnPersonalDamage(0, false, false, "example");
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal message 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal message 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPKillFeedVM 实例

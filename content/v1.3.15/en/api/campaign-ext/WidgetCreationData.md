@@ -34,7 +34,7 @@ Treat `WidgetCreationData` as a Data-style extension point: first identify who c
 ### AddExtensionData
 `public void AddExtensionData(string name, object data)`
 
-**Purpose:** **Purpose:** Adds extension data to the current collection or state.
+**Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetCreationData from the subsystem API first
@@ -45,7 +45,7 @@ widgetCreationData.AddExtensionData("example", data);
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
-**Purpose:** **Purpose:** Adds extension data to the current collection or state.
+**Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetCreationData from the subsystem API first

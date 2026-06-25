@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of PathFaceRecord from the subsystem API first

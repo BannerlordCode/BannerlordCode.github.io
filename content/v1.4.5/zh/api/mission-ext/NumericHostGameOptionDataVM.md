@@ -31,7 +31,7 @@ description: "NumericHostGameOptionDataVM 的自动生成类参考。"
 ### RefreshData
 `public override void RefreshData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 data 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 data 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 NumericHostGameOptionDataVM 实例

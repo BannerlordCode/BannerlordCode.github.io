@@ -23,7 +23,7 @@ Treat `DefaultHeroCreationModel` as a Model-style extension point: first identif
 ### GetBirthAndDeathDay
 `public override ValueTuple<CampaignTime, CampaignTime> GetBirthAndDeathDay(CharacterObject character, bool createAlive, int age)`
 
-**Purpose:** **Purpose:** Reads and returns the birth and death day value held by the this instance.
+**Purpose:** Reads and returns the birth and death day value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultHeroCreationModel.GetBirthAndDeathDay(character, false, 0);
 ### GetBornSettlement
 `public override Settlement GetBornSettlement(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the born settlement value held by the this instance.
+**Purpose:** Reads and returns the born settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultHeroCreationModel.GetBornSettlement(hero);
 ### GetStaticBodyProperties
 `public override StaticBodyProperties GetStaticBodyProperties(Hero hero, bool isOffspring, float variationAmount = 0.35f)`
 
-**Purpose:** **Purpose:** Reads and returns the static body properties value held by the this instance.
+**Purpose:** Reads and returns the static body properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultHeroCreationModel.GetStaticBodyProperties(hero, false, 0);
 ### GetPreferredUpgradeFormation
 `public override FormationClass GetPreferredUpgradeFormation(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the preferred upgrade formation value held by the this instance.
+**Purpose:** Reads and returns the preferred upgrade formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultHeroCreationModel.GetPreferredUpgradeFormation(hero);
 ### GetClan
 `public override Clan GetClan(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the clan value held by the this instance.
+**Purpose:** Reads and returns the clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultHeroCreationModel.GetClan(hero);
 ### GetCulture
 `public override CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the culture value held by the this instance.
+**Purpose:** Reads and returns the culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultHeroCreationModel.GetCulture(hero, bornSettlement, clan);
 ### GetRandomTemplateByOccupation
 `public override CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)`
 
-**Purpose:** **Purpose:** Reads and returns the random template by occupation value held by the this instance.
+**Purpose:** Reads and returns the random template by occupation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultHeroCreationModel.GetRandomTemplateByOccupation(occupation, 
 ### GetTraitsForHero
 `public override List<ValueTuple<TraitObject, int>> GetTraitsForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the traits for hero value held by the this instance.
+**Purpose:** Reads and returns the traits for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultHeroCreationModel.GetTraitsForHero(hero);
 ### GetCivilianEquipment
 `public override Equipment GetCivilianEquipment(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the civilian equipment value held by the this instance.
+**Purpose:** Reads and returns the civilian equipment value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultHeroCreationModel.GetCivilianEquipment(hero);
 ### GetBattleEquipment
 `public override Equipment GetBattleEquipment(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the battle equipment value held by the this instance.
+**Purpose:** Reads and returns the battle equipment value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultHeroCreationModel.GetBattleEquipment(hero);
 ### GetCharacterTemplateForOffspring
 `public override CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)`
 
-**Purpose:** **Purpose:** Reads and returns the character template for offspring value held by the this instance.
+**Purpose:** Reads and returns the character template for offspring value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = defaultHeroCreationModel.GetCharacterTemplateForOffspring(mother, f
 ### GenerateFirstAndFullName
 `public override ValueTuple<TextObject, TextObject> GenerateFirstAndFullName(Hero hero)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of first and full name.
+**Purpose:** Generates an instance, data, or representation of first and full name.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = defaultHeroCreationModel.GenerateFirstAndFullName(hero);
 ### GetDefaultSkillsForHero
 `public override List<ValueTuple<SkillObject, int>> GetDefaultSkillsForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the default skills for hero value held by the this instance.
+**Purpose:** Reads and returns the default skills for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = defaultHeroCreationModel.GetDefaultSkillsForHero(hero);
 ### GetInheritedSkillsForHero
 `public override List<ValueTuple<SkillObject, int>> GetInheritedSkillsForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the inherited skills for hero value held by the this instance.
+**Purpose:** Reads and returns the inherited skills for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first
@@ -177,7 +177,7 @@ var result = defaultHeroCreationModel.GetInheritedSkillsForHero(hero);
 ### IsHeroCombatant
 `public override bool IsHeroCombatant(Hero hero)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hero combatant state or condition.
+**Purpose:** Determines whether the this instance is in the hero combatant state or condition.
 
 ```csharp
 // Obtain an instance of DefaultHeroCreationModel from the subsystem API first

@@ -52,7 +52,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### ExecuteItemPrimaryAction
 `public virtual void ExecuteItemPrimaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item primary action.
+**Purpose:** Runs the operation or workflow associated with item primary action.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -63,7 +63,7 @@ partyTroopManagerVM.ExecuteItemPrimaryAction();
 ### ExecuteItemSecondaryAction
 `public virtual void ExecuteItemSecondaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item secondary action.
+**Purpose:** Runs the operation or workflow associated with item secondary action.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -74,7 +74,7 @@ partyTroopManagerVM.ExecuteItemSecondaryAction();
 ### ExecuteItemTertiaryAction
 `public virtual void ExecuteItemTertiaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item tertiary action.
+**Purpose:** Runs the operation or workflow associated with item tertiary action.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -85,7 +85,7 @@ partyTroopManagerVM.ExecuteItemTertiaryAction();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -96,7 +96,7 @@ partyTroopManagerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -107,7 +107,7 @@ partyTroopManagerVM.OnFinalize();
 ### OpenPopUp
 `public virtual void OpenPopUp()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with pop up.
+**Purpose:** Opens the resource or UI associated with pop up.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -118,7 +118,7 @@ partyTroopManagerVM.OpenPopUp();
 ### ExecuteDone
 `public virtual void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -129,7 +129,7 @@ partyTroopManagerVM.ExecuteDone();
 ### UpdateOpenButtonHint
 `public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of open button hint.
+**Purpose:** Recalculates and stores the latest representation of open button hint.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -140,7 +140,7 @@ partyTroopManagerVM.UpdateOpenButtonHint(false, false, false);
 ### ExecuteCancel
 `public abstract void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -151,7 +151,7 @@ partyTroopManagerVM.ExecuteCancel();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -162,7 +162,7 @@ partyTroopManagerVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -173,7 +173,7 @@ partyTroopManagerVM.SetCancelInputKey(hotKey);
 ### SetPrimaryActionInputKey
 `public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to primary action input key and updates the object's internal state.
+**Purpose:** Assigns a new value to primary action input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -184,7 +184,7 @@ partyTroopManagerVM.SetPrimaryActionInputKey(hotKey);
 ### SetSecondaryActionInputKey
 `public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to secondary action input key and updates the object's internal state.
+**Purpose:** Assigns a new value to secondary action input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first
@@ -195,7 +195,7 @@ partyTroopManagerVM.SetSecondaryActionInputKey(hotKey);
 ### SetTertiaryActionInputKey
 `public void SetTertiaryActionInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to tertiary action input key and updates the object's internal state.
+**Purpose:** Assigns a new value to tertiary action input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerVM from the subsystem API first

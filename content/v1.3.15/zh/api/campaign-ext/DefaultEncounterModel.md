@@ -36,7 +36,7 @@ description: "DefaultEncounterModel 的自动生成类参考。"
 ### IsEncounterExemptFromHostileActions
 `public override bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 encounter exempt from hostile actions 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 encounter exempt from hostile actions 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -47,7 +47,7 @@ var result = defaultEncounterModel.IsEncounterExemptFromHostileActions(side1, si
 ### GetLeaderOfSiegeEvent
 `public override Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 leader of siege event 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 leader of siege event 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -58,7 +58,7 @@ var result = defaultEncounterModel.GetLeaderOfSiegeEvent(siegeEvent, side);
 ### CanMainHeroDoParleyWithParty
 `public override bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero do parley with party 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 main hero do parley with party 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -69,7 +69,7 @@ var result = defaultEncounterModel.CanMainHeroDoParleyWithParty(partyBase, expla
 ### GetLeaderOfMapEvent
 `public override Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 leader of map event 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 leader of map event 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -80,7 +80,7 @@ var result = defaultEncounterModel.GetLeaderOfMapEvent(mapEvent, side);
 ### GetCharacterSergeantScore
 `public override int GetCharacterSergeantScore(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character sergeant score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 character sergeant score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -91,7 +91,7 @@ var result = defaultEncounterModel.GetCharacterSergeantScore(hero);
 ### GetDefenderPartiesOfSettlement
 `public override IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defender parties of settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 defender parties of settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -102,7 +102,7 @@ var result = defaultEncounterModel.GetDefenderPartiesOfSettlement(settlement, ma
 ### GetNextDefenderPartyOfSettlement
 `public override PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next defender party of settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 next defender party of settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -113,7 +113,7 @@ var result = defaultEncounterModel.GetNextDefenderPartyOfSettlement(settlement, 
 ### CreateMapEventComponentForEncounter
 `public override MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 map event component for encounter 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 map event component for encounter 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -124,7 +124,7 @@ var result = defaultEncounterModel.CreateMapEventComponentForEncounter(attackerP
 ### GetSurrenderChance
 `public override float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 surrender chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 surrender chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -135,7 +135,7 @@ var result = defaultEncounterModel.GetSurrenderChance(defenderParty, attackerPar
 ### GetBribeChance
 `public override ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bribe chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bribe chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -146,7 +146,7 @@ var result = defaultEncounterModel.GetBribeChance(defenderParty, attackerParty);
 ### GetMapEventSideRunAwayChance
 `public override float GetMapEventSideRunAwayChance(MapEventSide mapEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map event side run away chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 map event side run away chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -157,7 +157,7 @@ var result = defaultEncounterModel.GetMapEventSideRunAwayChance(mapEventSide);
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
 `public override void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的non attached npc parties who will join player encounter。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的non attached npc parties who will join player encounter。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -168,7 +168,7 @@ defaultEncounterModel.FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(partie
 ### CanPlayerForceBanditsToJoin
 `public override bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 player force bandits to join 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 player force bandits to join 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例
@@ -179,7 +179,7 @@ var result = defaultEncounterModel.CanPlayerForceBanditsToJoin(explanation);
 ### IsPartyUnderPlayerCommand
 `public override bool IsPartyUnderPlayerCommand(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 party under player command 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 party under player command 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncounterModel 实例

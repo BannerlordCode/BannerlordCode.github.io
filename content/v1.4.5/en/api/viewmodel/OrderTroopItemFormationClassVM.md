@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### UpdateTroopCount
 `public void UpdateTroopCount()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of troop count.
+**Purpose:** Recalculates and stores the latest representation of troop count.
 
 ```csharp
 // Obtain an instance of OrderTroopItemFormationClassVM from the subsystem API first

@@ -35,7 +35,7 @@ description: "MissionBoardGameLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -46,7 +46,7 @@ missionBoardGameLogic.AfterStart();
 ### SetStartingPlayer
 `public void SetStartingPlayer(bool playerOneStarts)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 starting player 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 starting player 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -57,7 +57,7 @@ missionBoardGameLogic.SetStartingPlayer(false);
 ### StartBoardGame
 `public void StartBoardGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动board game流程或状态机。
+**用途 / Purpose:** 启动board game流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -68,7 +68,7 @@ missionBoardGameLogic.StartBoardGame();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -79,7 +79,7 @@ missionBoardGameLogic.OnMissionTick(0);
 ### DetectOpposingAgent
 `public void DetectOpposingAgent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DetectOpposingAgent 对应的操作。
+**用途 / Purpose:** 调用 DetectOpposingAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -90,7 +90,7 @@ missionBoardGameLogic.DetectOpposingAgent();
 ### CheckIfBothSidesAreSitting
 `public bool CheckIfBothSidesAreSitting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查if both sides are sitting在当前对象中是否成立。
+**用途 / Purpose:** 检查if both sides are sitting在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -101,7 +101,7 @@ var result = missionBoardGameLogic.CheckIfBothSidesAreSitting();
 ### PlayerOneWon
 `public void PlayerOneWon(string message = "str_boardgame_victory_message")`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerOneWon 对应的操作。
+**用途 / Purpose:** 调用 PlayerOneWon 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -112,7 +112,7 @@ missionBoardGameLogic.PlayerOneWon("example");
 ### PlayerTwoWon
 `public void PlayerTwoWon(string message = "str_boardgame_defeat_message")`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerTwoWon 对应的操作。
+**用途 / Purpose:** 调用 PlayerTwoWon 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -123,7 +123,7 @@ missionBoardGameLogic.PlayerTwoWon("example");
 ### GameWasDraw
 `public void GameWasDraw(string message = "str_boardgame_draw_message")`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GameWasDraw 对应的操作。
+**用途 / Purpose:** 调用 GameWasDraw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -134,7 +134,7 @@ missionBoardGameLogic.GameWasDraw("example");
 ### SetGameOver
 `public void SetGameOver(GameOverEnum gameOverInfo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 game over 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 game over 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -145,7 +145,7 @@ missionBoardGameLogic.SetGameOver(gameOverInfo);
 ### ForfeitGame
 `public void ForfeitGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForfeitGame 对应的操作。
+**用途 / Purpose:** 调用 ForfeitGame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -156,7 +156,7 @@ missionBoardGameLogic.ForfeitGame();
 ### AIForfeitGame
 `public void AIForfeitGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AIForfeitGame 对应的操作。
+**用途 / Purpose:** 调用 AIForfeitGame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -167,7 +167,7 @@ missionBoardGameLogic.AIForfeitGame();
 ### RollDice
 `public void RollDice()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RollDice 对应的操作。
+**用途 / Purpose:** 调用 RollDice 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -178,7 +178,7 @@ missionBoardGameLogic.RollDice();
 ### RequiresDiceRolling
 `public bool RequiresDiceRolling()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequiresDiceRolling 对应的操作。
+**用途 / Purpose:** 调用 RequiresDiceRolling 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -189,7 +189,7 @@ var result = missionBoardGameLogic.RequiresDiceRolling();
 ### SetBetAmount
 `public void SetBetAmount(int bet)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 bet amount 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 bet amount 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -200,7 +200,7 @@ missionBoardGameLogic.SetBetAmount(0);
 ### SetCurrentDifficulty
 `public void SetCurrentDifficulty(AIDifficulty difficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current difficulty 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current difficulty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -211,7 +211,7 @@ missionBoardGameLogic.SetCurrentDifficulty(difficulty);
 ### SetBoardGame
 `public void SetBoardGame(BoardGameType game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 board game 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 board game 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -222,7 +222,7 @@ missionBoardGameLogic.SetBoardGame(game);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
+**用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -233,7 +233,7 @@ var result = missionBoardGameLogic.OnEndMissionRequest(canLeave);
 ### IsBoardGameAvailable
 `public static bool IsBoardGameAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 board game available 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 board game available 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ MissionBoardGameLogic.IsBoardGameAvailable();
 ### IsThereActiveBoardGameWithHero
 `public static bool IsThereActiveBoardGameWithHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there active board game with hero 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there active board game with hero 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ MissionBoardGameLogic.IsThereActiveBoardGameWithHero(hero);
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -264,7 +264,7 @@ missionBoardGameLogic.OnAgentInteraction(userAgent, agent, 0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例

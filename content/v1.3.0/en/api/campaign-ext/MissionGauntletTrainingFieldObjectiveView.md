@@ -23,7 +23,7 @@ Treat `MissionGauntletTrainingFieldObjectiveView` as a View-style extension poin
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletTrainingFieldObjectiveView.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletTrainingFieldObjectiveView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletTrainingFieldObjectiveView.OnMissionScreenFinalize();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletTrainingFieldObjectiveView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first

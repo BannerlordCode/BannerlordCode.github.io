@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrderSet from the subsystem API first
@@ -44,7 +44,7 @@ var result = visualOrderSet.GetName(orderController);
 ### AddOrder
 `public void AddOrder(VisualOrder order)`
 
-**Purpose:** **Purpose:** Adds order to the current collection or state.
+**Purpose:** Adds order to the current collection or state.
 
 ```csharp
 // Obtain an instance of VisualOrderSet from the subsystem API first
@@ -55,7 +55,7 @@ visualOrderSet.AddOrder(order);
 ### RemoveOrder
 `public void RemoveOrder(VisualOrder order)`
 
-**Purpose:** **Purpose:** Removes order from the current collection or state.
+**Purpose:** Removes order from the current collection or state.
 
 ```csharp
 // Obtain an instance of VisualOrderSet from the subsystem API first
@@ -66,7 +66,7 @@ visualOrderSet.RemoveOrder(order);
 ### ClearOrders
 `public void ClearOrders()`
 
-**Purpose:** **Purpose:** Removes all orders from the this instance.
+**Purpose:** Removes all orders from the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrderSet from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
@@ -46,7 +46,7 @@ multiplayerAdminPanelVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
@@ -57,7 +57,7 @@ multiplayerAdminPanelVM.OnFinalize();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
@@ -68,7 +68,7 @@ multiplayerAdminPanelVM.OnTick(0);
 ### ExecuteApplyChanges
 `public void ExecuteApplyChanges()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with apply changes.
+**Purpose:** Runs the operation or workflow associated with apply changes.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
@@ -79,7 +79,7 @@ multiplayerAdminPanelVM.ExecuteApplyChanges();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first

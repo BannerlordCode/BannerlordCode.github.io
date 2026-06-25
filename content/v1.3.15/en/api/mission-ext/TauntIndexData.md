@@ -30,7 +30,7 @@ Treat `TauntIndexData` as a Data-style extension point: first identify who creat
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of TauntIndexData from the subsystem API first
@@ -41,7 +41,7 @@ var result = tauntIndexData.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of TauntIndexData from the subsystem API first

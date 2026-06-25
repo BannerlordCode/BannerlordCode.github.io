@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.GOG` to place it in the 
 ### OnEncryptedAppTicketRetrieveFailure
 `public override void OnEncryptedAppTicketRetrieveFailure(IEncryptedAppTicketListener.FailureReason failureReason)`
 
-**Purpose:** **Purpose:** Invoked when the encrypted app ticket retrieve failure event is raised.
+**Purpose:** Invoked when the encrypted app ticket retrieve failure event is raised.
 
 ```csharp
 // Obtain an instance of EncryptedAppTicketListener from the subsystem API first
@@ -40,7 +40,7 @@ encryptedAppTicketListener.OnEncryptedAppTicketRetrieveFailure(failureReason);
 ### OnEncryptedAppTicketRetrieveSuccess
 `public override void OnEncryptedAppTicketRetrieveSuccess()`
 
-**Purpose:** **Purpose:** Invoked when the encrypted app ticket retrieve success event is raised.
+**Purpose:** Invoked when the encrypted app ticket retrieve success event is raised.
 
 ```csharp
 // Obtain an instance of EncryptedAppTicketListener from the subsystem API first

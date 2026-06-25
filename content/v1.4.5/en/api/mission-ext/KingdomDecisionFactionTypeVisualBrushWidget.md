@@ -29,7 +29,7 @@ Treat `KingdomDecisionFactionTypeVisualBrushWidget` as a Widget-style extension 
 ### KingdomDecisionFactionTypeVisualBrushWidget
 `public class KingdomDecisionFactionTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the KingdomDecisionFactionTypeVisualBrushWidget logic.
+**Purpose:** Executes the KingdomDecisionFactionTypeVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of KingdomDecisionFactionTypeVisualBrushWidget from the subsystem API first

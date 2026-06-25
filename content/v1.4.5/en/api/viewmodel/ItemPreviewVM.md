@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ItemPreviewVM from the subsystem API first
@@ -42,7 +42,7 @@ itemPreviewVM.OnFinalize();
 ### Open
 `public void Open(EquipmentElement item)`
 
-**Purpose:** **Purpose:** Opens the resource or UI represented by the this instance.
+**Purpose:** Opens the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of ItemPreviewVM from the subsystem API first
@@ -53,7 +53,7 @@ itemPreviewVM.Open(item);
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of ItemPreviewVM from the subsystem API first
@@ -64,7 +64,7 @@ itemPreviewVM.ExecuteClose();
 ### Close
 `public void Close()`
 
-**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
+**Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of ItemPreviewVM from the subsystem API first

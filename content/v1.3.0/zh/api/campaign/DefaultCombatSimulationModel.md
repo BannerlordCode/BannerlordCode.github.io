@@ -23,7 +23,7 @@ description: "DefaultCombatSimulationModel 的自动生成类参考。"
 ### SimulateHit
 `public override ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateHit 对应的操作。
+**用途 / Purpose:** 调用 SimulateHit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -34,7 +34,7 @@ var result = defaultCombatSimulationModel.SimulateHit(strikerTroop, struckTroop,
 ### SimulateHit
 `public override ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateHit 对应的操作。
+**用途 / Purpose:** 调用 SimulateHit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -45,7 +45,7 @@ var result = defaultCombatSimulationModel.SimulateHit(strikerShip, struckShip, s
 ### GetMaximumSiegeEquipmentProgress
 `public override float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum siege equipment progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum siege equipment progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -56,7 +56,7 @@ var result = defaultCombatSimulationModel.GetMaximumSiegeEquipmentProgress(settl
 ### GetNumberOfEquipmentsBuilt
 `public override int GetNumberOfEquipmentsBuilt(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of equipments built 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of equipments built 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -67,7 +67,7 @@ var result = defaultCombatSimulationModel.GetNumberOfEquipmentsBuilt(settlement)
 ### GetSettlementAdvantage
 `public override float GetSettlementAdvantage(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement advantage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 settlement advantage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -78,7 +78,7 @@ var result = defaultCombatSimulationModel.GetSettlementAdvantage(settlement);
 ### GetSimulationTicksForBattleRound
 `public override ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 simulation ticks for battle round 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 simulation ticks for battle round 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -89,7 +89,7 @@ var result = defaultCombatSimulationModel.GetSimulationTicksForBattleRound(mapEv
 ### GetBattleAdvantage
 `public override void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle advantage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 battle advantage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -100,7 +100,7 @@ defaultCombatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, att
 ### GetShipSiegeEngineHitChance
 `public override float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例
@@ -111,7 +111,7 @@ var result = defaultCombatSimulationModel.GetShipSiegeEngineHitChance(ship, sieg
 ### GetPursuitRoundCount
 `public override int GetPursuitRoundCount(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pursuit round count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pursuit round count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCombatSimulationModel 实例

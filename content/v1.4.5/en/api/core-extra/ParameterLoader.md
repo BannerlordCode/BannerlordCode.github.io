@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### LoadParametersFromClientProfile
 `public static ParameterContainer LoadParametersFromClientProfile(string configurationName)`
 
-**Purpose:** **Purpose:** Reads parameters from client profile from persistent storage or a stream.
+**Purpose:** Reads parameters from client profile from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ParameterLoader.LoadParametersFromClientProfile("example");
 ### LoadParametersInto
 `public static void LoadParametersInto(string fileFullName, ParameterContainer parameters)`
 
-**Purpose:** **Purpose:** Reads parameters into from persistent storage or a stream.
+**Purpose:** Reads parameters into from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

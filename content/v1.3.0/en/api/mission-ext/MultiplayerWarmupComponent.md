@@ -30,7 +30,7 @@ Treat `MultiplayerWarmupComponent` as a Component-style extension point: first i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -41,7 +41,7 @@ multiplayerWarmupComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -52,7 +52,7 @@ multiplayerWarmupComponent.AfterStart();
 ### CheckForWarmupProgressEnd
 `public bool CheckForWarmupProgressEnd()`
 
-**Purpose:** **Purpose:** Verifies whether for warmup progress end holds true for the this instance.
+**Purpose:** Verifies whether for warmup progress end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -63,7 +63,7 @@ var result = multiplayerWarmupComponent.CheckForWarmupProgressEnd();
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre display mission tick event is raised.
+**Purpose:** Invoked when the pre display mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -74,7 +74,7 @@ multiplayerWarmupComponent.OnPreDisplayMissionTick(0);
 ### EndWarmupProgress
 `public void EndWarmupProgress()`
 
-**Purpose:** **Purpose:** Executes the EndWarmupProgress logic.
+**Purpose:** Executes the EndWarmupProgress logic.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -85,7 +85,7 @@ multiplayerWarmupComponent.EndWarmupProgress();
 ### CanMatchStartAfterWarmup
 `public bool CanMatchStartAfterWarmup()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for match start after warmup.
+**Purpose:** Checks whether the this instance meets the preconditions for match start after warmup.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -96,7 +96,7 @@ var result = multiplayerWarmupComponent.CanMatchStartAfterWarmup();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
@@ -107,7 +107,7 @@ multiplayerWarmupComponent.OnRemoveBehavior();
 ### CommandEndWarmup
 `public static string CommandEndWarmup(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the CommandEndWarmup logic.
+**Purpose:** Executes the CommandEndWarmup logic.
 
 ```csharp
 // Static call; no instance required

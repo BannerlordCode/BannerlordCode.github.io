@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of KeybindingPopup from the subsystem API first
@@ -40,7 +40,7 @@ keybindingPopup.Tick();
 ### OnToggle
 `public void OnToggle(bool isActive)`
 
-**Purpose:** **Purpose:** Invoked when the toggle event is raised.
+**Purpose:** Invoked when the toggle event is raised.
 
 ```csharp
 // Obtain an instance of KeybindingPopup from the subsystem API first

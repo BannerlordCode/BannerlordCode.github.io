@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public override bool Check(float gameTime)`
 
-**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
+**Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of RandomTimer from the subsystem API first
@@ -34,7 +34,7 @@ var result = randomTimer.Check(0);
 ### ChangeDuration
 `public void ChangeDuration(float min, float max)`
 
-**Purpose:** **Purpose:** Executes the ChangeDuration logic.
+**Purpose:** Executes the ChangeDuration logic.
 
 ```csharp
 // Obtain an instance of RandomTimer from the subsystem API first
@@ -45,7 +45,7 @@ randomTimer.ChangeDuration(0, 0);
 ### RecomputeDuration
 `public void RecomputeDuration()`
 
-**Purpose:** **Purpose:** Recomputes duration and returns the result.
+**Purpose:** Recomputes duration and returns the result.
 
 ```csharp
 // Obtain an instance of RandomTimer from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Create
 `public static NativeString Create()`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ NativeString.Create();
 ### GetString
 `public string GetString()`
 
-**Purpose:** **Purpose:** Reads and returns the string value held by the this instance.
+**Purpose:** Reads and returns the string value held by the this instance.
 
 ```csharp
 // Obtain an instance of NativeString from the subsystem API first
@@ -44,7 +44,7 @@ var result = nativeString.GetString();
 ### SetString
 `public void SetString(string newString)`
 
-**Purpose:** **Purpose:** Assigns a new value to string and updates the object's internal state.
+**Purpose:** Assigns a new value to string and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NativeString from the subsystem API first

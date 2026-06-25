@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Missions` to place it in the stack, then insp
 ### OpenBattleChallengeMission
 `public static MissionView OpenBattleChallengeMission(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with battle challenge mission.
+**Purpose:** Opens the resource or UI associated with battle challenge mission.
 
 ```csharp
 // Static call; no instance required

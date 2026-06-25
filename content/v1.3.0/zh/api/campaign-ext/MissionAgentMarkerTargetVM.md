@@ -23,7 +23,7 @@ description: "MissionAgentMarkerTargetVM 的自动生成类参考。"
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
+**用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例
@@ -34,7 +34,7 @@ missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
 ### UpdateQuestStatus
 `public void UpdateQuestStatus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 quest status 的最新表示。
+**用途 / Purpose:** 重新计算并更新 quest status 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例
@@ -45,7 +45,7 @@ missionAgentMarkerTargetVM.UpdateQuestStatus();
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例

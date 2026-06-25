@@ -68,7 +68,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### UpdateFactionsAtWarWith
 `public void UpdateFactionsAtWarWith()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of factions at war with.
+**Purpose:** Recalculates and stores the latest representation of factions at war with.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -79,7 +79,7 @@ clan.UpdateFactionsAtWarWith();
 ### UpdateCurrentStrength
 `public void UpdateCurrentStrength()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of current strength.
+**Purpose:** Recalculates and stores the latest representation of current strength.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -90,7 +90,7 @@ clan.UpdateCurrentStrength();
 ### IsAtWarWith
 `public bool IsAtWarWith(IFaction other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the at war with state or condition.
+**Purpose:** Determines whether the this instance is in the at war with state or condition.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -101,7 +101,7 @@ var result = clan.IsAtWarWith(other);
 ### CreateClan
 `public static Clan CreateClan(string stringID)`
 
-**Purpose:** **Purpose:** Constructs a new clan entity and returns it to the caller.
+**Purpose:** Constructs a new clan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -111,7 +111,7 @@ Clan.CreateClan("example");
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -122,7 +122,7 @@ clan.Deserialize(objectManager, node);
 ### GetRelationWithClan
 `public int GetRelationWithClan(Clan other)`
 
-**Purpose:** **Purpose:** Reads and returns the relation with clan value held by the this instance.
+**Purpose:** Reads and returns the relation with clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -133,7 +133,7 @@ var result = clan.GetRelationWithClan(other);
 ### SetLeader
 `public void SetLeader(Hero leader)`
 
-**Purpose:** **Purpose:** Assigns a new value to leader and updates the object's internal state.
+**Purpose:** Assigns a new value to leader and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -144,7 +144,7 @@ clan.SetLeader(leader);
 ### SetInitialHomeSettlement
 `public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
 
-**Purpose:** **Purpose:** Assigns a new value to initial home settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to initial home settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -155,7 +155,7 @@ clan.SetInitialHomeSettlement(initialHomeSettlement);
 ### ConsiderAndUpdateHomeSettlement
 `public void ConsiderAndUpdateHomeSettlement()`
 
-**Purpose:** **Purpose:** Executes the ConsiderAndUpdateHomeSettlement logic.
+**Purpose:** Executes the ConsiderAndUpdateHomeSettlement logic.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -166,7 +166,7 @@ clan.ConsiderAndUpdateHomeSettlement();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -177,7 +177,7 @@ var result = clan.GetName();
 ### ChangeClanName
 `public void ChangeClanName(TextObject name, TextObject informalName)`
 
-**Purpose:** **Purpose:** Executes the ChangeClanName logic.
+**Purpose:** Executes the ChangeClanName logic.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -188,7 +188,7 @@ clan.ChangeClanName(name, informalName);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -199,7 +199,7 @@ var result = clan.ToString();
 ### GetStanceWith
 `public StanceLink GetStanceWith(IFaction other)`
 
-**Purpose:** **Purpose:** Reads and returns the stance with value held by the this instance.
+**Purpose:** Reads and returns the stance with value held by the this instance.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -210,7 +210,7 @@ var result = clan.GetStanceWith(other);
 ### ClanLeaveKingdom
 `public void ClanLeaveKingdom(bool giveBackFiefs = false)`
 
-**Purpose:** **Purpose:** Executes the ClanLeaveKingdom logic.
+**Purpose:** Executes the ClanLeaveKingdom logic.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -221,7 +221,7 @@ clan.ClanLeaveKingdom(false);
 ### CalculateTotalSettlementBaseValue
 `public float CalculateTotalSettlementBaseValue()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of total settlement base value.
+**Purpose:** Calculates the current value or result of total settlement base value.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -232,7 +232,7 @@ var result = clan.CalculateTotalSettlementBaseValue();
 ### StartMercenaryService
 `public void StartMercenaryService()`
 
-**Purpose:** **Purpose:** Starts the mercenary service flow or state machine.
+**Purpose:** Starts the mercenary service flow or state machine.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -243,7 +243,7 @@ clan.StartMercenaryService();
 ### ResetPlayerHomeAndFactionMidSettlement
 `public void ResetPlayerHomeAndFactionMidSettlement()`
 
-**Purpose:** **Purpose:** Returns player home and faction mid settlement to its default or initial condition.
+**Purpose:** Returns player home and faction mid settlement to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -254,7 +254,7 @@ clan.ResetPlayerHomeAndFactionMidSettlement();
 ### FindFirst
 `public static Clan FindFirst(Predicate<Clan> predicate)`
 
-**Purpose:** **Purpose:** Looks up the matching first in the current collection or scope.
+**Purpose:** Looks up the matching first in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -264,7 +264,7 @@ Clan.FindFirst(predicate);
 ### EndMercenaryService
 `public void EndMercenaryService(bool isByLeavingKingdom)`
 
-**Purpose:** **Purpose:** Executes the EndMercenaryService logic.
+**Purpose:** Executes the EndMercenaryService logic.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -275,7 +275,7 @@ clan.EndMercenaryService(false);
 ### FindAll
 `public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
 
-**Purpose:** **Purpose:** Looks up the matching all in the current collection or scope.
+**Purpose:** Looks up the matching all in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -285,7 +285,7 @@ Clan.FindAll(predicate);
 ### CalculateTotalSettlementValueForFaction
 `public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of total settlement value for faction.
+**Purpose:** Calculates the current value or result of total settlement value for faction.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -296,7 +296,7 @@ var result = clan.CalculateTotalSettlementValueForFaction(kingdom);
 ### OnHeroChangedState
 `public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
 
-**Purpose:** **Purpose:** Invoked when the hero changed state event is raised.
+**Purpose:** Invoked when the hero changed state event is raised.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -307,7 +307,7 @@ clan.OnHeroChangedState(hero, oldState);
 ### AddRenown
 `public void AddRenown(float value, bool shouldNotify = true)`
 
-**Purpose:** **Purpose:** Adds renown to the current collection or state.
+**Purpose:** Adds renown to the current collection or state.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -318,7 +318,7 @@ clan.AddRenown(0, false);
 ### ResetClanRenown
 `public void ResetClanRenown()`
 
-**Purpose:** **Purpose:** Returns clan renown to its default or initial condition.
+**Purpose:** Returns clan renown to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -329,7 +329,7 @@ clan.ResetClanRenown();
 ### OnSupportedByClan
 `public void OnSupportedByClan(Clan supporterClan)`
 
-**Purpose:** **Purpose:** Invoked when the supported by clan event is raised.
+**Purpose:** Invoked when the supported by clan event is raised.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -340,7 +340,7 @@ clan.OnSupportedByClan(supporterClan);
 ### CreateSettlementRebelClan
 `public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
 
-**Purpose:** **Purpose:** Constructs a new settlement rebel clan entity and returns it to the caller.
+**Purpose:** Constructs a new settlement rebel clan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -350,7 +350,7 @@ Clan.CreateSettlementRebelClan(settlement, owner, 0);
 ### CalculateMidSettlement
 `public void CalculateMidSettlement()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of mid settlement.
+**Purpose:** Calculates the current value or result of mid settlement.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -361,7 +361,7 @@ clan.CalculateMidSettlement();
 ### CreateCompanionToLordClan
 `public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
 
-**Purpose:** **Purpose:** Constructs a new companion to lord clan entity and returns it to the caller.
+**Purpose:** Constructs a new companion to lord clan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -371,7 +371,7 @@ Clan.CreateCompanionToLordClan(hero, settlement, clanName, 0);
 ### GetHeirApparents
 `public Dictionary<Hero, int> GetHeirApparents()`
 
-**Purpose:** **Purpose:** Reads and returns the heir apparents value held by the this instance.
+**Purpose:** Reads and returns the heir apparents value held by the this instance.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first
@@ -382,7 +382,7 @@ var result = clan.GetHeirApparents();
 ### UpdateBannerColor
 `public void UpdateBannerColor(uint backgroundColor, uint iconColor)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of banner color.
+**Purpose:** Recalculates and stores the latest representation of banner color.
 
 ```csharp
 // Obtain an instance of Clan from the subsystem API first

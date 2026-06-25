@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of SkeinFormation from the subsystem API first

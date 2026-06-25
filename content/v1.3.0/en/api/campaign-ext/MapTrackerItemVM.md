@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Tracker`
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
+**Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -48,7 +48,7 @@ mapTrackerItemVM.UpdateProperties();
 ### UpdatePosition
 `public void UpdatePosition(float screenX, float screenY, float screenW)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
+**Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -59,7 +59,7 @@ mapTrackerItemVM.UpdatePosition(0, 0, 0);
 ### ExecuteToggleTrack
 `public void ExecuteToggleTrack()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle track.
+**Purpose:** Runs the operation or workflow associated with toggle track.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -70,7 +70,7 @@ mapTrackerItemVM.ExecuteToggleTrack();
 ### ExecuteGoToPosition
 `public void ExecuteGoToPosition()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with go to position.
+**Purpose:** Runs the operation or workflow associated with go to position.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -81,7 +81,7 @@ mapTrackerItemVM.ExecuteGoToPosition();
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show tooltip.
+**Purpose:** Runs the operation or workflow associated with show tooltip.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -92,7 +92,7 @@ mapTrackerItemVM.ExecuteShowTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with hide tooltip.
+**Purpose:** Runs the operation or workflow associated with hide tooltip.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first
@@ -103,7 +103,7 @@ mapTrackerItemVM.ExecuteHideTooltip();
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of binding in sync with the underlying state.
+**Purpose:** Keeps the display or cache of binding in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapTrackerItemVM from the subsystem API first

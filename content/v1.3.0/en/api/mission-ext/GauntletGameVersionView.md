@@ -29,7 +29,7 @@ Treat `GauntletGameVersionView` as a View-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ GauntletGameVersionView.Initialize();
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ GauntletGameVersionView.Refresh();
 ### AddModuleVersionInfo
 `public static void AddModuleVersionInfo(string title, string versionStr)`
 
-**Purpose:** **Purpose:** Adds module version info to the current collection or state.
+**Purpose:** Adds module version info to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ GauntletGameVersionView.AddModuleVersionInfo("example", "example");
 ### RemoveModuleVersionInfo
 `public static void RemoveModuleVersionInfo(string title)`
 
-**Purpose:** **Purpose:** Removes module version info from the current collection or state.
+**Purpose:** Removes module version info from the current collection or state.
 
 ```csharp
 // Static call; no instance required

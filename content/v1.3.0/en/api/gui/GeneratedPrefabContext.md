@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CollectPrefabs
 `public void CollectPrefabs()`
 
-**Purpose:** **Purpose:** Executes the CollectPrefabs logic.
+**Purpose:** Executes the CollectPrefabs logic.
 
 ```csharp
 // Obtain an instance of GeneratedPrefabContext from the subsystem API first
@@ -34,7 +34,7 @@ generatedPrefabContext.CollectPrefabs();
 ### AddGeneratedPrefab
 `public void AddGeneratedPrefab(string prefabName, string variantName, CreateGeneratedWidget creator)`
 
-**Purpose:** **Purpose:** Adds generated prefab to the current collection or state.
+**Purpose:** Adds generated prefab to the current collection or state.
 
 ```csharp
 // Obtain an instance of GeneratedPrefabContext from the subsystem API first
@@ -45,7 +45,7 @@ generatedPrefabContext.AddGeneratedPrefab("example", "example", creator);
 ### InstantiatePrefab
 `public GeneratedPrefabInstantiationResult InstantiatePrefab(UIContext conext, string prefabName, string variantName, Dictionary<string, object> data)`
 
-**Purpose:** **Purpose:** Executes the InstantiatePrefab logic.
+**Purpose:** Executes the InstantiatePrefab logic.
 
 ```csharp
 // Obtain an instance of GeneratedPrefabContext from the subsystem API first

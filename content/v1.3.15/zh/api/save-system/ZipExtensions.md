@@ -23,7 +23,7 @@ description: "ZipExtensions 的自动生成类参考。"
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, byte data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ZipExtensions.FillFrom(entry, 0);
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, BinaryWriter writer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ZipExtensions.FillFrom(entry, writer);
 ### GetBinaryReader
 `public static BinaryReader GetBinaryReader(this ZipArchiveEntry entry)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 binary reader 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 binary reader 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ZipExtensions.GetBinaryReader(entry);
 ### GetBinaryData
 `public static byte GetBinaryData(this ZipArchiveEntry entry)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 binary data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 binary data 的结果。
 
 ```csharp
 // 静态调用，不需要实例

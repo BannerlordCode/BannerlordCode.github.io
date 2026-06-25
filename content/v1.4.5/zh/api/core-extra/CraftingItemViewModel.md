@@ -30,7 +30,7 @@ description: "CraftingItemViewModel 的自动生成类参考。"
 ### GetWeaponClass
 `public WeaponClass GetWeaponClass()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon class 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapon class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingItemViewModel 实例
@@ -41,7 +41,7 @@ var result = craftingItemViewModel.GetWeaponClass();
 ### SetCraftingData
 `public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 crafting data 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 crafting data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingItemViewModel 实例

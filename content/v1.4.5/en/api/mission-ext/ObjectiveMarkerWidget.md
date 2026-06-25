@@ -49,7 +49,7 @@ Treat `ObjectiveMarkerWidget` as a Widget-style extension point: first identify 
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of ObjectiveMarkerWidget from the subsystem API first
@@ -60,7 +60,7 @@ objectiveMarkerWidget.Update(0);
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of rectangle.
+**Purpose:** Recalculates and stores the latest representation of rectangle.
 
 ```csharp
 // Obtain an instance of ObjectiveMarkerWidget from the subsystem API first

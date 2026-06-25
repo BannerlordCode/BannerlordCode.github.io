@@ -23,7 +23,7 @@ Treat `CustomMissionSpawnHandler` as a Handler-style extension point: first iden
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CustomMissionSpawnHandler from the subsystem API first

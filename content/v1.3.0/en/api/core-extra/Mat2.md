@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RotateCounterClockWise
 `public void RotateCounterClockWise(float a)`
 
-**Purpose:** **Purpose:** Executes the RotateCounterClockWise logic.
+**Purpose:** Executes the RotateCounterClockWise logic.
 
 ```csharp
 // Obtain an instance of Mat2 from the subsystem API first

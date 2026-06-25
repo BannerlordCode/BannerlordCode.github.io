@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDestroyedLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = kingdomDestroyedLogEntry.GetEncyclopediaText();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDestroyedLogEntry from the subsystem API first

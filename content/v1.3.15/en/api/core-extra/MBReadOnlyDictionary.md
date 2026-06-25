@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetEnumerator
 `public Dictionary<TKey, TValue>.Enumerator GetEnumerator()`
 
-**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
+**Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBReadOnlyDictionary from the subsystem API first
@@ -45,7 +45,7 @@ var result = mBReadOnlyDictionary.GetEnumerator();
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**Purpose:** **Purpose:** Indicates whether the this instance contains key.
+**Purpose:** Indicates whether the this instance contains key.
 
 ```csharp
 // Obtain an instance of MBReadOnlyDictionary from the subsystem API first
@@ -56,7 +56,7 @@ var result = mBReadOnlyDictionary.ContainsKey(key);
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MBReadOnlyDictionary from the subsystem API first
@@ -67,7 +67,7 @@ var result = mBReadOnlyDictionary.TryGetValue(key, value);
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**Purpose:** **Purpose:** Copies the to state of the this instance to a target.
+**Purpose:** Copies the to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of MBReadOnlyDictionary from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public abstract TextObject GetDecisionTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the decision title value held by the this instance.
+**Purpose:** Reads and returns the decision title value held by the this instance.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -44,7 +44,7 @@ var result = decisionOutcome.GetDecisionTitle();
 ### GetDecisionDescription
 `public abstract TextObject GetDecisionDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the decision description value held by the this instance.
+**Purpose:** Reads and returns the decision description value held by the this instance.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -55,7 +55,7 @@ var result = decisionOutcome.GetDecisionDescription();
 ### GetDecisionLink
 `public abstract string GetDecisionLink()`
 
-**Purpose:** **Purpose:** Reads and returns the decision link value held by the this instance.
+**Purpose:** Reads and returns the decision link value held by the this instance.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -66,7 +66,7 @@ var result = decisionOutcome.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public abstract ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the decision image identifier value held by the this instance.
+**Purpose:** Reads and returns the decision image identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -77,7 +77,7 @@ var result = decisionOutcome.GetDecisionImageIdentifier();
 ### AddSupport
 `public void AddSupport(Supporter supporter)`
 
-**Purpose:** **Purpose:** Adds support to the current collection or state.
+**Purpose:** Adds support to the current collection or state.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -88,7 +88,7 @@ decisionOutcome.AddSupport(supporter);
 ### ResetSupport
 `public void ResetSupport(Supporter supporter)`
 
-**Purpose:** **Purpose:** Returns support to its default or initial condition.
+**Purpose:** Returns support to its default or initial condition.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first
@@ -99,7 +99,7 @@ decisionOutcome.ResetSupport(supporter);
 ### SetSponsor
 `public void SetSponsor(Clan sponsorClan)`
 
-**Purpose:** **Purpose:** Assigns a new value to sponsor and updates the object's internal state.
+**Purpose:** Assigns a new value to sponsor and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DecisionOutcome from the subsystem API first

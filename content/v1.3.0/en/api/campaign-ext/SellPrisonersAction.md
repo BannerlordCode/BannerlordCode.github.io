@@ -19,7 +19,7 @@ SellPrisonersAction is a set of static methods that trigger "SellPrisoners" in t
 public static void ApplyForAllPrisoners(PartyBase sellerParty, PartyBase buyerParty)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for all prisoners to the this instance.
+**Purpose:** Applies the effect of for all prisoners to the this instance.
 
 ### ApplyForSelectedPrisoners
 
@@ -27,7 +27,7 @@ public static void ApplyForAllPrisoners(PartyBase sellerParty, PartyBase buyerPa
 public static void ApplyForSelectedPrisoners(PartyBase sellerParty, PartyBase buyerParty, TroopRoster prisoners)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for selected prisoners to the this instance.
+**Purpose:** Applies the effect of for selected prisoners to the this instance.
 
 ### ApplyByPartyScreen
 
@@ -35,7 +35,7 @@ public static void ApplyForSelectedPrisoners(PartyBase sellerParty, PartyBase bu
 public static void ApplyByPartyScreen(TroopRoster prisoners)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by party screen to the this instance.
+**Purpose:** Applies the effect of by party screen to the this instance.
 
 ## Usage Example
 

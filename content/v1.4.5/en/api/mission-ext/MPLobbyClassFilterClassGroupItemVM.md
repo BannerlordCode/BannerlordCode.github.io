@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first
@@ -42,7 +42,7 @@ mPLobbyClassFilterClassGroupItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first
@@ -53,7 +53,7 @@ mPLobbyClassFilterClassGroupItemVM.OnFinalize();
 ### AddClass
 `public void AddClass(BasicCultureObject culture, MPHeroClass heroClass, Action<MPLobbyClassFilterClassItemVM> onSelect)`
 
-**Purpose:** **Purpose:** Adds class to the current collection or state.
+**Purpose:** Adds class to the current collection or state.
 
 ```csharp
 // Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first

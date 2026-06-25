@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ConversationItemVM from the subsystem API first
@@ -46,7 +46,7 @@ conversationItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of ConversationItemVM from the subsystem API first
@@ -57,7 +57,7 @@ conversationItemVM.ExecuteAction();
 ### SetCurrentAnswer
 `public void SetCurrentAnswer()`
 
-**Purpose:** **Purpose:** Assigns a new value to current answer and updates the object's internal state.
+**Purpose:** Assigns a new value to current answer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ConversationItemVM from the subsystem API first
@@ -68,7 +68,7 @@ conversationItemVM.SetCurrentAnswer();
 ### ResetCurrentAnswer
 `public void ResetCurrentAnswer()`
 
-**Purpose:** **Purpose:** Returns current answer to its default or initial condition.
+**Purpose:** Returns current answer to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ConversationItemVM from the subsystem API first

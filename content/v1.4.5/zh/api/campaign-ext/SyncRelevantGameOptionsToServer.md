@@ -30,7 +30,7 @@ description: "SyncRelevantGameOptionsToServer 的自动生成类参考。"
 ### InitializeOptions
 `public void InitializeOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 options 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 options 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SyncRelevantGameOptionsToServer 实例

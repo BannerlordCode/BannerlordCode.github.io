@@ -35,7 +35,7 @@ description: "MultiplayerOption 的自动生成类参考。"
 ### Release
 `public static void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -45,7 +45,7 @@ MultiplayerOption.Release();
 ### GetOptionFromOptionType
 `public MultiplayerOptions.MultiplayerOption GetOptionFromOptionType(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option from option type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option from option type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -56,7 +56,7 @@ var result = multiplayerOption.GetOptionFromOptionType(optionType, multiplayerOp
 ### OnGameTypeChanged
 `public void OnGameTypeChanged(MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game type changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 game type changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -67,7 +67,7 @@ multiplayerOption.OnGameTypeChanged(multiplayerOptions.MultiplayerOptionsAccessM
 ### InitializeNextAndDefaultOptionContainers
 `public void InitializeNextAndDefaultOptionContainers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 next and default option containers 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 next and default option containers 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -78,7 +78,7 @@ multiplayerOption.InitializeNextAndDefaultOptionContainers();
 ### GetNumberOfPlayersForGameMode
 `public int GetNumberOfPlayersForGameMode(string gameModeID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of players for game mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of players for game mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -89,7 +89,7 @@ var result = multiplayerOption.GetNumberOfPlayersForGameMode("example");
 ### GetRoundCountForGameMode
 `public int GetRoundCountForGameMode(string gameModeID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 round count for game mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 round count for game mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -100,7 +100,7 @@ var result = multiplayerOption.GetRoundCountForGameMode("example");
 ### GetRoundTimeLimitInMinutesForGameMode
 `public int GetRoundTimeLimitInMinutesForGameMode(string gameModeID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 round time limit in minutes for game mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 round time limit in minutes for game mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -111,7 +111,7 @@ var result = multiplayerOption.GetRoundTimeLimitInMinutesForGameMode("example");
 ### InitializeFromCommandList
 `public void InitializeFromCommandList(List<string> arguments)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 from command list 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 from command list 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -122,7 +122,7 @@ multiplayerOption.InitializeFromCommandList(arguments);
 ### ResetDefaultsToCurrent
 `public void ResetDefaultsToCurrent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 defaults to current 重置回默认或初始状态。
+**用途 / Purpose:** 将 defaults to current 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -133,7 +133,7 @@ multiplayerOption.ResetDefaultsToCurrent();
 ### GetMultiplayerOptionsTextList
 `public List<string> GetMultiplayerOptionsTextList(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multiplayer options text list 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multiplayer options text list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -144,7 +144,7 @@ var result = multiplayerOption.GetMultiplayerOptionsTextList(optionType);
 ### GetMultiplayerOptionsList
 `public List<string> GetMultiplayerOptionsList(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multiplayer options list 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multiplayer options list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -155,7 +155,7 @@ var result = multiplayerOption.GetMultiplayerOptionsList(optionType);
 ### InitializeAllOptionsFromNext
 `public void InitializeAllOptionsFromNext()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 all options from next 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 all options from next 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -166,7 +166,7 @@ multiplayerOption.InitializeAllOptionsFromNext();
 ### GetMapList
 `public MBList<string> GetMapList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map list 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 map list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -177,7 +177,7 @@ var result = multiplayerOption.GetMapList();
 ### GetValueTextForOptionWithMultipleSelection
 `public string GetValueTextForOptionWithMultipleSelection(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value text for option with multiple selection 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value text for option with multiple selection 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -188,7 +188,7 @@ var result = multiplayerOption.GetValueTextForOptionWithMultipleSelection(option
 ### SetValueForOptionWithMultipleSelectionFromText
 `public void SetValueForOptionWithMultipleSelectionFromText(MultiplayerOptions.OptionType optionType, string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value for option with multiple selection from text 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value for option with multiple selection from text 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -199,7 +199,7 @@ multiplayerOption.SetValueForOptionWithMultipleSelectionFromText(optionType, "ex
 ### TryGetOptionTypeFromString
 `public static bool TryGetOptionTypeFromString(string optionTypeString, out MultiplayerOptions.OptionType optionType, out MultiplayerOptionsProperty optionAttribute)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get option type from string 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get option type from string 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 静态调用，不需要实例
@@ -209,7 +209,7 @@ MultiplayerOption.TryGetOptionTypeFromString("example", optionType, optionAttrib
 ### CreateMultiplayerOption
 `public static MultiplayerOptions.MultiplayerOption CreateMultiplayerOption(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 multiplayer option 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 multiplayer option 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -219,7 +219,7 @@ MultiplayerOption.CreateMultiplayerOption(optionType);
 ### CopyMultiplayerOption
 `public static MultiplayerOptions.MultiplayerOption CopyMultiplayerOption(MultiplayerOptions.MultiplayerOption option)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的multiplayer option状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的multiplayer option状态复制到目标对象。
 
 ```csharp
 // 静态调用，不需要实例
@@ -229,7 +229,7 @@ MultiplayerOption.CopyMultiplayerOption(option);
 ### UpdateValue
 `public MultiplayerOptions.MultiplayerOption UpdateValue(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -240,7 +240,7 @@ var result = multiplayerOption.UpdateValue(false);
 ### UpdateValue
 `public MultiplayerOptions.MultiplayerOption UpdateValue(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -251,7 +251,7 @@ var result = multiplayerOption.UpdateValue(0);
 ### UpdateValue
 `public MultiplayerOptions.MultiplayerOption UpdateValue(string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -262,7 +262,7 @@ var result = multiplayerOption.UpdateValue("example");
 ### GetValue
 `public void GetValue(out bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -273,7 +273,7 @@ multiplayerOption.GetValue(value);
 ### GetValue
 `public void GetValue(out int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -284,7 +284,7 @@ multiplayerOption.GetValue(value);
 ### GetValue
 `public void GetValue(out string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -295,7 +295,7 @@ multiplayerOption.GetValue(value);
 ### Create
 `public static MultiplayerOptions.MultiplayerOption.IntegerValue Create()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -305,7 +305,7 @@ MultiplayerOption.Create();
 ### UpdateValue
 `public void UpdateValue(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -316,7 +316,7 @@ multiplayerOption.UpdateValue(0);
 ### Create
 `public static MultiplayerOptions.MultiplayerOption.StringValue Create()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -326,7 +326,7 @@ MultiplayerOption.Create();
 ### UpdateValue
 `public void UpdateValue(string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -337,7 +337,7 @@ multiplayerOption.UpdateValue("example");
 ### GetOptionFromOptionType
 `public MultiplayerOptions.MultiplayerOption GetOptionFromOptionType(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option from option type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option from option type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -348,7 +348,7 @@ var result = multiplayerOption.GetOptionFromOptionType(optionType);
 ### CreateOption
 `public void CreateOption(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 option 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 option 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -359,7 +359,7 @@ multiplayerOption.CreateOption(optionType);
 ### UpdateOptionValue
 `public void UpdateOptionValue(MultiplayerOptions.OptionType optionType, int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 option value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 option value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -370,7 +370,7 @@ multiplayerOption.UpdateOptionValue(optionType, 0);
 ### UpdateOptionValue
 `public void UpdateOptionValue(MultiplayerOptions.OptionType optionType, string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 option value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 option value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -381,7 +381,7 @@ multiplayerOption.UpdateOptionValue(optionType, "example");
 ### UpdateOptionValue
 `public void UpdateOptionValue(MultiplayerOptions.OptionType optionType, bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 option value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 option value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例
@@ -392,7 +392,7 @@ multiplayerOption.UpdateOptionValue(optionType, false);
 ### CopyAllValuesTo
 `public void CopyAllValuesTo(MultiplayerOptions.MultiplayerOptionsContainer other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的all values to状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的all values to状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerOption 实例

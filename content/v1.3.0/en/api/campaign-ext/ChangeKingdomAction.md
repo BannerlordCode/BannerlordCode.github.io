@@ -19,7 +19,7 @@ ChangeKingdomAction is a set of static methods that trigger "ChangeKingdom" in t
 public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by join to kingdom to the this instance.
+**Purpose:** Applies the effect of by join to kingdom to the this instance.
 
 ### ApplyByJoinToKingdomByDefection
 
@@ -27,7 +27,7 @@ public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignT
 public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by join to kingdom by defection to the this instance.
+**Purpose:** Applies the effect of by join to kingdom by defection to the this instance.
 
 ### ApplyByCreateKingdom
 
@@ -35,7 +35,7 @@ public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom
 public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by create kingdom to the this instance.
+**Purpose:** Applies the effect of by create kingdom to the this instance.
 
 ### ApplyByLeaveByKingdomDestruction
 
@@ -43,7 +43,7 @@ public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool show
 public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by leave by kingdom destruction to the this instance.
+**Purpose:** Applies the effect of by leave by kingdom destruction to the this instance.
 
 ### ApplyByLeaveKingdom
 
@@ -51,7 +51,7 @@ public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotifica
 public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by leave kingdom to the this instance.
+**Purpose:** Applies the effect of by leave kingdom to the this instance.
 
 ### ApplyByLeaveWithRebellionAgainstKingdom
 
@@ -59,7 +59,7 @@ public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
 public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by leave with rebellion against kingdom to the this instance.
+**Purpose:** Applies the effect of by leave with rebellion against kingdom to the this instance.
 
 ### ApplyByJoinFactionAsMercenary
 
@@ -67,7 +67,7 @@ public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showN
 public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), int awardMultiplier = 50, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by join faction as mercenary to the this instance.
+**Purpose:** Applies the effect of by join faction as mercenary to the this instance.
 
 ### ApplyByLeaveKingdomAsMercenary
 
@@ -75,7 +75,7 @@ public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, 
 public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by leave kingdom as mercenary to the this instance.
+**Purpose:** Applies the effect of by leave kingdom as mercenary to the this instance.
 
 ### ApplyByLeaveKingdomByClanDestruction
 
@@ -83,7 +83,7 @@ public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showN
 public static void ApplyByLeaveKingdomByClanDestruction(Clan clan, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by leave kingdom by clan destruction to the this instance.
+**Purpose:** Applies the effect of by leave kingdom by clan destruction to the this instance.
 
 ## Usage Example
 

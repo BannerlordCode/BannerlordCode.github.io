@@ -31,7 +31,7 @@ description: "WeaponClassSelectionPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
@@ -42,7 +42,7 @@ weaponClassSelectionPopupVM.RefreshValues();
 ### UpdateNewlyUnlockedPiecesCount
 `public void UpdateNewlyUnlockedPiecesCount(List<CraftingPiece> newlyUnlockedPieces)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 newly unlocked pieces count 的最新表示。
+**用途 / Purpose:** 重新计算并更新 newly unlocked pieces count 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
@@ -53,7 +53,7 @@ weaponClassSelectionPopupVM.UpdateNewlyUnlockedPiecesCount(newlyUnlockedPieces);
 ### ExecuteSelectWeaponClass
 `public void ExecuteSelectWeaponClass(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select weapon class 对应的操作或工作流。
+**用途 / Purpose:** 执行 select weapon class 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
@@ -64,7 +64,7 @@ weaponClassSelectionPopupVM.ExecuteSelectWeaponClass(0);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
@@ -75,7 +75,7 @@ weaponClassSelectionPopupVM.ExecuteClosePopup();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例

@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MainStorylineCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ mainStorylineCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of MainStorylineCampaignBehavior from the subsystem API first

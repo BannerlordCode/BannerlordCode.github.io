@@ -23,7 +23,7 @@ Treat `ShipCostModel` as a Model-style extension point: first identify who creat
 ### GetShipTradeValue
 `public abstract float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**Purpose:** **Purpose:** Reads and returns the ship trade value value held by the this instance.
+**Purpose:** Reads and returns the ship trade value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipCostModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = shipCostModel.GetShipTradeValue(ship, seller, buyer);
 ### GetShipRepairCost
 `public abstract float GetShipRepairCost(Ship ship)`
 
-**Purpose:** **Purpose:** Reads and returns the ship repair cost value held by the this instance.
+**Purpose:** Reads and returns the ship repair cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipCostModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = shipCostModel.GetShipRepairCost(ship);
 ### GetShipUpgradeCost
 `public abstract int GetShipUpgradeCost(Hero owner, Ship ship, ShipUpgradePiece piece)`
 
-**Purpose:** **Purpose:** Reads and returns the ship upgrade cost value held by the this instance.
+**Purpose:** Reads and returns the ship upgrade cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipCostModel from the subsystem API first

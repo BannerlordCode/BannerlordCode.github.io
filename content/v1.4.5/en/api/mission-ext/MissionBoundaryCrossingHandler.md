@@ -23,7 +23,7 @@ Treat `MissionBoundaryCrossingHandler` as a Handler-style extension point: first
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionBoundaryCrossingHandler.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionBoundaryCrossingHandler.OnRemoveBehavior();
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
+**Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
@@ -56,7 +56,7 @@ missionBoundaryCrossingHandler.OnClearScene();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
@@ -67,7 +67,7 @@ missionBoundaryCrossingHandler.OnAgentRemoved(affectedAgent, affectorAgent, agen
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first

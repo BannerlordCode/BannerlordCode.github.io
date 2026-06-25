@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CanSearchRadius
 `public static bool CanSearchRadius(float searchRadius)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for search radius.
+**Purpose:** Checks whether the this instance meets the preconditions for search radius.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ AgentProximityMap.CanSearchRadius(0);
 ### BeginSearch
 `public static ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
 
-**Purpose:** **Purpose:** Executes the BeginSearch logic.
+**Purpose:** Executes the BeginSearch logic.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ AgentProximityMap.BeginSearch(mission, searchPos, 0, false);
 ### FindNext
 `public static void FindNext(Mission mission, ref ProximityMapSearchStruct searchStruct)`
 
-**Purpose:** **Purpose:** Looks up the matching next in the current collection or scope.
+**Purpose:** Looks up the matching next in the current collection or scope.
 
 ```csharp
 // Static call; no instance required

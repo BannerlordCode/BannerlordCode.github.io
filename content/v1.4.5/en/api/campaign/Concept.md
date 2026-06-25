@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Concept from the subsystem API first
@@ -43,7 +43,7 @@ concept.Deserialize(objectManager, node);
 ### IsGroupMember
 `public static bool IsGroupMember(string groupName, Concept c)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the group member state or condition.
+**Purpose:** Determines whether the this instance is in the group member state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Concept.IsGroupMember("example", c);
 ### SetConceptTextLinks
 `public static void SetConceptTextLinks()`
 
-**Purpose:** **Purpose:** Assigns a new value to concept text links and updates the object's internal state.
+**Purpose:** Assigns a new value to concept text links and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

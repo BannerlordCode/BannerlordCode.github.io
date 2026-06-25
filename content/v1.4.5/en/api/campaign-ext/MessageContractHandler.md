@@ -23,7 +23,7 @@ Treat `MessageContractHandler` as a Handler-style extension point: first identif
 ### Invoke
 `public abstract void Invoke(MessageContract messageContract)`
 
-**Purpose:** **Purpose:** Executes the Invoke logic.
+**Purpose:** Executes the Invoke logic.
 
 ```csharp
 // Obtain an instance of MessageContractHandler from the subsystem API first

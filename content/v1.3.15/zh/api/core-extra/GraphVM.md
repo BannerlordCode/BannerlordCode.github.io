@@ -35,7 +35,7 @@ description: "GraphVM 的自动生成类参考。"
 ### Draw
 `public void Draw( { "line", "points" })`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Draw 对应的操作。
+**用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphVM 实例

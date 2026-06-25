@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### Compare
 `public int Compare(MPLobbyCosmeticSigilItemVM x, MPLobbyCosmeticSigilItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -51,7 +51,7 @@ var result = mPLobbyHomeChangeSigilPopupVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -62,7 +62,7 @@ mPLobbyHomeChangeSigilPopupVM.RefreshValues();
 ### Open
 `public void Open()`
 
-**Purpose:** **Purpose:** Opens the resource or UI represented by the this instance.
+**Purpose:** Opens the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -73,7 +73,7 @@ mPLobbyHomeChangeSigilPopupVM.Open();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -84,7 +84,7 @@ mPLobbyHomeChangeSigilPopupVM.ExecuteClosePopup();
 ### ExecuteChangeSigil
 `public void ExecuteChangeSigil()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with change sigil.
+**Purpose:** Runs the operation or workflow associated with change sigil.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -95,7 +95,7 @@ mPLobbyHomeChangeSigilPopupVM.ExecuteChangeSigil();
 ### OnLootUpdated
 `public void OnLootUpdated(int finalLoot)`
 
-**Purpose:** **Purpose:** Invoked when the loot updated event is raised.
+**Purpose:** Invoked when the loot updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -106,7 +106,7 @@ mPLobbyHomeChangeSigilPopupVM.OnLootUpdated(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -117,7 +117,7 @@ mPLobbyHomeChangeSigilPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
@@ -128,7 +128,7 @@ mPLobbyHomeChangeSigilPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first

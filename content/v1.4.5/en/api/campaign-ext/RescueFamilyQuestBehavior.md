@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stac
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
+**Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first
@@ -34,7 +34,7 @@ rescueFamilyQuestBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, resul
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first
@@ -45,7 +45,7 @@ rescueFamilyQuestBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first

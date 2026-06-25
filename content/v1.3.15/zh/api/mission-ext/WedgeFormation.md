@@ -23,7 +23,7 @@ description: "WedgeFormation 的自动生成类参考。"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 WedgeFormation 实例

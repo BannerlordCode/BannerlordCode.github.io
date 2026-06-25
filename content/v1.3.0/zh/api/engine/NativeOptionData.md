@@ -23,7 +23,7 @@ description: "NativeOptionData 的自动生成类参考。"
 ### GetDefaultValue
 `public virtual float GetDefaultValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -34,7 +34,7 @@ var result = nativeOptionData.GetDefaultValue();
 ### Commit
 `public void Commit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Commit 对应的操作。
+**用途 / Purpose:** 调用 Commit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -45,7 +45,7 @@ nativeOptionData.Commit();
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -56,7 +56,7 @@ var result = nativeOptionData.GetValue(false);
 ### SetValue
 `public void SetValue(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -67,7 +67,7 @@ nativeOptionData.SetValue(0);
 ### GetOptionType
 `public object GetOptionType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -78,7 +78,7 @@ var result = nativeOptionData.GetOptionType();
 ### IsNative
 `public bool IsNative()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 native 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 native 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -89,7 +89,7 @@ var result = nativeOptionData.IsNative();
 ### IsAction
 `public bool IsAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 action 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例
@@ -100,7 +100,7 @@ var result = nativeOptionData.IsAction();
 ### GetIsDisabledAndReasonID
 `public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is disabled and reason i d 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is disabled and reason i d 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeOptionData 实例

@@ -23,7 +23,7 @@ description: "PlayerTownVisit 的自动生成类参考。"
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 game_menu_town_menu_on_init 对应的操作。
+**用途 / Purpose:** 调用 game_menu_town_menu_on_init 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PlayerTownVisit.game_menu_town_menu_on_init(args);
 ### game_menu_town_manage_town_on_consequence
 `public static void game_menu_town_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 game_menu_town_manage_town_on_consequence 对应的操作。
+**用途 / Purpose:** 调用 game_menu_town_manage_town_on_consequence 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PlayerTownVisit.game_menu_town_manage_town_on_consequence(args);
 ### game_menu_town_castle_manage_town_on_consequence
 `public static void game_menu_town_castle_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 game_menu_town_castle_manage_town_on_consequence 对应的操作。
+**用途 / Purpose:** 调用 game_menu_town_castle_manage_town_on_consequence 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PlayerTownVisit.game_menu_town_castle_manage_town_on_consequence(args);
 ### game_menu_castle_manage_castle_on_consequence
 `public static void game_menu_castle_manage_castle_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 game_menu_castle_manage_castle_on_consequence 对应的操作。
+**用途 / Purpose:** 调用 game_menu_castle_manage_castle_on_consequence 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

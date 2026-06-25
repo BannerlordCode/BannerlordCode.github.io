@@ -37,7 +37,7 @@ description: "MapConversationTableauData 的自动生成类参考。"
 ### CreateFrom
 `public static MapConversationTableauData CreateFrom(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, TerrainType terrainType, float timeOfDay, bool isCurrentTerrainUnderSnow, Settlement settlement, string locationId, bool isRaining, bool isSnowing)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

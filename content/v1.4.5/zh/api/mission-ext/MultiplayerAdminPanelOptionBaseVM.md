@@ -41,7 +41,7 @@ description: "MultiplayerAdminPanelOptionBaseVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
@@ -52,7 +52,7 @@ multiplayerAdminPanelOptionBaseVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
@@ -63,7 +63,7 @@ multiplayerAdminPanelOptionBaseVM.OnFinalize();
 ### UpdateValues
 `public virtual void UpdateValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 values 的最新表示。
+**用途 / Purpose:** 重新计算并更新 values 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
@@ -74,7 +74,7 @@ multiplayerAdminPanelOptionBaseVM.UpdateValues();
 ### ExecuteRevertChanges
 `public virtual void ExecuteRevertChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 revert changes 对应的操作或工作流。
+**用途 / Purpose:** 执行 revert changes 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
@@ -85,7 +85,7 @@ multiplayerAdminPanelOptionBaseVM.ExecuteRevertChanges();
 ### ExecuteRestoreDefaults
 `public virtual void ExecuteRestoreDefaults()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 restore defaults 对应的操作或工作流。
+**用途 / Purpose:** 执行 restore defaults 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例

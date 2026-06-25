@@ -46,7 +46,7 @@ description: "ItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -57,7 +57,7 @@ itemVM.RefreshValues();
 ### ExecutePreviewItem
 `public void ExecutePreviewItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 preview item 对应的操作或工作流。
+**用途 / Purpose:** 执行 preview item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -68,7 +68,7 @@ itemVM.ExecutePreviewItem();
 ### ExecuteUnequipItem
 `public void ExecuteUnequipItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 unequip item 对应的操作或工作流。
+**用途 / Purpose:** 执行 unequip item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -79,7 +79,7 @@ itemVM.ExecuteUnequipItem();
 ### ExecuteEquipItem
 `public void ExecuteEquipItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 equip item 对应的操作或工作流。
+**用途 / Purpose:** 执行 equip item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -90,7 +90,7 @@ itemVM.ExecuteEquipItem();
 ### ReleaseStaticContent
 `public static void ReleaseStaticContent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseStaticContent 对应的操作。
+**用途 / Purpose:** 调用 ReleaseStaticContent 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -100,7 +100,7 @@ ItemVM.ReleaseStaticContent();
 ### ExecuteRefreshTooltip
 `public void ExecuteRefreshTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 refresh tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 refresh tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -111,7 +111,7 @@ itemVM.ExecuteRefreshTooltip();
 ### ExecuteCancelTooltip
 `public void ExecuteCancelTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -122,7 +122,7 @@ itemVM.ExecuteCancelTooltip();
 ### ExecuteBuyItem
 `public void ExecuteBuyItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 buy item 对应的操作或工作流。
+**用途 / Purpose:** 执行 buy item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -133,7 +133,7 @@ itemVM.ExecuteBuyItem();
 ### ExecuteSelectItem
 `public void ExecuteSelectItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select item 对应的操作或工作流。
+**用途 / Purpose:** 执行 select item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例
@@ -144,7 +144,7 @@ itemVM.ExecuteSelectItem();
 ### GetItemTypeWithItemObject
 `public EquipmentIndex GetItemTypeWithItemObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item type with item object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item type with item object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemVM 实例

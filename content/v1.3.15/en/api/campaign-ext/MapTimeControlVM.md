@@ -52,7 +52,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first
@@ -63,7 +63,7 @@ mapTimeControlVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first
@@ -74,7 +74,7 @@ mapTimeControlVM.OnFinalize();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first
@@ -85,7 +85,7 @@ mapTimeControlVM.Tick();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first
@@ -96,7 +96,7 @@ mapTimeControlVM.Refresh();
 ### ExecuteTimeControlChange
 `public void ExecuteTimeControlChange(int selectedTimeSpeed)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with time control change.
+**Purpose:** Runs the operation or workflow associated with time control change.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first
@@ -107,7 +107,7 @@ mapTimeControlVM.ExecuteTimeControlChange(0);
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset camera.
+**Purpose:** Runs the operation or workflow associated with reset camera.
 
 ```csharp
 // Obtain an instance of MapTimeControlVM from the subsystem API first

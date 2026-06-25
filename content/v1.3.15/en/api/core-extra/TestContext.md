@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RunTestAux
 `public void RunTestAux(string commandLine)`
 
-**Purpose:** **Purpose:** Executes the RunTestAux logic.
+**Purpose:** Executes the RunTestAux logic.
 
 ```csharp
 // Obtain an instance of TestContext from the subsystem API first
@@ -34,7 +34,7 @@ testContext.RunTestAux("example");
 ### OnApplicationTick
 `public void OnApplicationTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the application tick event is raised.
+**Purpose:** Invoked when the application tick event is raised.
 
 ```csharp
 // Obtain an instance of TestContext from the subsystem API first
@@ -45,7 +45,7 @@ testContext.OnApplicationTick(0);
 ### TickTest
 `public void TickTest(float dt)`
 
-**Purpose:** **Purpose:** Advances the test state each frame or update cycle.
+**Purpose:** Advances the test state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of TestContext from the subsystem API first
@@ -56,7 +56,7 @@ testContext.TickTest(0);
 ### FinalizeContext
 `public void FinalizeContext()`
 
-**Purpose:** **Purpose:** Executes the FinalizeContext logic.
+**Purpose:** Executes the FinalizeContext logic.
 
 ```csharp
 // Obtain an instance of TestContext from the subsystem API first

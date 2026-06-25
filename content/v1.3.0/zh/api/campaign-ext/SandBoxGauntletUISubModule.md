@@ -23,7 +23,7 @@ description: "SandBoxGauntletUISubModule 的自动生成类参考。"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例
@@ -34,7 +34,7 @@ sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
+**用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例
@@ -45,7 +45,7 @@ sandBoxGauntletUISubModule.OnGameEnd(game);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginGameStart 对应的操作。
+**用途 / Purpose:** 调用 BeginGameStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例

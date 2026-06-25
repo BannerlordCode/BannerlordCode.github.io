@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** **Purpose:** Invoked when the valid behavior side changed event is raised.
+**Purpose:** Invoked when the valid behavior side changed event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorCavalryScreen from the subsystem API first
@@ -34,7 +34,7 @@ behaviorCavalryScreen.OnValidBehaviorSideChanged();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorCavalryScreen from the subsystem API first
@@ -45,7 +45,7 @@ behaviorCavalryScreen.TickOccasionally();
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** **Purpose:** Reads and returns the behavior string value held by the this instance.
+**Purpose:** Reads and returns the behavior string value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorCavalryScreen from the subsystem API first

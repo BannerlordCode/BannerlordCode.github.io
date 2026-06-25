@@ -64,7 +64,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### OnItemRefreshedDelegate
 `public delegate void OnItemRefreshedDelegate(bool isItemVisible)`
 
-**Purpose:** **Purpose:** Invoked when the item refreshed delegate event is raised.
+**Purpose:** Invoked when the item refreshed delegate event is raised.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -75,7 +75,7 @@ craftingVM.OnItemRefreshedDelegate(false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -86,7 +86,7 @@ craftingVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -97,7 +97,7 @@ craftingVM.OnFinalize();
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed(Crafting newCraftingLogic)`
 
-**Purpose:** **Purpose:** Invoked when the crafting logic refreshed event is raised.
+**Purpose:** Invoked when the crafting logic refreshed event is raised.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -108,7 +108,7 @@ craftingVM.OnCraftingLogicRefreshed(newCraftingLogic);
 ### UpdateCraftingHero
 `public void UpdateCraftingHero(CraftingAvailableHeroItemVM newHero)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of crafting hero.
+**Purpose:** Recalculates and stores the latest representation of crafting hero.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -119,7 +119,7 @@ craftingVM.UpdateCraftingHero(newHero);
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -130,7 +130,7 @@ craftingVM.ExecuteCancel();
 ### ExecuteMainAction
 `public void ExecuteMainAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with main action.
+**Purpose:** Runs the operation or workflow associated with main action.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -141,7 +141,7 @@ craftingVM.ExecuteMainAction();
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset camera.
+**Purpose:** Runs the operation or workflow associated with reset camera.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -152,7 +152,7 @@ craftingVM.ExecuteResetCamera();
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to confirm input key and updates the object's internal state.
+**Purpose:** Assigns a new value to confirm input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -163,7 +163,7 @@ craftingVM.SetConfirmInputKey(hotKey);
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to exit input key and updates the object's internal state.
+**Purpose:** Assigns a new value to exit input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -174,7 +174,7 @@ craftingVM.SetExitInputKey(hotKey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
+**Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -185,7 +185,7 @@ craftingVM.SetPreviousTabInputKey(hotKey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
+**Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -196,7 +196,7 @@ craftingVM.SetNextTabInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -207,7 +207,7 @@ craftingVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -218,7 +218,7 @@ craftingVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -229,7 +229,7 @@ craftingVM.AddCameraControlInputKey(gameAxisKey);
 ### ExecuteSwitchToCrafting
 `public void ExecuteSwitchToCrafting()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to crafting.
+**Purpose:** Runs the operation or workflow associated with switch to crafting.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -240,7 +240,7 @@ craftingVM.ExecuteSwitchToCrafting();
 ### ExecuteSwitchToSmelting
 `public void ExecuteSwitchToSmelting()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to smelting.
+**Purpose:** Runs the operation or workflow associated with switch to smelting.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -251,7 +251,7 @@ craftingVM.ExecuteSwitchToSmelting();
 ### ExecuteSwitchToRefinement
 `public void ExecuteSwitchToRefinement()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to refinement.
+**Purpose:** Runs the operation or workflow associated with switch to refinement.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first
@@ -262,7 +262,7 @@ craftingVM.ExecuteSwitchToRefinement();
 ### SetCurrentDesignManually
 `public void SetCurrentDesignManually(CraftingTemplate craftingTemplate, (CraftingPiece, int) pieces)`
 
-**Purpose:** **Purpose:** Assigns a new value to current design manually and updates the object's internal state.
+**Purpose:** Assigns a new value to current design manually and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingVM from the subsystem API first

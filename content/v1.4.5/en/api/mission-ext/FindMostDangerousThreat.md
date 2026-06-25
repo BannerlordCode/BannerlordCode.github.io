@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DividableTasks` to place it in th
 ### Prepare
 `public void Prepare(List<Threat> threats, RangedSiegeWeapon weapon)`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the this instance's operation.
+**Purpose:** Finishes prerequisite setup for the this instance's operation.
 
 ```csharp
 // Obtain an instance of FindMostDangerousThreat from the subsystem API first
@@ -34,7 +34,7 @@ findMostDangerousThreat.Prepare(threats, weapon);
 ### GetResult
 `public Threat GetResult(out Agent targetAgent)`
 
-**Purpose:** **Purpose:** Reads and returns the result value held by the this instance.
+**Purpose:** Reads and returns the result value held by the this instance.
 
 ```csharp
 // Obtain an instance of FindMostDangerousThreat from the subsystem API first

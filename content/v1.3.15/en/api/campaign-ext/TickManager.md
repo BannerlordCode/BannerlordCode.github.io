@@ -23,7 +23,7 @@ Treat `TickManager` as a Manager-style extension point: first identify who creat
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TickManager from the subsystem API first
@@ -34,7 +34,7 @@ tickManager.Tick();
 ### TickDelegate
 `public delegate void TickDelegate()`
 
-**Purpose:** **Purpose:** Advances the delegate state each frame or update cycle.
+**Purpose:** Advances the delegate state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of TickManager from the subsystem API first

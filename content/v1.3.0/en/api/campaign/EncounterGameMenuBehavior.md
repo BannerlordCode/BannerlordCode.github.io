@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
@@ -34,7 +34,7 @@ encounterGameMenuBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
@@ -45,7 +45,7 @@ encounterGameMenuBehavior.RegisterEvents();
 ### AddCurrentSettlementAsAlreadySneakedIn
 `public void AddCurrentSettlementAsAlreadySneakedIn()`
 
-**Purpose:** **Purpose:** Adds current settlement as already sneaked in to the current collection or state.
+**Purpose:** Adds current settlement as already sneaked in to the current collection or state.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
@@ -56,7 +56,7 @@ encounterGameMenuBehavior.AddCurrentSettlementAsAlreadySneakedIn();
 ### game_menu_captivity_taken_prisoner_cheat_on_consequence
 `public static void game_menu_captivity_taken_prisoner_cheat_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_captivity_taken_prisoner_cheat_on_consequence logic.
+**Purpose:** Executes the game_menu_captivity_taken_prisoner_cheat_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_consequenc
 ### game_menu_captivity_castle_taken_prisoner_cont_on_condition
 `public static bool game_menu_captivity_castle_taken_prisoner_cont_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_captivity_castle_taken_prisoner_cont_on_condition logic.
+**Purpose:** Executes the game_menu_captivity_castle_taken_prisoner_cont_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_cond
 ### menu_sneak_into_town_succeeded_continue_on_consequence
 `public static void menu_sneak_into_town_succeeded_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the menu_sneak_into_town_succeeded_continue_on_consequence logic.
+**Purpose:** Executes the menu_sneak_into_town_succeeded_continue_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -86,7 +86,7 @@ EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_consequence
 ### menu_sneak_into_town_succeeded_continue_on_condition
 `public static bool menu_sneak_into_town_succeeded_continue_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the menu_sneak_into_town_succeeded_continue_on_condition logic.
+**Purpose:** Executes the menu_sneak_into_town_succeeded_continue_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_condition(a
 ### game_menu_sneak_into_town_caught_on_init
 `public static void game_menu_sneak_into_town_caught_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_sneak_into_town_caught_on_init logic.
+**Purpose:** Executes the game_menu_sneak_into_town_caught_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -106,7 +106,7 @@ EncounterGameMenuBehavior.game_menu_sneak_into_town_caught_on_init(args);
 ### mno_sneak_caught_surrender_on_consequence
 `public static void mno_sneak_caught_surrender_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the mno_sneak_caught_surrender_on_consequence logic.
+**Purpose:** Executes the mno_sneak_caught_surrender_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -116,7 +116,7 @@ EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_consequence(args);
 ### mno_sneak_caught_surrender_on_condition
 `public static bool mno_sneak_caught_surrender_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the mno_sneak_caught_surrender_on_condition logic.
+**Purpose:** Executes the mno_sneak_caught_surrender_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -126,7 +126,7 @@ EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_condition(args);
 ### game_menu_captivity_taken_prisoner_cheat_on_condition
 `public static bool game_menu_captivity_taken_prisoner_cheat_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_captivity_taken_prisoner_cheat_on_condition logic.
+**Purpose:** Executes the game_menu_captivity_taken_prisoner_cheat_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -136,7 +136,7 @@ EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_condition(
 ### game_menu_captivity_castle_taken_prisoner_cont_on_consequence
 `public static void game_menu_captivity_castle_taken_prisoner_cont_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_captivity_castle_taken_prisoner_cont_on_consequence logic.
+**Purpose:** Executes the game_menu_captivity_castle_taken_prisoner_cont_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -146,7 +146,7 @@ EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_cons
 ### game_request_entry_to_castle_approved_continue_on_consequence
 `public static void game_request_entry_to_castle_approved_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_request_entry_to_castle_approved_continue_on_consequence logic.
+**Purpose:** Executes the game_request_entry_to_castle_approved_continue_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -156,7 +156,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_cons
 ### game_request_entry_to_castle_approved_continue_on_condition
 `public static bool game_request_entry_to_castle_approved_continue_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_request_entry_to_castle_approved_continue_on_condition logic.
+**Purpose:** Executes the game_request_entry_to_castle_approved_continue_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -166,7 +166,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_cond
 ### game_request_entry_to_castle_rejected_continue_on_consequence
 `public static void game_request_entry_to_castle_rejected_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_request_entry_to_castle_rejected_continue_on_consequence logic.
+**Purpose:** Executes the game_request_entry_to_castle_rejected_continue_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -176,7 +176,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_rejected_continue_on_cons
 ### menu_castle_entry_denied_on_init
 `public static void menu_castle_entry_denied_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the menu_castle_entry_denied_on_init logic.
+**Purpose:** Executes the menu_castle_entry_denied_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -186,7 +186,7 @@ EncounterGameMenuBehavior.menu_castle_entry_denied_on_init(args);
 ### game_menu_castle_menu_sound_on_init
 `public static void game_menu_castle_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_castle_menu_sound_on_init logic.
+**Purpose:** Executes the game_menu_castle_menu_sound_on_init logic.
 
 ```csharp
 // Static call; no instance required

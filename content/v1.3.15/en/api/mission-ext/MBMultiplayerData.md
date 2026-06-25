@@ -29,7 +29,7 @@ Treat `MBMultiplayerData` as a Data-style extension point: first identify who cr
 ### GetServerId
 `public static string GetServerId()`
 
-**Purpose:** **Purpose:** Reads and returns the server id value held by the this instance.
+**Purpose:** Reads and returns the server id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MBMultiplayerData.GetServerId();
 ### GetServerName
 `public static string GetServerName()`
 
-**Purpose:** **Purpose:** Reads and returns the server name value held by the this instance.
+**Purpose:** Reads and returns the server name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ MBMultiplayerData.GetServerName();
 ### GetGameModule
 `public static string GetGameModule()`
 
-**Purpose:** **Purpose:** Reads and returns the game module value held by the this instance.
+**Purpose:** Reads and returns the game module value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ MBMultiplayerData.GetGameModule();
 ### GetGameType
 `public static string GetGameType()`
 
-**Purpose:** **Purpose:** Reads and returns the game type value held by the this instance.
+**Purpose:** Reads and returns the game type value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ MBMultiplayerData.GetGameType();
 ### GetMap
 `public static string GetMap()`
 
-**Purpose:** **Purpose:** Reads and returns the map value held by the this instance.
+**Purpose:** Reads and returns the map value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ MBMultiplayerData.GetMap();
 ### GetCurrentPlayerCount
 `public static int GetCurrentPlayerCount()`
 
-**Purpose:** **Purpose:** Reads and returns the current player count value held by the this instance.
+**Purpose:** Reads and returns the current player count value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ MBMultiplayerData.GetCurrentPlayerCount();
 ### GetPlayerCountLimit
 `public static int GetPlayerCountLimit()`
 
-**Purpose:** **Purpose:** Reads and returns the player count limit value held by the this instance.
+**Purpose:** Reads and returns the player count limit value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ MBMultiplayerData.GetPlayerCountLimit();
 ### UpdateGameServerInfo
 `public static void UpdateGameServerInfo(string id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of game server info.
+**Purpose:** Recalculates and stores the latest representation of game server info.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ MBMultiplayerData.UpdateGameServerInfo("example", "example", "example", "example
 ### GameServerInfoReceivedDelegate
 `public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**Purpose:** **Purpose:** Executes the GameServerInfoReceivedDelegate logic.
+**Purpose:** Executes the GameServerInfoReceivedDelegate logic.
 
 ```csharp
 // Obtain an instance of MBMultiplayerData from the subsystem API first

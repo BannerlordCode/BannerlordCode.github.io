@@ -30,7 +30,7 @@ description: "SceneTextureProvider 的自动生成类参考。"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTextureProvider 实例
@@ -41,7 +41,7 @@ sceneTextureProvider.Tick(0);
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTextureProvider 实例

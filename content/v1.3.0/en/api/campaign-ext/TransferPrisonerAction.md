@@ -19,7 +19,7 @@ TransferPrisonerAction is a set of static methods that trigger "TransferPrisoner
 public static void Apply(CharacterObject prisonerTroop, PartyBase prisonerOwnerParty, PartyBase newParty)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

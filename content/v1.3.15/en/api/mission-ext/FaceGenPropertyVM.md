@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of FaceGenPropertyVM from the subsystem API first
@@ -47,7 +47,7 @@ faceGenPropertyVM.Reset();
 ### Randomize
 `public void Randomize()`
 
-**Purpose:** **Purpose:** Executes the Randomize logic.
+**Purpose:** Executes the Randomize logic.
 
 ```csharp
 // Obtain an instance of FaceGenPropertyVM from the subsystem API first
@@ -58,7 +58,7 @@ faceGenPropertyVM.Randomize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of FaceGenPropertyVM from the subsystem API first
@@ -69,7 +69,7 @@ faceGenPropertyVM.RefreshValues();
 ### AddCommand
 `public void AddCommand()`
 
-**Purpose:** **Purpose:** Adds command to the current collection or state.
+**Purpose:** Adds command to the current collection or state.
 
 ```csharp
 // Obtain an instance of FaceGenPropertyVM from the subsystem API first

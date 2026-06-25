@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 ### OpenTrainingFieldMission
 `public static Mission OpenTrainingFieldMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with training field mission.
+**Purpose:** Opens the resource or UI associated with training field mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example")
 ### OpenSneakIntoTheVillaMission
 `public static Mission OpenSneakIntoTheVillaMission(string scene, CampaignTime overridenCt, string sceneLevels = null)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with sneak into the villa mission.
+**Purpose:** Opens the resource or UI associated with sneak into the villa mission.
 
 ```csharp
 // Static call; no instance required

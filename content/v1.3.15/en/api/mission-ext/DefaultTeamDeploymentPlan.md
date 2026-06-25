@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to spawn with horses and updates the object's internal state.
+**Purpose:** Assigns a new value to spawn with horses and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -41,7 +41,7 @@ defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(FormationSceneSpawnEntry formationSceneSpawnEntries, bool isReinforcement = false, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
-**Purpose:** **Purpose:** Executes the MakeDeploymentPlan logic.
+**Purpose:** Executes the MakeDeploymentPlan logic.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -52,7 +52,7 @@ defaultTeamDeploymentPlan.MakeDeploymentPlan(formationSceneSpawnEntries, false, 
 ### UpdateReinforcementPlans
 `public void UpdateReinforcementPlans()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of reinforcement plans.
+**Purpose:** Recalculates and stores the latest representation of reinforcement plans.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -63,7 +63,7 @@ defaultTeamDeploymentPlan.UpdateReinforcementPlans();
 ### ClearPlan
 `public void ClearPlan(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Removes all plan from the this instance.
+**Purpose:** Removes all plan from the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -74,7 +74,7 @@ defaultTeamDeploymentPlan.ClearPlan(false);
 ### ClearAddedTroops
 `public void ClearAddedTroops(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Removes all added troops from the this instance.
+**Purpose:** Removes all added troops from the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -85,7 +85,7 @@ defaultTeamDeploymentPlan.ClearAddedTroops(false);
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount, bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Adds troops to the current collection or state.
+**Purpose:** Adds troops to the current collection or state.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -96,7 +96,7 @@ defaultTeamDeploymentPlan.AddTroops(formationClass, 0, 0, false);
 ### IsFirstPlan
 `public bool IsFirstPlan(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the first plan state or condition.
+**Purpose:** Determines whether the this instance is in the first plan state or condition.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -107,7 +107,7 @@ var result = defaultTeamDeploymentPlan.IsFirstPlan(false);
 ### IsPlanMade
 `public bool IsPlanMade(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the plan made state or condition.
+**Purpose:** Determines whether the this instance is in the plan made state or condition.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -118,7 +118,7 @@ var result = defaultTeamDeploymentPlan.IsPlanMade(false);
 ### GetSpawnPathOffset
 `public float GetSpawnPathOffset(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn path offset value held by the this instance.
+**Purpose:** Reads and returns the spawn path offset value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -129,7 +129,7 @@ var result = defaultTeamDeploymentPlan.GetSpawnPathOffset(false);
 ### GetTargetOffset
 `public float GetTargetOffset(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Reads and returns the target offset value held by the this instance.
+**Purpose:** Reads and returns the target offset value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -140,7 +140,7 @@ var result = defaultTeamDeploymentPlan.GetTargetOffset(false);
 ### GetTroopCount
 `public int GetTroopCount(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Reads and returns the troop count value held by the this instance.
+**Purpose:** Reads and returns the troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -151,7 +151,7 @@ var result = defaultTeamDeploymentPlan.GetTroopCount(false);
 ### GetDeploymentFrame
 `public MatrixFrame GetDeploymentFrame()`
 
-**Purpose:** **Purpose:** Reads and returns the deployment frame value held by the this instance.
+**Purpose:** Reads and returns the deployment frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -162,7 +162,7 @@ var result = defaultTeamDeploymentPlan.GetDeploymentFrame();
 ### HasDeploymentBoundaries
 `public bool HasDeploymentBoundaries()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds deployment boundaries.
+**Purpose:** Determines whether the this instance already holds deployment boundaries.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -173,7 +173,7 @@ var result = defaultTeamDeploymentPlan.HasDeploymentBoundaries();
 ### GetFormationPlan
 `public IFormationDeploymentPlan GetFormationPlan(FormationClass fClass, bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Reads and returns the formation plan value held by the this instance.
+**Purpose:** Reads and returns the formation plan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -184,7 +184,7 @@ var result = defaultTeamDeploymentPlan.GetFormationPlan(fClass, false);
 ### GetMeanPosition
 `public Vec3 GetMeanPosition(bool isReinforcement = false)`
 
-**Purpose:** **Purpose:** Reads and returns the mean position value held by the this instance.
+**Purpose:** Reads and returns the mean position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -195,7 +195,7 @@ var result = defaultTeamDeploymentPlan.GetMeanPosition(false);
 ### IsInitialPlanSuitableForFormations
 `public bool IsInitialPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the initial plan suitable for formations state or condition.
+**Purpose:** Determines whether the this instance is in the initial plan suitable for formations state or condition.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -206,7 +206,7 @@ var result = defaultTeamDeploymentPlan.IsInitialPlanSuitableForFormations(valueT
 ### IsPositionInsideDeploymentBoundaries
 `public bool IsPositionInsideDeploymentBoundaries(in Vec2 position, { "id", "points" })`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the position inside deployment boundaries state or condition.
+**Purpose:** Determines whether the this instance is in the position inside deployment boundaries state or condition.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -217,7 +217,7 @@ var result = defaultTeamDeploymentPlan.IsPositionInsideDeploymentBoundaries(posi
 ### GetClosestDeploymentBoundaryPosition
 `public Vec2 GetClosestDeploymentBoundaryPosition(in Vec2 position)`
 
-**Purpose:** **Purpose:** Reads and returns the closest deployment boundary position value held by the this instance.
+**Purpose:** Reads and returns the closest deployment boundary position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first
@@ -228,7 +228,7 @@ var result = defaultTeamDeploymentPlan.GetClosestDeploymentBoundaryPosition(posi
 ### GetPathDeploymentBoundaryIntersection
 `public bool GetPathDeploymentBoundaryIntersection(in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)`
 
-**Purpose:** **Purpose:** Reads and returns the path deployment boundary intersection value held by the this instance.
+**Purpose:** Reads and returns the path deployment boundary intersection value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTeamDeploymentPlan from the subsystem API first

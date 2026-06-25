@@ -29,7 +29,7 @@ Treat `LadderQueueManager` as a Manager-style extension point: first identify wh
 ### DeactivateImmediate
 `public void DeactivateImmediate()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature associated with immediate.
+**Purpose:** Deactivates the resource, state, or feature associated with immediate.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -40,7 +40,7 @@ ladderQueueManager.DeactivateImmediate();
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
+**Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -51,7 +51,7 @@ ladderQueueManager.Deactivate();
 ### Activate
 `public void Activate()`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
+**Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -62,7 +62,7 @@ ladderQueueManager.Activate();
 ### Initialize
 `public void Initialize(int managedNavigationFaceId, MatrixFrame managedFrame, Vec3 managedDirection, BattleSideEnum managedSide, int maxUserCount, float arcAngle, float queueBeginDistance, float queueRowSize, float costPerRow, float baseCost, bool blockUsage, float agentSpacing, float zDifferenceToStopUsing, float distanceToStopUsing2d, bool doesManageMultipleIDs, int managedNavigationFaceAlternateID1, int managedNavigationFaceAlternateID2, int maxClimberCount, int maxRunnerCount)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -73,7 +73,7 @@ ladderQueueManager.Initialize(0, managedFrame, managedDirection, managedSide, 0,
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -84,7 +84,7 @@ var result = ladderQueueManager.GetTickRequirement();
 ### FlushQueueManager
 `public void FlushQueueManager()`
 
-**Purpose:** **Purpose:** Executes the FlushQueueManager logic.
+**Purpose:** Executes the FlushQueueManager logic.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -95,7 +95,7 @@ ladderQueueManager.FlushQueueManager();
 ### AssignNeighborQueueManager
 `public void AssignNeighborQueueManager(LadderQueueManager neighborLadderQueueManager)`
 
-**Purpose:** **Purpose:** Executes the AssignNeighborQueueManager logic.
+**Purpose:** Executes the AssignNeighborQueueManager logic.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first
@@ -106,7 +106,7 @@ ladderQueueManager.AssignNeighborQueueManager(neighborLadderQueueManager);
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition frame)`
 
-**Purpose:** **Purpose:** Invoked when the formation frame changed event is raised.
+**Purpose:** Invoked when the formation frame changed event is raised.
 
 ```csharp
 // Obtain an instance of LadderQueueManager from the subsystem API first

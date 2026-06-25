@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the importance for clan value held by the this instance.
+**Purpose:** Reads and returns the importance for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefeatCharacterLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = defeatCharacterLogEntry.GetImportanceForClan(clan);
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** **Purpose:** Reads and returns the conversation score and comment value held by the this instance.
+**Purpose:** Reads and returns the conversation score and comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefeatCharacterLogEntry from the subsystem API first
@@ -45,7 +45,7 @@ defeatCharacterLogEntry.GetConversationScoreAndComment(talkTroop, false, comment
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of DefeatCharacterLogEntry from the subsystem API first

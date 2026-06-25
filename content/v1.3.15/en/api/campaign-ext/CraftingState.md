@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### InitializeLogic
 `public void InitializeLogic(Crafting newCraftingLogic, bool isReplacingWeaponClass = false)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by logic.
+**Purpose:** Prepares the resources, state, or bindings required by logic.
 
 ```csharp
 // Obtain an instance of CraftingState from the subsystem API first

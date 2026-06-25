@@ -40,7 +40,7 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### ShallowCopy
 `public ProjectProperties ShallowCopy()`
 
-**Purpose:** **Purpose:** Executes the ShallowCopy logic.
+**Purpose:** Executes the ShallowCopy logic.
 
 ```csharp
 // Obtain an instance of ProjectProperties from the subsystem API first
@@ -51,7 +51,7 @@ var result = projectProperties.ShallowCopy();
 ### Clone
 `public object Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of ProjectProperties from the subsystem API first

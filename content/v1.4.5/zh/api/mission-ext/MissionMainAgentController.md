@@ -33,7 +33,7 @@ description: "MissionMainAgentController 的自动生成类参考。"
 ### OnLockedAgentChangedDelegate
 `public delegate void OnLockedAgentChangedDelegate(Agent newAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 locked agent changed delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 locked agent changed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -44,7 +44,7 @@ missionMainAgentController.OnLockedAgentChangedDelegate(newAgent);
 ### OnPotentialLockedAgentChangedDelegate
 `public delegate void OnPotentialLockedAgentChangedDelegate(Agent newPotentialAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 potential locked agent changed delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 potential locked agent changed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -55,7 +55,7 @@ missionMainAgentController.OnPotentialLockedAgentChangedDelegate(newPotentialAge
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -66,7 +66,7 @@ missionMainAgentController.EarlyStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -77,7 +77,7 @@ missionMainAgentController.OnMissionScreenFinalize();
 ### IsReady
 `public override bool IsReady()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 ready 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 ready 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -88,7 +88,7 @@ var result = missionMainAgentController.IsReady();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -99,7 +99,7 @@ missionMainAgentController.OnPreMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -110,7 +110,7 @@ missionMainAgentController.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent deleted 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent deleted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -121,7 +121,7 @@ missionMainAgentController.OnAgentDeleted(affectedAgent);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
+**用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -132,7 +132,7 @@ missionMainAgentController.OnClearScene();
 ### BreakAgentVisualsInvulnerability
 `public void BreakAgentVisualsInvulnerability()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BreakAgentVisualsInvulnerability 对应的操作。
+**用途 / Purpose:** 调用 BreakAgentVisualsInvulnerability 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -143,7 +143,7 @@ missionMainAgentController.BreakAgentVisualsInvulnerability();
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -154,7 +154,7 @@ var result = missionMainAgentController.IsThereAgentAction(userAgent, otherAgent
 ### Disable
 `public void Disable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disable 对应的操作。
+**用途 / Purpose:** 调用 Disable 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -165,7 +165,7 @@ missionMainAgentController.Disable();
 ### Enable
 `public void Enable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Enable 对应的操作。
+**用途 / Purpose:** 调用 Enable 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -176,7 +176,7 @@ missionMainAgentController.Enable();
 ### OnWeaponUsageToggleRequested
 `public void OnWeaponUsageToggleRequested()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon usage toggle requested 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon usage toggle requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -187,7 +187,7 @@ missionMainAgentController.OnWeaponUsageToggleRequested();
 ### AddOverrideControlsForFrame
 `public void AddOverrideControlsForFrame(OverrideMainAgentControlFlag overrideFlag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 override controls for frame 添加到当前容器或状态中。
+**用途 / Purpose:** 将 override controls for frame 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例

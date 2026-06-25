@@ -41,7 +41,7 @@ description: "TutorialItemVM 的自动生成类参考。"
 ### Init
 `public void Init(string tutorialTypeId, bool requiresMouse, Action onFinishTutorial)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemVM 实例
@@ -52,7 +52,7 @@ tutorialItemVM.Init("example", false, onFinishTutorial);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemVM 实例
@@ -63,7 +63,7 @@ tutorialItemVM.RefreshValues();
 ### CloseTutorialPanel
 `public void CloseTutorialPanel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭tutorial panel对应的资源或界面。
+**用途 / Purpose:** 关闭tutorial panel对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemVM 实例

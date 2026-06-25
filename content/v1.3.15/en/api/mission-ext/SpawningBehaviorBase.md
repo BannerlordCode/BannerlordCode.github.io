@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public virtual void Initialize(SpawnComponent spawnComponent)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -34,7 +34,7 @@ spawningBehaviorBase.Initialize(spawnComponent);
 ### Clear
 `public virtual void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -45,7 +45,7 @@ spawningBehaviorBase.Clear();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -56,7 +56,7 @@ spawningBehaviorBase.OnTick(0);
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**Purpose:** **Purpose:** Executes the AreAgentsSpawning logic.
+**Purpose:** Executes the AreAgentsSpawning logic.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -67,7 +67,7 @@ var result = spawningBehaviorBase.AreAgentsSpawning();
 ### RequestStartSpawnSession
 `public virtual void RequestStartSpawnSession()`
 
-**Purpose:** **Purpose:** Executes the RequestStartSpawnSession logic.
+**Purpose:** Executes the RequestStartSpawnSession logic.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -78,7 +78,7 @@ spawningBehaviorBase.RequestStartSpawnSession();
 ### RequestStopSpawnSession
 `public void RequestStopSpawnSession()`
 
-**Purpose:** **Purpose:** Executes the RequestStopSpawnSession logic.
+**Purpose:** Executes the RequestStopSpawnSession logic.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -89,7 +89,7 @@ spawningBehaviorBase.RequestStopSpawnSession();
 ### SetRemainingAgentsInvulnerable
 `public void SetRemainingAgentsInvulnerable()`
 
-**Purpose:** **Purpose:** Assigns a new value to remaining agents invulnerable and updates the object's internal state.
+**Purpose:** Assigns a new value to remaining agents invulnerable and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -100,7 +100,7 @@ spawningBehaviorBase.SetRemainingAgentsInvulnerable();
 ### CanUpdateSpawnEquipment
 `public virtual bool CanUpdateSpawnEquipment(MissionPeer missionPeer)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for update spawn equipment.
+**Purpose:** Checks whether the this instance meets the preconditions for update spawn equipment.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -111,7 +111,7 @@ var result = spawningBehaviorBase.CanUpdateSpawnEquipment(missionPeer);
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**Purpose:** **Purpose:** Executes the ToggleUpdatingSpawnEquipment logic.
+**Purpose:** Executes the ToggleUpdatingSpawnEquipment logic.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -122,7 +122,7 @@ spawningBehaviorBase.ToggleUpdatingSpawnEquipment(false);
 ### AllowEarlyAgentVisualsDespawning
 `public abstract bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**Purpose:** **Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
+**Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -133,7 +133,7 @@ var result = spawningBehaviorBase.AllowEarlyAgentVisualsDespawning(missionPeer);
 ### GetMaximumReSpawnPeriodForPeer
 `public virtual int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum re spawn period for peer value held by the this instance.
+**Purpose:** Reads and returns the maximum re spawn period for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -144,7 +144,7 @@ var result = spawningBehaviorBase.GetMaximumReSpawnPeriodForPeer(peer);
 ### OnClearScene
 `public virtual void OnClearScene()`
 
-**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
+**Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -155,7 +155,7 @@ spawningBehaviorBase.OnClearScene();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first
@@ -166,7 +166,7 @@ spawningBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, bl
 ### OnSpawningEndedEventDelegate
 `public delegate void OnSpawningEndedEventDelegate()`
 
-**Purpose:** **Purpose:** Invoked when the spawning ended event delegate event is raised.
+**Purpose:** Invoked when the spawning ended event delegate event is raised.
 
 ```csharp
 // Obtain an instance of SpawningBehaviorBase from the subsystem API first

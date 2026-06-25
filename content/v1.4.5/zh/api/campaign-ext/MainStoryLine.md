@@ -38,7 +38,7 @@ description: "MainStoryLine 的自动生成类参考。"
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
+**用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -49,7 +49,7 @@ mainStoryLine.OnSessionLaunched();
 ### SetTutorialScores
 `public void SetTutorialScores(Dictionary<string, float> scores)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tutorial scores 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 tutorial scores 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -60,7 +60,7 @@ mainStoryLine.SetTutorialScores(dictionary<string, 0);
 ### GetTutorialScores
 `public Dictionary<string, float> GetTutorialScores()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorial scores 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tutorial scores 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -71,7 +71,7 @@ var result = mainStoryLine.GetTutorialScores();
 ### SetStoryLineSide
 `public void SetStoryLineSide(MainStoryLineSide side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 story line side 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 story line side 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -82,7 +82,7 @@ mainStoryLine.SetStoryLineSide(side);
 ### SetMentorSettlements
 `public void SetMentorSettlements(Settlement imperialMentorSettlement, Settlement antiImperialMentorSettlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mentor settlements 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mentor settlements 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -93,7 +93,7 @@ mainStoryLine.SetMentorSettlements(imperialMentorSettlement, antiImperialMentorS
 ### CompleteTutorialPhase
 `public void CompleteTutorialPhase(bool isSkipped)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteTutorialPhase 对应的操作。
+**用途 / Purpose:** 调用 CompleteTutorialPhase 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -104,7 +104,7 @@ mainStoryLine.CompleteTutorialPhase(false);
 ### CompleteFirstPhase
 `public void CompleteFirstPhase()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteFirstPhase 对应的操作。
+**用途 / Purpose:** 调用 CompleteFirstPhase 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -115,7 +115,7 @@ mainStoryLine.CompleteFirstPhase();
 ### CompleteSecondPhase
 `public void CompleteSecondPhase()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteSecondPhase 对应的操作。
+**用途 / Purpose:** 调用 CompleteSecondPhase 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -126,7 +126,7 @@ mainStoryLine.CompleteSecondPhase();
 ### CancelSecondAndThirdPhase
 `public void CancelSecondAndThirdPhase()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel second and third phase 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 cel second and third phase 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例

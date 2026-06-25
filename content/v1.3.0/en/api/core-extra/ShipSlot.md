@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AfterRegister
 `public override void AfterRegister()`
 
-**Purpose:** **Purpose:** Executes the AfterRegister logic.
+**Purpose:** Executes the AfterRegister logic.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first
@@ -42,7 +42,7 @@ shipSlot.AfterRegister();
 ### AddMatchingPiece
 `public void AddMatchingPiece(ShipUpgradePiece upgradePiece)`
 
-**Purpose:** **Purpose:** Adds matching piece to the current collection or state.
+**Purpose:** Adds matching piece to the current collection or state.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first
@@ -53,7 +53,7 @@ shipSlot.AddMatchingPiece(upgradePiece);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first

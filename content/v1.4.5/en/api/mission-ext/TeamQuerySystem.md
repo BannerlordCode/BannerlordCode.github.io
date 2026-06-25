@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Expire
 `public void Expire()`
 
-**Purpose:** **Purpose:** Executes the Expire logic.
+**Purpose:** Executes the Expire logic.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first
@@ -43,7 +43,7 @@ teamQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**Purpose:** **Purpose:** Executes the ExpireAfterUnitAddRemove logic.
+**Purpose:** Executes the ExpireAfterUnitAddRemove logic.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first
@@ -54,7 +54,7 @@ teamQuerySystem.ExpireAfterUnitAddRemove();
 ### RegisterDeath
 `public void RegisterDeath()`
 
-**Purpose:** **Purpose:** Registers death with the current system so it can later be observed or dispatched.
+**Purpose:** Registers death with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first
@@ -65,7 +65,7 @@ teamQuerySystem.RegisterDeath();
 ### RegisterDeathByRanged
 `public void RegisterDeathByRanged()`
 
-**Purpose:** **Purpose:** Registers death by ranged with the current system so it can later be observed or dispatched.
+**Purpose:** Registers death by ranged with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first
@@ -76,7 +76,7 @@ teamQuerySystem.RegisterDeathByRanged();
 ### GetLocalAllyPower
 `public float GetLocalAllyPower(Vec2 target)`
 
-**Purpose:** **Purpose:** Reads and returns the local ally power value held by the this instance.
+**Purpose:** Reads and returns the local ally power value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first
@@ -87,7 +87,7 @@ var result = teamQuerySystem.GetLocalAllyPower(target);
 ### GetLocalEnemyPower
 `public float GetLocalEnemyPower(Vec2 target)`
 
-**Purpose:** **Purpose:** Reads and returns the local enemy power value held by the this instance.
+**Purpose:** Reads and returns the local enemy power value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeamQuerySystem from the subsystem API first

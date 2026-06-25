@@ -30,7 +30,7 @@ description: "LocationEncounter 的自动生成类参考。"
 ### AddAccompanyingCharacter
 `public void AddAccompanyingCharacter(LocationCharacter locationCharacter, bool isFollowing = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 accompanying character 添加到当前容器或状态中。
+**用途 / Purpose:** 将 accompanying character 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -41,7 +41,7 @@ locationEncounter.AddAccompanyingCharacter(locationCharacter, false);
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 accompanying character 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 accompanying character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -52,7 +52,7 @@ var result = locationEncounter.GetAccompanyingCharacter(locationCharacter);
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 accompanying character 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 accompanying character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -63,7 +63,7 @@ var result = locationEncounter.GetAccompanyingCharacter(character);
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 accompanying character。
+**用途 / Purpose:** 从当前容器或状态中移除 accompanying character。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -74,7 +74,7 @@ locationEncounter.RemoveAccompanyingCharacter(locationCharacter);
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 accompanying character。
+**用途 / Purpose:** 从当前容器或状态中移除 accompanying character。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -85,7 +85,7 @@ locationEncounter.RemoveAccompanyingCharacter(hero);
 ### RemoveAllAccompanyingCharacters
 `public void RemoveAllAccompanyingCharacters()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 all accompanying characters。
+**用途 / Purpose:** 从当前容器或状态中移除 all accompanying characters。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -96,7 +96,7 @@ locationEncounter.RemoveAllAccompanyingCharacters();
 ### OnCharacterLocationChanged
 `public void OnCharacterLocationChanged(LocationCharacter locationCharacter, Location fromLocation, Location toLocation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 character location changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 character location changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -107,7 +107,7 @@ locationEncounter.OnCharacterLocationChanged(locationCharacter, fromLocation, to
 ### IsWorkshopLocation
 `public virtual bool IsWorkshopLocation(Location location)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 workshop location 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 workshop location 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -118,7 +118,7 @@ var result = locationEncounter.IsWorkshopLocation(location);
 ### IsTavern
 `public virtual bool IsTavern(Location location)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 tavern 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 tavern 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例
@@ -129,7 +129,7 @@ var result = locationEncounter.IsTavern(location);
 ### CreateAndOpenMissionController
 `public virtual IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 and open mission controller 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 and open mission controller 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationEncounter 实例

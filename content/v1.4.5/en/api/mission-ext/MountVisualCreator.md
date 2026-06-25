@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### SetMaterialProperties
 `public static void SetMaterialProperties(ItemObject mountItem, MetaMesh mountMesh, MountCreationKey key, ref uint maneMeshMultiplier)`
 
-**Purpose:** **Purpose:** Assigns a new value to material properties and updates the object's internal state.
+**Purpose:** Assigns a new value to material properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MountVisualCreator.SetMaterialProperties(mountItem, mountMesh, key, maneMeshMult
 ### AddMountMesh
 `public static MountVisualCreationOutput AddMountMesh(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**Purpose:** **Purpose:** Adds mount mesh to the current collection or state.
+**Purpose:** Adds mount mesh to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MountVisualCreator.AddMountMesh(agentVisual, mountItem, harnessItem, "example", 
 ### SetHorseColors
 `public static void SetHorseColors(MetaMesh horseMesh, MountCreationKey mountCreationKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to horse colors and updates the object's internal state.
+**Purpose:** Assigns a new value to horse colors and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MountVisualCreator.SetHorseColors(horseMesh, mountCreationKey);
 ### ClearMountMesh
 `public static void ClearMountMesh(GameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Removes all mount mesh from the this instance.
+**Purpose:** Removes all mount mesh from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MountVisualCreator.ClearMountMesh(gameEntity);
 ### AddMountMeshToEntity
 `public static void AddMountMeshToEntity(GameEntity gameEntity, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, out MountVisualCreationOutput mountVisualCreationOutput, Agent agent = null)`
 
-**Purpose:** **Purpose:** Adds mount mesh to entity to the current collection or state.
+**Purpose:** Adds mount mesh to entity to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MountVisualCreator.AddMountMeshToEntity(gameEntity, mountItem, harnessItem, "exa
 ### AddMountMeshToEntity
 `public static void AddMountMeshToEntity(GameEntity gameEntity, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**Purpose:** **Purpose:** Adds mount mesh to entity to the current collection or state.
+**Purpose:** Adds mount mesh to entity to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MountVisualCreator.AddMountMeshToEntity(gameEntity, mountItem, harnessItem, "exa
 ### AddMountMeshToAgentVisual
 `public static void AddMountMeshToAgentVisual(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**Purpose:** **Purpose:** Adds mount mesh to agent visual to the current collection or state.
+**Purpose:** Adds mount mesh to agent visual to the current collection or state.
 
 ```csharp
 // Static call; no instance required

@@ -30,7 +30,7 @@ description: "GameMenuPlunderItemVM 的自动生成类参考。"
 ### ExecuteBeginTooltip
 `public void ExecuteBeginTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPlunderItemVM 实例
@@ -41,7 +41,7 @@ gameMenuPlunderItemVM.ExecuteBeginTooltip();
 ### ExecuteEndTooltip
 `public void ExecuteEndTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 end tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 end tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPlunderItemVM 实例

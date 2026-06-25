@@ -34,7 +34,7 @@ Treat `MultiplayerRoundController` as a Controller-style extension point: first 
 ### EnableEquipmentUpdate
 `public void EnableEquipmentUpdate()`
 
-**Purpose:** **Purpose:** Executes the EnableEquipmentUpdate logic.
+**Purpose:** Executes the EnableEquipmentUpdate logic.
 
 ```csharp
 // Obtain an instance of MultiplayerRoundController from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerRoundController.EnableEquipmentUpdate();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MultiplayerRoundController from the subsystem API first
@@ -56,7 +56,7 @@ multiplayerRoundController.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerRoundController from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerRoundController.OnRemoveBehavior();
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre display mission tick event is raised.
+**Purpose:** Invoked when the pre display mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerRoundController from the subsystem API first
@@ -78,7 +78,7 @@ multiplayerRoundController.OnPreDisplayMissionTick(0);
 ### HandleClientEventCultureSelect
 `public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with client event culture select.
+**Purpose:** Executes the response logic associated with client event culture select.
 
 ```csharp
 // Obtain an instance of MultiplayerRoundController from the subsystem API first

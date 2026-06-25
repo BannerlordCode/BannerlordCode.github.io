@@ -23,7 +23,7 @@ description: "BehaviorSets 的自动生成类参考。"
 ### AddQuestCharacterBehaviors
 `public static void AddQuestCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 quest character behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 quest character behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BehaviorSets.AddQuestCharacterBehaviors(agent);
 ### AddWandererBehaviors
 `public static void AddWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 wanderer behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 wanderer behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ BehaviorSets.AddWandererBehaviors(agent);
 ### AddOutdoorWandererBehaviors
 `public static void AddOutdoorWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 outdoor wanderer behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 outdoor wanderer behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BehaviorSets.AddOutdoorWandererBehaviors(agent);
 ### AddIndoorWandererBehaviors
 `public static void AddIndoorWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 indoor wanderer behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 indoor wanderer behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ BehaviorSets.AddIndoorWandererBehaviors(agent);
 ### AddFixedCharacterBehaviors
 `public static void AddFixedCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 fixed character behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 fixed character behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ BehaviorSets.AddFixedCharacterBehaviors(agent);
 ### AddPatrollingThugBehaviors
 `public static void AddPatrollingThugBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 patrolling thug behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 patrolling thug behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ BehaviorSets.AddPatrollingThugBehaviors(agent);
 ### AddStandGuardBehaviors
 `public static void AddStandGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 stand guard behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 stand guard behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ BehaviorSets.AddStandGuardBehaviors(agent);
 ### AddFixedGuardBehaviors
 `public static void AddFixedGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 fixed guard behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 fixed guard behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ BehaviorSets.AddFixedGuardBehaviors(agent);
 ### StealthAgentBehaviors
 `public static void StealthAgentBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 StealthAgentBehaviors 对应的操作。
+**用途 / Purpose:** 调用 StealthAgentBehaviors 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ BehaviorSets.StealthAgentBehaviors(agent);
 ### AddPatrollingGuardBehaviors
 `public static void AddPatrollingGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 patrolling guard behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 patrolling guard behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ BehaviorSets.AddPatrollingGuardBehaviors(agent);
 ### AddCompanionBehaviors
 `public static void AddCompanionBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 companion behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 companion behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ BehaviorSets.AddCompanionBehaviors(agent);
 ### AddBodyguardBehaviors
 `public static void AddBodyguardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 bodyguard behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 bodyguard behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ BehaviorSets.AddBodyguardBehaviors(agent);
 ### AddFirstCompanionBehavior
 `public static void AddFirstCompanionBehavior(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 first companion behavior 添加到当前容器或状态中。
+**用途 / Purpose:** 将 first companion behavior 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

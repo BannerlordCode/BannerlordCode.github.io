@@ -30,7 +30,7 @@ Treat `MissionMainAgentInteractionComponent` as a Component-style extension poin
 ### SetCurrentFocusedObject
 `public void SetCurrentFocusedObject(IFocusable focusedObject, IFocusable focusedMachine, sbyte focusedObjectBoneIndex, bool isInteractable)`
 
-**Purpose:** **Purpose:** Assigns a new value to current focused object and updates the object's internal state.
+**Purpose:** Assigns a new value to current focused object and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -41,7 +41,7 @@ missionMainAgentInteractionComponent.SetCurrentFocusedObject(focusedObject, focu
 ### ClearFocus
 `public void ClearFocus()`
 
-**Purpose:** **Purpose:** Removes all focus from the this instance.
+**Purpose:** Removes all focus from the this instance.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -52,7 +52,7 @@ missionMainAgentInteractionComponent.ClearFocus();
 ### OnClearScene
 `public void OnClearScene()`
 
-**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
+**Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -63,7 +63,7 @@ missionMainAgentInteractionComponent.OnClearScene();
 ### FocusTick
 `public void FocusTick()`
 
-**Purpose:** **Purpose:** Executes the FocusTick logic.
+**Purpose:** Executes the FocusTick logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -74,7 +74,7 @@ missionMainAgentInteractionComponent.FocusTick();
 ### FocusStateCheckTick
 `public void FocusStateCheckTick()`
 
-**Purpose:** **Purpose:** Executes the FocusStateCheckTick logic.
+**Purpose:** Executes the FocusStateCheckTick logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -85,7 +85,7 @@ missionMainAgentInteractionComponent.FocusStateCheckTick();
 ### FocusedItemHealthTick
 `public void FocusedItemHealthTick()`
 
-**Purpose:** **Purpose:** Executes the FocusedItemHealthTick logic.
+**Purpose:** Executes the FocusedItemHealthTick logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -96,7 +96,7 @@ missionMainAgentInteractionComponent.FocusedItemHealthTick();
 ### MissionFocusGainedEventDelegate
 `public delegate void MissionFocusGainedEventDelegate(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** **Purpose:** Executes the MissionFocusGainedEventDelegate logic.
+**Purpose:** Executes the MissionFocusGainedEventDelegate logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -107,7 +107,7 @@ missionMainAgentInteractionComponent.MissionFocusGainedEventDelegate(agent, focu
 ### MissionFocusLostEventDelegate
 `public delegate void MissionFocusLostEventDelegate(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** **Purpose:** Executes the MissionFocusLostEventDelegate logic.
+**Purpose:** Executes the MissionFocusLostEventDelegate logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
@@ -118,7 +118,7 @@ missionMainAgentInteractionComponent.MissionFocusLostEventDelegate(agent, focusa
 ### MissionFocusHealthChangeDelegate
 `public delegate void MissionFocusHealthChangeDelegate(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**Purpose:** **Purpose:** Executes the MissionFocusHealthChangeDelegate logic.
+**Purpose:** Executes the MissionFocusHealthChangeDelegate logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first

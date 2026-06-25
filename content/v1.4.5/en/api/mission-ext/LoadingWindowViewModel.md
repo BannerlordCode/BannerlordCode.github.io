@@ -37,7 +37,7 @@ Treat `LoadingWindowViewModel` as a ViewModel-style extension point: first ident
 ### UnloadImageDelegate
 `public delegate void UnloadImageDelegate(int index)`
 
-**Purpose:** **Purpose:** Executes the UnloadImageDelegate logic.
+**Purpose:** Executes the UnloadImageDelegate logic.
 
 ```csharp
 // Obtain an instance of LoadingWindowViewModel from the subsystem API first
@@ -48,7 +48,7 @@ loadingWindowViewModel.UnloadImageDelegate(0);
 ### LoadImageDelegate
 `public delegate void LoadImageDelegate(int index, out string imageName)`
 
-**Purpose:** **Purpose:** Reads image delegate from persistent storage or a stream.
+**Purpose:** Reads image delegate from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of LoadingWindowViewModel from the subsystem API first
@@ -59,7 +59,7 @@ loadingWindowViewModel.LoadImageDelegate(0, imageName);
 ### SetTotalGenericImageCount
 `public void SetTotalGenericImageCount(int totalGenericImageCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to total generic image count and updates the object's internal state.
+**Purpose:** Assigns a new value to total generic image count and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LoadingWindowViewModel from the subsystem API first

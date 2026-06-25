@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetStringId
 `public abstract string GetStringId()`
 
-**Purpose:** **Purpose:** Reads and returns the string id value held by the this instance.
+**Purpose:** Reads and returns the string id value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveId from the subsystem API first
@@ -34,7 +34,7 @@ var result = saveId.GetStringId();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of SaveId from the subsystem API first
@@ -45,7 +45,7 @@ var result = saveId.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of SaveId from the subsystem API first
@@ -56,7 +56,7 @@ var result = saveId.Equals(obj);
 ### WriteTo
 `public abstract void WriteTo(IWriter writer)`
 
-**Purpose:** **Purpose:** Writes to to the target location.
+**Purpose:** Writes to to the target location.
 
 ```csharp
 // Obtain an instance of SaveId from the subsystem API first
@@ -67,7 +67,7 @@ saveId.WriteTo(writer);
 ### ReadSaveIdFrom
 `public static SaveId ReadSaveIdFrom(IReader reader)`
 
-**Purpose:** **Purpose:** Reads the data or state of save id from.
+**Purpose:** Reads the data or state of save id from.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ SaveId.ReadSaveIdFrom(reader);
 ### GetSizeInBytes
 `public abstract int GetSizeInBytes()`
 
-**Purpose:** **Purpose:** Reads and returns the size in bytes value held by the this instance.
+**Purpose:** Reads and returns the size in bytes value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveId from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the head shot state or condition.
+**Purpose:** Determines whether the this instance is in the head shot state or condition.
 
 ```csharp
 // Obtain an instance of KillingBlow from the subsystem API first

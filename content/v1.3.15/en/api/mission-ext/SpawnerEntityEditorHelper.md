@@ -30,7 +30,7 @@ Treat `SpawnerEntityEditorHelper` as a Helper-style extension point: first ident
 ### GetGhostEntityOrChild
 `public GameEntity GetGhostEntityOrChild(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the ghost entity or child value held by the this instance.
+**Purpose:** Reads and returns the ghost entity or child value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -41,7 +41,7 @@ var result = spawnerEntityEditorHelper.GetGhostEntityOrChild("example");
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -52,7 +52,7 @@ spawnerEntityEditorHelper.Tick(0);
 ### GivePermission
 `public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)`
 
-**Purpose:** **Purpose:** Executes the GivePermission logic.
+**Purpose:** Executes the GivePermission logic.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -63,7 +63,7 @@ spawnerEntityEditorHelper.GivePermission("example", permission, onChangeFunction
 ### ChangeStableChildMatrixFrameAndApply
 `public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
 
-**Purpose:** **Purpose:** Executes the ChangeStableChildMatrixFrameAndApply logic.
+**Purpose:** Executes the ChangeStableChildMatrixFrameAndApply logic.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -74,7 +74,7 @@ spawnerEntityEditorHelper.ChangeStableChildMatrixFrameAndApply("example", matrix
 ### GetPrefabName
 `public string GetPrefabName()`
 
-**Purpose:** **Purpose:** Reads and returns the prefab name value held by the this instance.
+**Purpose:** Reads and returns the prefab name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -85,7 +85,7 @@ var result = spawnerEntityEditorHelper.GetPrefabName();
 ### SetupGhostMovement
 `public void SetupGhostMovement(string pathName)`
 
-**Purpose:** **Purpose:** Assigns a new value to up ghost movement and updates the object's internal state.
+**Purpose:** Assigns a new value to up ghost movement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -96,7 +96,7 @@ spawnerEntityEditorHelper.SetupGhostMovement("example");
 ### SetEnableAutoGhostMovement
 `public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)`
 
-**Purpose:** **Purpose:** Assigns a new value to enable auto ghost movement and updates the object's internal state.
+**Purpose:** Assigns a new value to enable auto ghost movement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first

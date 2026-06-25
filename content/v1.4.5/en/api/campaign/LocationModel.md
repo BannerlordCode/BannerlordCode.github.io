@@ -23,7 +23,7 @@ Treat `LocationModel` as a Model-style extension point: first identify who creat
 ### GetSettlementUpgradeLevel
 `public abstract int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**Purpose:** **Purpose:** Reads and returns the settlement upgrade level value held by the this instance.
+**Purpose:** Reads and returns the settlement upgrade level value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = locationModel.GetSettlementUpgradeLevel(locationEncounter);
 ### GetCivilianSceneLevel
 `public abstract string GetCivilianSceneLevel(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the civilian scene level value held by the this instance.
+**Purpose:** Reads and returns the civilian scene level value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = locationModel.GetCivilianSceneLevel(settlement);
 ### GetCivilianUpgradeLevelTag
 `public abstract string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** **Purpose:** Reads and returns the civilian upgrade level tag value held by the this instance.
+**Purpose:** Reads and returns the civilian upgrade level tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = locationModel.GetCivilianUpgradeLevelTag(0);
 ### GetUpgradeLevelTag
 `public abstract string GetUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** **Purpose:** Reads and returns the upgrade level tag value held by the this instance.
+**Purpose:** Reads and returns the upgrade level tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationModel from the subsystem API first

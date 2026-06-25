@@ -29,7 +29,7 @@ description: "CrimeModel 的自动生成类参考。"
 ### GetMaxCrimeRating
 `public abstract float GetMaxCrimeRating()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max crime rating 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max crime rating 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -40,7 +40,7 @@ var result = crimeModel.GetMaxCrimeRating();
 ### GetMinAcceptableCrimeRating
 `public abstract float GetMinAcceptableCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 min acceptable crime rating 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 min acceptable crime rating 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -51,7 +51,7 @@ var result = crimeModel.GetMinAcceptableCrimeRating(faction);
 ### GetCrimeRatingAfterPunishment
 `public abstract float GetCrimeRatingAfterPunishment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crime rating after punishment 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crime rating after punishment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -62,7 +62,7 @@ var result = crimeModel.GetCrimeRatingAfterPunishment();
 ### DoesPlayerHaveAnyCrimeRating
 `public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回player have any crime rating对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断player have any crime rating这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -73,7 +73,7 @@ var result = crimeModel.DoesPlayerHaveAnyCrimeRating(faction);
 ### IsPlayerCrimeRatingSevere
 `public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player crime rating severe 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player crime rating severe 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -84,7 +84,7 @@ var result = crimeModel.IsPlayerCrimeRatingSevere(faction);
 ### IsPlayerCrimeRatingModerate
 `public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player crime rating moderate 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player crime rating moderate 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -95,7 +95,7 @@ var result = crimeModel.IsPlayerCrimeRatingModerate(faction);
 ### IsPlayerCrimeRatingMild
 `public abstract bool IsPlayerCrimeRatingMild(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player crime rating mild 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player crime rating mild 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -106,7 +106,7 @@ var result = crimeModel.IsPlayerCrimeRatingMild(faction);
 ### GetCost
 `public abstract float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cost 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例
@@ -117,7 +117,7 @@ var result = crimeModel.GetCost(faction, paymentMethod, 0);
 ### GetDailyCrimeRatingChange
 `public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily crime rating change 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily crime rating change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CrimeModel 实例

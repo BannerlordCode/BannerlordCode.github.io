@@ -23,7 +23,7 @@ Treat `BattleDeploymentMissionController` as a Controller-style extension point:
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of BattleDeploymentMissionController from the subsystem API first
@@ -34,7 +34,7 @@ battleDeploymentMissionController.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of BattleDeploymentMissionController from the subsystem API first

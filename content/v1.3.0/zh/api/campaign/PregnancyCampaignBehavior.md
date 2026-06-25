@@ -23,7 +23,7 @@ description: "PregnancyCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 PregnancyCampaignBehavior 实例
@@ -34,7 +34,7 @@ pregnancyCampaignBehavior.RegisterEvents();
 ### OnHeroKilled
 `public void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero killed 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero killed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PregnancyCampaignBehavior 实例
@@ -45,7 +45,7 @@ pregnancyCampaignBehavior.OnHeroKilled(victim, killer, detail, true);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 PregnancyCampaignBehavior 实例

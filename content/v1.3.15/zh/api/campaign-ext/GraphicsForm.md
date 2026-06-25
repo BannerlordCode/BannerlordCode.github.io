@@ -31,7 +31,7 @@ description: "GraphicsForm 的自动生成类参考。"
 ### CompareRecrangles
 `public bool CompareRecrangles(DXGI.RECT Rect1, DXGI.RECT Rect2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较两个recrangles对象并返回大小/顺序结果。
+**用途 / Purpose:** 比较两个recrangles对象并返回大小/顺序结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -42,7 +42,7 @@ var result = graphicsForm.CompareRecrangles(rect1, rect2);
 ### DecideWindowPosition
 `public DXGI.RECT DecideWindowPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideWindowPosition 对应的操作。
+**用途 / Purpose:** 调用 DecideWindowPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -53,7 +53,7 @@ var result = graphicsForm.DecideWindowPosition();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
+**用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -64,7 +64,7 @@ graphicsForm.Destroy();
 ### MinimizeWindow
 `public void MinimizeWindow()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MinimizeWindow 对应的操作。
+**用途 / Purpose:** 调用 MinimizeWindow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -75,7 +75,7 @@ graphicsForm.MinimizeWindow();
 ### InitializeGraphicsContext
 `public void InitializeGraphicsContext(ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 graphics context 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 graphics context 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -86,7 +86,7 @@ graphicsForm.InitializeGraphicsContext(resourceDepot);
 ### BeginFrame
 `public void BeginFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFrame 对应的操作。
+**用途 / Purpose:** 调用 BeginFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -97,7 +97,7 @@ graphicsForm.BeginFrame();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -108,7 +108,7 @@ graphicsForm.Update();
 ### MessageLoop
 `public void MessageLoop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MessageLoop 对应的操作。
+**用途 / Purpose:** 调用 MessageLoop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -119,7 +119,7 @@ graphicsForm.MessageLoop();
 ### UpdateInput
 `public void UpdateInput(bool mouseOverDragArea = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 input 的最新表示。
+**用途 / Purpose:** 重新计算并更新 input 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -130,7 +130,7 @@ graphicsForm.UpdateInput(false);
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PostRender 对应的操作。
+**用途 / Purpose:** 调用 PostRender 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -141,7 +141,7 @@ graphicsForm.PostRender();
 ### GetKeyDown
 `public bool GetKeyDown(InputKey keyCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key down 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key down 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -152,7 +152,7 @@ var result = graphicsForm.GetKeyDown(keyCode);
 ### GetKey
 `public bool GetKey(InputKey keyCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -163,7 +163,7 @@ var result = graphicsForm.GetKey(keyCode);
 ### GetKeyUp
 `public bool GetKeyUp(InputKey keyCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key up 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key up 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -174,7 +174,7 @@ var result = graphicsForm.GetKeyUp(keyCode);
 ### GetMouseDeltaZ
 `public float GetMouseDeltaZ()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse delta z 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse delta z 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -185,7 +185,7 @@ var result = graphicsForm.GetMouseDeltaZ();
 ### LeftMouse
 `public bool LeftMouse()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LeftMouse 对应的操作。
+**用途 / Purpose:** 调用 LeftMouse 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -196,7 +196,7 @@ var result = graphicsForm.LeftMouse();
 ### LeftMouseDown
 `public bool LeftMouseDown()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LeftMouseDown 对应的操作。
+**用途 / Purpose:** 调用 LeftMouseDown 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -207,7 +207,7 @@ var result = graphicsForm.LeftMouseDown();
 ### LeftMouseUp
 `public bool LeftMouseUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LeftMouseUp 对应的操作。
+**用途 / Purpose:** 调用 LeftMouseUp 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -218,7 +218,7 @@ var result = graphicsForm.LeftMouseUp();
 ### RightMouse
 `public bool RightMouse()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RightMouse 对应的操作。
+**用途 / Purpose:** 调用 RightMouse 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -229,7 +229,7 @@ var result = graphicsForm.RightMouse();
 ### RightMouseDown
 `public bool RightMouseDown()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RightMouseDown 对应的操作。
+**用途 / Purpose:** 调用 RightMouseDown 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -240,7 +240,7 @@ var result = graphicsForm.RightMouseDown();
 ### RightMouseUp
 `public bool RightMouseUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RightMouseUp 对应的操作。
+**用途 / Purpose:** 调用 RightMouseUp 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -251,7 +251,7 @@ var result = graphicsForm.RightMouseUp();
 ### MousePosition
 `public Vector2 MousePosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MousePosition 对应的操作。
+**用途 / Purpose:** 调用 MousePosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -262,7 +262,7 @@ var result = graphicsForm.MousePosition();
 ### MouseMove
 `public bool MouseMove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MouseMove 对应的操作。
+**用途 / Purpose:** 调用 MouseMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -273,7 +273,7 @@ var result = graphicsForm.MouseMove();
 ### FillInputDataFromCurrent
 `public void FillInputDataFromCurrent(InputData inputData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillInputDataFromCurrent 对应的操作。
+**用途 / Purpose:** 调用 FillInputDataFromCurrent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例

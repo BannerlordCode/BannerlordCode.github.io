@@ -29,7 +29,7 @@ Treat `VolunteerModel` as a Model-style extension point: first identify who crea
 ### MaximumIndexHeroCanRecruitFromHero
 `public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**Purpose:** **Purpose:** Executes the MaximumIndexHeroCanRecruitFromHero logic.
+**Purpose:** Executes the MaximumIndexHeroCanRecruitFromHero logic.
 
 ```csharp
 // Obtain an instance of VolunteerModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = volunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, seller
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**Purpose:** **Purpose:** Executes the MaximumIndexGarrisonCanRecruitFromHero logic.
+**Purpose:** Executes the MaximumIndexGarrisonCanRecruitFromHero logic.
 
 ```csharp
 // Obtain an instance of VolunteerModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = volunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settlement, s
 ### GetDailyVolunteerProductionProbability
 `public abstract float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the daily volunteer production probability value held by the this instance.
+**Purpose:** Reads and returns the daily volunteer production probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of VolunteerModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = volunteerModel.GetDailyVolunteerProductionProbability(hero, 0, sett
 ### GetBasicVolunteer
 `public abstract CharacterObject GetBasicVolunteer(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the basic volunteer value held by the this instance.
+**Purpose:** Reads and returns the basic volunteer value held by the this instance.
 
 ```csharp
 // Obtain an instance of VolunteerModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = volunteerModel.GetBasicVolunteer(hero);
 ### CanHaveRecruits
 `public abstract bool CanHaveRecruits(Hero hero)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for have recruits.
+**Purpose:** Checks whether the this instance meets the preconditions for have recruits.
 
 ```csharp
 // Obtain an instance of VolunteerModel from the subsystem API first

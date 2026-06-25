@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoAction
 `public void DoAction()`
 
-**Purpose:** **Purpose:** Executes the DoAction logic.
+**Purpose:** Executes the DoAction logic.
 
 ```csharp
 // Obtain an instance of InitialStateOption from the subsystem API first

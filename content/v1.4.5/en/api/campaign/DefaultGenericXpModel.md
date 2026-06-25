@@ -23,7 +23,7 @@ Treat `DefaultGenericXpModel` as a Model-style extension point: first identify w
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the xp multiplier value held by the this instance.
+**Purpose:** Reads and returns the xp multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultGenericXpModel from the subsystem API first

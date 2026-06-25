@@ -31,7 +31,7 @@ description: "MapNotificationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -42,7 +42,7 @@ mapNotificationVM.RefreshValues();
 ### RegisterMapNotificationType
 `public void RegisterMapNotificationType(Type data, Type item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将map notification type注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将map notification type注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -53,7 +53,7 @@ mapNotificationVM.RegisterMapNotificationType(data, item);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -64,7 +64,7 @@ mapNotificationVM.OnFinalize();
 ### OnFrameTick
 `public void OnFrameTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -75,7 +75,7 @@ mapNotificationVM.OnFrameTick(0);
 ### OnMenuModeTick
 `public void OnMenuModeTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 menu mode tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 menu mode tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -86,7 +86,7 @@ mapNotificationVM.OnMenuModeTick(0);
 ### AddMapNotification
 `public void AddMapNotification(InformationData data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 map notification 添加到当前容器或状态中。
+**用途 / Purpose:** 将 map notification 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -97,7 +97,7 @@ mapNotificationVM.AddMapNotification(data);
 ### RemoveAllNotifications
 `public void RemoveAllNotifications()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 all notifications。
+**用途 / Purpose:** 从当前容器或状态中移除 all notifications。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例
@@ -108,7 +108,7 @@ mapNotificationVM.RemoveAllNotifications();
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 remove input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 remove input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationVM 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### FormationConfiguration
 `public struct FormationConfiguration(int formationIndex, List<FormationFilterType> filters)`
 
-**Purpose:** **Purpose:** Formats ion configuration into a string suitable for display or storage.
+**Purpose:** Formats ion configuration into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of FormationConfiguration from the subsystem API first

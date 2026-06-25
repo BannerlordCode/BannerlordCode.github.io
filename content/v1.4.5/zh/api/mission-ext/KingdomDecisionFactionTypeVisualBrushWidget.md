@@ -29,7 +29,7 @@ description: "KingdomDecisionFactionTypeVisualBrushWidget 的自动生成类参�
 ### KingdomDecisionFactionTypeVisualBrushWidget
 `public class KingdomDecisionFactionTypeVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 KingdomDecisionFactionTypeVisualBrushWidget 对应的操作。
+**用途 / Purpose:** 调用 KingdomDecisionFactionTypeVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionFactionTypeVisualBrushWidget 实例

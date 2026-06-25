@@ -30,7 +30,7 @@ description: "DebugNetworkEventStatistics 的自动生成类参考。"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
@@ -41,7 +41,7 @@ var result = debugNetworkEventStatistics.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
@@ -52,7 +52,7 @@ var result = debugNetworkEventStatistics.GetHashCode();
 ### CompareTo
 `public int CompareTo(PerEventData other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
@@ -63,7 +63,7 @@ var result = debugNetworkEventStatistics.CompareTo(other);
 ### OpenExternalMonitor
 `public static void OpenExternalMonitor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开external monitor对应的资源或界面。
+**用途 / Purpose:** 打开external monitor对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ DebugNetworkEventStatistics.OpenExternalMonitor();
 ### ControlActivate
 `public static void ControlActivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlActivate 对应的操作。
+**用途 / Purpose:** 调用 ControlActivate 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ DebugNetworkEventStatistics.ControlActivate();
 ### ControlDeactivate
 `public static void ControlDeactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlDeactivate 对应的操作。
+**用途 / Purpose:** 调用 ControlDeactivate 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ DebugNetworkEventStatistics.ControlDeactivate();
 ### ControlJustDump
 `public static void ControlJustDump()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlJustDump 对应的操作。
+**用途 / Purpose:** 调用 ControlJustDump 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ DebugNetworkEventStatistics.ControlJustDump();
 ### ControlDumpAll
 `public static void ControlDumpAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlDumpAll 对应的操作。
+**用途 / Purpose:** 调用 ControlDumpAll 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ DebugNetworkEventStatistics.ControlDumpAll();
 ### ControlClear
 `public static void ControlClear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlClear 对应的操作。
+**用途 / Purpose:** 调用 ControlClear 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ DebugNetworkEventStatistics.ControlClear();
 ### ClearNetGraphs
 `public static void ClearNetGraphs()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的net graphs。
+**用途 / Purpose:** 清空当前对象中的net graphs。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ DebugNetworkEventStatistics.ClearNetGraphs();
 ### ClearFpsGraph
 `public static void ClearFpsGraph()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的fps graph。
+**用途 / Purpose:** 清空当前对象中的fps graph。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ DebugNetworkEventStatistics.ClearFpsGraph();
 ### ControlClearAll
 `public static void ControlClearAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlClearAll 对应的操作。
+**用途 / Purpose:** 调用 ControlClearAll 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ DebugNetworkEventStatistics.ControlClearAll();
 ### ControlDumpReplicationData
 `public static void ControlDumpReplicationData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ControlDumpReplicationData 对应的操作。
+**用途 / Purpose:** 调用 ControlDumpReplicationData 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ DebugNetworkEventStatistics.ControlDumpReplicationData();
 ### EndTick
 `public static void EndTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndTick 对应的操作。
+**用途 / Purpose:** 调用 EndTick 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

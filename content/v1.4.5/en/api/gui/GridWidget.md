@@ -36,7 +36,7 @@ Treat `GridWidget` as a Widget-style extension point: first identify who creates
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the drop gizmo position value held by the this instance.
+**Purpose:** Reads and returns the drop gizmo position value held by the this instance.
 
 ```csharp
 // Obtain an instance of GridWidget from the subsystem API first
@@ -47,7 +47,7 @@ var result = gridWidget.GetDropGizmoPosition(draggedWidgetPosition);
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the index for drop value held by the this instance.
+**Purpose:** Reads and returns the index for drop value held by the this instance.
 
 ```csharp
 // Obtain an instance of GridWidget from the subsystem API first
@@ -58,7 +58,7 @@ var result = gridWidget.GetIndexForDrop(draggedWidgetPosition);
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the child selected event is raised.
+**Purpose:** Invoked when the child selected event is raised.
 
 ```csharp
 // Obtain an instance of GridWidget from the subsystem API first

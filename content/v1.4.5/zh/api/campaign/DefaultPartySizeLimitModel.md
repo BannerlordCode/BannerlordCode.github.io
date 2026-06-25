@@ -23,7 +23,7 @@ description: "DefaultPartySizeLimitModel 的自动生成类参考。"
 ### GetPartyMemberSizeLimit
 `public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party member size limit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 party member size limit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartySizeLimitModel.GetPartyMemberSizeLimit(party, false);
 ### GetPartyPrisonerSizeLimit
 `public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party prisoner size limit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 party prisoner size limit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
 ### CalculateGarrisonPartySizeLimit
 `public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算garrison party size limit的当前值或结果。
+**用途 / Purpose:** 计算garrison party size limit的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartySizeLimitModel.CalculateGarrisonPartySizeLimit(settleme
 ### GetNextClanTierPartySizeEffectChangeForHero
 `public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next clan tier party size effect change for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 next clan tier party size effect change for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -67,7 +67,7 @@ var result = defaultPartySizeLimitModel.GetNextClanTierPartySizeEffectChangeForH
 ### GetAssumedPartySizeForLordParty
 `public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 assumed party size for lord party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 assumed party size for lord party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -78,7 +78,7 @@ var result = defaultPartySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHe
 ### GetClanTierPartySizeEffectForHero
 `public override int GetClanTierPartySizeEffectForHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan tier party size effect for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 clan tier party size effect for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -89,7 +89,7 @@ var result = defaultPartySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
 ### GetIdealVillagerPartySize
 `public override int GetIdealVillagerPartySize(Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ideal villager party size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ideal villager party size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -100,7 +100,7 @@ var result = defaultPartySizeLimitModel.GetIdealVillagerPartySize(village);
 ### FindAppropriateInitialRosterForMobileParty
 `public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的appropriate initial roster for mobile party。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的appropriate initial roster for mobile party。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例
@@ -111,7 +111,7 @@ var result = defaultPartySizeLimitModel.FindAppropriateInitialRosterForMobilePar
 ### FindAppropriateInitialShipsForMobileParty
 `public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的appropriate initial ships for mobile party。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的appropriate initial ships for mobile party。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySizeLimitModel 实例

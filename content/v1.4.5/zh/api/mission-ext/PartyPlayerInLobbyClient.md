@@ -32,7 +32,7 @@ description: "PartyPlayerInLobbyClient 的自动生成类参考。"
 ### SetAtParty
 `public void SetAtParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 at party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 at party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例
@@ -43,7 +43,7 @@ partyPlayerInLobbyClient.SetAtParty();
 ### SetLeader
 `public void SetLeader()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 leader 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 leader 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例
@@ -54,7 +54,7 @@ partyPlayerInLobbyClient.SetLeader();
 ### SetMember
 `public void SetMember()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 member 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 member 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例

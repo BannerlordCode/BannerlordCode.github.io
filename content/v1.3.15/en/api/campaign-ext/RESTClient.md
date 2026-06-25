@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Get
 `public Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
-**Purpose:** **Purpose:** Reads the this instance's value or state and returns it.
+**Purpose:** Reads the this instance's value or state and returns it.
 
 ```csharp
 // Obtain an instance of RESTClient from the subsystem API first
@@ -34,7 +34,7 @@ var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
 ### Post
 `public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
-**Purpose:** **Purpose:** Executes the Post logic.
+**Purpose:** Executes the Post logic.
 
 ```csharp
 // Obtain an instance of RESTClient from the subsystem API first

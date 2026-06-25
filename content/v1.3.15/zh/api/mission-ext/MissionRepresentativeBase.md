@@ -31,7 +31,7 @@ description: "MissionRepresentativeBase 的自动生成类参考。"
 ### SetAgent
 `public void SetAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 agent 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 agent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRepresentativeBase 实例
@@ -42,7 +42,7 @@ missionRepresentativeBase.SetAgent(agent);
 ### OnAgentSpawned
 `public virtual void OnAgentSpawned()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent spawned 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent spawned 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRepresentativeBase 实例
@@ -53,7 +53,7 @@ missionRepresentativeBase.OnAgentSpawned();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRepresentativeBase 实例
@@ -64,7 +64,7 @@ missionRepresentativeBase.Tick(0);
 ### UpdateGold
 `public void UpdateGold(int gold)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 gold 的最新表示。
+**用途 / Purpose:** 重新计算并更新 gold 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRepresentativeBase 实例

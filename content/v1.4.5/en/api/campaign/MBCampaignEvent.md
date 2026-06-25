@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CampaignEventDelegate
 `public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
 
-**Purpose:** **Purpose:** Executes the CampaignEventDelegate logic.
+**Purpose:** Executes the CampaignEventDelegate logic.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first
@@ -42,7 +42,7 @@ mBCampaignEvent.CampaignEventDelegate(campaignEvent, delegateParams);
 ### AddHandler
 `public void AddHandler(CampaignEventDelegate gameEventDelegate)`
 
-**Purpose:** **Purpose:** Adds handler to the current collection or state.
+**Purpose:** Adds handler to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first
@@ -53,7 +53,7 @@ mBCampaignEvent.AddHandler(gameEventDelegate);
 ### RunHandlers
 `public void RunHandlers(params object delegateParams)`
 
-**Purpose:** **Purpose:** Executes the RunHandlers logic.
+**Purpose:** Executes the RunHandlers logic.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first
@@ -64,7 +64,7 @@ mBCampaignEvent.RunHandlers(delegateParams);
 ### Unregister
 `public void Unregister(object instance)`
 
-**Purpose:** **Purpose:** Unregisters the this instance from the current system.
+**Purpose:** Unregisters the this instance from the current system.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first
@@ -75,7 +75,7 @@ mBCampaignEvent.Unregister(instance);
 ### CheckUpdate
 `public void CheckUpdate()`
 
-**Purpose:** **Purpose:** Verifies whether update holds true for the this instance.
+**Purpose:** Verifies whether update holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first
@@ -86,7 +86,7 @@ mBCampaignEvent.CheckUpdate();
 ### DeletePeriodicEvent
 `public void DeletePeriodicEvent()`
 
-**Purpose:** **Purpose:** Executes the DeletePeriodicEvent logic.
+**Purpose:** Executes the DeletePeriodicEvent logic.
 
 ```csharp
 // Obtain an instance of MBCampaignEvent from the subsystem API first

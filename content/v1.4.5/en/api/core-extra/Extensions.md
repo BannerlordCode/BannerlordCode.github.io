@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetTypesSafe
 `public static List<Type> GetTypesSafe(this Assembly assembly, Func<Type, bool> func = null)`
 
-**Purpose:** **Purpose:** Reads and returns the types safe value held by the this instance.
+**Purpose:** Reads and returns the types safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Extensions.GetTypesSafe(assembly, func<Type, false);
 ### GetReferencingAssembliesSafe
 `public static Assembly GetReferencingAssembliesSafe(this Assembly baseAssembly, Func<Assembly, bool> func = null)`
 
-**Purpose:** **Purpose:** Reads and returns the referencing assemblies safe value held by the this instance.
+**Purpose:** Reads and returns the referencing assemblies safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Extensions.GetReferencingAssembliesSafe(baseAssembly, func<Assembly, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this Type type, Type attributeType, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Extensions.GetCustomAttributesSafe(type, attributeType, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this Type type, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ Extensions.GetCustomAttributesSafe(type, false);
 ### GetCustomAttributesSafe
 `public static IEnumerable<Attribute> GetCustomAttributesSafe(this Type type, Type attributeType)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ Extensions.GetCustomAttributesSafe(type, attributeType);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this PropertyInfo property, Type attributeType, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ Extensions.GetCustomAttributesSafe(property, attributeType, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this PropertyInfo property, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ Extensions.GetCustomAttributesSafe(property, false);
 ### GetCustomAttributesSafe
 `public static IEnumerable<Attribute> GetCustomAttributesSafe(this PropertyInfo property, Type attributeType)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ Extensions.GetCustomAttributesSafe(property, attributeType);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this FieldInfo field, Type attributeType, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ Extensions.GetCustomAttributesSafe(field, attributeType, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this FieldInfo field, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ Extensions.GetCustomAttributesSafe(field, false);
 ### GetCustomAttributesSafe
 `public static IEnumerable<Attribute> GetCustomAttributesSafe(this FieldInfo field, Type attributeType)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ Extensions.GetCustomAttributesSafe(field, attributeType);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this MethodInfo method, Type attributeType, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ Extensions.GetCustomAttributesSafe(method, attributeType, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this MethodInfo method, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ Extensions.GetCustomAttributesSafe(method, false);
 ### GetCustomAttributesSafe
 `public static IEnumerable<Attribute> GetCustomAttributesSafe(this MethodInfo method, Type attributeType)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -163,7 +163,7 @@ Extensions.GetCustomAttributesSafe(method, attributeType);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this Assembly assembly, Type attributeType, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -173,7 +173,7 @@ Extensions.GetCustomAttributesSafe(assembly, attributeType, false);
 ### GetCustomAttributesSafe
 `public static object GetCustomAttributesSafe(this Assembly assembly, bool inherit)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -183,7 +183,7 @@ Extensions.GetCustomAttributesSafe(assembly, false);
 ### GetCustomAttributesSafe
 `public static IEnumerable<Attribute> GetCustomAttributesSafe(this Assembly assembly, Type attributeType)`
 
-**Purpose:** **Purpose:** Reads and returns the custom attributes safe value held by the this instance.
+**Purpose:** Reads and returns the custom attributes safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -193,7 +193,7 @@ Extensions.GetCustomAttributesSafe(assembly, attributeType);
 ### GetDeterministicHashCode
 `public static int GetDeterministicHashCode(this string text)`
 
-**Purpose:** **Purpose:** Reads and returns the deterministic hash code value held by the this instance.
+**Purpose:** Reads and returns the deterministic hash code value held by the this instance.
 
 ```csharp
 // Static call; no instance required

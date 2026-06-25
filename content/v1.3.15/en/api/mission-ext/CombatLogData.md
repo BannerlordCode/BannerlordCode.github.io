@@ -30,7 +30,7 @@ Treat `CombatLogData` as a Data-style extension point: first identify who create
 ### GetLogString
 `public List<ValueTuple<string, uint>> GetLogString()`
 
-**Purpose:** **Purpose:** Reads and returns the log string value held by the this instance.
+**Purpose:** Reads and returns the log string value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatLogData from the subsystem API first
@@ -41,7 +41,7 @@ var result = combatLogData.GetLogString();
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`
 
-**Purpose:** **Purpose:** Assigns a new value to victim agent and updates the object's internal state.
+**Purpose:** Assigns a new value to victim agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CombatLogData from the subsystem API first

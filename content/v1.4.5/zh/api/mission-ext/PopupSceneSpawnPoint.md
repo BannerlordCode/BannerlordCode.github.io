@@ -29,7 +29,7 @@ description: "PopupSceneSpawnPoint 的自动生成类参考。"
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals humanVisuals, AgentVisuals mountVisuals = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 with agent visuals 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 with agent visuals 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例
@@ -40,7 +40,7 @@ popupSceneSpawnPoint.InitializeWithAgentVisuals(humanVisuals, null);
 ### SetInitialState
 `public void SetInitialState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例
@@ -51,7 +51,7 @@ popupSceneSpawnPoint.SetInitialState();
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 positive state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 positive state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例
@@ -62,7 +62,7 @@ popupSceneSpawnPoint.SetPositiveState();
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 negative state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 negative state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例
@@ -73,7 +73,7 @@ popupSceneSpawnPoint.SetNegativeState();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
+**用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例
@@ -84,7 +84,7 @@ popupSceneSpawnPoint.Destroy();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSpawnPoint 实例

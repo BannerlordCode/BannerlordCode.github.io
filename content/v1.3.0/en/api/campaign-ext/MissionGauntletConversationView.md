@@ -29,7 +29,7 @@ Treat `MissionGauntletConversationView` as a View-style extension point: first i
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletConversationView from the subsystem API first
@@ -40,7 +40,7 @@ missionGauntletConversationView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletConversationView from the subsystem API first
@@ -51,7 +51,7 @@ missionGauntletConversationView.OnMissionScreenFinalize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletConversationView from the subsystem API first
@@ -62,7 +62,7 @@ missionGauntletConversationView.EarlyStart();
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen activate event is raised.
+**Purpose:** Invoked when the mission screen activate event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletConversationView from the subsystem API first
@@ -73,7 +73,7 @@ missionGauntletConversationView.OnMissionScreenActivate();
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** **Purpose:** Invoked when the mission mode change event is raised.
+**Purpose:** Invoked when the mission mode change event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletConversationView from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormationSceneSpawnEntry
 `public struct FormationSceneSpawnEntry(FormationClass formationClass, GameEntity spawnEntity, GameEntity reinforcementSpawnEntity)`
 
-**Purpose:** **Purpose:** Formats ion scene spawn entry into a string suitable for display or storage.
+**Purpose:** Formats ion scene spawn entry into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of FormationSceneSpawnEntry from the subsystem API first

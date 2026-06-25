@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EscapeMenuItemVM from the subsystem API first
@@ -43,7 +43,7 @@ escapeMenuItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of EscapeMenuItemVM from the subsystem API first

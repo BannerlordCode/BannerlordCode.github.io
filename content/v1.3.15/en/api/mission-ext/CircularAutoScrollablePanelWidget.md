@@ -37,7 +37,7 @@ Treat `CircularAutoScrollablePanelWidget` as a Widget-style extension point: fir
 ### SetScrollMouse
 `public void SetScrollMouse()`
 
-**Purpose:** **Purpose:** Assigns a new value to scroll mouse and updates the object's internal state.
+**Purpose:** Assigns a new value to scroll mouse and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first
@@ -48,7 +48,7 @@ circularAutoScrollablePanelWidget.SetScrollMouse();
 ### SetHoverBegin
 `public void SetHoverBegin()`
 
-**Purpose:** **Purpose:** Assigns a new value to hover begin and updates the object's internal state.
+**Purpose:** Assigns a new value to hover begin and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first
@@ -59,7 +59,7 @@ circularAutoScrollablePanelWidget.SetHoverBegin();
 ### SetHoverEnd
 `public void SetHoverEnd()`
 
-**Purpose:** **Purpose:** Assigns a new value to hover end and updates the object's internal state.
+**Purpose:** Assigns a new value to hover end and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first

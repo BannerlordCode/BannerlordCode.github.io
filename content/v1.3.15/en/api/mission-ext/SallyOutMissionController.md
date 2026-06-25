@@ -29,7 +29,7 @@ Treat `SallyOutMissionController` as a Controller-style extension point: first i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionController from the subsystem API first
@@ -40,7 +40,7 @@ sallyOutMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SallyOutMissionController from the subsystem API first
@@ -51,7 +51,7 @@ sallyOutMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionController from the subsystem API first
@@ -62,7 +62,7 @@ sallyOutMissionController.OnMissionTick(0);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionController from the subsystem API first
@@ -73,7 +73,7 @@ sallyOutMissionController.OnDeploymentFinished();
 ### GetBesiegerSiegeEngines
 `public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()`
 
-**Purpose:** **Purpose:** Reads and returns the besieger siege engines value held by the this instance.
+**Purpose:** Reads and returns the besieger siege engines value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ SallyOutMissionController.GetBesiegerSiegeEngines();
 ### DisableSiegeEngines
 `public static void DisableSiegeEngines()`
 
-**Purpose:** **Purpose:** Executes the DisableSiegeEngines logic.
+**Purpose:** Executes the DisableSiegeEngines logic.
 
 ```csharp
 // Static call; no instance required

@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanMembersVM from the subsystem API first
@@ -51,7 +51,7 @@ clanMembersVM.RefreshValues();
 ### RefreshMembersList
 `public void RefreshMembersList()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of members list in sync with the underlying state.
+**Purpose:** Keeps the display or cache of members list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanMembersVM from the subsystem API first
@@ -62,7 +62,7 @@ clanMembersVM.RefreshMembersList();
 ### SelectMember
 `public void SelectMember(Hero hero)`
 
-**Purpose:** **Purpose:** Executes the SelectMember logic.
+**Purpose:** Executes the SelectMember logic.
 
 ```csharp
 // Obtain an instance of ClanMembersVM from the subsystem API first
@@ -73,7 +73,7 @@ clanMembersVM.SelectMember(hero);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanMembersVM from the subsystem API first

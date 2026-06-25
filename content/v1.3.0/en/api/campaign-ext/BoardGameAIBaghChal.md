@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of movement stage move.
+**Purpose:** Calculates the current value or result of movement stage move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBaghChal from the subsystem API first
@@ -34,7 +34,7 @@ var result = boardGameAIBaghChal.CalculateMovementStageMove();
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of pre movement stage move.
+**Purpose:** Calculates the current value or result of pre movement stage move.
 
 ```csharp
 // Obtain an instance of BoardGameAIBaghChal from the subsystem API first

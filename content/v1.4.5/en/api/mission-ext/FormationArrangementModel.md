@@ -29,7 +29,7 @@ Treat `FormationArrangementModel` as a Model-style extension point: first identi
 ### GetBannerBearerPositions
 `public abstract List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**Purpose:** **Purpose:** Reads and returns the banner bearer positions value held by the this instance.
+**Purpose:** Reads and returns the banner bearer positions value held by the this instance.
 
 ```csharp
 // Obtain an instance of FormationArrangementModel from the subsystem API first

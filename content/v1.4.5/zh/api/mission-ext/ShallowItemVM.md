@@ -40,7 +40,7 @@ description: "ShallowItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ShallowItemVM 实例
@@ -51,7 +51,7 @@ shallowItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ShallowItemVM 实例
@@ -62,7 +62,7 @@ shallowItemVM.OnFinalize();
 ### RefreshWith
 `public void RefreshWith(EquipmentIndex equipmentIndex, Equipment equipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ShallowItemVM 实例
@@ -73,7 +73,7 @@ shallowItemVM.RefreshWith(equipmentIndex, equipment);
 ### OnSelect
 `public void OnSelect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 select 事件触发时调用此回调。
+**用途 / Purpose:** 在 select 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ShallowItemVM 实例
@@ -84,7 +84,7 @@ shallowItemVM.OnSelect();
 ### IsItemUsageApplicable
 `public static bool IsItemUsageApplicable(WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 item usage applicable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 item usage applicable 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

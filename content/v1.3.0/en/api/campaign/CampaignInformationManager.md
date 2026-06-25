@@ -23,7 +23,7 @@ Treat `CampaignInformationManager` as a Manager-style extension point: first ide
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
+**Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of CampaignInformationManager from the subsystem API first
@@ -34,7 +34,7 @@ campaignInformationManager.OnGameLoaded();
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**Purpose:** **Purpose:** Executes the NewMapNoticeAdded logic.
+**Purpose:** Executes the NewMapNoticeAdded logic.
 
 ```csharp
 // Obtain an instance of CampaignInformationManager from the subsystem API first

@@ -29,7 +29,7 @@ Treat `MultiplayerPerkPopupWidget` as a Widget-style extension point: first iden
 ### SetPopupPerksContainer
 `public void SetPopupPerksContainer(MultiplayerPerkContainerPanelWidget container)`
 
-**Purpose:** **Purpose:** Assigns a new value to popup perks container and updates the object's internal state.
+**Purpose:** Assigns a new value to popup perks container and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerPerkPopupWidget from the subsystem API first

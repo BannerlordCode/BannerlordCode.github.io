@@ -23,7 +23,7 @@ description: "ResourceDepot 的自动生成类参考。"
 ### AddLocation
 `public void AddLocation(string basePath, string location)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 location 添加到当前容器或状态中。
+**用途 / Purpose:** 将 location 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -34,7 +34,7 @@ resourceDepot.AddLocation("example", "example");
 ### CollectResources
 `public void CollectResources()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectResources 对应的操作。
+**用途 / Purpose:** 调用 CollectResources 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -45,7 +45,7 @@ resourceDepot.CollectResources();
 ### GetFiles
 `public string GetFiles(string subDirectory, string extension, bool excludeSubContents = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 files 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 files 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -56,7 +56,7 @@ var result = resourceDepot.GetFiles("example", "example", false);
 ### GetFilePath
 `public string GetFilePath(string file)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 file path 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 file path 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -67,7 +67,7 @@ var result = resourceDepot.GetFilePath("example");
 ### GetFilesEndingWith
 `public IEnumerable<string> GetFilesEndingWith(string fileEndName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 files ending with 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 files ending with 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -78,7 +78,7 @@ var result = resourceDepot.GetFilesEndingWith("example");
 ### StartWatchingChangesInDepot
 `public void StartWatchingChangesInDepot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动watching changes in depot流程或状态机。
+**用途 / Purpose:** 启动watching changes in depot流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -89,7 +89,7 @@ resourceDepot.StartWatchingChangesInDepot();
 ### StopWatchingChangesInDepot
 `public void StopWatchingChangesInDepot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止watching changes in depot流程或状态机。
+**用途 / Purpose:** 停止watching changes in depot流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例
@@ -100,7 +100,7 @@ resourceDepot.StopWatchingChangesInDepot();
 ### CheckForChanges
 `public void CheckForChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查for changes在当前对象中是否成立。
+**用途 / Purpose:** 检查for changes在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepot 实例

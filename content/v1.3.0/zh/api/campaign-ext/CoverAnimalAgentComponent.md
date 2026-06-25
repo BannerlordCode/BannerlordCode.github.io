@@ -31,7 +31,7 @@ description: "CoverAnimalAgentComponent 的自动生成类参考。"
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dynamic patrol area 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dynamic patrol area 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -42,7 +42,7 @@ coverAnimalAgentComponent.SetDynamicPatrolArea(parentPatrolPoint);
 ### StartMovement
 `public void StartMovement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动movement流程或状态机。
+**用途 / Purpose:** 启动movement流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -53,7 +53,7 @@ coverAnimalAgentComponent.StartMovement();
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -64,7 +64,7 @@ coverAnimalAgentComponent.OnTick(0);
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 target reached 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 target reached 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -75,7 +75,7 @@ var result = coverAnimalAgentComponent.IsTargetReached();
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, Agent.AIScriptedFrameFlags flags = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target frame 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -86,7 +86,7 @@ coverAnimalAgentComponent.SetTargetFrame(position, 0, 0, 0);
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus gain 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus gain 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -97,7 +97,7 @@ coverAnimalAgentComponent.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus lose 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus lose 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -108,7 +108,7 @@ coverAnimalAgentComponent.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 info text for being not interactable 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 info text for being not interactable 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
@@ -119,7 +119,7 @@ var result = coverAnimalAgentComponent.GetInfoTextForBeingNotInteractable(userAg
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例

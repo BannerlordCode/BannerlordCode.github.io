@@ -49,7 +49,7 @@ description: "CharacterViewModel 的自动生成类参考。"
 ### SetEquipment
 `public void SetEquipment(EquipmentIndex index, EquipmentElement item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 equipment 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 equipment 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -60,7 +60,7 @@ characterViewModel.SetEquipment(index, item);
 ### SetEquipment
 `public virtual void SetEquipment(Equipment equipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 equipment 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 equipment 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -71,7 +71,7 @@ characterViewModel.SetEquipment(equipment);
 ### FillFrom
 `public void FillFrom(BasicCharacterObject character, int seed = -1, string bannerCode = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -82,7 +82,7 @@ characterViewModel.FillFrom(character, 0, "example");
 ### FillFrom
 `public void FillFrom(CharacterViewModel characterViewModel, int seed = -1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -93,7 +93,7 @@ characterViewModel.FillFrom(characterViewModel, 0);
 ### ExecuteEquipWeaponAtIndex
 `public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 equip weapon at index 对应的操作或工作流。
+**用途 / Purpose:** 执行 equip weapon at index 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -104,7 +104,7 @@ characterViewModel.ExecuteEquipWeaponAtIndex(index, false);
 ### ExecuteStartCustomAnimation
 `public void ExecuteStartCustomAnimation(string animation, bool loop = false, float loopInterval = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 start custom animation 对应的操作或工作流。
+**用途 / Purpose:** 执行 start custom animation 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例
@@ -115,7 +115,7 @@ characterViewModel.ExecuteStartCustomAnimation("example", false, 0);
 ### ExecuteStopCustomAnimation
 `public void ExecuteStopCustomAnimation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 stop custom animation 对应的操作或工作流。
+**用途 / Purpose:** 执行 stop custom animation 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterViewModel 实例

@@ -23,7 +23,7 @@ description: "TrajectoryVisualizer 的自动生成类参考。"
 ### SetTrajectoryParams
 `public void SetTrajectoryParams(Vec3 missileShootingPositionOffset, float missileSpeed, float verticalAngleMinInDegrees, float verticalAngleMaxInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 trajectory params 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 trajectory params 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TrajectoryVisualizer 实例

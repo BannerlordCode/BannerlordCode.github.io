@@ -53,7 +53,7 @@ description: "AttackCollisionData 的自动生成类参考。"
 ### SetCollisionBoneIndexForAreaDamage
 `public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 collision bone index for area damage 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 collision bone index for area damage 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AttackCollisionData 实例
@@ -64,7 +64,7 @@ attackCollisionData.SetCollisionBoneIndexForAreaDamage(0);
 ### UpdateCollisionPositionAndBoneForReflect
 `public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 collision position and bone for reflect 的最新表示。
+**用途 / Purpose:** 重新计算并更新 collision position and bone for reflect 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 AttackCollisionData 实例
@@ -75,7 +75,7 @@ attackCollisionData.UpdateCollisionPositionAndBoneForReflect(0, position, 0);
 ### GetAttackCollisionDataForDebugPurpose
 `public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attack collision data for debug purpose 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 attack collision data for debug purpose 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -122,7 +122,7 @@ description: "CultureObject 的自动生成类参考。"
 ### HasTrait
 `public bool HasTrait(CultureTrait trait)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 trait。
+**用途 / Purpose:** 判断当前对象是否已经持有 trait。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例
@@ -133,7 +133,7 @@ var result = cultureObject.HasTrait(trait);
 ### HasFeat
 `public bool HasFeat(FeatObject feat)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 feat。
+**用途 / Purpose:** 判断当前对象是否已经持有 feat。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例
@@ -144,7 +144,7 @@ var result = cultureObject.HasFeat(feat);
 ### GetCulturalFeats
 `public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cultural feats 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cultural feats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例
@@ -155,7 +155,7 @@ var result = cultureObject.GetCulturalFeats(func<FeatObject, false);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例
@@ -166,7 +166,7 @@ var result = cultureObject.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例
@@ -177,7 +177,7 @@ cultureObject.Deserialize(objectManager, node);
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CultureObject 实例

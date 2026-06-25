@@ -23,7 +23,7 @@ description: "MapEventHelper 的自动生成类参考。"
 ### GetRaidContext
 `public static bool GetRaidContext(MapEvent mapEvent, out BattleSideEnum raiderSide, out bool raiderHasSeaPresence, out bool raiderHasLandPresence, out bool villageFactionSideHasSeaPresence, out bool villageFactionSideHasLandPresence, out bool wasEverInLootingPhase)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 raid context 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 raid context 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MapEventHelper.GetRaidContext(mapEvent, raiderSide, raiderHasSeaPresence, raider
 ### IsNavalRaid
 `public static bool IsNavalRaid(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 naval raid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 naval raid 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MapEventHelper.IsNavalRaid(mapEvent);
 ### GetSallyOutDefenderLeader
 `public static PartyBase GetSallyOutDefenderLeader()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sally out defender leader 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sally out defender leader 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MapEventHelper.GetSallyOutDefenderLeader();
 ### CanMainPartyLeaveBattleCommonCondition
 `public static bool CanMainPartyLeaveBattleCommonCondition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main party leave battle common condition 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 main party leave battle common condition 的前置条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MapEventHelper.CanMainPartyLeaveBattleCommonCondition();
 ### GetEncounteredPartyBase
 `public static PartyBase GetEncounteredPartyBase(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encountered party base 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 encountered party base 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MapEventHelper.GetEncounteredPartyBase(attackerParty, defenderParty);
 ### OnConversationEnd
 `public static void OnConversationEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 conversation end 事件触发时调用此回调。
+**用途 / Purpose:** 在 conversation end 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MapEventHelper.OnConversationEnd();
 ### GetPriorityListForHideoutMission
 `public static FlattenedTroopRoster GetPriorityListForHideoutMission(List<MobileParty> partyList, out int firstPhaseTroopCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority list for hideout mission 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 priority list for hideout mission 的结果。
 
 ```csharp
 // 静态调用，不需要实例

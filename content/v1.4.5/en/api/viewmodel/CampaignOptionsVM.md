@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CampaignOptionsVM from the subsystem API first
@@ -43,7 +43,7 @@ campaignOptionsVM.RefreshValues();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of CampaignOptionsVM from the subsystem API first

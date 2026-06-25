@@ -23,7 +23,7 @@ description: "SandBoxGauntletGameNotification 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SandBoxGauntletGameNotification.Initialize();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletGameNotification 实例
@@ -44,7 +44,7 @@ sandBoxGauntletGameNotification.OnFinalize();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletGameNotification 实例
@@ -55,7 +55,7 @@ sandBoxGauntletGameNotification.RegisterEvents();
 ### UnregisterEvents
 `public override void UnregisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销events。
+**用途 / Purpose:** 从当前系统中注销events。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxGauntletGameNotification 实例

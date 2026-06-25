@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first
@@ -34,7 +34,7 @@ adminPanelAction.OnFinalize();
 ### GetIsAvailable
 `public virtual bool GetIsAvailable()`
 
-**Purpose:** **Purpose:** Reads and returns the is available value held by the this instance.
+**Purpose:** Reads and returns the is available value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first
@@ -45,7 +45,7 @@ var result = adminPanelAction.GetIsAvailable();
 ### GetIsDisabled
 `public virtual bool GetIsDisabled(out string reason)`
 
-**Purpose:** **Purpose:** Reads and returns the is disabled value held by the this instance.
+**Purpose:** Reads and returns the is disabled value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first
@@ -56,7 +56,7 @@ var result = adminPanelAction.GetIsDisabled(reason);
 ### BuildName
 `public AdminPanelAction BuildName(TextObject name)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for name.
+**Purpose:** Assembles and returns the built result for name.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first
@@ -67,7 +67,7 @@ var result = adminPanelAction.BuildName(name);
 ### BuildDescription
 `public AdminPanelAction BuildDescription(TextObject description)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for description.
+**Purpose:** Assembles and returns the built result for description.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first
@@ -78,7 +78,7 @@ var result = adminPanelAction.BuildDescription(description);
 ### BuildOnActionExecutedCallback
 `public AdminPanelAction BuildOnActionExecutedCallback(Action onActionExecuted)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for on action executed callback.
+**Purpose:** Assembles and returns the built result for on action executed callback.
 
 ```csharp
 // Obtain an instance of AdminPanelAction from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionDeploymentPlanningLogic 的自动生成类参考。"
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -34,7 +34,7 @@ missionDeploymentPlanningLogic.Initialize();
 ### ClearAll
 `public virtual void ClearAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all。
+**用途 / Purpose:** 清空当前对象中的all。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -45,7 +45,7 @@ missionDeploymentPlanningLogic.ClearAll();
 ### MakeDefaultDeploymentPlans
 `public virtual void MakeDefaultDeploymentPlans()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeDefaultDeploymentPlans 对应的操作。
+**用途 / Purpose:** 调用 MakeDefaultDeploymentPlans 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -56,7 +56,7 @@ missionDeploymentPlanningLogic.MakeDefaultDeploymentPlans();
 ### MakeDeploymentPlan
 `public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
+**用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -67,7 +67,7 @@ missionDeploymentPlanningLogic.MakeDeploymentPlan(team, 0, 0);
 ### RemakeDeploymentPlan
 `public virtual bool RemakeDeploymentPlan(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RemakeDeploymentPlan 对应的操作。
+**用途 / Purpose:** 调用 RemakeDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -78,7 +78,7 @@ var result = missionDeploymentPlanningLogic.RemakeDeploymentPlan(team);
 ### ClearDeploymentPlan
 `public virtual void ClearDeploymentPlan(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的deployment plan。
+**用途 / Purpose:** 清空当前对象中的deployment plan。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -89,7 +89,7 @@ missionDeploymentPlanningLogic.ClearDeploymentPlan(team);
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -100,7 +100,7 @@ var result = missionDeploymentPlanningLogic.IsPlanMade(team);
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team, out bool isFirstPlan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -111,7 +111,7 @@ var result = missionDeploymentPlanningLogic.IsPlanMade(team, isFirstPlan);
 ### IsPositionInsideDeploymentBoundaries
 `public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 position inside deployment boundaries 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 position inside deployment boundaries 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -122,7 +122,7 @@ var result = missionDeploymentPlanningLogic.IsPositionInsideDeploymentBoundaries
 ### HasDeploymentBoundaries
 `public virtual bool HasDeploymentBoundaries(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 deployment boundaries。
+**用途 / Purpose:** 判断当前对象是否已经持有 deployment boundaries。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -133,7 +133,7 @@ var result = missionDeploymentPlanningLogic.HasDeploymentBoundaries(team);
 ### GetDeploymentBoundaries
 `public virtual MBReadOnlyList<ValueTuple<string, List<Vec2>>> GetDeploymentBoundaries(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment boundaries 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment boundaries 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -144,7 +144,7 @@ var result = missionDeploymentPlanningLogic.GetDeploymentBoundaries(team);
 ### SupportsReinforcements
 `public virtual bool SupportsReinforcements()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SupportsReinforcements 对应的操作。
+**用途 / Purpose:** 调用 SupportsReinforcements 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -155,7 +155,7 @@ var result = missionDeploymentPlanningLogic.SupportsReinforcements();
 ### SupportsNavmesh
 `public virtual bool SupportsNavmesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SupportsNavmesh 对应的操作。
+**用途 / Purpose:** 调用 SupportsNavmesh 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -166,7 +166,7 @@ var result = missionDeploymentPlanningLogic.SupportsNavmesh();
 ### HasPlayerSpawnFrame
 `public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 player spawn frame。
+**用途 / Purpose:** 判断当前对象是否已经持有 player spawn frame。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -177,7 +177,7 @@ var result = missionDeploymentPlanningLogic.HasPlayerSpawnFrame(battleSide);
 ### GetPlayerSpawnFrame
 `public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player spawn frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -188,7 +188,7 @@ var result = missionDeploymentPlanningLogic.GetPlayerSpawnFrame(battleSide, posi
 ### GetClosestDeploymentBoundaryPosition
 `public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest deployment boundary position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 closest deployment boundary position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -199,7 +199,7 @@ var result = missionDeploymentPlanningLogic.GetClosestDeploymentBoundaryPosition
 ### ProjectPositionToDeploymentBoundaries
 `public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProjectPositionToDeploymentBoundaries 对应的操作。
+**用途 / Purpose:** 调用 ProjectPositionToDeploymentBoundaries 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -210,7 +210,7 @@ missionDeploymentPlanningLogic.ProjectPositionToDeploymentBoundaries(team, posit
 ### GetPathDeploymentBoundaryIntersection
 `public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path deployment boundary intersection 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path deployment boundary intersection 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -221,7 +221,7 @@ var result = missionDeploymentPlanningLogic.GetPathDeploymentBoundaryIntersectio
 ### GetDeploymentFrame
 `public virtual MatrixFrame GetDeploymentFrame(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -232,7 +232,7 @@ var result = missionDeploymentPlanningLogic.GetDeploymentFrame(team);
 ### GetFormationPlan
 `public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation plan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 formation plan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -243,7 +243,7 @@ var result = missionDeploymentPlanningLogic.GetFormationPlan(team, fClass, false
 ### GetSpawnPathOffset
 `public virtual float GetSpawnPathOffset(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path offset 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn path offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -254,7 +254,7 @@ var result = missionDeploymentPlanningLogic.GetSpawnPathOffset(team);
 ### GetZoomFocusFrame
 `public virtual MatrixFrame GetZoomFocusFrame(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 zoom focus frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 zoom focus frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -265,7 +265,7 @@ var result = missionDeploymentPlanningLogic.GetZoomFocusFrame(team);
 ### GetZoomOffset
 `public virtual float GetZoomOffset(Team team, float fovAngle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 zoom offset 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 zoom offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例

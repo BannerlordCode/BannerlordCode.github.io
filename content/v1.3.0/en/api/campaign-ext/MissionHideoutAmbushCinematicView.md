@@ -23,7 +23,7 @@ Treat `MissionHideoutAmbushCinematicView` as a View-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
@@ -34,7 +34,7 @@ missionHideoutAmbushCinematicView.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first

@@ -23,7 +23,7 @@ description: "CampaignSiegeStateHandler 的自动生成类参考。"
 ### OnRetreatMission
 `public override void OnRetreatMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 retreat mission 事件触发时调用此回调。
+**用途 / Purpose:** 在 retreat mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignSiegeStateHandler 实例
@@ -34,7 +34,7 @@ campaignSiegeStateHandler.OnRetreatMission();
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignSiegeStateHandler 实例
@@ -45,7 +45,7 @@ campaignSiegeStateHandler.OnMissionResultReady(missionResult);
 ### OnSurrenderMission
 `public override void OnSurrenderMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 surrender mission 事件触发时调用此回调。
+**用途 / Purpose:** 在 surrender mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignSiegeStateHandler 实例

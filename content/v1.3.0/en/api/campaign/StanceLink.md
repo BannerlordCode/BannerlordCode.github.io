@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetCasualties
 `public int GetCasualties(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the casualties value held by the this instance.
+**Purpose:** Reads and returns the casualties value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -57,7 +57,7 @@ var result = stanceLink.GetCasualties(faction);
 ### GetSuccessfulSieges
 `public int GetSuccessfulSieges(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the successful sieges value held by the this instance.
+**Purpose:** Reads and returns the successful sieges value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -68,7 +68,7 @@ var result = stanceLink.GetSuccessfulSieges(faction);
 ### GetSuccessfulRaids
 `public int GetSuccessfulRaids(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the successful raids value held by the this instance.
+**Purpose:** Reads and returns the successful raids value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -79,7 +79,7 @@ var result = stanceLink.GetSuccessfulRaids(faction);
 ### GetTotalTributePaid
 `public int GetTotalTributePaid(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the total tribute paid value held by the this instance.
+**Purpose:** Reads and returns the total tribute paid value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -90,7 +90,7 @@ var result = stanceLink.GetTotalTributePaid(faction);
 ### GetSuccessfulTownSieges
 `public int GetSuccessfulTownSieges(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the successful town sieges value held by the this instance.
+**Purpose:** Reads and returns the successful town sieges value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -101,7 +101,7 @@ var result = stanceLink.GetSuccessfulTownSieges(faction);
 ### GetDailyTributePaid
 `public int GetDailyTributePaid(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the daily tribute paid value held by the this instance.
+**Purpose:** Reads and returns the daily tribute paid value held by the this instance.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first
@@ -112,7 +112,7 @@ var result = stanceLink.GetDailyTributePaid(faction);
 ### SetDailyTributePaid
 `public void SetDailyTributePaid(IFaction payer, int dailyTribute)`
 
-**Purpose:** **Purpose:** Assigns a new value to daily tribute paid and updates the object's internal state.
+**Purpose:** Assigns a new value to daily tribute paid and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StanceLink from the subsystem API first

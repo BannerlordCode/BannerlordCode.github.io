@@ -29,7 +29,7 @@ Treat `DefaultCombatXpModel` as a Model-style extension point: first identify wh
 ### GetSkillForWeapon
 `public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** **Purpose:** Reads and returns the skill for weapon value held by the this instance.
+**Purpose:** Reads and returns the skill for weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCombatXpModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultCombatXpModel.GetSkillForWeapon(weapon, false);
 ### GetXpFromHit
 `public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase party, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**Purpose:** **Purpose:** Reads and returns the xp from hit value held by the this instance.
+**Purpose:** Reads and returns the xp from hit value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCombatXpModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultCombatXpModel.GetXpFromHit(attackerTroop, captain, attackedT
 ### GetXpMultiplierFromShotDifficulty
 `public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** **Purpose:** Reads and returns the xp multiplier from shot difficulty value held by the this instance.
+**Purpose:** Reads and returns the xp multiplier from shot difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCombatXpModel from the subsystem API first

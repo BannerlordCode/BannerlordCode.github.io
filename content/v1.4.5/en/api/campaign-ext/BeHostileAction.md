@@ -19,7 +19,7 @@ BeHostileAction is a set of static methods that trigger "BeHostile" in the campa
 public static void ApplyHostileAction(PartyBase attackerParty, PartyBase defenderParty, float value)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of hostile action to the this instance.
+**Purpose:** Applies the effect of hostile action to the this instance.
 
 ### ApplyMinorCoercionHostileAction
 
@@ -27,7 +27,7 @@ public static void ApplyHostileAction(PartyBase attackerParty, PartyBase defende
 public static void ApplyMinorCoercionHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of minor coercion hostile action to the this instance.
+**Purpose:** Applies the effect of minor coercion hostile action to the this instance.
 
 ### ApplyMajorCoercionHostileAction
 
@@ -35,7 +35,7 @@ public static void ApplyMinorCoercionHostileAction(PartyBase attackerParty, Part
 public static void ApplyMajorCoercionHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of major coercion hostile action to the this instance.
+**Purpose:** Applies the effect of major coercion hostile action to the this instance.
 
 ### ApplyEncounterHostileAction
 
@@ -43,7 +43,7 @@ public static void ApplyMajorCoercionHostileAction(PartyBase attackerParty, Part
 public static void ApplyEncounterHostileAction(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of encounter hostile action to the this instance.
+**Purpose:** Applies the effect of encounter hostile action to the this instance.
 
 ## Usage Example
 

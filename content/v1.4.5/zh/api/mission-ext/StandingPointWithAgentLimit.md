@@ -23,7 +23,7 @@ description: "StandingPointWithAgentLimit 的自动生成类参考。"
 ### AddValidAgent
 `public void AddValidAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 valid agent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 valid agent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例
@@ -34,7 +34,7 @@ standingPointWithAgentLimit.AddValidAgent(agent);
 ### ClearValidAgents
 `public void ClearValidAgents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的valid agents。
+**用途 / Purpose:** 清空当前对象中的valid agents。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例
@@ -45,7 +45,7 @@ standingPointWithAgentLimit.ClearValidAgents();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例

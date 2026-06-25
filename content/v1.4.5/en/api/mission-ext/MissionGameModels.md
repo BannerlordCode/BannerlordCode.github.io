@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clear
 `public static void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required

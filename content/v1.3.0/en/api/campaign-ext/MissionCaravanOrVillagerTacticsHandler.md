@@ -23,7 +23,7 @@ Treat `MissionCaravanOrVillagerTacticsHandler` as a Handler-style extension poin
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionCaravanOrVillagerTacticsHandler from the subsystem API first

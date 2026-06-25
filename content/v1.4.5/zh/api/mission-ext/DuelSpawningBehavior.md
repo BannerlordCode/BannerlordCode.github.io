@@ -23,7 +23,7 @@ description: "DuelSpawningBehavior 的自动生成类参考。"
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelSpawningBehavior 实例
@@ -34,7 +34,7 @@ duelSpawningBehavior.Initialize(spawnComponent);
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelSpawningBehavior 实例
@@ -45,7 +45,7 @@ duelSpawningBehavior.Clear();
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelSpawningBehavior 实例
@@ -56,7 +56,7 @@ duelSpawningBehavior.OnTick(0);
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
+**用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelSpawningBehavior 实例

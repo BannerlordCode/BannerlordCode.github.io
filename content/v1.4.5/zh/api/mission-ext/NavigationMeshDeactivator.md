@@ -23,7 +23,7 @@ description: "NavigationMeshDeactivator 的自动生成类参考。"
 ### DisableAssignedFaces
 `public void DisableAssignedFaces(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableAssignedFaces 对应的操作。
+**用途 / Purpose:** 调用 DisableAssignedFaces 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationMeshDeactivator 实例
@@ -34,7 +34,7 @@ navigationMeshDeactivator.DisableAssignedFaces(scene);
 ### EnableAssignedFaces
 `public void EnableAssignedFaces(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableAssignedFaces 对应的操作。
+**用途 / Purpose:** 调用 EnableAssignedFaces 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationMeshDeactivator 实例

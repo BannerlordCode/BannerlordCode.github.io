@@ -42,7 +42,7 @@ description: "MPLobbyClanCreationInformationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
@@ -53,7 +53,7 @@ mPLobbyClanCreationInformationVM.RefreshValues();
 ### RefreshWith
 `public void RefreshWith(ClanHomeInfo info)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
@@ -64,7 +64,7 @@ mPLobbyClanCreationInformationVM.RefreshWith(info);
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
@@ -75,7 +75,7 @@ mPLobbyClanCreationInformationVM.OnFriendListUpdated(false);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
@@ -86,7 +86,7 @@ mPLobbyClanCreationInformationVM.OnPlayerNameUpdated();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
@@ -97,7 +97,7 @@ mPLobbyClanCreationInformationVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例

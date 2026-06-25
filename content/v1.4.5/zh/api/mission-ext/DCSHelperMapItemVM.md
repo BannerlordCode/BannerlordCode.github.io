@@ -36,7 +36,7 @@ description: "DCSHelperMapItemVM 的自动生成类参考。"
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperMapItemVM 实例
@@ -47,7 +47,7 @@ dCSHelperMapItemVM.ExecuteToggleSelection();
 ### RefreshLocalMapData
 `public void RefreshLocalMapData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 local map data 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 local map data 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperMapItemVM 实例

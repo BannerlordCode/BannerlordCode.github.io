@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -51,7 +51,7 @@ sPScoreboardSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -62,7 +62,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -73,7 +73,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -84,7 +84,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -95,7 +95,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -106,7 +106,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -117,7 +117,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -128,7 +128,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -139,7 +139,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### ExecuteSortByRemaining
 `public void ExecuteSortByRemaining()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by remaining.
+**Purpose:** Runs the operation or workflow associated with sort by remaining.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -150,7 +150,7 @@ sPScoreboardSortControllerVM.ExecuteSortByRemaining();
 ### ExecuteSortByKill
 `public void ExecuteSortByKill()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by kill.
+**Purpose:** Runs the operation or workflow associated with sort by kill.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -161,7 +161,7 @@ sPScoreboardSortControllerVM.ExecuteSortByKill();
 ### ExecuteSortByUpgrade
 `public void ExecuteSortByUpgrade()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by upgrade.
+**Purpose:** Runs the operation or workflow associated with sort by upgrade.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -172,7 +172,7 @@ sPScoreboardSortControllerVM.ExecuteSortByUpgrade();
 ### ExecuteSortByDead
 `public void ExecuteSortByDead()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by dead.
+**Purpose:** Runs the operation or workflow associated with sort by dead.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -183,7 +183,7 @@ sPScoreboardSortControllerVM.ExecuteSortByDead();
 ### ExecuteSortByWounded
 `public void ExecuteSortByWounded()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by wounded.
+**Purpose:** Runs the operation or workflow associated with sort by wounded.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
@@ -194,7 +194,7 @@ sPScoreboardSortControllerVM.ExecuteSortByWounded();
 ### ExecuteSortByRouted
 `public void ExecuteSortByRouted()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by routed.
+**Purpose:** Runs the operation or workflow associated with sort by routed.
 
 ```csharp
 // Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first

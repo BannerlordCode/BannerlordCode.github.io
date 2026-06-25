@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetHitpoints
 `public override float GetHitpoints(bool isPlayer)`
 
-**Purpose:** **Purpose:** Reads and returns the hitpoints value held by the this instance.
+**Purpose:** Reads and returns the hitpoints value held by the this instance.
 
 ```csharp
 // Obtain an instance of HitpointsEffect from the subsystem API first

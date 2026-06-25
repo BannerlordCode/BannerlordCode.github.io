@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ReturnVisualOrder from the subsystem API first
@@ -34,7 +34,7 @@ var result = returnVisualOrder.GetName(orderController);
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the targeted state or condition.
+**Purpose:** Determines whether the this instance is in the targeted state or condition.
 
 ```csharp
 // Obtain an instance of ReturnVisualOrder from the subsystem API first
@@ -45,7 +45,7 @@ var result = returnVisualOrder.IsTargeted();
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with order.
+**Purpose:** Runs the operation or workflow associated with order.
 
 ```csharp
 // Obtain an instance of ReturnVisualOrder from the subsystem API first

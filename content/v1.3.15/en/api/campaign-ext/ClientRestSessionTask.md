@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### SetRequestData
 `public void SetRequestData(byte userCertificate, string address, IHttpDriver networkClient)`
 
-**Purpose:** **Purpose:** Assigns a new value to request data and updates the object's internal state.
+**Purpose:** Assigns a new value to request data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first
@@ -45,7 +45,7 @@ clientRestSessionTask.SetRequestData(0, "example", networkClient);
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first
@@ -56,7 +56,7 @@ clientRestSessionTask.Tick();
 ### WaitUntilFinished
 `public Task WaitUntilFinished()`
 
-**Purpose:** **Purpose:** Pauses the current flow until the until finished condition is met.
+**Purpose:** Pauses the current flow until the until finished condition is met.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first
@@ -67,7 +67,7 @@ var result = clientRestSessionTask.WaitUntilFinished();
 ### SetFinishedAsSuccessful
 `public void SetFinishedAsSuccessful(RestResponse restResponse)`
 
-**Purpose:** **Purpose:** Assigns a new value to finished as successful and updates the object's internal state.
+**Purpose:** Assigns a new value to finished as successful and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first
@@ -78,7 +78,7 @@ clientRestSessionTask.SetFinishedAsSuccessful(restResponse);
 ### SetFinishedAsFailed
 `public void SetFinishedAsFailed()`
 
-**Purpose:** **Purpose:** Assigns a new value to finished as failed and updates the object's internal state.
+**Purpose:** Assigns a new value to finished as failed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first
@@ -89,7 +89,7 @@ clientRestSessionTask.SetFinishedAsFailed();
 ### SetFinishedAsFailed
 `public void SetFinishedAsFailed(RestResponse restResponse)`
 
-**Purpose:** **Purpose:** Assigns a new value to finished as failed and updates the object's internal state.
+**Purpose:** Assigns a new value to finished as failed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClientRestSessionTask from the subsystem API first

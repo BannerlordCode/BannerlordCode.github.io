@@ -36,7 +36,7 @@ Treat `MissionScoreboardComponent` as a Component-style extension point: first i
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -47,7 +47,7 @@ missionScoreboardComponent.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -58,7 +58,7 @@ missionScoreboardComponent.OnRemoveBehavior();
 ### ResetBotScores
 `public void ResetBotScores()`
 
-**Purpose:** **Purpose:** Returns bot scores to its default or initial condition.
+**Purpose:** Returns bot scores to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -69,7 +69,7 @@ missionScoreboardComponent.ResetBotScores();
 ### ChangeTeamScore
 `public void ChangeTeamScore(Team team, int scoreChange)`
 
-**Purpose:** **Purpose:** Executes the ChangeTeamScore logic.
+**Purpose:** Executes the ChangeTeamScore logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -80,7 +80,7 @@ missionScoreboardComponent.ChangeTeamScore(team, 0);
 ### GetSideSafe
 `public MissionScoreboardComponent.MissionScoreboardSide GetSideSafe(BattleSideEnum battleSide)`
 
-**Purpose:** **Purpose:** Reads and returns the side safe value held by the this instance.
+**Purpose:** Reads and returns the side safe value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -91,7 +91,7 @@ var result = missionScoreboardComponent.GetSideSafe(battleSide);
 ### GetRoundScore
 `public int GetRoundScore(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the round score value held by the this instance.
+**Purpose:** Reads and returns the round score value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -102,7 +102,7 @@ var result = missionScoreboardComponent.GetRoundScore(side);
 ### HandleServerUpdateRoundScoresMessage
 `public void HandleServerUpdateRoundScoresMessage(GameNetworkMessage baseMessage)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with server update round scores message.
+**Purpose:** Executes the response logic associated with server update round scores message.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -113,7 +113,7 @@ missionScoreboardComponent.HandleServerUpdateRoundScoresMessage(baseMessage);
 ### HandleServerSetRoundMVP
 `public void HandleServerSetRoundMVP(GameNetworkMessage baseMessage)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with server set round m v p.
+**Purpose:** Executes the response logic associated with server set round m v p.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -124,7 +124,7 @@ missionScoreboardComponent.HandleServerSetRoundMVP(baseMessage);
 ### CalculateTotalNumbers
 `public void CalculateTotalNumbers()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of total numbers.
+**Purpose:** Calculates the current value or result of total numbers.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -135,7 +135,7 @@ missionScoreboardComponent.CalculateTotalNumbers();
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
+**Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -146,7 +146,7 @@ missionScoreboardComponent.OnClearScene();
 ### OnPlayerConnectedToServer
 `public override void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Invoked when the player connected to server event is raised.
+**Purpose:** Invoked when the player connected to server event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -157,7 +157,7 @@ missionScoreboardComponent.OnPlayerConnectedToServer(networkPeer);
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Invoked when the player disconnected from server event is raised.
+**Purpose:** Invoked when the player disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -168,7 +168,7 @@ missionScoreboardComponent.OnPlayerDisconnectedFromServer(networkPeer);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -179,7 +179,7 @@ missionScoreboardComponent.OnAgentBuild(agent, banner);
 ### OnAssignPlayerAsSergeantOfFormation
 `public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the assign player as sergeant of formation event is raised.
+**Purpose:** Invoked when the assign player as sergeant of formation event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -190,7 +190,7 @@ missionScoreboardComponent.OnAssignPlayerAsSergeantOfFormation(agent);
 ### BotPropertiesChanged
 `public void BotPropertiesChanged(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Executes the BotPropertiesChanged logic.
+**Purpose:** Executes the BotPropertiesChanged logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -201,7 +201,7 @@ missionScoreboardComponent.BotPropertiesChanged(side);
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(NetworkCommunicator player)`
 
-**Purpose:** **Purpose:** Executes the PlayerPropertiesChanged logic.
+**Purpose:** Executes the PlayerPropertiesChanged logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -212,7 +212,7 @@ missionScoreboardComponent.PlayerPropertiesChanged(player);
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(MissionPeer player)`
 
-**Purpose:** **Purpose:** Executes the PlayerPropertiesChanged logic.
+**Purpose:** Executes the PlayerPropertiesChanged logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -223,7 +223,7 @@ missionScoreboardComponent.PlayerPropertiesChanged(player);
 ### HandleServerEventBotDataMessage
 `public void HandleServerEventBotDataMessage(GameNetworkMessage baseMessage)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with server event bot data message.
+**Purpose:** Executes the response logic associated with server event bot data message.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -234,7 +234,7 @@ missionScoreboardComponent.HandleServerEventBotDataMessage(baseMessage);
 ### OnRoundEnding
 `public void OnRoundEnding()`
 
-**Purpose:** **Purpose:** Invoked when the round ending event is raised.
+**Purpose:** Invoked when the round ending event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -245,7 +245,7 @@ missionScoreboardComponent.OnRoundEnding();
 ### OnMultiplayerGameClientBehaviorInitialized
 `public void OnMultiplayerGameClientBehaviorInitialized(ref Action<NetworkCommunicator> onBotsControlledChanged)`
 
-**Purpose:** **Purpose:** Invoked when the multiplayer game client behavior initialized event is raised.
+**Purpose:** Invoked when the multiplayer game client behavior initialized event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -256,7 +256,7 @@ missionScoreboardComponent.OnMultiplayerGameClientBehaviorInitialized(onBotsCont
 ### GetMatchWinnerSide
 `public BattleSideEnum GetMatchWinnerSide()`
 
-**Purpose:** **Purpose:** Reads and returns the match winner side value held by the this instance.
+**Purpose:** Reads and returns the match winner side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -267,7 +267,7 @@ var result = missionScoreboardComponent.GetMatchWinnerSide();
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** **Purpose:** Invoked when the score hit event is raised.
+**Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -278,7 +278,7 @@ missionScoreboardComponent.OnScoreHit(affectedAgent, affectorAgent, attackerWeap
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**Purpose:** **Purpose:** Reads and returns the value of value held by the this instance.
+**Purpose:** Reads and returns the value of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -289,7 +289,7 @@ var result = missionScoreboardComponent.GetValueOf(missionPeer);
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**Purpose:** **Purpose:** Reads and returns the value of value held by the this instance.
+**Purpose:** Reads and returns the value of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -300,7 +300,7 @@ var result = missionScoreboardComponent.GetValueOf(botData);
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Adds player to the current collection or state.
+**Purpose:** Adds player to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -311,7 +311,7 @@ missionScoreboardComponent.AddPlayer(peer);
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Removes player from the current collection or state.
+**Purpose:** Removes player from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -322,7 +322,7 @@ missionScoreboardComponent.RemovePlayer(peer);
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Reads and returns the values of value held by the this instance.
+**Purpose:** Reads and returns the values of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -333,7 +333,7 @@ var result = missionScoreboardComponent.GetValuesOf(peer);
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**Purpose:** **Purpose:** Reads and returns the header names value held by the this instance.
+**Purpose:** Reads and returns the header names value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -344,7 +344,7 @@ var result = missionScoreboardComponent.GetHeaderNames();
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**Purpose:** **Purpose:** Reads and returns the header ids value held by the this instance.
+**Purpose:** Reads and returns the header ids value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -355,7 +355,7 @@ var result = missionScoreboardComponent.GetHeaderIds();
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
+**Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -366,7 +366,7 @@ var result = missionScoreboardComponent.GetScore(peer);
 ### UpdateHeader
 `public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of header.
+**Purpose:** Recalculates and stores the latest representation of header.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -377,7 +377,7 @@ missionScoreboardComponent.UpdateHeader(headers);
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first
@@ -388,7 +388,7 @@ missionScoreboardComponent.Clear();
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of and get m v p score with peer.
+**Purpose:** Calculates the current value or result of and get m v p score with peer.
 
 ```csharp
 // Obtain an instance of MissionScoreboardComponent from the subsystem API first

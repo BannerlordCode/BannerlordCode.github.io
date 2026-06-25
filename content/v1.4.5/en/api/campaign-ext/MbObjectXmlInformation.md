@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### MbObjectXmlInformation
 `public struct MbObjectXmlInformation(string id, string name, string moduleName, List<string> gameTypesIncluded)`
 
-**Purpose:** **Purpose:** Executes the MbObjectXmlInformation logic.
+**Purpose:** Executes the MbObjectXmlInformation logic.
 
 ```csharp
 // Obtain an instance of MbObjectXmlInformation from the subsystem API first

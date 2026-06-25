@@ -23,7 +23,7 @@ description: "MultiplayerPracticeMissions 的自动生成类参考。"
 ### OpenMultiplayerPracticeMission
 `public static Mission OpenMultiplayerPracticeMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", string seasonString = "", float timeOfDay = 6f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开multiplayer practice mission对应的资源或界面。
+**用途 / Purpose:** 打开multiplayer practice mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

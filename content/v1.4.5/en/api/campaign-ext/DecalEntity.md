@@ -30,7 +30,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### Create
 `public static DecalEntity Create(Scene scene, string material, string entityName = null)`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required

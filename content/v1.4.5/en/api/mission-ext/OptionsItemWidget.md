@@ -41,7 +41,7 @@ Treat `OptionsItemWidget` as a Widget-style extension point: first identify who 
 ### SetCurrentScreenWidget
 `public void SetCurrentScreenWidget(OptionsScreenWidget screenWidget)`
 
-**Purpose:** **Purpose:** Assigns a new value to current screen widget and updates the object's internal state.
+**Purpose:** Assigns a new value to current screen widget and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsItemWidget from the subsystem API first

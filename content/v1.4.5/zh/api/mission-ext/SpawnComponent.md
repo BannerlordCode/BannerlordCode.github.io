@@ -30,7 +30,7 @@ description: "SpawnComponent 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -41,7 +41,7 @@ spawnComponent.OnBehaviorInitialize();
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AreAgentsSpawning 对应的操作。
+**用途 / Purpose:** 调用 AreAgentsSpawning 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -52,7 +52,7 @@ var result = spawnComponent.AreAgentsSpawning();
 ### SetNewSpawnFrameBehavior
 `public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 new spawn frame behavior 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 new spawn frame behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -63,7 +63,7 @@ spawnComponent.SetNewSpawnFrameBehavior(spawnFrameBehavior);
 ### SetNewSpawningBehavior
 `public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 new spawning behavior 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 new spawning behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -74,7 +74,7 @@ spawnComponent.SetNewSpawningBehavior(spawningBehavior);
 ### SetSiegeSpawningBehavior
 `public static void SetSiegeSpawningBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 siege spawning behavior 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 siege spawning behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -84,7 +84,7 @@ SpawnComponent.SetSiegeSpawningBehavior();
 ### SetFlagDominationSpawningBehavior
 `public static void SetFlagDominationSpawningBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 flag domination spawning behavior 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 flag domination spawning behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -94,7 +94,7 @@ SpawnComponent.SetFlagDominationSpawningBehavior();
 ### SetWarmupSpawningBehavior
 `public static void SetWarmupSpawningBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 warmup spawning behavior 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 warmup spawning behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -104,7 +104,7 @@ SpawnComponent.SetWarmupSpawningBehavior();
 ### SetSpawningBehaviorForCurrentGameType
 `public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawning behavior for current game type 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawning behavior for current game type 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -114,7 +114,7 @@ SpawnComponent.SetSpawningBehaviorForCurrentGameType(currentGameType);
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -125,7 +125,7 @@ spawnComponent.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -136,7 +136,7 @@ spawnComponent.OnMissionTick(0);
 ### GetSpawnFrame
 `public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -147,7 +147,7 @@ var result = spawnComponent.GetSpawnFrame(team, false, false);
 ### SetEarlyAgentVisualsDespawning
 `public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 early agent visuals despawning 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 early agent visuals despawning 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -158,7 +158,7 @@ spawnComponent.SetEarlyAgentVisualsDespawning(missionPeer, false);
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleUpdatingSpawnEquipment 对应的操作。
+**用途 / Purpose:** 调用 ToggleUpdatingSpawnEquipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -169,7 +169,7 @@ spawnComponent.ToggleUpdatingSpawnEquipment(false);
 ### AllowEarlyAgentVisualsDespawning
 `public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
+**用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -180,7 +180,7 @@ var result = spawnComponent.AllowEarlyAgentVisualsDespawning(lobbyPeer);
 ### GetMaximumReSpawnPeriodForPeer
 `public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum re spawn period for peer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum re spawn period for peer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -191,7 +191,7 @@ var result = spawnComponent.GetMaximumReSpawnPeriodForPeer(lobbyPeer);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
+**用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例
@@ -202,7 +202,7 @@ spawnComponent.OnClearScene();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnComponent 实例

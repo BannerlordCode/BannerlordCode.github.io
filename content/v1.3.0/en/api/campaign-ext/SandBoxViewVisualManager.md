@@ -23,7 +23,7 @@ Treat `SandBoxViewVisualManager` as a Manager-style extension point: first ident
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** **Purpose:** Executes the VisualTick logic.
+**Purpose:** Executes the VisualTick logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SandBoxViewVisualManager.VisualTick(screen, 0, 0);
 ### OnTick
 `public static void OnTick(float realDt, float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SandBoxViewVisualManager.OnTick(0, 0);
 ### OnFrameTick
 `public static void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ SandBoxViewVisualManager.OnFrameTick(0);
 ### OnMouseClick
 `public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** **Purpose:** Invoked when the mouse click event is raised.
+**Purpose:** Invoked when the mouse click event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ SandBoxViewVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint,
 ### OnGameLoadFinished
 `public static void OnGameLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the game load finished event is raised.
+**Purpose:** Invoked when the game load finished event is raised.
 
 ```csharp
 // Static call; no instance required

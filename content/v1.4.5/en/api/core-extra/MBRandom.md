@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float maxVal)`
 
-**Purpose:** **Purpose:** Executes the RandomFloatRanged logic.
+**Purpose:** Executes the RandomFloatRanged logic.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MBRandom.RandomFloatRanged(0);
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float minVal, float maxVal)`
 
-**Purpose:** **Purpose:** Executes the RandomFloatRanged logic.
+**Purpose:** Executes the RandomFloatRanged logic.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ MBRandom.RandomFloatRanged(0, 0);
 ### RandomInt
 `public static int RandomInt()`
 
-**Purpose:** **Purpose:** Executes the RandomInt logic.
+**Purpose:** Executes the RandomInt logic.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ MBRandom.RandomInt();
 ### RandomInt
 `public static int RandomInt(int maxValue)`
 
-**Purpose:** **Purpose:** Executes the RandomInt logic.
+**Purpose:** Executes the RandomInt logic.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ MBRandom.RandomInt(0);
 ### RandomInt
 `public static int RandomInt(int minValue, int maxValue)`
 
-**Purpose:** **Purpose:** Executes the RandomInt logic.
+**Purpose:** Executes the RandomInt logic.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ MBRandom.RandomInt(0, 0);
 ### RoundRandomized
 `public static int RoundRandomized(float f)`
 
-**Purpose:** **Purpose:** Executes the RoundRandomized logic.
+**Purpose:** Executes the RoundRandomized logic.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ MBRandom.RoundRandomized(0);
 ### RandomFloatGaussian
 `public static float RandomFloatGaussian(float center, float spread, float min, float max)`
 
-**Purpose:** **Purpose:** Executes the RandomFloatGaussian logic.
+**Purpose:** Executes the RandomFloatGaussian logic.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ MBRandom.RandomFloatGaussian(0, 0, 0, 0);
 ### SetSeed
 `public static void SetSeed(uint seed, uint seed2)`
 
-**Purpose:** **Purpose:** Assigns a new value to seed and updates the object's internal state.
+**Purpose:** Assigns a new value to seed and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ MBRandom.SetSeed(0, 0);
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(uint seed, uint seed2)`
 
-**Purpose:** **Purpose:** Executes the RandomIntWithSeed logic.
+**Purpose:** Executes the RandomIntWithSeed logic.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ MBRandom.RandomIntWithSeed(0, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(uint seed, uint seed2)`
 
-**Purpose:** **Purpose:** Executes the RandomFloatWithSeed logic.
+**Purpose:** Executes the RandomFloatWithSeed logic.
 
 ```csharp
 // Static call; no instance required

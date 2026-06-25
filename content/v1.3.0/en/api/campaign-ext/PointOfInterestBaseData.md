@@ -23,7 +23,7 @@ Treat `PointOfInterestBaseData` as a Data-style extension point: first identify 
 ### GetPointOfInterestType
 `public abstract MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of PointOfInterestBaseData from the subsystem API first
@@ -34,7 +34,7 @@ var result = pointOfInterestBaseData.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public abstract List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of PointOfInterestBaseData from the subsystem API first
@@ -45,7 +45,7 @@ var result = pointOfInterestBaseData.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public abstract bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of PointOfInterestBaseData from the subsystem API first
@@ -56,7 +56,7 @@ var result = pointOfInterestBaseData.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public abstract float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of PointOfInterestBaseData from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### IsPointInside
 `public bool IsPointInside(Vec3 point)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the point inside state or condition.
+**Purpose:** Determines whether the this instance is in the point inside state or condition.
 
 ```csharp
 // Obtain an instance of StealthBox from the subsystem API first
@@ -34,7 +34,7 @@ var result = stealthBox.IsPointInside(point);
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the agent inside state or condition.
+**Purpose:** Determines whether the this instance is in the agent inside state or condition.
 
 ```csharp
 // Obtain an instance of StealthBox from the subsystem API first

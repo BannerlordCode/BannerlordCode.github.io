@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### Variation
 `public ConversationSentence Variation(params object list)`
 
-**Purpose:** **Purpose:** Executes the Variation logic.
+**Purpose:** Executes the Variation logic.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -58,7 +58,7 @@ var result = conversationSentence.Variation(list);
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -69,7 +69,7 @@ conversationSentence.Deserialize(node, typeOfConversationCallbacks, conversation
 ### SetObjectsToRepeatOver
 `public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)`
 
-**Purpose:** **Purpose:** Assigns a new value to objects to repeat over and updates the object's internal state.
+**Purpose:** Assigns a new value to objects to repeat over and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ ConversationSentence.SetObjectsToRepeatOver(objectsToRepeatOver, 0);
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate()`
 
-**Purpose:** **Purpose:** Invoked when the condition delegate event is raised.
+**Purpose:** Invoked when the condition delegate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -90,7 +90,7 @@ var result = conversationSentence.OnConditionDelegate();
 ### OnClickableConditionDelegate
 `public delegate bool OnClickableConditionDelegate(out TextObject explanation)`
 
-**Purpose:** **Purpose:** Invoked when the clickable condition delegate event is raised.
+**Purpose:** Invoked when the clickable condition delegate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -101,7 +101,7 @@ var result = conversationSentence.OnClickableConditionDelegate(explanation);
 ### OnPersuasionOptionDelegate
 `public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()`
 
-**Purpose:** **Purpose:** Invoked when the persuasion option delegate event is raised.
+**Purpose:** Invoked when the persuasion option delegate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -112,7 +112,7 @@ var result = conversationSentence.OnPersuasionOptionDelegate();
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate()`
 
-**Purpose:** **Purpose:** Invoked when the consequence delegate event is raised.
+**Purpose:** Invoked when the consequence delegate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first
@@ -123,7 +123,7 @@ conversationSentence.OnConsequenceDelegate();
 ### OnMultipleConversationConsequenceDelegate
 `public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)`
 
-**Purpose:** **Purpose:** Invoked when the multiple conversation consequence delegate event is raised.
+**Purpose:** Invoked when the multiple conversation consequence delegate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationSentence from the subsystem API first

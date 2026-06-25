@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### AddLine
 `public void AddLine(string line)`
 
-**Purpose:** **Purpose:** Adds line to the current collection or state.
+**Purpose:** Adds line to the current collection or state.
 
 ```csharp
 // Obtain an instance of CodeBlock from the subsystem API first
@@ -34,7 +34,7 @@ codeBlock.AddLine("example");
 ### AddLines
 `public void AddLines(IEnumerable<string> lines)`
 
-**Purpose:** **Purpose:** Adds lines to the current collection or state.
+**Purpose:** Adds lines to the current collection or state.
 
 ```csharp
 // Obtain an instance of CodeBlock from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### UpdateBodyProperties
 `public void UpdateBodyProperties(BodyProperties bodyProperties, int race, bool isFemale)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of body properties.
+**Purpose:** Recalculates and stores the latest representation of body properties.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -49,7 +49,7 @@ narrativeMenuCharacter.UpdateBodyProperties(bodyProperties, 0, false);
 ### SetEquipment
 `public void SetEquipment(MBEquipmentRoster equipment)`
 
-**Purpose:** **Purpose:** Assigns a new value to equipment and updates the object's internal state.
+**Purpose:** Assigns a new value to equipment and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -60,7 +60,7 @@ narrativeMenuCharacter.SetEquipment(equipment);
 ### SetAnimationId
 `public void SetAnimationId(string animationId)`
 
-**Purpose:** **Purpose:** Assigns a new value to animation id and updates the object's internal state.
+**Purpose:** Assigns a new value to animation id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -71,7 +71,7 @@ narrativeMenuCharacter.SetAnimationId("example");
 ### SetRightHandItem
 `public void SetRightHandItem(string itemId)`
 
-**Purpose:** **Purpose:** Assigns a new value to right hand item and updates the object's internal state.
+**Purpose:** Assigns a new value to right hand item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -82,7 +82,7 @@ narrativeMenuCharacter.SetRightHandItem("example");
 ### SetLeftHandItem
 `public void SetLeftHandItem(string itemId)`
 
-**Purpose:** **Purpose:** Assigns a new value to left hand item and updates the object's internal state.
+**Purpose:** Assigns a new value to left hand item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -93,7 +93,7 @@ narrativeMenuCharacter.SetLeftHandItem("example");
 ### EquipRightHandItemWithEquipmentIndex
 `public void EquipRightHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**Purpose:** **Purpose:** Executes the EquipRightHandItemWithEquipmentIndex logic.
+**Purpose:** Executes the EquipRightHandItemWithEquipmentIndex logic.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -104,7 +104,7 @@ narrativeMenuCharacter.EquipRightHandItemWithEquipmentIndex(item);
 ### EquipLeftHandItemWithEquipmentIndex
 `public void EquipLeftHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**Purpose:** **Purpose:** Executes the EquipLeftHandItemWithEquipmentIndex logic.
+**Purpose:** Executes the EquipLeftHandItemWithEquipmentIndex logic.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -115,7 +115,7 @@ narrativeMenuCharacter.EquipLeftHandItemWithEquipmentIndex(item);
 ### SetSpawnPointEntityId
 `public void SetSpawnPointEntityId(string spawnPointEntityId)`
 
-**Purpose:** **Purpose:** Assigns a new value to spawn point entity id and updates the object's internal state.
+**Purpose:** Assigns a new value to spawn point entity id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -126,7 +126,7 @@ narrativeMenuCharacter.SetSpawnPointEntityId("example");
 ### ChangeAge
 `public void ChangeAge(float age)`
 
-**Purpose:** **Purpose:** Executes the ChangeAge logic.
+**Purpose:** Executes the ChangeAge logic.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -137,7 +137,7 @@ narrativeMenuCharacter.ChangeAge(0);
 ### SetMountCreationKey
 `public void SetMountCreationKey(MountCreationKey mountCreationKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to mount creation key and updates the object's internal state.
+**Purpose:** Assigns a new value to mount creation key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -148,7 +148,7 @@ narrativeMenuCharacter.SetMountCreationKey(mountCreationKey);
 ### SetHorseItemId
 `public void SetHorseItemId(string itemId)`
 
-**Purpose:** **Purpose:** Assigns a new value to horse item id and updates the object's internal state.
+**Purpose:** Assigns a new value to horse item id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first
@@ -159,7 +159,7 @@ narrativeMenuCharacter.SetHorseItemId("example");
 ### SetHarnessItemId
 `public void SetHarnessItemId(string itemId)`
 
-**Purpose:** **Purpose:** Assigns a new value to harness item id and updates the object's internal state.
+**Purpose:** Assigns a new value to harness item id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuCharacter from the subsystem API first

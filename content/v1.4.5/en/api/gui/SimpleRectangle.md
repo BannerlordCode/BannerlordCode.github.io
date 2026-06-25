@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### IsCollide
 `public bool IsCollide(SimpleRectangle other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the collide state or condition.
+**Purpose:** Determines whether the this instance is in the collide state or condition.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -34,7 +34,7 @@ var result = simpleRectangle.IsCollide(other);
 ### GetCenter
 `public Vector2 GetCenter()`
 
-**Purpose:** **Purpose:** Reads and returns the center value held by the this instance.
+**Purpose:** Reads and returns the center value held by the this instance.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -45,7 +45,7 @@ var result = simpleRectangle.GetCenter();
 ### IsSubRectOf
 `public bool IsSubRectOf(SimpleRectangle other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the sub rect of state or condition.
+**Purpose:** Determines whether the this instance is in the sub rect of state or condition.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -56,7 +56,7 @@ var result = simpleRectangle.IsSubRectOf(other);
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -67,7 +67,7 @@ var result = simpleRectangle.IsValid();
 ### IsPointInside
 `public bool IsPointInside(Vector2 point)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the point inside state or condition.
+**Purpose:** Determines whether the this instance is in the point inside state or condition.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -78,7 +78,7 @@ var result = simpleRectangle.IsPointInside(point);
 ### ReduceToIntersection
 `public void ReduceToIntersection(SimpleRectangle other)`
 
-**Purpose:** **Purpose:** Executes the ReduceToIntersection logic.
+**Purpose:** Executes the ReduceToIntersection logic.
 
 ```csharp
 // Obtain an instance of SimpleRectangle from the subsystem API first
@@ -89,7 +89,7 @@ simpleRectangle.ReduceToIntersection(other);
 ### Lerp
 `public static SimpleRectangle Lerp(SimpleRectangle from, SimpleRectangle to, float ratio)`
 
-**Purpose:** **Purpose:** Executes the Lerp logic.
+**Purpose:** Executes the Lerp logic.
 
 ```csharp
 // Static call; no instance required

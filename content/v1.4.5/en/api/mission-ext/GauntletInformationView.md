@@ -23,7 +23,7 @@ Treat `GauntletInformationView` as a View-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GauntletInformationView.Initialize();
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Static call; no instance required

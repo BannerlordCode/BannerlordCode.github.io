@@ -32,7 +32,7 @@ Treat `CompassElementWidget` as a Widget-style extension point: first identify w
 ### CompassElementWidget
 `public class CompassElementWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the CompassElementWidget logic.
+**Purpose:** Executes the CompassElementWidget logic.
 
 ```csharp
 // Obtain an instance of CompassElementWidget from the subsystem API first

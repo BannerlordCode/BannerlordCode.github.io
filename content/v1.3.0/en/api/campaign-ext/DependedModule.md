@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of version change set.
+**Purpose:** Recalculates and stores the latest representation of version change set.
 
 ```csharp
 // Obtain an instance of DependedModule from the subsystem API first

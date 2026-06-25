@@ -59,7 +59,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -70,7 +70,7 @@ skillVM.RefreshValues();
 ### InitializeValues
 `public void InitializeValues()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by values.
+**Purpose:** Prepares the resources, state, or bindings required by values.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -81,7 +81,7 @@ skillVM.InitializeValues();
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with current values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with current values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -92,7 +92,7 @@ skillVM.RefreshWithCurrentValues();
 ### CreateLists
 `public void CreateLists()`
 
-**Purpose:** **Purpose:** Constructs a new lists entity and returns it to the caller.
+**Purpose:** Constructs a new lists entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -103,7 +103,7 @@ skillVM.CreateLists();
 ### RefreshLists
 `public void RefreshLists(SkillObject skill = null)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of lists in sync with the underlying state.
+**Purpose:** Keeps the display or cache of lists in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -114,7 +114,7 @@ skillVM.RefreshLists(null);
 ### RefreshCanAddFocus
 `public void RefreshCanAddFocus()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of can add focus in sync with the underlying state.
+**Purpose:** Keeps the display or cache of can add focus in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -125,7 +125,7 @@ skillVM.RefreshCanAddFocus();
 ### ExecuteAddFocus
 `public void ExecuteAddFocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add focus.
+**Purpose:** Runs the operation or workflow associated with add focus.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -136,7 +136,7 @@ skillVM.ExecuteAddFocus();
 ### ExecuteShowFocusConcept
 `public void ExecuteShowFocusConcept()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show focus concept.
+**Purpose:** Runs the operation or workflow associated with show focus concept.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -147,7 +147,7 @@ skillVM.ExecuteShowFocusConcept();
 ### ExecuteShowSkillConcept
 `public void ExecuteShowSkillConcept()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show skill concept.
+**Purpose:** Runs the operation or workflow associated with show skill concept.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -158,7 +158,7 @@ skillVM.ExecuteShowSkillConcept();
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with inspect.
+**Purpose:** Runs the operation or workflow associated with inspect.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -169,7 +169,7 @@ skillVM.ExecuteInspect();
 ### ResetChanges
 `public void ResetChanges()`
 
-**Purpose:** **Purpose:** Returns changes to its default or initial condition.
+**Purpose:** Returns changes to its default or initial condition.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -180,7 +180,7 @@ skillVM.ResetChanges();
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the there any changes state or condition.
+**Purpose:** Determines whether the this instance is in the there any changes state or condition.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first
@@ -191,7 +191,7 @@ var result = skillVM.IsThereAnyChanges();
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**Purpose:** **Purpose:** Applies the effect of changes to the this instance.
+**Purpose:** Applies the effect of changes to the this instance.
 
 ```csharp
 // Obtain an instance of SkillVM from the subsystem API first

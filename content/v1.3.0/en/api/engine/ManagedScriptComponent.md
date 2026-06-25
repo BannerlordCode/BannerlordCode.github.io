@@ -29,7 +29,7 @@ Treat `ManagedScriptComponent` as a Component-style extension point: first ident
 ### SetVariableEditorWidgetStatus
 `public void SetVariableEditorWidgetStatus(string field, bool enabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to variable editor widget status and updates the object's internal state.
+**Purpose:** Assigns a new value to variable editor widget status and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ManagedScriptComponent from the subsystem API first
@@ -40,7 +40,7 @@ managedScriptComponent.SetVariableEditorWidgetStatus("example", false);
 ### SetVariableEditorWidgetValue
 `public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)`
 
-**Purpose:** **Purpose:** Assigns a new value to variable editor widget value and updates the object's internal state.
+**Purpose:** Assigns a new value to variable editor widget value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ManagedScriptComponent from the subsystem API first

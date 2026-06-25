@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### ClearAvatarCache
 `public void ClearAvatarCache()`
 
-**Purpose:** **Purpose:** Removes all avatar cache from the this instance.
+**Purpose:** Removes all avatar cache from the this instance.
 
 ```csharp
 // Obtain an instance of SteamPlatformServices from the subsystem API first

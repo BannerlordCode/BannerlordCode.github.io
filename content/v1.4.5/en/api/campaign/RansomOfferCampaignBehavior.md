@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RansomOfferCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ ransomOfferCampaignBehavior.RegisterEvents();
 ### SetCurrentRansomHero
 `public void SetCurrentRansomHero(Hero hero, Hero ransomPayer = null)`
 
-**Purpose:** **Purpose:** Assigns a new value to current ransom hero and updates the object's internal state.
+**Purpose:** Assigns a new value to current ransom hero and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RansomOfferCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ ransomOfferCampaignBehavior.SetCurrentRansomHero(hero, null);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RansomOfferCampaignBehavior from the subsystem API first

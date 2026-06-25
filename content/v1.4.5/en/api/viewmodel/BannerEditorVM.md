@@ -59,7 +59,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -70,7 +70,7 @@ bannerEditorVM.RefreshValues();
 ### RefreshSelectedColorsAndSigils
 `public void RefreshSelectedColorsAndSigils()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of selected colors and sigils in sync with the underlying state.
+**Purpose:** Keeps the display or cache of selected colors and sigils in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -81,7 +81,7 @@ bannerEditorVM.RefreshSelectedColorsAndSigils();
 ### SetClanRelatedRules
 `public void SetClanRelatedRules(bool canChangeBackgroundColor)`
 
-**Purpose:** **Purpose:** Assigns a new value to clan related rules and updates the object's internal state.
+**Purpose:** Assigns a new value to clan related rules and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -92,7 +92,7 @@ bannerEditorVM.SetClanRelatedRules(false);
 ### ExecuteSwitchColors
 `public void ExecuteSwitchColors()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch colors.
+**Purpose:** Runs the operation or workflow associated with switch colors.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -103,7 +103,7 @@ bannerEditorVM.ExecuteSwitchColors();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -114,7 +114,7 @@ bannerEditorVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -125,7 +125,7 @@ bannerEditorVM.ExecuteCancel();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -136,7 +136,7 @@ bannerEditorVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -147,7 +147,7 @@ bannerEditorVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -158,7 +158,7 @@ bannerEditorVM.SetDoneInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -169,7 +169,7 @@ bannerEditorVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -180,7 +180,7 @@ bannerEditorVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
+**Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first
@@ -191,7 +191,7 @@ bannerEditorVM.AddCameraControlInputKey(gameAxisKey, keyName);
 ### ExecuteGoToIndex
 `public void ExecuteGoToIndex(int index)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with go to index.
+**Purpose:** Runs the operation or workflow associated with go to index.
 
 ```csharp
 // Obtain an instance of BannerEditorVM from the subsystem API first

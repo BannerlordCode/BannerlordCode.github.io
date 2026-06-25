@@ -53,7 +53,7 @@ Treat `AttackCollisionData` as a Data-style extension point: first identify who 
 ### SetCollisionBoneIndexForAreaDamage
 `public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)`
 
-**Purpose:** **Purpose:** Assigns a new value to collision bone index for area damage and updates the object's internal state.
+**Purpose:** Assigns a new value to collision bone index for area damage and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AttackCollisionData from the subsystem API first
@@ -64,7 +64,7 @@ attackCollisionData.SetCollisionBoneIndexForAreaDamage(0);
 ### UpdateCollisionPositionAndBoneForReflect
 `public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of collision position and bone for reflect.
+**Purpose:** Recalculates and stores the latest representation of collision position and bone for reflect.
 
 ```csharp
 // Obtain an instance of AttackCollisionData from the subsystem API first
@@ -75,7 +75,7 @@ attackCollisionData.UpdateCollisionPositionAndBoneForReflect(0, position, 0);
 ### GetAttackCollisionDataForDebugPurpose
 `public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)`
 
-**Purpose:** **Purpose:** Reads and returns the attack collision data for debug purpose value held by the this instance.
+**Purpose:** Reads and returns the attack collision data for debug purpose value held by the this instance.
 
 ```csharp
 // Static call; no instance required

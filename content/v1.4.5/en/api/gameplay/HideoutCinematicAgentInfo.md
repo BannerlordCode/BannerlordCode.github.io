@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.MissionLogics.Hideout` to place it in the
 ### HasReachedTarget
 `public bool HasReachedTarget(float proximityThreshold = 0.5f)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds reached target.
+**Purpose:** Determines whether the this instance already holds reached target.
 
 ```csharp
 // Obtain an instance of HideoutCinematicAgentInfo from the subsystem API first

@@ -29,7 +29,7 @@ Treat `MissionGauntletOptionsUIHandler` as a Handler-style extension point: firs
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
@@ -40,7 +40,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
@@ -51,7 +51,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
@@ -62,7 +62,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenTick(0);
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
@@ -73,7 +73,7 @@ var result = missionGauntletOptionsUIHandler.OnEscape();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
+**Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first

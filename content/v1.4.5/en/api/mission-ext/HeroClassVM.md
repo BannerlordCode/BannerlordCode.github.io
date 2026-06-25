@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of HeroClassVM from the subsystem API first
@@ -52,7 +52,7 @@ heroClassVM.RefreshValues();
 ### UpdateEnabled
 `public void UpdateEnabled()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of enabled.
+**Purpose:** Recalculates and stores the latest representation of enabled.
 
 ```csharp
 // Obtain an instance of HeroClassVM from the subsystem API first
@@ -63,7 +63,7 @@ heroClassVM.UpdateEnabled();
 ### OnSelect
 `public void OnSelect()`
 
-**Purpose:** **Purpose:** Invoked when the select event is raised.
+**Purpose:** Invoked when the select event is raised.
 
 ```csharp
 // Obtain an instance of HeroClassVM from the subsystem API first

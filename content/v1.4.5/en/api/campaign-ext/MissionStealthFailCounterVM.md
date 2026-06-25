@@ -32,7 +32,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### UpdateFailCounter
 `public void UpdateFailCounter(float failCounterElapsedTime, float failCounterMaxTime, bool isStealthFailCounterMissionLogicActive)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of fail counter.
+**Purpose:** Recalculates and stores the latest representation of fail counter.
 
 ```csharp
 // Obtain an instance of MissionStealthFailCounterVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "ConfigurationManager 的自动生成类参考。"
 ### SetConfigurationManager
 `public static void SetConfigurationManager(IConfigurationManager configurationManager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 configuration manager 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 configuration manager 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ConfigurationManager.SetConfigurationManager(configurationManager);
 ### GetAppSettings
 `public static string GetAppSettings(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 app settings 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 app settings 的结果。
 
 ```csharp
 // 静态调用，不需要实例

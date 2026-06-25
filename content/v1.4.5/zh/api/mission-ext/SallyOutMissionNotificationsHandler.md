@@ -23,7 +23,7 @@ description: "SallyOutMissionNotificationsHandler 的自动生成类参考。"
 ### OnBesiegedSideFallsbackToKeep
 `public void OnBesiegedSideFallsbackToKeep()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 besieged side fallsback to keep 事件触发时调用此回调。
+**用途 / Purpose:** 在 besieged side fallsback to keep 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
@@ -34,7 +34,7 @@ sallyOutMissionNotificationsHandler.OnBesiegedSideFallsbackToKeep();
 ### OnAfterStart
 `public void OnAfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after start 事件触发时调用此回调。
+**用途 / Purpose:** 在 after start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
@@ -45,7 +45,7 @@ sallyOutMissionNotificationsHandler.OnAfterStart();
 ### OnMissionEnd
 `public void OnMissionEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission end 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
@@ -56,7 +56,7 @@ sallyOutMissionNotificationsHandler.OnMissionEnd();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
@@ -67,7 +67,7 @@ sallyOutMissionNotificationsHandler.OnDeploymentFinished();
 ### OnMissionTick
 `public void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例

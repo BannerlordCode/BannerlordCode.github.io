@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### UpdateValue
 `public override void UpdateValue()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of value.
+**Purpose:** Recalculates and stores the latest representation of value.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first
@@ -40,7 +40,7 @@ booleanOptionDataVM.UpdateValue();
 ### Cancel
 `public override void Cancel()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel.
+**Purpose:** Checks whether the this instance meets the preconditions for cel.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first
@@ -51,7 +51,7 @@ booleanOptionDataVM.Cancel();
 ### SetValue
 `public override void SetValue(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
+**Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first
@@ -62,7 +62,7 @@ booleanOptionDataVM.SetValue(0);
 ### ResetData
 `public override void ResetData()`
 
-**Purpose:** **Purpose:** Returns data to its default or initial condition.
+**Purpose:** Returns data to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first
@@ -73,7 +73,7 @@ booleanOptionDataVM.ResetData();
 ### IsChanged
 `public override bool IsChanged()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the changed state or condition.
+**Purpose:** Determines whether the this instance is in the changed state or condition.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first
@@ -84,7 +84,7 @@ var result = booleanOptionDataVM.IsChanged();
 ### ApplyValue
 `public override void ApplyValue()`
 
-**Purpose:** **Purpose:** Applies the effect of value to the this instance.
+**Purpose:** Applies the effect of value to the this instance.
 
 ```csharp
 // Obtain an instance of BooleanOptionDataVM from the subsystem API first

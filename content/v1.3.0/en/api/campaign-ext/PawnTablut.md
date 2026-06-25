@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PawnTablut from the subsystem API first

@@ -23,7 +23,7 @@ description: "TwoDimensionDrawContext 的自动生成类参考。"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -34,7 +34,7 @@ twoDimensionDrawContext.Reset();
 ### CreateSimpleMaterial
 `public SimpleMaterial CreateSimpleMaterial()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 simple material 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 simple material 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -45,7 +45,7 @@ var result = twoDimensionDrawContext.CreateSimpleMaterial();
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 text material 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 text material 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -56,7 +56,7 @@ var result = twoDimensionDrawContext.CreateTextMaterial();
 ### PushScissor
 `public void PushScissor(in Rectangle2D newScissorRectangle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PushScissor 对应的操作。
+**用途 / Purpose:** 调用 PushScissor 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -67,7 +67,7 @@ twoDimensionDrawContext.PushScissor(newScissorRectangle);
 ### PopScissor
 `public void PopScissor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PopScissor 对应的操作。
+**用途 / Purpose:** 调用 PopScissor 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -78,7 +78,7 @@ twoDimensionDrawContext.PopScissor();
 ### IsDiscardedByAnyScissor
 `public bool IsDiscardedByAnyScissor(in Rectangle2D rect)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 discarded by any scissor 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 discarded by any scissor 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -89,7 +89,7 @@ var result = twoDimensionDrawContext.IsDiscardedByAnyScissor(rect);
 ### SetCircualMask
 `public void SetCircualMask(Vector2 position, float radius, float smoothingRadius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 circual mask 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 circual mask 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -100,7 +100,7 @@ twoDimensionDrawContext.SetCircualMask(position, 0, 0);
 ### ClearCircualMask
 `public void ClearCircualMask()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的circual mask。
+**用途 / Purpose:** 清空当前对象中的circual mask。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -111,7 +111,7 @@ twoDimensionDrawContext.ClearCircualMask();
 ### DrawTo
 `public void DrawTo(TwoDimensionContext twoDimensionContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawTo 对应的操作。
+**用途 / Purpose:** 调用 DrawTo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -122,7 +122,7 @@ twoDimensionDrawContext.DrawTo(twoDimensionContext);
 ### DrawSprite
 `public void DrawSprite(Sprite sprite, SimpleMaterial material, in Rectangle2D rectangle, float scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawSprite 对应的操作。
+**用途 / Purpose:** 调用 DrawSprite 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -133,7 +133,7 @@ twoDimensionDrawContext.DrawSprite(sprite, material, rectangle, 0);
 ### Draw
 `public void Draw(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Draw 对应的操作。
+**用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -144,7 +144,7 @@ twoDimensionDrawContext.Draw(material, drawObject);
 ### Draw
 `public void Draw(TextMaterial material, in TextDrawObject drawObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Draw 对应的操作。
+**用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -155,7 +155,7 @@ twoDimensionDrawContext.Draw(material, drawObject);
 ### Draw
 `public void Draw(Text text, TextMaterial materialOriginal, in Rectangle2D parentRectangle, in Rectangle2D rectangle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Draw 对应的操作。
+**用途 / Purpose:** 调用 Draw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例

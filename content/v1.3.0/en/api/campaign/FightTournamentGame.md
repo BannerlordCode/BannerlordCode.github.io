@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### CanBeAParticipant
 `public override bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for be a participant.
+**Purpose:** Checks whether the this instance meets the preconditions for be a participant.
 
 ```csharp
 // Obtain an instance of FightTournamentGame from the subsystem API first
@@ -43,7 +43,7 @@ var result = fightTournamentGame.CanBeAParticipant(character, false);
 ### GetMenuText
 `public override TextObject GetMenuText()`
 
-**Purpose:** **Purpose:** Reads and returns the menu text value held by the this instance.
+**Purpose:** Reads and returns the menu text value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightTournamentGame from the subsystem API first
@@ -54,7 +54,7 @@ var result = fightTournamentGame.GetMenuText();
 ### OpenMission
 `public override void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with mission.
+**Purpose:** Opens the resource or UI associated with mission.
 
 ```csharp
 // Obtain an instance of FightTournamentGame from the subsystem API first
@@ -65,7 +65,7 @@ fightTournamentGame.OpenMission(settlement, false);
 ### GetParticipantCharacters
 `public override MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**Purpose:** **Purpose:** Reads and returns the participant characters value held by the this instance.
+**Purpose:** Reads and returns the participant characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightTournamentGame from the subsystem API first

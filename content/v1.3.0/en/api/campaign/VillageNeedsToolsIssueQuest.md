@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** **Purpose:** Invoked when the failed event is raised.
+**Purpose:** Invoked when the failed event is raised.
 
 ```csharp
 // Obtain an instance of VillageNeedsToolsIssueQuest from the subsystem API first
@@ -41,7 +41,7 @@ villageNeedsToolsIssueQuest.OnFailed();
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**Purpose:** **Purpose:** Executes the GiveTradeOrExchangeRewardToMainParty logic.
+**Purpose:** Executes the GiveTradeOrExchangeRewardToMainParty logic.
 
 ```csharp
 // Static call; no instance required

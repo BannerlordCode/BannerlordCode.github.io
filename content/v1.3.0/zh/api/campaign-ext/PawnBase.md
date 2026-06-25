@@ -40,7 +40,7 @@ description: "PawnBase 的自动生成类参考。"
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -51,7 +51,7 @@ pawnBase.Reset();
 ### AddGoalPosition
 `public virtual void AddGoalPosition(Vec3 goal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 goal position 添加到当前容器或状态中。
+**用途 / Purpose:** 将 goal position 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -62,7 +62,7 @@ pawnBase.AddGoalPosition(goal);
 ### SetPawnAtPosition
 `public virtual void SetPawnAtPosition(Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 pawn at position 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 pawn at position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -73,7 +73,7 @@ pawnBase.SetPawnAtPosition(position);
 ### MovePawnToGoalPositions
 `public virtual void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 移动pawn to goal positions到新的位置或状态。
+**用途 / Purpose:** 移动pawn to goal positions到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -84,7 +84,7 @@ pawnBase.MovePawnToGoalPositions(false, 0, false);
 ### EnableCollisionBody
 `public virtual void EnableCollisionBody()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableCollisionBody 对应的操作。
+**用途 / Purpose:** 调用 EnableCollisionBody 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -95,7 +95,7 @@ pawnBase.EnableCollisionBody();
 ### DisableCollisionBody
 `public virtual void DisableCollisionBody()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableCollisionBody 对应的操作。
+**用途 / Purpose:** 调用 DisableCollisionBody 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -106,7 +106,7 @@ pawnBase.DisableCollisionBody();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -117,7 +117,7 @@ pawnBase.Tick(0);
 ### MovePawnToGoalPositionsDelayed
 `public void MovePawnToGoalPositionsDelayed(bool instantMove, float speed, bool dragged, float delay)`
 
-**用途 / Purpose:** **用途 / Purpose:** 移动pawn to goal positions delayed到新的位置或状态。
+**用途 / Purpose:** 移动pawn to goal positions delayed到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -128,7 +128,7 @@ pawnBase.MovePawnToGoalPositionsDelayed(false, 0, false, 0);
 ### SetPlayerOne
 `public void SetPlayerOne(bool playerOne)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 player one 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 player one 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -139,7 +139,7 @@ pawnBase.SetPlayerOne(false);
 ### ClearGoalPositions
 `public void ClearGoalPositions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的goal positions。
+**用途 / Purpose:** 清空当前对象中的goal positions。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -150,7 +150,7 @@ pawnBase.ClearGoalPositions();
 ### UpdatePawnPosition
 `public void UpdatePawnPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 pawn position 的最新表示。
+**用途 / Purpose:** 重新计算并更新 pawn position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -161,7 +161,7 @@ pawnBase.UpdatePawnPosition();
 ### PlayPawnSelectSound
 `public void PlayPawnSelectSound()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayPawnSelectSound 对应的操作。
+**用途 / Purpose:** 调用 PlayPawnSelectSound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例

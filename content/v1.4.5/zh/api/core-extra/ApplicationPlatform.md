@@ -31,7 +31,7 @@ description: "ApplicationPlatform 的自动生成类参考。"
 ### Initialize
 `public static void Initialize(EngineType engineType, Platform currentPlatform, Runtime currentRuntimeLibrary)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrar
 ### IsPlatformWindows
 `public static bool IsPlatformWindows()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 platform windows 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 platform windows 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ ApplicationPlatform.IsPlatformWindows();
 ### IsPlatformConsole
 `public static bool IsPlatformConsole()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 platform console 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 platform console 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

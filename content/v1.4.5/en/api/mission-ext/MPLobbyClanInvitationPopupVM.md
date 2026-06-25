@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
@@ -47,7 +47,7 @@ mPLobbyClanInvitationPopupVM.RefreshValues();
 ### Open
 `public void Open(string clanName, string clanTag, bool isCreation)`
 
-**Purpose:** **Purpose:** Opens the resource or UI represented by the this instance.
+**Purpose:** Opens the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
@@ -58,7 +58,7 @@ mPLobbyClanInvitationPopupVM.Open("example", "example", false);
 ### Close
 `public void Close()`
 
-**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
+**Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
@@ -69,7 +69,7 @@ mPLobbyClanInvitationPopupVM.Close();
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of confirmation.
+**Purpose:** Recalculates and stores the latest representation of confirmation.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first

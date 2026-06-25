@@ -19,7 +19,7 @@ ApplyHeirSelectionAction is a set of static methods that trigger "ApplyHeirSelec
 public static void ApplyByDeath(Hero heir)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by death to the this instance.
+**Purpose:** Applies the effect of by death to the this instance.
 
 ### ApplyByRetirement
 
@@ -27,7 +27,7 @@ public static void ApplyByDeath(Hero heir)
 public static void ApplyByRetirement(Hero heir)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by retirement to the this instance.
+**Purpose:** Applies the effect of by retirement to the this instance.
 
 ## Usage Example
 

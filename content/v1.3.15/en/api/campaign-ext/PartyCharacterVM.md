@@ -86,7 +86,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### UpdateTalkable
 `public void UpdateTalkable()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of talkable.
+**Purpose:** Recalculates and stores the latest representation of talkable.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -97,7 +97,7 @@ partyCharacterVM.UpdateTalkable();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -108,7 +108,7 @@ partyCharacterVM.RefreshValues();
 ### ExecuteSetSelected
 `public void ExecuteSetSelected()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set selected.
+**Purpose:** Runs the operation or workflow associated with set selected.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -119,7 +119,7 @@ partyCharacterVM.ExecuteSetSelected();
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with talk.
+**Purpose:** Runs the operation or workflow associated with talk.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -130,7 +130,7 @@ partyCharacterVM.ExecuteTalk();
 ### UpdateTradeData
 `public void UpdateTradeData()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of trade data.
+**Purpose:** Recalculates and stores the latest representation of trade data.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -141,7 +141,7 @@ partyCharacterVM.UpdateTradeData();
 ### UpdateRecruitable
 `public void UpdateRecruitable()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of recruitable.
+**Purpose:** Recalculates and stores the latest representation of recruitable.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -152,7 +152,7 @@ partyCharacterVM.UpdateRecruitable();
 ### InitializeUpgrades
 `public void InitializeUpgrades()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by upgrades.
+**Purpose:** Prepares the resources, state, or bindings required by upgrades.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -163,7 +163,7 @@ partyCharacterVM.InitializeUpgrades();
 ### OnTransferred
 `public void OnTransferred()`
 
-**Purpose:** **Purpose:** Invoked when the transferred event is raised.
+**Purpose:** Invoked when the transferred event is raised.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -174,7 +174,7 @@ partyCharacterVM.OnTransferred();
 ### ThrowOnPropertyChanged
 `public void ThrowOnPropertyChanged()`
 
-**Purpose:** **Purpose:** Executes the ThrowOnPropertyChanged logic.
+**Purpose:** Executes the ThrowOnPropertyChanged logic.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -185,7 +185,7 @@ partyCharacterVM.ThrowOnPropertyChanged();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -196,7 +196,7 @@ var result = partyCharacterVM.Equals(obj);
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
+**Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -207,7 +207,7 @@ partyCharacterVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
+**Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -218,7 +218,7 @@ partyCharacterVM.ExecuteSetUnfocused();
 ### ExecuteTransferSingle
 `public void ExecuteTransferSingle()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with transfer single.
+**Purpose:** Runs the operation or workflow associated with transfer single.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -229,7 +229,7 @@ partyCharacterVM.ExecuteTransferSingle();
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset trade.
+**Purpose:** Runs the operation or workflow associated with reset trade.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -240,7 +240,7 @@ partyCharacterVM.ExecuteResetTrade();
 ### Upgrade
 `public void Upgrade(int upgradeIndex, int maxUpgradeCount)`
 
-**Purpose:** **Purpose:** Executes the Upgrade logic.
+**Purpose:** Executes the Upgrade logic.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -251,7 +251,7 @@ partyCharacterVM.Upgrade(0, 0);
 ### FocusUpgrade
 `public void FocusUpgrade(UpgradeTargetVM upgrade)`
 
-**Purpose:** **Purpose:** Executes the FocusUpgrade logic.
+**Purpose:** Executes the FocusUpgrade logic.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -262,7 +262,7 @@ partyCharacterVM.FocusUpgrade(upgrade);
 ### RecruitAll
 `public void RecruitAll()`
 
-**Purpose:** **Purpose:** Executes the RecruitAll logic.
+**Purpose:** Executes the RecruitAll logic.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -273,7 +273,7 @@ partyCharacterVM.RecruitAll();
 ### ExecuteRecruitTroop
 `public void ExecuteRecruitTroop()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with recruit troop.
+**Purpose:** Runs the operation or workflow associated with recruit troop.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -284,7 +284,7 @@ partyCharacterVM.ExecuteRecruitTroop();
 ### ExecuteExecuteTroop
 `public void ExecuteExecuteTroop()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with execute troop.
+**Purpose:** Runs the operation or workflow associated with execute troop.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -295,7 +295,7 @@ partyCharacterVM.ExecuteExecuteTroop();
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open troop encyclopedia.
+**Purpose:** Runs the operation or workflow associated with open troop encyclopedia.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -306,7 +306,7 @@ partyCharacterVM.ExecuteOpenTroopEncyclopedia();
 ### SetIsUpgradeButtonHighlighted
 `public void SetIsUpgradeButtonHighlighted(bool isHighlighted)`
 
-**Purpose:** **Purpose:** Assigns a new value to is upgrade button highlighted and updates the object's internal state.
+**Purpose:** Assigns a new value to is upgrade button highlighted and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -317,7 +317,7 @@ partyCharacterVM.SetIsUpgradeButtonHighlighted(false);
 ### GetNumOfCategoryItemPartyHas
 `public int GetNumOfCategoryItemPartyHas(ItemRoster items, ItemCategory itemCategory)`
 
-**Purpose:** **Purpose:** Reads and returns the num of category item party has value held by the this instance.
+**Purpose:** Reads and returns the num of category item party has value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first
@@ -328,7 +328,7 @@ var result = partyCharacterVM.GetNumOfCategoryItemPartyHas(items, itemCategory);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of PartyCharacterVM from the subsystem API first

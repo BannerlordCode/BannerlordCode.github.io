@@ -65,7 +65,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### ChangeFigurehead
 `public void ChangeFigurehead(Figurehead figurehead)`
 
-**Purpose:** **Purpose:** Executes the ChangeFigurehead logic.
+**Purpose:** Executes the ChangeFigurehead logic.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -76,7 +76,7 @@ ship.ChangeFigurehead(figurehead);
 ### GetPieceAtSlot
 `public ShipUpgradePiece GetPieceAtSlot(string slotTag)`
 
-**Purpose:** **Purpose:** Reads and returns the piece at slot value held by the this instance.
+**Purpose:** Reads and returns the piece at slot value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -87,7 +87,7 @@ var result = ship.GetPieceAtSlot("example");
 ### SetPieceAtSlot
 `public void SetPieceAtSlot(string slotTag, ShipUpgradePiece upgradePiece)`
 
-**Purpose:** **Purpose:** Assigns a new value to piece at slot and updates the object's internal state.
+**Purpose:** Assigns a new value to piece at slot and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -98,7 +98,7 @@ ship.SetPieceAtSlot("example", upgradePiece);
 ### HasSlot
 `public bool HasSlot(string slotTag)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds slot.
+**Purpose:** Determines whether the this instance already holds slot.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -109,7 +109,7 @@ var result = ship.HasSlot("example");
 ### SetName
 `public void SetName(TextObject name)`
 
-**Purpose:** **Purpose:** Assigns a new value to name and updates the object's internal state.
+**Purpose:** Assigns a new value to name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -120,7 +120,7 @@ ship.SetName(name);
 ### GetCampaignSpeed
 `public float GetCampaignSpeed()`
 
-**Purpose:** **Purpose:** Reads and returns the campaign speed value held by the this instance.
+**Purpose:** Reads and returns the campaign speed value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -131,7 +131,7 @@ var result = ship.GetCampaignSpeed();
 ### AddToAvailablePieces
 `public void AddToAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**Purpose:** **Purpose:** Adds to available pieces to the current collection or state.
+**Purpose:** Adds to available pieces to the current collection or state.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -142,7 +142,7 @@ ship.AddToAvailablePieces(upgradePiece);
 ### RemoveFromAvailablePieces
 `public void RemoveFromAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**Purpose:** **Purpose:** Removes from available pieces from the current collection or state.
+**Purpose:** Removes from available pieces from the current collection or state.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -153,7 +153,7 @@ ship.RemoveFromAvailablePieces(upgradePiece);
 ### GetSiegeEngines
 `public MBList<SiegeEngineType> GetSiegeEngines()`
 
-**Purpose:** **Purpose:** Reads and returns the siege engines value held by the this instance.
+**Purpose:** Reads and returns the siege engines value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -164,7 +164,7 @@ var result = ship.GetSiegeEngines();
 ### ResetReservedUpgradePieces
 `public void ResetReservedUpgradePieces()`
 
-**Purpose:** **Purpose:** Returns reserved upgrade pieces to its default or initial condition.
+**Purpose:** Returns reserved upgrade pieces to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -175,7 +175,7 @@ ship.ResetReservedUpgradePieces();
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of version no.
+**Purpose:** Recalculates and stores the latest representation of version no.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -186,7 +186,7 @@ ship.UpdateVersionNo();
 ### GetCombatFactor
 `public float GetCombatFactor()`
 
-**Purpose:** **Purpose:** Reads and returns the combat factor value held by the this instance.
+**Purpose:** Reads and returns the combat factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -197,7 +197,7 @@ var result = ship.GetCombatFactor();
 ### OnShipDamaged
 `public void OnShipDamaged(float rawDamage, out float modifiedDamage)`
 
-**Purpose:** **Purpose:** Invoked when the ship damaged event is raised.
+**Purpose:** Invoked when the ship damaged event is raised.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first
@@ -208,7 +208,7 @@ ship.OnShipDamaged(0, modifiedDamage);
 ### GetShipVisualSlotInfos
 `public List<ShipVisualSlotInfo> GetShipVisualSlotInfos()`
 
-**Purpose:** **Purpose:** Reads and returns the ship visual slot infos value held by the this instance.
+**Purpose:** Reads and returns the ship visual slot infos value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ship from the subsystem API first

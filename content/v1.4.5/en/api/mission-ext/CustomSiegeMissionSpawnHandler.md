@@ -23,7 +23,7 @@ Treat `CustomSiegeMissionSpawnHandler` as a Handler-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CustomSiegeMissionSpawnHandler from the subsystem API first

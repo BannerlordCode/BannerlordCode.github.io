@@ -23,7 +23,7 @@ description: "TacticBreachWalls 的自动生成类参考。"
 ### GetRetreatThresholdRatio
 `public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 retreat threshold ratio 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 retreat threshold ratio 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticBreachWalls 实例
@@ -34,7 +34,7 @@ var result = tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticBreachWalls 实例

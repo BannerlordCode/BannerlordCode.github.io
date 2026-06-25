@@ -19,7 +19,7 @@ LiftSiegeAction 是一组静态方法，用于在战役中以特定原因触发"
 public static void GetGameAction(MobileParty side1Party)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game action 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 game action 的结果。
 
 ## 使用示例
 

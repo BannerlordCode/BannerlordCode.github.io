@@ -23,7 +23,7 @@ Treat `CasualtyHandler` as a Handler-style extension point: first identify who c
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CasualtyHandler from the subsystem API first
@@ -34,7 +34,7 @@ casualtyHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killing
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** **Purpose:** Invoked when the agent fleeing event is raised.
+**Purpose:** Invoked when the agent fleeing event is raised.
 
 ```csharp
 // Obtain an instance of CasualtyHandler from the subsystem API first
@@ -45,7 +45,7 @@ casualtyHandler.OnAgentFleeing(affectedAgent);
 ### GetCasualtyCountOfFormation
 `public int GetCasualtyCountOfFormation(Formation formation)`
 
-**Purpose:** **Purpose:** Reads and returns the casualty count of formation value held by the this instance.
+**Purpose:** Reads and returns the casualty count of formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of CasualtyHandler from the subsystem API first
@@ -56,7 +56,7 @@ var result = casualtyHandler.GetCasualtyCountOfFormation(formation);
 ### GetCasualtyPowerLossOfFormation
 `public float GetCasualtyPowerLossOfFormation(Formation formation)`
 
-**Purpose:** **Purpose:** Reads and returns the casualty power loss of formation value held by the this instance.
+**Purpose:** Reads and returns the casualty power loss of formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of CasualtyHandler from the subsystem API first

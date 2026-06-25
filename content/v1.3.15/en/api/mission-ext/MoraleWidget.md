@@ -45,7 +45,7 @@ Treat `MoraleWidget` as a Widget-style extension point: first identify who creat
 ### SetFillAmount
 `public void SetFillAmount(float fill, int fillMargin)`
 
-**Purpose:** **Purpose:** Assigns a new value to fill amount and updates the object's internal state.
+**Purpose:** Assigns a new value to fill amount and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MoraleWidget from the subsystem API first

@@ -32,7 +32,7 @@ description: "TrainingFieldObjectiveItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectiveItemVM 实例
@@ -43,7 +43,7 @@ trainingFieldObjectiveItemVM.RefreshValues();
 ### CreateFromObjective
 `public static TrainingFieldObjectiveItemVM CreateFromObjective(TrainingFieldMissionController.TutorialObjective objective)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from objective 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from objective 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ Treat `ItemCollectionElementViewModel` as a ViewModel-style extension point: fir
 ### FillFrom
 `public void FillFrom(EquipmentElement item, Banner banner = null)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of ItemCollectionElementViewModel from the subsystem API first
@@ -45,7 +45,7 @@ itemCollectionElementViewModel.FillFrom(item, null);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ItemCollectionElementViewModel from the subsystem API first

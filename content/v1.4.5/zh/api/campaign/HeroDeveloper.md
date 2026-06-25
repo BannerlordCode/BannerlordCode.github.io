@@ -32,7 +32,7 @@ description: "HeroDeveloper 的自动生成类参考。"
 ### GetSkillXpProgress
 `public int GetSkillXpProgress(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -43,7 +43,7 @@ var result = heroDeveloper.GetSkillXpProgress(skill);
 ### GetSkillXp
 `public float GetSkillXp(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -54,7 +54,7 @@ var result = heroDeveloper.GetSkillXp(skill);
 ### ClearUnspentPoints
 `public void ClearUnspentPoints()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的unspent points。
+**用途 / Purpose:** 清空当前对象中的unspent points。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -65,7 +65,7 @@ heroDeveloper.ClearUnspentPoints();
 ### ResetCharacterStats
 `public void ResetCharacterStats()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 character stats 重置回默认或初始状态。
+**用途 / Purpose:** 将 character stats 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -76,7 +76,7 @@ heroDeveloper.ResetCharacterStats();
 ### ClearHero
 `public void ClearHero()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的hero。
+**用途 / Purpose:** 清空当前对象中的hero。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -87,7 +87,7 @@ heroDeveloper.ClearHero();
 ### InitializeHeroDeveloper
 `public void InitializeHeroDeveloper()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hero developer 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 hero developer 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -98,7 +98,7 @@ heroDeveloper.InitializeHeroDeveloper();
 ### DevelopCharacterStats
 `public void DevelopCharacterStats()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DevelopCharacterStats 对应的操作。
+**用途 / Purpose:** 调用 DevelopCharacterStats 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -109,7 +109,7 @@ heroDeveloper.DevelopCharacterStats();
 ### GetTotalSkillPoints
 `public int GetTotalSkillPoints()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total skill points 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total skill points 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -120,7 +120,7 @@ var result = heroDeveloper.GetTotalSkillPoints();
 ### ChangeSkillLevel
 `public void ChangeSkillLevel(SkillObject skill, int changeAmount, bool shouldNotify = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeSkillLevel 对应的操作。
+**用途 / Purpose:** 调用 ChangeSkillLevel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -131,7 +131,7 @@ heroDeveloper.ChangeSkillLevel(skill, 0, false);
 ### SetInitialSkillLevel
 `public void SetInitialSkillLevel(SkillObject skill, int newSkillValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial skill level 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial skill level 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -142,7 +142,7 @@ heroDeveloper.SetInitialSkillLevel(skill, 0);
 ### AddSkillXp
 `public void AddSkillXp(SkillObject skill, float rawXp, bool isAffectedByFocusFactor = true, bool shouldNotify = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 skill xp 添加到当前容器或状态中。
+**用途 / Purpose:** 将 skill xp 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -153,7 +153,7 @@ heroDeveloper.AddSkillXp(skill, 0, false, false);
 ### GetFocusFactor
 `public float GetFocusFactor(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 focus factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 focus factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -164,7 +164,7 @@ var result = heroDeveloper.GetFocusFactor(skill);
 ### CheckLevel
 `public void CheckLevel(bool shouldNotify)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查level在当前对象中是否成立。
+**用途 / Purpose:** 检查level在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -175,7 +175,7 @@ heroDeveloper.CheckLevel(false);
 ### ResetTotalXpForPlayerCharacter
 `public void ResetTotalXpForPlayerCharacter()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 total xp for player character 重置回默认或初始状态。
+**用途 / Purpose:** 将 total xp for player character 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -186,7 +186,7 @@ heroDeveloper.ResetTotalXpForPlayerCharacter();
 ### SetInitialLevel
 `public void SetInitialLevel(int level)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial level 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial level 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -197,7 +197,7 @@ heroDeveloper.SetInitialLevel(0);
 ### AddPerk
 `public void AddPerk(PerkObject perk)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 perk 添加到当前容器或状态中。
+**用途 / Purpose:** 将 perk 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -208,7 +208,7 @@ heroDeveloper.AddPerk(perk);
 ### GetXpRequiredForLevel
 `public int GetXpRequiredForLevel(int level)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp required for level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 xp required for level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -219,7 +219,7 @@ var result = heroDeveloper.GetXpRequiredForLevel(0);
 ### RemoveAttribute
 `public void RemoveAttribute(CharacterAttribute attrib, int changeAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 attribute。
+**用途 / Purpose:** 从当前容器或状态中移除 attribute。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -230,7 +230,7 @@ heroDeveloper.RemoveAttribute(attrib, 0);
 ### AddAttribute
 `public void AddAttribute(CharacterAttribute attrib, int changeAmount, bool checkUnspentPoints = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 attribute 添加到当前容器或状态中。
+**用途 / Purpose:** 将 attribute 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -241,7 +241,7 @@ heroDeveloper.AddAttribute(attrib, 0, false);
 ### AddFocus
 `public void AddFocus(SkillObject skill, int changeAmount, bool checkUnspentFocusPoints = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 focus 添加到当前容器或状态中。
+**用途 / Purpose:** 将 focus 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -252,7 +252,7 @@ heroDeveloper.AddFocus(skill, 0, false);
 ### RemoveFocus
 `public void RemoveFocus(SkillObject skill, int changeAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 focus。
+**用途 / Purpose:** 从当前容器或状态中移除 focus。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -263,7 +263,7 @@ heroDeveloper.RemoveFocus(skill, 0);
 ### CanAddFocusToSkill
 `public bool CanAddFocusToSkill(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 add focus to skill 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 add focus to skill 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -274,7 +274,7 @@ var result = heroDeveloper.CanAddFocusToSkill(skill);
 ### GetRequiredFocusPointsToAddFocus
 `public int GetRequiredFocusPointsToAddFocus(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 required focus points to add focus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 required focus points to add focus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -285,7 +285,7 @@ var result = heroDeveloper.GetRequiredFocusPointsToAddFocus(skill);
 ### GetFocus
 `public int GetFocus(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 focus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 focus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -296,7 +296,7 @@ var result = heroDeveloper.GetFocus(skill);
 ### GetPerkValue
 `public bool GetPerkValue(PerkObject perk)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 perk value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 perk value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -307,7 +307,7 @@ var result = heroDeveloper.GetPerkValue(perk);
 ### InitializeSkillXp
 `public void InitializeSkillXp(SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 skill xp 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 skill xp 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -318,7 +318,7 @@ heroDeveloper.InitializeSkillXp(skill);
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterLoad 对应的操作。
+**用途 / Purpose:** 调用 AfterLoad 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例

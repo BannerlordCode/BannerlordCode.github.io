@@ -23,7 +23,7 @@ description: "MBObjectManagerExtensions 的自动生成类参考。"
 ### LoadXML
 `public static void LoadXML(this MBObjectManager objectManager, string id, bool skipXmlFilterForEditor = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 x m l。
+**用途 / Purpose:** 从持久化存储或流中读取 x m l。
 
 ```csharp
 // 静态调用，不需要实例

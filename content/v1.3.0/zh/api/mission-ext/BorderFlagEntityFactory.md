@@ -23,7 +23,7 @@ description: "BorderFlagEntityFactory 的自动生成类参考。"
 ### MakeEntity
 `public GameEntity MakeEntity(params object paramObjects)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeEntity 对应的操作。
+**用途 / Purpose:** 调用 MakeEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BorderFlagEntityFactory 实例

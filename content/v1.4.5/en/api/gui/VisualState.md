@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFromWidget
 `public void FillFromWidget(Widget widget)`
 
-**Purpose:** **Purpose:** Executes the FillFromWidget logic.
+**Purpose:** Executes the FillFromWidget logic.
 
 ```csharp
 // Obtain an instance of VisualState from the subsystem API first

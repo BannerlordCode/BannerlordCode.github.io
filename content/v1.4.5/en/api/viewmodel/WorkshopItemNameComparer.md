@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of WorkshopItemNameComparer from the subsystem API first

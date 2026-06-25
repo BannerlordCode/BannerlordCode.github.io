@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first
@@ -42,7 +42,7 @@ saveLoadHeroTableauTextureProvider.Tick(0);
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first
@@ -53,7 +53,7 @@ saveLoadHeroTableauTextureProvider.SetTargetSize(0, 0);
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first

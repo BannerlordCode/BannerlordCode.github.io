@@ -23,7 +23,7 @@ Treat `MBUnusedResourceManager` as a Manager-style extension point: first identi
 ### SetMeshUsed
 `public static void SetMeshUsed(string meshName)`
 
-**Purpose:** **Purpose:** Assigns a new value to mesh used and updates the object's internal state.
+**Purpose:** Assigns a new value to mesh used and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBUnusedResourceManager.SetMeshUsed("example");
 ### SetMaterialUsed
 `public static void SetMaterialUsed(string meshName)`
 
-**Purpose:** **Purpose:** Assigns a new value to material used and updates the object's internal state.
+**Purpose:** Assigns a new value to material used and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBUnusedResourceManager.SetMaterialUsed("example");
 ### SetBodyUsed
 `public static void SetBodyUsed(string bodyName)`
 
-**Purpose:** **Purpose:** Assigns a new value to body used and updates the object's internal state.
+**Purpose:** Assigns a new value to body used and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

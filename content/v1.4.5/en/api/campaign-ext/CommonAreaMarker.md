@@ -30,7 +30,7 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### GetUsableMachinesInRange
 `public override List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**Purpose:** **Purpose:** Reads and returns the usable machines in range value held by the this instance.
+**Purpose:** Reads and returns the usable machines in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of CommonAreaMarker from the subsystem API first
@@ -41,7 +41,7 @@ var result = commonAreaMarker.GetUsableMachinesInRange("example");
 ### GetAlley
 `public Alley GetAlley()`
 
-**Purpose:** **Purpose:** Reads and returns the alley value held by the this instance.
+**Purpose:** Reads and returns the alley value held by the this instance.
 
 ```csharp
 // Obtain an instance of CommonAreaMarker from the subsystem API first
@@ -52,7 +52,7 @@ var result = commonAreaMarker.GetAlley();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of CommonAreaMarker from the subsystem API first

@@ -23,7 +23,7 @@ Treat `ReplayMissionView` as a View-style extension point: first identify who cr
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -34,7 +34,7 @@ replayMissionView.OnBehaviorInitialize();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -45,7 +45,7 @@ replayMissionView.OnPreMissionTick(0);
 ### OverrideInput
 `public void OverrideInput(bool isOverridden)`
 
-**Purpose:** **Purpose:** Executes the OverrideInput logic.
+**Purpose:** Executes the OverrideInput logic.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -56,7 +56,7 @@ replayMissionView.OverrideInput(false);
 ### ResetReplay
 `public void ResetReplay()`
 
-**Purpose:** **Purpose:** Returns replay to its default or initial condition.
+**Purpose:** Returns replay to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -67,7 +67,7 @@ replayMissionView.ResetReplay();
 ### Rewind
 `public void Rewind(float time)`
 
-**Purpose:** **Purpose:** Executes the Rewind logic.
+**Purpose:** Executes the Rewind logic.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -78,7 +78,7 @@ replayMissionView.Rewind(0);
 ### FastForward
 `public void FastForward(float time)`
 
-**Purpose:** **Purpose:** Executes the FastForward logic.
+**Purpose:** Executes the FastForward logic.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -89,7 +89,7 @@ replayMissionView.FastForward(0);
 ### Pause
 `public void Pause()`
 
-**Purpose:** **Purpose:** Executes the Pause logic.
+**Purpose:** Executes the Pause logic.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first
@@ -100,7 +100,7 @@ replayMissionView.Pause();
 ### Resume
 `public void Resume()`
 
-**Purpose:** **Purpose:** Executes the Resume logic.
+**Purpose:** Executes the Resume logic.
 
 ```csharp
 // Obtain an instance of ReplayMissionView from the subsystem API first

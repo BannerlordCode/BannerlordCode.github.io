@@ -32,7 +32,7 @@ Treat `DefaultMapWeatherModel` as a Model-style extension point: first identify 
 ### GetInterpolatedAtmosphereState
 `public override AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
 
-**Purpose:** **Purpose:** Reads and returns the interpolated atmosphere state value held by the this instance.
+**Purpose:** Reads and returns the interpolated atmosphere state value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -43,7 +43,7 @@ var result = defaultMapWeatherModel.GetInterpolatedAtmosphereState(timeOfYear, p
 ### GetAtmosphereModel
 `public override AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Reads and returns the atmosphere model value held by the this instance.
+**Purpose:** Reads and returns the atmosphere model value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -54,7 +54,7 @@ var result = defaultMapWeatherModel.GetAtmosphereModel(position);
 ### InitializeCaches
 `public override void InitializeCaches()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by caches.
+**Purpose:** Prepares the resources, state, or bindings required by caches.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -65,7 +65,7 @@ defaultMapWeatherModel.InitializeCaches();
 ### UpdateWeatherForPosition
 `public override MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of weather for position.
+**Purpose:** Recalculates and stores the latest representation of weather for position.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -76,7 +76,7 @@ var result = defaultMapWeatherModel.UpdateWeatherForPosition(position, ct);
 ### GetSnowAndRainDataForPosition
 `public override void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
 
-**Purpose:** **Purpose:** Reads and returns the snow and rain data for position value held by the this instance.
+**Purpose:** Reads and returns the snow and rain data for position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -87,7 +87,7 @@ defaultMapWeatherModel.GetSnowAndRainDataForPosition(position, ct, snowValue, ra
 ### GetWeatherEventInPosition
 `public override MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
 
-**Purpose:** **Purpose:** Reads and returns the weather event in position value held by the this instance.
+**Purpose:** Reads and returns the weather event in position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -98,7 +98,7 @@ var result = defaultMapWeatherModel.GetWeatherEventInPosition(pos);
 ### GetWeatherEffectOnTerrainForPosition
 `public override MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
 
-**Purpose:** **Purpose:** Reads and returns the weather effect on terrain for position value held by the this instance.
+**Purpose:** Reads and returns the weather effect on terrain for position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -109,7 +109,7 @@ var result = defaultMapWeatherModel.GetWeatherEffectOnTerrainForPosition(pos);
 ### GetSeasonTimeFactorOfCampaignTime
 `public override void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
 
-**Purpose:** **Purpose:** Reads and returns the season time factor of campaign time value held by the this instance.
+**Purpose:** Reads and returns the season time factor of campaign time value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first
@@ -120,7 +120,7 @@ defaultMapWeatherModel.GetSeasonTimeFactorOfCampaignTime(ct, timeFactorForSnow, 
 ### GetWindForPosition
 `public override Vec2 GetWindForPosition(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Reads and returns the wind for position value held by the this instance.
+**Purpose:** Reads and returns the wind for position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapWeatherModel from the subsystem API first

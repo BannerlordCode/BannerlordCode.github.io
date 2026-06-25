@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of AgentLastHitInfo from the subsystem API first
@@ -42,7 +42,7 @@ agentLastHitInfo.Initialize();
 ### RegisterLastBlow
 `public void RegisterLastBlow(int ownerId, AgentAttackType attackType)`
 
-**Purpose:** **Purpose:** Registers last blow with the current system so it can later be observed or dispatched.
+**Purpose:** Registers last blow with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of AgentLastHitInfo from the subsystem API first

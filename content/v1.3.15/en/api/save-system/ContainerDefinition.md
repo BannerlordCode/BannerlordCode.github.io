@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for auto generation.
+**Purpose:** Prepares the resources, state, or bindings required by for auto generation.
 
 ```csharp
 // Obtain an instance of ContainerDefinition from the subsystem API first

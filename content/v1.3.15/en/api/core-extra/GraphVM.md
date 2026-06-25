@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ### Draw
 `public void Draw( { "line", "points" })`
 
-**Purpose:** **Purpose:** Executes the Draw logic.
+**Purpose:** Executes the Draw logic.
 
 ```csharp
 // Obtain an instance of GraphVM from the subsystem API first

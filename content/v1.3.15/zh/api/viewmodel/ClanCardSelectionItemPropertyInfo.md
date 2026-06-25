@@ -23,7 +23,7 @@ description: "ClanCardSelectionItemPropertyInfo 的自动生成类参考。"
 ### CreateLabeledValueText
 `public static TextObject CreateLabeledValueText(TextObject label, TextObject value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 labeled value text 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 labeled value text 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ClanCardSelectionItemPropertyInfo.CreateLabeledValueText(label, value);
 ### CreateActionGoldChangeText
 `public static TextObject CreateActionGoldChangeText(int goldChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 action gold change text 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 action gold change text 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

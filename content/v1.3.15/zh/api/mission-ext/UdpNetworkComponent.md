@@ -23,7 +23,7 @@ description: "UdpNetworkComponent 的自动生成类参考。"
 ### OnUdpNetworkHandlerClose
 `public virtual void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
+**用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -34,7 +34,7 @@ udpNetworkComponent.OnUdpNetworkHandlerClose();
 ### OnUdpNetworkHandlerTick
 `public virtual void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -45,7 +45,7 @@ udpNetworkComponent.OnUdpNetworkHandlerTick(0);
 ### HandleNewClientConnect
 `public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 new client connect 相关的响应逻辑。
+**用途 / Purpose:** 响应 new client connect 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -56,7 +56,7 @@ udpNetworkComponent.HandleNewClientConnect(clientConnectionInfo);
 ### HandleEarlyNewClientAfterLoadingFinished
 `public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 early new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 early new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -67,7 +67,7 @@ udpNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterLoadingFinished
 `public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -78,7 +78,7 @@ udpNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
 ### HandleLateNewClientAfterLoadingFinished
 `public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 late new client after loading finished 相关的响应逻辑。
+**用途 / Purpose:** 响应 late new client after loading finished 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -89,7 +89,7 @@ udpNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterSynchronized
 `public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 new client after synchronized 相关的响应逻辑。
+**用途 / Purpose:** 响应 new client after synchronized 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -100,7 +100,7 @@ udpNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
 ### HandleLateNewClientAfterSynchronized
 `public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 late new client after synchronized 相关的响应逻辑。
+**用途 / Purpose:** 响应 late new client after synchronized 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -111,7 +111,7 @@ udpNetworkComponent.HandleLateNewClientAfterSynchronized(networkPeer);
 ### OnEveryoneUnSynchronized
 `public virtual void OnEveryoneUnSynchronized()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 everyone un synchronized 事件触发时调用此回调。
+**用途 / Purpose:** 在 everyone un synchronized 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -122,7 +122,7 @@ udpNetworkComponent.OnEveryoneUnSynchronized();
 ### HandleEarlyPlayerDisconnect
 `public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 early player disconnect 相关的响应逻辑。
+**用途 / Purpose:** 响应 early player disconnect 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -133,7 +133,7 @@ udpNetworkComponent.HandleEarlyPlayerDisconnect(networkPeer);
 ### HandlePlayerDisconnect
 `public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
+**用途 / Purpose:** 响应 player disconnect 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -144,7 +144,7 @@ udpNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
+**用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例
@@ -155,7 +155,7 @@ udpNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
 ### OnDisconnectedFromServer
 `public virtual void OnDisconnectedFromServer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 disconnected from server 事件触发时调用此回调。
+**用途 / Purpose:** 在 disconnected from server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UdpNetworkComponent 实例

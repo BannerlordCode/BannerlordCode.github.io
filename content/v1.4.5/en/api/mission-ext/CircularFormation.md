@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of CircularFormation from the subsystem API first
@@ -42,7 +42,7 @@ var result = circularFormation.Clone(formation);
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** **Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
+**Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of CircularFormation from the subsystem API first
@@ -53,7 +53,7 @@ var result = circularFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### GetCircumferenceFromRankCount
 `public float GetCircumferenceFromRankCount(int rankCount)`
 
-**Purpose:** **Purpose:** Reads and returns the circumference from rank count value held by the this instance.
+**Purpose:** Reads and returns the circumference from rank count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CircularFormation from the subsystem API first
@@ -64,7 +64,7 @@ var result = circularFormation.GetCircumferenceFromRankCount(0);
 ### FormFromCircumference
 `public void FormFromCircumference(float circumference)`
 
-**Purpose:** **Purpose:** Executes the FormFromCircumference logic.
+**Purpose:** Executes the FormFromCircumference logic.
 
 ```csharp
 // Obtain an instance of CircularFormation from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingQueueRegionStats matchmakingQueueRegionStats)`
 
-**Purpose:** **Purpose:** Adds region stats to the current collection or state.
+**Purpose:** Adds region stats to the current collection or state.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueStats from the subsystem API first
@@ -42,7 +42,7 @@ matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
 ### GetRegionStats
 `public MatchmakingQueueRegionStats GetRegionStats(string region)`
 
-**Purpose:** **Purpose:** Reads and returns the region stats value held by the this instance.
+**Purpose:** Reads and returns the region stats value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueStats from the subsystem API first
@@ -53,7 +53,7 @@ var result = matchmakingQueueStats.GetRegionStats("example");
 ### GetQueueCountOf
 `public int GetQueueCountOf(string region, string gameTypes)`
 
-**Purpose:** **Purpose:** Reads and returns the queue count of value held by the this instance.
+**Purpose:** Reads and returns the queue count of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueStats from the subsystem API first
@@ -64,7 +64,7 @@ var result = matchmakingQueueStats.GetQueueCountOf("example", "example");
 ### GetRegionNames
 `public string GetRegionNames()`
 
-**Purpose:** **Purpose:** Reads and returns the region names value held by the this instance.
+**Purpose:** Reads and returns the region names value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueStats from the subsystem API first

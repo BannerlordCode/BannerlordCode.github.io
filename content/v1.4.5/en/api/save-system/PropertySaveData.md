@@ -30,7 +30,7 @@ Treat `PropertySaveData` as a Data-style extension point: first identify who cre
 ### Initialize
 `public override void Initialize(TypeDefinitionBase typeDefinition)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PropertySaveData from the subsystem API first
@@ -41,7 +41,7 @@ propertySaveData.Initialize(typeDefinition);
 ### InitializeAsCustomStruct
 `public override void InitializeAsCustomStruct(int structId)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by as custom struct.
+**Purpose:** Prepares the resources, state, or bindings required by as custom struct.
 
 ```csharp
 // Obtain an instance of PropertySaveData from the subsystem API first

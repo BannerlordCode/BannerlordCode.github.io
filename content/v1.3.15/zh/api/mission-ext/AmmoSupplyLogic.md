@@ -23,7 +23,7 @@ description: "AmmoSupplyLogic 的自动生成类参考。"
 ### IsAgentEligibleForAmmoSupply
 `public bool IsAgentEligibleForAmmoSupply(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent eligible for ammo supply 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 agent eligible for ammo supply 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoSupplyLogic 实例
@@ -34,7 +34,7 @@ var result = ammoSupplyLogic.IsAgentEligibleForAmmoSupply(agent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoSupplyLogic 实例

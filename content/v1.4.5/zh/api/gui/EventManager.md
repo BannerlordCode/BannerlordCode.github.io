@@ -49,7 +49,7 @@ description: "EventManager 的自动生成类参考。"
 ### AddAfterFinalizedCallback
 `public void AddAfterFinalizedCallback(Action callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 after finalized callback 添加到当前容器或状态中。
+**用途 / Purpose:** 将 after finalized callback 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -60,7 +60,7 @@ eventManager.AddAfterFinalizedCallback(callback);
 ### ClearFocus
 `public void ClearFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的focus。
+**用途 / Purpose:** 清空当前对象中的focus。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -71,7 +71,7 @@ eventManager.ClearFocus();
 ### IsPointInsideUsableArea
 `public bool IsPointInsideUsableArea(Vector2 p)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 point inside usable area 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 point inside usable area 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -82,7 +82,7 @@ var result = eventManager.IsPointInsideUsableArea(p);
 ### HitTest
 `public static bool HitTest(Widget widget, Vector2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
+**用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -92,7 +92,7 @@ EventManager.HitTest(widget, position);
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTest 对应的操作。
+**用途 / Purpose:** 调用 FocusTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -103,7 +103,7 @@ var result = eventManager.FocusTest(root);
 ### AddLateUpdateAction
 `public void AddLateUpdateAction(Widget owner, Action<float> action, int order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 late update action 添加到当前容器或状态中。
+**用途 / Purpose:** 将 late update action 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -114,7 +114,7 @@ eventManager.AddLateUpdateAction(owner, action, 0);
 ### UpdateLayout
 `public void UpdateLayout()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 layout 的最新表示。
+**用途 / Purpose:** 重新计算并更新 layout 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -125,7 +125,7 @@ eventManager.UpdateLayout();
 ### GetIsHitThisFrame
 `public bool GetIsHitThisFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is hit this frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is hit this frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例

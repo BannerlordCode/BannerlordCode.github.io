@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** **Purpose:** Invoked when the failed event is raised.
+**Purpose:** Invoked when the failed event is raised.
 
 ```csharp
 // Obtain an instance of ArmyNeedsSuppliesIssueQuest from the subsystem API first
@@ -34,7 +34,7 @@ armyNeedsSuppliesIssueQuest.OnFailed();
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** **Purpose:** Invoked when the canceled event is raised.
+**Purpose:** Invoked when the canceled event is raised.
 
 ```csharp
 // Obtain an instance of ArmyNeedsSuppliesIssueQuest from the subsystem API first

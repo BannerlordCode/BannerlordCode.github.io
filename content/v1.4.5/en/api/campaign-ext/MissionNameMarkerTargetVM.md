@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerTargetVM from the subsystem API first

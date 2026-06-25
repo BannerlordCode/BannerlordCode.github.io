@@ -23,7 +23,7 @@ description: "FireMangonel 的自动生成类参考。"
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FireMangonel 实例
@@ -34,7 +34,7 @@ var result = fireMangonel.GetSiegeEngineType();
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessTargetValue 对应的操作。
+**用途 / Purpose:** 调用 ProcessTargetValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FireMangonel 实例

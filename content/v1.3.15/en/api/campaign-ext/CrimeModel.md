@@ -29,7 +29,7 @@ Treat `CrimeModel` as a Model-style extension point: first identify who creates 
 ### GetMaxCrimeRating
 `public abstract float GetMaxCrimeRating()`
 
-**Purpose:** **Purpose:** Reads and returns the max crime rating value held by the this instance.
+**Purpose:** Reads and returns the max crime rating value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = crimeModel.GetMaxCrimeRating();
 ### GetMinAcceptableCrimeRating
 `public abstract float GetMinAcceptableCrimeRating(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the min acceptable crime rating value held by the this instance.
+**Purpose:** Reads and returns the min acceptable crime rating value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = crimeModel.GetMinAcceptableCrimeRating(faction);
 ### GetCrimeRatingAfterPunishment
 `public abstract float GetCrimeRatingAfterPunishment()`
 
-**Purpose:** **Purpose:** Reads and returns the crime rating after punishment value held by the this instance.
+**Purpose:** Reads and returns the crime rating after punishment value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = crimeModel.GetCrimeRatingAfterPunishment();
 ### DoesPlayerHaveAnyCrimeRating
 `public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether player have any crime rating is true for the this instance.
+**Purpose:** Returns a boolean answer to whether player have any crime rating is true for the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = crimeModel.DoesPlayerHaveAnyCrimeRating(faction);
 ### IsPlayerCrimeRatingSevere
 `public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player crime rating severe state or condition.
+**Purpose:** Determines whether the this instance is in the player crime rating severe state or condition.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = crimeModel.IsPlayerCrimeRatingSevere(faction);
 ### IsPlayerCrimeRatingModerate
 `public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player crime rating moderate state or condition.
+**Purpose:** Determines whether the this instance is in the player crime rating moderate state or condition.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -95,7 +95,7 @@ var result = crimeModel.IsPlayerCrimeRatingModerate(faction);
 ### IsPlayerCrimeRatingMild
 `public abstract bool IsPlayerCrimeRatingMild(IFaction faction)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player crime rating mild state or condition.
+**Purpose:** Determines whether the this instance is in the player crime rating mild state or condition.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -106,7 +106,7 @@ var result = crimeModel.IsPlayerCrimeRatingMild(faction);
 ### GetCost
 `public abstract float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
 
-**Purpose:** **Purpose:** Reads and returns the cost value held by the this instance.
+**Purpose:** Reads and returns the cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first
@@ -117,7 +117,7 @@ var result = crimeModel.GetCost(faction, paymentMethod, 0);
 ### GetDailyCrimeRatingChange
 `public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Reads and returns the daily crime rating change value held by the this instance.
+**Purpose:** Reads and returns the daily crime rating change value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrimeModel from the subsystem API first

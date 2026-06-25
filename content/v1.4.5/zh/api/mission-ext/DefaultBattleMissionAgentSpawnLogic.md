@@ -31,7 +31,7 @@ description: "DefaultBattleMissionAgentSpawnLogic 的自动生成类参考。"
 ### OnPhaseChangedDelegate
 `public delegate void OnPhaseChangedDelegate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 phase changed delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 phase changed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -42,7 +42,7 @@ defaultBattleMissionAgentSpawnLogic.OnPhaseChangedDelegate();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -53,7 +53,7 @@ defaultBattleMissionAgentSpawnLogic.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -64,7 +64,7 @@ defaultBattleMissionAgentSpawnLogic.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -75,7 +75,7 @@ defaultBattleMissionAgentSpawnLogic.OnMissionTick(0);
 ### InitWithSinglePhase
 `public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 with single phase 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 with single phase 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -86,7 +86,7 @@ defaultBattleMissionAgentSpawnLogic.InitWithSinglePhase(0, 0, 0, 0, false, false
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all troops for side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all troops for side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -97,7 +97,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetAllTroopsForSide(side);
 ### SetCustomReinforcementSpawnTimer
 `public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom reinforcement spawn timer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom reinforcement spawn timer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -108,7 +108,7 @@ defaultBattleMissionAgentSpawnLogic.SetCustomReinforcementSpawnTimer(timer);
 ### SetSpawnTroops
 `public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawn troops 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawn troops 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -119,7 +119,7 @@ defaultBattleMissionAgentSpawnLogic.SetSpawnTroops(side, false, false);
 ### SetSpawnHorses
 `public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawn horses 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawn horses 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -130,7 +130,7 @@ defaultBattleMissionAgentSpawnLogic.SetSpawnHorses(side, false);
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动spawner流程或状态机。
+**用途 / Purpose:** 启动spawner流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -141,7 +141,7 @@ defaultBattleMissionAgentSpawnLogic.StartSpawner(side);
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止spawner流程或状态机。
+**用途 / Purpose:** 停止spawner流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -152,7 +152,7 @@ defaultBattleMissionAgentSpawnLogic.StopSpawner(side);
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 side spawn enabled 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 side spawn enabled 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -163,7 +163,7 @@ var result = defaultBattleMissionAgentSpawnLogic.IsSideSpawnEnabled(side);
 ### OnSideDeploymentOver
 `public void OnSideDeploymentOver(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 side deployment over 事件触发时调用此回调。
+**用途 / Purpose:** 在 side deployment over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -174,7 +174,7 @@ defaultBattleMissionAgentSpawnLogic.OnSideDeploymentOver(battleSide);
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -185,7 +185,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetNumberOfPlayerControllableTr
 ### GetReinforcementInterval
 `public float GetReinforcementInterval(BattleSideEnum side = BattleSideEnum.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reinforcement interval 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -196,7 +196,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetReinforcementInterval(battle
 ### SetReinforcementsSpawnEnabled
 `public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reinforcements spawn enabled 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reinforcements spawn enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -207,7 +207,7 @@ defaultBattleMissionAgentSpawnLogic.SetReinforcementsSpawnEnabled(false, false);
 ### GetTotalNumberOfTroopsForSide
 `public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total number of troops for side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total number of troops for side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -218,7 +218,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetTotalNumberOfTroopsForSide(s
 ### GetGeneralCharacterOfSide
 `public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 general character of side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 general character of side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -229,7 +229,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetGeneralCharacterOfSide(side)
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn horses 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn horses 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -240,7 +240,7 @@ var result = defaultBattleMissionAgentSpawnLogic.GetSpawnHorses(side);
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 side depleted 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 side depleted 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -251,7 +251,7 @@ var result = defaultBattleMissionAgentSpawnLogic.IsSideDepleted(side);
 ### AddPhaseChangeAction
 `public void AddPhaseChangeAction(BattleSideEnum side, OnPhaseChangedDelegate onPhaseChanged)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 phase change action 添加到当前容器或状态中。
+**用途 / Purpose:** 将 phase change action 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -262,7 +262,7 @@ defaultBattleMissionAgentSpawnLogic.AddPhaseChangeAction(side, onPhaseChanged);
 ### ComputeDeploymentBaseOffsets
 `public static void ComputeDeploymentBaseOffsets(SpawnPathData sideSpawnPathData, float baseDeploymentOffset, out float deployingSideBaseOffset, out float opposingSideBaseOffset)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeDeploymentBaseOffsets 对应的操作。
+**用途 / Purpose:** 调用 ComputeDeploymentBaseOffsets 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -272,7 +272,7 @@ DefaultBattleMissionAgentSpawnLogic.ComputeDeploymentBaseOffsets(sideSpawnPathDa
 ### ComputeTeamDeploymentOffsets
 `public static void ComputeTeamDeploymentOffsets(SpawnPathData spawnPathData, float deploymentBaseOffset, float interTeamGapOffset, float teamOffsetRanges, out float teamDeployOffsets)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeTeamDeploymentOffsets 对应的操作。
+**用途 / Purpose:** 调用 ComputeTeamDeploymentOffsets 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

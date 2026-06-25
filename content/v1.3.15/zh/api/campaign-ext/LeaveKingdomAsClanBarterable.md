@@ -30,7 +30,7 @@ description: "LeaveKingdomAsClanBarterable 的自动生成类参考。"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unit value for faction 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unit value for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例
@@ -41,7 +41,7 @@ var result = leaveKingdomAsClanBarterable.GetUnitValueForFaction(faction);
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable linkedBarterable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查barter link在当前对象中是否成立。
+**用途 / Purpose:** 检查barter link在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例
@@ -52,7 +52,7 @@ leaveKingdomAsClanBarterable.CheckBarterLink(linkedBarterable);
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 compatible 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 compatible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例
@@ -63,7 +63,7 @@ var result = leaveKingdomAsClanBarterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual identifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例
@@ -74,7 +74,7 @@ var result = leaveKingdomAsClanBarterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia link 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 encyclopedia link 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例
@@ -85,7 +85,7 @@ var result = leaveKingdomAsClanBarterable.GetEncyclopediaLink();
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveKingdomAsClanBarterable 实例

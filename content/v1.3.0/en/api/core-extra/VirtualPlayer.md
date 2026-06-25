@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Reset
 `public static void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Static call; no instance required
@@ -48,7 +48,7 @@ VirtualPlayer.Reset();
 ### AddComponent
 `public PeerComponent AddComponent(Type peerComponentType)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -59,7 +59,7 @@ var result = virtualPlayer.AddComponent(peerComponentType);
 ### AddComponent
 `public PeerComponent AddComponent(uint componentId)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -70,7 +70,7 @@ var result = virtualPlayer.AddComponent(0);
 ### GetComponent
 `public PeerComponent GetComponent(uint componentId)`
 
-**Purpose:** **Purpose:** Reads and returns the component value held by the this instance.
+**Purpose:** Reads and returns the component value held by the this instance.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -81,7 +81,7 @@ var result = virtualPlayer.GetComponent(0);
 ### GetComponent
 `public PeerComponent GetComponent(Type peerComponentType)`
 
-**Purpose:** **Purpose:** Reads and returns the component value held by the this instance.
+**Purpose:** Reads and returns the component value held by the this instance.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -92,7 +92,7 @@ var result = virtualPlayer.GetComponent(peerComponentType);
 ### RemoveComponent
 `public void RemoveComponent(PeerComponent component)`
 
-**Purpose:** **Purpose:** Removes component from the current collection or state.
+**Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -103,7 +103,7 @@ virtualPlayer.RemoveComponent(component);
 ### OnDisconnect
 `public void OnDisconnect()`
 
-**Purpose:** **Purpose:** Invoked when the disconnect event is raised.
+**Purpose:** Invoked when the disconnect event is raised.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -114,7 +114,7 @@ virtualPlayer.OnDisconnect();
 ### SynchronizeComponentsTo
 `public void SynchronizeComponentsTo(VirtualPlayer peer)`
 
-**Purpose:** **Purpose:** Synchronizes hronize components to across the relevant contexts or systems.
+**Purpose:** Synchronizes hronize components to across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first
@@ -125,7 +125,7 @@ virtualPlayer.SynchronizeComponentsTo(peer);
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int playerIndex)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of index for reconnecting player.
+**Purpose:** Recalculates and stores the latest representation of index for reconnecting player.
 
 ```csharp
 // Obtain an instance of VirtualPlayer from the subsystem API first

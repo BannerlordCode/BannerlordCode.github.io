@@ -23,7 +23,7 @@ description: "MultiplayerAgentStatCalculateModel 的自动生成类参考。"
 ### GetDifficultyModifier
 `public override float GetDifficultyModifier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 difficulty modifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 difficulty modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -34,7 +34,7 @@ var result = multiplayerAgentStatCalculateModel.GetDifficultyModifier();
 ### CanAgentRideMount
 `public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent ride mount 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 agent ride mount 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -45,7 +45,7 @@ var result = multiplayerAgentStatCalculateModel.CanAgentRideMount(agent, targetM
 ### InitializeAgentStats
 `public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 agent stats 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 agent stats 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -56,7 +56,7 @@ multiplayerAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, a
 ### GetWeaponInaccuracy
 `public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -67,7 +67,7 @@ var result = multiplayerAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapo
 ### GetWeaponDamageMultiplier
 `public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon damage multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapon damage multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -78,7 +78,7 @@ var result = multiplayerAgentStatCalculateModel.GetWeaponDamageMultiplier(agent,
 ### GetEquipmentStealthBonus
 `public override float GetEquipmentStealthBonus(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment stealth bonus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment stealth bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -89,7 +89,7 @@ var result = multiplayerAgentStatCalculateModel.GetEquipmentStealthBonus(agent);
 ### GetSneakAttackMultiplier
 `public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sneak attack multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sneak attack multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -100,7 +100,7 @@ var result = multiplayerAgentStatCalculateModel.GetSneakAttackMultiplier(agent, 
 ### GetKnockBackResistance
 `public override float GetKnockBackResistance(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock back resistance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 knock back resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -111,7 +111,7 @@ var result = multiplayerAgentStatCalculateModel.GetKnockBackResistance(agent);
 ### GetKnockDownResistance
 `public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock down resistance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 knock down resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -122,7 +122,7 @@ var result = multiplayerAgentStatCalculateModel.GetKnockDownResistance(agent, st
 ### GetDismountResistance
 `public override float GetDismountResistance(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dismount resistance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 dismount resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -133,7 +133,7 @@ var result = multiplayerAgentStatCalculateModel.GetDismountResistance(agent);
 ### GetBreatheHoldMaxDuration
 `public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 breathe hold max duration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 breathe hold max duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -144,7 +144,7 @@ var result = multiplayerAgentStatCalculateModel.GetBreatheHoldMaxDuration(agent,
 ### UpdateAgentStats
 `public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
+**用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -155,7 +155,7 @@ multiplayerAgentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties
 ### GetEffectiveSkillForWeapon
 `public override int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective skill for weapon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effective skill for weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentStatCalculateModel 实例
@@ -166,7 +166,7 @@ var result = multiplayerAgentStatCalculateModel.GetEffectiveSkillForWeapon(agent
 ### CalculateMaximumSpeedMultiplier
 `public static float CalculateMaximumSpeedMultiplier(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算maximum speed multiplier的当前值或结果。
+**用途 / Purpose:** 计算maximum speed multiplier的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例

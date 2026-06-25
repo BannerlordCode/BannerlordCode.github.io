@@ -33,7 +33,7 @@ description: "GeneratedGauntletMovie 的自动生成类参考。"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedGauntletMovie 实例
@@ -44,7 +44,7 @@ generatedGauntletMovie.Update();
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedGauntletMovie 实例
@@ -55,7 +55,7 @@ generatedGauntletMovie.Release();
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 binding with children 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 binding with children 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedGauntletMovie 实例
@@ -66,7 +66,7 @@ generatedGauntletMovie.RefreshBindingWithChildren();
 ### OnResourcesRefreshed
 `public void OnResourcesRefreshed(SpriteData spriteData, WidgetFactory widgetFactory, BrushFactory brushFactory, FontFactory fontFactory)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 resources refreshed 事件触发时调用此回调。
+**用途 / Purpose:** 在 resources refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedGauntletMovie 实例

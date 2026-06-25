@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BattleSpawnPathSelector from the subsystem API first
@@ -41,7 +41,7 @@ battleSpawnPathSelector.Initialize();
 ### HasPath
 `public bool HasPath(Path path)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds path.
+**Purpose:** Determines whether the this instance already holds path.
 
 ```csharp
 // Obtain an instance of BattleSpawnPathSelector from the subsystem API first
@@ -52,7 +52,7 @@ var result = battleSpawnPathSelector.HasPath(path);
 ### GetInitialPathDataOfSide
 `public bool GetInitialPathDataOfSide(BattleSideEnum side, out SpawnPathData pathPathData)`
 
-**Purpose:** **Purpose:** Reads and returns the initial path data of side value held by the this instance.
+**Purpose:** Reads and returns the initial path data of side value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleSpawnPathSelector from the subsystem API first
@@ -63,7 +63,7 @@ var result = battleSpawnPathSelector.GetInitialPathDataOfSide(side, pathPathData
 ### GetReinforcementPathsDataOfSide
 `public MBReadOnlyList<SpawnPathData> GetReinforcementPathsDataOfSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement paths data of side value held by the this instance.
+**Purpose:** Reads and returns the reinforcement paths data of side value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleSpawnPathSelector from the subsystem API first
@@ -74,7 +74,7 @@ var result = battleSpawnPathSelector.GetReinforcementPathsDataOfSide(side);
 ### FindBestInitialPath
 `public static Path FindBestInitialPath(Mission mission, out float pivotRatio, out bool isInverted)`
 
-**Purpose:** **Purpose:** Looks up the matching best initial path in the current collection or scope.
+**Purpose:** Looks up the matching best initial path in the current collection or scope.
 
 ```csharp
 // Static call; no instance required

@@ -32,7 +32,7 @@ Start from namespace `SandBox.View.Map.Navigation` to place it in the stack, the
 ### OpenView
 `public abstract void OpenView()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with view.
+**Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of MapNavigationElementBase from the subsystem API first
@@ -43,7 +43,7 @@ mapNavigationElementBase.OpenView();
 ### OpenView
 `public abstract void OpenView(params object parameters)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with view.
+**Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of MapNavigationElementBase from the subsystem API first
@@ -54,7 +54,7 @@ mapNavigationElementBase.OpenView(parameters);
 ### GoToLink
 `public abstract void GoToLink()`
 
-**Purpose:** **Purpose:** Executes the GoToLink logic.
+**Purpose:** Executes the GoToLink logic.
 
 ```csharp
 // Obtain an instance of MapNavigationElementBase from the subsystem API first

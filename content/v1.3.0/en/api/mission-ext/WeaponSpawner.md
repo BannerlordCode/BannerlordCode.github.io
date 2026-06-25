@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SpawnWeapon
 `public void SpawnWeapon()`
 
-**Purpose:** **Purpose:** Executes the SpawnWeapon logic.
+**Purpose:** Executes the SpawnWeapon logic.
 
 ```csharp
 // Obtain an instance of WeaponSpawner from the subsystem API first

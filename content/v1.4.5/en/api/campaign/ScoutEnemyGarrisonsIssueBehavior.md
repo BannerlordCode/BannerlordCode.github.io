@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
+**Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -42,7 +42,7 @@ var result = scoutEnemyGarrisonsIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** **Purpose:** Creates or raises stay alive conditions.
+**Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -53,7 +53,7 @@ var result = scoutEnemyGarrisonsIssueBehavior.IssueStayAliveConditions();
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the scouting completed state or condition.
+**Purpose:** Determines whether the this instance is in the scouting completed state or condition.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -64,7 +64,7 @@ var result = scoutEnemyGarrisonsIssueBehavior.IsScoutingCompleted();
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**Purpose:** **Purpose:** Assigns a new value to scouting completed and updates the object's internal state.
+**Purpose:** Assigns a new value to scouting completed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -75,7 +75,7 @@ scoutEnemyGarrisonsIssueBehavior.SetScoutingCompleted();
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**Purpose:** **Purpose:** Returns current progress to its default or initial condition.
+**Purpose:** Returns current progress to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -86,7 +86,7 @@ scoutEnemyGarrisonsIssueBehavior.ResetCurrentProgress();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -97,7 +97,7 @@ scoutEnemyGarrisonsIssueBehavior.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
+**Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
@@ -108,7 +108,7 @@ scoutEnemyGarrisonsIssueBehavior.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first

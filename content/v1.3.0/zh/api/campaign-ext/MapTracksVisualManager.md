@@ -29,7 +29,7 @@ description: "MapTracksVisualManager 的自动生成类参考。"
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 visual tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 visual tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksVisualManager 实例
@@ -40,7 +40,7 @@ mapTracksVisualManager.OnVisualTick(screen, 0, 0);
 ### OnVisualIntersected
 `public override void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 visual intersected 事件触发时调用此回调。
+**用途 / Purpose:** 在 visual intersected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksVisualManager 实例
@@ -51,7 +51,7 @@ mapTracksVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, inter
 ### OnGameLoadFinished
 `public override void OnGameLoadFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game load finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 game load finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksVisualManager 实例
@@ -62,7 +62,7 @@ mapTracksVisualManager.OnGameLoadFinished();
 ### GetVisualOfEntity
 `public override MapEntityVisual<Track> GetVisualOfEntity(Track entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksVisualManager 实例

@@ -23,7 +23,7 @@ description: "AttackEntityOrderSecondaryDetachment 的自动生成类参考。"
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AttackEntityOrderSecondaryDetachment 实例
@@ -34,7 +34,7 @@ attackEntityOrderSecondaryDetachment.TickOccasionally(formation);
 ### Disband
 `public void Disband(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disband 对应的操作。
+**用途 / Purpose:** 调用 Disband 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AttackEntityOrderSecondaryDetachment 实例

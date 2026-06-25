@@ -38,7 +38,7 @@ description: "InitialMenuVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuVM 实例
@@ -49,7 +49,7 @@ initialMenuVM.RefreshValues();
 ### RefreshMenuOptions
 `public void RefreshMenuOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 menu options 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 menu options 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuVM 实例
@@ -60,7 +60,7 @@ initialMenuVM.RefreshMenuOptions();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuVM 实例
@@ -71,7 +71,7 @@ initialMenuVM.OnFinalize();
 ### ExecuteNavigateToDLCStorePage
 `public void ExecuteNavigateToDLCStorePage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 navigate to d l c store page 对应的操作或工作流。
+**用途 / Purpose:** 执行 navigate to d l c store page 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialMenuVM 实例

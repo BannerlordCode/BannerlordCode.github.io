@@ -30,7 +30,7 @@ description: "CharacterSpawner 的自动生成类参考。"
 ### SetCreateFaceImmediately
 `public void SetCreateFaceImmediately(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 create face immediately 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 create face immediately 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterSpawner 实例
@@ -41,7 +41,7 @@ characterSpawner.SetCreateFaceImmediately(false);
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cloth colors 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cloth colors 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterSpawner 实例
@@ -52,7 +52,7 @@ characterSpawner.SetClothColors(0, 0);
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnCharacter 对应的操作。
+**用途 / Purpose:** 调用 SpawnCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterSpawner 实例
@@ -63,7 +63,7 @@ characterSpawner.SpawnCharacter();
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode, bool useBodyProperties = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 with character 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 with character 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterSpawner 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### RegisterAll
 `public void RegisterAll()`
 
-**Purpose:** **Purpose:** Registers all with the current system so it can later be observed or dispatched.
+**Purpose:** Registers all with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of DefaultTraits from the subsystem API first

@@ -23,7 +23,7 @@ description: "ManagedScriptHolder 的自动生成类参考。"
 ### SetScriptComponentHolder
 `public void SetScriptComponentHolder(ScriptComponentBehavior sc)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 script component holder 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 script component holder 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedScriptHolder 实例
@@ -34,7 +34,7 @@ managedScriptHolder.SetScriptComponentHolder(sc);
 ### UpdateTickRequirement
 `public void UpdateTickRequirement(ScriptComponentBehavior sc, ScriptComponentBehavior.TickRequirement oldTickRequirement, ScriptComponentBehavior.TickRequirement newTickRequirement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 tick requirement 的最新表示。
+**用途 / Purpose:** 重新计算并更新 tick requirement 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedScriptHolder 实例
@@ -45,7 +45,7 @@ managedScriptHolder.UpdateTickRequirement(sc, oldTickRequirement, newTickRequire
 ### RemoveScriptComponentFromAllTickLists
 `public void RemoveScriptComponentFromAllTickLists(ScriptComponentBehavior sc)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 script component from all tick lists。
+**用途 / Purpose:** 从当前容器或状态中移除 script component from all tick lists。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedScriptHolder 实例

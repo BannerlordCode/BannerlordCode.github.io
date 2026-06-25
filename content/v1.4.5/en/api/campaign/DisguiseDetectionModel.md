@@ -23,7 +23,7 @@ Treat `DisguiseDetectionModel` as a Model-style extension point: first identify 
 ### CalculateDisguiseDetectionProbability
 `public abstract float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of disguise detection probability.
+**Purpose:** Calculates the current value or result of disguise detection probability.
 
 ```csharp
 // Obtain an instance of DisguiseDetectionModel from the subsystem API first

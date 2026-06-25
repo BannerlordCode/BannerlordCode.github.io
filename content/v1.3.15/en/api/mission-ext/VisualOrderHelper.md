@@ -23,7 +23,7 @@ Treat `VisualOrderHelper` as a Helper-style extension point: first identify who 
 ### DoesFormationHaveOrderType
 `public unsafe static bool DoesFormationHaveOrderType(Formation formation, OrderType type)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether formation have order type is true for the this instance.
+**Purpose:** Returns a boolean answer to whether formation have order type is true for the this instance.
 
 ```csharp
 // Static call; no instance required

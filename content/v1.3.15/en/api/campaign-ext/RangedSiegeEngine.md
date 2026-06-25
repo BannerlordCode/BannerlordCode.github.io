@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### Hold
 `public void Hold()`
 
-**Purpose:** **Purpose:** Executes the Hold logic.
+**Purpose:** Executes the Hold logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeEngine from the subsystem API first
@@ -48,7 +48,7 @@ rangedSiegeEngine.Hold();
 ### Reload
 `public void Reload()`
 
-**Purpose:** **Purpose:** Executes the Reload logic.
+**Purpose:** Executes the Reload logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeEngine from the subsystem API first
@@ -59,7 +59,7 @@ rangedSiegeEngine.Reload();
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**Purpose:** **Purpose:** Invoked when the fire decision taken event is raised.
+**Purpose:** Invoked when the fire decision taken event is raised.
 
 ```csharp
 // Obtain an instance of RangedSiegeEngine from the subsystem API first

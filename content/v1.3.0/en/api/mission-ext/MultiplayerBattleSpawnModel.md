@@ -23,7 +23,7 @@ Treat `MultiplayerBattleSpawnModel` as a Model-style extension point: first iden
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
+**Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerBattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = multiplayerBattleSpawnModel.GetInitialSpawnAssignments(battleSide, 
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
+**Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerBattleSpawnModel from the subsystem API first

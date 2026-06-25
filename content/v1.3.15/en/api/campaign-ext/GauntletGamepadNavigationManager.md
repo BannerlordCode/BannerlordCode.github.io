@@ -37,7 +37,7 @@ Treat `GauntletGamepadNavigationManager` as a Manager-style extension point: fir
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ GauntletGamepadNavigationManager.Initialize();
 ### TryNavigateTo
 `public bool TryNavigateTo(Widget widget)`
 
-**Purpose:** **Purpose:** Attempts to retrieve navigate to, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve navigate to, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -58,7 +58,7 @@ var result = gauntletGamepadNavigationManager.TryNavigateTo(widget);
 ### TryNavigateTo
 `public bool TryNavigateTo(GamepadNavigationScope scope)`
 
-**Purpose:** **Purpose:** Attempts to retrieve navigate to, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve navigate to, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -69,7 +69,7 @@ var result = gauntletGamepadNavigationManager.TryNavigateTo(scope);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -80,7 +80,7 @@ gauntletGamepadNavigationManager.OnFinalize();
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -91,7 +91,7 @@ gauntletGamepadNavigationManager.Update(0);
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to all dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to all dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -102,7 +102,7 @@ gauntletGamepadNavigationManager.SetAllDirty();
 ### Compare
 `public int Compare(IGamepadNavigationContext x, IGamepadNavigationContext y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -113,7 +113,7 @@ var result = gauntletGamepadNavigationManager.Compare(x, y);
 ### Compare
 `public int Compare(GamepadNavigationForcedScopeCollection x, GamepadNavigationForcedScopeCollection y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -124,7 +124,7 @@ var result = gauntletGamepadNavigationManager.Compare(x, y);
 ### GainNavigationAfterFrames
 `public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)`
 
-**Purpose:** **Purpose:** Executes the GainNavigationAfterFrames logic.
+**Purpose:** Executes the GainNavigationAfterFrames logic.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -135,7 +135,7 @@ gauntletGamepadNavigationManager.GainNavigationAfterFrames(0, null);
 ### GainNavigationAfterTime
 `public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)`
 
-**Purpose:** **Purpose:** Executes the GainNavigationAfterTime logic.
+**Purpose:** Executes the GainNavigationAfterTime logic.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -146,7 +146,7 @@ gauntletGamepadNavigationManager.GainNavigationAfterTime(0, null);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first
@@ -157,7 +157,7 @@ gauntletGamepadNavigationManager.Tick(0);
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of GauntletGamepadNavigationManager from the subsystem API first

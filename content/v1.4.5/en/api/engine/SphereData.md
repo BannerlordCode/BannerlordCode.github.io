@@ -23,7 +23,7 @@ Treat `SphereData` as a Data-style extension point: first identify who creates i
 ### SphereData
 `public struct SphereData(float radius, Vec3 origin)`
 
-**Purpose:** **Purpose:** Executes the SphereData logic.
+**Purpose:** Executes the SphereData logic.
 
 ```csharp
 // Obtain an instance of SphereData from the subsystem API first

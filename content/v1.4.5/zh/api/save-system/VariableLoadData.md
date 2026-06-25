@@ -32,7 +32,7 @@ description: "VariableLoadData 的自动生成类参考。"
 ### Read
 `public void Read()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableLoadData 实例
@@ -43,7 +43,7 @@ variableLoadData.Read();
 ### SetCustomStructData
 `public void SetCustomStructData(object customStructObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom struct data 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom struct data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableLoadData 实例
@@ -54,7 +54,7 @@ variableLoadData.SetCustomStructData(customStructObject);
 ### GetDataToUse
 `public object GetDataToUse()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data to use 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 data to use 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableLoadData 实例

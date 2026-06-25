@@ -23,7 +23,7 @@ description: "RecruitTroopTutorialQuestTask 的自动生成类参考。"
 ### InitializeTaskOnLoad
 `public void InitializeTaskOnLoad(int targetRecruitAmount, Func<CharacterObject, bool> recruitTypeConditions, Settlement recruitSettlement = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 task on load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 task on load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitTroopTutorialQuestTask 实例
@@ -34,7 +34,7 @@ recruitTroopTutorialQuestTask.InitializeTaskOnLoad(0, func<CharacterObject, fals
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitTroopTutorialQuestTask 实例

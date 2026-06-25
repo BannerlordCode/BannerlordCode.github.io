@@ -23,7 +23,7 @@ description: "DefaultPartySpeedCalculatingModel 的自动生成类参考。"
 ### CalculateBaseSpeed
 `public override ExplainedNumber CalculateBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算base speed的当前值或结果。
+**用途 / Purpose:** 计算base speed的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySpeedCalculatingModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartySpeedCalculatingModel.CalculateBaseSpeed(mobileParty, f
 ### CalculateFinalSpeed
 `public override ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算final speed的当前值或结果。
+**用途 / Purpose:** 计算final speed的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartySpeedCalculatingModel 实例

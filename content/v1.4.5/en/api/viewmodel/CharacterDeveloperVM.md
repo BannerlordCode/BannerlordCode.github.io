@@ -57,7 +57,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -68,7 +68,7 @@ characterDeveloperVM.RefreshValues();
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**Purpose:** **Purpose:** Executes the SelectHero logic.
+**Purpose:** Executes the SelectHero logic.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -79,7 +79,7 @@ characterDeveloperVM.SelectHero(hero);
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
+**Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -90,7 +90,7 @@ characterDeveloperVM.ExecuteReset();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -101,7 +101,7 @@ characterDeveloperVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -112,7 +112,7 @@ characterDeveloperVM.ExecuteCancel();
 ### ApplyAllChanges
 `public void ApplyAllChanges()`
 
-**Purpose:** **Purpose:** Applies the effect of all changes to the this instance.
+**Purpose:** Applies the effect of all changes to the this instance.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -123,7 +123,7 @@ characterDeveloperVM.ApplyAllChanges();
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the there any changes state or condition.
+**Purpose:** Determines whether the this instance is in the there any changes state or condition.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -134,7 +134,7 @@ var result = characterDeveloperVM.IsThereAnyChanges();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -145,7 +145,7 @@ characterDeveloperVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey gameKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -156,7 +156,7 @@ characterDeveloperVM.SetCancelInputKey(gameKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -167,7 +167,7 @@ characterDeveloperVM.SetDoneInputKey(hotKey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
+**Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -178,7 +178,7 @@ characterDeveloperVM.SetResetInputKey(hotKey);
 ### SetPreviousCharacterInputKey
 `public void SetPreviousCharacterInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to previous character input key and updates the object's internal state.
+**Purpose:** Assigns a new value to previous character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -189,7 +189,7 @@ characterDeveloperVM.SetPreviousCharacterInputKey(hotKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to next character input key and updates the object's internal state.
+**Purpose:** Assigns a new value to next character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first
@@ -200,7 +200,7 @@ characterDeveloperVM.SetNextCharacterInputKey(hotKey);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**Purpose:** **Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
+**Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperVM from the subsystem API first

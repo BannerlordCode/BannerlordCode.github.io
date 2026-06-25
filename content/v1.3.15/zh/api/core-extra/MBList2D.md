@@ -32,7 +32,7 @@ description: "MBList2D 的自动生成类参考。"
 ### Contains
 `public bool Contains(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含指定项。
+**用途 / Purpose:** 检查当前对象是否含有目标项。
 
 ```csharp
 // 先通过子系统 API 拿到 MBList2D 实例
@@ -43,7 +43,7 @@ var result = mBList2D.Contains(item);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MBList2D 实例
@@ -54,7 +54,7 @@ mBList2D.Clear();
 ### ResetWithNewCount
 `public void ResetWithNewCount(int newCount1, int newCount2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 with new count 重置回默认或初始状态。
+**用途 / Purpose:** 将 with new count 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBList2D 实例
@@ -65,7 +65,7 @@ mBList2D.ResetWithNewCount(0, 0);
 ### CopyRowTo
 `public void CopyRowTo(int sourceIndex1, int sourceIndex2, MBList2D<T> destination, int destinationIndex1, int destinationIndex2, int copyCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的row to状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的row to状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBList2D 实例

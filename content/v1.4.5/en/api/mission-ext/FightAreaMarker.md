@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(Team team, bool humanOnly = true)`
 
-**Purpose:** **Purpose:** Reads and returns the agents in range value held by the this instance.
+**Purpose:** Reads and returns the agents in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightAreaMarker from the subsystem API first
@@ -34,7 +34,7 @@ var result = fightAreaMarker.GetAgentsInRange(team, false);
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(BattleSideEnum side, bool humanOnly = true)`
 
-**Purpose:** **Purpose:** Reads and returns the agents in range value held by the this instance.
+**Purpose:** Reads and returns the agents in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightAreaMarker from the subsystem API first

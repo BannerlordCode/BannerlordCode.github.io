@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetDescription
 `public static TextObject GetDescription(this SystemMessage message)`
 
-**Purpose:** **Purpose:** Reads and returns the description value held by the this instance.
+**Purpose:** Reads and returns the description value held by the this instance.
 
 ```csharp
 // Static call; no instance required

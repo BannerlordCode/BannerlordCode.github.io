@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** **Purpose:** Executes the BoardInformation logic.
+**Purpose:** Executes the BoardInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -34,7 +34,7 @@ var result = boardGameBaghChal.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool captured, Vec3 position)`
 
-**Purpose:** **Purpose:** Executes the PawnInformation logic.
+**Purpose:** Executes the PawnInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -45,7 +45,7 @@ var result = boardGameBaghChal.PawnInformation(0, 0, 0, 0, false, position);
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
+**Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -56,7 +56,7 @@ boardGameBaghChal.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
+**Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -67,7 +67,7 @@ boardGameBaghChal.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
+**Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -78,7 +78,7 @@ boardGameBaghChal.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -89,7 +89,7 @@ boardGameBaghChal.Reset();
 ### CalculateAllValidMoves
 `public override List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of all valid moves.
+**Purpose:** Calculates the current value or result of all valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -100,7 +100,7 @@ var result = boardGameBaghChal.CalculateAllValidMoves(side);
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
+**Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -111,7 +111,7 @@ var result = boardGameBaghChal.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to pawn captured and updates the object's internal state.
+**Purpose:** Assigns a new value to pawn captured and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -122,7 +122,7 @@ boardGameBaghChal.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** **Purpose:** Executes the AIMakeMove logic.
+**Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -133,7 +133,7 @@ boardGameBaghChal.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** **Purpose:** Executes the TakeBoardSnapshot logic.
+**Purpose:** Executes the TakeBoardSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -144,7 +144,7 @@ var result = boardGameBaghChal.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** **Purpose:** Executes the UndoMove logic.
+**Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -155,7 +155,7 @@ boardGameBaghChal.UndoMove(board);
 ### GetANonePlacedGoat
 `public PawnBaghChal GetANonePlacedGoat()`
 
-**Purpose:** **Purpose:** Reads and returns the a none placed goat value held by the this instance.
+**Purpose:** Reads and returns the a none placed goat value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first

@@ -40,7 +40,7 @@ description: "MPLobbyBadgeItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例
@@ -51,7 +51,7 @@ mPLobbyBadgeItemVM.RefreshValues();
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 key bindings 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 key bindings 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例
@@ -62,7 +62,7 @@ mPLobbyBadgeItemVM.RefreshKeyBindings(inspectProgressKey);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例
@@ -73,7 +73,7 @@ mPLobbyBadgeItemVM.OnFinalize();
 ### UpdateWith
 `public void UpdateWith(Badge badge)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 with 的最新表示。
+**用途 / Purpose:** 重新计算并更新 with 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例
@@ -84,7 +84,7 @@ mPLobbyBadgeItemVM.UpdateWith(badge);
 ### UpdateIsSelected
 `public void UpdateIsSelected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 is selected 的最新表示。
+**用途 / Purpose:** 重新计算并更新 is selected 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例
@@ -95,7 +95,7 @@ mPLobbyBadgeItemVM.UpdateIsSelected();
 ### SetGroup
 `public void SetGroup(MPLobbyAchievementBadgeGroupVM group, Action<MPLobbyAchievementBadgeGroupVM> onBadgeProgressInfoRequested)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 group 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 group 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeItemVM 实例

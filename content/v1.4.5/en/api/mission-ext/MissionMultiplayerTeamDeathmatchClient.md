@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
@@ -34,7 +34,7 @@ missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** **Purpose:** Invoked when the gold amount changed for representative event is raised.
+**Purpose:** Invoked when the gold amount changed for representative event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
@@ -45,7 +45,7 @@ missionMultiplayerTeamDeathmatchClient.OnGoldAmountChangedForRepresentative(repr
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
@@ -56,7 +56,7 @@ missionMultiplayerTeamDeathmatchClient.AfterStart();
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** **Purpose:** Reads and returns the gold amount value held by the this instance.
+**Purpose:** Reads and returns the gold amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
@@ -67,7 +67,7 @@ var result = missionMultiplayerTeamDeathmatchClient.GetGoldAmount();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first

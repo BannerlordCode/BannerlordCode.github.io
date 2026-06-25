@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Parse
 `public static RichTextTag Parse(string text2, int tagBeginIndex, int tagEndIndex)`
 
-**Purpose:** **Purpose:** Parses external input into a parse the current system understands.
+**Purpose:** Parses external input into a parse the current system understands.
 
 ```csharp
 // Static call; no instance required

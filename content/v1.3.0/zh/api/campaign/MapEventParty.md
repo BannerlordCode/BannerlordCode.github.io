@@ -45,7 +45,7 @@ description: "MapEventParty 的自动生成类参考。"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -56,7 +56,7 @@ mapEventParty.Update();
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop killed 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop killed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -67,7 +67,7 @@ mapEventParty.OnTroopKilled(troopSeed);
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop wounded 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop wounded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -78,7 +78,7 @@ mapEventParty.OnTroopWounded(troopSeed);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop routed 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop routed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -89,7 +89,7 @@ mapEventParty.OnTroopRouted(troopSeed);
 ### OnShipSunk
 `public void OnShipSunk(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship sunk 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship sunk 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -100,7 +100,7 @@ mapEventParty.OnShipSunk(ship);
 ### OnShipDamaged
 `public void OnShipDamaged(Ship ship, SiegeEngineType siegeEngine, int damage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -111,7 +111,7 @@ mapEventParty.OnShipDamaged(ship, siegeEngine, 0);
 ### OnShipScoreHit
 `public void OnShipScoreHit(Ship ship, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -122,7 +122,7 @@ mapEventParty.OnShipScoreHit(ship, struckShip, siegeEngine, 0, false);
 ### GetTroop
 `public CharacterObject GetTroop(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -133,7 +133,7 @@ var result = mapEventParty.GetTroop(troopSeed);
 ### GetTroopState
 `public RosterTroopState GetTroopState(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -144,7 +144,7 @@ var result = mapEventParty.GetTroopState(troopSeed);
 ### OnRoundEnd
 `public void OnRoundEnd(BattleSideEnum partySide, BattleSideEnum roundWinner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 round end 事件触发时调用此回调。
+**用途 / Purpose:** 在 round end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -155,7 +155,7 @@ mapEventParty.OnRoundEnd(partySide, roundWinner);
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor attackerTroopDesc, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例
@@ -166,7 +166,7 @@ mapEventParty.OnTroopScoreHit(attackerTroopDesc, attackedTroop, 0, false, false,
 ### CommitXpGain
 `public void CommitXpGain()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CommitXpGain 对应的操作。
+**用途 / Purpose:** 调用 CommitXpGain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventParty 实例

@@ -23,7 +23,7 @@ description: "RaftStateChangeAction 的自动生成类参考。"
 ### ActivateRaftStateForParty
 `public static void ActivateRaftStateForParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活raft state for party对应的资源、状态或功能。
+**用途 / Purpose:** 激活raft state for party对应的资源、状态或功能。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
 ### DeactivateRaftStateForParty
 `public static void DeactivateRaftStateForParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用raft state for party对应的资源、状态或功能。
+**用途 / Purpose:** 停用raft state for party对应的资源、状态或功能。
 
 ```csharp
 // 静态调用，不需要实例

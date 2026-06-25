@@ -23,7 +23,7 @@ Treat `BasicTooltipViewModel` as a ViewModel-style extension point: first identi
 ### SetToolipCallback
 `public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)`
 
-**Purpose:** **Purpose:** Assigns a new value to toolip callback and updates the object's internal state.
+**Purpose:** Assigns a new value to toolip callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicTooltipViewModel from the subsystem API first
@@ -34,7 +34,7 @@ basicTooltipViewModel.SetToolipCallback(tooltipPropertiesDelegate);
 ### SetGenericTooltipCallback
 `public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)`
 
-**Purpose:** **Purpose:** Assigns a new value to generic tooltip callback and updates the object's internal state.
+**Purpose:** Assigns a new value to generic tooltip callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicTooltipViewModel from the subsystem API first
@@ -45,7 +45,7 @@ basicTooltipViewModel.SetGenericTooltipCallback(preBuiltTooltipCallback);
 ### SetHintCallback
 `public void SetHintCallback(Func<string> hintProperty)`
 
-**Purpose:** **Purpose:** Assigns a new value to hint callback and updates the object's internal state.
+**Purpose:** Assigns a new value to hint callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicTooltipViewModel from the subsystem API first
@@ -56,7 +56,7 @@ basicTooltipViewModel.SetHintCallback(hintProperty);
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
+**Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of BasicTooltipViewModel from the subsystem API first
@@ -67,7 +67,7 @@ basicTooltipViewModel.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
+**Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of BasicTooltipViewModel from the subsystem API first

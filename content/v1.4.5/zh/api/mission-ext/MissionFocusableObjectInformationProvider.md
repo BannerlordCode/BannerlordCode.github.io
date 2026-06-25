@@ -23,7 +23,7 @@ description: "MissionFocusableObjectInformationProvider 的自动生成类参考
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
@@ -34,7 +34,7 @@ missionFocusableObjectInformationProvider.OnFinalize();
 ### AddInfoCallback
 `public void AddInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 info callback 添加到当前容器或状态中。
+**用途 / Purpose:** 将 info callback 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
@@ -45,7 +45,7 @@ missionFocusableObjectInformationProvider.AddInfoCallback(callback);
 ### RemoveInfoCallback
 `public void RemoveInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 info callback。
+**用途 / Purpose:** 从当前容器或状态中移除 info callback。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
@@ -56,7 +56,7 @@ missionFocusableObjectInformationProvider.RemoveInfoCallback(callback);
 ### GetInteractionTexts
 `public void GetInteractionTexts(Agent requesterAgent, IFocusable focusable, bool isInteractable, out FocusableObjectInformation focusableObjectInformation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 interaction texts 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 interaction texts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Load
 `public static void Load(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ FileHelperExtensions.Load(document, path);
 ### LoadAsync
 `public static async Task LoadAsync(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** **Purpose:** Reads async from persistent storage or a stream.
+**Purpose:** Reads async from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ FileHelperExtensions.LoadAsync(document, path);
 ### Save
 `public static void Save(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
+**Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ FileHelperExtensions.Save(document, path);
 ### SaveAsync
 `public static async Task SaveAsync(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** **Purpose:** Writes async to persistent storage or a stream.
+**Purpose:** Writes async to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

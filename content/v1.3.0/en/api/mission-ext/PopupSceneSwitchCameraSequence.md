@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** **Purpose:** Invoked when the initial state event is raised.
+**Purpose:** Invoked when the initial state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first
@@ -34,7 +34,7 @@ popupSceneSwitchCameraSequence.OnInitialState();
 ### OnPositiveState
 `public override void OnPositiveState()`
 
-**Purpose:** **Purpose:** Invoked when the positive state event is raised.
+**Purpose:** Invoked when the positive state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first
@@ -45,7 +45,7 @@ popupSceneSwitchCameraSequence.OnPositiveState();
 ### OnNegativeState
 `public override void OnNegativeState()`
 
-**Purpose:** **Purpose:** Invoked when the negative state event is raised.
+**Purpose:** Invoked when the negative state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first

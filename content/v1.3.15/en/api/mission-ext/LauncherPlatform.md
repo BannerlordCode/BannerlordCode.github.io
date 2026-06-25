@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Initialize
 `public static void Initialize(List<string> args)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ LauncherPlatform.Initialize(args);
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** **Purpose:** Executes the Destroy logic.
+**Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ LauncherPlatform.Destroy();
 ### SetLauncherMode
 `public static void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to launcher mode and updates the object's internal state.
+**Purpose:** Assigns a new value to launcher mode and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

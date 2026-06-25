@@ -57,7 +57,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncounterMenuOverlayVM from the subsystem API first
@@ -68,7 +68,7 @@ encounterMenuOverlayVM.RefreshValues();
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of EncounterMenuOverlayVM from the subsystem API first
@@ -79,7 +79,7 @@ encounterMenuOverlayVM.OnFrameTick(0);
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncounterMenuOverlayVM from the subsystem API first

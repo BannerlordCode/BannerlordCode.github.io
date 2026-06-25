@@ -32,7 +32,7 @@ description: "ImageIdentifierTextureProvider 的自动生成类参考。"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
@@ -43,7 +43,7 @@ imageIdentifierTextureProvider.Tick(0);
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
@@ -54,7 +54,7 @@ imageIdentifierTextureProvider.Clear(false);
 ### CreateImageWithId
 `public void CreateImageWithId(string id, string additionalArgs)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 image with id 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 image with id 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例

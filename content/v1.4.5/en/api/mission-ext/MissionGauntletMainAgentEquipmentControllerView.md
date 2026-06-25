@@ -23,7 +23,7 @@ Treat `MissionGauntletMainAgentEquipmentControllerView` as a View-style extensio
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenTick(0);
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** **Purpose:** Invoked when the focus gained event is raised.
+**Purpose:** Invoked when the focus gained event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletMainAgentEquipmentControllerView.OnFocusGained(agent, focusableOb
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** **Purpose:** Invoked when the focus lost event is raised.
+**Purpose:** Invoked when the focus lost event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletMainAgentEquipmentControllerView.OnFocusLost(agent, focusableObje
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first
@@ -89,7 +89,7 @@ missionGauntletMainAgentEquipmentControllerView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentEquipmentControllerView from the subsystem API first

@@ -31,7 +31,7 @@ Treat `MultiplayerScoreboardEndOfBattlePanelWidget` as a Widget-style extension 
 ### MultiplayerScoreboardEndOfBattlePanelWidget
 `public class MultiplayerScoreboardEndOfBattlePanelWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the MultiplayerScoreboardEndOfBattlePanelWidget logic.
+**Purpose:** Executes the MultiplayerScoreboardEndOfBattlePanelWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardEndOfBattlePanelWidget from the subsystem API first
@@ -42,7 +42,7 @@ var result = multiplayerScoreboardEndOfBattlePanelWidget.MultiplayerScoreboardEn
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** **Purpose:** Starts the animation flow or state machine.
+**Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardEndOfBattlePanelWidget from the subsystem API first

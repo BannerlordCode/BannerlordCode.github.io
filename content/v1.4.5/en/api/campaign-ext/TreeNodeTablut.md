@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CreateTreeAndReturnRootNode
 `public static TreeNodeTablut CreateTreeAndReturnRootNode(BoardGameTablut.BoardInformation initialBoardState, int maxDepth)`
 
-**Purpose:** **Purpose:** Constructs a new tree and return root node entity and returns it to the caller.
+**Purpose:** Constructs a new tree and return root node entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ TreeNodeTablut.CreateTreeAndReturnRootNode(initialBoardState, 0);
 ### GetChildWithBestScore
 `public TreeNodeTablut GetChildWithBestScore()`
 
-**Purpose:** **Purpose:** Reads and returns the child with best score value held by the this instance.
+**Purpose:** Reads and returns the child with best score value held by the this instance.
 
 ```csharp
 // Obtain an instance of TreeNodeTablut from the subsystem API first
@@ -50,7 +50,7 @@ var result = treeNodeTablut.GetChildWithBestScore();
 ### SelectAction
 `public void SelectAction()`
 
-**Purpose:** **Purpose:** Executes the SelectAction logic.
+**Purpose:** Executes the SelectAction logic.
 
 ```csharp
 // Obtain an instance of TreeNodeTablut from the subsystem API first

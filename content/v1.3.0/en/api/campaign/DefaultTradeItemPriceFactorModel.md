@@ -23,7 +23,7 @@ Treat `DefaultTradeItemPriceFactorModel` as a Model-style extension point: first
 ### GetTradePenalty
 `public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**Purpose:** **Purpose:** Reads and returns the trade penalty value held by the this instance.
+**Purpose:** Reads and returns the trade penalty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultTradeItemPriceFactorModel.GetTradePenalty(item, clientParty,
 ### GetBasePriceFactor
 `public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**Purpose:** **Purpose:** Reads and returns the base price factor value held by the this instance.
+**Purpose:** Reads and returns the base price factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultTradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0
 ### GetPrice
 `public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**Purpose:** **Purpose:** Reads and returns the price value held by the this instance.
+**Purpose:** Reads and returns the price value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultTradeItemPriceFactorModel.GetPrice(itemRosterElement, client
 ### GetTheoreticalMaxItemMarketValue
 `public override int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the theoretical max item market value value held by the this instance.
+**Purpose:** Reads and returns the theoretical max item market value value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first

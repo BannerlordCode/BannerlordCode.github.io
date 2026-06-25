@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** **Purpose:** Executes the BoardInformation logic.
+**Purpose:** Executes the BoardInformation logic.
 
 ```csharp
 // Obtain an instance of BoardInformation from the subsystem API first

@@ -32,7 +32,7 @@ description: "Workshop 的自动生成类参考。"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -43,7 +43,7 @@ var result = workshop.GetHashCode();
 ### InitializeWorkshop
 `public void InitializeWorkshop(Hero owner, WorkshopType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 workshop 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 workshop 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -54,7 +54,7 @@ workshop.InitializeWorkshop(owner, type);
 ### ChangeOwnerOfWorkshop
 `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeOwnerOfWorkshop 对应的操作。
+**用途 / Purpose:** 调用 ChangeOwnerOfWorkshop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -65,7 +65,7 @@ workshop.ChangeOwnerOfWorkshop(newOwner, type, 0);
 ### ChangeWorkshopProduction
 `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeWorkshopProduction 对应的操作。
+**用途 / Purpose:** 调用 ChangeWorkshopProduction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -76,7 +76,7 @@ workshop.ChangeWorkshopProduction(newWorkshopType);
 ### SetCustomName
 `public void SetCustomName(TextObject customName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -87,7 +87,7 @@ workshop.SetCustomName(customName);
 ### UpdateLastRunTime
 `public void UpdateLastRunTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 last run time 的最新表示。
+**用途 / Purpose:** 重新计算并更新 last run time 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -98,7 +98,7 @@ workshop.UpdateLastRunTime();
 ### SetProgress
 `public void SetProgress(int i, float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 progress 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -109,7 +109,7 @@ workshop.SetProgress(0, 0);
 ### ChangeGold
 `public void ChangeGold(int goldChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeGold 对应的操作。
+**用途 / Purpose:** 调用 ChangeGold 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -120,7 +120,7 @@ workshop.ChangeGold(0);
 ### GetProductionProgress
 `public float GetProductionProgress(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 production progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 production progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -131,7 +131,7 @@ var result = workshop.GetProductionProgress(0);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例

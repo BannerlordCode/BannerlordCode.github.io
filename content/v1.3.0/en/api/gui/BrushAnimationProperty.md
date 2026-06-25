@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetFrameAfter
 `public BrushAnimationKeyFrame GetFrameAfter(float time)`
 
-**Purpose:** **Purpose:** Reads and returns the frame after value held by the this instance.
+**Purpose:** Reads and returns the frame after value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushAnimationProperty from the subsystem API first
@@ -42,7 +42,7 @@ var result = brushAnimationProperty.GetFrameAfter(0);
 ### GetFrameAt
 `public BrushAnimationKeyFrame GetFrameAt(int i)`
 
-**Purpose:** **Purpose:** Reads and returns the frame at value held by the this instance.
+**Purpose:** Reads and returns the frame at value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushAnimationProperty from the subsystem API first
@@ -53,7 +53,7 @@ var result = brushAnimationProperty.GetFrameAt(0);
 ### Clone
 `public BrushAnimationProperty Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of BrushAnimationProperty from the subsystem API first
@@ -64,7 +64,7 @@ var result = brushAnimationProperty.Clone();
 ### AddKeyFrame
 `public void AddKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
-**Purpose:** **Purpose:** Adds key frame to the current collection or state.
+**Purpose:** Adds key frame to the current collection or state.
 
 ```csharp
 // Obtain an instance of BrushAnimationProperty from the subsystem API first
@@ -75,7 +75,7 @@ brushAnimationProperty.AddKeyFrame(keyFrame);
 ### RemoveKeyFrame
 `public void RemoveKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
-**Purpose:** **Purpose:** Removes key frame from the current collection or state.
+**Purpose:** Removes key frame from the current collection or state.
 
 ```csharp
 // Obtain an instance of BrushAnimationProperty from the subsystem API first

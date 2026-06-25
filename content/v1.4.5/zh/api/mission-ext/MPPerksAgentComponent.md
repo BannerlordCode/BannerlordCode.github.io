@@ -23,7 +23,7 @@ description: "MPPerksAgentComponent 的自动生成类参考。"
 ### OnMount
 `public override void OnMount(Agent mount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mount 事件触发时调用此回调。
+**用途 / Purpose:** 在 mount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerksAgentComponent 实例
@@ -34,7 +34,7 @@ mPPerksAgentComponent.OnMount(mount);
 ### OnDismount
 `public override void OnDismount(Agent mount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 dismount 事件触发时调用此回调。
+**用途 / Purpose:** 在 dismount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerksAgentComponent 实例
@@ -45,7 +45,7 @@ mPPerksAgentComponent.OnDismount(mount);
 ### OnItemPickup
 `public override void OnItemPickup(SpawnedItemEntity item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 item pickup 事件触发时调用此回调。
+**用途 / Purpose:** 在 item pickup 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerksAgentComponent 实例
@@ -56,7 +56,7 @@ mPPerksAgentComponent.OnItemPickup(item);
 ### OnWeaponDrop
 `public override void OnWeaponDrop(MissionWeapon droppedWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon drop 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon drop 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerksAgentComponent 实例
@@ -67,7 +67,7 @@ mPPerksAgentComponent.OnWeaponDrop(droppedWeapon);
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerksAgentComponent 实例

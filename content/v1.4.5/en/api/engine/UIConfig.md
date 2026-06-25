@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### GetIsUsingGeneratedPrefabs
 `public static bool GetIsUsingGeneratedPrefabs()`
 
-**Purpose:** **Purpose:** Reads and returns the is using generated prefabs value held by the this instance.
+**Purpose:** Reads and returns the is using generated prefabs value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ UIConfig.GetIsUsingGeneratedPrefabs();
 ### GetIsHotReloadEnabled
 `public static bool GetIsHotReloadEnabled()`
 
-**Purpose:** **Purpose:** Reads and returns the is hot reload enabled value held by the this instance.
+**Purpose:** Reads and returns the is hot reload enabled value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ UIConfig.GetIsHotReloadEnabled();
 ### SetDebugMode
 `public static string SetDebugMode(List<string> args)`
 
-**Purpose:** **Purpose:** Assigns a new value to debug mode and updates the object's internal state.
+**Purpose:** Assigns a new value to debug mode and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ UIConfig.SetDebugMode(args);
 ### SetUsingGeneratedPrefabs
 `public static string SetUsingGeneratedPrefabs(List<string> args)`
 
-**Purpose:** **Purpose:** Assigns a new value to using generated prefabs and updates the object's internal state.
+**Purpose:** Assigns a new value to using generated prefabs and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

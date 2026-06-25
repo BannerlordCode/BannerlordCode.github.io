@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### CreateForVictory
 `public static GameOverState CreateForVictory()`
 
-**Purpose:** **Purpose:** Constructs a new for victory entity and returns it to the caller.
+**Purpose:** Constructs a new for victory entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ GameOverState.CreateForVictory();
 ### CreateForRetirement
 `public static GameOverState CreateForRetirement()`
 
-**Purpose:** **Purpose:** Constructs a new for retirement entity and returns it to the caller.
+**Purpose:** Constructs a new for retirement entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ GameOverState.CreateForRetirement();
 ### CreateForClanDestroyed
 `public static GameOverState CreateForClanDestroyed()`
 
-**Purpose:** **Purpose:** Constructs a new for clan destroyed entity and returns it to the caller.
+**Purpose:** Constructs a new for clan destroyed entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "MetaDataExtensions 的自动生成类参考。"
 ### GetCreationTime
 `public static DateTime GetCreationTime(this MetaData metaData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 creation time 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 creation time 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MetaDataExtensions.GetCreationTime(metaData);
 ### GetModules
 `public static string GetModules(this MetaData metaData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modules 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 modules 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MetaDataExtensions.GetModules(metaData);
 ### GetModuleVersion
 `public static ApplicationVersion GetModuleVersion(this MetaData metaData, string moduleName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 module version 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 module version 的结果。
 
 ```csharp
 // 静态调用，不需要实例

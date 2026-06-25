@@ -23,7 +23,7 @@ Treat `SandboxHighlightsController` as a Controller-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SandboxHighlightsController from the subsystem API first
@@ -34,7 +34,7 @@ sandboxHighlightsController.AfterStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SandboxHighlightsController from the subsystem API first

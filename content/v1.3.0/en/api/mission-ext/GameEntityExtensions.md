@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Instantiate
 `public static GameEntity Instantiate(Scene scene, MissionWeapon weapon, bool showHolsterWithWeapon, bool needBatchedVersion)`
 
-**Purpose:** **Purpose:** Executes the Instantiate logic.
+**Purpose:** Executes the Instantiate logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GameEntityExtensions.Instantiate(scene, weapon, false, false);
 ### CreateSimpleSkeleton
 `public static void CreateSimpleSkeleton(this GameEntity gameEntity, string skeletonName)`
 
-**Purpose:** **Purpose:** Constructs a new simple skeleton entity and returns it to the caller.
+**Purpose:** Constructs a new simple skeleton entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ GameEntityExtensions.CreateSimpleSkeleton(gameEntity, "example");
 ### CreateSimpleSkeleton
 `public static void CreateSimpleSkeleton(this WeakGameEntity gameEntity, string skeletonName)`
 
-**Purpose:** **Purpose:** Constructs a new simple skeleton entity and returns it to the caller.
+**Purpose:** Constructs a new simple skeleton entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ GameEntityExtensions.CreateSimpleSkeleton(gameEntity, "example");
 ### CreateAgentSkeleton
 `public static void CreateAgentSkeleton(this GameEntity gameEntity, string skeletonName, bool isHumanoid, MBActionSet actionSet, string monsterUsageSetName, Monster monster)`
 
-**Purpose:** **Purpose:** Constructs a new agent skeleton entity and returns it to the caller.
+**Purpose:** Constructs a new agent skeleton entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ GameEntityExtensions.CreateAgentSkeleton(gameEntity, "example", false, actionSet
 ### CreateAgentSkeleton
 `public static void CreateAgentSkeleton(this WeakGameEntity gameEntity, string skeletonName, bool isHumanoid, MBActionSet actionSet, string monsterUsageSetName, Monster monster)`
 
-**Purpose:** **Purpose:** Constructs a new agent skeleton entity and returns it to the caller.
+**Purpose:** Constructs a new agent skeleton entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ GameEntityExtensions.CreateAgentSkeleton(gameEntity, "example", false, actionSet
 ### CreateSkeletonWithActionSet
 `public static void CreateSkeletonWithActionSet(this GameEntity gameEntity, ref AnimationSystemData animationSystemData)`
 
-**Purpose:** **Purpose:** Constructs a new skeleton with action set entity and returns it to the caller.
+**Purpose:** Constructs a new skeleton with action set entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ GameEntityExtensions.CreateSkeletonWithActionSet(gameEntity, animationSystemData
 ### CreateSkeletonWithActionSet
 `public static void CreateSkeletonWithActionSet(this WeakGameEntity gameEntity, ref AnimationSystemData animationSystemData)`
 
-**Purpose:** **Purpose:** Constructs a new skeleton with action set entity and returns it to the caller.
+**Purpose:** Constructs a new skeleton with action set entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ GameEntityExtensions.CreateSkeletonWithActionSet(gameEntity, animationSystemData
 ### FadeOut
 `public static void FadeOut(this GameEntity gameEntity, float interval, bool isRemovingFromScene)`
 
-**Purpose:** **Purpose:** Executes the FadeOut logic.
+**Purpose:** Executes the FadeOut logic.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ GameEntityExtensions.FadeOut(gameEntity, 0, false);
 ### FadeIn
 `public static void FadeIn(this GameEntity gameEntity, bool resetAlpha = true)`
 
-**Purpose:** **Purpose:** Executes the FadeIn logic.
+**Purpose:** Executes the FadeIn logic.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ GameEntityExtensions.FadeIn(gameEntity, false);
 ### HideIfNotFadingOut
 `public static void HideIfNotFadingOut(this GameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with if not fading out.
+**Purpose:** Hides the UI or element associated with if not fading out.
 
 ```csharp
 // Static call; no instance required

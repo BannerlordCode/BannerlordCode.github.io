@@ -35,7 +35,7 @@ description: "MPLobbyClanChangeFactionPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -46,7 +46,7 @@ mPLobbyClanChangeFactionPopupVM.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -57,7 +57,7 @@ mPLobbyClanChangeFactionPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -68,7 +68,7 @@ mPLobbyClanChangeFactionPopupVM.ExecuteClosePopup();
 ### ExecuteChangeFaction
 `public void ExecuteChangeFaction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 change faction 对应的操作或工作流。
+**用途 / Purpose:** 执行 change faction 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -79,7 +79,7 @@ mPLobbyClanChangeFactionPopupVM.ExecuteChangeFaction();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -90,7 +90,7 @@ mPLobbyClanChangeFactionPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例
@@ -101,7 +101,7 @@ mPLobbyClanChangeFactionPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanChangeFactionPopupVM 实例

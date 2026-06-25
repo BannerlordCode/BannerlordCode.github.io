@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -57,7 +57,7 @@ var result = workshopType.GetName();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -68,7 +68,7 @@ var result = workshopType.ToString();
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -79,7 +79,7 @@ workshopType.Initialize();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -90,7 +90,7 @@ workshopType.Deserialize(objectManager, node);
 ### Find
 `public static WorkshopType Find(string idString)`
 
-**Purpose:** **Purpose:** Finds the matching entry in the current collection or scope.
+**Purpose:** Finds the matching entry in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -100,7 +100,7 @@ WorkshopType.Find("example");
 ### FindFirst
 `public static WorkshopType FindFirst(Func<WorkshopType, bool> predicate)`
 
-**Purpose:** **Purpose:** Looks up the matching first in the current collection or scope.
+**Purpose:** Looks up the matching first in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -110,7 +110,7 @@ WorkshopType.FindFirst(func<WorkshopType, false);
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
-**Purpose:** **Purpose:** Adds input to the current collection or state.
+**Purpose:** Adds input to the current collection or state.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -121,7 +121,7 @@ workshopType.AddInput(item, 0);
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-**Purpose:** **Purpose:** Adds output to the current collection or state.
+**Purpose:** Adds output to the current collection or state.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first
@@ -132,7 +132,7 @@ workshopType.AddOutput(outputCategory, 0);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopType from the subsystem API first

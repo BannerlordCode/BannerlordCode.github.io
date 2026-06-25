@@ -23,7 +23,7 @@ Treat `SettlementNameplateManagerWidget` as a Widget-style extension point: firs
 ### SettlementNameplateManagerWidget
 `public class SettlementNameplateManagerWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Assigns a new value to tlement nameplate manager widget and updates the object's internal state.
+**Purpose:** Assigns a new value to tlement nameplate manager widget and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateManagerWidget from the subsystem API first

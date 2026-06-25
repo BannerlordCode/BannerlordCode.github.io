@@ -30,7 +30,7 @@ Treat `ResultData` as a Data-style extension point: first identify who creates i
 ### AddDLLResult
 `public void AddDLLResult(string dllName, bool isSafe, string information)`
 
-**Purpose:** **Purpose:** Adds d l l result to the current collection or state.
+**Purpose:** Adds d l l result to the current collection or state.
 
 ```csharp
 // Obtain an instance of ResultData from the subsystem API first
@@ -41,7 +41,7 @@ resultData.AddDLLResult("example", false, "example");
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ResultData from the subsystem API first

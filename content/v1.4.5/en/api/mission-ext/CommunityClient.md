@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### QuitFromGame
 `public void QuitFromGame()`
 
-**Purpose:** **Purpose:** Executes the QuitFromGame logic.
+**Purpose:** Executes the QuitFromGame logic.
 
 ```csharp
 // Obtain an instance of CommunityClient from the subsystem API first

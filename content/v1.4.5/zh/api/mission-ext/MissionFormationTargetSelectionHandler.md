@@ -23,7 +23,7 @@ description: "MissionFormationTargetSelectionHandler 的自动生成类参考。
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
@@ -34,7 +34,7 @@ missionFormationTargetSelectionHandler.OnPreDisplayMissionTick(0);
 ### SetIsFormationTargetingDisabled
 `public void SetIsFormationTargetingDisabled(bool isDisabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is formation targeting disabled 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is formation targeting disabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
@@ -45,7 +45,7 @@ missionFormationTargetSelectionHandler.SetIsFormationTargetingDisabled(false);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例

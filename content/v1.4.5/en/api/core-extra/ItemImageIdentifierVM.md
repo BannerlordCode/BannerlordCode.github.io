@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ### Clone
 `public ItemImageIdentifierVM Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of ItemImageIdentifierVM from the subsystem API first

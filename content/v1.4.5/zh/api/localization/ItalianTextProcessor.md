@@ -23,7 +23,7 @@ description: "ItalianTextProcessor 的自动生成类参考。"
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessToken 对应的操作。
+**用途 / Purpose:** 调用 ProcessToken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItalianTextProcessor 实例

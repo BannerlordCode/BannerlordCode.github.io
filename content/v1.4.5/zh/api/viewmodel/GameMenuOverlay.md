@@ -34,7 +34,7 @@ description: "GameMenuOverlay 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -45,7 +45,7 @@ gameMenuOverlay.RefreshValues();
 ### ExecuteOnOverlayClosed
 `public virtual void ExecuteOnOverlayClosed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 on overlay closed 对应的操作或工作流。
+**用途 / Purpose:** 执行 on overlay closed 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -56,7 +56,7 @@ gameMenuOverlay.ExecuteOnOverlayClosed();
 ### ExecuteOnOverlayOpened
 `public virtual void ExecuteOnOverlayOpened()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 on overlay opened 对应的操作或工作流。
+**用途 / Purpose:** 执行 on overlay opened 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -67,7 +67,7 @@ gameMenuOverlay.ExecuteOnOverlayOpened();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -78,7 +78,7 @@ gameMenuOverlay.OnFinalize();
 ### Refresh
 `public virtual void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -89,7 +89,7 @@ gameMenuOverlay.Refresh();
 ### UpdateOverlayType
 `public virtual void UpdateOverlayType(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType newType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 overlay type 的最新表示。
+**用途 / Purpose:** 重新计算并更新 overlay type 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -100,7 +100,7 @@ gameMenuOverlay.UpdateOverlayType(newType);
 ### OnFrameTick
 `public virtual void OnFrameTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -111,7 +111,7 @@ gameMenuOverlay.OnFrameTick(0);
 ### HourlyTick
 `public void HourlyTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HourlyTick 对应的操作。
+**用途 / Purpose:** 调用 HourlyTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例
@@ -122,7 +122,7 @@ gameMenuOverlay.HourlyTick();
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 exit input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 exit input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOverlay 实例

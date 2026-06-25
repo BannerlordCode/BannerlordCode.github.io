@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
@@ -53,7 +53,7 @@ mPLobbyClanCreationInformationVM.RefreshValues();
 ### RefreshWith
 `public void RefreshWith(ClanHomeInfo info)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
@@ -64,7 +64,7 @@ mPLobbyClanCreationInformationVM.RefreshWith(info);
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** **Purpose:** Invoked when the friend list updated event is raised.
+**Purpose:** Invoked when the friend list updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
@@ -75,7 +75,7 @@ mPLobbyClanCreationInformationVM.OnFriendListUpdated(false);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the player name updated event is raised.
+**Purpose:** Invoked when the player name updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
@@ -86,7 +86,7 @@ mPLobbyClanCreationInformationVM.OnPlayerNameUpdated();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
+**Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
@@ -97,7 +97,7 @@ mPLobbyClanCreationInformationVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first

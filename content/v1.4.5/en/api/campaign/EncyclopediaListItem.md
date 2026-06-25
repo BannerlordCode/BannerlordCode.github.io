@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### EncyclopediaListItem
 `public struct EncyclopediaListItem(object obj, string name, string description, string id, string typeName, bool playerCanSeeValues, Action onShowTooltip = null)`
 
-**Purpose:** **Purpose:** Executes the EncyclopediaListItem logic.
+**Purpose:** Executes the EncyclopediaListItem logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItem from the subsystem API first

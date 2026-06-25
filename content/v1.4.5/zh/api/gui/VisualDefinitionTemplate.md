@@ -34,7 +34,7 @@ description: "VisualDefinitionTemplate 的自动生成类参考。"
 ### AddVisualState
 `public void AddVisualState(VisualStateTemplate visualState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 visual state 添加到当前容器或状态中。
+**用途 / Purpose:** 将 visual state 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualDefinitionTemplate 实例
@@ -45,7 +45,7 @@ visualDefinitionTemplate.AddVisualState(visualState);
 ### CreateVisualDefinition
 `public VisualDefinition CreateVisualDefinition(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 visual definition 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 visual definition 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualDefinitionTemplate 实例

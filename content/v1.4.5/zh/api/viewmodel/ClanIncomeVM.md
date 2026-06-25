@@ -47,7 +47,7 @@ description: "ClanIncomeVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -58,7 +58,7 @@ clanIncomeVM.RefreshValues();
 ### RefreshList
 `public void RefreshList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 list 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -69,7 +69,7 @@ clanIncomeVM.RefreshList();
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectWorkshop 对应的操作。
+**用途 / Purpose:** 调用 SelectWorkshop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -80,7 +80,7 @@ clanIncomeVM.SelectWorkshop(workshop);
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectAlley 对应的操作。
+**用途 / Purpose:** 调用 SelectAlley 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -91,7 +91,7 @@ clanIncomeVM.SelectAlley(alley);
 ### RefreshTotalIncome
 `public void RefreshTotalIncome()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 total income 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 total income 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -102,7 +102,7 @@ clanIncomeVM.RefreshTotalIncome();
 ### OnRefresh
 `public void OnRefresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 refresh 事件触发时调用此回调。
+**用途 / Purpose:** 在 refresh 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例

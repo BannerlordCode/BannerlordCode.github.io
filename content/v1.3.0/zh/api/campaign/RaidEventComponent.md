@@ -35,7 +35,7 @@ description: "RaidEventComponent 的自动生成类参考。"
 ### CreateRaidEvent
 `public static RaidEventComponent CreateRaidEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 raid event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 raid event 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -45,7 +45,7 @@ RaidEventComponent.CreateRaidEvent(attackerParty, defenderParty);
 ### CreateComponentForOldSaves
 `public static RaidEventComponent CreateComponentForOldSaves(MapEvent mapEvent, float nextSettlementDamage, int lootedItemCount, float raidDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

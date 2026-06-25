@@ -30,7 +30,7 @@ description: "FormationArrangementModel 的自动生成类参考。"
 ### GetBannerBearerPositions
 `public abstract List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner bearer positions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationArrangementModel 实例

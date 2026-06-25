@@ -50,7 +50,7 @@ description: "PartyNameplateVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -61,7 +61,7 @@ partyNameplateVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -72,7 +72,7 @@ partyNameplateVM.RefreshValues();
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 dynamic properties 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 dynamic properties 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -83,7 +83,7 @@ partyNameplateVM.RefreshDynamicProperties(false);
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -94,7 +94,7 @@ partyNameplateVM.RefreshPosition();
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 tutorial status 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 tutorial status 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -105,7 +105,7 @@ partyNameplateVM.RefreshTutorialStatus("example");
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定is visible on map的结果。
+**用途 / Purpose:** 根据当前状态判定is visible on map的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -116,7 +116,7 @@ partyNameplateVM.DetermineIsVisibleOnMap();
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(Hero newPlayer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player character changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 player character changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -127,7 +127,7 @@ partyNameplateVM.OnPlayerCharacterChanged(newPlayer);
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -138,7 +138,7 @@ partyNameplateVM.RefreshBinding();
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set camera position 对应的操作或工作流。
+**用途 / Purpose:** 执行 set camera position 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -149,7 +149,7 @@ partyNameplateVM.ExecuteSetCameraPosition();
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例
@@ -160,7 +160,7 @@ partyNameplateVM.RegisterEvents();
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销events。
+**用途 / Purpose:** 从当前系统中注销events。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyNameplateVM 实例

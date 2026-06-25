@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnPlayerBattleEnd
 `public void OnPlayerBattleEnd(MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Invoked when the player battle end event is raised.
+**Purpose:** Invoked when the player battle end event is raised.
 
 ```csharp
 // Obtain an instance of CaptureAndBringNpcTask from the subsystem API first
@@ -34,7 +34,7 @@ captureAndBringNpcTask.OnPlayerBattleEnd(mapEvent);
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CaptureAndBringNpcTask from the subsystem API first

@@ -23,7 +23,7 @@ description: "LobbyTauntHelper 的自动生成类参考。"
 ### PrepareForTaunt
 `public static Equipment PrepareForTaunt(Equipment originalEquipment, TauntCosmeticElement taunt, bool doNotAddComplimentaryWeapons = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为即将执行的for taunt操作完成前置准备工作。
+**用途 / Purpose:** 为即将执行的for taunt操作完成前置准备工作。
 
 ```csharp
 // 静态调用，不需要实例

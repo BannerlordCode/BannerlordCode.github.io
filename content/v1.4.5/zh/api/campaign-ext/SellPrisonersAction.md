@@ -19,7 +19,7 @@ SellPrisonersAction 是一组静态方法，用于在战役中以特定原因触
 public static void ApplyForAllPrisoners(PartyBase sellerParty, PartyBase buyerParty)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for all prisoners 的效果应用到当前对象。
+**用途 / Purpose:** 将 for all prisoners 的效果应用到当前对象。
 
 ### ApplyForSelectedPrisoners
 
@@ -27,7 +27,7 @@ public static void ApplyForAllPrisoners(PartyBase sellerParty, PartyBase buyerPa
 public static void ApplyForSelectedPrisoners(PartyBase sellerParty, PartyBase buyerParty, TroopRoster prisoners)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for selected prisoners 的效果应用到当前对象。
+**用途 / Purpose:** 将 for selected prisoners 的效果应用到当前对象。
 
 ### ApplyByPartyScreen
 
@@ -35,7 +35,7 @@ public static void ApplyForSelectedPrisoners(PartyBase sellerParty, PartyBase bu
 public static void ApplyByPartyScreen(TroopRoster prisoners)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by party screen 的效果应用到当前对象。
+**用途 / Purpose:** 将 by party screen 的效果应用到当前对象。
 
 ## 使用示例
 

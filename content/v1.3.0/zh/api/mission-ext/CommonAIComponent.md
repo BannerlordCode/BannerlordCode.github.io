@@ -34,7 +34,7 @@ description: "CommonAIComponent 的自动生成类参考。"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -45,7 +45,7 @@ commonAIComponent.Initialize();
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick parallel 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick parallel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -56,7 +56,7 @@ commonAIComponent.OnTickParallel(0);
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -67,7 +67,7 @@ commonAIComponent.OnTick(0);
 ### Panic
 `public void Panic()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Panic 对应的操作。
+**用途 / Purpose:** 调用 Panic 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -78,7 +78,7 @@ commonAIComponent.Panic();
 ### Retreat
 `public void Retreat(bool useCachingSystem = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Retreat 对应的操作。
+**用途 / Purpose:** 调用 Retreat 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -89,7 +89,7 @@ commonAIComponent.Retreat(false);
 ### StopRetreating
 `public void StopRetreating()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止retreating流程或状态机。
+**用途 / Purpose:** 停止retreating流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -100,7 +100,7 @@ commonAIComponent.StopRetreating();
 ### CanPanic
 `public bool CanPanic()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 panic 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 panic 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -111,7 +111,7 @@ var result = commonAIComponent.CanPanic();
 ### OnHit
 `public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -122,7 +122,7 @@ commonAIComponent.OnHit(affectorAgent, 0, affectorWeapon);
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -133,7 +133,7 @@ commonAIComponent.OnAgentRemoved();
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 component removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 component removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例

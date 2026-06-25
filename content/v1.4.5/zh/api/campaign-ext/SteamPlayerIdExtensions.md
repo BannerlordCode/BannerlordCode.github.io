@@ -23,7 +23,7 @@ description: "SteamPlayerIdExtensions 的自动生成类参考。"
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this CSteamID steamId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToPlayerId 对应的操作。
+**用途 / Purpose:** 调用 ToPlayerId 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SteamPlayerIdExtensions.ToPlayerId(steamId);
 ### ToSteamId
 `public static CSteamID ToSteamId(this PlayerId playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToSteamId 对应的操作。
+**用途 / Purpose:** 调用 ToSteamId 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ SteamPlayerIdExtensions.ToSteamId(playerId);
 ### IsValidSteamId
 `public static bool IsValidSteamId(this PlayerId playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid steam id 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid steam id 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

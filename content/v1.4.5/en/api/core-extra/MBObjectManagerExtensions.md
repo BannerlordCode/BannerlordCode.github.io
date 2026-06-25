@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### LoadXML
 `public static void LoadXML(this MBObjectManager objectManager, string id, bool skipXmlFilterForEditor = false)`
 
-**Purpose:** **Purpose:** Reads x m l from persistent storage or a stream.
+**Purpose:** Reads x m l from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

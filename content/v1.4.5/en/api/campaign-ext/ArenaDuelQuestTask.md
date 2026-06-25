@@ -23,7 +23,7 @@ Start from namespace `SandBox.Issues.IssueQuestTasks` to place it in the stack, 
 ### AfterStart
 `public void AfterStart(IMission mission)`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ArenaDuelQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ arenaDuelQuestTask.AfterStart(mission);
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArenaDuelQuestTask from the subsystem API first
@@ -45,7 +45,7 @@ arenaDuelQuestTask.SetReferences();
 ### OnGameMenuOpened
 `public void OnGameMenuOpened(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Invoked when the game menu opened event is raised.
+**Purpose:** Invoked when the game menu opened event is raised.
 
 ```csharp
 // Obtain an instance of ArenaDuelQuestTask from the subsystem API first
@@ -56,7 +56,7 @@ arenaDuelQuestTask.OnGameMenuOpened(args);
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the MissionTick logic.
+**Purpose:** Executes the MissionTick logic.
 
 ```csharp
 // Obtain an instance of ArenaDuelQuestTask from the subsystem API first

@@ -23,7 +23,7 @@ description: "SettlementGarrisonModel 的自动生成类参考。"
 ### GetMaximumDailyAutoRecruitmentCount
 `public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum daily auto recruitment count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum daily auto recruitment count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementGarrisonModel 实例
@@ -34,7 +34,7 @@ var result = settlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
 ### CalculateBaseGarrisonChange
 `public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算base garrison change的当前值或结果。
+**用途 / Purpose:** 计算base garrison change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementGarrisonModel 实例
@@ -45,7 +45,7 @@ var result = settlementGarrisonModel.CalculateBaseGarrisonChange(settlement, fal
 ### FindNumberOfTroopsToTakeFromGarrison
 `public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的number of troops to take from garrison。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的number of troops to take from garrison。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementGarrisonModel 实例
@@ -56,7 +56,7 @@ var result = settlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobile
 ### FindNumberOfTroopsToLeaveToGarrison
 `public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的number of troops to leave to garrison。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的number of troops to leave to garrison。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementGarrisonModel 实例
@@ -67,7 +67,7 @@ var result = settlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileP
 ### GetMaximumDailyRepairAmount
 `public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum daily repair amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum daily repair amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementGarrisonModel 实例

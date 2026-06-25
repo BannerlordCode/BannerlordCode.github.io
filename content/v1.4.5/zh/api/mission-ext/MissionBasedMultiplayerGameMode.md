@@ -23,7 +23,7 @@ description: "MissionBasedMultiplayerGameMode 的自动生成类参考。"
 ### JoinCustomGame
 `public override void JoinCustomGame(JoinGameData joinGameData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把若干custom game连接成一个整体。
+**用途 / Purpose:** 把若干custom game连接成一个整体。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBasedMultiplayerGameMode 实例
@@ -34,7 +34,7 @@ missionBasedMultiplayerGameMode.JoinCustomGame(joinGameData);
 ### StartMultiplayerGame
 `public override void StartMultiplayerGame(string scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动multiplayer game流程或状态机。
+**用途 / Purpose:** 启动multiplayer game流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBasedMultiplayerGameMode 实例

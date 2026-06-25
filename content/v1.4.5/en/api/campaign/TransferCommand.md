@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### Transfer
 `public static TransferCommand Transfer(int amount, InventoryLogic.InventorySide fromSide, InventoryLogic.InventorySide toSide, ItemRosterElement elementToTransfer, EquipmentIndex fromEquipmentIndex, EquipmentIndex toEquipmentIndex, CharacterObject character)`
 
-**Purpose:** **Purpose:** Executes the Transfer logic.
+**Purpose:** Executes the Transfer logic.
 
 ```csharp
 // Static call; no instance required

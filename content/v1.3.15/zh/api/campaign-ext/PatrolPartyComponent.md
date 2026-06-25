@@ -33,7 +33,7 @@ description: "PatrolPartyComponent 的自动生成类参考。"
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPartyComponent 实例
@@ -44,7 +44,7 @@ var result = patrolPartyComponent.GetDefaultComponentBanner();
 ### CreatePatrolParty
 `public static MobileParty CreatePatrolParty(string stringId, CampaignVec2 position, float spawnRadius, Settlement homeSettlement, PartyTemplateObject template)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 patrol party 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 patrol party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ PatrolPartyComponent.CreatePatrolParty("example", position, 0, homeSettlement, t
 ### SortRoster
 `public void SortRoster()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SortRoster 对应的操作。
+**用途 / Purpose:** 调用 SortRoster 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPartyComponent 实例

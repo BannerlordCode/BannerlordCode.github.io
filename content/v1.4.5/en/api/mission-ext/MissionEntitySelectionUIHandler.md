@@ -23,7 +23,7 @@ Treat `MissionEntitySelectionUIHandler` as a Handler-style extension point: firs
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionEntitySelectionUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionEntitySelectionUIHandler.OnMissionScreenTick(0);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionEntitySelectionUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionEntitySelectionUIHandler.OnRemoveBehavior();
 ### TickDebug
 `public void TickDebug()`
 
-**Purpose:** **Purpose:** Advances the debug state each frame or update cycle.
+**Purpose:** Advances the debug state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionEntitySelectionUIHandler from the subsystem API first

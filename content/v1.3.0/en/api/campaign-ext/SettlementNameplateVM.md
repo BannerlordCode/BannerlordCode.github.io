@@ -43,7 +43,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -54,7 +54,7 @@ settlementNameplateVM.RefreshValues();
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
+**Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -65,7 +65,7 @@ settlementNameplateVM.RefreshDynamicProperties(false);
 ### RefreshRelationStatus
 `public override void RefreshRelationStatus()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of relation status in sync with the underlying state.
+**Purpose:** Keeps the display or cache of relation status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -76,7 +76,7 @@ settlementNameplateVM.RefreshRelationStatus();
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
+**Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -87,7 +87,7 @@ settlementNameplateVM.RefreshPosition();
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of tutorial status in sync with the underlying state.
+**Purpose:** Keeps the display or cache of tutorial status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -98,7 +98,7 @@ settlementNameplateVM.RefreshTutorialStatus("example");
 ### OnSiegeEventStartedOnSettlement
 `public void OnSiegeEventStartedOnSettlement(SiegeEvent siegeEvent)`
 
-**Purpose:** **Purpose:** Invoked when the siege event started on settlement event is raised.
+**Purpose:** Invoked when the siege event started on settlement event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -109,7 +109,7 @@ settlementNameplateVM.OnSiegeEventStartedOnSettlement(siegeEvent);
 ### OnSiegeEventEndedOnSettlement
 `public void OnSiegeEventEndedOnSettlement(SiegeEvent siegeEvent)`
 
-**Purpose:** **Purpose:** Invoked when the siege event ended on settlement event is raised.
+**Purpose:** Invoked when the siege event ended on settlement event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -120,7 +120,7 @@ settlementNameplateVM.OnSiegeEventEndedOnSettlement(siegeEvent);
 ### OnMapEventStartedOnSettlement
 `public void OnMapEventStartedOnSettlement(MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Invoked when the map event started on settlement event is raised.
+**Purpose:** Invoked when the map event started on settlement event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -131,7 +131,7 @@ settlementNameplateVM.OnMapEventStartedOnSettlement(mapEvent);
 ### OnMapEventEndedOnSettlement
 `public void OnMapEventEndedOnSettlement()`
 
-**Purpose:** **Purpose:** Invoked when the map event ended on settlement event is raised.
+**Purpose:** Invoked when the map event ended on settlement event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -142,7 +142,7 @@ settlementNameplateVM.OnMapEventEndedOnSettlement();
 ### OnRebelliousClanFormed
 `public void OnRebelliousClanFormed(Clan clan)`
 
-**Purpose:** **Purpose:** Invoked when the rebellious clan formed event is raised.
+**Purpose:** Invoked when the rebellious clan formed event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -153,7 +153,7 @@ settlementNameplateVM.OnRebelliousClanFormed(clan);
 ### OnRebelliousClanDisbanded
 `public void OnRebelliousClanDisbanded(Clan clan)`
 
-**Purpose:** **Purpose:** Invoked when the rebellious clan disbanded event is raised.
+**Purpose:** Invoked when the rebellious clan disbanded event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -164,7 +164,7 @@ settlementNameplateVM.OnRebelliousClanDisbanded(clan);
 ### UpdateNameplateMT
 `public void UpdateNameplateMT(Vec3 cameraPosition)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of nameplate m t.
+**Purpose:** Recalculates and stores the latest representation of nameplate m t.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -175,7 +175,7 @@ settlementNameplateVM.UpdateNameplateMT(cameraPosition);
 ### RefreshBindValues
 `public void RefreshBindValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of bind values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of bind values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -186,7 +186,7 @@ settlementNameplateVM.RefreshBindValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -197,7 +197,7 @@ settlementNameplateVM.OnFinalize();
 ### ExecuteTrack
 `public void ExecuteTrack()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with track.
+**Purpose:** Runs the operation or workflow associated with track.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -208,7 +208,7 @@ settlementNameplateVM.ExecuteTrack();
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set camera position.
+**Purpose:** Runs the operation or workflow associated with set camera position.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first
@@ -219,7 +219,7 @@ settlementNameplateVM.ExecuteSetCameraPosition();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
+**Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of SettlementNameplateVM from the subsystem API first

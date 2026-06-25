@@ -23,7 +23,7 @@ description: "UsableMissionObjectComponent 的自动生成类参考。"
 ### IsOnTickRequired
 `public virtual bool IsOnTickRequired()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 on tick required 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 on tick required 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMissionObjectComponent 实例

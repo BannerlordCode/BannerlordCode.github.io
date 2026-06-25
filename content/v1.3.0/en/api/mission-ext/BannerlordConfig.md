@@ -87,7 +87,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -97,7 +97,7 @@ BannerlordConfig.Initialize();
 ### Save
 `public static SaveResult Save()`
 
-**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
+**Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -107,7 +107,7 @@ BannerlordConfig.Save();
 ### GetRealBattleSize
 `public static int GetRealBattleSize()`
 
-**Purpose:** **Purpose:** Reads and returns the real battle size value held by the this instance.
+**Purpose:** Reads and returns the real battle size value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -117,7 +117,7 @@ BannerlordConfig.GetRealBattleSize();
 ### GetRealBattleSizeForSiege
 `public static int GetRealBattleSizeForSiege()`
 
-**Purpose:** **Purpose:** Reads and returns the real battle size for siege value held by the this instance.
+**Purpose:** Reads and returns the real battle size for siege value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -127,7 +127,7 @@ BannerlordConfig.GetRealBattleSizeForSiege();
 ### GetReinforcementWaveCount
 `public static int GetReinforcementWaveCount()`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement wave count value held by the this instance.
+**Purpose:** Reads and returns the reinforcement wave count value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -137,7 +137,7 @@ BannerlordConfig.GetReinforcementWaveCount();
 ### GetRealBattleSizeForSallyOut
 `public static int GetRealBattleSizeForSallyOut()`
 
-**Purpose:** **Purpose:** Reads and returns the real battle size for sally out value held by the this instance.
+**Purpose:** Reads and returns the real battle size for sally out value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -147,7 +147,7 @@ BannerlordConfig.GetRealBattleSizeForSallyOut();
 ### IsValidValue
 `public bool IsValidValue(int value)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid value state or condition.
+**Purpose:** Determines whether the this instance is in the valid value state or condition.
 
 ```csharp
 // Obtain an instance of BannerlordConfig from the subsystem API first

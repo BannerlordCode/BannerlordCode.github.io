@@ -51,7 +51,7 @@ Treat `SettlementLoyaltyModel` as a Model-style extension point: first identify 
 ### CalculateLoyaltyChange
 `public abstract ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of loyalty change.
+**Purpose:** Calculates the current value or result of loyalty change.
 
 ```csharp
 // Obtain an instance of SettlementLoyaltyModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = settlementLoyaltyModel.CalculateLoyaltyChange(town, false);
 ### CalculateGoldGainDueToHighLoyalty
 `public abstract void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of gold gain due to high loyalty.
+**Purpose:** Calculates the current value or result of gold gain due to high loyalty.
 
 ```csharp
 // Obtain an instance of SettlementLoyaltyModel from the subsystem API first
@@ -73,7 +73,7 @@ settlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
 ### CalculateGoldCutDueToLowLoyalty
 `public abstract void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of gold cut due to low loyalty.
+**Purpose:** Calculates the current value or result of gold cut due to low loyalty.
 
 ```csharp
 // Obtain an instance of SettlementLoyaltyModel from the subsystem API first

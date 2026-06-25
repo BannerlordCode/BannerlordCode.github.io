@@ -30,7 +30,7 @@ description: "SkillObject 的自动生成类参考。"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillObject 实例
@@ -41,7 +41,7 @@ var result = skillObject.ToString();
 ### Initialize
 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute attributes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillObject 实例

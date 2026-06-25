@@ -32,7 +32,7 @@ description: "Scene 的自动生成类参考。"
 ### IsDefaultEditorScene
 `public bool IsDefaultEditorScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 default editor scene 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 default editor scene 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -43,7 +43,7 @@ var result = scene.IsDefaultEditorScene();
 ### IsMultiplayerScene
 `public bool IsMultiplayerScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 multiplayer scene 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 multiplayer scene 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -54,7 +54,7 @@ var result = scene.IsMultiplayerScene();
 ### TakePhotoModePicture
 `public string TakePhotoModePicture(bool saveAmbientOcclusionPass, bool savingObjectIdPass, bool saveShadowPass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TakePhotoModePicture 对应的操作。
+**用途 / Purpose:** 调用 TakePhotoModePicture 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -65,7 +65,7 @@ var result = scene.TakePhotoModePicture(false, false, false);
 ### GetAllColorGradeNames
 `public string GetAllColorGradeNames()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all color grade names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all color grade names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -76,7 +76,7 @@ var result = scene.GetAllColorGradeNames();
 ### GetAllFilterNames
 `public string GetAllFilterNames()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all filter names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all filter names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -87,7 +87,7 @@ var result = scene.GetAllFilterNames();
 ### GetPhotoModeRoll
 `public float GetPhotoModeRoll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 photo mode roll 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 photo mode roll 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -98,7 +98,7 @@ var result = scene.GetPhotoModeRoll();
 ### GetPhotoModeOrbit
 `public bool GetPhotoModeOrbit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 photo mode orbit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 photo mode orbit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -109,7 +109,7 @@ var result = scene.GetPhotoModeOrbit();
 ### GetPhotoModeOn
 `public bool GetPhotoModeOn()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 photo mode on 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 photo mode on 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -120,7 +120,7 @@ var result = scene.GetPhotoModeOn();
 ### GetPhotoModeFocus
 `public void GetPhotoModeFocus(ref float focus, ref float focusStart, ref float focusEnd, ref float exposure, ref bool vignetteOn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 photo mode focus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 photo mode focus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -131,7 +131,7 @@ scene.GetPhotoModeFocus(focus, focusStart, focusEnd, exposure, vignetteOn);
 ### GetSceneColorGradeIndex
 `public int GetSceneColorGradeIndex()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene color grade index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene color grade index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -142,7 +142,7 @@ var result = scene.GetSceneColorGradeIndex();
 ### GetSceneFilterIndex
 `public int GetSceneFilterIndex()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene filter index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene filter index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -153,7 +153,7 @@ var result = scene.GetSceneFilterIndex();
 ### EnableFixedTick
 `public void EnableFixedTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableFixedTick 对应的操作。
+**用途 / Purpose:** 调用 EnableFixedTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -164,7 +164,7 @@ scene.EnableFixedTick();
 ### GetLoadingStateName
 `public string GetLoadingStateName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loading state name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loading state name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -175,7 +175,7 @@ var result = scene.GetLoadingStateName();
 ### IsLoadingFinished
 `public bool IsLoadingFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 loading finished 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 loading finished 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -186,7 +186,7 @@ var result = scene.IsLoadingFinished();
 ### SetPhotoModeRoll
 `public void SetPhotoModeRoll(float roll)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode roll 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode roll 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -197,7 +197,7 @@ scene.SetPhotoModeRoll(0);
 ### SetPhotoModeOrbit
 `public void SetPhotoModeOrbit(bool orbit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode orbit 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode orbit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -208,7 +208,7 @@ scene.SetPhotoModeOrbit(false);
 ### GetFallDensity
 `public float GetFallDensity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 fall density 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 fall density 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -219,7 +219,7 @@ var result = scene.GetFallDensity();
 ### SetPhotoModeOn
 `public void SetPhotoModeOn(bool on)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode on 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode on 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -230,7 +230,7 @@ scene.SetPhotoModeOn(false);
 ### SetPhotoModeFocus
 `public void SetPhotoModeFocus(float focusStart, float focusEnd, float focus, float exposure)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode focus 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode focus 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -241,7 +241,7 @@ scene.SetPhotoModeFocus(0, 0, 0, 0);
 ### SetPhotoModeFov
 `public void SetPhotoModeFov(float verticalFov)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode fov 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode fov 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -252,7 +252,7 @@ scene.SetPhotoModeFov(0);
 ### GetPhotoModeFov
 `public float GetPhotoModeFov()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 photo mode fov 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 photo mode fov 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -263,7 +263,7 @@ var result = scene.GetPhotoModeFov();
 ### HasDecalRenderer
 `public bool HasDecalRenderer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 decal renderer。
+**用途 / Purpose:** 判断当前对象是否已经持有 decal renderer。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -274,7 +274,7 @@ var result = scene.HasDecalRenderer();
 ### SetPhotoModeVignette
 `public void SetPhotoModeVignette(bool vignetteOn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo mode vignette 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo mode vignette 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -285,7 +285,7 @@ scene.SetPhotoModeVignette(false);
 ### SetSceneColorGradeIndex
 `public void SetSceneColorGradeIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene color grade index 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene color grade index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -296,7 +296,7 @@ scene.SetSceneColorGradeIndex(0);
 ### SetSceneFilterIndex
 `public int SetSceneFilterIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene filter index 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene filter index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -307,7 +307,7 @@ var result = scene.SetSceneFilterIndex(0);
 ### SetSceneColorGrade
 `public void SetSceneColorGrade(string textureName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene color grade 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene color grade 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -318,7 +318,7 @@ scene.SetSceneColorGrade("example");
 ### SetUpgradeLevel
 `public void SetUpgradeLevel(int level)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 upgrade level 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 upgrade level 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -329,7 +329,7 @@ scene.SetUpgradeLevel(0);
 ### CreateBurstParticle
 `public void CreateBurstParticle(int particleId, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 burst particle 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 burst particle 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -340,7 +340,7 @@ scene.CreateBurstParticle(0, frame);
 ### GetTerrainHeightData
 `public float GetTerrainHeightData(int nodeXIndex, int nodeYIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain height data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain height data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -351,7 +351,7 @@ var result = scene.GetTerrainHeightData(0, 0);
 ### GetTerrainPhysicsMaterialIndexData
 `public short GetTerrainPhysicsMaterialIndexData(int nodeXIndex, int nodeYIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain physics material index data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain physics material index data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -362,7 +362,7 @@ var result = scene.GetTerrainPhysicsMaterialIndexData(0, 0);
 ### GetTerrainData
 `public void GetTerrainData(out Vec2i nodeDimension, out float nodeSize, out int layerCount, out int layerVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -373,7 +373,7 @@ scene.GetTerrainData(nodeDimension, nodeSize, layerCount, layerVersion);
 ### GetTerrainNodeData
 `public void GetTerrainNodeData(int xIndex, int yIndex, out int vertexCountAlongAxis, out float quadLength, out float minHeight, out float maxHeight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain node data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain node data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -384,7 +384,7 @@ scene.GetTerrainNodeData(0, 0, vertexCountAlongAxis, quadLength, minHeight, maxH
 ### GetTerrainPhysicsMaterialAtLayer
 `public PhysicsMaterial GetTerrainPhysicsMaterialAtLayer(int layerIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain physics material at layer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain physics material at layer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -395,7 +395,7 @@ var result = scene.GetTerrainPhysicsMaterialAtLayer(0);
 ### SetSceneColorGrade
 `public void SetSceneColorGrade(Scene scene, string textureName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene color grade 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene color grade 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -406,7 +406,7 @@ scene.SetSceneColorGrade(scene, "example");
 ### GetWaterLevel
 `public float GetWaterLevel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 water level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 water level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -417,7 +417,7 @@ var result = scene.GetWaterLevel();
 ### GetWaterLevelAtPosition
 `public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer, bool checkWaterBodyEntities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 water level at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 water level at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -428,7 +428,7 @@ var result = scene.GetWaterLevelAtPosition(position, false, false);
 ### GetWaterSpeedAtPosition
 `public Vec3 GetWaterSpeedAtPosition(Vec2 position, bool doChoppinessCorrection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 water speed at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 water speed at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -439,7 +439,7 @@ var result = scene.GetWaterSpeedAtPosition(position, false);
 ### GetBulkWaterLevelAtPositions
 `public void GetBulkWaterLevelAtPositions(Vec2 waterHeightQueryArray, ref float waterHeightsAtVolumes, ref Vec3 waterSurfaceNormals)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bulk water level at positions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bulk water level at positions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -450,7 +450,7 @@ scene.GetBulkWaterLevelAtPositions(waterHeightQueryArray, waterHeightsAtVolumes,
 ### GetInterpolationFactorForBodyWorldTransformSmoothing
 `public void GetInterpolationFactorForBodyWorldTransformSmoothing(out float interpolationFactor, out float fixedDt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 interpolation factor for body world transform smoothing 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 interpolation factor for body world transform smoothing 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -461,7 +461,7 @@ scene.GetInterpolationFactorForBodyWorldTransformSmoothing(interpolationFactor, 
 ### GetBulkWaterLevelAtVolumes
 `public void GetBulkWaterLevelAtVolumes(UIntPtr waterHeightQueryArray, int waterHeightQueryArrayCount, in MatrixFrame globalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bulk water level at volumes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bulk water level at volumes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -472,7 +472,7 @@ scene.GetBulkWaterLevelAtVolumes(waterHeightQueryArray, 0, globalFrame);
 ### GetWaterStrength
 `public float GetWaterStrength()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 water strength 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 water strength 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -483,7 +483,7 @@ var result = scene.GetWaterStrength();
 ### DeRegisterShipVisual
 `public void DeRegisterShipVisual(UIntPtr visualPointer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeRegisterShipVisual 对应的操作。
+**用途 / Purpose:** 调用 DeRegisterShipVisual 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -494,7 +494,7 @@ scene.DeRegisterShipVisual(visualPointer);
 ### RegisterShipVisualToWaterRenderer
 `public UIntPtr RegisterShipVisualToWaterRenderer(WeakGameEntity entity, in Vec3 waterEffectBB)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ship visual to water renderer注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将ship visual to water renderer注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -505,7 +505,7 @@ var result = scene.RegisterShipVisualToWaterRenderer(entity, waterEffectBB);
 ### SetWaterStrength
 `public void SetWaterStrength(float newWaterStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 water strength 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 water strength 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -516,7 +516,7 @@ scene.SetWaterStrength(0);
 ### AddWaterWakeWithSphere
 `public void AddWaterWakeWithSphere(Vec3 position, float radius, float wakeVisibility, float foamVisibility)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 water wake with sphere 添加到当前容器或状态中。
+**用途 / Purpose:** 将 water wake with sphere 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -527,7 +527,7 @@ scene.AddWaterWakeWithSphere(position, 0, 0, 0);
 ### AddWaterWakeWithCapsule
 `public void AddWaterWakeWithCapsule(Vec3 positionA, float radiusA, Vec3 positionB, float radiusB, float wakeVisibility, float foamVisibility)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 water wake with capsule 添加到当前容器或状态中。
+**用途 / Purpose:** 将 water wake with capsule 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -538,7 +538,7 @@ scene.AddWaterWakeWithCapsule(positionA, 0, positionB, 0, 0, 0);
 ### GetPathBetweenAIFaces
 `public bool GetPathBetweenAIFaces(UIntPtr startingFace, UIntPtr endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -549,7 +549,7 @@ var result = scene.GetPathBetweenAIFaces(startingFace, endingFace, startingPosit
 ### HasNavmeshFaceUnsharedEdges
 `public bool HasNavmeshFaceUnsharedEdges(in PathFaceRecord faceRecord)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 navmesh face unshared edges。
+**用途 / Purpose:** 判断当前对象是否已经持有 navmesh face unshared edges。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -560,7 +560,7 @@ var result = scene.HasNavmeshFaceUnsharedEdges(faceRecord);
 ### GetNavmeshFaceCountBetweenTwoIds
 `public int GetNavmeshFaceCountBetweenTwoIds(int firstId, int secondId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navmesh face count between two ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navmesh face count between two ids 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -571,7 +571,7 @@ var result = scene.GetNavmeshFaceCountBetweenTwoIds(0, 0);
 ### GetNavmeshFaceRecordsBetweenTwoIds
 `public void GetNavmeshFaceRecordsBetweenTwoIds(int firstId, int secondId, PathFaceRecord faceRecords)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navmesh face records between two ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navmesh face records between two ids 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -582,7 +582,7 @@ scene.GetNavmeshFaceRecordsBetweenTwoIds(0, 0, faceRecords);
 ### SetFixedTickCallbackActive
 `public void SetFixedTickCallbackActive(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 fixed tick callback active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 fixed tick callback active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -593,7 +593,7 @@ scene.SetFixedTickCallbackActive(false);
 ### SetOnCollisionFilterCallbackActive
 `public void SetOnCollisionFilterCallbackActive(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on collision filter callback active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on collision filter callback active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -604,7 +604,7 @@ scene.SetOnCollisionFilterCallbackActive(false);
 ### GetPathBetweenAIFaces
 `public bool GetPathBetweenAIFaces(UIntPtr startingFace, UIntPtr endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, int regionSwitchCostTo0, int regionSwitchCostTo1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -615,7 +615,7 @@ var result = scene.GetPathBetweenAIFaces(startingFace, endingFace, startingPosit
 ### GetPathBetweenAIFaces
 `public bool GetPathBetweenAIFaces(int startingFace, int endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, float extraCostMultiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -626,7 +626,7 @@ var result = scene.GetPathBetweenAIFaces(0, 0, startingPosition, endingPosition,
 ### GetPathBetweenAIFaces
 `public bool GetPathBetweenAIFaces(int startingFace, int endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, float extraCostMultiplier, int regionSwitchCostTo0, int regionSwitchCostTo1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path between a i faces 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -637,7 +637,7 @@ var result = scene.GetPathBetweenAIFaces(0, 0, startingPosition, endingPosition,
 ### GetPathDistanceBetweenAIFaces
 `public bool GetPathDistanceBetweenAIFaces(int startingAiFace, int endingAiFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, float distanceLimit, out float distance, int excludedFaceIds, int regionSwitchCostTo0, int regionSwitchCostTo1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path distance between a i faces 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path distance between a i faces 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -648,7 +648,7 @@ var result = scene.GetPathDistanceBetweenAIFaces(0, 0, startingPosition, endingP
 ### GetNavMeshFaceIndex
 `public void GetNavMeshFaceIndex(ref PathFaceRecord record, Vec2 position, bool isRegion1, bool checkIfDisabled, bool ignoreHeight = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh face index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh face index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -659,7 +659,7 @@ scene.GetNavMeshFaceIndex(record, position, false, false, false);
 ### GetNavMeshFaceIndex
 `public void GetNavMeshFaceIndex(ref PathFaceRecord record, Vec3 position, bool checkIfDisabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh face index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh face index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -670,7 +670,7 @@ scene.GetNavMeshFaceIndex(record, position, false);
 ### CreateNewScene
 `public static Scene CreateNewScene(bool initialize_physics = true, bool enable_decals = true, DecalAtlasGroup atlasGroup = DecalAtlasGroup.All, string sceneName = "mono_renderscene")`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new scene 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 new scene 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -680,7 +680,7 @@ Scene.CreateNewScene(false, false, decalAtlasGroup.All, "example");
 ### AddAlwaysRenderedSkeleton
 `public void AddAlwaysRenderedSkeleton(Skeleton skeleton)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 always rendered skeleton 添加到当前容器或状态中。
+**用途 / Purpose:** 将 always rendered skeleton 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -691,7 +691,7 @@ scene.AddAlwaysRenderedSkeleton(skeleton);
 ### RemoveAlwaysRenderedSkeleton
 `public void RemoveAlwaysRenderedSkeleton(Skeleton skeleton)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 always rendered skeleton。
+**用途 / Purpose:** 从当前容器或状态中移除 always rendered skeleton。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -702,7 +702,7 @@ scene.RemoveAlwaysRenderedSkeleton(skeleton);
 ### CreatePathMesh
 `public MetaMesh CreatePathMesh(string baseEntityName, bool isWaterPath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 path mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 path mesh 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -713,7 +713,7 @@ var result = scene.CreatePathMesh("example", false);
 ### SetActiveVisibilityLevels
 `public void SetActiveVisibilityLevels(List<string> levelsToActivate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active visibility levels 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active visibility levels 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -724,7 +724,7 @@ scene.SetActiveVisibilityLevels(levelsToActivate);
 ### SetDoNotWaitForLoadingStatesToRender
 `public void SetDoNotWaitForLoadingStatesToRender(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do not wait for loading states to render 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do not wait for loading states to render 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -735,7 +735,7 @@ scene.SetDoNotWaitForLoadingStatesToRender(false);
 ### SetDynamicSnowTexture
 `public void SetDynamicSnowTexture(Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dynamic snow texture 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dynamic snow texture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -746,7 +746,7 @@ scene.SetDynamicSnowTexture(texture);
 ### GetWindFlowMapData
 `public void GetWindFlowMapData(float flowMapData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 wind flow map data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 wind flow map data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -757,7 +757,7 @@ scene.GetWindFlowMapData(0);
 ### CreateDynamicRainTexture
 `public void CreateDynamicRainTexture(int w, int h)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 dynamic rain texture 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 dynamic rain texture 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -768,7 +768,7 @@ scene.CreateDynamicRainTexture(0, 0);
 ### CreatePathMesh
 `public MetaMesh CreatePathMesh(IList<GameEntity> pathNodes, bool isWaterPath = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 path mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 path mesh 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -779,7 +779,7 @@ var result = scene.CreatePathMesh(pathNodes, false);
 ### GetEntityWithGuid
 `public GameEntity GetEntityWithGuid(string guid)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entity with guid 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entity with guid 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -790,7 +790,7 @@ var result = scene.GetEntityWithGuid("example");
 ### IsEntityFrameChanged
 `public bool IsEntityFrameChanged(string containsName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 entity frame changed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 entity frame changed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -801,7 +801,7 @@ var result = scene.IsEntityFrameChanged("example");
 ### GetTerrainHeightAndNormal
 `public void GetTerrainHeightAndNormal(Vec2 position, out float height, out Vec3 normal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain height and normal 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain height and normal 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -812,7 +812,7 @@ scene.GetTerrainHeightAndNormal(position, height, normal);
 ### GetFloraInstanceCount
 `public int GetFloraInstanceCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flora instance count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 flora instance count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -823,7 +823,7 @@ var result = scene.GetFloraInstanceCount();
 ### GetFloraRendererTextureUsage
 `public int GetFloraRendererTextureUsage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flora renderer texture usage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 flora renderer texture usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -834,7 +834,7 @@ var result = scene.GetFloraRendererTextureUsage();
 ### GetTerrainMemoryUsage
 `public int GetTerrainMemoryUsage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain memory usage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain memory usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -845,7 +845,7 @@ var result = scene.GetTerrainMemoryUsage();
 ### SetFetchCrcInfoOfScene
 `public void SetFetchCrcInfoOfScene(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 fetch crc info of scene 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 fetch crc info of scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -856,7 +856,7 @@ scene.SetFetchCrcInfoOfScene(false);
 ### GetSceneXMLCRC
 `public uint GetSceneXMLCRC()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene x m l c r c 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene x m l c r c 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -867,7 +867,7 @@ var result = scene.GetSceneXMLCRC();
 ### GetNavigationMeshCRC
 `public uint GetNavigationMeshCRC()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation mesh c r c 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation mesh c r c 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -878,7 +878,7 @@ var result = scene.GetNavigationMeshCRC();
 ### SetGlobalWindStrengthVector
 `public void SetGlobalWindStrengthVector(in Vec2 windVector)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 global wind strength vector 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 global wind strength vector 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -889,7 +889,7 @@ scene.SetGlobalWindStrengthVector(windVector);
 ### GetGlobalWindStrengthVector
 `public Vec2 GetGlobalWindStrengthVector()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global wind strength vector 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 global wind strength vector 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -900,7 +900,7 @@ var result = scene.GetGlobalWindStrengthVector();
 ### GetGlobalWindVelocity
 `public Vec2 GetGlobalWindVelocity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global wind velocity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 global wind velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -911,7 +911,7 @@ var result = scene.GetGlobalWindVelocity();
 ### SetGlobalWindVelocity
 `public void SetGlobalWindVelocity(in Vec2 windVector)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 global wind velocity 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 global wind velocity 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -922,7 +922,7 @@ scene.SetGlobalWindVelocity(windVector);
 ### GetEnginePhysicsEnabled
 `public bool GetEnginePhysicsEnabled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 engine physics enabled 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 engine physics enabled 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -933,7 +933,7 @@ var result = scene.GetEnginePhysicsEnabled();
 ### ClearNavMesh
 `public void ClearNavMesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的nav mesh。
+**用途 / Purpose:** 清空当前对象中的nav mesh。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -944,7 +944,7 @@ scene.ClearNavMesh();
 ### StallLoadingRenderingsUntilFurtherNotice
 `public void StallLoadingRenderingsUntilFurtherNotice()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 StallLoadingRenderingsUntilFurtherNotice 对应的操作。
+**用途 / Purpose:** 调用 StallLoadingRenderingsUntilFurtherNotice 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -955,7 +955,7 @@ scene.StallLoadingRenderingsUntilFurtherNotice();
 ### GetNavMeshFaceCount
 `public int GetNavMeshFaceCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh face count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh face count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -966,7 +966,7 @@ var result = scene.GetNavMeshFaceCount();
 ### ResumeLoadingRenderings
 `public void ResumeLoadingRenderings()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResumeLoadingRenderings 对应的操作。
+**用途 / Purpose:** 调用 ResumeLoadingRenderings 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -977,7 +977,7 @@ scene.ResumeLoadingRenderings();
 ### GetUpgradeLevelMask
 `public uint GetUpgradeLevelMask()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade level mask 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 upgrade level mask 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -988,7 +988,7 @@ var result = scene.GetUpgradeLevelMask();
 ### SetUpgradeLevelVisibility
 `public void SetUpgradeLevelVisibility(uint mask)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 upgrade level visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 upgrade level visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -999,7 +999,7 @@ scene.SetUpgradeLevelVisibility(0);
 ### SetUpgradeLevelVisibility
 `public void SetUpgradeLevelVisibility(List<string> levels)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 upgrade level visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 upgrade level visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1010,7 +1010,7 @@ scene.SetUpgradeLevelVisibility(levels);
 ### GetIdOfNavMeshFace
 `public int GetIdOfNavMeshFace(int faceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 id of nav mesh face 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 id of nav mesh face 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1021,7 +1021,7 @@ var result = scene.GetIdOfNavMeshFace(0);
 ### SetClothSimulationState
 `public void SetClothSimulationState(bool state)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cloth simulation state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cloth simulation state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1032,7 +1032,7 @@ scene.SetClothSimulationState(false);
 ### GetNavMeshCenterPosition
 `public void GetNavMeshCenterPosition(int faceIndex, ref Vec3 centerPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh center position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh center position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1043,7 +1043,7 @@ scene.GetNavMeshCenterPosition(0, centerPosition);
 ### GetNavMeshPathFaceRecord
 `public PathFaceRecord GetNavMeshPathFaceRecord(int faceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh path face record 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh path face record 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1054,7 +1054,7 @@ var result = scene.GetNavMeshPathFaceRecord(0);
 ### GetPathFaceRecordFromNavMeshFacePointer
 `public PathFaceRecord GetPathFaceRecordFromNavMeshFacePointer(UIntPtr navMeshFacePointer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path face record from nav mesh face pointer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path face record from nav mesh face pointer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1065,7 +1065,7 @@ var result = scene.GetPathFaceRecordFromNavMeshFacePointer(navMeshFacePointer);
 ### GetAllNavmeshFaceRecords
 `public void GetAllNavmeshFaceRecords(PathFaceRecord faceRecords)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all navmesh face records 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all navmesh face records 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1076,7 +1076,7 @@ scene.GetAllNavmeshFaceRecords(faceRecords);
 ### GetFirstEntityWithName
 `public GameEntity GetFirstEntityWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first entity with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 first entity with name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1087,7 +1087,7 @@ var result = scene.GetFirstEntityWithName("example");
 ### GetCampaignEntityWithName
 `public GameEntity GetCampaignEntityWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 campaign entity with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 campaign entity with name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1098,7 +1098,7 @@ var result = scene.GetCampaignEntityWithName("example");
 ### GetFirstEntityWithScriptComponent
 `public GameEntity GetFirstEntityWithScriptComponent(string scriptName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first entity with script component 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 first entity with script component 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1109,7 +1109,7 @@ var result = scene.GetFirstEntityWithScriptComponent("example");
 ### GetUpgradeLevelMaskOfLevelName
 `public uint GetUpgradeLevelMaskOfLevelName(string levelName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade level mask of level name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 upgrade level mask of level name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1120,7 +1120,7 @@ var result = scene.GetUpgradeLevelMaskOfLevelName("example");
 ### GetUpgradeLevelNameOfIndex
 `public string GetUpgradeLevelNameOfIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade level name of index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 upgrade level name of index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1131,7 +1131,7 @@ var result = scene.GetUpgradeLevelNameOfIndex(0);
 ### GetUpgradeLevelCount
 `public int GetUpgradeLevelCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade level count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 upgrade level count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1142,7 +1142,7 @@ var result = scene.GetUpgradeLevelCount();
 ### GetWinterTimeFactor
 `public float GetWinterTimeFactor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 winter time factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 winter time factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1153,7 +1153,7 @@ var result = scene.GetWinterTimeFactor();
 ### GetNavMeshFaceFirstVertexZ
 `public float GetNavMeshFaceFirstVertexZ(int faceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh face first vertex z 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh face first vertex z 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1164,7 +1164,7 @@ var result = scene.GetNavMeshFaceFirstVertexZ(0);
 ### SetWinterTimeFactor
 `public void SetWinterTimeFactor(float winterTimeFactor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 winter time factor 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 winter time factor 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1175,7 +1175,7 @@ scene.SetWinterTimeFactor(0);
 ### SetDrynessFactor
 `public void SetDrynessFactor(float drynessFactor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dryness factor 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dryness factor 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1186,7 +1186,7 @@ scene.SetDrynessFactor(0);
 ### GetFog
 `public float GetFog()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 fog 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 fog 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1197,7 +1197,7 @@ var result = scene.GetFog();
 ### SetFog
 `public void SetFog(float fogDensity, ref Vec3 fogColor, float fogFalloff)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 fog 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 fog 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1208,7 +1208,7 @@ scene.SetFog(0, fogColor, 0);
 ### SetFogAdvanced
 `public void SetFogAdvanced(float fogFalloffOffset, float fogFalloffMinFog, float fogFalloffStartDist)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 fog advanced 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 fog advanced 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1219,7 +1219,7 @@ scene.SetFogAdvanced(0, 0, 0);
 ### SetFogAmbientColor
 `public void SetFogAmbientColor(ref Vec3 fogAmbientColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 fog ambient color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 fog ambient color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1230,7 +1230,7 @@ scene.SetFogAmbientColor(fogAmbientColor);
 ### SetTemperature
 `public void SetTemperature(float temperature)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 temperature 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 temperature 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1241,7 +1241,7 @@ scene.SetTemperature(0);
 ### SetHumidity
 `public void SetHumidity(float humidity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 humidity 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 humidity 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1252,7 +1252,7 @@ scene.SetHumidity(0);
 ### SetDynamicShadowmapCascadesRadiusMultiplier
 `public void SetDynamicShadowmapCascadesRadiusMultiplier(float multiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dynamic shadowmap cascades radius multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dynamic shadowmap cascades radius multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1263,7 +1263,7 @@ scene.SetDynamicShadowmapCascadesRadiusMultiplier(0);
 ### SetEnvironmentMultiplier
 `public void SetEnvironmentMultiplier(bool useMultiplier, float multiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 environment multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 environment multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1274,7 +1274,7 @@ scene.SetEnvironmentMultiplier(false, 0);
 ### SetSkyRotation
 `public void SetSkyRotation(float rotation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sky rotation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sky rotation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1285,7 +1285,7 @@ scene.SetSkyRotation(0);
 ### SetSkyBrightness
 `public void SetSkyBrightness(float brightness)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sky brightness 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sky brightness 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1296,7 +1296,7 @@ scene.SetSkyBrightness(0);
 ### SetForcedSnow
 `public void SetForcedSnow(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced snow 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced snow 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1307,7 +1307,7 @@ scene.SetForcedSnow(false);
 ### SetSunLight
 `public void SetSunLight(ref Vec3 color, ref Vec3 direction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun light 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun light 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1318,7 +1318,7 @@ scene.SetSunLight(color, direction);
 ### SetSunDirection
 `public void SetSunDirection(ref Vec3 direction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun direction 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun direction 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1329,7 +1329,7 @@ scene.SetSunDirection(direction);
 ### SetSun
 `public void SetSun(ref Vec3 color, float altitude, float angle, float intensity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1340,7 +1340,7 @@ scene.SetSun(color, 0, 0, 0);
 ### SetSunAngleAltitude
 `public void SetSunAngleAltitude(float angle, float altitude)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun angle altitude 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun angle altitude 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1351,7 +1351,7 @@ scene.SetSunAngleAltitude(0, 0);
 ### SetSunSize
 `public void SetSunSize(float size)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1362,7 +1362,7 @@ scene.SetSunSize(0);
 ### SetSunShaftStrength
 `public void SetSunShaftStrength(float strength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sun shaft strength 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sun shaft strength 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1373,7 +1373,7 @@ scene.SetSunShaftStrength(0);
 ### GetRainDensity
 `public float GetRainDensity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 rain density 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 rain density 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1384,7 +1384,7 @@ var result = scene.GetRainDensity();
 ### SetRainDensity
 `public void SetRainDensity(float density)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 rain density 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 rain density 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1395,7 +1395,7 @@ scene.SetRainDensity(0);
 ### GetSnowDensity
 `public float GetSnowDensity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 snow density 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 snow density 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1406,7 +1406,7 @@ var result = scene.GetSnowDensity();
 ### SetSnowDensity
 `public void SetSnowDensity(float density)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 snow density 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 snow density 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1417,7 +1417,7 @@ scene.SetSnowDensity(0);
 ### AddDecalInstance
 `public void AddDecalInstance(Decal decal, string decalSetID, bool deletable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 decal instance 添加到当前容器或状态中。
+**用途 / Purpose:** 将 decal instance 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1428,7 +1428,7 @@ scene.AddDecalInstance(decal, "example", false);
 ### RemoveDecalInstance
 `public void RemoveDecalInstance(Decal decal, string decalSetID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 decal instance。
+**用途 / Purpose:** 从当前容器或状态中移除 decal instance。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1439,7 +1439,7 @@ scene.RemoveDecalInstance(decal, "example");
 ### SetShadow
 `public void SetShadow(bool shadowEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 shadow 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 shadow 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1450,7 +1450,7 @@ scene.SetShadow(false);
 ### AddPointLight
 `public int AddPointLight(ref Vec3 position, float radius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 point light 添加到当前容器或状态中。
+**用途 / Purpose:** 将 point light 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1461,7 +1461,7 @@ var result = scene.AddPointLight(position, 0);
 ### AddDirectionalLight
 `public int AddDirectionalLight(ref Vec3 position, ref Vec3 direction, float radius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 directional light 添加到当前容器或状态中。
+**用途 / Purpose:** 将 directional light 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1472,7 +1472,7 @@ var result = scene.AddDirectionalLight(position, direction, 0);
 ### SetLightPosition
 `public void SetLightPosition(int lightIndex, ref Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 light position 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 light position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1483,7 +1483,7 @@ scene.SetLightPosition(0, position);
 ### SetLightDiffuseColor
 `public void SetLightDiffuseColor(int lightIndex, ref Vec3 diffuseColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 light diffuse color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 light diffuse color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1494,7 +1494,7 @@ scene.SetLightDiffuseColor(0, diffuseColor);
 ### SetLightDirection
 `public void SetLightDirection(int lightIndex, ref Vec3 direction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 light direction 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 light direction 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1505,7 +1505,7 @@ scene.SetLightDirection(0, direction);
 ### SetMieScatterFocus
 `public void SetMieScatterFocus(float strength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mie scatter focus 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mie scatter focus 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1516,7 +1516,7 @@ scene.SetMieScatterFocus(0);
 ### SetMieScatterStrength
 `public void SetMieScatterStrength(float strength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mie scatter strength 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mie scatter strength 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1527,7 +1527,7 @@ scene.SetMieScatterStrength(0);
 ### SetBrightpassThreshold
 `public void SetBrightpassThreshold(float threshold)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 brightpass threshold 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 brightpass threshold 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1538,7 +1538,7 @@ scene.SetBrightpassThreshold(0);
 ### SetLensDistortion
 `public void SetLensDistortion(float amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 lens distortion 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 lens distortion 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1549,7 +1549,7 @@ scene.SetLensDistortion(0);
 ### SetHexagonVignetteAlpha
 `public void SetHexagonVignetteAlpha(float amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hexagon vignette alpha 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hexagon vignette alpha 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1560,7 +1560,7 @@ scene.SetHexagonVignetteAlpha(0);
 ### SetMinExposure
 `public void SetMinExposure(float minExposure)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 min exposure 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 min exposure 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1571,7 +1571,7 @@ scene.SetMinExposure(0);
 ### SetMaxExposure
 `public void SetMaxExposure(float maxExposure)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 max exposure 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 max exposure 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1582,7 +1582,7 @@ scene.SetMaxExposure(0);
 ### SetTargetExposure
 `public void SetTargetExposure(float targetExposure)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target exposure 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target exposure 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1593,7 +1593,7 @@ scene.SetTargetExposure(0);
 ### SetMiddleGray
 `public void SetMiddleGray(float middleGray)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 middle gray 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 middle gray 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1604,7 +1604,7 @@ scene.SetMiddleGray(0);
 ### SetBloomStrength
 `public void SetBloomStrength(float bloomStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 bloom strength 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 bloom strength 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1615,7 +1615,7 @@ scene.SetBloomStrength(0);
 ### SetBloomAmount
 `public void SetBloomAmount(float bloomAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 bloom amount 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 bloom amount 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1626,7 +1626,7 @@ scene.SetBloomAmount(0);
 ### SetGrainAmount
 `public void SetGrainAmount(float grainAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 grain amount 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 grain amount 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1637,7 +1637,7 @@ scene.SetGrainAmount(0);
 ### AddItemEntity
 `public GameEntity AddItemEntity(ref MatrixFrame placementFrame, MetaMesh metaMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 item entity 添加到当前容器或状态中。
+**用途 / Purpose:** 将 item entity 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1648,7 +1648,7 @@ var result = scene.AddItemEntity(placementFrame, metaMesh);
 ### RemoveEntity
 `public void RemoveEntity(GameEntity entity, int removeReason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 entity。
+**用途 / Purpose:** 从当前容器或状态中移除 entity。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1659,7 +1659,7 @@ scene.RemoveEntity(entity, 0);
 ### RemoveEntity
 `public void RemoveEntity(WeakGameEntity entity, int removeReason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 entity。
+**用途 / Purpose:** 从当前容器或状态中移除 entity。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1670,7 +1670,7 @@ scene.RemoveEntity(entity, 0);
 ### AttachEntity
 `public bool AttachEntity(GameEntity entity, bool showWarnings = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AttachEntity 对应的操作。
+**用途 / Purpose:** 调用 AttachEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1681,7 +1681,7 @@ var result = scene.AttachEntity(entity, false);
 ### AttachEntity
 `public bool AttachEntity(WeakGameEntity entity, bool showWarnings = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AttachEntity 对应的操作。
+**用途 / Purpose:** 调用 AttachEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1692,7 +1692,7 @@ var result = scene.AttachEntity(entity, false);
 ### AddEntityWithMesh
 `public void AddEntityWithMesh(Mesh mesh, ref MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 entity with mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 entity with mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1703,7 +1703,7 @@ scene.AddEntityWithMesh(mesh, frame);
 ### AddEntityWithMultiMesh
 `public void AddEntityWithMultiMesh(MetaMesh mesh, ref MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 entity with multi mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 entity with multi mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1714,7 +1714,7 @@ scene.AddEntityWithMultiMesh(mesh, frame);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1725,7 +1725,7 @@ scene.Tick(0);
 ### ClearAll
 `public void ClearAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all。
+**用途 / Purpose:** 清空当前对象中的all。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1736,7 +1736,7 @@ scene.ClearAll();
 ### SetDefaultLighting
 `public void SetDefaultLighting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default lighting 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 default lighting 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1747,7 +1747,7 @@ scene.SetDefaultLighting();
 ### CalculateEffectiveLighting
 `public bool CalculateEffectiveLighting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算effective lighting的当前值或结果。
+**用途 / Purpose:** 计算effective lighting的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1758,7 +1758,7 @@ var result = scene.CalculateEffectiveLighting();
 ### GetPathDistanceBetweenPositions
 `public bool GetPathDistanceBetweenPositions(ref WorldPosition point0, ref WorldPosition point1, float agentRadius, out float pathDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path distance between positions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path distance between positions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1769,7 +1769,7 @@ var result = scene.GetPathDistanceBetweenPositions(point0, point1, 0, pathDistan
 ### IsLineToPointClear
 `public bool IsLineToPointClear(ref WorldPosition position, ref WorldPosition destination, float agentRadius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1780,7 +1780,7 @@ var result = scene.IsLineToPointClear(position, destination, 0);
 ### IsLineToPointClear
 `public bool IsLineToPointClear(UIntPtr startingFace, Vec2 position, Vec2 destination, float agentRadius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1791,7 +1791,7 @@ var result = scene.IsLineToPointClear(startingFace, position, destination, 0);
 ### IsLineToPointClear
 `public bool IsLineToPointClear(int startingFace, Vec2 position, Vec2 destination, float agentRadius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 line to point clear 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1802,7 +1802,7 @@ var result = scene.IsLineToPointClear(0, position, destination, 0);
 ### GetLastPointOnNavigationMeshFromPositionToDestination
 `public Vec2 GetLastPointOnNavigationMeshFromPositionToDestination(int startingFace, Vec2 position, Vec2 destination, int excludedFaceIds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last point on navigation mesh from position to destination 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 last point on navigation mesh from position to destination 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1813,7 +1813,7 @@ var result = scene.GetLastPointOnNavigationMeshFromPositionToDestination(0, posi
 ### GetLastPositionOnNavMeshFaceForPointAndDirection
 `public Vec2 GetLastPositionOnNavMeshFaceForPointAndDirection(PathFaceRecord record, Vec2 position, Vec2 destination)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last position on nav mesh face for point and direction 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 last position on nav mesh face for point and direction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1824,7 +1824,7 @@ var result = scene.GetLastPositionOnNavMeshFaceForPointAndDirection(record, posi
 ### GetLastPointOnNavigationMeshFromWorldPositionToDestination
 `public Vec3 GetLastPointOnNavigationMeshFromWorldPositionToDestination(ref WorldPosition position, Vec2 destination)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last point on navigation mesh from world position to destination 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 last point on navigation mesh from world position to destination 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1835,7 +1835,7 @@ var result = scene.GetLastPointOnNavigationMeshFromWorldPositionToDestination(po
 ### DoesPathExistBetweenFaces
 `public bool DoesPathExistBetweenFaces(int firstNavMeshFace, int secondNavMeshFace, bool ignoreDisabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回path exist between faces对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断path exist between faces这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1846,7 +1846,7 @@ var result = scene.DoesPathExistBetweenFaces(0, 0, false);
 ### GetHeightAtPoint
 `public bool GetHeightAtPoint(Vec2 point, BodyFlags excludeBodyFlags, ref float height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 height at point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 height at point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1857,7 +1857,7 @@ var result = scene.GetHeightAtPoint(point, excludeBodyFlags, height);
 ### GetNormalAt
 `public Vec3 GetNormalAt(Vec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 normal at 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 normal at 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1868,7 +1868,7 @@ var result = scene.GetNormalAt(position);
 ### GetEntities
 `public void GetEntities(ref List<GameEntity> entities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entities 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entities 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1879,7 +1879,7 @@ scene.GetEntities(entities);
 ### GetRootEntities
 `public void GetRootEntities(NativeObjectArray entities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 root entities 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 root entities 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1890,7 +1890,7 @@ scene.GetRootEntities(entities);
 ### SelectEntitiesCollidedWith
 `public int SelectEntitiesCollidedWith(ref Ray ray, Intersection intersectionsOutput, UIntPtr entityIds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectEntitiesCollidedWith 对应的操作。
+**用途 / Purpose:** 调用 SelectEntitiesCollidedWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1901,7 +1901,7 @@ var result = scene.SelectEntitiesCollidedWith(ray, intersectionsOutput, entityId
 ### RayCastExcludingTwoEntities
 `public bool RayCastExcludingTwoEntities(BodyFlags flags, in Ray ray, WeakGameEntity entity1, WeakGameEntity entity2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastExcludingTwoEntities 对应的操作。
+**用途 / Purpose:** 调用 RayCastExcludingTwoEntities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1912,7 +1912,7 @@ var result = scene.RayCastExcludingTwoEntities(flags, ray, entity1, entity2);
 ### GenerateContactsWithCapsule
 `public int GenerateContactsWithCapsule(ref CapsuleData capsule, BodyFlags exclude_flags, bool isFixedTick, Intersection intersectionsOutput, WeakGameEntity gameEntities, UIntPtr entityPointers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成contacts with capsule的实例、数据或表示。
+**用途 / Purpose:** 生成contacts with capsule的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1923,7 +1923,7 @@ var result = scene.GenerateContactsWithCapsule(capsule, exclude_flags, false, in
 ### GenerateContactsWithCapsuleAgainstEntity
 `public int GenerateContactsWithCapsuleAgainstEntity(ref CapsuleData capsule, BodyFlags excludeFlags, WeakGameEntity entity, Intersection intersectionsOutput)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成contacts with capsule against entity的实例、数据或表示。
+**用途 / Purpose:** 生成contacts with capsule against entity的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1934,7 +1934,7 @@ var result = scene.GenerateContactsWithCapsuleAgainstEntity(capsule, excludeFlag
 ### InvalidateTerrainPhysicsMaterials
 `public void InvalidateTerrainPhysicsMaterials()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateTerrainPhysicsMaterials 对应的操作。
+**用途 / Purpose:** 调用 InvalidateTerrainPhysicsMaterials 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1945,7 +1945,7 @@ scene.InvalidateTerrainPhysicsMaterials();
 ### Read
 `public void Read(string sceneName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1956,7 +1956,7 @@ scene.Read("example");
 ### Read
 `public void Read(string sceneName, string moduleId, ref SceneInitializationData initData, string forcedAtmoName = "")`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1967,7 +1967,7 @@ scene.Read("example", "example", initData, "example");
 ### Read
 `public void Read(string sceneName, ref SceneInitializationData initData, string forcedAtmoName = "")`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1978,7 +1978,7 @@ scene.Read("example", initData, "example");
 ### ReadAndCalculateInitialCamera
 `public MatrixFrame ReadAndCalculateInitialCamera()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取and calculate initial camera的数据或状态。
+**用途 / Purpose:** 从当前实例读取and calculate initial camera相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1989,7 +1989,7 @@ var result = scene.ReadAndCalculateInitialCamera();
 ### OptimizeScene
 `public void OptimizeScene(bool optimizeFlora = true, bool optimizeOro = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 OptimizeScene 对应的操作。
+**用途 / Purpose:** 调用 OptimizeScene 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2000,7 +2000,7 @@ scene.OptimizeScene(false, false);
 ### GetTerrainHeight
 `public float GetTerrainHeight(Vec2 position, bool checkHoles = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain height 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain height 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2011,7 +2011,7 @@ var result = scene.GetTerrainHeight(position, false);
 ### CheckResources
 `public void CheckResources(bool checkInvisibleEntities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查resources在当前对象中是否成立。
+**用途 / Purpose:** 检查resources在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2022,7 +2022,7 @@ scene.CheckResources(false);
 ### ForceLoadResources
 `public void ForceLoadResources(bool checkInvisibleEntities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceLoadResources 对应的操作。
+**用途 / Purpose:** 调用 ForceLoadResources 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2033,7 +2033,7 @@ scene.ForceLoadResources(false);
 ### SetDepthOfFieldParameters
 `public void SetDepthOfFieldParameters(float depthOfFieldFocusStart, float depthOfFieldFocusEnd, bool isVignetteOn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 depth of field parameters 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 depth of field parameters 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2044,7 +2044,7 @@ scene.SetDepthOfFieldParameters(0, 0, false);
 ### SetDepthOfFieldFocus
 `public void SetDepthOfFieldFocus(float depthOfFieldFocus)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 depth of field focus 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 depth of field focus 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2055,7 +2055,7 @@ scene.SetDepthOfFieldFocus(0);
 ### ResetDepthOfFieldParams
 `public void ResetDepthOfFieldParams()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 depth of field params 重置回默认或初始状态。
+**用途 / Purpose:** 将 depth of field params 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2066,7 +2066,7 @@ scene.ResetDepthOfFieldParams();
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadForRendering 对应的操作。
+**用途 / Purpose:** 调用 PreloadForRendering 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2077,7 +2077,7 @@ scene.PreloadForRendering();
 ### SetColorGradeBlend
 `public void SetColorGradeBlend(string texture1, string texture2, float alpha)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 color grade blend 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 color grade blend 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2088,7 +2088,7 @@ scene.SetColorGradeBlend("example", "example", 0);
 ### GetGroundHeightAtPosition
 `public float GetGroundHeightAtPosition(Vec3 position, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ground height at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ground height at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2099,7 +2099,7 @@ var result = scene.GetGroundHeightAtPosition(position, bodyFlags.CommonCollision
 ### GetGroundHeightAndBodyFlagsAtPosition
 `public float GetGroundHeightAndBodyFlagsAtPosition(Vec3 position, out BodyFlags contactPointFlags, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ground height and body flags at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ground height and body flags at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2110,7 +2110,7 @@ var result = scene.GetGroundHeightAndBodyFlagsAtPosition(position, contactPointF
 ### GetGroundHeightAtPosition
 `public float GetGroundHeightAtPosition(Vec3 position, out Vec3 normal, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ground height at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ground height at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2121,7 +2121,7 @@ var result = scene.GetGroundHeightAtPosition(position, normal, bodyFlags.CommonC
 ### PauseSceneSounds
 `public void PauseSceneSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PauseSceneSounds 对应的操作。
+**用途 / Purpose:** 调用 PauseSceneSounds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2132,7 +2132,7 @@ scene.PauseSceneSounds();
 ### ResumeSceneSounds
 `public void ResumeSceneSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResumeSceneSounds 对应的操作。
+**用途 / Purpose:** 调用 ResumeSceneSounds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2143,7 +2143,7 @@ scene.ResumeSceneSounds();
 ### FinishSceneSounds
 `public void FinishSceneSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 结束scene sounds流程并执行必要的收尾工作。
+**用途 / Purpose:** 结束scene sounds流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2154,7 +2154,7 @@ scene.FinishSceneSounds();
 ### BoxCastOnlyForCamera
 `public bool BoxCastOnlyForCamera(Vec3 boxPoints, in Vec3 centerPoint, bool castSupportRay, in Vec3 supportRaycastPoint, in Vec3 dir, float distance, WeakGameEntity ignoredEntity, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags | BodyFlags.DontCollideWithCamera)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BoxCastOnlyForCamera 对应的操作。
+**用途 / Purpose:** 调用 BoxCastOnlyForCamera 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2165,7 +2165,7 @@ var result = scene.BoxCastOnlyForCamera(boxPoints, centerPoint, false, supportRa
 ### BoxCast
 `public bool BoxCast(Vec3 boxMin, Vec3 boxMax, bool castSupportRay, Vec3 supportRaycastPoint, Vec3 dir, float distance, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BoxCast 对应的操作。
+**用途 / Purpose:** 调用 BoxCast 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2176,7 +2176,7 @@ var result = scene.BoxCast(boxMin, boxMax, false, supportRaycastPoint, dir, 0, c
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2187,7 +2187,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2198,7 +2198,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### FocusRayCastForFixedPhysics
 `public bool FocusRayCastForFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusRayCastForFixedPhysics 对应的操作。
+**用途 / Purpose:** 调用 FocusRayCastForFixedPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2209,7 +2209,7 @@ var result = scene.FocusRayCastForFixedPhysics(sourcePoint, targetPoint, collisi
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2220,7 +2220,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2231,7 +2231,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForRamming
 `public bool RayCastForRamming(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, float rayThickness, out float collisionDistance, out Vec3 intersectionPoint, out WeakGameEntity collidedEntity, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags, BodyFlags includeBodyFlags = BodyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForRamming 对应的操作。
+**用途 / Purpose:** 调用 RayCastForRamming 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2242,7 +2242,7 @@ var result = scene.RayCastForRamming(sourcePoint, targetPoint, ignoredEntity, 0,
 ### RayCastForClosestEntityOrTerrainIgnoreEntity
 `public bool RayCastForClosestEntityOrTerrainIgnoreEntity(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, out float collisionDistance, out GameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainIgnoreEntity 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainIgnoreEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2253,7 +2253,7 @@ var result = scene.RayCastForClosestEntityOrTerrainIgnoreEntity(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2264,7 +2264,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2275,7 +2275,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrainFixedPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2286,7 +2286,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2297,7 +2297,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### ImportNavigationMeshPrefab
 `public void ImportNavigationMeshPrefab(string navMeshPrefabName, int navMeshGroupShift)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ImportNavigationMeshPrefab 对应的操作。
+**用途 / Purpose:** 调用 ImportNavigationMeshPrefab 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2308,7 +2308,7 @@ scene.ImportNavigationMeshPrefab("example", 0);
 ### ImportNavigationMeshPrefabWithFrame
 `public void ImportNavigationMeshPrefabWithFrame(string navMeshPrefabName, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ImportNavigationMeshPrefabWithFrame 对应的操作。
+**用途 / Purpose:** 调用 ImportNavigationMeshPrefabWithFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2319,7 +2319,7 @@ scene.ImportNavigationMeshPrefabWithFrame("example", frame);
 ### SaveNavMeshPrefabWithFrame
 `public void SaveNavMeshPrefabWithFrame(string navMeshPrefabName, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 nav mesh prefab with frame 写入持久化存储或流中。
+**用途 / Purpose:** 将 nav mesh prefab with frame 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2330,7 +2330,7 @@ scene.SaveNavMeshPrefabWithFrame("example", frame);
 ### SetNavMeshRegionMap
 `public void SetNavMeshRegionMap(bool regionMap)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 nav mesh region map 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 nav mesh region map 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2341,7 +2341,7 @@ scene.SetNavMeshRegionMap(false);
 ### MarkFacesWithIdAsLadder
 `public void MarkFacesWithIdAsLadder(int faceGroupId, bool isLadder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MarkFacesWithIdAsLadder 对应的操作。
+**用途 / Purpose:** 调用 MarkFacesWithIdAsLadder 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2352,7 +2352,7 @@ scene.MarkFacesWithIdAsLadder(0, false);
 ### SetAbilityOfFacesWithId
 `public int SetAbilityOfFacesWithId(int faceGroupId, bool isEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ability of faces with id 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ability of faces with id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2363,7 +2363,7 @@ var result = scene.SetAbilityOfFacesWithId(0, false);
 ### SetBlockerDirectionForFacesWithId
 `public void SetBlockerDirectionForFacesWithId(int faceGroupId, float rotation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 blocker direction for faces with id 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 blocker direction for faces with id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2374,7 +2374,7 @@ scene.SetBlockerDirectionForFacesWithId(0, 0);
 ### SwapFaceConnectionsWithID
 `public bool SwapFaceConnectionsWithID(int hubFaceGroupID, int toBeSeparatedFaceGroupId, int toBeMergedFaceGroupId, bool canFail)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwapFaceConnectionsWithID 对应的操作。
+**用途 / Purpose:** 调用 SwapFaceConnectionsWithID 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2385,7 +2385,7 @@ var result = scene.SwapFaceConnectionsWithID(0, 0, 0, false);
 ### MergeFacesWithId
 `public void MergeFacesWithId(int faceGroupId0, int faceGroupId1, int newFaceGroupId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MergeFacesWithId 对应的操作。
+**用途 / Purpose:** 调用 MergeFacesWithId 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2396,7 +2396,7 @@ scene.MergeFacesWithId(0, 0, 0);
 ### SeparateFacesWithId
 `public void SeparateFacesWithId(int faceGroupId0, int faceGroupId1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SeparateFacesWithId 对应的操作。
+**用途 / Purpose:** 调用 SeparateFacesWithId 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2407,7 +2407,7 @@ scene.SeparateFacesWithId(0, 0);
 ### IsAnyFaceWithId
 `public bool IsAnyFaceWithId(int faceGroupId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any face with id 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 any face with id 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2418,7 +2418,7 @@ var result = scene.IsAnyFaceWithId(0);
 ### GetNavigationMeshForPosition
 `public UIntPtr GetNavigationMeshForPosition(in Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation mesh for position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation mesh for position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2429,7 +2429,7 @@ var result = scene.GetNavigationMeshForPosition(position);
 ### GetNearestNavigationMeshForPosition
 `public UIntPtr GetNearestNavigationMeshForPosition(in Vec3 position, float heightDifferenceLimit, bool excludeDynamicNavigationMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nearest navigation mesh for position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nearest navigation mesh for position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2440,7 +2440,7 @@ var result = scene.GetNearestNavigationMeshForPosition(position, 0, false);
 ### GetNavigationMeshForPosition
 `public UIntPtr GetNavigationMeshForPosition(in Vec3 position, out int faceGroupId, float heightDifferenceLimit, bool excludeDynamicNavigationMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation mesh for position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation mesh for position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2451,7 +2451,7 @@ var result = scene.GetNavigationMeshForPosition(position, faceGroupId, 0, false)
 ### DoesPathExistBetweenPositions
 `public bool DoesPathExistBetweenPositions(WorldPosition position, WorldPosition destination)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回path exist between positions对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断path exist between positions这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2462,7 +2462,7 @@ var result = scene.DoesPathExistBetweenPositions(position, destination);
 ### SetLandscapeRainMaskData
 `public void SetLandscapeRainMaskData(byte data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 landscape rain mask data 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 landscape rain mask data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2473,7 +2473,7 @@ scene.SetLandscapeRainMaskData(0);
 ### EnsurePostfxSystem
 `public void EnsurePostfxSystem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 确保postfx system处于预期状态，必要时进行初始化或修正。
+**用途 / Purpose:** 确保postfx system处于预期状态，必要时进行初始化或修正。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2484,7 +2484,7 @@ scene.EnsurePostfxSystem();
 ### SetBloom
 `public void SetBloom(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 bloom 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 bloom 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2495,7 +2495,7 @@ scene.SetBloom(false);
 ### SetDofMode
 `public void SetDofMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dof mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dof mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2506,7 +2506,7 @@ scene.SetDofMode(false);
 ### SetOcclusionMode
 `public void SetOcclusionMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 occlusion mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 occlusion mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2517,7 +2517,7 @@ scene.SetOcclusionMode(false);
 ### SetExternalInjectionTexture
 `public void SetExternalInjectionTexture(Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 external injection texture 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 external injection texture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2528,7 +2528,7 @@ scene.SetExternalInjectionTexture(texture);
 ### SetSunshaftMode
 `public void SetSunshaftMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sunshaft mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sunshaft mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2539,7 +2539,7 @@ scene.SetSunshaftMode(false);
 ### GetSunDirection
 `public Vec3 GetSunDirection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sun direction 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sun direction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2550,7 +2550,7 @@ var result = scene.GetSunDirection();
 ### GetNorthAngle
 `public float GetNorthAngle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 north angle 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 north angle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2561,7 +2561,7 @@ var result = scene.GetNorthAngle();
 ### GetNorthRotation
 `public float GetNorthRotation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 north rotation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 north rotation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2572,7 +2572,7 @@ var result = scene.GetNorthRotation();
 ### GetTerrainMinMaxHeight
 `public bool GetTerrainMinMaxHeight(out float minHeight, out float maxHeight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 terrain min max height 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 terrain min max height 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2583,7 +2583,7 @@ var result = scene.GetTerrainMinMaxHeight(minHeight, maxHeight);
 ### GetPhysicsMinMax
 `public void GetPhysicsMinMax(ref Vec3 min_max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 physics min max 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 physics min max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2594,7 +2594,7 @@ scene.GetPhysicsMinMax(min_max);
 ### IsEditorScene
 `public bool IsEditorScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 editor scene 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 editor scene 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2605,7 +2605,7 @@ var result = scene.IsEditorScene();
 ### SetMotionBlurMode
 `public void SetMotionBlurMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 motion blur mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 motion blur mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2616,7 +2616,7 @@ scene.SetMotionBlurMode(false);
 ### SetAntialiasingMode
 `public void SetAntialiasingMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 antialiasing mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 antialiasing mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2627,7 +2627,7 @@ scene.SetAntialiasingMode(false);
 ### SetDLSSMode
 `public void SetDLSSMode(bool mode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l s s mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l s s mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2638,7 +2638,7 @@ scene.SetDLSSMode(false);
 ### FindWeakEntitiesWithTag
 `public IEnumerable<WeakGameEntity> FindWeakEntitiesWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entities with tag。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entities with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2649,7 +2649,7 @@ var result = scene.FindWeakEntitiesWithTag("example");
 ### FindWeakEntityWithTag
 `public WeakGameEntity FindWeakEntityWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entity with tag。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entity with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2660,7 +2660,7 @@ var result = scene.FindWeakEntityWithTag("example");
 ### FindEntitiesWithTag
 `public IEnumerable<GameEntity> FindEntitiesWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的entities with tag。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的entities with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2671,7 +2671,7 @@ var result = scene.FindEntitiesWithTag("example");
 ### FindEntityWithTag
 `public GameEntity FindEntityWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的entity with tag。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的entity with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2682,7 +2682,7 @@ var result = scene.FindEntityWithTag("example");
 ### FindEntityWithName
 `public GameEntity FindEntityWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的entity with name。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的entity with name。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2693,7 +2693,7 @@ var result = scene.FindEntityWithName("example");
 ### FindWeakEntitiesWithTagExpression
 `public IEnumerable<WeakGameEntity> FindWeakEntitiesWithTagExpression(string expression)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entities with tag expression。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的weak entities with tag expression。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2704,7 +2704,7 @@ var result = scene.FindWeakEntitiesWithTagExpression("example");
 ### FindEntitiesWithTagExpression
 `public IEnumerable<GameEntity> FindEntitiesWithTagExpression(string expression)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的entities with tag expression。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的entities with tag expression。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2715,7 +2715,7 @@ var result = scene.FindEntitiesWithTagExpression("example");
 ### GetSoftBoundaryVertexCount
 `public int GetSoftBoundaryVertexCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 soft boundary vertex count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 soft boundary vertex count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2726,7 +2726,7 @@ var result = scene.GetSoftBoundaryVertexCount();
 ### GetHardBoundaryVertexCount
 `public int GetHardBoundaryVertexCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hard boundary vertex count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hard boundary vertex count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2737,7 +2737,7 @@ var result = scene.GetHardBoundaryVertexCount();
 ### GetSoftBoundaryVertex
 `public Vec2 GetSoftBoundaryVertex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 soft boundary vertex 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 soft boundary vertex 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2748,7 +2748,7 @@ var result = scene.GetSoftBoundaryVertex(0);
 ### GetHardBoundaryVertex
 `public Vec2 GetHardBoundaryVertex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hard boundary vertex 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hard boundary vertex 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2759,7 +2759,7 @@ var result = scene.GetHardBoundaryVertex(0);
 ### GetPathWithName
 `public Path GetPathWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path with name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2770,7 +2770,7 @@ var result = scene.GetPathWithName("example");
 ### DeletePathWithName
 `public void DeletePathWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeletePathWithName 对应的操作。
+**用途 / Purpose:** 调用 DeletePathWithName 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2781,7 +2781,7 @@ scene.DeletePathWithName("example");
 ### AddPath
 `public void AddPath(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 path 添加到当前容器或状态中。
+**用途 / Purpose:** 将 path 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2792,7 +2792,7 @@ scene.AddPath("example");
 ### AddPathPoint
 `public void AddPathPoint(string name, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 path point 添加到当前容器或状态中。
+**用途 / Purpose:** 将 path point 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2803,7 +2803,7 @@ scene.AddPathPoint("example", frame);
 ### GetBoundingBox
 `public void GetBoundingBox(out Vec3 min, out Vec3 max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bounding box 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2814,7 +2814,7 @@ scene.GetBoundingBox(min, max);
 ### GetSceneLimits
 `public void GetSceneLimits(out Vec3 min, out Vec3 max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene limits 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene limits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2825,7 +2825,7 @@ scene.GetSceneLimits(min, max);
 ### SetName
 `public void SetName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2836,7 +2836,7 @@ scene.SetName("example");
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2847,7 +2847,7 @@ var result = scene.GetName();
 ### GetModulePath
 `public string GetModulePath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 module path 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 module path 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2858,7 +2858,7 @@ var result = scene.GetModulePath();
 ### SetOwnerThread
 `public void SetOwnerThread()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 owner thread 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 owner thread 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2869,7 +2869,7 @@ scene.SetOwnerThread();
 ### GetPathsWithNamePrefix
 `public Path GetPathsWithNamePrefix(string prefix)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 paths with name prefix 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 paths with name prefix 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2880,7 +2880,7 @@ var result = scene.GetPathsWithNamePrefix("example");
 ### SetUseConstantTime
 `public void SetUseConstantTime(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 use constant time 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 use constant time 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2891,7 +2891,7 @@ scene.SetUseConstantTime(false);
 ### CheckPointCanSeePoint
 `public bool CheckPointCanSeePoint(Vec3 source, Vec3 target, float? distanceToCheck = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查point can see point在当前对象中是否成立。
+**用途 / Purpose:** 检查point can see point在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2902,7 +2902,7 @@ var result = scene.CheckPointCanSeePoint(source, target, 0);
 ### SetPlaySoundEventsAfterReadyToRender
 `public void SetPlaySoundEventsAfterReadyToRender(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 play sound events after ready to render 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 play sound events after ready to render 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2913,7 +2913,7 @@ scene.SetPlaySoundEventsAfterReadyToRender(false);
 ### DisableStaticShadows
 `public void DisableStaticShadows(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableStaticShadows 对应的操作。
+**用途 / Purpose:** 调用 DisableStaticShadows 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2924,7 +2924,7 @@ scene.DisableStaticShadows(false);
 ### GetSkyboxMesh
 `public Mesh GetSkyboxMesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skybox mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skybox mesh 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2935,7 +2935,7 @@ var result = scene.GetSkyboxMesh();
 ### SetAtmosphereWithName
 `public void SetAtmosphereWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 atmosphere with name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 atmosphere with name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2946,7 +2946,7 @@ scene.SetAtmosphereWithName("example");
 ### FillEntityWithHardBorderPhysicsBarrier
 `public void FillEntityWithHardBorderPhysicsBarrier(GameEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillEntityWithHardBorderPhysicsBarrier 对应的操作。
+**用途 / Purpose:** 调用 FillEntityWithHardBorderPhysicsBarrier 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2957,7 +2957,7 @@ scene.FillEntityWithHardBorderPhysicsBarrier(entity);
 ### ClearDecals
 `public void ClearDecals()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的decals。
+**用途 / Purpose:** 清空当前对象中的decals。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2968,7 +2968,7 @@ scene.ClearDecals();
 ### SetPhotoAtmosphereViaTod
 `public void SetPhotoAtmosphereViaTod(float tod, bool withStorm)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 photo atmosphere via tod 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 photo atmosphere via tod 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2979,7 +2979,7 @@ scene.SetPhotoAtmosphereViaTod(0, false);
 ### IsPositionOnADynamicNavMesh
 `public bool IsPositionOnADynamicNavMesh(Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 position on a dynamic nav mesh 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 position on a dynamic nav mesh 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2990,7 +2990,7 @@ var result = scene.IsPositionOnADynamicNavMesh(position);
 ### WaitWaterRendererCPUSimulation
 `public void WaitWaterRendererCPUSimulation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到water renderer c p u simulation条件满足。
+**用途 / Purpose:** 暂停当前流程，直到water renderer c p u simulation条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3001,7 +3001,7 @@ scene.WaitWaterRendererCPUSimulation();
 ### EnableInclusiveAsyncPhysx
 `public void EnableInclusiveAsyncPhysx()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableInclusiveAsyncPhysx 对应的操作。
+**用途 / Purpose:** 调用 EnableInclusiveAsyncPhysx 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3012,7 +3012,7 @@ scene.EnableInclusiveAsyncPhysx();
 ### EnsureWaterWakeRenderer
 `public void EnsureWaterWakeRenderer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 确保water wake renderer处于预期状态，必要时进行初始化或修正。
+**用途 / Purpose:** 确保water wake renderer处于预期状态，必要时进行初始化或修正。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3023,7 +3023,7 @@ scene.EnsureWaterWakeRenderer();
 ### DeleteWaterWakeRenderer
 `public void DeleteWaterWakeRenderer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteWaterWakeRenderer 对应的操作。
+**用途 / Purpose:** 调用 DeleteWaterWakeRenderer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3034,7 +3034,7 @@ scene.DeleteWaterWakeRenderer();
 ### SceneHadWaterWakeRenderer
 `public bool SceneHadWaterWakeRenderer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SceneHadWaterWakeRenderer 对应的操作。
+**用途 / Purpose:** 调用 SceneHadWaterWakeRenderer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3045,7 +3045,7 @@ var result = scene.SceneHadWaterWakeRenderer();
 ### SetWaterWakeWorldSize
 `public void SetWaterWakeWorldSize(float worldSize, float eraseFactor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 water wake world size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 water wake world size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3056,7 +3056,7 @@ scene.SetWaterWakeWorldSize(0, 0);
 ### SetWaterWakeCameraOffset
 `public void SetWaterWakeCameraOffset(float cameraOffset)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 water wake camera offset 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 water wake camera offset 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3067,7 +3067,7 @@ scene.SetWaterWakeCameraOffset(0);
 ### TickWake
 `public void TickWake(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进wake的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进wake的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3078,7 +3078,7 @@ scene.TickWake(0);
 ### SetDoNotAddEntitiesToTickList
 `public void SetDoNotAddEntitiesToTickList(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do not add entities to tick list 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do not add entities to tick list 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3089,7 +3089,7 @@ scene.SetDoNotAddEntitiesToTickList(false);
 ### SetDontLoadInvisibleEntities
 `public void SetDontLoadInvisibleEntities(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dont load invisible entities 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dont load invisible entities 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3100,7 +3100,7 @@ scene.SetDontLoadInvisibleEntities(false);
 ### SetUsesDeleteLaterSystem
 `public void SetUsesDeleteLaterSystem(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 uses delete later system 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 uses delete later system 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3111,7 +3111,7 @@ scene.SetUsesDeleteLaterSystem(false);
 ### HandleCurrentFrameTickEntities
 `public void HandleCurrentFrameTickEntities()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 current frame tick entities 相关的响应逻辑。
+**用途 / Purpose:** 响应 current frame tick entities 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3122,7 +3122,7 @@ scene.HandleCurrentFrameTickEntities();
 ### ClearCurrentFrameTickEntities
 `public void ClearCurrentFrameTickEntities()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的current frame tick entities。
+**用途 / Purpose:** 清空当前对象中的current frame tick entities。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3133,7 +3133,7 @@ scene.ClearCurrentFrameTickEntities();
 ### SetUseAdvancedWaterRendering
 `public void SetUseAdvancedWaterRendering(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 use advanced water rendering 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 use advanced water rendering 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3144,7 +3144,7 @@ scene.SetUseAdvancedWaterRendering(false);
 ### FindClosestExitPositionForPositionOnABoundaryFace
 `public Vec2 FindClosestExitPositionForPositionOnABoundaryFace(Vec3 position, UIntPtr boundaryFacePointer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的closest exit position for position on a boundary face。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的closest exit position for position on a boundary face。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例

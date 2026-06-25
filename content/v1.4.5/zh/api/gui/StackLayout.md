@@ -30,7 +30,7 @@ description: "StackLayout 的自动生成类参考。"
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(Widget owner, Widget child, int childIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item description 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例
@@ -41,7 +41,7 @@ var result = stackLayout.GetItemDescription(owner, child, 0);
 ### MeasureChildren
 `public Vector2 MeasureChildren(Widget widget, Vector2 measureSpec, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MeasureChildren 对应的操作。
+**用途 / Purpose:** 调用 MeasureChildren 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例
@@ -52,7 +52,7 @@ var result = stackLayout.MeasureChildren(widget, measureSpec, spriteData, 0);
 ### OnLayout
 `public void OnLayout(Widget widget, float left, float bottom, float right, float top)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 layout 事件触发时调用此回调。
+**用途 / Purpose:** 在 layout 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例
@@ -63,7 +63,7 @@ stackLayout.OnLayout(widget, 0, 0, 0, 0);
 ### GetIndexForDrop
 `public int GetIndexForDrop(Container widget, Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index for drop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 index for drop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例
@@ -74,7 +74,7 @@ var result = stackLayout.GetIndexForDrop(widget, draggedWidgetPosition);
 ### GetDropGizmoPosition
 `public Vector2 GetDropGizmoPosition(Container widget, Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 drop gizmo position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 drop gizmo position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例

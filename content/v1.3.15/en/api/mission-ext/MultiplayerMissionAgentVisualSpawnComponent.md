@@ -23,7 +23,7 @@ Treat `MultiplayerMissionAgentVisualSpawnComponent` as a Component-style extensi
 ### SpawnAgentVisualsForPeer
 `public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
 
-**Purpose:** **Purpose:** Executes the SpawnAgentVisualsForPeer logic.
+**Purpose:** Executes the SpawnAgentVisualsForPeer logic.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerMissionAgentVisualSpawnComponent.SpawnAgentVisualsForPeer(missionPeer
 ### RemoveAgentVisuals
 `public void RemoveAgentVisuals(MissionPeer missionPeer, bool sync = false)`
 
-**Purpose:** **Purpose:** Removes agent visuals from the current collection or state.
+**Purpose:** Removes agent visuals from the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerMissionAgentVisualSpawnComponent.RemoveAgentVisuals(missionPeer, fals
 ### OnMyAgentSpawned
 `public void OnMyAgentSpawned()`
 
-**Purpose:** **Purpose:** Invoked when the my agent spawned event is raised.
+**Purpose:** Invoked when the my agent spawned event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
@@ -56,7 +56,7 @@ multiplayerMissionAgentVisualSpawnComponent.OnMyAgentSpawned();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerMissionAgentVisualSpawnComponent.OnPreMissionTick(0);
 ### GetSpawnPointFrameForPlayer
 `public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn point frame for player value held by the this instance.
+**Purpose:** Reads and returns the spawn point frame for player value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
@@ -78,7 +78,7 @@ var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPl
 ### FreeSpawnPointFromPlayer
 `public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
 
-**Purpose:** **Purpose:** Executes the FreeSpawnPointFromPlayer logic.
+**Purpose:** Executes the FreeSpawnPointFromPlayer logic.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first

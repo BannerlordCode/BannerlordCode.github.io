@@ -23,7 +23,7 @@ description: "DifficultyModel 的自动生成类参考。"
 ### GetPlayerTroopsReceivedDamageMultiplier
 `public abstract float GetPlayerTroopsReceivedDamageMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player troops received damage multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player troops received damage multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -34,7 +34,7 @@ var result = difficultyModel.GetPlayerTroopsReceivedDamageMultiplier();
 ### GetPlayerRecruitSlotBonus
 `public abstract int GetPlayerRecruitSlotBonus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player recruit slot bonus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player recruit slot bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -45,7 +45,7 @@ var result = difficultyModel.GetPlayerRecruitSlotBonus();
 ### GetPlayerMapMovementSpeedBonusMultiplier
 `public abstract float GetPlayerMapMovementSpeedBonusMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player map movement speed bonus multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player map movement speed bonus multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -56,7 +56,7 @@ var result = difficultyModel.GetPlayerMapMovementSpeedBonusMultiplier();
 ### GetCombatAIDifficultyMultiplier
 `public abstract float GetCombatAIDifficultyMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combat a i difficulty multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 combat a i difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -67,7 +67,7 @@ var result = difficultyModel.GetCombatAIDifficultyMultiplier();
 ### GetPersuasionBonusChance
 `public abstract float GetPersuasionBonusChance()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion bonus chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion bonus chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -78,7 +78,7 @@ var result = difficultyModel.GetPersuasionBonusChance();
 ### GetClanMemberDeathChanceMultiplier
 `public abstract float GetClanMemberDeathChanceMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan member death chance multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 clan member death chance multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -89,7 +89,7 @@ var result = difficultyModel.GetClanMemberDeathChanceMultiplier();
 ### GetStealthDifficultyMultiplier
 `public abstract float GetStealthDifficultyMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stealth difficulty multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 stealth difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例
@@ -100,7 +100,7 @@ var result = difficultyModel.GetStealthDifficultyMultiplier();
 ### GetDisguiseDifficultyMultiplier
 `public abstract float GetDisguiseDifficultyMultiplier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 disguise difficulty multiplier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 disguise difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DifficultyModel 实例

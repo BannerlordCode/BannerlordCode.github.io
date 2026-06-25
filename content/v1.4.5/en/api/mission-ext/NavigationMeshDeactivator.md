@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects` to place it in th
 ### DisableAssignedFaces
 `public void DisableAssignedFaces(Scene scene)`
 
-**Purpose:** **Purpose:** Executes the DisableAssignedFaces logic.
+**Purpose:** Executes the DisableAssignedFaces logic.
 
 ```csharp
 // Obtain an instance of NavigationMeshDeactivator from the subsystem API first
@@ -34,7 +34,7 @@ navigationMeshDeactivator.DisableAssignedFaces(scene);
 ### EnableAssignedFaces
 `public void EnableAssignedFaces(Scene scene)`
 
-**Purpose:** **Purpose:** Executes the EnableAssignedFaces logic.
+**Purpose:** Executes the EnableAssignedFaces logic.
 
 ```csharp
 // Obtain an instance of NavigationMeshDeactivator from the subsystem API first

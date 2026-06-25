@@ -29,7 +29,7 @@ Treat `RaidModel` as a Model-style extension point: first identify who creates i
 ### GetCommonLootItemScores
 `public abstract MBReadOnlyList<ValueTuple<ItemObject, float>> GetCommonLootItemScores()`
 
-**Purpose:** **Purpose:** Reads and returns the common loot item scores value held by the this instance.
+**Purpose:** Reads and returns the common loot item scores value held by the this instance.
 
 ```csharp
 // Obtain an instance of RaidModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = raidModel.GetCommonLootItemScores();
 ### CalculateHitDamage
 `public abstract ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of hit damage.
+**Purpose:** Calculates the current value or result of hit damage.
 
 ```csharp
 // Obtain an instance of RaidModel from the subsystem API first

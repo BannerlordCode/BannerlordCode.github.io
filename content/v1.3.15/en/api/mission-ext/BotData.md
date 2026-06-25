@@ -30,7 +30,7 @@ Treat `BotData` as a Data-style extension point: first identify who creates it, 
 ### ResetKillDeathAssist
 `public void ResetKillDeathAssist()`
 
-**Purpose:** **Purpose:** Returns kill death assist to its default or initial condition.
+**Purpose:** Returns kill death assist to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BotData from the subsystem API first

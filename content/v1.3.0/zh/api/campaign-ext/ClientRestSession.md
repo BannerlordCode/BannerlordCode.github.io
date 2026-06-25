@@ -30,7 +30,7 @@ description: "ClientRestSession 的自动生成类参考。"
 ### Connect
 `public void Connect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Connect 对应的操作。
+**用途 / Purpose:** 调用 Connect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSession 实例
@@ -41,7 +41,7 @@ clientRestSession.Connect();
 ### Disconnect
 `public void Disconnect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disconnect 对应的操作。
+**用途 / Purpose:** 调用 Disconnect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSession 实例

@@ -29,7 +29,7 @@ description: "SettlementNameplatePartyMarkersVM 的自动生成类参考。"
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例
@@ -40,7 +40,7 @@ settlementNameplatePartyMarkersVM.RegisterEvents();
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnloadEvents 对应的操作。
+**用途 / Purpose:** 调用 UnloadEvents 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例
@@ -51,7 +51,7 @@ settlementNameplatePartyMarkersVM.UnloadEvents();
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例

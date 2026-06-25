@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateManual
 `public static BannerDebugInfo CreateManual(string sourceName)`
 
-**Purpose:** **Purpose:** Constructs a new manual entity and returns it to the caller.
+**Purpose:** Constructs a new manual entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BannerDebugInfo.CreateManual("example");
 ### CreateWidget
 `public static BannerDebugInfo CreateWidget(string sourceName)`
 
-**Purpose:** **Purpose:** Constructs a new widget entity and returns it to the caller.
+**Purpose:** Constructs a new widget entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ BannerDebugInfo.CreateWidget("example");
 ### CreateName
 `public string CreateName()`
 
-**Purpose:** **Purpose:** Constructs a new name entity and returns it to the caller.
+**Purpose:** Constructs a new name entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of BannerDebugInfo from the subsystem API first
@@ -54,7 +54,7 @@ var result = bannerDebugInfo.CreateName();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BannerDebugInfo from the subsystem API first

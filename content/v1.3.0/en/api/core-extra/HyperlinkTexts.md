@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetSettlementHyperlinkText
 `public static TextObject GetSettlementHyperlinkText(string link, TextObject settlementName)`
 
-**Purpose:** **Purpose:** Reads and returns the settlement hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the settlement hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ HyperlinkTexts.GetSettlementHyperlinkText("example", settlementName);
 ### GetKingdomHyperlinkText
 `public static TextObject GetKingdomHyperlinkText(string link, TextObject kingdomName)`
 
-**Purpose:** **Purpose:** Reads and returns the kingdom hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the kingdom hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ HyperlinkTexts.GetKingdomHyperlinkText("example", kingdomName);
 ### GetHeroHyperlinkText
 `public static TextObject GetHeroHyperlinkText(string link, TextObject heroName)`
 
-**Purpose:** **Purpose:** Reads and returns the hero hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the hero hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ HyperlinkTexts.GetHeroHyperlinkText("example", heroName);
 ### GetConceptHyperlinkText
 `public static TextObject GetConceptHyperlinkText(string link, TextObject conceptName)`
 
-**Purpose:** **Purpose:** Reads and returns the concept hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the concept hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ HyperlinkTexts.GetConceptHyperlinkText("example", conceptName);
 ### GetClanHyperlinkText
 `public static TextObject GetClanHyperlinkText(string link, TextObject clanName)`
 
-**Purpose:** **Purpose:** Reads and returns the clan hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the clan hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ HyperlinkTexts.GetClanHyperlinkText("example", clanName);
 ### GetUnitHyperlinkText
 `public static TextObject GetUnitHyperlinkText(string link, TextObject unitName)`
 
-**Purpose:** **Purpose:** Reads and returns the unit hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the unit hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ HyperlinkTexts.GetUnitHyperlinkText("example", unitName);
 ### GetGenericHyperlinkText
 `public static string GetGenericHyperlinkText(string link, string name)`
 
-**Purpose:** **Purpose:** Reads and returns the generic hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the generic hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ HyperlinkTexts.GetGenericHyperlinkText("example", "example");
 ### GetGenericImageText
 `public static string GetGenericImageText(string meshId, int extend = 0)`
 
-**Purpose:** **Purpose:** Reads and returns the generic image text value held by the this instance.
+**Purpose:** Reads and returns the generic image text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ HyperlinkTexts.GetGenericImageText("example", 0);
 ### GetKeyHyperlinkText
 `public static string GetKeyHyperlinkText(string keyID, float overrideExtendScale = 1f)`
 
-**Purpose:** **Purpose:** Reads and returns the key hyperlink text value held by the this instance.
+**Purpose:** Reads and returns the key hyperlink text value held by the this instance.
 
 ```csharp
 // Static call; no instance required

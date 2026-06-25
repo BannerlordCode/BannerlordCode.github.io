@@ -23,7 +23,7 @@ description: "SettlementProsperityModel 的自动生成类参考。"
 ### CalculateProsperityChange
 `public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算prosperity change的当前值或结果。
+**用途 / Purpose:** 计算prosperity change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProsperityModel 实例
@@ -34,7 +34,7 @@ var result = settlementProsperityModel.CalculateProsperityChange(fortification, 
 ### CalculateHearthChange
 `public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算hearth change的当前值或结果。
+**用途 / Purpose:** 计算hearth change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProsperityModel 实例

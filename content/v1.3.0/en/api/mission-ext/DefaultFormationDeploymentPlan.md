@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### HasFrame
 `public bool HasFrame()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds frame.
+**Purpose:** Determines whether the this instance already holds frame.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -48,7 +48,7 @@ var result = defaultFormationDeploymentPlan.HasFrame();
 ### GetDefaultFlank
 `public FormationDeploymentFlank GetDefaultFlank(int formationTroopCount, int infantryCount, bool spawnWithHorses = false)`
 
-**Purpose:** **Purpose:** Reads and returns the default flank value held by the this instance.
+**Purpose:** Reads and returns the default flank value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -59,7 +59,7 @@ var result = defaultFormationDeploymentPlan.GetDefaultFlank(0, 0, false);
 ### GetFlankDeploymentOrder
 `public FormationDeploymentOrder GetFlankDeploymentOrder(int offset = 0)`
 
-**Purpose:** **Purpose:** Reads and returns the flank deployment order value held by the this instance.
+**Purpose:** Reads and returns the flank deployment order value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -70,7 +70,7 @@ var result = defaultFormationDeploymentPlan.GetFlankDeploymentOrder(0);
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**Purpose:** **Purpose:** Reads and returns the frame value held by the this instance.
+**Purpose:** Reads and returns the frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -81,7 +81,7 @@ var result = defaultFormationDeploymentPlan.GetFrame();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
+**Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -92,7 +92,7 @@ var result = defaultFormationDeploymentPlan.GetPosition();
 ### GetDirection
 `public Vec2 GetDirection()`
 
-**Purpose:** **Purpose:** Reads and returns the direction value held by the this instance.
+**Purpose:** Reads and returns the direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -103,7 +103,7 @@ var result = defaultFormationDeploymentPlan.GetDirection();
 ### CreateNewDeploymentWorldPosition
 `public WorldPosition CreateNewDeploymentWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
 
-**Purpose:** **Purpose:** Constructs a new new deployment world position entity and returns it to the caller.
+**Purpose:** Constructs a new new deployment world position entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -114,7 +114,7 @@ var result = defaultFormationDeploymentPlan.CreateNewDeploymentWorldPosition(wor
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -125,7 +125,7 @@ defaultFormationDeploymentPlan.Clear();
 ### SetPlannedTroopCount
 `public void SetPlannedTroopCount(int footTroopCount, int mountedTroopCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to planned troop count and updates the object's internal state.
+**Purpose:** Assigns a new value to planned troop count and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -136,7 +136,7 @@ defaultFormationDeploymentPlan.SetPlannedTroopCount(0, 0);
 ### SetPlannedDimensions
 `public void SetPlannedDimensions(float width, float depth)`
 
-**Purpose:** **Purpose:** Assigns a new value to planned dimensions and updates the object's internal state.
+**Purpose:** Assigns a new value to planned dimensions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -147,7 +147,7 @@ defaultFormationDeploymentPlan.SetPlannedDimensions(0, 0);
 ### SetFrame
 `public void SetFrame(in WorldFrame frame)`
 
-**Purpose:** **Purpose:** Assigns a new value to frame and updates the object's internal state.
+**Purpose:** Assigns a new value to frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
@@ -158,7 +158,7 @@ defaultFormationDeploymentPlan.SetFrame(frame);
 ### SetSpawnClass
 `public void SetSpawnClass(FormationClass spawnClass)`
 
-**Purpose:** **Purpose:** Assigns a new value to spawn class and updates the object's internal state.
+**Purpose:** Assigns a new value to spawn class and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first

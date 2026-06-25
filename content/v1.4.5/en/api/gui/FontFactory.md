@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### LoadAllFonts
 `public void LoadAllFonts(SpriteData spriteData)`
 
-**Purpose:** **Purpose:** Reads all fonts from persistent storage or a stream.
+**Purpose:** Reads all fonts from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -41,7 +41,7 @@ fontFactory.LoadAllFonts(spriteData);
 ### TryAddFontDefinition
 `public bool TryAddFontDefinition(string fontPath, string fontName, SpriteData spriteData)`
 
-**Purpose:** **Purpose:** Attempts to retrieve add font definition, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve add font definition, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -52,7 +52,7 @@ var result = fontFactory.TryAddFontDefinition("example", "example", spriteData);
 ### LoadLocalizationValues
 `public void LoadLocalizationValues(string sourceXMLPath)`
 
-**Purpose:** **Purpose:** Reads localization values from persistent storage or a stream.
+**Purpose:** Reads localization values from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -63,7 +63,7 @@ fontFactory.LoadLocalizationValues("example");
 ### GetFont
 `public Font GetFont(string fontName)`
 
-**Purpose:** **Purpose:** Reads and returns the font value held by the this instance.
+**Purpose:** Reads and returns the font value held by the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -74,7 +74,7 @@ var result = fontFactory.GetFont("example");
 ### GetFonts
 `public IEnumerable<Font> GetFonts()`
 
-**Purpose:** **Purpose:** Reads and returns the fonts value held by the this instance.
+**Purpose:** Reads and returns the fonts value held by the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -85,7 +85,7 @@ var result = fontFactory.GetFonts();
 ### GetFontName
 `public string GetFontName(Font font)`
 
-**Purpose:** **Purpose:** Reads and returns the font name value held by the this instance.
+**Purpose:** Reads and returns the font name value held by the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -96,7 +96,7 @@ var result = fontFactory.GetFontName(font);
 ### GetMappedFontForLocalization
 `public Font GetMappedFontForLocalization(string englishFontName)`
 
-**Purpose:** **Purpose:** Reads and returns the mapped font for localization value held by the this instance.
+**Purpose:** Reads and returns the mapped font for localization value held by the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -107,7 +107,7 @@ var result = fontFactory.GetMappedFontForLocalization("example");
 ### OnLanguageChange
 `public void OnLanguageChange(string newLanguageCode)`
 
-**Purpose:** **Purpose:** Invoked when the language change event is raised.
+**Purpose:** Invoked when the language change event is raised.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -118,7 +118,7 @@ fontFactory.OnLanguageChange("example");
 ### GetUsableFontForCharacter
 `public Font GetUsableFontForCharacter(int characterCode)`
 
-**Purpose:** **Purpose:** Reads and returns the usable font for character value held by the this instance.
+**Purpose:** Reads and returns the usable font for character value held by the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first
@@ -129,7 +129,7 @@ var result = fontFactory.GetUsableFontForCharacter(0);
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**Purpose:** **Purpose:** Verifies whether for updates holds true for the this instance.
+**Purpose:** Verifies whether for updates holds true for the this instance.
 
 ```csharp
 // Obtain an instance of FontFactory from the subsystem API first

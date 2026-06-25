@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CalculateStrikeMagnitudeForSwing
 `public static float CalculateStrikeMagnitudeForSwing(float swingSpeed, float impactPointAsPercent, float weaponWeight, float weaponLength, float weaponInertia, float weaponCoM, float extraLinearSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for swing.
+**Purpose:** Calculates the current value or result of strike magnitude for swing.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 ### CalculateStrikeMagnitudeForThrust
 `public static float CalculateStrikeMagnitudeForThrust(float thrustWeaponSpeed, float weaponWeight, float extraLinearSpeed, bool isThrown)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for thrust.
+**Purpose:** Calculates the current value or result of strike magnitude for thrust.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CombatStatCalculator.CalculateStrikeMagnitudeForThrust(0, 0, 0, false);
 ### CalculateBaseBlowMagnitudeForSwing
 `public static float CalculateBaseBlowMagnitudeForSwing(float angularSpeed, float weaponReach, float weaponWeight, float weaponInertia, float weaponCoM, float impactPoint, float exraLinearSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of base blow magnitude for swing.
+**Purpose:** Calculates the current value or result of base blow magnitude for swing.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CombatStatCalculator.CalculateBaseBlowMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 ### CalculateBaseBlowMagnitudeForThrust
 `public static float CalculateBaseBlowMagnitudeForThrust(float linearSpeed, float weaponWeight, float exraLinearSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of base blow magnitude for thrust.
+**Purpose:** Calculates the current value or result of base blow magnitude for thrust.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CombatStatCalculator.CalculateBaseBlowMagnitudeForThrust(0, 0, 0);
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public static float CalculateBaseBlowMagnitudeForPassiveUsage(float weaponWeight, float extraLinearSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of base blow magnitude for passive usage.
+**Purpose:** Calculates the current value or result of base blow magnitude for passive usage.
 
 ```csharp
 // Static call; no instance required

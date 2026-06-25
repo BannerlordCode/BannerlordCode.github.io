@@ -23,7 +23,7 @@ description: "MountSpeedEffect 的自动生成类参考。"
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 update 事件触发时调用此回调。
+**用途 / Purpose:** 在 update 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MountSpeedEffect 实例
@@ -34,7 +34,7 @@ mountSpeedEffect.OnUpdate(agent, false);
 ### GetMountSpeed
 `public override float GetMountSpeed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount speed 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount speed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MountSpeedEffect 实例

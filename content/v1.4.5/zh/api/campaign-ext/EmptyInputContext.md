@@ -23,7 +23,7 @@ description: "EmptyInputContext 的自动生成类参考。"
 ### GetPointerX
 `public int GetPointerX()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pointer x 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pointer x 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -34,7 +34,7 @@ var result = emptyInputContext.GetPointerX();
 ### GetPointerY
 `public int GetPointerY()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pointer y 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pointer y 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -45,7 +45,7 @@ var result = emptyInputContext.GetPointerY();
 ### GetPointerPosition
 `public Vector2 GetPointerPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pointer position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pointer position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -56,7 +56,7 @@ var result = emptyInputContext.GetPointerPosition();
 ### IsGameKeyDown
 `public bool IsGameKeyDown(int gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 game key down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 game key down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -67,7 +67,7 @@ var result = emptyInputContext.IsGameKeyDown(0);
 ### IsGameKeyDownImmediate
 `public bool IsGameKeyDownImmediate(int gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 game key down immediate 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 game key down immediate 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -78,7 +78,7 @@ var result = emptyInputContext.IsGameKeyDownImmediate(0);
 ### IsGameKeyPressed
 `public bool IsGameKeyPressed(int gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 game key pressed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 game key pressed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -89,7 +89,7 @@ var result = emptyInputContext.IsGameKeyPressed(0);
 ### IsGameKeyReleased
 `public bool IsGameKeyReleased(int gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 game key released 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 game key released 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -100,7 +100,7 @@ var result = emptyInputContext.IsGameKeyReleased(0);
 ### GetGameKeyAxis
 `public float GetGameKeyAxis(string gameAxisKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game key axis 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 game key axis 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -111,7 +111,7 @@ var result = emptyInputContext.GetGameKeyAxis("example");
 ### IsHotKeyDown
 `public bool IsHotKeyDown(string hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hot key down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 hot key down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -122,7 +122,7 @@ var result = emptyInputContext.IsHotKeyDown("example");
 ### IsHotKeyReleased
 `public bool IsHotKeyReleased(string hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hot key released 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 hot key released 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -133,7 +133,7 @@ var result = emptyInputContext.IsHotKeyReleased("example");
 ### IsHotKeyPressed
 `public bool IsHotKeyPressed(string hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hot key pressed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 hot key pressed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -144,7 +144,7 @@ var result = emptyInputContext.IsHotKeyPressed("example");
 ### IsHotKeyDoublePressed
 `public bool IsHotKeyDoublePressed(string hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hot key double pressed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 hot key double pressed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -155,7 +155,7 @@ var result = emptyInputContext.IsHotKeyDoublePressed("example");
 ### GetKeyState
 `public Vec2 GetKeyState(InputKey key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -166,7 +166,7 @@ var result = emptyInputContext.GetKeyState(key);
 ### IsKeyDown
 `public bool IsKeyDown(InputKey key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 key down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 key down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -177,7 +177,7 @@ var result = emptyInputContext.IsKeyDown(key);
 ### IsKeyPressed
 `public bool IsKeyPressed(InputKey key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 key pressed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 key pressed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -188,7 +188,7 @@ var result = emptyInputContext.IsKeyPressed(key);
 ### IsKeyReleased
 `public bool IsKeyReleased(InputKey key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 key released 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 key released 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -199,7 +199,7 @@ var result = emptyInputContext.IsKeyReleased(key);
 ### GetMouseMoveX
 `public float GetMouseMoveX()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse move x 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse move x 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -210,7 +210,7 @@ var result = emptyInputContext.GetMouseMoveX();
 ### GetMouseMoveY
 `public float GetMouseMoveY()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse move y 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse move y 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -221,7 +221,7 @@ var result = emptyInputContext.GetMouseMoveY();
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is mouse active 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is mouse active 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -232,7 +232,7 @@ var result = emptyInputContext.GetIsMouseActive();
 ### GetMousePositionPixel
 `public Vec2 GetMousePositionPixel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse position pixel 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse position pixel 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -243,7 +243,7 @@ var result = emptyInputContext.GetMousePositionPixel();
 ### GetDeltaMouseScroll
 `public float GetDeltaMouseScroll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 delta mouse scroll 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 delta mouse scroll 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -254,7 +254,7 @@ var result = emptyInputContext.GetDeltaMouseScroll();
 ### GetIsControllerConnected
 `public bool GetIsControllerConnected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is controller connected 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is controller connected 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -265,7 +265,7 @@ var result = emptyInputContext.GetIsControllerConnected();
 ### GetMousePositionRanged
 `public Vec2 GetMousePositionRanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse position ranged 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse position ranged 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -276,7 +276,7 @@ var result = emptyInputContext.GetMousePositionRanged();
 ### GetMouseSensitivity
 `public float GetMouseSensitivity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse sensitivity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse sensitivity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -287,7 +287,7 @@ var result = emptyInputContext.GetMouseSensitivity();
 ### IsControlDown
 `public bool IsControlDown()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 control down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 control down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -298,7 +298,7 @@ var result = emptyInputContext.IsControlDown();
 ### IsShiftDown
 `public bool IsShiftDown()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 shift down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 shift down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -309,7 +309,7 @@ var result = emptyInputContext.IsShiftDown();
 ### IsAltDown
 `public bool IsAltDown()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 alt down 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 alt down 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -320,7 +320,7 @@ var result = emptyInputContext.IsAltDown();
 ### GetControllerRightStickState
 `public Vec2 GetControllerRightStickState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 controller right stick state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 controller right stick state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -331,7 +331,7 @@ var result = emptyInputContext.GetControllerRightStickState();
 ### GetControllerLeftStickState
 `public Vec2 GetControllerLeftStickState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 controller left stick state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 controller left stick state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例
@@ -342,7 +342,7 @@ var result = emptyInputContext.GetControllerLeftStickState();
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 click keys 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 click keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyInputContext 实例

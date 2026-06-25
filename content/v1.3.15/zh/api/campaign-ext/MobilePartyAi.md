@@ -37,7 +37,7 @@ description: "MobilePartyAi 的自动生成类参考。"
 ### CacheAiBehaviorPartyBase
 `public void CacheAiBehaviorPartyBase()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CacheAiBehaviorPartyBase 对应的操作。
+**用途 / Purpose:** 调用 CacheAiBehaviorPartyBase 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -48,7 +48,7 @@ mobilePartyAi.CacheAiBehaviorPartyBase();
 ### CheckPartyNeedsUpdate
 `public void CheckPartyNeedsUpdate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查party needs update在当前对象中是否成立。
+**用途 / Purpose:** 检查party needs update在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -59,7 +59,7 @@ mobilePartyAi.CheckPartyNeedsUpdate();
 ### CalculateFleePosition
 `public void CalculateFleePosition(out CampaignVec2 fleeTargetPoint, MobileParty partyToFleeFrom, Vec2 averageEnemyVec)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算flee position的当前值或结果。
+**用途 / Purpose:** 计算flee position的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -70,7 +70,7 @@ mobilePartyAi.CalculateFleePosition(fleeTargetPoint, partyToFleeFrom, averageEne
 ### GetNearbyPartyDataWhileDefendingSettlement
 `public bool GetNearbyPartyDataWhileDefendingSettlement(Settlement targetSettlement, out bool shouldConsiderJoiningNearbyAllyParties, out bool shouldJoinLandSide, out bool shouldEngage, out MobileParty mostPowerfulLandAlly, out MobileParty mostPowerfulNavalAlly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nearby party data while defending settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nearby party data while defending settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -81,7 +81,7 @@ var result = mobilePartyAi.GetNearbyPartyDataWhileDefendingSettlement(targetSett
 ### DisableForHours
 `public void DisableForHours(int hours)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableForHours 对应的操作。
+**用途 / Purpose:** 调用 DisableForHours 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -92,7 +92,7 @@ mobilePartyAi.DisableForHours(0);
 ### DisableAi
 `public void DisableAi()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableAi 对应的操作。
+**用途 / Purpose:** 调用 DisableAi 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -103,7 +103,7 @@ mobilePartyAi.DisableAi();
 ### EnableAi
 `public void EnableAi()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableAi 对应的操作。
+**用途 / Purpose:** 调用 EnableAi 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -114,7 +114,7 @@ mobilePartyAi.EnableAi();
 ### EnableAgainAtHourIsPast
 `public bool EnableAgainAtHourIsPast()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableAgainAtHourIsPast 对应的操作。
+**用途 / Purpose:** 调用 EnableAgainAtHourIsPast 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -125,7 +125,7 @@ var result = mobilePartyAi.EnableAgainAtHourIsPast();
 ### SetDoNotAttackMainParty
 `public void SetDoNotAttackMainParty(int hours)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do not attack main party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do not attack main party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -136,7 +136,7 @@ mobilePartyAi.SetDoNotAttackMainParty(0);
 ### SetInitiative
 `public void SetInitiative(float attackInitiative, float avoidInitiative, float hoursUntilReset)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initiative 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initiative 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -147,7 +147,7 @@ mobilePartyAi.SetInitiative(0, 0, 0);
 ### SetDoNotMakeNewDecisions
 `public void SetDoNotMakeNewDecisions(bool doNotMakeNewDecisions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do not make new decisions 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do not make new decisions 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -158,7 +158,7 @@ mobilePartyAi.SetDoNotMakeNewDecisions(false);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例

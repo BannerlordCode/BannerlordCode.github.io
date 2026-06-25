@@ -23,7 +23,7 @@ description: "UsablePlace 的自动生成类参考。"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UsablePlace 实例
@@ -34,7 +34,7 @@ var result = usablePlace.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UsablePlace 实例
@@ -45,7 +45,7 @@ var result = usablePlace.GetActionTextForStandingPoint(usableGameObject);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 UsablePlace 实例

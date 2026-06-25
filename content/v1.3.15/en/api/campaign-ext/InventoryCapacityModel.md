@@ -23,7 +23,7 @@ Treat `InventoryCapacityModel` as a Model-style extension point: first identify 
 ### CalculateInventoryCapacity
 `public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of inventory capacity.
+**Purpose:** Calculates the current value or result of inventory capacity.
 
 ```csharp
 // Obtain an instance of InventoryCapacityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = inventoryCapacityModel.CalculateInventoryCapacity(mobileParty, fals
 ### GetItemAverageWeight
 `public abstract int GetItemAverageWeight()`
 
-**Purpose:** **Purpose:** Reads and returns the item average weight value held by the this instance.
+**Purpose:** Reads and returns the item average weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryCapacityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = inventoryCapacityModel.GetItemAverageWeight();
 ### GetItemEffectiveWeight
 `public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**Purpose:** **Purpose:** Reads and returns the item effective weight value held by the this instance.
+**Purpose:** Reads and returns the item effective weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryCapacityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = inventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mob
 ### CalculateTotalWeightCarried
 `public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of total weight carried.
+**Purpose:** Calculates the current value or result of total weight carried.
 
 ```csharp
 // Obtain an instance of InventoryCapacityModel from the subsystem API first

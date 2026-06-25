@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**Purpose:** **Purpose:** Executes the SupplyTroops logic.
+**Purpose:** Executes the SupplyTroops logic.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -42,7 +42,7 @@ var result = customBattleTroopSupplier.SupplyTroops(0);
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**Purpose:** **Purpose:** Executes the SupplyOneTroop logic.
+**Purpose:** Executes the SupplyOneTroop logic.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -53,7 +53,7 @@ var result = customBattleTroopSupplier.SupplyOneTroop();
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** **Purpose:** Reads and returns the all troops value held by the this instance.
+**Purpose:** Reads and returns the all troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -64,7 +64,7 @@ var result = customBattleTroopSupplier.GetAllTroops();
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** **Purpose:** Reads and returns the general character value held by the this instance.
+**Purpose:** Reads and returns the general character value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -75,7 +75,7 @@ var result = customBattleTroopSupplier.GetGeneralCharacter();
 ### OnTroopWounded
 `public void OnTroopWounded()`
 
-**Purpose:** **Purpose:** Invoked when the troop wounded event is raised.
+**Purpose:** Invoked when the troop wounded event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -86,7 +86,7 @@ customBattleTroopSupplier.OnTroopWounded();
 ### OnTroopKilled
 `public void OnTroopKilled()`
 
-**Purpose:** **Purpose:** Invoked when the troop killed event is raised.
+**Purpose:** Invoked when the troop killed event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -97,7 +97,7 @@ customBattleTroopSupplier.OnTroopKilled();
 ### OnTroopRouted
 `public void OnTroopRouted()`
 
-**Purpose:** **Purpose:** Invoked when the troop routed event is raised.
+**Purpose:** Invoked when the troop routed event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
@@ -108,7 +108,7 @@ customBattleTroopSupplier.OnTroopRouted();
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
+**Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopSupplier from the subsystem API first

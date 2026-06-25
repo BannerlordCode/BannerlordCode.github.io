@@ -40,7 +40,7 @@ description: "GameMenuVM 的自动生成类参考。"
 ### Get
 `public TItem Get()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的值或状态并返回。
+**用途 / Purpose:** 读取当前对象的值或状态并返回。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -51,7 +51,7 @@ var result = gameMenuVM.Get();
 ### Release
 `public void Release(TItem item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -62,7 +62,7 @@ gameMenuVM.Release(item);
 ### Compare
 `public int Compare(GameMenuItemVM x, GameMenuItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -73,7 +73,7 @@ var result = gameMenuVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -84,7 +84,7 @@ gameMenuVM.RefreshValues();
 ### SetIdleMode
 `public void SetIdleMode(bool isIdle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 idle mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 idle mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -95,7 +95,7 @@ gameMenuVM.SetIdleMode(false);
 ### Refresh
 `public void Refresh(bool forceUpdateItems)`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -106,7 +106,7 @@ gameMenuVM.Refresh(false);
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -117,7 +117,7 @@ gameMenuVM.OnFrameTick();
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext newMenuContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 menu context 的最新表示。
+**用途 / Purpose:** 重新计算并更新 menu context 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -128,7 +128,7 @@ gameMenuVM.UpdateMenuContext(newMenuContext);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -139,7 +139,7 @@ gameMenuVM.OnFinalize();
 ### SetLeaveHotKey
 `public void SetLeaveHotKey(GameKey gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 leave hot key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 leave hot key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例
@@ -150,7 +150,7 @@ gameMenuVM.SetLeaveHotKey(gameKey);
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
+**用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuVM 实例

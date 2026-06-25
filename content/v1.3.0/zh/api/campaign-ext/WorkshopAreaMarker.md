@@ -29,7 +29,7 @@ description: "WorkshopAreaMarker 的自动生成类参考。"
 ### GetWorkshop
 `public Workshop GetWorkshop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 workshop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 workshop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopAreaMarker 实例
@@ -40,7 +40,7 @@ var result = workshopAreaMarker.GetWorkshop();
 ### GetWorkshopType
 `public WorkshopType GetWorkshopType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 workshop type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 workshop type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopAreaMarker 实例
@@ -51,7 +51,7 @@ var result = workshopAreaMarker.GetWorkshopType();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopAreaMarker 实例

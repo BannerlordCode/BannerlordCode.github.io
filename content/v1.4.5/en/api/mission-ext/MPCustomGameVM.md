@@ -62,7 +62,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -73,7 +73,7 @@ mPCustomGameVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -84,7 +84,7 @@ mPCustomGameVM.OnFinalize();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -95,7 +95,7 @@ mPCustomGameVM.OnTick(0);
 ### SetPremadeGameList
 `public void SetPremadeGameList(PremadeGameEntry entries)`
 
-**Purpose:** **Purpose:** Assigns a new value to premade game list and updates the object's internal state.
+**Purpose:** Assigns a new value to premade game list and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -106,7 +106,7 @@ mPCustomGameVM.SetPremadeGameList(entries);
 ### SetCustomGameServerList
 `public void SetCustomGameServerList(AvailableCustomGames availableCustomGames)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom game server list and updates the object's internal state.
+**Purpose:** Assigns a new value to custom game server list and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -117,7 +117,7 @@ mPCustomGameVM.SetCustomGameServerList(availableCustomGames);
 ### ExecuteRefresh
 `public async void ExecuteRefresh()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with refresh.
+**Purpose:** Runs the operation or workflow associated with refresh.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -128,7 +128,7 @@ mPCustomGameVM.ExecuteRefresh();
 ### ExecuteJoinSelectedGame
 `public void ExecuteJoinSelectedGame()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with join selected game.
+**Purpose:** Runs the operation or workflow associated with join selected game.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -139,7 +139,7 @@ mPCustomGameVM.ExecuteJoinSelectedGame();
 ### OnJoinGame
 `public void OnJoinGame(MPCustomGameItemVM gameItem)`
 
-**Purpose:** **Purpose:** Invoked when the join game event is raised.
+**Purpose:** Invoked when the join game event is raised.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -150,7 +150,7 @@ mPCustomGameVM.OnJoinGame(gameItem);
 ### ExecuteOpenCreateGamePanel
 `public void ExecuteOpenCreateGamePanel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open create game panel.
+**Purpose:** Runs the operation or workflow associated with open create game panel.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -161,7 +161,7 @@ mPCustomGameVM.ExecuteOpenCreateGamePanel();
 ### ExecuteCloseCreateGamePanel
 `public void ExecuteCloseCreateGamePanel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close create game panel.
+**Purpose:** Runs the operation or workflow associated with close create game panel.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first
@@ -172,7 +172,7 @@ mPCustomGameVM.ExecuteCloseCreateGamePanel();
 ### SetRefreshInputKey
 `public void SetRefreshInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to refresh input key and updates the object's internal state.
+**Purpose:** Assigns a new value to refresh input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPCustomGameVM from the subsystem API first

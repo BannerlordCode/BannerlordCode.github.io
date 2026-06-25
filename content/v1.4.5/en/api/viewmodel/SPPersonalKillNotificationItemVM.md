@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
+**Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of SPPersonalKillNotificationItemVM from the subsystem API first

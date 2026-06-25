@@ -23,7 +23,7 @@ description: "DefaultPersuasionModel 的自动生成类参考。"
 ### GetSkillXpFromPersuasion
 `public override int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp from persuasion 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp from persuasion 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -34,7 +34,7 @@ var result = defaultPersuasionModel.GetSkillXpFromPersuasion(difficulty, 0);
 ### GetChances
 `public override void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -45,7 +45,7 @@ defaultPersuasionModel.GetChances(optionArgs, successChance, critSuccessChance, 
 ### GetEffectChances
 `public override void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effect chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effect chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -56,7 +56,7 @@ defaultPersuasionModel.GetEffectChances(option, moveToNextStageChance, blockRand
 ### GetArgumentStrengthBasedOnTargetTraits
 `public override PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelations)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 argument strength based on target traits 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 argument strength based on target traits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -67,7 +67,7 @@ var result = defaultPersuasionModel.GetArgumentStrengthBasedOnTargetTraits(chara
 ### CalculateInitialPersuasionProgress
 `public override float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算initial persuasion progress的当前值或结果。
+**用途 / Purpose:** 计算initial persuasion progress的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -78,7 +78,7 @@ var result = defaultPersuasionModel.CalculateInitialPersuasionProgress(character
 ### CalculatePersuasionGoalValue
 `public override float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算persuasion goal value的当前值或结果。
+**用途 / Purpose:** 计算persuasion goal value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例
@@ -89,7 +89,7 @@ var result = defaultPersuasionModel.CalculatePersuasionGoalValue(oneToOneConvers
 ### GetDifficulty
 `public override float GetDifficulty(PersuasionDifficulty difficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 difficulty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPersuasionModel 实例

@@ -23,7 +23,7 @@ Treat `EmptyWidget` as a Widget-style extension point: first identify who create
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of brushes.
+**Purpose:** Recalculates and stores the latest representation of brushes.
 
 ```csharp
 // Obtain an instance of EmptyWidget from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IncreaseDamage
 `public void IncreaseDamage(float amount)`
 
-**Purpose:** **Purpose:** Executes the IncreaseDamage logic.
+**Purpose:** Executes the IncreaseDamage logic.
 
 ```csharp
 // Obtain an instance of Hitter from the subsystem API first

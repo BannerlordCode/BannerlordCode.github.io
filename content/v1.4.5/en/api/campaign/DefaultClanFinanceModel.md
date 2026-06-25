@@ -23,7 +23,7 @@ Treat `DefaultClanFinanceModel` as a Model-style extension point: first identify
 ### CalculateClanGoldChange
 `public override ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of clan gold change.
+**Purpose:** Calculates the current value or result of clan gold change.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultClanFinanceModel.CalculateClanGoldChange(clan, false, false,
 ### CalculateClanIncome
 `public override ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of clan income.
+**Purpose:** Calculates the current value or result of clan income.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultClanFinanceModel.CalculateClanIncome(clan, false, false, fal
 ### CalculateClanExpensesInternal
 `public void CalculateClanExpensesInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of clan expenses internal.
+**Purpose:** Calculates the current value or result of clan expenses internal.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -56,7 +56,7 @@ defaultClanFinanceModel.CalculateClanExpensesInternal(clan, goldChange, false, f
 ### CalculateClanExpenses
 `public override ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of clan expenses.
+**Purpose:** Calculates the current value or result of clan expenses.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultClanFinanceModel.CalculateClanExpenses(clan, false, false, f
 ### CalculateTownIncomeFromTariffs
 `public override ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of town income from tariffs.
+**Purpose:** Calculates the current value or result of town income from tariffs.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultClanFinanceModel.CalculateTownIncomeFromTariffs(clan, town, 
 ### CalculateTownIncomeFromProjects
 `public override int CalculateTownIncomeFromProjects(Town town)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of town income from projects.
+**Purpose:** Calculates the current value or result of town income from projects.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultClanFinanceModel.CalculateTownIncomeFromProjects(town);
 ### CalculateVillageIncome
 `public override int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of village income.
+**Purpose:** Calculates the current value or result of village income.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultClanFinanceModel.CalculateVillageIncome(clan, village, false
 ### CalculateOwnerIncomeFromCaravan
 `public override int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of owner income from caravan.
+**Purpose:** Calculates the current value or result of owner income from caravan.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultClanFinanceModel.CalculateOwnerIncomeFromCaravan(caravan);
 ### CalculateOwnerIncomeFromWorkshop
 `public override int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of owner income from workshop.
+**Purpose:** Calculates the current value or result of owner income from workshop.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultClanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop);
 ### RevenueSmoothenFraction
 `public override float RevenueSmoothenFraction()`
 
-**Purpose:** **Purpose:** Executes the RevenueSmoothenFraction logic.
+**Purpose:** Executes the RevenueSmoothenFraction logic.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultClanFinanceModel.RevenueSmoothenFraction();
 ### CalculateNotableDailyGoldChange
 `public override int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of notable daily gold change.
+**Purpose:** Calculates the current value or result of notable daily gold change.
 
 ```csharp
 // Obtain an instance of DefaultClanFinanceModel from the subsystem API first

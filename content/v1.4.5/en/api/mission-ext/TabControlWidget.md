@@ -32,7 +32,7 @@ Treat `TabControlWidget` as a Widget-style extension point: first identify who c
 ### OnFirstButtonClick
 `public void OnFirstButtonClick(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the first button click event is raised.
+**Purpose:** Invoked when the first button click event is raised.
 
 ```csharp
 // Obtain an instance of TabControlWidget from the subsystem API first
@@ -43,7 +43,7 @@ tabControlWidget.OnFirstButtonClick(widget);
 ### OnSecondButtonClick
 `public void OnSecondButtonClick(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the second button click event is raised.
+**Purpose:** Invoked when the second button click event is raised.
 
 ```csharp
 // Obtain an instance of TabControlWidget from the subsystem API first

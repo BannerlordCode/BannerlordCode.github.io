@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnActiveLockAgentChange
 `public void OnActiveLockAgentChange(Agent oldAgent, Agent newAgent)`
 
-**Purpose:** **Purpose:** Invoked when the active lock agent change event is raised.
+**Purpose:** Invoked when the active lock agent change event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentLockVisualizerVM from the subsystem API first
@@ -41,7 +41,7 @@ missionAgentLockVisualizerVM.OnActiveLockAgentChange(oldAgent, newAgent);
 ### OnPossibleLockAgentChange
 `public void OnPossibleLockAgentChange(Agent oldPossibleAgent, Agent newPossibleAgent)`
 
-**Purpose:** **Purpose:** Invoked when the possible lock agent change event is raised.
+**Purpose:** Invoked when the possible lock agent change event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentLockVisualizerVM from the subsystem API first

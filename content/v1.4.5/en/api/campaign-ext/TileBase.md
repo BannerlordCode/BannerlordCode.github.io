@@ -30,7 +30,7 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ### Reset
 `public virtual void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TileBase from the subsystem API first
@@ -41,7 +41,7 @@ tileBase.Reset();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TileBase from the subsystem API first
@@ -52,7 +52,7 @@ tileBase.Tick(0);
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TileBase from the subsystem API first

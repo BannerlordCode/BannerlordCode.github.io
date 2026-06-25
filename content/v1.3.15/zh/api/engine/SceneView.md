@@ -23,7 +23,7 @@ description: "SceneView 的自动生成类参考。"
 ### CreateSceneView
 `public static SceneView CreateSceneView()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 scene view 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 scene view 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SceneView.CreateSceneView();
 ### SetScene
 `public void SetScene(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -44,7 +44,7 @@ sceneView.SetScene(scene);
 ### SetAcceptGlobalDebugRenderObjects
 `public void SetAcceptGlobalDebugRenderObjects(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 accept global debug render objects 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 accept global debug render objects 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -55,7 +55,7 @@ sceneView.SetAcceptGlobalDebugRenderObjects(false);
 ### SetRenderWithPostfx
 `public void SetRenderWithPostfx(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 render with postfx 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 render with postfx 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -66,7 +66,7 @@ sceneView.SetRenderWithPostfx(false);
 ### SetPostfxConfigParams
 `public void SetPostfxConfigParams(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 postfx config params 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 postfx config params 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -77,7 +77,7 @@ sceneView.SetPostfxConfigParams(0);
 ### SetForceShaderCompilation
 `public void SetForceShaderCompilation(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 force shader compilation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 force shader compilation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -88,7 +88,7 @@ sceneView.SetForceShaderCompilation(false);
 ### CheckSceneReadyToRender
 `public bool CheckSceneReadyToRender()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查scene ready to render在当前对象中是否成立。
+**用途 / Purpose:** 检查scene ready to render在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -99,7 +99,7 @@ var result = sceneView.CheckSceneReadyToRender();
 ### SetDoQuickExposure
 `public void SetDoQuickExposure(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do quick exposure 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do quick exposure 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -110,7 +110,7 @@ sceneView.SetDoQuickExposure(false);
 ### SetCamera
 `public void SetCamera(Camera camera)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 camera 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 camera 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -121,7 +121,7 @@ sceneView.SetCamera(camera);
 ### SetResolutionScaling
 `public void SetResolutionScaling(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 resolution scaling 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 resolution scaling 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -132,7 +132,7 @@ sceneView.SetResolutionScaling(false);
 ### SetPostfxFromConfig
 `public void SetPostfxFromConfig()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 postfx from config 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 postfx from config 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -143,7 +143,7 @@ sceneView.SetPostfxFromConfig();
 ### WorldPointToScreenPoint
 `public Vec2 WorldPointToScreenPoint(Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WorldPointToScreenPoint 对应的操作。
+**用途 / Purpose:** 调用 WorldPointToScreenPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -154,7 +154,7 @@ var result = sceneView.WorldPointToScreenPoint(position);
 ### ScreenPointToViewportPoint
 `public Vec2 ScreenPointToViewportPoint(Vec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScreenPointToViewportPoint 对应的操作。
+**用途 / Purpose:** 调用 ScreenPointToViewportPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -165,7 +165,7 @@ var result = sceneView.ScreenPointToViewportPoint(position);
 ### ProjectedMousePositionOnGround
 `public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProjectedMousePositionOnGround 对应的操作。
+**用途 / Purpose:** 调用 ProjectedMousePositionOnGround 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -176,7 +176,7 @@ var result = sceneView.ProjectedMousePositionOnGround(groundPosition, groundNorm
 ### ProjectedMousePositionOnWater
 `public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProjectedMousePositionOnWater 对应的操作。
+**用途 / Purpose:** 调用 ProjectedMousePositionOnWater 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -187,7 +187,7 @@ var result = sceneView.ProjectedMousePositionOnWater(waterPosition, false);
 ### TranslateMouse
 `public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TranslateMouse 对应的操作。
+**用途 / Purpose:** 调用 TranslateMouse 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -198,7 +198,7 @@ sceneView.TranslateMouse(worldMouseNear, worldMouseFar, 0);
 ### SetSceneUsesSkybox
 `public void SetSceneUsesSkybox(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene uses skybox 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene uses skybox 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -209,7 +209,7 @@ sceneView.SetSceneUsesSkybox(false);
 ### SetSceneUsesShadows
 `public void SetSceneUsesShadows(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene uses shadows 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene uses shadows 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -220,7 +220,7 @@ sceneView.SetSceneUsesShadows(false);
 ### SetSceneUsesContour
 `public void SetSceneUsesContour(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene uses contour 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene uses contour 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -231,7 +231,7 @@ sceneView.SetSceneUsesContour(false);
 ### DoNotClear
 `public void DoNotClear(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoNotClear 对应的操作。
+**用途 / Purpose:** 调用 DoNotClear 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -242,7 +242,7 @@ sceneView.DoNotClear(false);
 ### AddClearTask
 `public void AddClearTask(bool clearOnlySceneview = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 clear task 添加到当前容器或状态中。
+**用途 / Purpose:** 将 clear task 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -253,7 +253,7 @@ sceneView.AddClearTask(false);
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取y to render的数据或状态。
+**用途 / Purpose:** 从当前实例读取y to render相关数据。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -264,7 +264,7 @@ var result = sceneView.ReadyToRender();
 ### SetClearAndDisableAfterSucessfullRender
 `public void SetClearAndDisableAfterSucessfullRender(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 clear and disable after sucessfull render 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 clear and disable after sucessfull render 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -275,7 +275,7 @@ sceneView.SetClearAndDisableAfterSucessfullRender(false);
 ### SetClearGbuffer
 `public void SetClearGbuffer(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 clear gbuffer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 clear gbuffer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -286,7 +286,7 @@ sceneView.SetClearGbuffer(false);
 ### SetShadowmapResolutionMultiplier
 `public void SetShadowmapResolutionMultiplier(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 shadowmap resolution multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 shadowmap resolution multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -297,7 +297,7 @@ sceneView.SetShadowmapResolutionMultiplier(0);
 ### SetPointlightResolutionMultiplier
 `public void SetPointlightResolutionMultiplier(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 pointlight resolution multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 pointlight resolution multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -308,7 +308,7 @@ sceneView.SetPointlightResolutionMultiplier(0);
 ### SetCleanScreenUntilLoadingDone
 `public void SetCleanScreenUntilLoadingDone(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 clean screen until loading done 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 clean screen until loading done 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -319,7 +319,7 @@ sceneView.SetCleanScreenUntilLoadingDone(false);
 ### ClearAll
 `public void ClearAll(bool clearScene, bool removeTerrain)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all。
+**用途 / Purpose:** 清空当前对象中的all。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -330,7 +330,7 @@ sceneView.ClearAll(false, false);
 ### SetFocusedShadowmap
 `public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 focused shadowmap 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 focused shadowmap 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -341,7 +341,7 @@ sceneView.SetFocusedShadowmap(false, center, 0);
 ### GetScene
 `public Scene GetScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -352,7 +352,7 @@ var result = sceneView.GetScene();
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
+**用途 / Purpose:** 调用 RayCastForClosestEntityOrTerrain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例

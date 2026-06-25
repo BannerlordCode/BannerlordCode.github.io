@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateInstance
 `public static void CreateInstance()`
 
-**Purpose:** **Purpose:** Constructs a new instance entity and returns it to the caller.
+**Purpose:** Constructs a new instance entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ FaceGen.CreateInstance();
 ### GetMonster
 `public Monster GetMonster(string monsterID)`
 
-**Purpose:** **Purpose:** Reads and returns the monster value held by the this instance.
+**Purpose:** Reads and returns the monster value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -44,7 +44,7 @@ var result = faceGen.GetMonster("example");
 ### GetMonsterWithSuffix
 `public Monster GetMonsterWithSuffix(int race, string suffix)`
 
-**Purpose:** **Purpose:** Reads and returns the monster with suffix value held by the this instance.
+**Purpose:** Reads and returns the monster with suffix value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -55,7 +55,7 @@ var result = faceGen.GetMonsterWithSuffix(0, "example");
 ### GetBaseMonsterFromRace
 `public Monster GetBaseMonsterFromRace(int race)`
 
-**Purpose:** **Purpose:** Reads and returns the base monster from race value held by the this instance.
+**Purpose:** Reads and returns the base monster from race value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -66,7 +66,7 @@ var result = faceGen.GetBaseMonsterFromRace(0);
 ### GetRandomBodyProperties
 `public BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, int seed, string hairTags, string beardTags, string tattooTags, float variationAmount)`
 
-**Purpose:** **Purpose:** Reads and returns the random body properties value held by the this instance.
+**Purpose:** Reads and returns the random body properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -77,7 +77,7 @@ var result = faceGen.GetRandomBodyProperties(0, false, bodyPropertiesMin, bodyPr
 ### GetBodyPropertiesWithAge
 `public BodyProperties GetBodyPropertiesWithAge(ref BodyProperties bodyProperties, float age)`
 
-**Purpose:** **Purpose:** Reads and returns the body properties with age value held by the this instance.
+**Purpose:** Reads and returns the body properties with age value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -88,7 +88,7 @@ var result = faceGen.GetBodyPropertiesWithAge(bodyProperties, 0);
 ### GetParamsFromBody
 `public void GetParamsFromBody(ref FaceGenerationParams faceGenerationParams, BodyProperties bodyProperties, bool earsAreHidden, bool mouthIsHidden)`
 
-**Purpose:** **Purpose:** Reads and returns the params from body value held by the this instance.
+**Purpose:** Reads and returns the params from body value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -99,7 +99,7 @@ faceGen.GetParamsFromBody(faceGenerationParams, bodyProperties, false, false);
 ### GetMaturityTypeWithAge
 `public BodyMeshMaturityType GetMaturityTypeWithAge(float age)`
 
-**Purpose:** **Purpose:** Reads and returns the maturity type with age value held by the this instance.
+**Purpose:** Reads and returns the maturity type with age value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -110,7 +110,7 @@ var result = faceGen.GetMaturityTypeWithAge(0);
 ### GetRaceCount
 `public int GetRaceCount()`
 
-**Purpose:** **Purpose:** Reads and returns the race count value held by the this instance.
+**Purpose:** Reads and returns the race count value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -121,7 +121,7 @@ var result = faceGen.GetRaceCount();
 ### GetRaceOrDefault
 `public int GetRaceOrDefault(string raceId)`
 
-**Purpose:** **Purpose:** Reads and returns the race or default value held by the this instance.
+**Purpose:** Reads and returns the race or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -132,7 +132,7 @@ var result = faceGen.GetRaceOrDefault("example");
 ### GetBaseMonsterNameFromRace
 `public string GetBaseMonsterNameFromRace(int race)`
 
-**Purpose:** **Purpose:** Reads and returns the base monster name from race value held by the this instance.
+**Purpose:** Reads and returns the base monster name from race value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -143,7 +143,7 @@ var result = faceGen.GetBaseMonsterNameFromRace(0);
 ### GetRaceNames
 `public string GetRaceNames()`
 
-**Purpose:** **Purpose:** Reads and returns the race names value held by the this instance.
+**Purpose:** Reads and returns the race names value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -154,7 +154,7 @@ var result = faceGen.GetRaceNames();
 ### GetHairIndicesByTag
 `public int GetHairIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** **Purpose:** Reads and returns the hair indices by tag value held by the this instance.
+**Purpose:** Reads and returns the hair indices by tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -165,7 +165,7 @@ var result = faceGen.GetHairIndicesByTag(0, 0, 0, "example");
 ### GetFacialIndicesByTag
 `public int GetFacialIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** **Purpose:** Reads and returns the facial indices by tag value held by the this instance.
+**Purpose:** Reads and returns the facial indices by tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -176,7 +176,7 @@ var result = faceGen.GetFacialIndicesByTag(0, 0, 0, "example");
 ### GetTattooIndicesByTag
 `public int GetTattooIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** **Purpose:** Reads and returns the tattoo indices by tag value held by the this instance.
+**Purpose:** Reads and returns the tattoo indices by tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first
@@ -187,7 +187,7 @@ var result = faceGen.GetTattooIndicesByTag(0, 0, 0, "example");
 ### GetTattooZeroProbability
 `public float GetTattooZeroProbability(int race, int curGender, float age)`
 
-**Purpose:** **Purpose:** Reads and returns the tattoo zero probability value held by the this instance.
+**Purpose:** Reads and returns the tattoo zero probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of FaceGen from the subsystem API first

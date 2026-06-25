@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Connect
 `public virtual void Connect(string ip, int port, bool useSessionThread = true)`
 
-**Purpose:** **Purpose:** Executes the Connect logic.
+**Purpose:** Executes the Connect logic.
 
 ```csharp
 // Obtain an instance of ClientsideSession from the subsystem API first
@@ -40,7 +40,7 @@ clientsideSession.Connect("example", 0, false);
 ### Process
 `public void Process()`
 
-**Purpose:** **Purpose:** Executes the Process logic.
+**Purpose:** Executes the Process logic.
 
 ```csharp
 // Obtain an instance of ClientsideSession from the subsystem API first
@@ -51,7 +51,7 @@ clientsideSession.Process();
 ### Tick
 `public override void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ClientsideSession from the subsystem API first

@@ -30,7 +30,7 @@ description: "MPKillFeedVM 的自动生成类参考。"
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isPersonalFeedEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPKillFeedVM 实例
@@ -41,7 +41,7 @@ mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
 ### OnPersonalDamage
 `public void OnPersonalDamage(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyDamage, bool isHeadshot, string killedAgentName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal damage 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal damage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPKillFeedVM 实例

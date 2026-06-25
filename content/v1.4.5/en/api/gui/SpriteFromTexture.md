@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetMinUvs
 `public override Vec2 GetMinUvs()`
 
-**Purpose:** **Purpose:** Reads and returns the min uvs value held by the this instance.
+**Purpose:** Reads and returns the min uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpriteFromTexture from the subsystem API first
@@ -34,7 +34,7 @@ var result = spriteFromTexture.GetMinUvs();
 ### GetMaxUvs
 `public override Vec2 GetMaxUvs()`
 
-**Purpose:** **Purpose:** Reads and returns the max uvs value held by the this instance.
+**Purpose:** Reads and returns the max uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpriteFromTexture from the subsystem API first

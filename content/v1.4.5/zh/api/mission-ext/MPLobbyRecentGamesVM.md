@@ -36,7 +36,7 @@ description: "MPLobbyRecentGamesVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例
@@ -47,7 +47,7 @@ mPLobbyRecentGamesVM.RefreshValues();
 ### RefreshData
 `public void RefreshData(MBReadOnlyList<MatchHistoryData> matches)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 data 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 data 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例
@@ -58,7 +58,7 @@ mPLobbyRecentGamesVM.RefreshData(matches);
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyRecentGamePlayerItemVM playerVM)`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活player actions对应的资源、状态或功能。
+**用途 / Purpose:** 激活player actions对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例
@@ -69,7 +69,7 @@ mPLobbyRecentGamesVM.ActivatePlayerActions(playerVM);
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 open popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例
@@ -80,7 +80,7 @@ mPLobbyRecentGamesVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例
@@ -91,7 +91,7 @@ mPLobbyRecentGamesVM.ExecuteClosePopup();
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamesVM 实例

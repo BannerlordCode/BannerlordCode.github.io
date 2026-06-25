@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### Clone
 `public MBTextToken Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of MBTextToken from the subsystem API first

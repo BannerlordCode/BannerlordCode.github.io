@@ -57,7 +57,7 @@ description: "CharacterDeveloperVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -68,7 +68,7 @@ characterDeveloperVM.RefreshValues();
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectHero 对应的操作。
+**用途 / Purpose:** 调用 SelectHero 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -79,7 +79,7 @@ characterDeveloperVM.SelectHero(hero);
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -90,7 +90,7 @@ characterDeveloperVM.ExecuteReset();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -101,7 +101,7 @@ characterDeveloperVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -112,7 +112,7 @@ characterDeveloperVM.ExecuteCancel();
 ### ApplyAllChanges
 `public void ApplyAllChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 all changes 的效果应用到当前对象。
+**用途 / Purpose:** 将 all changes 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -123,7 +123,7 @@ characterDeveloperVM.ApplyAllChanges();
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there any changes 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there any changes 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -134,7 +134,7 @@ var result = characterDeveloperVM.IsThereAnyChanges();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -145,7 +145,7 @@ characterDeveloperVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -156,7 +156,7 @@ characterDeveloperVM.SetCancelInputKey(gameKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -167,7 +167,7 @@ characterDeveloperVM.SetDoneInputKey(hotKey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -178,7 +178,7 @@ characterDeveloperVM.SetResetInputKey(hotKey);
 ### SetPreviousCharacterInputKey
 `public void SetPreviousCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 previous character input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 previous character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -189,7 +189,7 @@ characterDeveloperVM.SetPreviousCharacterInputKey(hotKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 next character input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 next character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例
@@ -200,7 +200,7 @@ characterDeveloperVM.SetNextCharacterInputKey(hotKey);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperVM 实例

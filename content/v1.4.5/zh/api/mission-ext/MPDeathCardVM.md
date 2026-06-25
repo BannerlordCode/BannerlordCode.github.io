@@ -40,7 +40,7 @@ description: "MPDeathCardVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPDeathCardVM 实例
@@ -51,7 +51,7 @@ mPDeathCardVM.RefreshValues();
 ### OnMainAgentRemoved
 `public void OnMainAgentRemoved(Agent affectorAgent, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 main agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPDeathCardVM 实例
@@ -62,7 +62,7 @@ mPDeathCardVM.OnMainAgentRemoved(affectorAgent, blow);
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 MPDeathCardVM 实例

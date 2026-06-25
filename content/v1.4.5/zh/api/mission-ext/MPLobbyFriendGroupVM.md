@@ -31,7 +31,7 @@ description: "MPLobbyFriendGroupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
@@ -42,7 +42,7 @@ mPLobbyFriendGroupVM.RefreshValues();
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
@@ -53,7 +53,7 @@ mPLobbyFriendGroupVM.Tick();
 ### ClearFriends
 `public void ClearFriends()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的friends。
+**用途 / Purpose:** 清空当前对象中的friends。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
@@ -64,7 +64,7 @@ mPLobbyFriendGroupVM.ClearFriends();
 ### AddFriend
 `public void AddFriend(MPLobbyFriendItemVM player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 friend 添加到当前容器或状态中。
+**用途 / Purpose:** 将 friend 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
@@ -75,7 +75,7 @@ mPLobbyFriendGroupVM.AddFriend(player);
 ### RemoveFriend
 `public void RemoveFriend(MPLobbyFriendItemVM player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 friend。
+**用途 / Purpose:** 从当前容器或状态中移除 friend。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例

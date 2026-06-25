@@ -23,7 +23,7 @@ Treat `BattleMissionAgentInteractionLogic` as a Logic-style extension point: fir
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the there agent action state or condition.
+**Purpose:** Determines whether the this instance is in the there agent action state or condition.
 
 ```csharp
 // Obtain an instance of BattleMissionAgentInteractionLogic from the subsystem API first

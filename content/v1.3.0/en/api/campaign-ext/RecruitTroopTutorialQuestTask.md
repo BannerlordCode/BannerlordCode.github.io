@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Quests.QuestTasks` to place it in the stack, the
 ### InitializeTaskOnLoad
 `public void InitializeTaskOnLoad(int targetRecruitAmount, Func<CharacterObject, bool> recruitTypeConditions, Settlement recruitSettlement = null)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by task on load.
+**Purpose:** Prepares the resources, state, or bindings required by task on load.
 
 ```csharp
 // Obtain an instance of RecruitTroopTutorialQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ recruitTroopTutorialQuestTask.InitializeTaskOnLoad(0, func<CharacterObject, fals
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitTroopTutorialQuestTask from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnPlayerJoin
 `public override void OnPlayerJoin(PlayerData playerData)`
 
-**Purpose:** **Purpose:** Invoked when the player join event is raised.
+**Purpose:** Invoked when the player join event is raised.
 
 ```csharp
 // Obtain an instance of BadgeOwnerKillTracker from the subsystem API first
@@ -34,7 +34,7 @@ badgeOwnerKillTracker.OnPlayerJoin(playerData);
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**Purpose:** **Purpose:** Invoked when the kill event is raised.
+**Purpose:** Invoked when the kill event is raised.
 
 ```csharp
 // Obtain an instance of BadgeOwnerKillTracker from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
+**Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MissionAlwaysVisibleMarkerTargetVM from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Avatar.PlayerServices` to place it in the stack
 ### GetForcedAvatarIndexOfPlayer
 `public static int GetForcedAvatarIndexOfPlayer(PlayerId playerID)`
 
-**Purpose:** **Purpose:** Reads and returns the forced avatar index of player value held by the this instance.
+**Purpose:** Reads and returns the forced avatar index of player value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
 ### UpdateAvatarServices
 `public static void UpdateAvatarServices(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of avatar services.
+**Purpose:** Recalculates and stores the latest representation of avatar services.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ AvatarServices.UpdateAvatarServices(0);
 ### GetPlayerAvatar
 `public static AvatarDataResponse GetPlayerAvatar(PlayerId playerId, int forcedIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the player avatar value held by the this instance.
+**Purpose:** Reads and returns the player avatar value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ AvatarServices.GetPlayerAvatar(playerId, 0);
 ### AddAvatarService
 `public static void AddAvatarService(PlayerIdProvidedTypes type, IAvatarService avatarService)`
 
-**Purpose:** **Purpose:** Adds avatar service to the current collection or state.
+**Purpose:** Adds avatar service to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ AvatarServices.AddAvatarService(type, avatarService);
 ### ClearAvatarCaches
 `public static void ClearAvatarCaches()`
 
-**Purpose:** **Purpose:** Removes all avatar caches from the this instance.
+**Purpose:** Removes all avatar caches from the this instance.
 
 ```csharp
 // Static call; no instance required

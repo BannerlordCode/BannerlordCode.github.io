@@ -23,7 +23,7 @@ Treat `UISoundsHelper` as a Helper-style extension point: first identify who cre
 ### PlayUISound
 `public static void PlayUISound(string soundName)`
 
-**Purpose:** **Purpose:** Executes the PlayUISound logic.
+**Purpose:** Executes the PlayUISound logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat` to place
 ### ChatMultiLineElement
 `public struct ChatMultiLineElement(string line, int identModifier)`
 
-**Purpose:** **Purpose:** Executes the ChatMultiLineElement logic.
+**Purpose:** Executes the ChatMultiLineElement logic.
 
 ```csharp
 // Obtain an instance of ChatMultiLineElement from the subsystem API first

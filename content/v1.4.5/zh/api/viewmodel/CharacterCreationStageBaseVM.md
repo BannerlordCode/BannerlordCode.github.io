@@ -38,7 +38,7 @@ description: "CharacterCreationStageBaseVM 的自动生成类参考。"
 ### OnNextStage
 `public abstract void OnNextStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 next stage 事件触发时调用此回调。
+**用途 / Purpose:** 在 next stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageBaseVM 实例
@@ -49,7 +49,7 @@ characterCreationStageBaseVM.OnNextStage();
 ### OnPreviousStage
 `public abstract void OnPreviousStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
+**用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageBaseVM 实例
@@ -60,7 +60,7 @@ characterCreationStageBaseVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public abstract bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageBaseVM 实例

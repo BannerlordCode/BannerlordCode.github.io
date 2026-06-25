@@ -35,7 +35,7 @@ description: "TrainingFieldObjectivesVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例
@@ -46,7 +46,7 @@ trainingFieldObjectivesVM.RefreshValues();
 ### UpdateObjectivesWith
 `public void UpdateObjectivesWith(List<TrainingFieldMissionController.TutorialObjective> objectives)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 objectives with 的最新表示。
+**用途 / Purpose:** 重新计算并更新 objectives with 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例
@@ -57,7 +57,7 @@ trainingFieldObjectivesVM.UpdateObjectivesWith(objectives);
 ### UpdateCurrentObjectiveText
 `public void UpdateCurrentObjectiveText(TextObject currentObjectiveText)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 current objective text 的最新表示。
+**用途 / Purpose:** 重新计算并更新 current objective text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例
@@ -68,7 +68,7 @@ trainingFieldObjectivesVM.UpdateCurrentObjectiveText(currentObjectiveText);
 ### UpdateCurrentMouseObjective
 `public void UpdateCurrentMouseObjective(TrainingFieldMissionController.MouseObjectives currentMouseObjective)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 current mouse objective 的最新表示。
+**用途 / Purpose:** 重新计算并更新 current mouse objective 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例
@@ -79,7 +79,7 @@ trainingFieldObjectivesVM.UpdateCurrentMouseObjective(currentMouseObjective);
 ### UpdateTimerText
 `public void UpdateTimerText(string timerText)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 timer text 的最新表示。
+**用途 / Purpose:** 重新计算并更新 timer text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例
@@ -90,7 +90,7 @@ trainingFieldObjectivesVM.UpdateTimerText("example");
 ### UpdateIsGamepadActive
 `public void UpdateIsGamepadActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 is gamepad active 的最新表示。
+**用途 / Purpose:** 重新计算并更新 is gamepad active 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldObjectivesVM 实例

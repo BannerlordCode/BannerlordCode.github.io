@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ playerCaptivityCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ playerCaptivityCampaignBehavior.RegisterEvents();
 ### CheckCaptivityChange
 `public void CheckCaptivityChange(float dt)`
 
-**Purpose:** **Purpose:** Verifies whether captivity change holds true for the this instance.
+**Purpose:** Verifies whether captivity change holds true for the this instance.
 
 ```csharp
 // Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first

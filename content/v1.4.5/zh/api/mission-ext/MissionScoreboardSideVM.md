@@ -42,7 +42,7 @@ description: "MissionScoreboardSideVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -53,7 +53,7 @@ missionScoreboardSideVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -64,7 +64,7 @@ missionScoreboardSideVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -75,7 +75,7 @@ missionScoreboardSideVM.OnFinalize();
 ### UpdateRoundAttributes
 `public void UpdateRoundAttributes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 round attributes 的最新表示。
+**用途 / Purpose:** 重新计算并更新 round attributes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -86,7 +86,7 @@ missionScoreboardSideVM.UpdateRoundAttributes();
 ### UpdateBotAttributes
 `public void UpdateBotAttributes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 bot attributes 的最新表示。
+**用途 / Purpose:** 重新计算并更新 bot attributes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -97,7 +97,7 @@ missionScoreboardSideVM.UpdateBotAttributes();
 ### UpdatePlayerAttributes
 `public void UpdatePlayerAttributes(MissionPeer player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 player attributes 的最新表示。
+**用途 / Purpose:** 重新计算并更新 player attributes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -108,7 +108,7 @@ missionScoreboardSideVM.UpdatePlayerAttributes(player);
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 player。
+**用途 / Purpose:** 从当前容器或状态中移除 player。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例
@@ -119,7 +119,7 @@ missionScoreboardSideVM.RemovePlayer(peer);
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 player 添加到当前容器或状态中。
+**用途 / Purpose:** 将 player 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardSideVM 实例

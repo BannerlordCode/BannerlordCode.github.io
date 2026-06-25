@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.Test` to place it in the
 ### GetInt64HashCode
 `public static ulong GetInt64HashCode(string strText)`
 
-**Purpose:** **Purpose:** Reads and returns the int64 hash code value held by the this instance.
+**Purpose:** Reads and returns the int64 hash code value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TestLoginAccessProvider.GetInt64HashCode("example");
 ### GetPlayerIdFromUserName
 `public static PlayerId GetPlayerIdFromUserName(string userName)`
 
-**Purpose:** **Purpose:** Reads and returns the player id from user name value held by the this instance.
+**Purpose:** Reads and returns the player id from user name value held by the this instance.
 
 ```csharp
 // Static call; no instance required

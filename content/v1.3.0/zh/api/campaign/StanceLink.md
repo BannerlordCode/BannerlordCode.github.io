@@ -46,7 +46,7 @@ description: "StanceLink 的自动生成类参考。"
 ### GetCasualties
 `public int GetCasualties(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 casualties 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 casualties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -57,7 +57,7 @@ var result = stanceLink.GetCasualties(faction);
 ### GetSuccessfulSieges
 `public int GetSuccessfulSieges(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 successful sieges 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 successful sieges 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -68,7 +68,7 @@ var result = stanceLink.GetSuccessfulSieges(faction);
 ### GetSuccessfulRaids
 `public int GetSuccessfulRaids(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 successful raids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 successful raids 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -79,7 +79,7 @@ var result = stanceLink.GetSuccessfulRaids(faction);
 ### GetTotalTributePaid
 `public int GetTotalTributePaid(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total tribute paid 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total tribute paid 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -90,7 +90,7 @@ var result = stanceLink.GetTotalTributePaid(faction);
 ### GetSuccessfulTownSieges
 `public int GetSuccessfulTownSieges(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 successful town sieges 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 successful town sieges 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -101,7 +101,7 @@ var result = stanceLink.GetSuccessfulTownSieges(faction);
 ### GetDailyTributePaid
 `public int GetDailyTributePaid(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily tribute paid 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily tribute paid 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例
@@ -112,7 +112,7 @@ var result = stanceLink.GetDailyTributePaid(faction);
 ### SetDailyTributePaid
 `public void SetDailyTributePaid(IFaction payer, int dailyTribute)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 daily tribute paid 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 daily tribute paid 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StanceLink 实例

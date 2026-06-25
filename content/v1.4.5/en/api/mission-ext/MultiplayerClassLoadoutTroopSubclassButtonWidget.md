@@ -32,7 +32,7 @@ Treat `MultiplayerClassLoadoutTroopSubclassButtonWidget` as a Widget-style exten
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
+**Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutTroopSubclassButtonWidget from the subsystem API first

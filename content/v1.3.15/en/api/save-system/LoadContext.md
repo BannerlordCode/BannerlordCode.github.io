@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then
 ### Load
 `public bool Load(LoadData loadData, bool loadAsLateInitialize)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of LoadContext from the subsystem API first
@@ -43,7 +43,7 @@ var result = loadContext.Load(loadData, false);
 ### TryConvertType
 `public static bool TryConvertType(Type sourceType, Type targetType, ref object data)`
 
-**Purpose:** **Purpose:** Attempts to retrieve convert type, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve convert type, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ LoadContext.TryConvertType(sourceType, targetType, data);
 ### GetObjectWithId
 `public ObjectHeaderLoadData GetObjectWithId(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the object with id value held by the this instance.
+**Purpose:** Reads and returns the object with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LoadContext from the subsystem API first
@@ -64,7 +64,7 @@ var result = loadContext.GetObjectWithId(0);
 ### GetContainerWithId
 `public ContainerHeaderLoadData GetContainerWithId(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the container with id value held by the this instance.
+**Purpose:** Reads and returns the container with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LoadContext from the subsystem API first
@@ -75,7 +75,7 @@ var result = loadContext.GetContainerWithId(0);
 ### GetStringWithId
 `public string GetStringWithId(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the string with id value held by the this instance.
+**Purpose:** Reads and returns the string with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LoadContext from the subsystem API first

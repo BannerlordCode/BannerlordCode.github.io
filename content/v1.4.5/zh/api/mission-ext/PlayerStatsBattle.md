@@ -30,7 +30,7 @@ description: "PlayerStatsBattle 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int roundsWon, int roundsLost)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillWith 对应的操作。
+**用途 / Purpose:** 调用 FillWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsBattle 实例
@@ -41,7 +41,7 @@ playerStatsBattle.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0);
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillWithNewPlayer 对应的操作。
+**用途 / Purpose:** 调用 FillWithNewPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsBattle 实例
@@ -52,7 +52,7 @@ playerStatsBattle.FillWithNewPlayer(playerId);
 ### Update
 `public void Update(BattlePlayerStatsBattle stats, bool won)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsBattle 实例

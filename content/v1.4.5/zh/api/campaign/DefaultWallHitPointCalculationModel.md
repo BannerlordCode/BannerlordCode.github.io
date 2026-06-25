@@ -23,7 +23,7 @@ description: "DefaultWallHitPointCalculationModel 的自动生成类参考。"
 ### CalculateMaximumWallHitPoint
 `public override float CalculateMaximumWallHitPoint(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算maximum wall hit point的当前值或结果。
+**用途 / Purpose:** 计算maximum wall hit point的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultWallHitPointCalculationModel 实例

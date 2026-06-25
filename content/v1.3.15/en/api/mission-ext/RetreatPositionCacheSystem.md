@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetRetreatPositionFromCache
 `public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the retreat position from cache value held by the this instance.
+**Purpose:** Reads and returns the retreat position from cache value held by the this instance.
 
 ```csharp
 // Obtain an instance of RetreatPositionCacheSystem from the subsystem API first
@@ -34,7 +34,7 @@ var result = retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPositio
 ### AddNewPositionToCache
 `public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
 
-**Purpose:** **Purpose:** Adds new position to cache to the current collection or state.
+**Purpose:** Adds new position to cache to the current collection or state.
 
 ```csharp
 // Obtain an instance of RetreatPositionCacheSystem from the subsystem API first

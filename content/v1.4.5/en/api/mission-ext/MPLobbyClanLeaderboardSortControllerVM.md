@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
@@ -45,7 +45,7 @@ mPLobbyClanLeaderboardSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
@@ -56,7 +56,7 @@ var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
@@ -67,7 +67,7 @@ var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
@@ -78,7 +78,7 @@ var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first

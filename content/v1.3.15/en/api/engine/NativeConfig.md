@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### OnConfigChanged
 `public static void OnConfigChanged()`
 
-**Purpose:** **Purpose:** Invoked when the config changed event is raised.
+**Purpose:** Invoked when the config changed event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -56,7 +56,7 @@ NativeConfig.OnConfigChanged();
 ### SetAutoConfigWrtHardware
 `public static void SetAutoConfigWrtHardware()`
 
-**Purpose:** **Purpose:** Assigns a new value to auto config wrt hardware and updates the object's internal state.
+**Purpose:** Assigns a new value to auto config wrt hardware and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PathFaceRecord
 `public struct PathFaceRecord(int index, int groupIndex, int islandIndex)`
 
-**Purpose:** **Purpose:** Executes the PathFaceRecord logic.
+**Purpose:** Executes the PathFaceRecord logic.
 
 ```csharp
 // Obtain an instance of PathFaceRecord from the subsystem API first
@@ -34,7 +34,7 @@ var result = pathFaceRecord.PathFaceRecord(0, 0, 0);
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of PathFaceRecord from the subsystem API first

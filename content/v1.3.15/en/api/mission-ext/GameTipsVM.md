@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameTipsVM from the subsystem API first
@@ -42,7 +42,7 @@ gameTipsVM.RefreshValues();
 ### ExecutePreviousTip
 `public void ExecutePreviousTip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with previous tip.
+**Purpose:** Runs the operation or workflow associated with previous tip.
 
 ```csharp
 // Obtain an instance of GameTipsVM from the subsystem API first
@@ -53,7 +53,7 @@ gameTipsVM.ExecutePreviousTip();
 ### ExecuteNextTip
 `public void ExecuteNextTip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with next tip.
+**Purpose:** Runs the operation or workflow associated with next tip.
 
 ```csharp
 // Obtain an instance of GameTipsVM from the subsystem API first
@@ -64,7 +64,7 @@ gameTipsVM.ExecuteNextTip();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of GameTipsVM from the subsystem API first

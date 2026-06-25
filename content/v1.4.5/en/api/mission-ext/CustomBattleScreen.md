@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
+**Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Obtain an instance of CustomBattleScreen from the subsystem API first

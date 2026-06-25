@@ -23,7 +23,7 @@ description: "VoiceOverModel 的自动生成类参考。"
 ### GetSoundPathForCharacter
 `public abstract string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sound path for character 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sound path for character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VoiceOverModel 实例
@@ -34,7 +34,7 @@ var result = voiceOverModel.GetSoundPathForCharacter(character, voiceObject);
 ### GetAccentClass
 `public abstract string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 accent class 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 accent class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VoiceOverModel 实例

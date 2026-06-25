@@ -19,7 +19,7 @@ KillCharacterAction is a set of static methods that trigger "KillCharacter" in t
 public static void ApplyByOldAge(Hero victim, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by old age to the this instance.
+**Purpose:** Applies the effect of by old age to the this instance.
 
 ### ApplyByWounds
 
@@ -27,7 +27,7 @@ public static void ApplyByOldAge(Hero victim, bool showNotification = true)
 public static void ApplyByWounds(Hero victim, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by wounds to the this instance.
+**Purpose:** Applies the effect of by wounds to the this instance.
 
 ### ApplyByBattle
 
@@ -35,7 +35,7 @@ public static void ApplyByWounds(Hero victim, bool showNotification = true)
 public static void ApplyByBattle(Hero victim, Hero killer, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by battle to the this instance.
+**Purpose:** Applies the effect of by battle to the this instance.
 
 ### ApplyByMurder
 
@@ -43,7 +43,7 @@ public static void ApplyByBattle(Hero victim, Hero killer, bool showNotification
 public static void ApplyByMurder(Hero victim, Hero killer = null, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by murder to the this instance.
+**Purpose:** Applies the effect of by murder to the this instance.
 
 ### ApplyInLabor
 
@@ -51,7 +51,7 @@ public static void ApplyByMurder(Hero victim, Hero killer = null, bool showNotif
 public static void ApplyInLabor(Hero lostMother, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of in labor to the this instance.
+**Purpose:** Applies the effect of in labor to the this instance.
 
 ### ApplyByExecution
 
@@ -59,7 +59,7 @@ public static void ApplyInLabor(Hero lostMother, bool showNotification = true)
 public static void ApplyByExecution(Hero victim, Hero executer, bool showNotification = true, bool isForced = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by execution to the this instance.
+**Purpose:** Applies the effect of by execution to the this instance.
 
 ### ApplyByExecutionAfterMapEvent
 
@@ -67,7 +67,7 @@ public static void ApplyByExecution(Hero victim, Hero executer, bool showNotific
 public static void ApplyByExecutionAfterMapEvent(Hero victim, Hero executer, bool showNotification = true, bool isForced = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by execution after map event to the this instance.
+**Purpose:** Applies the effect of by execution after map event to the this instance.
 
 ### ApplyByRemove
 
@@ -75,7 +75,7 @@ public static void ApplyByExecutionAfterMapEvent(Hero victim, Hero executer, boo
 public static void ApplyByRemove(Hero victim, bool showNotification = false, bool isForced = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by remove to the this instance.
+**Purpose:** Applies the effect of by remove to the this instance.
 
 ### ApplyByDeathMark
 
@@ -83,7 +83,7 @@ public static void ApplyByRemove(Hero victim, bool showNotification = false, boo
 public static void ApplyByDeathMark(Hero victim, bool showNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by death mark to the this instance.
+**Purpose:** Applies the effect of by death mark to the this instance.
 
 ### ApplyByDeathMarkForced
 
@@ -91,7 +91,7 @@ public static void ApplyByDeathMark(Hero victim, bool showNotification = false)
 public static void ApplyByDeathMarkForced(Hero victim, bool showNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by death mark forced to the this instance.
+**Purpose:** Applies the effect of by death mark forced to the this instance.
 
 ### ApplyByPlayerIllness
 
@@ -99,7 +99,7 @@ public static void ApplyByDeathMarkForced(Hero victim, bool showNotification = f
 public static void ApplyByPlayerIllness()
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by player illness to the this instance.
+**Purpose:** Applies the effect of by player illness to the this instance.
 
 ## Usage Example
 

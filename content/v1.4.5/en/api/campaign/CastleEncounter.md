@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** **Purpose:** Constructs a new and open mission controller entity and returns it to the caller.
+**Purpose:** Constructs a new and open mission controller entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CastleEncounter from the subsystem API first

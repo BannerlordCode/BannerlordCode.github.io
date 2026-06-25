@@ -29,7 +29,7 @@ Treat `ServersideSessionManager` as a Manager-style extension point: first ident
 ### Activate
 `public void Activate(ushort port, ThreadType threadType = ThreadType.Single, int readWriteThreadCount = 1)`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
+**Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of ServersideSessionManager from the subsystem API first
@@ -40,7 +40,7 @@ serversideSessionManager.Activate(0, threadType.Single, 0);
 ### GetPeer
 `public ServersideSession GetPeer(int peerIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the peer value held by the this instance.
+**Purpose:** Reads and returns the peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of ServersideSessionManager from the subsystem API first
@@ -51,7 +51,7 @@ var result = serversideSessionManager.GetPeer(0);
 ### Tick
 `public virtual void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ServersideSessionManager from the subsystem API first

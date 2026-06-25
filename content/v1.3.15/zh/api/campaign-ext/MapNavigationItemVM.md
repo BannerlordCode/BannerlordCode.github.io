@@ -35,7 +35,7 @@ description: "MapNavigationItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationItemVM 实例
@@ -46,7 +46,7 @@ mapNavigationItemVM.RefreshValues();
 ### RefreshStates
 `public void RefreshStates(bool forceRefresh = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 states 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 states 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationItemVM 实例
@@ -57,7 +57,7 @@ mapNavigationItemVM.RefreshStates(false);
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open 对应的操作或工作流。
+**用途 / Purpose:** 执行 open 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationItemVM 实例
@@ -68,7 +68,7 @@ mapNavigationItemVM.ExecuteOpen();
 ### ExecuteGoToLink
 `public void ExecuteGoToLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 go to link 对应的操作或工作流。
+**用途 / Purpose:** 执行 go to link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationItemVM 实例

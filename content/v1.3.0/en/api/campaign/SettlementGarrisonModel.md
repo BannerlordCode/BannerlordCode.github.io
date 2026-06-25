@@ -23,7 +23,7 @@ Treat `SettlementGarrisonModel` as a Model-style extension point: first identify
 ### GetMaximumDailyAutoRecruitmentCount
 `public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum daily auto recruitment count value held by the this instance.
+**Purpose:** Reads and returns the maximum daily auto recruitment count value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementGarrisonModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = settlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
 ### CalculateBaseGarrisonChange
 `public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of base garrison change.
+**Purpose:** Calculates the current value or result of base garrison change.
 
 ```csharp
 // Obtain an instance of SettlementGarrisonModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = settlementGarrisonModel.CalculateBaseGarrisonChange(settlement, fal
 ### FindNumberOfTroopsToTakeFromGarrison
 `public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
 
-**Purpose:** **Purpose:** Looks up the matching number of troops to take from garrison in the current collection or scope.
+**Purpose:** Looks up the matching number of troops to take from garrison in the current collection or scope.
 
 ```csharp
 // Obtain an instance of SettlementGarrisonModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = settlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobile
 ### FindNumberOfTroopsToLeaveToGarrison
 `public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** **Purpose:** Looks up the matching number of troops to leave to garrison in the current collection or scope.
+**Purpose:** Looks up the matching number of troops to leave to garrison in the current collection or scope.
 
 ```csharp
 // Obtain an instance of SettlementGarrisonModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = settlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileP
 ### GetMaximumDailyRepairAmount
 `public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum daily repair amount value held by the this instance.
+**Purpose:** Reads and returns the maximum daily repair amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementGarrisonModel from the subsystem API first

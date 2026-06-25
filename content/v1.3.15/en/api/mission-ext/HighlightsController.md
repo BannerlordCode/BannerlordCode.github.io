@@ -38,7 +38,7 @@ Treat `HighlightsController` as a Controller-style extension point: first identi
 ### RemoveHighlights
 `public static void RemoveHighlights()`
 
-**Purpose:** **Purpose:** Removes highlights from the current collection or state.
+**Purpose:** Removes highlights from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -48,7 +48,7 @@ HighlightsController.RemoveHighlights();
 ### GetHighlightTypeWithId
 `public HighlightsController.HighlightType GetHighlightTypeWithId(string highlightId)`
 
-**Purpose:** **Purpose:** Reads and returns the highlight type with id value held by the this instance.
+**Purpose:** Reads and returns the highlight type with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -59,7 +59,7 @@ var result = highlightsController.GetHighlightTypeWithId("example");
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -70,7 +70,7 @@ highlightsController.AfterStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -81,7 +81,7 @@ highlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, ki
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** **Purpose:** Invoked when the score hit event is raised.
+**Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -92,7 +92,7 @@ highlightsController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, fa
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -103,7 +103,7 @@ highlightsController.OnMissionTick(0);
 ### AddHighlightType
 `public static void AddHighlightType(HighlightsController.HighlightType highlightType)`
 
-**Purpose:** **Purpose:** Adds highlight type to the current collection or state.
+**Purpose:** Adds highlight type to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ HighlightsController.AddHighlightType(highlightType);
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight)`
 
-**Purpose:** **Purpose:** Writes highlight to persistent storage or a stream.
+**Purpose:** Writes highlight to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -124,7 +124,7 @@ highlightsController.SaveHighlight(highlight);
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight, Vec3 position)`
 
-**Purpose:** **Purpose:** Writes highlight to persistent storage or a stream.
+**Purpose:** Writes highlight to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -135,7 +135,7 @@ highlightsController.SaveHighlight(highlight, position);
 ### CanSaveHighlight
 `public bool CanSaveHighlight(HighlightsController.HighlightType highlightType, Vec3 position)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for save highlight.
+**Purpose:** Checks whether the this instance meets the preconditions for save highlight.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -146,7 +146,7 @@ var result = highlightsController.CanSaveHighlight(highlightType, position);
 ### GetPlayerIsLookingAtPositionScore
 `public float GetPlayerIsLookingAtPositionScore(Vec3 position)`
 
-**Purpose:** **Purpose:** Reads and returns the player is looking at position score value held by the this instance.
+**Purpose:** Reads and returns the player is looking at position score value held by the this instance.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -157,7 +157,7 @@ var result = highlightsController.GetPlayerIsLookingAtPositionScore(position);
 ### CanSeePosition
 `public bool CanSeePosition(Vec3 position)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for see position.
+**Purpose:** Checks whether the this instance meets the preconditions for see position.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first
@@ -168,7 +168,7 @@ var result = highlightsController.CanSeePosition(position);
 ### ShowSummary
 `public void ShowSummary()`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with summary.
+**Purpose:** Displays the UI or element associated with summary.
 
 ```csharp
 // Obtain an instance of HighlightsController from the subsystem API first

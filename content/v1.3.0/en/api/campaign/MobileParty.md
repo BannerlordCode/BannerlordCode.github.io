@@ -159,7 +159,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### SetLandNavigationAccess
 `public void SetLandNavigationAccess(bool access)`
 
-**Purpose:** **Purpose:** Assigns a new value to land navigation access and updates the object's internal state.
+**Purpose:** Assigns a new value to land navigation access and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -170,7 +170,7 @@ mobileParty.SetLandNavigationAccess(false);
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -181,7 +181,7 @@ var result = mobileParty.GetName();
 ### HasLimitedWage
 `public bool HasLimitedWage()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds limited wage.
+**Purpose:** Determines whether the this instance already holds limited wage.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -192,7 +192,7 @@ var result = mobileParty.HasLimitedWage();
 ### GetAvailableWageBudget
 `public int GetAvailableWageBudget()`
 
-**Purpose:** **Purpose:** Reads and returns the available wage budget value held by the this instance.
+**Purpose:** Reads and returns the available wage budget value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -203,7 +203,7 @@ var result = mobileParty.GetAvailableWageBudget();
 ### IsWageLimitExceeded
 `public bool IsWageLimitExceeded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the wage limit exceeded state or condition.
+**Purpose:** Determines whether the this instance is in the wage limit exceeded state or condition.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -214,7 +214,7 @@ var result = mobileParty.IsWageLimitExceeded();
 ### SetWagePaymentLimit
 `public void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** **Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
+**Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -225,7 +225,7 @@ mobileParty.SetWagePaymentLimit(0);
 ### SetNavalVisualAsDirty
 `public void SetNavalVisualAsDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to naval visual as dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to naval visual as dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -236,7 +236,7 @@ mobileParty.SetNavalVisualAsDirty();
 ### OnNavalVisualsUpdated
 `public void OnNavalVisualsUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the naval visuals updated event is raised.
+**Purpose:** Invoked when the naval visuals updated event is raised.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -247,7 +247,7 @@ mobileParty.OnNavalVisualsUpdated();
 ### SetSailAtPosition
 `public void SetSailAtPosition(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Assigns a new value to sail at position and updates the object's internal state.
+**Purpose:** Assigns a new value to sail at position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -258,7 +258,7 @@ mobileParty.SetSailAtPosition(position);
 ### CancelNavigationTransition
 `public void CancelNavigationTransition()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel navigation transition.
+**Purpose:** Checks whether the this instance meets the preconditions for cel navigation transition.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -269,7 +269,7 @@ mobileParty.CancelNavigationTransition();
 ### ChangeIsCurrentlyAtSeaCheat
 `public void ChangeIsCurrentlyAtSeaCheat()`
 
-**Purpose:** **Purpose:** Executes the ChangeIsCurrentlyAtSeaCheat logic.
+**Purpose:** Executes the ChangeIsCurrentlyAtSeaCheat logic.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -280,7 +280,7 @@ mobileParty.ChangeIsCurrentlyAtSeaCheat();
 ### SetCustomHomeSettlement
 `public void SetCustomHomeSettlement(Settlement customHomeSettlement)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom home settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to custom home settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -291,7 +291,7 @@ mobileParty.SetCustomHomeSettlement(customHomeSettlement);
 ### SetTargetSettlement
 `public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Assigns a new value to target settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to target settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -302,7 +302,7 @@ mobileParty.SetTargetSettlement(settlement, false);
 ### SetPartyScout
 `public void SetPartyScout(Hero hero)`
 
-**Purpose:** **Purpose:** Assigns a new value to party scout and updates the object's internal state.
+**Purpose:** Assigns a new value to party scout and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -313,7 +313,7 @@ mobileParty.SetPartyScout(hero);
 ### SetPartyQuartermaster
 `public void SetPartyQuartermaster(Hero hero)`
 
-**Purpose:** **Purpose:** Assigns a new value to party quartermaster and updates the object's internal state.
+**Purpose:** Assigns a new value to party quartermaster and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -324,7 +324,7 @@ mobileParty.SetPartyQuartermaster(hero);
 ### SetPartyEngineer
 `public void SetPartyEngineer(Hero hero)`
 
-**Purpose:** **Purpose:** Assigns a new value to party engineer and updates the object's internal state.
+**Purpose:** Assigns a new value to party engineer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -335,7 +335,7 @@ mobileParty.SetPartyEngineer(hero);
 ### SetPartySurgeon
 `public void SetPartySurgeon(Hero hero)`
 
-**Purpose:** **Purpose:** Assigns a new value to party surgeon and updates the object's internal state.
+**Purpose:** Assigns a new value to party surgeon and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -346,7 +346,7 @@ mobileParty.SetPartySurgeon(hero);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -357,7 +357,7 @@ var result = mobileParty.ToString();
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**Purpose:** **Purpose:** Executes the ChangePartyLeader logic.
+**Purpose:** Executes the ChangePartyLeader logic.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -368,7 +368,7 @@ mobileParty.ChangePartyLeader(newLeader);
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty engagingParty)`
 
-**Purpose:** **Purpose:** Invoked when the party interaction event is raised.
+**Purpose:** Invoked when the party interaction event is raised.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -379,7 +379,7 @@ mobileParty.OnPartyInteraction(engagingParty);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**Purpose:** **Purpose:** Assigns a new value to position after map change and updates the object's internal state.
+**Purpose:** Assigns a new value to position after map change and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -390,7 +390,7 @@ mobileParty.SetPositionAfterMapChange(newPosition);
 ### RemovePartyLeader
 `public void RemovePartyLeader()`
 
-**Purpose:** **Purpose:** Removes party leader from the current collection or state.
+**Purpose:** Removes party leader from the current collection or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -401,7 +401,7 @@ mobileParty.RemovePartyLeader();
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** **Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
+**Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -412,7 +412,7 @@ mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### CheckAiForMapChangeAndUpdateIfNeeded
 `public void CheckAiForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** **Purpose:** Verifies whether ai for map change and update if needed holds true for the this instance.
+**Purpose:** Verifies whether ai for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -423,7 +423,7 @@ mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
 ### MovePartyToTheClosestLand
 `public void MovePartyToTheClosestLand()`
 
-**Purpose:** **Purpose:** Moves party to the closest land to a new position or state.
+**Purpose:** Moves party to the closest land to a new position or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -434,7 +434,7 @@ mobileParty.MovePartyToTheClosestLand();
 ### GetBehaviorText
 `public TextObject GetBehaviorText()`
 
-**Purpose:** **Purpose:** Reads and returns the behavior text value held by the this instance.
+**Purpose:** Reads and returns the behavior text value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -445,7 +445,7 @@ var result = mobileParty.GetBehaviorText();
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -456,7 +456,7 @@ mobileParty.Initialize();
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
+**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -467,7 +467,7 @@ mobileParty.InitializeMobilePartyAtPosition(position);
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
+**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -478,7 +478,7 @@ mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, positi
 ### InitializeMobilePartyAroundPosition
 `public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
+**Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -489,7 +489,7 @@ mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, po
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
+**Purpose:** Prepares the resources, state, or bindings required by mobile party at position.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -500,7 +500,7 @@ mobileParty.InitializeMobilePartyAtPosition(pt, position);
 ### InitializeMobilePartyAroundPosition
 `public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
+**Purpose:** Prepares the resources, state, or bindings required by mobile party around position.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -511,7 +511,7 @@ mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
 ### SetDisorganized
 `public void SetDisorganized(bool isDisorganized)`
 
-**Purpose:** **Purpose:** Assigns a new value to disorganized and updates the object's internal state.
+**Purpose:** Assigns a new value to disorganized and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -522,7 +522,7 @@ mobileParty.SetDisorganized(false);
 ### RecalculateShortTermBehavior
 `public void RecalculateShortTermBehavior()`
 
-**Purpose:** **Purpose:** Recalculates short term behavior to reflect the latest state.
+**Purpose:** Recalculates short term behavior to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -533,7 +533,7 @@ mobileParty.RecalculateShortTermBehavior();
 ### IsFleeBehavior
 `public static bool IsFleeBehavior(AiBehavior aiBehavior)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the flee behavior state or condition.
+**Purpose:** Determines whether the this instance is in the flee behavior state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -543,7 +543,7 @@ MobileParty.IsFleeBehavior(aiBehavior);
 ### IsFleeing
 `public bool IsFleeing()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the fleeing state or condition.
+**Purpose:** Determines whether the this instance is in the fleeing state or condition.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -554,7 +554,7 @@ var result = mobileParty.IsFleeing();
 ### SetPartyUsedByQuest
 `public void SetPartyUsedByQuest(bool isActivelyUsed)`
 
-**Purpose:** **Purpose:** Assigns a new value to party used by quest and updates the object's internal state.
+**Purpose:** Assigns a new value to party used by quest and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -565,7 +565,7 @@ mobileParty.SetPartyUsedByQuest(false);
 ### IgnoreForHours
 `public void IgnoreForHours(float hours)`
 
-**Purpose:** **Purpose:** Executes the IgnoreForHours logic.
+**Purpose:** Executes the IgnoreForHours logic.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -576,7 +576,7 @@ mobileParty.IgnoreForHours(0);
 ### IgnoreByOtherPartiesTill
 `public void IgnoreByOtherPartiesTill(CampaignTime time)`
 
-**Purpose:** **Purpose:** Executes the IgnoreByOtherPartiesTill logic.
+**Purpose:** Executes the IgnoreByOtherPartiesTill logic.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -587,7 +587,7 @@ mobileParty.IgnoreByOtherPartiesTill(time);
 ### SetAnchor
 `public void SetAnchor(AnchorPoint anchor)`
 
-**Purpose:** **Purpose:** Assigns a new value to anchor and updates the object's internal state.
+**Purpose:** Assigns a new value to anchor and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -598,7 +598,7 @@ mobileParty.SetAnchor(anchor);
 ### SetPartyObjective
 `public void SetPartyObjective(MobileParty.PartyObjective objective)`
 
-**Purpose:** **Purpose:** Assigns a new value to party objective and updates the object's internal state.
+**Purpose:** Assigns a new value to party objective and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -609,7 +609,7 @@ mobileParty.SetPartyObjective(objective);
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of version no.
+**Purpose:** Recalculates and stores the latest representation of version no.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -620,7 +620,7 @@ mobileParty.UpdateVersionNo();
 ### IsSpotted
 `public bool IsSpotted()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the spotted state or condition.
+**Purpose:** Determines whether the this instance is in the spotted state or condition.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -631,7 +631,7 @@ var result = mobileParty.IsSpotted();
 ### AddElementToMemberRoster
 `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
 
-**Purpose:** **Purpose:** Adds element to member roster to the current collection or state.
+**Purpose:** Adds element to member roster to the current collection or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -642,7 +642,7 @@ var result = mobileParty.AddElementToMemberRoster(element, 0, false);
 ### AddPrisoner
 `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**Purpose:** **Purpose:** Adds prisoner to the current collection or state.
+**Purpose:** Adds prisoner to the current collection or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -653,7 +653,7 @@ var result = mobileParty.AddPrisoner(element, 0);
 ### GetPositionAsVec3
 `public Vec3 GetPositionAsVec3()`
 
-**Purpose:** **Purpose:** Reads and returns the position as vec3 value held by the this instance.
+**Purpose:** Reads and returns the position as vec3 value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -664,7 +664,7 @@ var result = mobileParty.GetPositionAsVec3();
 ### GetTotalLandStrengthWithFollowers
 `public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)`
 
-**Purpose:** **Purpose:** Reads and returns the total land strength with followers value held by the this instance.
+**Purpose:** Reads and returns the total land strength with followers value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -675,7 +675,7 @@ var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
 ### HasPerk
 `public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds perk.
+**Purpose:** Determines whether the this instance already holds perk.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -686,7 +686,7 @@ var result = mobileParty.HasPerk(perk, false);
 ### SetHeroPartyRole
 `public void SetHeroPartyRole(Hero hero, PartyRole partyRole)`
 
-**Purpose:** **Purpose:** Assigns a new value to hero party role and updates the object's internal state.
+**Purpose:** Assigns a new value to hero party role and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -697,7 +697,7 @@ mobileParty.SetHeroPartyRole(hero, partyRole);
 ### GetHeroPartyRole
 `public PartyRole GetHeroPartyRole(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the hero party role value held by the this instance.
+**Purpose:** Reads and returns the hero party role value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -708,7 +708,7 @@ var result = mobileParty.GetHeroPartyRole(hero);
 ### RemoveHeroPartyRole
 `public void RemoveHeroPartyRole(Hero hero)`
 
-**Purpose:** **Purpose:** Removes hero party role from the current collection or state.
+**Purpose:** Removes hero party role from the current collection or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -719,7 +719,7 @@ mobileParty.RemoveHeroPartyRole(hero);
 ### GetRoleHolder
 `public Hero GetRoleHolder(PartyRole partyRole)`
 
-**Purpose:** **Purpose:** Reads and returns the role holder value held by the this instance.
+**Purpose:** Reads and returns the role holder value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -730,7 +730,7 @@ var result = mobileParty.GetRoleHolder(partyRole);
 ### GetEffectiveRoleHolder
 `public Hero GetEffectiveRoleHolder(PartyRole partyRole)`
 
-**Purpose:** **Purpose:** Reads and returns the effective role holder value held by the this instance.
+**Purpose:** Reads and returns the effective role holder value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -741,7 +741,7 @@ var result = mobileParty.GetEffectiveRoleHolder(partyRole);
 ### GetNumDaysForFoodToLast
 `public int GetNumDaysForFoodToLast()`
 
-**Purpose:** **Purpose:** Reads and returns the num days for food to last value held by the this instance.
+**Purpose:** Reads and returns the num days for food to last value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -752,7 +752,7 @@ var result = mobileParty.GetNumDaysForFoodToLast();
 ### RecalculateLongTermPath
 `public bool RecalculateLongTermPath()`
 
-**Purpose:** **Purpose:** Recalculates long term path to reflect the latest state.
+**Purpose:** Recalculates long term path to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -763,7 +763,7 @@ var result = mobileParty.RecalculateLongTermPath();
 ### GetRegionSwitchCostFromLandToSea
 `public int GetRegionSwitchCostFromLandToSea()`
 
-**Purpose:** **Purpose:** Reads and returns the region switch cost from land to sea value held by the this instance.
+**Purpose:** Reads and returns the region switch cost from land to sea value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -774,7 +774,7 @@ var result = mobileParty.GetRegionSwitchCostFromLandToSea();
 ### GetRegionSwitchCostFromSeaToLand
 `public int GetRegionSwitchCostFromSeaToLand()`
 
-**Purpose:** **Purpose:** Reads and returns the region switch cost from sea to land value held by the this instance.
+**Purpose:** Reads and returns the region switch cost from sea to land value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -785,7 +785,7 @@ var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
 ### SetMoveModeHold
 `public void SetMoveModeHold()`
 
-**Purpose:** **Purpose:** Assigns a new value to move mode hold and updates the object's internal state.
+**Purpose:** Assigns a new value to move mode hold and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -796,7 +796,7 @@ mobileParty.SetMoveModeHold();
 ### SetMoveEngageParty
 `public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move engage party and updates the object's internal state.
+**Purpose:** Assigns a new value to move engage party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -807,7 +807,7 @@ mobileParty.SetMoveEngageParty(party, navigationType);
 ### SetMoveGoAroundParty
 `public void SetMoveGoAroundParty(MobileParty party, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move go around party and updates the object's internal state.
+**Purpose:** Assigns a new value to move go around party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -818,7 +818,7 @@ mobileParty.SetMoveGoAroundParty(party, navigationType);
 ### SetMoveGoToSettlement
 `public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)`
 
-**Purpose:** **Purpose:** Assigns a new value to move go to settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to move go to settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -829,7 +829,7 @@ mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
 ### SetMoveGoToPoint
 `public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move go to point and updates the object's internal state.
+**Purpose:** Assigns a new value to move go to point and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -840,7 +840,7 @@ mobileParty.SetMoveGoToPoint(point, navigationType);
 ### SetMoveToNearestLand
 `public void SetMoveToNearestLand(Settlement settlement)`
 
-**Purpose:** **Purpose:** Assigns a new value to move to nearest land and updates the object's internal state.
+**Purpose:** Assigns a new value to move to nearest land and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -851,7 +851,7 @@ mobileParty.SetMoveToNearestLand(settlement);
 ### SetMoveGoToInteractablePoint
 `public void SetMoveGoToInteractablePoint(IInteractablePoint point, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move go to interactable point and updates the object's internal state.
+**Purpose:** Assigns a new value to move go to interactable point and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -862,7 +862,7 @@ mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
 ### SetMoveEscortParty
 `public void SetMoveEscortParty(MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Assigns a new value to move escort party and updates the object's internal state.
+**Purpose:** Assigns a new value to move escort party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -873,7 +873,7 @@ mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
 ### SetMovePatrolAroundPoint
 `public void SetMovePatrolAroundPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move patrol around point and updates the object's internal state.
+**Purpose:** Assigns a new value to move patrol around point and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -884,7 +884,7 @@ mobileParty.SetMovePatrolAroundPoint(point, navigationType);
 ### SetMovePatrolAroundSettlement
 `public void SetMovePatrolAroundSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Assigns a new value to move patrol around settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to move patrol around settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -895,7 +895,7 @@ mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
 ### SetMoveRaidSettlement
 `public void SetMoveRaidSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move raid settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to move raid settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -906,7 +906,7 @@ mobileParty.SetMoveRaidSettlement(settlement, navigationType);
 ### SetMoveBesiegeSettlement
 `public void SetMoveBesiegeSettlement(Settlement settlement, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move besiege settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to move besiege settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -917,7 +917,7 @@ mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
 ### SetMoveDefendSettlement
 `public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Assigns a new value to move defend settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to move defend settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -928,7 +928,7 @@ mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
 ### StartFindingLocatablesAroundPosition
 `public static LocatableSearchData<MobileParty> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
 
-**Purpose:** **Purpose:** Starts the finding locatables around position flow or state machine.
+**Purpose:** Starts the finding locatables around position flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -938,7 +938,7 @@ MobileParty.StartFindingLocatablesAroundPosition(position, 0);
 ### FindNextLocatable
 `public static MobileParty FindNextLocatable(ref LocatableSearchData<MobileParty> data)`
 
-**Purpose:** **Purpose:** Looks up the matching next locatable in the current collection or scope.
+**Purpose:** Looks up the matching next locatable in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -948,7 +948,7 @@ MobileParty.FindNextLocatable(data);
 ### UpdateLocator
 `public static void UpdateLocator(MobileParty party)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of locator.
+**Purpose:** Recalculates and stores the latest representation of locator.
 
 ```csharp
 // Static call; no instance required
@@ -958,7 +958,7 @@ MobileParty.UpdateLocator(party);
 ### ComputeIsWaiting
 `public bool ComputeIsWaiting()`
 
-**Purpose:** **Purpose:** Executes the ComputeIsWaiting logic.
+**Purpose:** Executes the ComputeIsWaiting logic.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -969,7 +969,7 @@ var result = mobileParty.ComputeIsWaiting();
 ### InitializePartyTrade
 `public void InitializePartyTrade(int initialGold)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by party trade.
+**Purpose:** Prepares the resources, state, or bindings required by party trade.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -980,7 +980,7 @@ mobileParty.InitializePartyTrade(0);
 ### AddTaxGold
 `public void AddTaxGold(int amount)`
 
-**Purpose:** **Purpose:** Adds tax gold to the current collection or state.
+**Purpose:** Adds tax gold to the current collection or state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -991,7 +991,7 @@ mobileParty.AddTaxGold(0);
 ### CreateParty
 `public static MobileParty CreateParty(string stringId, PartyComponent component)`
 
-**Purpose:** **Purpose:** Constructs a new party entity and returns it to the caller.
+**Purpose:** Constructs a new party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -1001,7 +1001,7 @@ MobileParty.CreateParty("example", component);
 ### SetPartyComponent
 `public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)`
 
-**Purpose:** **Purpose:** Assigns a new value to party component and updates the object's internal state.
+**Purpose:** Assigns a new value to party component and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -1012,7 +1012,7 @@ mobileParty.SetPartyComponent(partyComponent, false);
 ### UpdatePartyComponentFlags
 `public void UpdatePartyComponentFlags()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of party component flags.
+**Purpose:** Recalculates and stores the latest representation of party component flags.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first
@@ -1023,7 +1023,7 @@ mobileParty.UpdatePartyComponentFlags();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MobileParty from the subsystem API first

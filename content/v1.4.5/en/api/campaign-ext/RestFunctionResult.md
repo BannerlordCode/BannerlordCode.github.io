@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### GetFunctionResult
 `public abstract FunctionResult GetFunctionResult()`
 
-**Purpose:** **Purpose:** Reads and returns the function result value held by the this instance.
+**Purpose:** Reads and returns the function result value held by the this instance.
 
 ```csharp
 // Obtain an instance of RestFunctionResult from the subsystem API first

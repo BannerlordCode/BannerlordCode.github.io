@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Add
 `public void Add(float value)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of FactoredNumber from the subsystem API first
@@ -40,7 +40,7 @@ factoredNumber.Add(0);
 ### AddFactor
 `public void AddFactor(float value)`
 
-**Purpose:** **Purpose:** Adds factor to the current collection or state.
+**Purpose:** Adds factor to the current collection or state.
 
 ```csharp
 // Obtain an instance of FactoredNumber from the subsystem API first
@@ -51,7 +51,7 @@ factoredNumber.AddFactor(0);
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**Purpose:** **Purpose:** Executes the LimitMin logic.
+**Purpose:** Executes the LimitMin logic.
 
 ```csharp
 // Obtain an instance of FactoredNumber from the subsystem API first
@@ -62,7 +62,7 @@ factoredNumber.LimitMin(0);
 ### LimitMax
 `public void LimitMax(float maxValue)`
 
-**Purpose:** **Purpose:** Executes the LimitMax logic.
+**Purpose:** Executes the LimitMax logic.
 
 ```csharp
 // Obtain an instance of FactoredNumber from the subsystem API first
@@ -73,7 +73,7 @@ factoredNumber.LimitMax(0);
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**Purpose:** **Purpose:** Executes the Clamp logic.
+**Purpose:** Executes the Clamp logic.
 
 ```csharp
 // Obtain an instance of FactoredNumber from the subsystem API first

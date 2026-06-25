@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanCardSelectionPopupItemVM from the subsystem API first
@@ -54,7 +54,7 @@ clanCardSelectionPopupItemVM.RefreshValues();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of ClanCardSelectionPopupItemVM from the subsystem API first

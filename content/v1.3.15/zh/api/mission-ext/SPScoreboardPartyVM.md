@@ -33,7 +33,7 @@ description: "SPScoreboardPartyVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
@@ -44,7 +44,7 @@ sPScoreboardPartyVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 scores 的最新表示。
+**用途 / Purpose:** 重新计算并更新 scores 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
@@ -55,7 +55,7 @@ sPScoreboardPartyVM.UpdateScores(character, 0, 0, 0, 0, 0, 0);
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 hero skills 的最新表示。
+**用途 / Purpose:** 重新计算并更新 hero skills 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
@@ -66,7 +66,7 @@ sPScoreboardPartyVM.UpdateHeroSkills(heroCharacter, upgradedSkill);
 ### GetUnitAddIfNotExists
 `public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unit add if not exists 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unit add if not exists 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
@@ -77,7 +77,7 @@ var result = sPScoreboardPartyVM.GetUnitAddIfNotExists(character);
 ### GetUnit
 `public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardPartyVM 实例

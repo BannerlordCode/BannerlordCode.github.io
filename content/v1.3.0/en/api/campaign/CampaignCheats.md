@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string ErrorType)`
 
-**Purpose:** **Purpose:** Verifies whether cheat usage holds true for the this instance.
+**Purpose:** Verifies whether cheat usage holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ CampaignCheats.CheckCheatUsage(errorType);
 ### CheckParameters
 `public static bool CheckParameters(List<string> strings, int ParameterCount)`
 
-**Purpose:** **Purpose:** Verifies whether parameters holds true for the this instance.
+**Purpose:** Verifies whether parameters holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ CampaignCheats.CheckParameters(strings, 0);
 ### CheckHelp
 `public static bool CheckHelp(List<string> strings)`
 
-**Purpose:** **Purpose:** Verifies whether help holds true for the this instance.
+**Purpose:** Verifies whether help holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ CampaignCheats.CheckHelp(strings);
 ### GetSeparatedNames
 `public static List<string> GetSeparatedNames(List<string> strings, bool removeEmptySpaces = false)`
 
-**Purpose:** **Purpose:** Reads and returns the separated names value held by the this instance.
+**Purpose:** Reads and returns the separated names value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ CampaignCheats.GetSeparatedNames(strings, false);
 ### ConcatenateString
 `public static string ConcatenateString(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the ConcatenateString logic.
+**Purpose:** Executes the ConcatenateString logic.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ CampaignCheats.ConcatenateString(strings);
 ### SetCraftingStamina
 `public static string SetCraftingStamina(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to crafting stamina and updates the object's internal state.
+**Purpose:** Assigns a new value to crafting stamina and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ CampaignCheats.SetCraftingStamina(strings);
 ### SetHeroCulture
 `public static string SetHeroCulture(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to hero culture and updates the object's internal state.
+**Purpose:** Assigns a new value to hero culture and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ CampaignCheats.SetHeroCulture(strings);
 ### SetClanCulture
 `public static string SetClanCulture(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to clan culture and updates the object's internal state.
+**Purpose:** Assigns a new value to clan culture and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ CampaignCheats.SetClanCulture(strings);
 ### ShowSettlements
 `public static string ShowSettlements(List<string> strings)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with settlements.
+**Purpose:** Displays the UI or element associated with settlements.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ CampaignCheats.ShowSettlements(strings);
 ### SetSkillsOfGivenHero
 `public static string SetSkillsOfGivenHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to skills of given hero and updates the object's internal state.
+**Purpose:** Assigns a new value to skills of given hero and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -129,7 +129,7 @@ CampaignCheats.SetSkillsOfGivenHero(strings);
 ### HideSettlements
 `public static string HideSettlements(List<string> strings)`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with settlements.
+**Purpose:** Hides the UI or element associated with settlements.
 
 ```csharp
 // Static call; no instance required
@@ -139,7 +139,7 @@ CampaignCheats.HideSettlements(strings);
 ### SetSkillMainHero
 `public static string SetSkillMainHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to skill main hero and updates the object's internal state.
+**Purpose:** Assigns a new value to skill main hero and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ CampaignCheats.SetSkillMainHero(strings);
 ### SetSkillCompanion
 `public static string SetSkillCompanion(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to skill companion and updates the object's internal state.
+**Purpose:** Assigns a new value to skill companion and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ CampaignCheats.SetSkillCompanion(strings);
 ### SetAllSkillsOfAllCompanions
 `public static string SetAllSkillsOfAllCompanions(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to all skills of all companions and updates the object's internal state.
+**Purpose:** Assigns a new value to all skills of all companions and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -169,7 +169,7 @@ CampaignCheats.SetAllSkillsOfAllCompanions(strings);
 ### SetAllHeroSkills
 `public static string SetAllHeroSkills(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to all hero skills and updates the object's internal state.
+**Purpose:** Assigns a new value to all hero skills and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -179,7 +179,7 @@ CampaignCheats.SetAllHeroSkills(strings);
 ### SetLoyaltyOfSettlement
 `public static string SetLoyaltyOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to loyalty of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to loyalty of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -189,7 +189,7 @@ CampaignCheats.SetLoyaltyOfSettlement(strings);
 ### SetProsperityOfSettlement
 `public static string SetProsperityOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to prosperity of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to prosperity of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -199,7 +199,7 @@ CampaignCheats.SetProsperityOfSettlement(strings);
 ### SetMilitiaOfSettlement
 `public static string SetMilitiaOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to militia of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to militia of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -209,7 +209,7 @@ CampaignCheats.SetMilitiaOfSettlement(strings);
 ### SetSecurityOfSettlement
 `public static string SetSecurityOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to security of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to security of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -219,7 +219,7 @@ CampaignCheats.SetSecurityOfSettlement(strings);
 ### SetFoodOfSettlement
 `public static string SetFoodOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to food of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to food of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -229,7 +229,7 @@ CampaignCheats.SetFoodOfSettlement(strings);
 ### SetHearthOfSettlement
 `public static string SetHearthOfSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to hearth of settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to hearth of settlement and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -239,7 +239,7 @@ CampaignCheats.SetHearthOfSettlement(strings);
 ### ShowHeroRelation
 `public static string ShowHeroRelation(List<string> strings)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with hero relation.
+**Purpose:** Displays the UI or element associated with hero relation.
 
 ```csharp
 // Static call; no instance required
@@ -249,7 +249,7 @@ CampaignCheats.ShowHeroRelation(strings);
 ### AddHeroRelation
 `public static string AddHeroRelation(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds hero relation to the current collection or state.
+**Purpose:** Adds hero relation to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -259,7 +259,7 @@ CampaignCheats.AddHeroRelation(strings);
 ### PrintMainPartyPosition
 `public static string PrintMainPartyPosition(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintMainPartyPosition logic.
+**Purpose:** Executes the PrintMainPartyPosition logic.
 
 ```csharp
 // Static call; no instance required
@@ -269,7 +269,7 @@ CampaignCheats.PrintMainPartyPosition(strings);
 ### AddCraftingMaterials
 `public static string AddCraftingMaterials(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds crafting materials to the current collection or state.
+**Purpose:** Adds crafting materials to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -279,7 +279,7 @@ CampaignCheats.AddCraftingMaterials(strings);
 ### HealMainParty
 `public static string HealMainParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the HealMainParty logic.
+**Purpose:** Executes the HealMainParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -289,7 +289,7 @@ CampaignCheats.HealMainParty(strings);
 ### DeclareWar
 `public static string DeclareWar(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the DeclareWar logic.
+**Purpose:** Executes the DeclareWar logic.
 
 ```csharp
 // Static call; no instance required
@@ -299,7 +299,7 @@ CampaignCheats.DeclareWar(strings);
 ### AddItemToPlayerParty
 `public static string AddItemToPlayerParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds item to player party to the current collection or state.
+**Purpose:** Adds item to player party to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -309,7 +309,7 @@ CampaignCheats.AddItemToPlayerParty(strings);
 ### DeclarePeace
 `public static string DeclarePeace(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the DeclarePeace logic.
+**Purpose:** Executes the DeclarePeace logic.
 
 ```csharp
 // Static call; no instance required
@@ -319,7 +319,7 @@ CampaignCheats.DeclarePeace(strings);
 ### AddInfluence
 `public static string AddInfluence(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds influence to the current collection or state.
+**Purpose:** Adds influence to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -329,7 +329,7 @@ CampaignCheats.AddInfluence(strings);
 ### AddRenown
 `public static string AddRenown(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds renown to the current collection or state.
+**Purpose:** Adds renown to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -339,7 +339,7 @@ CampaignCheats.AddRenown(strings);
 ### AddGoldToHero
 `public static string AddGoldToHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds gold to hero to the current collection or state.
+**Purpose:** Adds gold to hero to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -349,7 +349,7 @@ CampaignCheats.AddGoldToHero(strings);
 ### AddDevelopment
 `public static string AddDevelopment(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds development to the current collection or state.
+**Purpose:** Adds development to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -359,7 +359,7 @@ CampaignCheats.AddDevelopment(strings);
 ### ActivateAllPolicies
 `public static string ActivateAllPolicies(List<string> strings)`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with all policies.
+**Purpose:** Activates the resource, state, or feature associated with all policies.
 
 ```csharp
 // Static call; no instance required
@@ -369,7 +369,7 @@ CampaignCheats.ActivateAllPolicies(strings);
 ### SetPlayerReputationTrait
 `public static string SetPlayerReputationTrait(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to player reputation trait and updates the object's internal state.
+**Purpose:** Assigns a new value to player reputation trait and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -379,7 +379,7 @@ CampaignCheats.SetPlayerReputationTrait(strings);
 ### GiveSettlementToPlayer
 `public static string GiveSettlementToPlayer(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the GiveSettlementToPlayer logic.
+**Purpose:** Executes the GiveSettlementToPlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -389,7 +389,7 @@ CampaignCheats.GiveSettlementToPlayer(strings);
 ### GiveSettlementToKingdom
 `public static string GiveSettlementToKingdom(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the GiveSettlementToKingdom logic.
+**Purpose:** Executes the GiveSettlementToKingdom logic.
 
 ```csharp
 // Static call; no instance required
@@ -399,7 +399,7 @@ CampaignCheats.GiveSettlementToKingdom(strings);
 ### AddPowerToNotable
 `public static string AddPowerToNotable(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds power to notable to the current collection or state.
+**Purpose:** Adds power to notable to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -409,7 +409,7 @@ CampaignCheats.AddPowerToNotable(strings);
 ### LeadYourFaction
 `public static string LeadYourFaction(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the LeadYourFaction logic.
+**Purpose:** Executes the LeadYourFaction logic.
 
 ```csharp
 // Static call; no instance required
@@ -419,7 +419,7 @@ CampaignCheats.LeadYourFaction(strings);
 ### PrintHeroesSuitableForMarriage
 `public static string PrintHeroesSuitableForMarriage(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintHeroesSuitableForMarriage logic.
+**Purpose:** Executes the PrintHeroesSuitableForMarriage logic.
 
 ```csharp
 // Static call; no instance required
@@ -429,7 +429,7 @@ CampaignCheats.PrintHeroesSuitableForMarriage(strings);
 ### MarryPlayerWithHero
 `public static string MarryPlayerWithHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MarryPlayerWithHero logic.
+**Purpose:** Executes the MarryPlayerWithHero logic.
 
 ```csharp
 // Static call; no instance required
@@ -439,7 +439,7 @@ CampaignCheats.MarryPlayerWithHero(strings);
 ### MarryHeroWithHero
 `public static string MarryHeroWithHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MarryHeroWithHero logic.
+**Purpose:** Executes the MarryHeroWithHero logic.
 
 ```csharp
 // Static call; no instance required
@@ -449,7 +449,7 @@ CampaignCheats.MarryHeroWithHero(strings);
 ### IsHeroSuitableForMarriageWithPlayer
 `public static string IsHeroSuitableForMarriageWithPlayer(List<string> strings)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hero suitable for marriage with player state or condition.
+**Purpose:** Determines whether the this instance is in the hero suitable for marriage with player state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -459,7 +459,7 @@ CampaignCheats.IsHeroSuitableForMarriageWithPlayer(strings);
 ### CreatePlayerKingdom
 `public static string CreatePlayerKingdom(List<string> strings)`
 
-**Purpose:** **Purpose:** Constructs a new player kingdom entity and returns it to the caller.
+**Purpose:** Constructs a new player kingdom entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -469,7 +469,7 @@ CampaignCheats.CreatePlayerKingdom(strings);
 ### CreateRandomClan
 `public static string CreateRandomClan(List<string> strings)`
 
-**Purpose:** **Purpose:** Constructs a new random clan entity and returns it to the caller.
+**Purpose:** Constructs a new random clan entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -479,7 +479,7 @@ CampaignCheats.CreateRandomClan(strings);
 ### LeadKingdom
 `public static string LeadKingdom(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the LeadKingdom logic.
+**Purpose:** Executes the LeadKingdom logic.
 
 ```csharp
 // Static call; no instance required
@@ -489,7 +489,7 @@ CampaignCheats.LeadKingdom(strings);
 ### JoinKingdom
 `public static string JoinKingdom(List<string> strings)`
 
-**Purpose:** **Purpose:** Joins several kingdom items into a single whole.
+**Purpose:** Joins several kingdom items into a single whole.
 
 ```csharp
 // Static call; no instance required
@@ -499,7 +499,7 @@ CampaignCheats.JoinKingdom(strings);
 ### JoinKingdomAsMercenary
 `public static string JoinKingdomAsMercenary(List<string> strings)`
 
-**Purpose:** **Purpose:** Joins several kingdom as mercenary items into a single whole.
+**Purpose:** Joins several kingdom as mercenary items into a single whole.
 
 ```csharp
 // Static call; no instance required
@@ -509,7 +509,7 @@ CampaignCheats.JoinKingdomAsMercenary(strings);
 ### MakeTradeAgreement
 `public static string MakeTradeAgreement(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MakeTradeAgreement logic.
+**Purpose:** Executes the MakeTradeAgreement logic.
 
 ```csharp
 // Static call; no instance required
@@ -519,7 +519,7 @@ CampaignCheats.MakeTradeAgreement(strings);
 ### PrintCriminalRatings
 `public static string PrintCriminalRatings(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintCriminalRatings logic.
+**Purpose:** Executes the PrintCriminalRatings logic.
 
 ```csharp
 // Static call; no instance required
@@ -529,7 +529,7 @@ CampaignCheats.PrintCriminalRatings(strings);
 ### SetMainHeroAge
 `public static string SetMainHeroAge(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to main hero age and updates the object's internal state.
+**Purpose:** Assigns a new value to main hero age and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -539,7 +539,7 @@ CampaignCheats.SetMainHeroAge(strings);
 ### SetMainPartyAttackable
 `public static string SetMainPartyAttackable(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to main party attackable and updates the object's internal state.
+**Purpose:** Assigns a new value to main party attackable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -549,7 +549,7 @@ CampaignCheats.SetMainPartyAttackable(strings);
 ### AddMoraleToParty
 `public static string AddMoraleToParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds morale to party to the current collection or state.
+**Purpose:** Adds morale to party to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -559,7 +559,7 @@ CampaignCheats.AddMoraleToParty(strings);
 ### BoostCohesionOfArmy
 `public static string BoostCohesionOfArmy(List<string> strings)`
 
-**Purpose:** **Purpose:** Increases the value or strength of cohesion of army.
+**Purpose:** Increases the value or strength of cohesion of army.
 
 ```csharp
 // Static call; no instance required
@@ -569,7 +569,7 @@ CampaignCheats.BoostCohesionOfArmy(strings);
 ### AddFocusPointCheat
 `public static string AddFocusPointCheat(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds focus point cheat to the current collection or state.
+**Purpose:** Adds focus point cheat to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -579,7 +579,7 @@ CampaignCheats.AddFocusPointCheat(strings);
 ### AddAttributePointsCheat
 `public static string AddAttributePointsCheat(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds attribute points cheat to the current collection or state.
+**Purpose:** Adds attribute points cheat to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -589,7 +589,7 @@ CampaignCheats.AddAttributePointsCheat(strings);
 ### PrintSettlementsWithTournament
 `public static string PrintSettlementsWithTournament(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintSettlementsWithTournament logic.
+**Purpose:** Executes the PrintSettlementsWithTournament logic.
 
 ```csharp
 // Static call; no instance required
@@ -599,7 +599,7 @@ CampaignCheats.PrintSettlementsWithTournament(strings);
 ### ConvertListToMultiLine
 `public static string ConvertListToMultiLine(List<string> strings)`
 
-**Purpose:** **Purpose:** Converts list to multi line into another representation or type.
+**Purpose:** Converts list to multi line into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -609,7 +609,7 @@ CampaignCheats.ConvertListToMultiLine(strings);
 ### PrintAllIssues
 `public static string PrintAllIssues(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintAllIssues logic.
+**Purpose:** Executes the PrintAllIssues logic.
 
 ```csharp
 // Static call; no instance required
@@ -619,7 +619,7 @@ CampaignCheats.PrintAllIssues(strings);
 ### GiveWorkshopToPlayer
 `public static string GiveWorkshopToPlayer(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the GiveWorkshopToPlayer logic.
+**Purpose:** Executes the GiveWorkshopToPlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -629,7 +629,7 @@ CampaignCheats.GiveWorkshopToPlayer(strings);
 ### MakePregnant
 `public static string MakePregnant(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MakePregnant logic.
+**Purpose:** Executes the MakePregnant logic.
 
 ```csharp
 // Static call; no instance required
@@ -639,7 +639,7 @@ CampaignCheats.MakePregnant(strings);
 ### GenerateChild
 `public static Hero GenerateChild(Hero hero, bool isFemale, CultureObject culture)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of child.
+**Purpose:** Generates an instance, data, or representation of child.
 
 ```csharp
 // Static call; no instance required
@@ -649,7 +649,7 @@ CampaignCheats.GenerateChild(hero, false, culture);
 ### AddPrisonerToParty
 `public static string AddPrisonerToParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds prisoner to party to the current collection or state.
+**Purpose:** Adds prisoner to party to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -659,7 +659,7 @@ CampaignCheats.AddPrisonerToParty(strings);
 ### ClearSettlementDefense
 `public static string ClearSettlementDefense(List<string> strings)`
 
-**Purpose:** **Purpose:** Removes all settlement defense from the this instance.
+**Purpose:** Removes all settlement defense from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -669,7 +669,7 @@ CampaignCheats.ClearSettlementDefense(strings);
 ### AddPrisonersXp
 `public static string AddPrisonersXp(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds prisoners xp to the current collection or state.
+**Purpose:** Adds prisoners xp to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -679,7 +679,7 @@ CampaignCheats.AddPrisonersXp(strings);
 ### SetHeroTrait
 `public static string SetHeroTrait(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to hero trait and updates the object's internal state.
+**Purpose:** Assigns a new value to hero trait and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -689,7 +689,7 @@ CampaignCheats.SetHeroTrait(strings);
 ### RemoveMilitiasFromSettlement
 `public static string RemoveMilitiasFromSettlement(List<string> strings)`
 
-**Purpose:** **Purpose:** Removes militias from settlement from the current collection or state.
+**Purpose:** Removes militias from settlement from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -699,7 +699,7 @@ CampaignCheats.RemoveMilitiasFromSettlement(strings);
 ### CancelQuestCheat
 `public static string CancelQuestCheat(List<string> strings)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel quest cheat.
+**Purpose:** Checks whether the this instance meets the preconditions for cel quest cheat.
 
 ```csharp
 // Static call; no instance required
@@ -709,7 +709,7 @@ CampaignCheats.CancelQuestCheat(strings);
 ### KickCompanionFromParty
 `public static string KickCompanionFromParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the KickCompanionFromParty logic.
+**Purpose:** Executes the KickCompanionFromParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -719,7 +719,7 @@ CampaignCheats.KickCompanionFromParty(strings);
 ### AddTroopsXp
 `public static string AddTroopsXp(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds troops xp to the current collection or state.
+**Purpose:** Adds troops xp to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -729,7 +729,7 @@ CampaignCheats.AddTroopsXp(strings);
 ### PrintGameplayStatistics
 `public static string PrintGameplayStatistics(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintGameplayStatistics logic.
+**Purpose:** Executes the PrintGameplayStatistics logic.
 
 ```csharp
 // Static call; no instance required
@@ -739,7 +739,7 @@ CampaignCheats.PrintGameplayStatistics(strings);
 ### SetAllArmiesAndPartiesVisible
 `public static string SetAllArmiesAndPartiesVisible(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to all armies and parties visible and updates the object's internal state.
+**Purpose:** Assigns a new value to all armies and parties visible and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -749,7 +749,7 @@ CampaignCheats.SetAllArmiesAndPartiesVisible(strings);
 ### PrintStrengthOfLordParties
 `public static string PrintStrengthOfLordParties(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintStrengthOfLordParties logic.
+**Purpose:** Executes the PrintStrengthOfLordParties logic.
 
 ```csharp
 // Static call; no instance required
@@ -759,7 +759,7 @@ CampaignCheats.PrintStrengthOfLordParties(strings);
 ### ToggleInformationRestrictions
 `public static string ToggleInformationRestrictions(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the ToggleInformationRestrictions logic.
+**Purpose:** Executes the ToggleInformationRestrictions logic.
 
 ```csharp
 // Static call; no instance required
@@ -769,7 +769,7 @@ CampaignCheats.ToggleInformationRestrictions(strings);
 ### PrintStrengthOfFactions
 `public static string PrintStrengthOfFactions(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the PrintStrengthOfFactions logic.
+**Purpose:** Executes the PrintStrengthOfFactions logic.
 
 ```csharp
 // Static call; no instance required
@@ -779,7 +779,7 @@ CampaignCheats.PrintStrengthOfFactions(strings);
 ### AddSupportersForMainHero
 `public static string AddSupportersForMainHero(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds supporters for main hero to the current collection or state.
+**Purpose:** Adds supporters for main hero to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -789,7 +789,7 @@ CampaignCheats.AddSupportersForMainHero(strings);
 ### SetCampaignSpeed
 `public static string SetCampaignSpeed(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to campaign speed and updates the object's internal state.
+**Purpose:** Assigns a new value to campaign speed and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -799,7 +799,7 @@ CampaignCheats.SetCampaignSpeed(strings);
 ### ShowHideouts
 `public static string ShowHideouts(List<string> strings)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with hideouts.
+**Purpose:** Displays the UI or element associated with hideouts.
 
 ```csharp
 // Static call; no instance required
@@ -809,7 +809,7 @@ CampaignCheats.ShowHideouts(strings);
 ### HideHideouts
 `public static string HideHideouts(List<string> strings)`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with hideouts.
+**Purpose:** Hides the UI or element associated with hideouts.
 
 ```csharp
 // Static call; no instance required
@@ -819,7 +819,7 @@ CampaignCheats.HideHideouts(strings);
 ### UnlockCraftingPieces
 `public static string UnlockCraftingPieces(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the UnlockCraftingPieces logic.
+**Purpose:** Executes the UnlockCraftingPieces logic.
 
 ```csharp
 // Static call; no instance required
@@ -829,7 +829,7 @@ CampaignCheats.UnlockCraftingPieces(strings);
 ### SetRebellionEnabled
 `public static string SetRebellionEnabled(List<string> strings)`
 
-**Purpose:** **Purpose:** Assigns a new value to rebellion enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to rebellion enabled and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -839,7 +839,7 @@ CampaignCheats.SetRebellionEnabled(strings);
 ### AddTroopsToParty
 `public static string AddTroopsToParty(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds troops to party to the current collection or state.
+**Purpose:** Adds troops to party to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -849,7 +849,7 @@ CampaignCheats.AddTroopsToParty(strings);
 ### CanPartyGetAnythingFromCheat
 `public static bool CanPartyGetAnythingFromCheat(PartyBase party)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party get anything from cheat.
+**Purpose:** Checks whether the this instance meets the preconditions for party get anything from cheat.
 
 ```csharp
 // Static call; no instance required

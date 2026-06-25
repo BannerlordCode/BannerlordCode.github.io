@@ -31,7 +31,7 @@ description: "Timer 的自动生成类参考。"
 ### Check
 `public virtual bool Check(float gameTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例
@@ -42,7 +42,7 @@ var result = timer.Check(0);
 ### ElapsedTime
 `public float ElapsedTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ElapsedTime 对应的操作。
+**用途 / Purpose:** 调用 ElapsedTime 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例
@@ -53,7 +53,7 @@ var result = timer.ElapsedTime();
 ### Reset
 `public void Reset(float gameTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例
@@ -64,7 +64,7 @@ timer.Reset(0);
 ### Reset
 `public void Reset(float gameTime, float newDuration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例
@@ -75,7 +75,7 @@ timer.Reset(0, 0);
 ### AdjustStartTime
 `public void AdjustStartTime(float deltaTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AdjustStartTime 对应的操作。
+**用途 / Purpose:** 调用 AdjustStartTime 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例

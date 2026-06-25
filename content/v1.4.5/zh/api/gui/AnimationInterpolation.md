@@ -23,7 +23,7 @@ description: "AnimationInterpolation 的自动生成类参考。"
 ### Ease
 `public float Ease(Function function, float t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Ease 对应的操作。
+**用途 / Purpose:** 调用 Ease 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationInterpolation 实例
@@ -34,7 +34,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public float Ease(Function function, float t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Ease 对应的操作。
+**用途 / Purpose:** 调用 Ease 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationInterpolation 实例
@@ -45,7 +45,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public float Ease(Function function, float t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Ease 对应的操作。
+**用途 / Purpose:** 调用 Ease 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationInterpolation 实例
@@ -56,7 +56,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public static float Ease(Type type, Function function, float ratio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Ease 对应的操作。
+**用途 / Purpose:** 调用 Ease 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

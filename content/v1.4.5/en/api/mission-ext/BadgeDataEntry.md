@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<(PlayerId, string, string), int> dictionary)`
 
-**Purpose:** **Purpose:** Executes the ToList logic.
+**Purpose:** Executes the ToList logic.
 
 ```csharp
 // Static call; no instance required

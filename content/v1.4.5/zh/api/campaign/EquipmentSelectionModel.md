@@ -23,7 +23,7 @@ description: "EquipmentSelectionModel 的自动生成类参考。"
 ### GetEquipmentForHeroComeOfAge
 `public abstract Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for hero come of age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment for hero come of age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -34,7 +34,7 @@ var result = equipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmen
 ### GetEquipmentForHeroReachesTeenAge
 `public abstract Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for hero reaches teen age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment for hero reaches teen age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -45,7 +45,7 @@ var result = equipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
 ### GetEquipmentForInitialChildrenGeneration
 `public abstract Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for initial children generation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment for initial children generation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -56,7 +56,7 @@ var result = equipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(he
 ### GetEquipmentForDeliveredOffspring
 `public abstract Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for delivered offspring 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment for delivered offspring 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -67,7 +67,7 @@ var result = equipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
 ### GetEquipmentForCompanionWhenTurningToLord
 `public abstract Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for companion when turning to lord 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment for companion when turning to lord 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例

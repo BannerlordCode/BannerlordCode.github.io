@@ -23,7 +23,7 @@ description: "DefaultSettlementLoyaltyModel 的自动生成类参考。"
 ### CalculateLoyaltyChange
 `public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算loyalty change的当前值或结果。
+**用途 / Purpose:** 计算loyalty change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例
@@ -34,7 +34,7 @@ var result = defaultSettlementLoyaltyModel.CalculateLoyaltyChange(town, false);
 ### CalculateGoldGainDueToHighLoyalty
 `public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算gold gain due to high loyalty的当前值或结果。
+**用途 / Purpose:** 计算gold gain due to high loyalty的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例
@@ -45,7 +45,7 @@ defaultSettlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedN
 ### CalculateGoldCutDueToLowLoyalty
 `public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算gold cut due to low loyalty的当前值或结果。
+**用途 / Purpose:** 计算gold cut due to low loyalty的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例

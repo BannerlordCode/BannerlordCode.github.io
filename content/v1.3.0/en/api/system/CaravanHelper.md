@@ -23,7 +23,7 @@ Treat `CaravanHelper` as a Helper-style extension point: first identify who crea
 ### GetRandomCaravanTemplate
 `public static PartyTemplateObject GetRandomCaravanTemplate(CultureObject culture, bool isElite, bool isLand)`
 
-**Purpose:** **Purpose:** Reads and returns the random caravan template value held by the this instance.
+**Purpose:** Reads and returns the random caravan template value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ### LoadFrom
 `public abstract void LoadFrom(XmlNode xmlNode)`
 
-**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
+**Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ToolTask from the subsystem API first
@@ -34,7 +34,7 @@ toolTask.LoadFrom(xmlNode);
 ### DoJob
 `public abstract void DoJob()`
 
-**Purpose:** **Purpose:** Executes the DoJob logic.
+**Purpose:** Executes the DoJob logic.
 
 ```csharp
 // Obtain an instance of ToolTask from the subsystem API first

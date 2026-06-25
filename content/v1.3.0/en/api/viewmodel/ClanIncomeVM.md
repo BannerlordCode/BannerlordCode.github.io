@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first
@@ -58,7 +58,7 @@ clanIncomeVM.RefreshValues();
 ### RefreshList
 `public void RefreshList()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of list in sync with the underlying state.
+**Purpose:** Keeps the display or cache of list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first
@@ -69,7 +69,7 @@ clanIncomeVM.RefreshList();
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**Purpose:** **Purpose:** Executes the SelectWorkshop logic.
+**Purpose:** Executes the SelectWorkshop logic.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first
@@ -80,7 +80,7 @@ clanIncomeVM.SelectWorkshop(workshop);
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**Purpose:** **Purpose:** Executes the SelectAlley logic.
+**Purpose:** Executes the SelectAlley logic.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first
@@ -91,7 +91,7 @@ clanIncomeVM.SelectAlley(alley);
 ### RefreshTotalIncome
 `public void RefreshTotalIncome()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of total income in sync with the underlying state.
+**Purpose:** Keeps the display or cache of total income in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first
@@ -102,7 +102,7 @@ clanIncomeVM.RefreshTotalIncome();
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** **Purpose:** Invoked when the refresh event is raised.
+**Purpose:** Invoked when the refresh event is raised.
 
 ```csharp
 // Obtain an instance of ClanIncomeVM from the subsystem API first

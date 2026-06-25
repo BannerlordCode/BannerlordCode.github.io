@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PruneExpiredItems
 `public void PruneExpiredItems()`
 
-**Purpose:** **Purpose:** Executes the PruneExpiredItems logic.
+**Purpose:** Executes the PruneExpiredItems logic.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first
@@ -40,7 +40,7 @@ timedDictionaryCache.PruneExpiredItems();
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first
@@ -51,7 +51,7 @@ timedDictionaryCache.Clear();
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**Purpose:** **Purpose:** Indicates whether the this instance contains key.
+**Purpose:** Indicates whether the this instance contains key.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first
@@ -62,7 +62,7 @@ var result = timedDictionaryCache.ContainsKey(key);
 ### Remove
 `public bool Remove(TKey key)`
 
-**Purpose:** **Purpose:** Removes an item from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first
@@ -73,7 +73,7 @@ var result = timedDictionaryCache.Remove(key);
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first
@@ -84,7 +84,7 @@ var result = timedDictionaryCache.TryGetValue(key, value);
 ### AsReadOnlyDictionary
 `public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
 
-**Purpose:** **Purpose:** Executes the AsReadOnlyDictionary logic.
+**Purpose:** Executes the AsReadOnlyDictionary logic.
 
 ```csharp
 // Obtain an instance of TimedDictionaryCache from the subsystem API first

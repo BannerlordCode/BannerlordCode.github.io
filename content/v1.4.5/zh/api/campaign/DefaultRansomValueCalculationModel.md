@@ -23,7 +23,7 @@ description: "DefaultRansomValueCalculationModel 的自动生成类参考。"
 ### PrisonerRansomValue
 `public override int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PrisonerRansomValue 对应的操作。
+**用途 / Purpose:** 调用 PrisonerRansomValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultRansomValueCalculationModel 实例

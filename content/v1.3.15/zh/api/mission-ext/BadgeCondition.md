@@ -33,7 +33,7 @@ description: "BadgeCondition 的自动生成类参考。"
 ### Check
 `public bool Check(string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BadgeCondition 实例
@@ -44,7 +44,7 @@ var result = badgeCondition.Check("example");
 ### Check
 `public bool Check(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BadgeCondition 实例

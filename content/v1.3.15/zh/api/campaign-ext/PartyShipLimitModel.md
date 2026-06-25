@@ -23,7 +23,7 @@ description: "PartyShipLimitModel 的自动生成类参考。"
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ideal ship number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ideal ship number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyShipLimitModel 实例
@@ -34,7 +34,7 @@ var result = partyShipLimitModel.GetIdealShipNumber(mobileParty);
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ideal ship number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ideal ship number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyShipLimitModel 实例
@@ -45,7 +45,7 @@ var result = partyShipLimitModel.GetIdealShipNumber(clan);
 ### GetShipPriority
 `public abstract float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship priority 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyShipLimitModel 实例

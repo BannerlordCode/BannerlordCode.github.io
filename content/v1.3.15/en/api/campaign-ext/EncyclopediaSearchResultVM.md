@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of searched text.
+**Purpose:** Recalculates and stores the latest representation of searched text.
 
 ```csharp
 // Obtain an instance of EncyclopediaSearchResultVM from the subsystem API first
@@ -41,7 +41,7 @@ encyclopediaSearchResultVM.UpdateSearchedText("example");
 ### Execute
 `public void Execute()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow represented by the this instance.
+**Purpose:** Runs the operation or workflow represented by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaSearchResultVM from the subsystem API first

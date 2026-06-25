@@ -30,7 +30,7 @@ Treat `TroopSacrificeModel` as a Model-style extension point: first identify who
 ### GetLostTroopCountForBreakingInBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
 
-**Purpose:** **Purpose:** Reads and returns the lost troop count for breaking in besieged settlement value held by the this instance.
+**Purpose:** Reads and returns the lost troop count for breaking in besieged settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopSacrificeModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = troopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlemen
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
 
-**Purpose:** **Purpose:** Reads and returns the lost troop count for breaking out of besieged settlement value held by the this instance.
+**Purpose:** Reads and returns the lost troop count for breaking out of besieged settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopSacrificeModel from the subsystem API first
@@ -52,7 +52,7 @@ var result = troopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettle
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
 `public abstract int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Reads and returns the number of troops sacrificed for trying to get away value held by the this instance.
+**Purpose:** Reads and returns the number of troops sacrificed for trying to get away value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopSacrificeModel from the subsystem API first
@@ -63,7 +63,7 @@ var result = troopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway(p
 ### GetShipsToSacrificeForTryingToGetAway
 `public abstract void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
 
-**Purpose:** **Purpose:** Reads and returns the ships to sacrifice for trying to get away value held by the this instance.
+**Purpose:** Reads and returns the ships to sacrifice for trying to get away value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopSacrificeModel from the subsystem API first
@@ -74,7 +74,7 @@ troopSacrificeModel.GetShipsToSacrificeForTryingToGetAway(playerBattleSide, mapE
 ### CanPlayerGetAwayFromEncounter
 `public abstract bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player get away from encounter.
+**Purpose:** Checks whether the this instance meets the preconditions for player get away from encounter.
 
 ```csharp
 // Obtain an instance of TroopSacrificeModel from the subsystem API first

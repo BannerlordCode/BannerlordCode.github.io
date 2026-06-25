@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ### ScoreboardSideMoraleListPanel
 `public class ScoreboardSideMoraleListPanel(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ScoreboardSideMoraleListPanel logic.
+**Purpose:** Executes the ScoreboardSideMoraleListPanel logic.
 
 ```csharp
 // Obtain an instance of ScoreboardSideMoraleListPanel from the subsystem API first

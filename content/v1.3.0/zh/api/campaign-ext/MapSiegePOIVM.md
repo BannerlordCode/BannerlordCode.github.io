@@ -47,7 +47,7 @@ description: "MapSiegePOIVM 的自动生成类参考。"
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -58,7 +58,7 @@ mapSiegePOIVM.ExecuteSelection();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 properties 的最新表示。
+**用途 / Purpose:** 重新计算并更新 properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -69,7 +69,7 @@ mapSiegePOIVM.UpdateProperties();
 ### RefreshDistanceValue
 `public void RefreshDistanceValue(float newDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 distance value 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 distance value 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -80,7 +80,7 @@ mapSiegePOIVM.RefreshDistanceValue(0);
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -91,7 +91,7 @@ mapSiegePOIVM.RefreshPosition();
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -102,7 +102,7 @@ mapSiegePOIVM.RefreshBinding();
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 show tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 show tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例
@@ -113,7 +113,7 @@ mapSiegePOIVM.ExecuteShowTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegePOIVM 实例

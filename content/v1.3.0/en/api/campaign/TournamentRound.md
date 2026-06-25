@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** **Purpose:** Invoked when the match ended event is raised.
+**Purpose:** Invoked when the match ended event is raised.
 
 ```csharp
 // Obtain an instance of TournamentRound from the subsystem API first
@@ -42,7 +42,7 @@ tournamentRound.OnMatchEnded();
 ### EndMatch
 `public void EndMatch()`
 
-**Purpose:** **Purpose:** Executes the EndMatch logic.
+**Purpose:** Executes the EndMatch logic.
 
 ```csharp
 // Obtain an instance of TournamentRound from the subsystem API first
@@ -53,7 +53,7 @@ tournamentRound.EndMatch();
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime = false)`
 
-**Purpose:** **Purpose:** Adds participant to the current collection or state.
+**Purpose:** Adds participant to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentRound from the subsystem API first

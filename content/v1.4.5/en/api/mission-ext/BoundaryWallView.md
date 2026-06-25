@@ -23,7 +23,7 @@ Treat `BoundaryWallView` as a View-style extension point: first identify who cre
 ### CreateBoundaryMesh
 `public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784u)`
 
-**Purpose:** **Purpose:** Constructs a new boundary mesh entity and returns it to the caller.
+**Purpose:** Constructs a new boundary mesh entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

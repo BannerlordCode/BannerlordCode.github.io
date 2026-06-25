@@ -23,7 +23,7 @@ Treat `MultiplayerData` as a Data-style extension point: first identify who crea
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the multiplayer team available state or condition.
+**Purpose:** Determines whether the this instance is in the multiplayer team available state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerData from the subsystem API first

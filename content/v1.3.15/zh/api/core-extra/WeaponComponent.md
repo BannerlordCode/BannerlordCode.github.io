@@ -30,7 +30,7 @@ description: "WeaponComponent 的自动生成类参考。"
 ### AddWeapon
 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 weapon 添加到当前容器或状态中。
+**用途 / Purpose:** 将 weapon 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponent 实例
@@ -41,7 +41,7 @@ weaponComponent.AddWeapon(weaponComponentData, itemModifierGroup);
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponent 实例
@@ -52,7 +52,7 @@ var result = weaponComponent.GetCopy();
 ### GetItemType
 `public ItemObject.ItemTypeEnum GetItemType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponent 实例
@@ -63,7 +63,7 @@ var result = weaponComponent.GetItemType();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponent 实例

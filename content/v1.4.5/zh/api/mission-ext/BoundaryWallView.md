@@ -23,7 +23,7 @@ description: "BoundaryWallView 的自动生成类参考。"
 ### CreateBoundaryMesh
 `public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784u)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 boundary mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 boundary mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

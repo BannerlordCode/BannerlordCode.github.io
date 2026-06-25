@@ -31,7 +31,7 @@ description: "PartyFoodBuyingModel 的自动生成类参考。"
 ### FindItemToBuy
 `public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的item to buy。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的item to buy。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyFoodBuyingModel 实例

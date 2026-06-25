@@ -32,7 +32,7 @@ Treat `MultiplayerLocalDataManager` as a Manager-style extension point: first id
 ### InitializeManager
 `public static void InitializeManager()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by manager.
+**Purpose:** Prepares the resources, state, or bindings required by manager.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ MultiplayerLocalDataManager.InitializeManager();
 ### FinalizeManager
 `public static void FinalizeManager()`
 
-**Purpose:** **Purpose:** Executes the FinalizeManager logic.
+**Purpose:** Executes the FinalizeManager logic.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ MultiplayerLocalDataManager.FinalizeManager();
 ### Tick
 `public async void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataManager from the subsystem API first

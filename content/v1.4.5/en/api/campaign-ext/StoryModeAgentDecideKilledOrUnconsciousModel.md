@@ -23,7 +23,7 @@ Treat `StoryModeAgentDecideKilledOrUnconsciousModel` as a Model-style extension 
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** **Purpose:** Reads and returns the agent state probability value held by the this instance.
+**Purpose:** Reads and returns the agent state probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeAgentDecideKilledOrUnconsciousModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMachineStonePile from the subsystem API first
@@ -34,7 +34,7 @@ var result = siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObjec
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMachineStonePile from the subsystem API first
@@ -45,7 +45,7 @@ var result = siegeMachineStonePile.GetDescriptionText(gameEntity);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** **Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
+**Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeMachineStonePile from the subsystem API first
@@ -56,7 +56,7 @@ siegeMachineStonePile.SetSpawnedFromSpawner();
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
+**Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMachineStonePile from the subsystem API first

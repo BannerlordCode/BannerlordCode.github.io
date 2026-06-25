@@ -29,7 +29,7 @@ description: "ContainerLoadData 的自动生成类参考。"
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 readers 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 readers 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerLoadData 实例
@@ -40,7 +40,7 @@ containerLoadData.InitializeReaders(saveEntryFolder);
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillCreatedObject 对应的操作。
+**用途 / Purpose:** 调用 FillCreatedObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerLoadData 实例
@@ -51,7 +51,7 @@ containerLoadData.FillCreatedObject();
 ### Read
 `public void Read()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerLoadData 实例
@@ -62,7 +62,7 @@ containerLoadData.Read();
 ### FillObject
 `public void FillObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillObject 对应的操作。
+**用途 / Purpose:** 调用 FillObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerLoadData 实例

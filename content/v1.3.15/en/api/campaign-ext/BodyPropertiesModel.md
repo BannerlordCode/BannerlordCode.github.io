@@ -23,7 +23,7 @@ Treat `BodyPropertiesModel` as a Model-style extension point: first identify who
 ### GetHairIndicesForCulture
 `public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the hair indices for culture value held by the this instance.
+**Purpose:** Reads and returns the hair indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of BodyPropertiesModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = bodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
 ### GetBeardIndicesForCulture
 `public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the beard indices for culture value held by the this instance.
+**Purpose:** Reads and returns the beard indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of BodyPropertiesModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = bodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
 ### GetTattooIndicesForCulture
 `public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the tattoo indices for culture value held by the this instance.
+**Purpose:** Reads and returns the tattoo indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of BodyPropertiesModel from the subsystem API first

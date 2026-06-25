@@ -38,7 +38,7 @@ description: "HighlightsController 的自动生成类参考。"
 ### RemoveHighlights
 `public static void RemoveHighlights()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 highlights。
+**用途 / Purpose:** 从当前容器或状态中移除 highlights。
 
 ```csharp
 // 静态调用，不需要实例
@@ -48,7 +48,7 @@ HighlightsController.RemoveHighlights();
 ### GetHighlightTypeWithId
 `public HighlightsController.HighlightType GetHighlightTypeWithId(string highlightId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 highlight type with id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 highlight type with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -59,7 +59,7 @@ var result = highlightsController.GetHighlightTypeWithId("example");
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -70,7 +70,7 @@ highlightsController.AfterStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -81,7 +81,7 @@ highlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, ki
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -92,7 +92,7 @@ highlightsController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, fa
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -103,7 +103,7 @@ highlightsController.OnMissionTick(0);
 ### AddHighlightType
 `public static void AddHighlightType(HighlightsController.HighlightType highlightType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 highlight type 添加到当前容器或状态中。
+**用途 / Purpose:** 将 highlight type 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ HighlightsController.AddHighlightType(highlightType);
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 highlight 写入持久化存储或流中。
+**用途 / Purpose:** 将 highlight 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -124,7 +124,7 @@ highlightsController.SaveHighlight(highlight);
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight, Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 highlight 写入持久化存储或流中。
+**用途 / Purpose:** 将 highlight 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -135,7 +135,7 @@ highlightsController.SaveHighlight(highlight, position);
 ### CanSaveHighlight
 `public bool CanSaveHighlight(HighlightsController.HighlightType highlightType, Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 save highlight 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 save highlight 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -146,7 +146,7 @@ var result = highlightsController.CanSaveHighlight(highlightType, position);
 ### GetPlayerIsLookingAtPositionScore
 `public float GetPlayerIsLookingAtPositionScore(Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player is looking at position score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player is looking at position score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -157,7 +157,7 @@ var result = highlightsController.GetPlayerIsLookingAtPositionScore(position);
 ### CanSeePosition
 `public bool CanSeePosition(Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 see position 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 see position 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例
@@ -168,7 +168,7 @@ var result = highlightsController.CanSeePosition(position);
 ### ShowSummary
 `public void ShowSummary()`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示summary对应的界面或元素。
+**用途 / Purpose:** 显示summary对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 HighlightsController 实例

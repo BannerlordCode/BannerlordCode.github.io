@@ -23,7 +23,7 @@ Treat `DefaultBattleCaptainModel` as a Model-style extension point: first identi
 ### GetCaptainRatingForTroopUsages
 `public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**Purpose:** **Purpose:** Reads and returns the captain rating for troop usages value held by the this instance.
+**Purpose:** Reads and returns the captain rating for troop usages value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBattleCaptainModel from the subsystem API first

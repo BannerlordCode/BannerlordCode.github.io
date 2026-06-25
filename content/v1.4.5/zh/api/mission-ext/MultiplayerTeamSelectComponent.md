@@ -29,7 +29,7 @@ description: "MultiplayerTeamSelectComponent 的自动生成类参考。"
 ### OnSelectingTeamDelegate
 `public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 selecting team delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 selecting team delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -40,7 +40,7 @@ multiplayerTeamSelectComponent.OnSelectingTeamDelegate(disableTeams);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -51,7 +51,7 @@ multiplayerTeamSelectComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -62,7 +62,7 @@ multiplayerTeamSelectComponent.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -73,7 +73,7 @@ multiplayerTeamSelectComponent.OnRemoveBehavior();
 ### SelectTeam
 `public void SelectTeam()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectTeam 对应的操作。
+**用途 / Purpose:** 调用 SelectTeam 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -84,7 +84,7 @@ multiplayerTeamSelectComponent.SelectTeam();
 ### UpdateTeams
 `public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 teams 的最新表示。
+**用途 / Purpose:** 重新计算并更新 teams 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -95,7 +95,7 @@ multiplayerTeamSelectComponent.UpdateTeams(peer, oldTeam, newTeam);
 ### GetDisabledTeams
 `public List<Team> GetDisabledTeams()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 disabled teams 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 disabled teams 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -106,7 +106,7 @@ var result = multiplayerTeamSelectComponent.GetDisabledTeams();
 ### ChangeTeamServer
 `public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeTeamServer 对应的操作。
+**用途 / Purpose:** 调用 ChangeTeamServer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -117,7 +117,7 @@ multiplayerTeamSelectComponent.ChangeTeamServer(networkPeer, team);
 ### ChangeTeam
 `public void ChangeTeam(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeTeam 对应的操作。
+**用途 / Purpose:** 调用 ChangeTeam 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -128,7 +128,7 @@ multiplayerTeamSelectComponent.ChangeTeam(team);
 ### GetPlayerCountForTeam
 `public int GetPlayerCountForTeam(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player count for team 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player count for team 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -139,7 +139,7 @@ var result = multiplayerTeamSelectComponent.GetPlayerCountForTeam(team);
 ### GetFriendsForTeam
 `public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 friends for team 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 friends for team 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -150,7 +150,7 @@ var result = multiplayerTeamSelectComponent.GetFriendsForTeam(team);
 ### BalanceTeams
 `public void BalanceTeams()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BalanceTeams 对应的操作。
+**用途 / Purpose:** 调用 BalanceTeams 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -161,7 +161,7 @@ multiplayerTeamSelectComponent.BalanceTeams();
 ### AutoAssignTeam
 `public void AutoAssignTeam(NetworkCommunicator peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AutoAssignTeam 对应的操作。
+**用途 / Purpose:** 调用 AutoAssignTeam 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例

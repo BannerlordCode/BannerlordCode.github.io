@@ -30,7 +30,7 @@ description: "MissionMainAgentInteractionComponent 的自动生成类参考。"
 ### SetCurrentFocusedObject
 `public void SetCurrentFocusedObject(IFocusable focusedObject, IFocusable focusedMachine, sbyte focusedObjectBoneIndex, bool isInteractable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current focused object 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current focused object 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -41,7 +41,7 @@ missionMainAgentInteractionComponent.SetCurrentFocusedObject(focusedObject, focu
 ### ClearFocus
 `public void ClearFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的focus。
+**用途 / Purpose:** 清空当前对象中的focus。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -52,7 +52,7 @@ missionMainAgentInteractionComponent.ClearFocus();
 ### OnClearScene
 `public void OnClearScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
+**用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -63,7 +63,7 @@ missionMainAgentInteractionComponent.OnClearScene();
 ### FocusTick
 `public void FocusTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTick 对应的操作。
+**用途 / Purpose:** 调用 FocusTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -74,7 +74,7 @@ missionMainAgentInteractionComponent.FocusTick();
 ### FocusStateCheckTick
 `public void FocusStateCheckTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusStateCheckTick 对应的操作。
+**用途 / Purpose:** 调用 FocusStateCheckTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -85,7 +85,7 @@ missionMainAgentInteractionComponent.FocusStateCheckTick();
 ### FocusedItemHealthTick
 `public void FocusedItemHealthTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusedItemHealthTick 对应的操作。
+**用途 / Purpose:** 调用 FocusedItemHealthTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -96,7 +96,7 @@ missionMainAgentInteractionComponent.FocusedItemHealthTick();
 ### MissionFocusGainedEventDelegate
 `public delegate void MissionFocusGainedEventDelegate(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionFocusGainedEventDelegate 对应的操作。
+**用途 / Purpose:** 调用 MissionFocusGainedEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -107,7 +107,7 @@ missionMainAgentInteractionComponent.MissionFocusGainedEventDelegate(agent, focu
 ### MissionFocusLostEventDelegate
 `public delegate void MissionFocusLostEventDelegate(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionFocusLostEventDelegate 对应的操作。
+**用途 / Purpose:** 调用 MissionFocusLostEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -118,7 +118,7 @@ missionMainAgentInteractionComponent.MissionFocusLostEventDelegate(agent, focusa
 ### MissionFocusHealthChangeDelegate
 `public delegate void MissionFocusHealthChangeDelegate(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionFocusHealthChangeDelegate 对应的操作。
+**用途 / Purpose:** 调用 MissionFocusHealthChangeDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例

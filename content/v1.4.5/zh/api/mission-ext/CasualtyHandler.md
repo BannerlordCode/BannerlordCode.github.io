@@ -23,7 +23,7 @@ description: "CasualtyHandler 的自动生成类参考。"
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CasualtyHandler 实例
@@ -34,7 +34,7 @@ casualtyHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killing
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CasualtyHandler 实例
@@ -45,7 +45,7 @@ casualtyHandler.OnAgentFleeing(affectedAgent);
 ### GetCasualtyCountOfFormation
 `public int GetCasualtyCountOfFormation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 casualty count of formation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 casualty count of formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CasualtyHandler 实例
@@ -56,7 +56,7 @@ var result = casualtyHandler.GetCasualtyCountOfFormation(formation);
 ### GetCasualtyPowerLossOfFormation
 `public float GetCasualtyPowerLossOfFormation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 casualty power loss of formation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 casualty power loss of formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CasualtyHandler 实例

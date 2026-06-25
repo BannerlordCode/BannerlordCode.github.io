@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Tick
 `public void Tick(Agent agentToCompareTo, Formation formationToCompareTo, Team potentialUsersTeam, float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of UsableMachineAIBase from the subsystem API first
@@ -40,7 +40,7 @@ usableMachineAIBase.Tick(agentToCompareTo, formationToCompareTo, potentialUsersT
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, IEnumerable<Agent> agents, List<Agent> usedAgents)`
 
-**Purpose:** **Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
+**Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoin
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**Purpose:** **Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
+**Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoin
 ### TeleportUserAgentsToMachine
 `public virtual void TeleportUserAgentsToMachine(List<Agent> agentList)`
 
-**Purpose:** **Purpose:** Executes the TeleportUserAgentsToMachine logic.
+**Purpose:** Executes the TeleportUserAgentsToMachine logic.
 
 ```csharp
 // Obtain an instance of UsableMachineAIBase from the subsystem API first
@@ -71,7 +71,7 @@ usableMachineAIBase.TeleportUserAgentsToMachine(agentList);
 ### StopUsingStandingPoint
 `public void StopUsingStandingPoint(StandingPoint standingPoint)`
 
-**Purpose:** **Purpose:** Stops the using standing point flow or state machine.
+**Purpose:** Stops the using standing point flow or state machine.
 
 ```csharp
 // Obtain an instance of UsableMachineAIBase from the subsystem API first

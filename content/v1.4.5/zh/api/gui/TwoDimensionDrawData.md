@@ -23,7 +23,7 @@ description: "TwoDimensionDrawData 的自动生成类参考。"
 ### DrawTo
 `public void DrawTo(TwoDimensionContext twoDimensionContext, int layer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawTo 对应的操作。
+**用途 / Purpose:** 调用 DrawTo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawData 实例
@@ -34,7 +34,7 @@ twoDimensionDrawData.DrawTo(twoDimensionContext, 0);
 ### UpdateVisualRect
 `public void UpdateVisualRect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 visual rect 的最新表示。
+**用途 / Purpose:** 重新计算并更新 visual rect 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawData 实例

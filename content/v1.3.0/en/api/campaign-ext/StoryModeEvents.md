@@ -34,7 +34,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### RemoveListeners
 `public override void RemoveListeners(object obj)`
 
-**Purpose:** **Purpose:** Removes listeners from the current collection or state.
+**Purpose:** Removes listeners from the current collection or state.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first
@@ -45,7 +45,7 @@ storyModeEvents.RemoveListeners(obj);
 ### OnMainStoryLineSideChosen
 `public void OnMainStoryLineSideChosen(MainStoryLineSide side)`
 
-**Purpose:** **Purpose:** Invoked when the main story line side chosen event is raised.
+**Purpose:** Invoked when the main story line side chosen event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first
@@ -56,7 +56,7 @@ storyModeEvents.OnMainStoryLineSideChosen(side);
 ### OnStoryModeTutorialEnded
 `public void OnStoryModeTutorialEnded()`
 
-**Purpose:** **Purpose:** Invoked when the story mode tutorial ended event is raised.
+**Purpose:** Invoked when the story mode tutorial ended event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first
@@ -67,7 +67,7 @@ storyModeEvents.OnStoryModeTutorialEnded();
 ### OnBannerPieceCollected
 `public void OnBannerPieceCollected()`
 
-**Purpose:** **Purpose:** Invoked when the banner piece collected event is raised.
+**Purpose:** Invoked when the banner piece collected event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first
@@ -78,7 +78,7 @@ storyModeEvents.OnBannerPieceCollected();
 ### OnConspiracyActivated
 `public void OnConspiracyActivated()`
 
-**Purpose:** **Purpose:** Invoked when the conspiracy activated event is raised.
+**Purpose:** Invoked when the conspiracy activated event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first
@@ -89,7 +89,7 @@ storyModeEvents.OnConspiracyActivated();
 ### OnTravelToVillageTutorialQuestStarted
 `public void OnTravelToVillageTutorialQuestStarted()`
 
-**Purpose:** **Purpose:** Invoked when the travel to village tutorial quest started event is raised.
+**Purpose:** Invoked when the travel to village tutorial quest started event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeEvents from the subsystem API first

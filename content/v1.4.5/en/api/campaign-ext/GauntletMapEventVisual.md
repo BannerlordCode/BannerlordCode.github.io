@@ -31,7 +31,7 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### Initialize
 `public void Initialize(CampaignVec2 position, bool isVisible)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GauntletMapEventVisual from the subsystem API first
@@ -42,7 +42,7 @@ gauntletMapEventVisual.Initialize(position, false);
 ### OnMapEventEnd
 `public void OnMapEventEnd()`
 
-**Purpose:** **Purpose:** Invoked when the map event end event is raised.
+**Purpose:** Invoked when the map event end event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMapEventVisual from the subsystem API first
@@ -53,7 +53,7 @@ gauntletMapEventVisual.OnMapEventEnd();
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletMapEventVisual from the subsystem API first

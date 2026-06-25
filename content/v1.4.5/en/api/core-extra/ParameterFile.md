@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CheckIfNeedsToBeRefreshed
 `public bool CheckIfNeedsToBeRefreshed()`
 
-**Purpose:** **Purpose:** Verifies whether if needs to be refreshed holds true for the this instance.
+**Purpose:** Verifies whether if needs to be refreshed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ParameterFile from the subsystem API first
@@ -42,7 +42,7 @@ var result = parameterFile.CheckIfNeedsToBeRefreshed();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of ParameterFile from the subsystem API first

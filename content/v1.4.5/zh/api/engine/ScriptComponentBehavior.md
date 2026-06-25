@@ -30,7 +30,7 @@ description: "ScriptComponentBehavior 的自动生成类参考。"
 ### SetScriptComponentToTick
 `public void SetScriptComponentToTick(TickRequirement tickReq)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 script component to tick 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 script component to tick 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptComponentBehavior 实例
@@ -41,7 +41,7 @@ scriptComponentBehavior.SetScriptComponentToTick(tickReq);
 ### SetScriptComponentToTickMT
 `public void SetScriptComponentToTickMT(TickRequirement value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 script component to tick m t 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 script component to tick m t 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptComponentBehavior 实例
@@ -52,7 +52,7 @@ scriptComponentBehavior.SetScriptComponentToTickMT(value);
 ### GetTickRequirement
 `public virtual TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptComponentBehavior 实例

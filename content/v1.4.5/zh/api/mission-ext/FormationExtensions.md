@@ -23,7 +23,7 @@ description: "FormationExtensions 的自动生成类参考。"
 ### OnOrderChange
 `public static void OnOrderChange(Formation formation, IFormationArrangement arrangement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 order change 事件触发时调用此回调。
+**用途 / Purpose:** 在 order change 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

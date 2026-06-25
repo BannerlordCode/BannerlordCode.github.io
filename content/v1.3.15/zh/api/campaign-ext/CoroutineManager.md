@@ -30,7 +30,7 @@ description: "CoroutineManager 的自动生成类参考。"
 ### AddCoroutine
 `public void AddCoroutine(CoroutineDelegate coroutineMethod)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 coroutine 添加到当前容器或状态中。
+**用途 / Purpose:** 将 coroutine 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CoroutineManager 实例
@@ -41,7 +41,7 @@ coroutineManager.AddCoroutine(coroutineMethod);
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CoroutineManager 实例

@@ -30,7 +30,7 @@ description: "BattleSpawnPathSelector 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
@@ -41,7 +41,7 @@ battleSpawnPathSelector.Initialize();
 ### HasPath
 `public bool HasPath(Path path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 path。
+**用途 / Purpose:** 判断当前对象是否已经持有 path。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
@@ -52,7 +52,7 @@ var result = battleSpawnPathSelector.HasPath(path);
 ### GetInitialPathDataOfSide
 `public bool GetInitialPathDataOfSide(BattleSideEnum side, out SpawnPathData pathPathData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial path data of side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 initial path data of side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
@@ -63,7 +63,7 @@ var result = battleSpawnPathSelector.GetInitialPathDataOfSide(side, pathPathData
 ### GetReinforcementPathsDataOfSide
 `public MBReadOnlyList<SpawnPathData> GetReinforcementPathsDataOfSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reinforcement paths data of side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement paths data of side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
@@ -74,7 +74,7 @@ var result = battleSpawnPathSelector.GetReinforcementPathsDataOfSide(side);
 ### FindBestInitialPath
 `public static Path FindBestInitialPath(Mission mission, out float pivotRatio, out bool isInverted)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的best initial path。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的best initial path。
 
 ```csharp
 // 静态调用，不需要实例

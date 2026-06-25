@@ -31,7 +31,7 @@ description: "SkillIconVisualWidget 的自动生成类参考。"
 ### SkillIconVisualWidget
 `public class SkillIconVisualWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SkillIconVisualWidget 对应的操作。
+**用途 / Purpose:** 调用 SkillIconVisualWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillIconVisualWidget 实例

@@ -30,7 +30,7 @@ description: "BlowWeaponRecord 的自动生成类参考。"
 ### FillAsMeleeBlow
 `public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillAsMeleeBlow 对应的操作。
+**用途 / Purpose:** 调用 FillAsMeleeBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例
@@ -41,7 +41,7 @@ blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ### FillAsMissileBlow
 `public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillAsMissileBlow 对应的操作。
+**用途 / Purpose:** 调用 FillAsMissileBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例
@@ -52,7 +52,7 @@ blowWeaponRecord.FillAsMissileBlow(item, weaponComponentData, 0, 0, startingPosi
 ### HasWeapon
 `public bool HasWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 weapon。
+**用途 / Purpose:** 判断当前对象是否已经持有 weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例
@@ -63,7 +63,7 @@ var result = blowWeaponRecord.HasWeapon();
 ### GetHitSound
 `public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hit sound 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hit sound 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例

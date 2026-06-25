@@ -23,7 +23,7 @@ Treat `BattleReinforcementsSpawnController` as a Controller-style extension poin
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of BattleReinforcementsSpawnController from the subsystem API first
@@ -34,7 +34,7 @@ battleReinforcementsSpawnController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of BattleReinforcementsSpawnController from the subsystem API first
@@ -45,7 +45,7 @@ battleReinforcementsSpawnController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of BattleReinforcementsSpawnController from the subsystem API first

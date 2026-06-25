@@ -23,7 +23,7 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ### SplitCamelCase
 `public static string SplitCamelCase(string text)`
 
-**Purpose:** **Purpose:** Splits camel case into multiple parts or sub-items.
+**Purpose:** Splits camel case into multiple parts or sub-items.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ StringHelpers.SplitCamelCase("example");
 ### CamelCaseToSnakeCase
 `public static string CamelCaseToSnakeCase(string camelCaseString)`
 
-**Purpose:** **Purpose:** Executes the CamelCaseToSnakeCase logic.
+**Purpose:** Executes the CamelCaseToSnakeCase logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ StringHelpers.CamelCaseToSnakeCase("example");
 ### SetSettlementProperties
 `public static void SetSettlementProperties(string tag, Settlement settlement, TextObject parent = null, bool isRepeatable = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to settlement properties and updates the object's internal state.
+**Purpose:** Assigns a new value to settlement properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ StringHelpers.SetSettlementProperties("example", settlement, null, false);
 ### SetRepeatableCharacterProperties
 `public static void SetRepeatableCharacterProperties(string tag, CharacterObject character, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to repeatable character properties and updates the object's internal state.
+**Purpose:** Assigns a new value to repeatable character properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ StringHelpers.SetRepeatableCharacterProperties("example", character, false);
 ### SetCharacterProperties
 `public static TextObject SetCharacterProperties(string tag, CharacterObject character, TextObject parent = null, bool includeDetails = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to character properties and updates the object's internal state.
+**Purpose:** Assigns a new value to character properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ StringHelpers.SetCharacterProperties("example", character, null, false);
 ### SetEffectIncrementTypeTextVariable
 `public static void SetEffectIncrementTypeTextVariable(string tag, TextObject description, float bonus, EffectIncrementType effectIncrementType)`
 
-**Purpose:** **Purpose:** Assigns a new value to effect increment type text variable and updates the object's internal state.
+**Purpose:** Assigns a new value to effect increment type text variable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ StringHelpers.SetEffectIncrementTypeTextVariable("example", description, 0, effe
 ### RemoveDiacritics
 `public static string RemoveDiacritics(string originalText)`
 
-**Purpose:** **Purpose:** Removes diacritics from the current collection or state.
+**Purpose:** Removes diacritics from the current collection or state.
 
 ```csharp
 // Static call; no instance required

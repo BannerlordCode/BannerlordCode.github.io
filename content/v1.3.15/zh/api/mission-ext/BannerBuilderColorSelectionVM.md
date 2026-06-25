@@ -30,7 +30,7 @@ description: "BannerBuilderColorSelectionVM 的自动生成类参考。"
 ### EnableWith
 `public void EnableWith(int selectedColorID, Action<BannerBuilderColorItemVM> onSelection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableWith 对应的操作。
+**用途 / Purpose:** 调用 EnableWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderColorSelectionVM 实例

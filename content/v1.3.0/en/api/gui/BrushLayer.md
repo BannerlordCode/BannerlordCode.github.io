@@ -58,7 +58,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(BrushLayer brushLayer)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of BrushLayer from the subsystem API first
@@ -69,7 +69,7 @@ brushLayer.FillFrom(brushLayer);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** **Purpose:** Reads and returns the value as float value held by the this instance.
+**Purpose:** Reads and returns the value as float value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayer from the subsystem API first
@@ -80,7 +80,7 @@ var result = brushLayer.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** **Purpose:** Reads and returns the value as color value held by the this instance.
+**Purpose:** Reads and returns the value as color value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayer from the subsystem API first
@@ -91,7 +91,7 @@ var result = brushLayer.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** **Purpose:** Reads and returns the value as sprite value held by the this instance.
+**Purpose:** Reads and returns the value as sprite value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayer from the subsystem API first
@@ -102,7 +102,7 @@ var result = brushLayer.GetValueAsSprite(propertyType);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayer from the subsystem API first

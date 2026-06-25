@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshWith
 `public void RefreshWith(CampaignUIHelper.IssueQuestFlags issueQuestFlag, TextObject questTitle = null, TextObject questHintText = null)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of QuestMarkerVM from the subsystem API first
@@ -45,7 +45,7 @@ questMarkerVM.RefreshWith(issueQuestFlag, null, null);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of QuestMarkerVM from the subsystem API first

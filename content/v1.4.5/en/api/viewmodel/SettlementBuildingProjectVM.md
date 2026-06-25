@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -49,7 +49,7 @@ settlementBuildingProjectVM.RefreshValues();
 ### RefreshProductionText
 `public override void RefreshProductionText()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of production text in sync with the underlying state.
+**Purpose:** Keeps the display or cache of production text in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -60,7 +60,7 @@ settlementBuildingProjectVM.RefreshProductionText();
 ### ExecuteAddRemoveToQueue
 `public override void ExecuteAddRemoveToQueue()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add remove to queue.
+**Purpose:** Runs the operation or workflow associated with add remove to queue.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -71,7 +71,7 @@ settlementBuildingProjectVM.ExecuteAddRemoveToQueue();
 ### ExecuteSetAsActiveDevelopment
 `public override void ExecuteSetAsActiveDevelopment()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set as active development.
+**Purpose:** Runs the operation or workflow associated with set as active development.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -82,7 +82,7 @@ settlementBuildingProjectVM.ExecuteSetAsActiveDevelopment();
 ### ExecuteSetAsCurrent
 `public override void ExecuteSetAsCurrent()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set as current.
+**Purpose:** Runs the operation or workflow associated with set as current.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -93,7 +93,7 @@ settlementBuildingProjectVM.ExecuteSetAsCurrent();
 ### ExecuteResetCurrent
 `public override void ExecuteResetCurrent()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset current.
+**Purpose:** Runs the operation or workflow associated with reset current.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first
@@ -104,7 +104,7 @@ settlementBuildingProjectVM.ExecuteResetCurrent();
 ### ExecuteToggleSelected
 `public override void ExecuteToggleSelected()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle selected.
+**Purpose:** Runs the operation or workflow associated with toggle selected.
 
 ```csharp
 // Obtain an instance of SettlementBuildingProjectVM from the subsystem API first

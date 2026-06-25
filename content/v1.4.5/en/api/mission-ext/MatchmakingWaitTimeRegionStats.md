@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetGameTypeAverage
 `public void SetGameTypeAverage(string gameType, WaitTimeStatType statType, int average)`
 
-**Purpose:** **Purpose:** Assigns a new value to game type average and updates the object's internal state.
+**Purpose:** Assigns a new value to game type average and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first
@@ -40,7 +40,7 @@ matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
 ### HasStatsForGameType
 `public bool HasStatsForGameType(string gameType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds stats for game type.
+**Purpose:** Determines whether the this instance already holds stats for game type.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first
@@ -51,7 +51,7 @@ var result = matchmakingWaitTimeRegionStats.HasStatsForGameType("example");
 ### GetWaitTime
 `public int GetWaitTime(string gameType, WaitTimeStatType statType)`
 
-**Purpose:** **Purpose:** Reads and returns the wait time value held by the this instance.
+**Purpose:** Reads and returns the wait time value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -46,7 +46,7 @@ missionMultiplayerGameModeFlagDominationClient.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -57,7 +57,7 @@ missionMultiplayerGameModeFlagDominationClient.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -68,7 +68,7 @@ missionMultiplayerGameModeFlagDominationClient.AfterStart();
 ### OnPreparationEnded
 `public void OnPreparationEnded()`
 
-**Purpose:** **Purpose:** Invoked when the preparation ended event is raised.
+**Purpose:** Invoked when the preparation ended event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -79,7 +79,7 @@ missionMultiplayerGameModeFlagDominationClient.OnPreparationEnded();
 ### GetMissionCameraLockMode
 `public override SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**Purpose:** **Purpose:** Reads and returns the mission camera lock mode value held by the this instance.
+**Purpose:** Reads and returns the mission camera lock mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -90,7 +90,7 @@ var result = missionMultiplayerGameModeFlagDominationClient.GetMissionCameraLock
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -101,7 +101,7 @@ missionMultiplayerGameModeFlagDominationClient.OnAgentRemoved(affectedAgent, aff
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
+**Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -112,7 +112,7 @@ missionMultiplayerGameModeFlagDominationClient.OnClearScene();
 ### GetFlagOwner
 `public Team GetFlagOwner(FlagCapturePoint flag)`
 
-**Purpose:** **Purpose:** Reads and returns the flag owner value held by the this instance.
+**Purpose:** Reads and returns the flag owner value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -123,7 +123,7 @@ var result = missionMultiplayerGameModeFlagDominationClient.GetFlagOwner(flag);
 ### OnTeamPowerChanged
 `public void OnTeamPowerChanged(BattleSideEnum teamSide, float power)`
 
-**Purpose:** **Purpose:** Invoked when the team power changed event is raised.
+**Purpose:** Invoked when the team power changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -134,7 +134,7 @@ missionMultiplayerGameModeFlagDominationClient.OnTeamPowerChanged(teamSide, 0);
 ### OnMoraleChanged
 `public void OnMoraleChanged(float morale)`
 
-**Purpose:** **Purpose:** Invoked when the morale changed event is raised.
+**Purpose:** Invoked when the morale changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -145,7 +145,7 @@ missionMultiplayerGameModeFlagDominationClient.OnMoraleChanged(0);
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** **Purpose:** Invoked when the gold amount changed for representative event is raised.
+**Purpose:** Invoked when the gold amount changed for representative event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -156,7 +156,7 @@ missionMultiplayerGameModeFlagDominationClient.OnGoldAmountChangedForRepresentat
 ### OnNumberOfFlagsChanged
 `public void OnNumberOfFlagsChanged()`
 
-**Purpose:** **Purpose:** Invoked when the number of flags changed event is raised.
+**Purpose:** Invoked when the number of flags changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -167,7 +167,7 @@ missionMultiplayerGameModeFlagDominationClient.OnNumberOfFlagsChanged();
 ### OnBotsControlledChanged
 `public void OnBotsControlledChanged(MissionPeer missionPeer, int botAliveCount, int botTotalCount)`
 
-**Purpose:** **Purpose:** Invoked when the bots controlled changed event is raised.
+**Purpose:** Invoked when the bots controlled changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -178,7 +178,7 @@ missionMultiplayerGameModeFlagDominationClient.OnBotsControlledChanged(missionPe
 ### OnCapturePointOwnerChanged
 `public void OnCapturePointOwnerChanged(FlagCapturePoint flagCapturePoint, Team ownerTeam)`
 
-**Purpose:** **Purpose:** Invoked when the capture point owner changed event is raised.
+**Purpose:** Invoked when the capture point owner changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -189,7 +189,7 @@ missionMultiplayerGameModeFlagDominationClient.OnCapturePointOwnerChanged(flagCa
 ### OnRequestForfeitSpawn
 `public void OnRequestForfeitSpawn()`
 
-**Purpose:** **Purpose:** Invoked when the request forfeit spawn event is raised.
+**Purpose:** Invoked when the request forfeit spawn event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -200,7 +200,7 @@ missionMultiplayerGameModeFlagDominationClient.OnRequestForfeitSpawn();
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**Purpose:** **Purpose:** Reads and returns the compass targets value held by the this instance.
+**Purpose:** Reads and returns the compass targets value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -211,7 +211,7 @@ var result = missionMultiplayerGameModeFlagDominationClient.GetCompassTargets();
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** **Purpose:** Reads and returns the gold amount value held by the this instance.
+**Purpose:** Reads and returns the gold amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first
@@ -222,7 +222,7 @@ var result = missionMultiplayerGameModeFlagDominationClient.GetGoldAmount();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeFlagDominationClient from the subsystem API first

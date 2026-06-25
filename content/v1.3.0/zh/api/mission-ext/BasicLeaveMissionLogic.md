@@ -23,7 +23,7 @@ description: "BasicLeaveMissionLogic 的自动生成类参考。"
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
+**用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicLeaveMissionLogic 实例
@@ -34,7 +34,7 @@ var result = basicLeaveMissionLogic.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
+**用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicLeaveMissionLogic 实例

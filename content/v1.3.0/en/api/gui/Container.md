@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetDropGizmoPosition
 `public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the drop gizmo position value held by the this instance.
+**Purpose:** Reads and returns the drop gizmo position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first
@@ -45,7 +45,7 @@ var result = container.GetDropGizmoPosition(draggedWidgetPosition);
 ### GetIndexForDrop
 `public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the index for drop value held by the this instance.
+**Purpose:** Reads and returns the index for drop value held by the this instance.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first
@@ -56,7 +56,7 @@ var result = container.GetIndexForDrop(draggedWidgetPosition);
 ### OnChildSelected
 `public abstract void OnChildSelected(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the child selected event is raised.
+**Purpose:** Invoked when the child selected event is raised.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first
@@ -67,7 +67,7 @@ container.OnChildSelected(widget);
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(string id, int index)`
 
-**Purpose:** **Purpose:** Reads and returns the item description value held by the this instance.
+**Purpose:** Reads and returns the item description value held by the this instance.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first
@@ -78,7 +78,7 @@ var result = container.GetItemDescription("example", 0);
 ### AddItemDescription
 `public void AddItemDescription(ContainerItemDescription itemDescription)`
 
-**Purpose:** **Purpose:** Adds item description to the current collection or state.
+**Purpose:** Adds item description to the current collection or state.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first
@@ -89,7 +89,7 @@ container.AddItemDescription(itemDescription);
 ### FindParentPanel
 `public ScrollablePanel FindParentPanel()`
 
-**Purpose:** **Purpose:** Looks up the matching parent panel in the current collection or scope.
+**Purpose:** Looks up the matching parent panel in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Container from the subsystem API first

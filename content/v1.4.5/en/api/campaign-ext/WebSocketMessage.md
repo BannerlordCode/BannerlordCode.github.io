@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### SetTextPayload
 `public void SetTextPayload(string payload)`
 
-**Purpose:** **Purpose:** Assigns a new value to text payload and updates the object's internal state.
+**Purpose:** Assigns a new value to text payload and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WebSocketMessage from the subsystem API first
@@ -43,7 +43,7 @@ webSocketMessage.SetTextPayload("example");
 ### WriteTo
 `public void WriteTo(bool fromServer, Stream stream)`
 
-**Purpose:** **Purpose:** Writes to to the target location.
+**Purpose:** Writes to to the target location.
 
 ```csharp
 // Obtain an instance of WebSocketMessage from the subsystem API first
@@ -54,7 +54,7 @@ webSocketMessage.WriteTo(false, stream);
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, byte payload)`
 
-**Purpose:** **Purpose:** Reads the data or state of from.
+**Purpose:** Reads the data or state of from.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ WebSocketMessage.ReadFrom(false, 0);
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, Stream stream)`
 
-**Purpose:** **Purpose:** Reads the data or state of from.
+**Purpose:** Reads the data or state of from.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ WebSocketMessage.ReadFrom(false, stream);
 ### CreateCursorMessage
 `public static WebSocketMessage CreateCursorMessage(int cursor)`
 
-**Purpose:** **Purpose:** Constructs a new cursor message entity and returns it to the caller.
+**Purpose:** Constructs a new cursor message entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ WebSocketMessage.CreateCursorMessage(0);
 ### CreateCloseMessage
 `public static WebSocketMessage CreateCloseMessage()`
 
-**Purpose:** **Purpose:** Constructs a new close message entity and returns it to the caller.
+**Purpose:** Constructs a new close message entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ WebSocketMessage.CreateCloseMessage();
 ### GetCursor
 `public int GetCursor()`
 
-**Purpose:** **Purpose:** Reads and returns the cursor value held by the this instance.
+**Purpose:** Reads and returns the cursor value held by the this instance.
 
 ```csharp
 // Obtain an instance of WebSocketMessage from the subsystem API first

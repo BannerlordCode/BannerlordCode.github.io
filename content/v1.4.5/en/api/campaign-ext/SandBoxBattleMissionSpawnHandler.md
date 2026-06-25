@@ -23,7 +23,7 @@ Treat `SandBoxBattleMissionSpawnHandler` as a Handler-style extension point: fir
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SandBoxBattleMissionSpawnHandler from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
@@ -44,7 +44,7 @@ missionMainAgentCheerBarkControllerVM.OnFinalize();
 ### SelectItem
 `public void SelectItem(int itemIndex, int subNodeIndex = -1)`
 
-**Purpose:** **Purpose:** Executes the SelectItem logic.
+**Purpose:** Executes the SelectItem logic.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
@@ -55,7 +55,7 @@ missionMainAgentCheerBarkControllerVM.SelectItem(0, 0);
 ### ExecuteActivate
 `public void ExecuteActivate()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with activate.
+**Purpose:** Runs the operation or workflow associated with activate.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
@@ -66,7 +66,7 @@ missionMainAgentCheerBarkControllerVM.ExecuteActivate();
 ### ExecuteDeactivate
 `public void ExecuteDeactivate(bool applySelection)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with deactivate.
+**Purpose:** Runs the operation or workflow associated with deactivate.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
@@ -77,7 +77,7 @@ missionMainAgentCheerBarkControllerVM.ExecuteDeactivate(false);
 ### OnNodeFocused
 `public void OnNodeFocused(CheerBarkNodeItemVM focusedNode)`
 
-**Purpose:** **Purpose:** Invoked when the node focused event is raised.
+**Purpose:** Invoked when the node focused event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
@@ -88,7 +88,7 @@ missionMainAgentCheerBarkControllerVM.OnNodeFocused(focusedNode);
 ### OnNodeTooltipToggled
 `public void OnNodeTooltipToggled(CheerBarkNodeItemVM node)`
 
-**Purpose:** **Purpose:** Invoked when the node tooltip toggled event is raised.
+**Purpose:** Invoked when the node tooltip toggled event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first

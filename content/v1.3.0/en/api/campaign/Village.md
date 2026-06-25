@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**Purpose:** **Purpose:** Reads and returns the defender parties value held by the this instance.
+**Purpose:** Reads and returns the defender parties value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -54,7 +54,7 @@ var result = village.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**Purpose:** **Purpose:** Reads and returns the next defender party value held by the this instance.
+**Purpose:** Reads and returns the next defender party value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -65,7 +65,7 @@ var result = village.GetNextDefenderParty(partyIndex, battleType);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** **Purpose:** Executes the DailyTick logic.
+**Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -76,7 +76,7 @@ village.DailyTick();
 ### OnInit
 `public override void OnInit()`
 
-**Purpose:** **Purpose:** Invoked when the init event is raised.
+**Purpose:** Invoked when the init event is raised.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -87,7 +87,7 @@ village.OnInit();
 ### GetWarehouseCapacity
 `public int GetWarehouseCapacity()`
 
-**Purpose:** **Purpose:** Reads and returns the warehouse capacity value held by the this instance.
+**Purpose:** Reads and returns the warehouse capacity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -98,7 +98,7 @@ var result = village.GetWarehouseCapacity();
 ### GetItemPrice
 `public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
+**Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -109,7 +109,7 @@ var result = village.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
+**Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -120,7 +120,7 @@ var result = village.GetItemPrice(itemRosterElement, null, false);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -131,7 +131,7 @@ var result = village.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -142,7 +142,7 @@ village.Deserialize(objectManager, node);
 ### IsProducing
 `public bool IsProducing(ItemObject item)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the producing state or condition.
+**Purpose:** Determines whether the this instance is in the producing state or condition.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -153,7 +153,7 @@ var result = village.IsProducing(item);
 ### GetHearthLevel
 `public int GetHearthLevel()`
 
-**Purpose:** **Purpose:** Reads and returns the hearth level value held by the this instance.
+**Purpose:** Reads and returns the hearth level value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first
@@ -164,7 +164,7 @@ var result = village.GetHearthLevel();
 ### GetProsperityLevel
 `public override SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**Purpose:** **Purpose:** Reads and returns the prosperity level value held by the this instance.
+**Purpose:** Reads and returns the prosperity level value held by the this instance.
 
 ```csharp
 // Obtain an instance of Village from the subsystem API first

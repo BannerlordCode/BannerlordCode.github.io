@@ -65,7 +65,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -76,7 +76,7 @@ recruitmentVM.RefreshValues();
 ### RefreshScreen
 `public void RefreshScreen()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of screen in sync with the underlying state.
+**Purpose:** Keeps the display or cache of screen in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -87,7 +87,7 @@ recruitmentVM.RefreshScreen();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -98,7 +98,7 @@ recruitmentVM.ExecuteDone();
 ### ExecuteForceQuit
 `public void ExecuteForceQuit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with force quit.
+**Purpose:** Runs the operation or workflow associated with force quit.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -109,7 +109,7 @@ recruitmentVM.ExecuteForceQuit();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
+**Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -120,7 +120,7 @@ recruitmentVM.ExecuteReset();
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with recruit all.
+**Purpose:** Runs the operation or workflow associated with recruit all.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -131,7 +131,7 @@ recruitmentVM.ExecuteRecruitAll();
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
+**Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -142,7 +142,7 @@ recruitmentVM.Deactivate();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -153,7 +153,7 @@ recruitmentVM.OnFinalize();
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**Purpose:** **Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
+**Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -164,7 +164,7 @@ recruitmentVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -175,7 +175,7 @@ recruitmentVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -186,7 +186,7 @@ recruitmentVM.SetDoneInputKey(hotKey);
 ### SetRecruitAllInputKey
 `public void SetRecruitAllInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to recruit all input key and updates the object's internal state.
+**Purpose:** Assigns a new value to recruit all input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first
@@ -197,7 +197,7 @@ recruitmentVM.SetRecruitAllInputKey(hotKey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
+**Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RecruitmentVM from the subsystem API first

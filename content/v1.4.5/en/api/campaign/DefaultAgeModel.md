@@ -23,7 +23,7 @@ Treat `DefaultAgeModel` as a Model-style extension point: first identify who cre
 ### GetAgeLimitForLocation
 `public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**Purpose:** **Purpose:** Reads and returns the age limit for location value held by the this instance.
+**Purpose:** Reads and returns the age limit for location value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAgeModel from the subsystem API first

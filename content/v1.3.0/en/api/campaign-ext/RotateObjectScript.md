@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of RotateObjectScript from the subsystem API first

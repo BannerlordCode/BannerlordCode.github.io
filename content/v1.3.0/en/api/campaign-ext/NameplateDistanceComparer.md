@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(PartyNameplateVM x, PartyNameplateVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of NameplateDistanceComparer from the subsystem API first

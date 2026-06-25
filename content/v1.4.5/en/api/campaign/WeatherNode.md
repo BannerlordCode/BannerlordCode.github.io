@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ### SetVisualDirty
 `public void SetVisualDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to visual dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to visual dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeatherNode from the subsystem API first
@@ -40,7 +40,7 @@ weatherNode.SetVisualDirty();
 ### OnVisualUpdated
 `public void OnVisualUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the visual updated event is raised.
+**Purpose:** Invoked when the visual updated event is raised.
 
 ```csharp
 // Obtain an instance of WeatherNode from the subsystem API first

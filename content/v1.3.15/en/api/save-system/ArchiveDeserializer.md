@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### LoadFrom
 `public void LoadFrom(byte binaryArchive)`
 
-**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
+**Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ArchiveDeserializer from the subsystem API first

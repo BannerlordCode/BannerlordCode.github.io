@@ -30,7 +30,7 @@ description: "LoadingWindowHandler 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -41,7 +41,7 @@ loadingWindowHandler.Initialize();
 ### Enable
 `public void Enable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Enable 对应的操作。
+**用途 / Purpose:** 调用 Enable 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -52,7 +52,7 @@ loadingWindowHandler.Enable();
 ### Disable
 `public void Disable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disable 对应的操作。
+**用途 / Purpose:** 调用 Disable 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -63,7 +63,7 @@ loadingWindowHandler.Disable();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
+**用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -74,7 +74,7 @@ loadingWindowHandler.Destroy();
 ### SetCurrentModeIsMultiplayer
 `public void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current mode is multiplayer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current mode is multiplayer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例

@@ -23,7 +23,7 @@ Treat `CampaignMusicHandler` as a Handler-style extension point: first identify 
 ### Create
 `public static void Create()`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "XmlResource 的自动生成类参考。"
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 XsdElement 对应的操作。
+**用途 / Purpose:** 调用 XsdElement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 XmlResource 实例
@@ -34,7 +34,7 @@ var result = xmlResource.XsdElement("example", false);
 ### ReadXsdFileAndExtractInformation
 `public static void ReadXsdFileAndExtractInformation(string xsdFilePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取xsd file and extract information的数据或状态。
+**用途 / Purpose:** 从当前实例读取xsd file and extract information相关数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ XmlResource.ReadXsdFileAndExtractInformation("example");
 ### GetFullXPathOfElement
 `public static string GetFullXPathOfElement(XElement element, bool isXsd = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 full x path of element 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 full x path of element 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ XmlResource.GetFullXPathOfElement(element, false);
 ### InitializeXmlInformationList
 `public static void InitializeXmlInformationList(List<MbObjectXmlInformation> xmlInformation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 xml information list 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 xml information list 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ XmlResource.InitializeXmlInformationList(xmlInformation);
 ### GetMbprojxmls
 `public static void GetMbprojxmls(string moduleName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mbprojxmls 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mbprojxmls 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ XmlResource.GetMbprojxmls("example");
 ### GetXmlListAndApply
 `public static void GetXmlListAndApply(string moduleName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xml list and apply 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 xml list and apply 的结果。
 
 ```csharp
 // 静态调用，不需要实例

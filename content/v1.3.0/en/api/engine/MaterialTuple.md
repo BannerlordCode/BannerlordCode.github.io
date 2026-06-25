@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### Equals
 `public bool Equals(TwoDimensionEnginePlatform.MaterialTuple other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MaterialTuple from the subsystem API first
@@ -34,7 +34,7 @@ var result = materialTuple.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MaterialTuple from the subsystem API first

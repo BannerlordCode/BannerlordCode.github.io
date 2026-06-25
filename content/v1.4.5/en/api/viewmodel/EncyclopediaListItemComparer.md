@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### Compare
 `public int Compare(EncyclopediaListItemVM x, EncyclopediaListItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemComparer from the subsystem API first

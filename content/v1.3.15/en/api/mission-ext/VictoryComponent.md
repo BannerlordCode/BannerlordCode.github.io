@@ -23,7 +23,7 @@ Treat `VictoryComponent` as a Component-style extension point: first identify wh
 ### CheckTimer
 `public bool CheckTimer()`
 
-**Purpose:** **Purpose:** Verifies whether timer holds true for the this instance.
+**Purpose:** Verifies whether timer holds true for the this instance.
 
 ```csharp
 // Obtain an instance of VictoryComponent from the subsystem API first
@@ -34,7 +34,7 @@ var result = victoryComponent.CheckTimer();
 ### ChangeTimerDuration
 `public void ChangeTimerDuration(float min, float max)`
 
-**Purpose:** **Purpose:** Executes the ChangeTimerDuration logic.
+**Purpose:** Executes the ChangeTimerDuration logic.
 
 ```csharp
 // Obtain an instance of VictoryComponent from the subsystem API first

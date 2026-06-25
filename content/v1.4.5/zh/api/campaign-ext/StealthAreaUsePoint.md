@@ -23,7 +23,7 @@ description: "StealthAreaUsePoint 的自动生成类参考。"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -34,7 +34,7 @@ var result = stealthAreaUsePoint.GetDescriptionText(gameEntity);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 use 事件触发时调用此回调。
+**用途 / Purpose:** 在 use 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -45,7 +45,7 @@ stealthAreaUsePoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
+**用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -56,7 +56,7 @@ stealthAreaUsePoint.OnUseStopped(userAgent, false, 0);
 ### DisableAgentAIs
 `public void DisableAgentAIs()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableAgentAIs 对应的操作。
+**用途 / Purpose:** 调用 DisableAgentAIs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -67,7 +67,7 @@ stealthAreaUsePoint.DisableAgentAIs();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -78,7 +78,7 @@ var result = stealthAreaUsePoint.IsDisabledForAgent(agent);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 usable by agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 usable by agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -89,7 +89,7 @@ var result = stealthAreaUsePoint.IsUsableByAgent(userAgent);
 ### EnableStealthAreaUsePoint
 `public void EnableStealthAreaUsePoint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableStealthAreaUsePoint 对应的操作。
+**用途 / Purpose:** 调用 EnableStealthAreaUsePoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -100,7 +100,7 @@ stealthAreaUsePoint.EnableStealthAreaUsePoint();
 ### DisableStealthAreaUsePoint
 `public void DisableStealthAreaUsePoint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableStealthAreaUsePoint 对应的操作。
+**用途 / Purpose:** 调用 DisableStealthAreaUsePoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例

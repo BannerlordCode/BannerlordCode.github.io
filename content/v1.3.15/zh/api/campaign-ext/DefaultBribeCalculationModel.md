@@ -23,7 +23,7 @@ description: "DefaultBribeCalculationModel 的自动生成类参考。"
 ### IsBribeNotNeededToEnterKeep
 `public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 bribe not needed to enter keep 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 bribe not needed to enter keep 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
@@ -34,7 +34,7 @@ var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement
 ### IsBribeNotNeededToEnterDungeon
 `public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 bribe not needed to enter dungeon 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 bribe not needed to enter dungeon 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
@@ -45,7 +45,7 @@ var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlem
 ### GetBribeToEnterLordsHall
 `public override int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bribe to enter lords hall 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bribe to enter lords hall 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
@@ -56,7 +56,7 @@ var result = defaultBribeCalculationModel.GetBribeToEnterLordsHall(settlement);
 ### GetBribeToEnterDungeon
 `public override int GetBribeToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bribe to enter dungeon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bribe to enter dungeon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例

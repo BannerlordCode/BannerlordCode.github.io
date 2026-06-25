@@ -29,7 +29,7 @@ description: "ConversationTag 的自动生成类参考。"
 ### IsApplicableTo
 `public abstract bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 applicable to 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 applicable to 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationTag 实例
@@ -40,7 +40,7 @@ var result = conversationTag.IsApplicableTo(character);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationTag 实例

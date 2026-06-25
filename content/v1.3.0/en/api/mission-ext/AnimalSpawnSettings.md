@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### CheckAndSetAnimalAgentFlags
 `public static void CheckAndSetAnimalAgentFlags(GameEntity spawnEntity, Agent animalAgent)`
 
-**Purpose:** **Purpose:** Verifies whether and set animal agent flags holds true for the this instance.
+**Purpose:** Verifies whether and set animal agent flags holds true for the this instance.
 
 ```csharp
 // Static call; no instance required

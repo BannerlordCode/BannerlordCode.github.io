@@ -29,7 +29,7 @@ description: "Romance 的自动生成类参考。"
 ### GetCourtedHeroInOtherClan
 `public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 courted hero in other clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 courted hero in other clan 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ Romance.GetCourtedHeroInOtherClan(person1, person2);
 ### GetRomanticLevel
 `public static Romance.RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 romantic level 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 romantic level 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ Romance.GetRomanticLevel(person1, person2);
 ### GetRomanticState
 `public static Romance.RomanticState GetRomanticState(Hero person1, Hero person2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 romantic state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 romantic state 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ Romance.GetRomanticState(person1, person2);
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Partner 对应的操作。
+**用途 / Purpose:** 调用 Partner 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Romance 实例

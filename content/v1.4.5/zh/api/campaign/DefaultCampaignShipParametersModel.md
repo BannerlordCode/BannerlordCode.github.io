@@ -23,7 +23,7 @@ description: "DefaultCampaignShipParametersModel 的自动生成类参考。"
 ### GetShipSizeWeatherFactor
 `public override float GetShipSizeWeatherFactor(ShipHull shipHull)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship size weather factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship size weather factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -34,7 +34,7 @@ var result = defaultCampaignShipParametersModel.GetShipSizeWeatherFactor(shipHul
 ### GetDefaultCombatFactor
 `public override float GetDefaultCombatFactor(ShipHull shipHull)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default combat factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default combat factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -45,7 +45,7 @@ var result = defaultCampaignShipParametersModel.GetDefaultCombatFactor(shipHull)
 ### GetCampaignSpeedBonusFactor
 `public override float GetCampaignSpeedBonusFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 campaign speed bonus factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 campaign speed bonus factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -56,7 +56,7 @@ var result = defaultCampaignShipParametersModel.GetCampaignSpeedBonusFactor(ship
 ### GetCrewCapacityBonusFactor
 `public override float GetCrewCapacityBonusFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crew capacity bonus factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crew capacity bonus factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -67,7 +67,7 @@ var result = defaultCampaignShipParametersModel.GetCrewCapacityBonusFactor(ship)
 ### GetShipWeightFactor
 `public override float GetShipWeightFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship weight factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship weight factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -78,7 +78,7 @@ var result = defaultCampaignShipParametersModel.GetShipWeightFactor(ship);
 ### GetForwardDragFactor
 `public override float GetForwardDragFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 forward drag factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 forward drag factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -89,7 +89,7 @@ var result = defaultCampaignShipParametersModel.GetForwardDragFactor(ship);
 ### GetCrewShieldHitPointsFactor
 `public override float GetCrewShieldHitPointsFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crew shield hit points factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crew shield hit points factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -100,7 +100,7 @@ var result = defaultCampaignShipParametersModel.GetCrewShieldHitPointsFactor(shi
 ### GetAdditionalAmmoBonus
 `public override int GetAdditionalAmmoBonus(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 additional ammo bonus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 additional ammo bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -111,7 +111,7 @@ var result = defaultCampaignShipParametersModel.GetAdditionalAmmoBonus(ship);
 ### GetMaxOarPowerFactor
 `public override float GetMaxOarPowerFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max oar power factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max oar power factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -122,7 +122,7 @@ var result = defaultCampaignShipParametersModel.GetMaxOarPowerFactor(ship);
 ### GetMaxOarForceFactor
 `public override float GetMaxOarForceFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max oar force factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max oar force factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -133,7 +133,7 @@ var result = defaultCampaignShipParametersModel.GetMaxOarForceFactor(ship);
 ### GetSailForceFactor
 `public override float GetSailForceFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sail force factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sail force factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -144,7 +144,7 @@ var result = defaultCampaignShipParametersModel.GetSailForceFactor(ship);
 ### GetCrewMeleeDamageFactor
 `public override float GetCrewMeleeDamageFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crew melee damage factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crew melee damage factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -155,7 +155,7 @@ var result = defaultCampaignShipParametersModel.GetCrewMeleeDamageFactor(ship);
 ### GetAdditionalArcherQuivers
 `public override int GetAdditionalArcherQuivers(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 additional archer quivers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 additional archer quivers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -166,7 +166,7 @@ var result = defaultCampaignShipParametersModel.GetAdditionalArcherQuivers(ship)
 ### GetAdditionalThrowingWeaponStack
 `public override int GetAdditionalThrowingWeaponStack(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 additional throwing weapon stack 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 additional throwing weapon stack 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -177,7 +177,7 @@ var result = defaultCampaignShipParametersModel.GetAdditionalThrowingWeaponStack
 ### GetSailRotationSpeedFactor
 `public override float GetSailRotationSpeedFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sail rotation speed factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sail rotation speed factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例
@@ -188,7 +188,7 @@ var result = defaultCampaignShipParametersModel.GetSailRotationSpeedFactor(ship)
 ### GetFurlUnfurlSpeedFactor
 `public override float GetFurlUnfurlSpeedFactor(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 furl unfurl speed factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 furl unfurl speed factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCampaignShipParametersModel 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -40,7 +40,7 @@ bannerTableau.OnTick(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -51,7 +51,7 @@ bannerTableau.SetTargetSize(0, 0);
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
+**Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -62,7 +62,7 @@ bannerTableau.SetBannerCode("example");
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -73,7 +73,7 @@ bannerTableau.OnFinalize();
 ### SetCustomRenderScale
 `public void SetCustomRenderScale(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom render scale and updates the object's internal state.
+**Purpose:** Assigns a new value to custom render scale and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -84,7 +84,7 @@ bannerTableau.SetCustomRenderScale(0);
 ### SetIsNineGrid
 `public void SetIsNineGrid(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to is nine grid and updates the object's internal state.
+**Purpose:** Assigns a new value to is nine grid and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -95,7 +95,7 @@ bannerTableau.SetIsNineGrid(false);
 ### SetMeshIndexToUpdate
 `public void SetMeshIndexToUpdate(int value)`
 
-**Purpose:** **Purpose:** Assigns a new value to mesh index to update and updates the object's internal state.
+**Purpose:** Assigns a new value to mesh index to update and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -106,7 +106,7 @@ bannerTableau.SetMeshIndexToUpdate(0);
 ### SetUpdatePositionValueManual
 `public void SetUpdatePositionValueManual(Vec2 value)`
 
-**Purpose:** **Purpose:** Assigns a new value to update position value manual and updates the object's internal state.
+**Purpose:** Assigns a new value to update position value manual and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -117,7 +117,7 @@ bannerTableau.SetUpdatePositionValueManual(value);
 ### SetUpdateSizeValueManual
 `public void SetUpdateSizeValueManual(Vec2 value)`
 
-**Purpose:** **Purpose:** Assigns a new value to update size value manual and updates the object's internal state.
+**Purpose:** Assigns a new value to update size value manual and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first
@@ -128,7 +128,7 @@ bannerTableau.SetUpdateSizeValueManual(value);
 ### SetUpdateRotationValueManual
 `public void SetUpdateRotationValueManual((float, bool) value)`
 
-**Purpose:** **Purpose:** Assigns a new value to update rotation value manual and updates the object's internal state.
+**Purpose:** Assigns a new value to update rotation value manual and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerTableau from the subsystem API first

@@ -23,7 +23,7 @@ description: "MultiplayerOptionsExtensions 的自动生成类参考。"
 ### GetValueText
 `public static string GetValueText(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerOptionsExtensions.GetValueText(optionType, multiplayerOptions.Multipl
 ### GetBoolValue
 `public static bool GetBoolValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bool value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bool value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MultiplayerOptionsExtensions.GetBoolValue(optionType, multiplayerOptions.Multipl
 ### GetIntValue
 `public static int GetIntValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 int value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 int value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MultiplayerOptionsExtensions.GetIntValue(optionType, multiplayerOptions.Multipla
 ### GetStrValue
 `public static string GetStrValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 str value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 str value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MultiplayerOptionsExtensions.GetStrValue(optionType, multiplayerOptions.Multipla
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, bool value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, false, multiplayerOptions.Mult
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, int value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, 0, multiplayerOptions.Multipla
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, string value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, "example", multiplayerOptions.
 ### GetMinimumValue
 `public static int GetMinimumValue(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 minimum value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 minimum value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ MultiplayerOptionsExtensions.GetMinimumValue(optionType);
 ### GetMaximumValue
 `public static int GetMaximumValue(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ MultiplayerOptionsExtensions.GetMaximumValue(optionType);
 ### GetOptionProperty
 `public static MultiplayerOptionsProperty GetOptionProperty(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option property 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option property 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "IntermissionVoteItemListExtensions 的自动生成类参考。"
 ### ContainsItem
 `public static bool ContainsItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含item。
+**用途 / Purpose:** 检查当前对象是否含有item。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example"
 ### Add
 `public static IntermissionVoteItem Add(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ IntermissionVoteItemListExtensions.Add(intermissionVoteItems, "example");
 ### GetItem
 `public static IntermissionVoteItem GetItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item 的结果。
 
 ```csharp
 // 静态调用，不需要实例

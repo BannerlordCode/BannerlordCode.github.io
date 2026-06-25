@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GauntletCraftingScreen from the subsystem API first
@@ -34,7 +34,7 @@ gauntletCraftingScreen.Initialize();
 ### OnCraftingLogicInitialized
 `public void OnCraftingLogicInitialized()`
 
-**Purpose:** **Purpose:** Invoked when the crafting logic initialized event is raised.
+**Purpose:** Invoked when the crafting logic initialized event is raised.
 
 ```csharp
 // Obtain an instance of GauntletCraftingScreen from the subsystem API first
@@ -45,7 +45,7 @@ gauntletCraftingScreen.OnCraftingLogicInitialized();
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed()`
 
-**Purpose:** **Purpose:** Invoked when the crafting logic refreshed event is raised.
+**Purpose:** Invoked when the crafting logic refreshed event is raised.
 
 ```csharp
 // Obtain an instance of GauntletCraftingScreen from the subsystem API first

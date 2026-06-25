@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Show
 `public static NativeMessageBox.Result Show(string text, string caption = "Message", NativeMessageBox.Buttons buttons = NativeMessageBox.Buttons.OK, NativeMessageBox.Icon icon = NativeMessageBox.Icon.None)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with the this instance.
+**Purpose:** Displays the UI or element associated with the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `CampaignBehaviorManager` as a Manager-style extension point: first identi
 ### InitializeCampaignBehaviors
 `public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by campaign behaviors.
+**Purpose:** Prepares the resources, state, or bindings required by campaign behaviors.
 
 ```csharp
 // Obtain an instance of CampaignBehaviorManager from the subsystem API first
@@ -34,7 +34,7 @@ campaignBehaviorManager.InitializeCampaignBehaviors(inputComponents);
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CampaignBehaviorManager from the subsystem API first
@@ -45,7 +45,7 @@ campaignBehaviorManager.RegisterEvents();
 ### LoadBehaviorData
 `public void LoadBehaviorData()`
 
-**Purpose:** **Purpose:** Reads behavior data from persistent storage or a stream.
+**Purpose:** Reads behavior data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CampaignBehaviorManager from the subsystem API first
@@ -56,7 +56,7 @@ campaignBehaviorManager.LoadBehaviorData();
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**Purpose:** **Purpose:** Adds behavior to the current collection or state.
+**Purpose:** Adds behavior to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignBehaviorManager from the subsystem API first
@@ -67,7 +67,7 @@ campaignBehaviorManager.AddBehavior(campaignBehavior);
 ### ClearBehaviors
 `public void ClearBehaviors()`
 
-**Purpose:** **Purpose:** Removes all behaviors from the this instance.
+**Purpose:** Removes all behaviors from the this instance.
 
 ```csharp
 // Obtain an instance of CampaignBehaviorManager from the subsystem API first

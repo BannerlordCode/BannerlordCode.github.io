@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ParallelForAuxPredicate
 `public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
 
-**Purpose:** **Purpose:** Executes the ParallelForAuxPredicate logic.
+**Purpose:** Executes the ParallelForAuxPredicate logic.
 
 ```csharp
 // Obtain an instance of TWParallel from the subsystem API first
@@ -34,7 +34,7 @@ tWParallel.ParallelForAuxPredicate(0, 0);
 ### ParallelForWithDtAuxPredicate
 `public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
 
-**Purpose:** **Purpose:** Executes the ParallelForWithDtAuxPredicate logic.
+**Purpose:** Executes the ParallelForWithDtAuxPredicate logic.
 
 ```csharp
 // Obtain an instance of TWParallel from the subsystem API first
@@ -45,7 +45,7 @@ tWParallel.ParallelForWithDtAuxPredicate(0, 0, 0);
 ### InitializeAndSetImplementation
 `public static void InitializeAndSetImplementation(IParallelDriver parallelDriver)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by and set implementation.
+**Purpose:** Prepares the resources, state, or bindings required by and set implementation.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ TWParallel.InitializeAndSetImplementation(parallelDriver);
 ### For
 `public static void For(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** **Purpose:** Executes the For logic.
+**Purpose:** Executes the For logic.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ TWParallel.For(0, 0, body, 0);
 ### ForWithoutRenderThread
 `public static void ForWithoutRenderThread(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** **Purpose:** Executes the ForWithoutRenderThread logic.
+**Purpose:** Executes the ForWithoutRenderThread logic.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ TWParallel.ForWithoutRenderThread(0, 0, body, 0);
 ### ForWithoutRenderThreadDt
 `public static void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** **Purpose:** Executes the ForWithoutRenderThreadDt logic.
+**Purpose:** Executes the ForWithoutRenderThreadDt logic.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ TWParallel.ForWithoutRenderThreadDt(0, 0, 0, body, 0);
 ### For
 `public static void For(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** **Purpose:** Executes the For logic.
+**Purpose:** Executes the For logic.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ TWParallel.For(0, 0, 0, body, 0);
 ### AssertIsMainThread
 `public static void AssertIsMainThread()`
 
-**Purpose:** **Purpose:** Executes the AssertIsMainThread logic.
+**Purpose:** Executes the AssertIsMainThread logic.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ TWParallel.AssertIsMainThread();
 ### IsMainThread
 `public static bool IsMainThread()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the main thread state or condition.
+**Purpose:** Determines whether the this instance is in the main thread state or condition.
 
 ```csharp
 // Static call; no instance required

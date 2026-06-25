@@ -23,7 +23,7 @@ Treat `SkirmishScoreboardData` as a Data-style extension point: first identify w
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** **Purpose:** Reads and returns the scoreboard headers value held by the this instance.
+**Purpose:** Reads and returns the scoreboard headers value held by the this instance.
 
 ```csharp
 // Obtain an instance of SkirmishScoreboardData from the subsystem API first

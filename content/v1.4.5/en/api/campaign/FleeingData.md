@@ -23,7 +23,7 @@ Treat `FleeingData` as a Data-style extension point: first identify who creates 
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of FleeingData from the subsystem API first

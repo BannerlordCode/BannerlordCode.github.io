@@ -19,7 +19,7 @@ StartMercenaryServiceAction is a set of static methods that trigger "StartMercen
 public static void ApplyByDefault(Clan clan, Kingdom kingdom, int awardMultiplier)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by default to the this instance.
+**Purpose:** Applies the effect of by default to the this instance.
 
 ## Usage Example
 

@@ -31,7 +31,7 @@ Treat `BattleEndLogic` as a Logic-style extension point: first identify who crea
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -42,7 +42,7 @@ battleEndLogic.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -53,7 +53,7 @@ battleEndLogic.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -64,7 +64,7 @@ battleEndLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingB
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** **Purpose:** Executes the MissionEnded logic.
+**Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -75,7 +75,7 @@ var result = battleEndLogic.MissionEnded(missionResult);
 ### ChangeCanCheckForEndCondition
 `public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
 
-**Purpose:** **Purpose:** Executes the ChangeCanCheckForEndCondition logic.
+**Purpose:** Executes the ChangeCanCheckForEndCondition logic.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -86,7 +86,7 @@ battleEndLogic.ChangeCanCheckForEndCondition(false);
 ### TryExit
 `public BattleEndLogic.ExitResult TryExit()`
 
-**Purpose:** **Purpose:** Attempts to retrieve exit, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve exit, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -97,7 +97,7 @@ var result = battleEndLogic.TryExit();
 ### EnableEnemyDefenderPullBack
 `public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
 
-**Purpose:** **Purpose:** Executes the EnableEnemyDefenderPullBack logic.
+**Purpose:** Executes the EnableEnemyDefenderPullBack logic.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first
@@ -108,7 +108,7 @@ battleEndLogic.EnableEnemyDefenderPullBack(0);
 ### SetNotificationDisabled
 `public void SetNotificationDisabled(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to notification disabled and updates the object's internal state.
+**Purpose:** Assigns a new value to notification disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleEndLogic from the subsystem API first

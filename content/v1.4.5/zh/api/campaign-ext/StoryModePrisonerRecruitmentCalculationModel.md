@@ -23,7 +23,7 @@ description: "StoryModePrisonerRecruitmentCalculationModel 的自动生成类参
 ### CalculateRecruitableNumber
 `public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算recruitable number的当前值或结果。
+**用途 / Purpose:** 计算recruitable number的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
@@ -34,7 +34,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.CalculateRecruitableNu
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conformity change per hour 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conformity change per hour 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
@@ -45,7 +45,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetConformityChangePer
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conformity needed to recruit prisoner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conformity needed to recruit prisoner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
@@ -56,7 +56,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetConformityNeededToR
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prisoner recruitment morale effect 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prisoner recruitment morale effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
@@ -67,7 +67,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetPrisonerRecruitment
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 prisoner recruitable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 prisoner recruitable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
@@ -78,7 +78,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldPartyRecruitPrisoners 对应的操作。
+**用途 / Purpose:** 调用 ShouldPartyRecruitPrisoners 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例

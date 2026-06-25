@@ -23,7 +23,7 @@ description: "MultiplayerBattleBannerBearersModel 的自动生成类参考。"
 ### GetMinimumFormationTroopCountToBearBanners
 `public override int GetMinimumFormationTroopCountToBearBanners()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 minimum formation troop count to bear banners 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 minimum formation troop count to bear banners 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -34,7 +34,7 @@ var result = multiplayerBattleBannerBearersModel.GetMinimumFormationTroopCountTo
 ### GetBannerInteractionDistance
 `public override float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner interaction distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner interaction distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -45,7 +45,7 @@ var result = multiplayerBattleBannerBearersModel.GetBannerInteractionDistance(in
 ### CanAgentPickUpAnyBanner
 `public override bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent pick up any banner 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 agent pick up any banner 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -56,7 +56,7 @@ var result = multiplayerBattleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
 ### CanBannerBearerProvideEffectToFormation
 `public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 banner bearer provide effect to formation 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 banner bearer provide effect to formation 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -67,7 +67,7 @@ var result = multiplayerBattleBannerBearersModel.CanBannerBearerProvideEffectToF
 ### CanAgentBecomeBannerBearer
 `public override bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent become banner bearer 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 agent become banner bearer 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -78,7 +78,7 @@ var result = multiplayerBattleBannerBearersModel.CanAgentBecomeBannerBearer(agen
 ### GetAgentBannerBearingPriority
 `public override int GetAgentBannerBearingPriority(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent banner bearing priority 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agent banner bearing priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -89,7 +89,7 @@ var result = multiplayerBattleBannerBearersModel.GetAgentBannerBearingPriority(a
 ### CanFormationDeployBannerBearers
 `public override bool CanFormationDeployBannerBearers(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 formation deploy banner bearers 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 formation deploy banner bearers 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -100,7 +100,7 @@ var result = multiplayerBattleBannerBearersModel.CanFormationDeployBannerBearers
 ### GetDesiredNumberOfBannerBearersForFormation
 `public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 desired number of banner bearers for formation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 desired number of banner bearers for formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例
@@ -111,7 +111,7 @@ var result = multiplayerBattleBannerBearersModel.GetDesiredNumberOfBannerBearers
 ### GetBannerBearerReplacementWeapon
 `public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner bearer replacement weapon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner bearer replacement weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleBannerBearersModel 实例

@@ -37,7 +37,7 @@ description: "TransferCommand 的自动生成类参考。"
 ### Transfer
 `public static TransferCommand Transfer(int amount, InventoryLogic.InventorySide fromSide, InventoryLogic.InventorySide toSide, ItemRosterElement elementToTransfer, EquipmentIndex fromEquipmentIndex, EquipmentIndex toEquipmentIndex, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Transfer 对应的操作。
+**用途 / Purpose:** 调用 Transfer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

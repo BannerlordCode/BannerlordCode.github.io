@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### ValidateCreateTableauTextures
 `public void ValidateCreateTableauTextures()`
 
-**Purpose:** **Purpose:** Checks whether create tableau textures satisfies the required constraints, usually returning a boolean.
+**Purpose:** Checks whether create tableau textures satisfies the required constraints, usually returning a boolean.
 
 ```csharp
 // Obtain an instance of BannerVisual from the subsystem API first
@@ -40,7 +40,7 @@ bannerVisual.ValidateCreateTableauTextures();
 ### GetTableauTextureSmall
 `public Texture GetTableauTextureSmall(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture small value held by the this instance.
+**Purpose:** Reads and returns the tableau texture small value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerVisual from the subsystem API first
@@ -51,7 +51,7 @@ var result = bannerVisual.GetTableauTextureSmall(setAction, false);
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
+**Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerVisual from the subsystem API first
@@ -62,7 +62,7 @@ var result = bannerVisual.GetTableauTextureLarge(setAction, false);
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, out BannerThumbnailCreationData creationData, bool isTableauOrNineGrid = true)`
 
-**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
+**Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerVisual from the subsystem API first
@@ -73,7 +73,7 @@ var result = bannerVisual.GetTableauTextureLarge(setAction, creationData, false)
 ### GetMeshMatrix
 `public static MatrixFrame GetMeshMatrix(ref Mesh mesh, float marginLeft, float marginTop, float width, float height, bool mirrored, float rotation, float deltaZ)`
 
-**Purpose:** **Purpose:** Reads and returns the mesh matrix value held by the this instance.
+**Purpose:** Reads and returns the mesh matrix value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ BannerVisual.GetMeshMatrix(mesh, 0, 0, 0, 0, false, 0, 0);
 ### ConvertToMultiMesh
 `public MetaMesh ConvertToMultiMesh()`
 
-**Purpose:** **Purpose:** Converts to multi mesh into another representation or type.
+**Purpose:** Converts to multi mesh into another representation or type.
 
 ```csharp
 // Obtain an instance of BannerVisual from the subsystem API first

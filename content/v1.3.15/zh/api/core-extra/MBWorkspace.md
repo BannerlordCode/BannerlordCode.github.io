@@ -23,7 +23,7 @@ description: "MBWorkspace 的自动生成类参考。"
 ### StartUsingWorkspace
 `public T StartUsingWorkspace()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动using workspace流程或状态机。
+**用途 / Purpose:** 启动using workspace流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MBWorkspace 实例
@@ -34,7 +34,7 @@ var result = mBWorkspace.StartUsingWorkspace();
 ### StopUsingWorkspace
 `public void StopUsingWorkspace()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止using workspace流程或状态机。
+**用途 / Purpose:** 停止using workspace流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MBWorkspace 实例
@@ -45,7 +45,7 @@ mBWorkspace.StopUsingWorkspace();
 ### GetWorkspace
 `public T GetWorkspace()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 workspace 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 workspace 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBWorkspace 实例

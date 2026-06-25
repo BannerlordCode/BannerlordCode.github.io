@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsablePlace from the subsystem API first
@@ -34,7 +34,7 @@ var result = usablePlace.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsablePlace from the subsystem API first
@@ -45,7 +45,7 @@ var result = usablePlace.GetActionTextForStandingPoint(usableGameObject);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of UsablePlace from the subsystem API first

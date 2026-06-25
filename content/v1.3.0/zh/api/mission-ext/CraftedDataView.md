@@ -35,7 +35,7 @@ description: "CraftedDataView 的自动生成类参考。"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftedDataView 实例
@@ -46,7 +46,7 @@ craftedDataView.Clear();
 ### BuildWeaponMesh
 `public static MetaMesh BuildWeaponMesh(WeaponDesign craftedData, float pivotDiff, bool pieceTypeHidingEnabledForHolster, bool batchAllMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回weapon mesh的构建结果。
+**用途 / Purpose:** 组装并返回weapon mesh的构建结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ CraftedDataView.BuildWeaponMesh(craftedData, 0, false, false);
 ### BuildHolsterMesh
 `public static MetaMesh BuildHolsterMesh(WeaponDesign craftedData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回holster mesh的构建结果。
+**用途 / Purpose:** 组装并返回holster mesh的构建结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ CraftedDataView.BuildHolsterMesh(craftedData);
 ### BuildHolsterMeshWithWeapon
 `public static MetaMesh BuildHolsterMeshWithWeapon(WeaponDesign craftedData, float pivotDiff, bool batchAllMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回holster mesh with weapon的构建结果。
+**用途 / Purpose:** 组装并返回holster mesh with weapon的构建结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ CraftedDataView.BuildHolsterMeshWithWeapon(craftedData, 0, false);
 ### OnMeshBuiltDelegate
 `public delegate void OnMeshBuiltDelegate(WeaponDesign weaponDesign, ref MetaMesh builtMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mesh built delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 mesh built delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftedDataView 实例

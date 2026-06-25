@@ -23,7 +23,7 @@ description: "CinematicBurningArrow 的自动生成类参考。"
 ### StartMovement
 `public void StartMovement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动movement流程或状态机。
+**用途 / Purpose:** 启动movement流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 CinematicBurningArrow 实例
@@ -34,7 +34,7 @@ cinematicBurningArrow.StartMovement();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CinematicBurningArrow 实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed`
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SPKillFeedVM from the subsystem API first
@@ -41,7 +41,7 @@ sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**Purpose:** **Purpose:** Invoked when the personal kill event is raised.
+**Purpose:** Invoked when the personal kill event is raised.
 
 ```csharp
 // Obtain an instance of SPKillFeedVM from the subsystem API first
@@ -52,7 +52,7 @@ sPKillFeedVM.OnPersonalKill(0, false, false, false, "example", false);
 ### OnPersonalDamage
 `public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)`
 
-**Purpose:** **Purpose:** Invoked when the personal damage event is raised.
+**Purpose:** Invoked when the personal damage event is raised.
 
 ```csharp
 // Obtain an instance of SPKillFeedVM from the subsystem API first
@@ -63,7 +63,7 @@ sPKillFeedVM.OnPersonalDamage(0, false, false, "example");
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**Purpose:** **Purpose:** Invoked when the personal message event is raised.
+**Purpose:** Invoked when the personal message event is raised.
 
 ```csharp
 // Obtain an instance of SPKillFeedVM from the subsystem API first

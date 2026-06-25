@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to agent items visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to agent items visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PatrolPoint from the subsystem API first
@@ -34,7 +34,7 @@ patrolPoint.SetAgentItemsVisibility(false);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use event is raised.
+**Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of PatrolPoint from the subsystem API first
@@ -45,7 +45,7 @@ patrolPoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
+**Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of PatrolPoint from the subsystem API first
@@ -56,7 +56,7 @@ patrolPoint.OnUseStopped(userAgent, false, 0);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of PatrolPoint from the subsystem API first

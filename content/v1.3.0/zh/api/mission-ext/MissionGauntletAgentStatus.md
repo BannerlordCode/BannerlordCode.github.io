@@ -29,7 +29,7 @@ description: "MissionGauntletAgentStatus 的自动生成类参考。"
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission state activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission state activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -40,7 +40,7 @@ missionGauntletAgentStatus.OnMissionStateActivated();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -51,7 +51,7 @@ missionGauntletAgentStatus.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -62,7 +62,7 @@ missionGauntletAgentStatus.AfterStart();
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -73,7 +73,7 @@ missionGauntletAgentStatus.OnMissionScreenInitialize();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -84,7 +84,7 @@ missionGauntletAgentStatus.OnDeploymentFinished();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -95,7 +95,7 @@ missionGauntletAgentStatus.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -106,7 +106,7 @@ missionGauntletAgentStatus.OnMissionScreenTick(0);
 ### OnFocusGained
 `public override void OnFocusGained(Agent mainAgent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -117,7 +117,7 @@ missionGauntletAgentStatus.OnFocusGained(mainAgent, focusableObject, false);
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -128,7 +128,7 @@ missionGauntletAgentStatus.OnAgentInteraction(userAgent, agent, 0);
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -139,7 +139,7 @@ missionGauntletAgentStatus.OnFocusLost(agent, focusableObject);
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent deleted 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent deleted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -150,7 +150,7 @@ missionGauntletAgentStatus.OnAgentDeleted(affectedAgent);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -161,7 +161,7 @@ missionGauntletAgentStatus.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例
@@ -172,7 +172,7 @@ missionGauntletAgentStatus.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAgentStatus 实例

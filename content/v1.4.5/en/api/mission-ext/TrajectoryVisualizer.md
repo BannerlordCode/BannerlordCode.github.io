@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetTrajectoryParams
 `public void SetTrajectoryParams(Vec3 missileShootingPositionOffset, float missileSpeed, float verticalAngleMinInDegrees, float verticalAngleMaxInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**Purpose:** **Purpose:** Assigns a new value to trajectory params and updates the object's internal state.
+**Purpose:** Assigns a new value to trajectory params and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TrajectoryVisualizer from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### DuelArenaProperties
 `public struct DuelArenaProperties(GameEntity flagEntity, int index, TroopType arenaTroopType)`
 
-**Purpose:** **Purpose:** Executes the DuelArenaProperties logic.
+**Purpose:** Executes the DuelArenaProperties logic.
 
 ```csharp
 // Obtain an instance of DuelArenaProperties from the subsystem API first

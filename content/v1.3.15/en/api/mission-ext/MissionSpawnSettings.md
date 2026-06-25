@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateDefaultSpawnSettings
 `public static MissionSpawnSettings CreateDefaultSpawnSettings()`
 
-**Purpose:** **Purpose:** Constructs a new default spawn settings entity and returns it to the caller.
+**Purpose:** Constructs a new default spawn settings entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

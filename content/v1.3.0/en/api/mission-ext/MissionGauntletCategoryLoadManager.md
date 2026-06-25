@@ -23,7 +23,7 @@ Treat `MissionGauntletCategoryLoadManager` as a Manager-style extension point: f
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletCategoryLoadManager.AfterStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletCategoryLoadManager.OnMissionScreenFinalize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first

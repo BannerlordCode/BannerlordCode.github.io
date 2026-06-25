@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this CSteamID steamId)`
 
-**Purpose:** **Purpose:** Executes the ToPlayerId logic.
+**Purpose:** Executes the ToPlayerId logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SteamPlayerIdExtensions.ToPlayerId(steamId);
 ### ToSteamId
 `public static CSteamID ToSteamId(this PlayerId playerId)`
 
-**Purpose:** **Purpose:** Executes the ToSteamId logic.
+**Purpose:** Executes the ToSteamId logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SteamPlayerIdExtensions.ToSteamId(playerId);
 ### IsValidSteamId
 `public static bool IsValidSteamId(this PlayerId playerId)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid steam id state or condition.
+**Purpose:** Determines whether the this instance is in the valid steam id state or condition.
 
 ```csharp
 // Static call; no instance required

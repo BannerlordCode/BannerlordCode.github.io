@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
@@ -49,7 +49,7 @@ orderOfBattleFormationClassVM.RefreshValues();
 ### UpdateTroopCountText
 `public void UpdateTroopCountText()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of troop count text.
+**Purpose:** Recalculates and stores the latest representation of troop count text.
 
 ```csharp
 // Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
@@ -60,7 +60,7 @@ orderOfBattleFormationClassVM.UpdateTroopCountText();
 ### SetWeightAdjustmentLock
 `public void SetWeightAdjustmentLock(bool isLocked)`
 
-**Purpose:** **Purpose:** Assigns a new value to weight adjustment lock and updates the object's internal state.
+**Purpose:** Assigns a new value to weight adjustment lock and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
@@ -71,7 +71,7 @@ orderOfBattleFormationClassVM.SetWeightAdjustmentLock(false);
 ### UpdateWeightAdjustable
 `public void UpdateWeightAdjustable()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of weight adjustable.
+**Purpose:** Recalculates and stores the latest representation of weight adjustable.
 
 ```csharp
 // Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first

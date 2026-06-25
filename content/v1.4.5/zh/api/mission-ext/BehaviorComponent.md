@@ -34,7 +34,7 @@ description: "BehaviorComponent 的自动生成类参考。"
 ### OnBehaviorCanceled
 `public virtual void OnBehaviorCanceled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior canceled 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -45,7 +45,7 @@ behaviorComponent.OnBehaviorCanceled();
 ### OnLostAIControl
 `public virtual void OnLostAIControl()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 lost a i control 事件触发时调用此回调。
+**用途 / Purpose:** 在 lost a i control 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -56,7 +56,7 @@ behaviorComponent.OnLostAIControl();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -67,7 +67,7 @@ behaviorComponent.OnAgentRemoved(agent);
 ### RemindSergeantPlayer
 `public void RemindSergeantPlayer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RemindSergeantPlayer 对应的操作。
+**用途 / Purpose:** 调用 RemindSergeantPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -78,7 +78,7 @@ behaviorComponent.RemindSergeantPlayer();
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -89,7 +89,7 @@ behaviorComponent.TickOccasionally();
 ### GetAIWeight
 `public float GetAIWeight()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 a i weight 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 a i weight 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -100,7 +100,7 @@ var result = behaviorComponent.GetAIWeight();
 ### ResetBehavior
 `public virtual void ResetBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 behavior 重置回默认或初始状态。
+**用途 / Purpose:** 将 behavior 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -111,7 +111,7 @@ behaviorComponent.ResetBehavior();
 ### GetBehaviorString
 `public virtual TextObject GetBehaviorString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -122,7 +122,7 @@ var result = behaviorComponent.GetBehaviorString();
 ### OnValidBehaviorSideChanged
 `public virtual void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 valid behavior side changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 valid behavior side changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -133,7 +133,7 @@ behaviorComponent.OnValidBehaviorSideChanged();
 ### PrecalculateMovementOrder
 `public void PrecalculateMovementOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PrecalculateMovementOrder 对应的操作。
+**用途 / Purpose:** 调用 PrecalculateMovementOrder 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -144,7 +144,7 @@ behaviorComponent.PrecalculateMovementOrder();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -155,7 +155,7 @@ var result = behaviorComponent.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -166,7 +166,7 @@ var result = behaviorComponent.GetHashCode();
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例

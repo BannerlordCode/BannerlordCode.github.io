@@ -29,7 +29,7 @@ description: "DeploymentHandler 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -40,7 +40,7 @@ deploymentHandler.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -51,7 +51,7 @@ deploymentHandler.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -62,7 +62,7 @@ deploymentHandler.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -73,7 +73,7 @@ deploymentHandler.OnRemoveBehavior();
 ### OnBattleSideDeployed
 `public override void OnBattleSideDeployed(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 battle side deployed 事件触发时调用此回调。
+**用途 / Purpose:** 在 battle side deployed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -84,7 +84,7 @@ deploymentHandler.OnBattleSideDeployed(side);
 ### AutoDeployTeamUsingDeploymentPlan
 `public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AutoDeployTeamUsingDeploymentPlan 对应的操作。
+**用途 / Purpose:** 调用 AutoDeployTeamUsingDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -95,7 +95,7 @@ deploymentHandler.AutoDeployTeamUsingDeploymentPlan(playerTeam);
 ### ForceUpdateAllUnits
 `public abstract void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceUpdateAllUnits 对应的操作。
+**用途 / Purpose:** 调用 ForceUpdateAllUnits 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -106,7 +106,7 @@ deploymentHandler.ForceUpdateAllUnits();
 ### FinishDeployment
 `public virtual void FinishDeployment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 结束deployment流程并执行必要的收尾工作。
+**用途 / Purpose:** 结束deployment流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -117,7 +117,7 @@ deploymentHandler.FinishDeployment();
 ### InitializeDeploymentPoints
 `public void InitializeDeploymentPoints()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 deployment points 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 deployment points 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例

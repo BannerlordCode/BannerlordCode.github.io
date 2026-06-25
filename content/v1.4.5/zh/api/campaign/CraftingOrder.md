@@ -23,7 +23,7 @@ description: "CraftingOrder 的自动生成类参考。"
 ### InitializeCraftingOrderOnLoad
 `public void InitializeCraftingOrderOnLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 crafting order on load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 crafting order on load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -34,7 +34,7 @@ craftingOrder.InitializeCraftingOrderOnLoad();
 ### IsPreCraftedWeaponDesignValid
 `public bool IsPreCraftedWeaponDesignValid()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 pre crafted weapon design valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 pre crafted weapon design valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -45,7 +45,7 @@ var result = craftingOrder.IsPreCraftedWeaponDesignValid();
 ### GetStatWeapon
 `public WeaponComponentData GetStatWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat weapon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 stat weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -56,7 +56,7 @@ var result = craftingOrder.GetStatWeapon();
 ### IsOrderAvailableForHero
 `public bool IsOrderAvailableForHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 order available for hero 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 order available for hero 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -67,7 +67,7 @@ var result = craftingOrder.IsOrderAvailableForHero(hero);
 ### CanHeroCompleteOrder
 `public bool CanHeroCompleteOrder(Hero hero, ItemObject craftDesignItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero complete order 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 hero complete order 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -78,7 +78,7 @@ var result = craftingOrder.CanHeroCompleteOrder(hero, craftDesignItem);
 ### GetOrderExperience
 `public float GetOrderExperience(ItemObject craftedItem, ItemModifier itemModifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order experience 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 order experience 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -89,7 +89,7 @@ var result = craftingOrder.GetOrderExperience(craftedItem, itemModifier);
 ### CheckForBonusesAndPenalties
 `public void CheckForBonusesAndPenalties(ItemObject craftedItem, ItemModifier itemModifier, out float craftedStatsSum, out float requiredStatsSum, out bool thrustDamageCheck, out bool swingDamageCheck)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查for bonuses and penalties在当前对象中是否成立。
+**用途 / Purpose:** 检查for bonuses and penalties在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例
@@ -100,7 +100,7 @@ craftingOrder.CheckForBonusesAndPenalties(craftedItem, itemModifier, craftedStat
 ### GetStatDataForItem
 `public List<CraftingStatData> GetStatDataForItem(ItemObject itemObject, out WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat data for item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 stat data for item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingOrder 实例

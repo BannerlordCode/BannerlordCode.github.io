@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CaptureTheFlagCapturePoint from the subsystem API first

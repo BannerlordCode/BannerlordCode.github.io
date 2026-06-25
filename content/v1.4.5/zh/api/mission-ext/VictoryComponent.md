@@ -23,7 +23,7 @@ description: "VictoryComponent 的自动生成类参考。"
 ### CheckTimer
 `public bool CheckTimer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查timer在当前对象中是否成立。
+**用途 / Purpose:** 检查timer在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 VictoryComponent 实例
@@ -34,7 +34,7 @@ var result = victoryComponent.CheckTimer();
 ### ChangeTimerDuration
 `public void ChangeTimerDuration(float min, float max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeTimerDuration 对应的操作。
+**用途 / Purpose:** 调用 ChangeTimerDuration 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VictoryComponent 实例

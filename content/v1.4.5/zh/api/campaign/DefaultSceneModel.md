@@ -23,7 +23,7 @@ description: "DefaultSceneModel 的自动生成类参考。"
 ### GetBattleSceneForMapPatch
 `public override string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle scene for map patch 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 battle scene for map patch 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSceneModel 实例
@@ -34,7 +34,7 @@ var result = defaultSceneModel.GetBattleSceneForMapPatch(mapPatch, false);
 ### GetConversationSceneForMapPosition
 `public override string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conversation scene for map position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conversation scene for map position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSceneModel 实例

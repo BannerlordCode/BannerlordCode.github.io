@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### PartyConditionDelegateType
 `public delegate bool PartyConditionDelegateType(PartyBase defeatedParty)`
 
-**Purpose:** **Purpose:** Executes the PartyConditionDelegateType logic.
+**Purpose:** Executes the PartyConditionDelegateType logic.
 
 ```csharp
 // Obtain an instance of DefeatPartyQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ var result = defeatPartyQuestTask.PartyConditionDelegateType(defeatedParty);
 ### OnPartyDefeatedDelegateType
 `public delegate void OnPartyDefeatedDelegateType(PartyBase party)`
 
-**Purpose:** **Purpose:** Invoked when the party defeated delegate type event is raised.
+**Purpose:** Invoked when the party defeated delegate type event is raised.
 
 ```csharp
 // Obtain an instance of DefeatPartyQuestTask from the subsystem API first
@@ -45,7 +45,7 @@ defeatPartyQuestTask.OnPartyDefeatedDelegateType(party);
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** **Purpose:** Invoked when the map event ended event is raised.
+**Purpose:** Invoked when the map event ended event is raised.
 
 ```csharp
 // Obtain an instance of DefeatPartyQuestTask from the subsystem API first
@@ -56,7 +56,7 @@ defeatPartyQuestTask.OnMapEventEnded(mapEvent);
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DefeatPartyQuestTask from the subsystem API first

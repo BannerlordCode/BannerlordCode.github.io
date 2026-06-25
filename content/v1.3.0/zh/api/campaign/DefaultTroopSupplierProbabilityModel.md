@@ -23,7 +23,7 @@ description: "DefaultTroopSupplierProbabilityModel 的自动生成类参考。"
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization 对应的操作。
+**用途 / Purpose:** 调用 EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTroopSupplierProbabilityModel 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### ExecuteActiveLink
 `public void ExecuteActiveLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with active link.
+**Purpose:** Runs the operation or workflow associated with active link.
 
 ```csharp
 // Obtain an instance of EncyclopediaLinkVM from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
+**Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of DuelZoneLandmark from the subsystem API first
@@ -41,7 +41,7 @@ duelZoneLandmark.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
+**Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of DuelZoneLandmark from the subsystem API first
@@ -52,7 +52,7 @@ duelZoneLandmark.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** **Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
+**Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
 
 ```csharp
 // Obtain an instance of DuelZoneLandmark from the subsystem API first
@@ -63,7 +63,7 @@ var result = duelZoneLandmark.GetInfoTextForBeingNotInteractable(userAgent);
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DuelZoneLandmark from the subsystem API first

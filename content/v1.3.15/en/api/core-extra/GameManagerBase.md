@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -47,7 +47,7 @@ gameManagerBase.Initialize();
 ### AddComponent
 `public GameManagerComponent AddComponent(Type componentType)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -58,7 +58,7 @@ var result = gameManagerBase.AddComponent(componentType);
 ### GetComponent
 `public GameManagerComponent GetComponent(Type componentType)`
 
-**Purpose:** **Purpose:** Reads and returns the component value held by the this instance.
+**Purpose:** Reads and returns the component value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -69,7 +69,7 @@ var result = gameManagerBase.GetComponent(componentType);
 ### RemoveComponent
 `public void RemoveComponent(GameManagerComponent component)`
 
-**Purpose:** **Purpose:** Removes component from the current collection or state.
+**Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -80,7 +80,7 @@ gameManagerBase.RemoveComponent(component);
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -91,7 +91,7 @@ gameManagerBase.OnTick(0);
 ### OnGameNetworkBegin
 `public void OnGameNetworkBegin()`
 
-**Purpose:** **Purpose:** Invoked when the game network begin event is raised.
+**Purpose:** Invoked when the game network begin event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -102,7 +102,7 @@ gameManagerBase.OnGameNetworkBegin();
 ### OnGameNetworkEnd
 `public void OnGameNetworkEnd()`
 
-**Purpose:** **Purpose:** Invoked when the game network end event is raised.
+**Purpose:** Invoked when the game network end event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -113,7 +113,7 @@ gameManagerBase.OnGameNetworkEnd();
 ### OnPlayerConnect
 `public void OnPlayerConnect(VirtualPlayer peer)`
 
-**Purpose:** **Purpose:** Invoked when the player connect event is raised.
+**Purpose:** Invoked when the player connect event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -124,7 +124,7 @@ gameManagerBase.OnPlayerConnect(peer);
 ### OnPlayerDisconnect
 `public void OnPlayerDisconnect(VirtualPlayer peer)`
 
-**Purpose:** **Purpose:** Invoked when the player disconnect event is raised.
+**Purpose:** Invoked when the player disconnect event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -135,7 +135,7 @@ gameManagerBase.OnPlayerDisconnect(peer);
 ### OnGameEnd
 `public virtual void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -146,7 +146,7 @@ gameManagerBase.OnGameEnd(game);
 ### DoLoadingForGameManager
 `public bool DoLoadingForGameManager()`
 
-**Purpose:** **Purpose:** Executes the DoLoadingForGameManager logic.
+**Purpose:** Executes the DoLoadingForGameManager logic.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -157,7 +157,7 @@ var result = gameManagerBase.DoLoadingForGameManager();
 ### OnLoadFinished
 `public virtual void OnLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the load finished event is raised.
+**Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -168,7 +168,7 @@ gameManagerBase.OnLoadFinished();
 ### InitializeGameStarter
 `public virtual void InitializeGameStarter(Game game, IGameStarter starterObject)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by game starter.
+**Purpose:** Prepares the resources, state, or bindings required by game starter.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -179,7 +179,7 @@ gameManagerBase.InitializeGameStarter(game, starterObject);
 ### OnGameStart
 `public abstract void OnGameStart(Game game, IGameStarter gameStarter)`
 
-**Purpose:** **Purpose:** Invoked when the game start event is raised.
+**Purpose:** Invoked when the game start event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -190,7 +190,7 @@ gameManagerBase.OnGameStart(game, gameStarter);
 ### BeginGameStart
 `public abstract void BeginGameStart(Game game)`
 
-**Purpose:** **Purpose:** Executes the BeginGameStart logic.
+**Purpose:** Executes the BeginGameStart logic.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -201,7 +201,7 @@ gameManagerBase.BeginGameStart(game);
 ### OnNewCampaignStart
 `public abstract void OnNewCampaignStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the new campaign start event is raised.
+**Purpose:** Invoked when the new campaign start event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -212,7 +212,7 @@ gameManagerBase.OnNewCampaignStart(game, starterObject);
 ### OnAfterCampaignStart
 `public abstract void OnAfterCampaignStart(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after campaign start event is raised.
+**Purpose:** Invoked when the after campaign start event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -223,7 +223,7 @@ gameManagerBase.OnAfterCampaignStart(game);
 ### RegisterSubModuleObjects
 `public abstract void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** **Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
+**Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -234,7 +234,7 @@ gameManagerBase.RegisterSubModuleObjects(false);
 ### AfterRegisterSubModuleObjects
 `public abstract void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** **Purpose:** Executes the AfterRegisterSubModuleObjects logic.
+**Purpose:** Executes the AfterRegisterSubModuleObjects logic.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -245,7 +245,7 @@ gameManagerBase.AfterRegisterSubModuleObjects(false);
 ### OnGameInitializationFinished
 `public abstract void OnGameInitializationFinished(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
+**Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -256,7 +256,7 @@ gameManagerBase.OnGameInitializationFinished(game);
 ### OnNewGameCreated
 `public abstract void OnNewGameCreated(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the new game created event is raised.
+**Purpose:** Invoked when the new game created event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -267,7 +267,7 @@ gameManagerBase.OnNewGameCreated(game, initializerObject);
 ### OnGameLoaded
 `public abstract void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
+**Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -278,7 +278,7 @@ gameManagerBase.OnGameLoaded(game, initializerObject);
 ### OnAfterGameLoaded
 `public abstract void OnAfterGameLoaded(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after game loaded event is raised.
+**Purpose:** Invoked when the after game loaded event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -289,7 +289,7 @@ gameManagerBase.OnAfterGameLoaded(game);
 ### OnAfterGameInitializationFinished
 `public abstract void OnAfterGameInitializationFinished(Game game, object initializerObject)`
 
-**Purpose:** **Purpose:** Invoked when the after game initialization finished event is raised.
+**Purpose:** Invoked when the after game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -300,7 +300,7 @@ gameManagerBase.OnAfterGameInitializationFinished(game, initializerObject);
 ### RegisterSubModuleTypes
 `public abstract void RegisterSubModuleTypes()`
 
-**Purpose:** **Purpose:** Registers sub module types with the current system so it can later be observed or dispatched.
+**Purpose:** Registers sub module types with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first
@@ -311,7 +311,7 @@ gameManagerBase.RegisterSubModuleTypes();
 ### InitializeSubModuleGameObjects
 `public virtual void InitializeSubModuleGameObjects(Game game)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
+**Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
 
 ```csharp
 // Obtain an instance of GameManagerBase from the subsystem API first

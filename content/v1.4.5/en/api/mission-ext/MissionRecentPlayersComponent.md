@@ -23,7 +23,7 @@ Treat `MissionRecentPlayersComponent` as a Component-style extension point: firs
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionRecentPlayersComponent from the subsystem API first
@@ -34,7 +34,7 @@ missionRecentPlayersComponent.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionRecentPlayersComponent from the subsystem API first

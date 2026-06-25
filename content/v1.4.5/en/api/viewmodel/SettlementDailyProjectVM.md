@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -41,7 +41,7 @@ settlementDailyProjectVM.RefreshValues();
 ### RefreshProductionText
 `public override void RefreshProductionText()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of production text in sync with the underlying state.
+**Purpose:** Keeps the display or cache of production text in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -52,7 +52,7 @@ settlementDailyProjectVM.RefreshProductionText();
 ### ExecuteAddRemoveToQueue
 `public override void ExecuteAddRemoveToQueue()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add remove to queue.
+**Purpose:** Runs the operation or workflow associated with add remove to queue.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -63,7 +63,7 @@ settlementDailyProjectVM.ExecuteAddRemoveToQueue();
 ### ExecuteSetAsActiveDevelopment
 `public override void ExecuteSetAsActiveDevelopment()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set as active development.
+**Purpose:** Runs the operation or workflow associated with set as active development.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -74,7 +74,7 @@ settlementDailyProjectVM.ExecuteSetAsActiveDevelopment();
 ### ExecuteSetAsCurrent
 `public override void ExecuteSetAsCurrent()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set as current.
+**Purpose:** Runs the operation or workflow associated with set as current.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -85,7 +85,7 @@ settlementDailyProjectVM.ExecuteSetAsCurrent();
 ### ExecuteResetCurrent
 `public override void ExecuteResetCurrent()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset current.
+**Purpose:** Runs the operation or workflow associated with reset current.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first
@@ -96,7 +96,7 @@ settlementDailyProjectVM.ExecuteResetCurrent();
 ### ExecuteToggleSelected
 `public override void ExecuteToggleSelected()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle selected.
+**Purpose:** Runs the operation or workflow associated with toggle selected.
 
 ```csharp
 // Obtain an instance of SettlementDailyProjectVM from the subsystem API first

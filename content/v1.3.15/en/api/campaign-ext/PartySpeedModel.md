@@ -30,7 +30,7 @@ Treat `PartySpeedModel` as a Model-style extension point: first identify who cre
 ### CalculateBaseSpeed
 `public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of base speed.
+**Purpose:** Calculates the current value or result of base speed.
 
 ```csharp
 // Obtain an instance of PartySpeedModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = partySpeedModel.CalculateBaseSpeed(party, false, 0, 0);
 ### CalculateFinalSpeed
 `public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of final speed.
+**Purpose:** Calculates the current value or result of final speed.
 
 ```csharp
 // Obtain an instance of PartySpeedModel from the subsystem API first

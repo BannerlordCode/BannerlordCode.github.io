@@ -33,7 +33,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### UpdateQuestValues
 `public void UpdateQuestValues(float minDetectionLevel, float maxDetectionLevel, float currentDetectionLevel)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of quest values.
+**Purpose:** Recalculates and stores the latest representation of quest values.
 
 ```csharp
 // Obtain an instance of MissionQuestBarVM from the subsystem API first

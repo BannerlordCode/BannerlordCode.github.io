@@ -29,7 +29,7 @@ Treat `DefaultVolunteerModel` as a Model-style extension point: first identify w
 ### MaximumIndexHeroCanRecruitFromHero
 `public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**Purpose:** **Purpose:** Executes the MaximumIndexHeroCanRecruitFromHero logic.
+**Purpose:** Executes the MaximumIndexHeroCanRecruitFromHero logic.
 
 ```csharp
 // Obtain an instance of DefaultVolunteerModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultVolunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero,
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**Purpose:** **Purpose:** Executes the MaximumIndexGarrisonCanRecruitFromHero logic.
+**Purpose:** Executes the MaximumIndexGarrisonCanRecruitFromHero logic.
 
 ```csharp
 // Obtain an instance of DefaultVolunteerModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultVolunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settle
 ### GetDailyVolunteerProductionProbability
 `public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the daily volunteer production probability value held by the this instance.
+**Purpose:** Reads and returns the daily volunteer production probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultVolunteerModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = defaultVolunteerModel.GetDailyVolunteerProductionProbability(hero, 
 ### GetBasicVolunteer
 `public override CharacterObject GetBasicVolunteer(Hero sellerHero)`
 
-**Purpose:** **Purpose:** Reads and returns the basic volunteer value held by the this instance.
+**Purpose:** Reads and returns the basic volunteer value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultVolunteerModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = defaultVolunteerModel.GetBasicVolunteer(sellerHero);
 ### CanHaveRecruits
 `public override bool CanHaveRecruits(Hero hero)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for have recruits.
+**Purpose:** Checks whether the this instance meets the preconditions for have recruits.
 
 ```csharp
 // Obtain an instance of DefaultVolunteerModel from the subsystem API first

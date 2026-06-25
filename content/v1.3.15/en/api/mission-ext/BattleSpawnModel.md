@@ -23,7 +23,7 @@ Treat `BattleSpawnModel` as a Model-style extension point: first identify who cr
 ### OnMissionStart
 `public virtual void OnMissionStart()`
 
-**Purpose:** **Purpose:** Invoked when the mission start event is raised.
+**Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ battleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public virtual void OnMissionEnd()`
 
-**Purpose:** **Purpose:** Invoked when the mission end event is raised.
+**Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first
@@ -45,7 +45,7 @@ battleSpawnModel.OnMissionEnd();
 ### GetInitialSpawnAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
+**Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = battleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigin
 ### GetReinforcementAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
+**Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first

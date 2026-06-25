@@ -31,7 +31,7 @@ description: "PartyRecruitTroopVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例
@@ -42,7 +42,7 @@ partyRecruitTroopVM.RefreshValues();
 ### OnTroopRecruited
 `public void OnTroopRecruited(PartyCharacterVM recruitedCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop recruited 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop recruited 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例
@@ -53,7 +53,7 @@ partyRecruitTroopVM.OnTroopRecruited(recruitedCharacter);
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开pop up对应的资源或界面。
+**用途 / Purpose:** 打开pop up对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例
@@ -64,7 +64,7 @@ partyRecruitTroopVM.OpenPopUp();
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例
@@ -75,7 +75,7 @@ partyRecruitTroopVM.ExecuteDone();
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例
@@ -86,7 +86,7 @@ partyRecruitTroopVM.ExecuteCancel();
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 recruit all 对应的操作或工作流。
+**用途 / Purpose:** 执行 recruit all 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyRecruitTroopVM 实例

@@ -23,7 +23,7 @@ Treat `ItemValueModel` as a Model-style extension point: first identify who crea
 ### GetEquipmentValueFromTier
 `public abstract float GetEquipmentValueFromTier(float itemTierf)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment value from tier value held by the this instance.
+**Purpose:** Reads and returns the equipment value from tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemValueModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = itemValueModel.GetEquipmentValueFromTier(0);
 ### CalculateTier
 `public abstract float CalculateTier(ItemObject item)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of tier.
+**Purpose:** Calculates the current value or result of tier.
 
 ```csharp
 // Obtain an instance of ItemValueModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = itemValueModel.CalculateTier(item);
 ### CalculateValue
 `public abstract int CalculateValue(ItemObject item)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of value.
+**Purpose:** Calculates the current value or result of value.
 
 ```csharp
 // Obtain an instance of ItemValueModel from the subsystem API first

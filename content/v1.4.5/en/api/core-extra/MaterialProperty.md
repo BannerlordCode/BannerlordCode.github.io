@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### MaterialProperty
 `public struct MaterialProperty(string name)`
 
-**Purpose:** **Purpose:** Executes the MaterialProperty logic.
+**Purpose:** Executes the MaterialProperty logic.
 
 ```csharp
 // Obtain an instance of MaterialProperty from the subsystem API first

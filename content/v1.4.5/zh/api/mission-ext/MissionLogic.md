@@ -23,7 +23,7 @@ description: "MissionLogic 的自动生成类参考。"
 ### OnEndMissionRequest
 `public virtual InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
+**用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -34,7 +34,7 @@ var result = missionLogic.OnEndMissionRequest(canLeave);
 ### MissionEnded
 `public virtual bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
+**用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -45,7 +45,7 @@ var result = missionLogic.MissionEnded(missionResult);
 ### OnBattleEnded
 `public virtual void OnBattleEnded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 battle ended 事件触发时调用此回调。
+**用途 / Purpose:** 在 battle ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -56,7 +56,7 @@ missionLogic.OnBattleEnded();
 ### ShowBattleResults
 `public virtual void ShowBattleResults()`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示battle results对应的界面或元素。
+**用途 / Purpose:** 显示battle results对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -67,7 +67,7 @@ missionLogic.ShowBattleResults();
 ### OnRetreatMission
 `public virtual void OnRetreatMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 retreat mission 事件触发时调用此回调。
+**用途 / Purpose:** 在 retreat mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -78,7 +78,7 @@ missionLogic.OnRetreatMission();
 ### OnSurrenderMission
 `public virtual void OnSurrenderMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 surrender mission 事件触发时调用此回调。
+**用途 / Purpose:** 在 surrender mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -89,7 +89,7 @@ missionLogic.OnSurrenderMission();
 ### OnAutoDeployTeam
 `public virtual void OnAutoDeployTeam(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 auto deploy team 事件触发时调用此回调。
+**用途 / Purpose:** 在 auto deploy team 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -100,7 +100,7 @@ missionLogic.OnAutoDeployTeam(team);
 ### GetExtraEquipmentElementsForCharacter
 `public virtual List<EquipmentElement> GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 extra equipment elements for character 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 extra equipment elements for character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例
@@ -111,7 +111,7 @@ var result = missionLogic.GetExtraEquipmentElementsForCharacter(character, false
 ### OnMissionResultReady
 `public virtual void OnMissionResultReady(MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLogic 实例

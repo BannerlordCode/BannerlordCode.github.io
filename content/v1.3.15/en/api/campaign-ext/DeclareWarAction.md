@@ -19,7 +19,7 @@ DeclareWarAction is a set of static methods that trigger "DeclareWar" in the cam
 public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by kingdom decision to the this instance.
+**Purpose:** Applies the effect of by kingdom decision to the this instance.
 
 ### ApplyByDefault
 
@@ -27,7 +27,7 @@ public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2)
 public static void ApplyByDefault(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by default to the this instance.
+**Purpose:** Applies the effect of by default to the this instance.
 
 ### ApplyByPlayerHostility
 
@@ -35,7 +35,7 @@ public static void ApplyByDefault(IFaction faction1, IFaction faction2)
 public static void ApplyByPlayerHostility(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by player hostility to the this instance.
+**Purpose:** Applies the effect of by player hostility to the this instance.
 
 ### ApplyByRebellion
 
@@ -43,7 +43,7 @@ public static void ApplyByPlayerHostility(IFaction faction1, IFaction faction2)
 public static void ApplyByRebellion(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by rebellion to the this instance.
+**Purpose:** Applies the effect of by rebellion to the this instance.
 
 ### ApplyByCrimeRatingChange
 
@@ -51,7 +51,7 @@ public static void ApplyByRebellion(IFaction faction1, IFaction faction2)
 public static void ApplyByCrimeRatingChange(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by crime rating change to the this instance.
+**Purpose:** Applies the effect of by crime rating change to the this instance.
 
 ### ApplyByKingdomCreation
 
@@ -59,7 +59,7 @@ public static void ApplyByCrimeRatingChange(IFaction faction1, IFaction faction2
 public static void ApplyByKingdomCreation(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by kingdom creation to the this instance.
+**Purpose:** Applies the effect of by kingdom creation to the this instance.
 
 ### ApplyByClaimOnThrone
 
@@ -67,7 +67,7 @@ public static void ApplyByKingdomCreation(IFaction faction1, IFaction faction2)
 public static void ApplyByClaimOnThrone(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by claim on throne to the this instance.
+**Purpose:** Applies the effect of by claim on throne to the this instance.
 
 ### ApplyByCallToWarAgreement
 
@@ -75,7 +75,7 @@ public static void ApplyByClaimOnThrone(IFaction faction1, IFaction faction2)
 public static void ApplyByCallToWarAgreement(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by call to war agreement to the this instance.
+**Purpose:** Applies the effect of by call to war agreement to the this instance.
 
 ## Usage Example
 

@@ -29,7 +29,7 @@ description: "Canvas 的自动生成类参考。"
 ### LoadFrom
 `public void LoadFrom(XmlNode canvasNode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
+**用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 先通过子系统 API 拿到 Canvas 实例
@@ -40,7 +40,7 @@ canvas.LoadFrom(canvasNode);
 ### Update
 `public void Update(float scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Canvas 实例
@@ -51,7 +51,7 @@ canvas.Update(0);
 ### DoMeasure
 `public void DoMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoMeasure 对应的操作。
+**用途 / Purpose:** 调用 DoMeasure 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Canvas 实例
@@ -62,7 +62,7 @@ canvas.DoMeasure(false, false, 0, 0);
 ### DoLayout
 `public void DoLayout()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoLayout 对应的操作。
+**用途 / Purpose:** 调用 DoLayout 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Canvas 实例
@@ -73,7 +73,7 @@ canvas.DoLayout();
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoRender 对应的操作。
+**用途 / Purpose:** 调用 DoRender 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Canvas 实例

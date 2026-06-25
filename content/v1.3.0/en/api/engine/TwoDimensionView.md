@@ -23,7 +23,7 @@ Treat `TwoDimensionView` as a View-style extension point: first identify who cre
 ### CreateTwoDimension
 `public static TwoDimensionView CreateTwoDimension()`
 
-**Purpose:** **Purpose:** Constructs a new two dimension entity and returns it to the caller.
+**Purpose:** Constructs a new two dimension entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TwoDimensionView.CreateTwoDimension();
 ### BeginFrame
 `public void BeginFrame()`
 
-**Purpose:** **Purpose:** Executes the BeginFrame logic.
+**Purpose:** Executes the BeginFrame logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first
@@ -44,7 +44,7 @@ twoDimensionView.BeginFrame();
 ### EndFrame
 `public void EndFrame()`
 
-**Purpose:** **Purpose:** Executes the EndFrame logic.
+**Purpose:** Executes the EndFrame logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first
@@ -55,7 +55,7 @@ twoDimensionView.EndFrame();
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first
@@ -66,7 +66,7 @@ twoDimensionView.Clear();
 ### CreateMeshFromDescription
 `public void CreateMeshFromDescription(Material material, TwoDimensionMeshDrawData meshDrawData)`
 
-**Purpose:** **Purpose:** Constructs a new mesh from description entity and returns it to the caller.
+**Purpose:** Constructs a new mesh from description entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first
@@ -77,7 +77,7 @@ twoDimensionView.CreateMeshFromDescription(material, meshDrawData);
 ### CreateTextMeshFromCache
 `public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**Purpose:** **Purpose:** Constructs a new text mesh from cache entity and returns it to the caller.
+**Purpose:** Constructs a new text mesh from cache entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first
@@ -88,7 +88,7 @@ var result = twoDimensionView.CreateTextMeshFromCache(material, meshDrawData);
 ### CreateTextMeshFromDescription
 `public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**Purpose:** **Purpose:** Constructs a new text mesh from description entity and returns it to the caller.
+**Purpose:** Constructs a new text mesh from description entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TwoDimensionView from the subsystem API first

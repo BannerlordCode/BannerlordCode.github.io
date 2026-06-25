@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
@@ -46,7 +46,7 @@ mPLobbyPartyJoinRequestPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(PlayerId joiningPlayer, PlayerId viaPlayerId, string viaPlayerName)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
@@ -57,7 +57,7 @@ mPLobbyPartyJoinRequestPopupVM.OpenWith(joiningPlayer, viaPlayerId, "example");
 ### OpenWithNewParty
 `public void OpenWithNewParty(PlayerId joiningPlayer)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with new party.
+**Purpose:** Opens the resource or UI associated with with new party.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
@@ -68,7 +68,7 @@ mPLobbyPartyJoinRequestPopupVM.OpenWithNewParty(joiningPlayer);
 ### Close
 `public void Close()`
 
-**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
+**Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
@@ -79,7 +79,7 @@ mPLobbyPartyJoinRequestPopupVM.Close();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first

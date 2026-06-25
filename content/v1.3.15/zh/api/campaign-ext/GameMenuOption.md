@@ -39,7 +39,7 @@ description: "GameMenuOption 的自动生成类参考。"
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MenuContext menuContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conditions hold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conditions hold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOption 实例
@@ -50,7 +50,7 @@ var result = gameMenuOption.GetConditionsHold(game, menuContext);
 ### RunConsequence
 `public void RunConsequence(MenuContext menuContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RunConsequence 对应的操作。
+**用途 / Purpose:** 调用 RunConsequence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOption 实例
@@ -61,7 +61,7 @@ gameMenuOption.RunConsequence(menuContext);
 ### SetEnable
 `public void SetEnable(bool isEnable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOption 实例
@@ -72,7 +72,7 @@ gameMenuOption.SetEnable(false);
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 condition delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 condition delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOption 实例
@@ -83,7 +83,7 @@ var result = gameMenuOption.OnConditionDelegate(args);
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 consequence delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 consequence delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuOption 实例

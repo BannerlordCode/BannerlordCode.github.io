@@ -30,7 +30,7 @@ description: "CommunityClient 的自动生成类参考。"
 ### QuitFromGame
 `public void QuitFromGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 QuitFromGame 对应的操作。
+**用途 / Purpose:** 调用 QuitFromGame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CommunityClient 实例

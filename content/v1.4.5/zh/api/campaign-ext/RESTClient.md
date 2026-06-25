@@ -23,7 +23,7 @@ description: "RESTClient 的自动生成类参考。"
 ### Get
 `public async Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的值或状态并返回。
+**用途 / Purpose:** 读取当前对象的值或状态并返回。
 
 ```csharp
 // 先通过子系统 API 拿到 RESTClient 实例
@@ -34,7 +34,7 @@ var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
 ### Post
 `public async Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Post 对应的操作。
+**用途 / Purpose:** 调用 Post 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RESTClient 实例

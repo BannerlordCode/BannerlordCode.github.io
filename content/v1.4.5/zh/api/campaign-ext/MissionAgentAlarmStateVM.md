@@ -30,7 +30,7 @@ description: "MissionAgentAlarmStateVM 的自动生成类参考。"
 ### Initialize
 `public void Initialize(Mission mission, Camera camera)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
@@ -41,7 +41,7 @@ missionAgentAlarmStateVM.Initialize(mission, camera);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
@@ -52,7 +52,7 @@ missionAgentAlarmStateVM.OnFinalize();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
@@ -63,7 +63,7 @@ missionAgentAlarmStateVM.Update();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
@@ -74,7 +74,7 @@ missionAgentAlarmStateVM.OnAgentRemoved(agent);
 ### OnAgentBuild
 `public void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
@@ -85,7 +85,7 @@ missionAgentAlarmStateVM.OnAgentBuild(agent, banner);
 ### OnAgentTeamChanged
 `public void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例

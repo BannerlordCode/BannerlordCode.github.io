@@ -29,7 +29,7 @@ description: "MultipleBattleResult 的自动生成类参考。"
 ### CreateNewBattleResult
 `public void CreateNewBattleResult(string gameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new battle result 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 new battle result 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MultipleBattleResult 实例
@@ -40,7 +40,7 @@ multipleBattleResult.CreateNewBattleResult("example");
 ### GetCurrentBattleResult
 `public BattleResult GetCurrentBattleResult()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current battle result 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current battle result 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultipleBattleResult 实例

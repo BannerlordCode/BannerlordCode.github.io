@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Invoked when the condition delegate event is raised.
+**Purpose:** Invoked when the condition delegate event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuOption from the subsystem API first
@@ -50,7 +50,7 @@ var result = gameMenuOption.OnConditionDelegate(args);
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Invoked when the consequence delegate event is raised.
+**Purpose:** Invoked when the consequence delegate event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuOption from the subsystem API first
@@ -61,7 +61,7 @@ gameMenuOption.OnConsequenceDelegate(args);
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MenuContext menuContext)`
 
-**Purpose:** **Purpose:** Reads and returns the conditions hold value held by the this instance.
+**Purpose:** Reads and returns the conditions hold value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameMenuOption from the subsystem API first
@@ -72,7 +72,7 @@ var result = gameMenuOption.GetConditionsHold(game, menuContext);
 ### RunConsequence
 `public void RunConsequence(MenuContext menuContext)`
 
-**Purpose:** **Purpose:** Executes the RunConsequence logic.
+**Purpose:** Executes the RunConsequence logic.
 
 ```csharp
 // Obtain an instance of GameMenuOption from the subsystem API first
@@ -83,7 +83,7 @@ gameMenuOption.RunConsequence(menuContext);
 ### SetEnable
 `public void SetEnable(bool isEnable)`
 
-**Purpose:** **Purpose:** Assigns a new value to enable and updates the object's internal state.
+**Purpose:** Assigns a new value to enable and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuOption from the subsystem API first

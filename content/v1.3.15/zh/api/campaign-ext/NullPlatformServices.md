@@ -23,7 +23,7 @@ description: "NullPlatformServices 的自动生成类参考。"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NullPlatformServices 实例
@@ -34,7 +34,7 @@ nullPlatformServices.Tick(0);
 ### ActivateFriendList
 `public void ActivateFriendList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活friend list对应的资源、状态或功能。
+**用途 / Purpose:** 激活friend list对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 NullPlatformServices 实例

@@ -35,7 +35,7 @@ Treat `ScreenManager` as a Manager-style extension point: first identify who cre
 ### OnPushScreenEvent
 `public delegate void OnPushScreenEvent(ScreenBase pushedScreen)`
 
-**Purpose:** **Purpose:** Invoked when the push screen event event is raised.
+**Purpose:** Invoked when the push screen event event is raised.
 
 ```csharp
 // Obtain an instance of ScreenManager from the subsystem API first
@@ -46,7 +46,7 @@ screenManager.OnPushScreenEvent(pushedScreen);
 ### OnPopScreenEvent
 `public delegate void OnPopScreenEvent(ScreenBase poppedScreen)`
 
-**Purpose:** **Purpose:** Invoked when the pop screen event event is raised.
+**Purpose:** Invoked when the pop screen event event is raised.
 
 ```csharp
 // Obtain an instance of ScreenManager from the subsystem API first
@@ -57,7 +57,7 @@ screenManager.OnPopScreenEvent(poppedScreen);
 ### OnControllerDisconnectedEvent
 `public delegate void OnControllerDisconnectedEvent()`
 
-**Purpose:** **Purpose:** Invoked when the controller disconnected event event is raised.
+**Purpose:** Invoked when the controller disconnected event event is raised.
 
 ```csharp
 // Obtain an instance of ScreenManager from the subsystem API first
@@ -68,7 +68,7 @@ screenManager.OnControllerDisconnectedEvent();
 ### OnPlatformTextRequestedDelegate
 `public delegate bool OnPlatformTextRequestedDelegate(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
 
-**Purpose:** **Purpose:** Invoked when the platform text requested delegate event is raised.
+**Purpose:** Invoked when the platform text requested delegate event is raised.
 
 ```csharp
 // Obtain an instance of ScreenManager from the subsystem API first
@@ -79,7 +79,7 @@ var result = screenManager.OnPlatformTextRequestedDelegate("example", "example",
 ### Initialize
 `public static void Initialize(IScreenManagerEngineConnection engineInterface)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ ScreenManager.Initialize(engineInterface);
 ### RemoveGlobalLayer
 `public static void RemoveGlobalLayer(GlobalLayer layer)`
 
-**Purpose:** **Purpose:** Removes global layer from the current collection or state.
+**Purpose:** Removes global layer from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ ScreenManager.RemoveGlobalLayer(layer);
 ### AddGlobalLayer
 `public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)`
 
-**Purpose:** **Purpose:** Adds global layer to the current collection or state.
+**Purpose:** Adds global layer to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ ScreenManager.AddGlobalLayer(layer, false);
 ### OnConstrainStateChanged
 `public static void OnConstrainStateChanged(bool isConstrained)`
 
-**Purpose:** **Purpose:** Invoked when the constrain state changed event is raised.
+**Purpose:** Invoked when the constrain state changed event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ ScreenManager.OnConstrainStateChanged(false);
 ### ScreenTypeExistsAtList
 `public static bool ScreenTypeExistsAtList(ScreenBase screen)`
 
-**Purpose:** **Purpose:** Executes the ScreenTypeExistsAtList logic.
+**Purpose:** Executes the ScreenTypeExistsAtList logic.
 
 ```csharp
 // Static call; no instance required
@@ -129,7 +129,7 @@ ScreenManager.ScreenTypeExistsAtList(screen);
 ### UpdateLayout
 `public static void UpdateLayout()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
+**Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Static call; no instance required
@@ -139,7 +139,7 @@ ScreenManager.UpdateLayout();
 ### SetSuspendLayer
 `public static void SetSuspendLayer(ScreenLayer layer, bool isSuspended)`
 
-**Purpose:** **Purpose:** Assigns a new value to suspend layer and updates the object's internal state.
+**Purpose:** Assigns a new value to suspend layer and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ ScreenManager.SetSuspendLayer(layer, false);
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ ScreenManager.OnFinalize();
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Static call; no instance required
@@ -169,7 +169,7 @@ ScreenManager.Tick(0);
 ### LateTick
 `public static void LateTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the LateTick logic.
+**Purpose:** Executes the LateTick logic.
 
 ```csharp
 // Static call; no instance required
@@ -179,7 +179,7 @@ ScreenManager.LateTick(0);
 ### OnPlatformScreenKeyboardRequested
 `public static bool OnPlatformScreenKeyboardRequested(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
 
-**Purpose:** **Purpose:** Invoked when the platform screen keyboard requested event is raised.
+**Purpose:** Invoked when the platform screen keyboard requested event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -189,7 +189,7 @@ ScreenManager.OnPlatformScreenKeyboardRequested("example", "example", 0, 0);
 ### OnOnscreenKeyboardDone
 `public static void OnOnscreenKeyboardDone(string inputText)`
 
-**Purpose:** **Purpose:** Invoked when the onscreen keyboard done event is raised.
+**Purpose:** Invoked when the onscreen keyboard done event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -199,7 +199,7 @@ ScreenManager.OnOnscreenKeyboardDone("example");
 ### OnOnscreenKeyboardCanceled
 `public static void OnOnscreenKeyboardCanceled()`
 
-**Purpose:** **Purpose:** Invoked when the onscreen keyboard canceled event is raised.
+**Purpose:** Invoked when the onscreen keyboard canceled event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -209,7 +209,7 @@ ScreenManager.OnOnscreenKeyboardCanceled();
 ### OnGameWindowFocusChange
 `public static void OnGameWindowFocusChange(bool focusGained)`
 
-**Purpose:** **Purpose:** Invoked when the game window focus change event is raised.
+**Purpose:** Invoked when the game window focus change event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -219,7 +219,7 @@ ScreenManager.OnGameWindowFocusChange(false);
 ### ReplaceTopScreen
 `public static void ReplaceTopScreen(ScreenBase screen)`
 
-**Purpose:** **Purpose:** Executes the ReplaceTopScreen logic.
+**Purpose:** Executes the ReplaceTopScreen logic.
 
 ```csharp
 // Static call; no instance required
@@ -229,7 +229,7 @@ ScreenManager.ReplaceTopScreen(screen);
 ### GetPersistentInputRestrictions
 `public static List<ScreenLayer> GetPersistentInputRestrictions()`
 
-**Purpose:** **Purpose:** Reads and returns the persistent input restrictions value held by the this instance.
+**Purpose:** Reads and returns the persistent input restrictions value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -239,7 +239,7 @@ ScreenManager.GetPersistentInputRestrictions();
 ### SetAndActivateRootScreen
 `public static void SetAndActivateRootScreen(ScreenBase screen)`
 
-**Purpose:** **Purpose:** Assigns a new value to and activate root screen and updates the object's internal state.
+**Purpose:** Assigns a new value to and activate root screen and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -249,7 +249,7 @@ ScreenManager.SetAndActivateRootScreen(screen);
 ### CleanAndPushScreen
 `public static void CleanAndPushScreen(ScreenBase screen)`
 
-**Purpose:** **Purpose:** Executes the CleanAndPushScreen logic.
+**Purpose:** Executes the CleanAndPushScreen logic.
 
 ```csharp
 // Static call; no instance required
@@ -259,7 +259,7 @@ ScreenManager.CleanAndPushScreen(screen);
 ### ClearSiegeMachineSelection
 `public static string ClearSiegeMachineSelection(List<string> args)`
 
-**Purpose:** **Purpose:** Removes all siege machine selection from the this instance.
+**Purpose:** Removes all siege machine selection from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -269,7 +269,7 @@ ScreenManager.ClearSiegeMachineSelection(args);
 ### CopyCustomBattle
 `public static string CopyCustomBattle(List<string> args)`
 
-**Purpose:** **Purpose:** Copies the custom battle state of the this instance to a target.
+**Purpose:** Copies the custom battle state of the this instance to a target.
 
 ```csharp
 // Static call; no instance required
@@ -279,7 +279,7 @@ ScreenManager.CopyCustomBattle(args);
 ### ApplyCustomBattleLayout
 `public static string ApplyCustomBattleLayout(List<string> args)`
 
-**Purpose:** **Purpose:** Applies the effect of custom battle layout to the this instance.
+**Purpose:** Applies the effect of custom battle layout to the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -289,7 +289,7 @@ ScreenManager.ApplyCustomBattleLayout(args);
 ### PushScreen
 `public static void PushScreen(ScreenBase screen)`
 
-**Purpose:** **Purpose:** Executes the PushScreen logic.
+**Purpose:** Executes the PushScreen logic.
 
 ```csharp
 // Static call; no instance required
@@ -299,7 +299,7 @@ ScreenManager.PushScreen(screen);
 ### PopScreen
 `public static void PopScreen()`
 
-**Purpose:** **Purpose:** Executes the PopScreen logic.
+**Purpose:** Executes the PopScreen logic.
 
 ```csharp
 // Static call; no instance required
@@ -309,7 +309,7 @@ ScreenManager.PopScreen();
 ### CleanScreens
 `public static void CleanScreens()`
 
-**Purpose:** **Purpose:** Executes the CleanScreens logic.
+**Purpose:** Executes the CleanScreens logic.
 
 ```csharp
 // Static call; no instance required
@@ -319,7 +319,7 @@ ScreenManager.CleanScreens();
 ### Update
 `public static void Update(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -329,7 +329,7 @@ ScreenManager.Update(lastKeysPressed);
 ### EarlyUpdate
 `public static void EarlyUpdate(Vec2 usableArea)`
 
-**Purpose:** **Purpose:** Executes the EarlyUpdate logic.
+**Purpose:** Executes the EarlyUpdate logic.
 
 ```csharp
 // Static call; no instance required
@@ -339,7 +339,7 @@ ScreenManager.EarlyUpdate(usableArea);
 ### IsControllerActive
 `public static bool IsControllerActive()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the controller active state or condition.
+**Purpose:** Determines whether the this instance is in the controller active state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -349,7 +349,7 @@ ScreenManager.IsControllerActive();
 ### IsMouseCursorHidden
 `public static bool IsMouseCursorHidden()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the mouse cursor hidden state or condition.
+**Purpose:** Determines whether the this instance is in the mouse cursor hidden state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -359,7 +359,7 @@ ScreenManager.IsMouseCursorHidden();
 ### IsMouseCursorActive
 `public static bool IsMouseCursorActive()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the mouse cursor active state or condition.
+**Purpose:** Determines whether the this instance is in the mouse cursor active state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -369,7 +369,7 @@ ScreenManager.IsMouseCursorActive();
 ### IsLayerBlockedAtPosition
 `public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the layer blocked at position state or condition.
+**Purpose:** Determines whether the this instance is in the layer blocked at position state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -379,7 +379,7 @@ ScreenManager.IsLayerBlockedAtPosition(layer, position);
 ### GetMouseVisibility
 `public static bool GetMouseVisibility()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse visibility value held by the this instance.
+**Purpose:** Reads and returns the mouse visibility value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -389,7 +389,7 @@ ScreenManager.GetMouseVisibility();
 ### TrySetFocus
 `public static void TrySetFocus(ScreenLayer layer)`
 
-**Purpose:** **Purpose:** Attempts to retrieve set focus, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve set focus, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -399,7 +399,7 @@ ScreenManager.TrySetFocus(layer);
 ### TryLoseFocus
 `public static void TryLoseFocus(ScreenLayer layer)`
 
-**Purpose:** **Purpose:** Attempts to retrieve lose focus, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve lose focus, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -409,7 +409,7 @@ ScreenManager.TryLoseFocus(layer);
 ### OnScaleChange
 `public static void OnScaleChange(float newScale)`
 
-**Purpose:** **Purpose:** Invoked when the scale change event is raised.
+**Purpose:** Invoked when the scale change event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -419,7 +419,7 @@ ScreenManager.OnScaleChange(0);
 ### OnControllerDisconnect
 `public static void OnControllerDisconnect()`
 
-**Purpose:** **Purpose:** Invoked when the controller disconnect event is raised.
+**Purpose:** Invoked when the controller disconnect event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -429,7 +429,7 @@ ScreenManager.OnControllerDisconnect();
 ### SetScreenDebugInformationEnabled
 `public static string SetScreenDebugInformationEnabled(List<string> args)`
 
-**Purpose:** **Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -439,7 +439,7 @@ ScreenManager.SetScreenDebugInformationEnabled(args);
 ### SetScreenDebugInformationEnabled
 `public static void SetScreenDebugInformationEnabled(bool isEnabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

@@ -31,7 +31,7 @@ description: "MultiplayerScoreboardEndOfBattlePanelWidget 的自动生成类参�
 ### MultiplayerScoreboardEndOfBattlePanelWidget
 `public class MultiplayerScoreboardEndOfBattlePanelWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerScoreboardEndOfBattlePanelWidget 对应的操作。
+**用途 / Purpose:** 调用 MultiplayerScoreboardEndOfBattlePanelWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerScoreboardEndOfBattlePanelWidget 实例
@@ -42,7 +42,7 @@ var result = multiplayerScoreboardEndOfBattlePanelWidget.MultiplayerScoreboardEn
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动animation流程或状态机。
+**用途 / Purpose:** 启动animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerScoreboardEndOfBattlePanelWidget 实例

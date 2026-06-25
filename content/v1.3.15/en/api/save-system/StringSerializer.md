@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetSizeInBytes
 `public int GetSizeInBytes()`
 
-**Purpose:** **Purpose:** Reads and returns the size in bytes value held by the this instance.
+**Purpose:** Reads and returns the size in bytes value held by the this instance.
 
 ```csharp
 // Obtain an instance of StringSerializer from the subsystem API first

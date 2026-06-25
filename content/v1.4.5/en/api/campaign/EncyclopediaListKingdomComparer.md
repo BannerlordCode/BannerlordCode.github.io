@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareKingdoms
 `public int CompareKingdoms(EncyclopediaListItem x, EncyclopediaListItem y, Func<Kingdom, Kingdom, int> comparison)`
 
-**Purpose:** **Purpose:** Compares two kingdoms objects and returns an ordering result.
+**Purpose:** Compares two kingdoms objects and returns an ordering result.
 
 ```csharp
 // Obtain an instance of EncyclopediaListKingdomComparer from the subsystem API first

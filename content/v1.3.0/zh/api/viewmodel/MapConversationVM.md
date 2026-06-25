@@ -31,7 +31,7 @@ description: "MapConversationVM 的自动生成类参考。"
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 continue 对应的操作或工作流。
+**用途 / Purpose:** 执行 continue 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationVM 实例
@@ -42,7 +42,7 @@ mapConversationVM.ExecuteContinue();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationVM 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Sort
 `public void Sort()`
 
-**Purpose:** **Purpose:** Sorts the content inside the this instance.
+**Purpose:** Sorts the content inside the this instance.
 
 ```csharp
 // Obtain an instance of MBBindingList from the subsystem API first
@@ -40,7 +40,7 @@ mBBindingList.Sort();
 ### Sort
 `public void Sort(IComparer<T> comparer)`
 
-**Purpose:** **Purpose:** Sorts the content inside the this instance.
+**Purpose:** Sorts the content inside the this instance.
 
 ```csharp
 // Obtain an instance of MBBindingList from the subsystem API first
@@ -51,7 +51,7 @@ mBBindingList.Sort(comparer);
 ### IsOrdered
 `public bool IsOrdered(IComparer<T> comparer)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the ordered state or condition.
+**Purpose:** Determines whether the this instance is in the ordered state or condition.
 
 ```csharp
 // Obtain an instance of MBBindingList from the subsystem API first
@@ -62,7 +62,7 @@ var result = mBBindingList.IsOrdered(comparer);
 ### ApplyActionOnAllItems
 `public void ApplyActionOnAllItems(Action<T> action)`
 
-**Purpose:** **Purpose:** Applies the effect of action on all items to the this instance.
+**Purpose:** Applies the effect of action on all items to the this instance.
 
 ```csharp
 // Obtain an instance of MBBindingList from the subsystem API first

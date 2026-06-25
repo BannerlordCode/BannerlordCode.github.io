@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSpawnPointFrames
 `public MatrixFrame GetSpawnPointFrames()`
 
-**Purpose:** **Purpose:** Reads and returns the spawn point frames value held by the this instance.
+**Purpose:** Reads and returns the spawn point frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutSpawnPointGroup from the subsystem API first
@@ -34,7 +34,7 @@ var result = hideoutSpawnPointGroup.GetSpawnPointFrames();
 ### RemoveWithAllChildren
 `public void RemoveWithAllChildren()`
 
-**Purpose:** **Purpose:** Removes with all children from the current collection or state.
+**Purpose:** Removes with all children from the current collection or state.
 
 ```csharp
 // Obtain an instance of HideoutSpawnPointGroup from the subsystem API first

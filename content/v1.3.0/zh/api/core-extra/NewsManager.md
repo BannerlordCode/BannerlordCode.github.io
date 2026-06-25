@@ -31,7 +31,7 @@ description: "NewsManager 的自动生成类参考。"
 ### GetNewsItems
 `public async Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 news items 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 news items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NewsManager 实例
@@ -42,7 +42,7 @@ var result = newsManager.GetNewsItems(false);
 ### SetNewsSourceURL
 `public void SetNewsSourceURL(string url)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 news source u r l 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 news source u r l 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NewsManager 实例
@@ -53,7 +53,7 @@ newsManager.SetNewsSourceURL("example");
 ### UpdateNewsItems
 `public async Task UpdateNewsItems(bool forceRefresh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 news items 的最新表示。
+**用途 / Purpose:** 重新计算并更新 news items 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NewsManager 实例
@@ -64,7 +64,7 @@ var result = newsManager.UpdateNewsItems(false);
 ### UpdateLocalizationID
 `public void UpdateLocalizationID(string localizationID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 localization i d 的最新表示。
+**用途 / Purpose:** 重新计算并更新 localization i d 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NewsManager 实例
@@ -75,7 +75,7 @@ newsManager.UpdateLocalizationID("example");
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NewsManager 实例

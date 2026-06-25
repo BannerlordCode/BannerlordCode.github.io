@@ -36,7 +36,7 @@ description: "MultiplayerRoundController 的自动生成类参考。"
 ### EnableEquipmentUpdate
 `public void EnableEquipmentUpdate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableEquipmentUpdate 对应的操作。
+**用途 / Purpose:** 调用 EnableEquipmentUpdate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRoundController 实例
@@ -47,7 +47,7 @@ multiplayerRoundController.EnableEquipmentUpdate();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRoundController 实例
@@ -58,7 +58,7 @@ multiplayerRoundController.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRoundController 实例
@@ -69,7 +69,7 @@ multiplayerRoundController.OnRemoveBehavior();
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRoundController 实例
@@ -80,7 +80,7 @@ multiplayerRoundController.OnPreDisplayMissionTick(0);
 ### HandleClientEventCultureSelect
 `public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 client event culture select 相关的响应逻辑。
+**用途 / Purpose:** 响应 client event culture select 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerRoundController 实例

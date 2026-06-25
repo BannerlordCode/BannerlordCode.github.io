@@ -23,7 +23,7 @@ description: "Markable 的自动生成类参考。"
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Markable 实例
@@ -34,7 +34,7 @@ var result = markable.GetTickRequirement();
 ### DisableMarkerActivation
 `public void DisableMarkerActivation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableMarkerActivation 对应的操作。
+**用途 / Purpose:** 调用 DisableMarkerActivation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Markable 实例
@@ -45,7 +45,7 @@ markable.DisableMarkerActivation();
 ### ActivateMarkerFor
 `public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活marker for对应的资源、状态或功能。
+**用途 / Purpose:** 激活marker for对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 Markable 实例
@@ -56,7 +56,7 @@ markable.ActivateMarkerFor(0, 0);
 ### ResetPassiveDurationTimer
 `public void ResetPassiveDurationTimer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 passive duration timer 重置回默认或初始状态。
+**用途 / Purpose:** 将 passive duration timer 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Markable 实例

@@ -30,7 +30,7 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ### InitializeOptions
 `public void InitializeOptions()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by options.
+**Purpose:** Prepares the resources, state, or bindings required by options.
 
 ```csharp
 // Obtain an instance of SyncRelevantGameOptionsToServer from the subsystem API first

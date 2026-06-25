@@ -23,7 +23,7 @@ description: "CharacterPerksResolver 的自动生成类参考。"
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 applicable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 applicable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterPerksResolver 实例
@@ -34,7 +34,7 @@ var result = characterPerksResolver.IsApplicable(version);
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 field member with id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 field member with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterPerksResolver 实例
@@ -45,7 +45,7 @@ var result = characterPerksResolver.GetFieldMemberWithId(memberTypeId);
 ### GetNewType
 `public Type GetNewType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 new type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 new type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterPerksResolver 实例
@@ -56,7 +56,7 @@ var result = characterPerksResolver.GetNewType();
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property member with id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 property member with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterPerksResolver 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ orderOfBattleCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ orderOfBattleCampaignBehavior.SyncData(dataStore);
 ### GetFormationDataAtIndex
 `public OrderOfBattleFormationData GetFormationDataAtIndex(int formationIndex, bool isSiegeBattle, bool isInArmy)`
 
-**Purpose:** **Purpose:** Reads and returns the formation data at index value held by the this instance.
+**Purpose:** Reads and returns the formation data at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = orderOfBattleCampaignBehavior.GetFormationDataAtIndex(0, false, fal
 ### SetFormationInfos
 `public void SetFormationInfos(List<OrderOfBattleFormationData> formationInfos, bool isSiegeBattle, bool isInArmy)`
 
-**Purpose:** **Purpose:** Assigns a new value to formation infos and updates the object's internal state.
+**Purpose:** Assigns a new value to formation infos and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first

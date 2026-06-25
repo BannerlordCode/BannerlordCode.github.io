@@ -23,7 +23,7 @@ Treat `CapacityData` as a Data-style extension point: first identify who creates
 ### GetCapacity
 `public int GetCapacity()`
 
-**Purpose:** **Purpose:** Reads and returns the capacity value held by the this instance.
+**Purpose:** Reads and returns the capacity value held by the this instance.
 
 ```csharp
 // Obtain an instance of CapacityData from the subsystem API first
@@ -34,7 +34,7 @@ var result = capacityData.GetCapacity();
 ### CanForceTransaction
 `public bool CanForceTransaction()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for force transaction.
+**Purpose:** Checks whether the this instance meets the preconditions for force transaction.
 
 ```csharp
 // Obtain an instance of CapacityData from the subsystem API first
@@ -45,7 +45,7 @@ var result = capacityData.CanForceTransaction();
 ### GetCapacityExceededWarningText
 `public TextObject GetCapacityExceededWarningText()`
 
-**Purpose:** **Purpose:** Reads and returns the capacity exceeded warning text value held by the this instance.
+**Purpose:** Reads and returns the capacity exceeded warning text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CapacityData from the subsystem API first
@@ -56,7 +56,7 @@ var result = capacityData.GetCapacityExceededWarningText();
 ### GetCapacityExceededHintText
 `public TextObject GetCapacityExceededHintText()`
 
-**Purpose:** **Purpose:** Reads and returns the capacity exceeded hint text value held by the this instance.
+**Purpose:** Reads and returns the capacity exceeded hint text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CapacityData from the subsystem API first

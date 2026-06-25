@@ -23,7 +23,7 @@ Treat `InformationRestrictionModel` as a Model-style extension point: first iden
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
+**Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
 
 ```csharp
 // Obtain an instance of InformationRestrictionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = informationRestrictionModel.DoesPlayerKnowDetailsOf(settlement);
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
+**Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
 
 ```csharp
 // Obtain an instance of InformationRestrictionModel from the subsystem API first

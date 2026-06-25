@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithValueEventArgs
 `public struct PropertyChangedWithValueEventArgs(string propertyName, object value)`
 
-**Purpose:** **Purpose:** Executes the PropertyChangedWithValueEventArgs logic.
+**Purpose:** Executes the PropertyChangedWithValueEventArgs logic.
 
 ```csharp
 // Obtain an instance of PropertyChangedWithValueEventArgs from the subsystem API first

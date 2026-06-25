@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of values.
+**Purpose:** Recalculates and stores the latest representation of values.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelToggleOptionVM from the subsystem API first
@@ -41,7 +41,7 @@ multiplayerAdminPanelToggleOptionVM.UpdateValues();
 ### ExecuteToggle
 `public void ExecuteToggle()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle.
+**Purpose:** Runs the operation or workflow associated with toggle.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelToggleOptionVM from the subsystem API first

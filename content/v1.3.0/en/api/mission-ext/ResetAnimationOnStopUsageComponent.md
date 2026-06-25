@@ -23,7 +23,7 @@ Treat `ResetAnimationOnStopUsageComponent` as a Component-style extension point:
 ### UpdateSuccessfulResetAction
 `public void UpdateSuccessfulResetAction(ActionIndexCache successfulResetActionCode)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of successful reset action.
+**Purpose:** Recalculates and stores the latest representation of successful reset action.
 
 ```csharp
 // Obtain an instance of ResetAnimationOnStopUsageComponent from the subsystem API first

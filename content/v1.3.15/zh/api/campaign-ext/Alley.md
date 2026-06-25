@@ -33,7 +33,7 @@ description: "Alley 的自动生成类参考。"
 ### SetOwner
 `public void SetOwner(Hero newOwner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 owner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 owner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Alley 实例
@@ -44,7 +44,7 @@ alley.SetOwner(newOwner);
 ### Initialize
 `public void Initialize(Settlement settlement, string tag, TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Alley 实例

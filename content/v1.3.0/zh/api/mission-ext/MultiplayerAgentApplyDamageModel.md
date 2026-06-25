@@ -23,7 +23,7 @@ description: "MultiplayerAgentApplyDamageModel 的自动生成类参考。"
 ### IsDamageIgnored
 `public override bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 damage ignored 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 damage ignored 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -34,7 +34,7 @@ var result = multiplayerAgentApplyDamageModel.IsDamageIgnored(attackInformation,
 ### ApplyDamageAmplifications
 `public override float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 damage amplifications 的效果应用到当前对象。
+**用途 / Purpose:** 将 damage amplifications 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -45,7 +45,7 @@ var result = multiplayerAgentApplyDamageModel.ApplyDamageAmplifications(attackIn
 ### ApplyDamageScaling
 `public override float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 damage scaling 的效果应用到当前对象。
+**用途 / Purpose:** 将 damage scaling 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -56,7 +56,7 @@ var result = multiplayerAgentApplyDamageModel.ApplyDamageScaling(attackInformati
 ### ApplyDamageReductions
 `public override float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 damage reductions 的效果应用到当前对象。
+**用途 / Purpose:** 将 damage reductions 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -67,7 +67,7 @@ var result = multiplayerAgentApplyDamageModel.ApplyDamageReductions(attackInform
 ### ApplyGeneralDamageModifiers
 `public override float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 general damage modifiers 的效果应用到当前对象。
+**用途 / Purpose:** 将 general damage modifiers 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -78,7 +78,7 @@ var result = multiplayerAgentApplyDamageModel.ApplyGeneralDamageModifiers(attack
 ### DecideMissileWeaponFlags
 `public override void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideMissileWeaponFlags 对应的操作。
+**用途 / Purpose:** 调用 DecideMissileWeaponFlags 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -89,7 +89,7 @@ multiplayerAgentApplyDamageModel.DecideMissileWeaponFlags(attackerAgent, missile
 ### DecideCrushedThrough
 `public override bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideCrushedThrough 对应的操作。
+**用途 / Purpose:** 调用 DecideCrushedThrough 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -100,7 +100,7 @@ var result = multiplayerAgentApplyDamageModel.DecideCrushedThrough(attackerAgent
 ### CanWeaponDealSneakAttack
 `public override bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon deal sneak attack 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 weapon deal sneak attack 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -111,7 +111,7 @@ var result = multiplayerAgentApplyDamageModel.CanWeaponDealSneakAttack(attackInf
 ### CanWeaponDismount
 `public override bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon dismount 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 weapon dismount 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -122,7 +122,7 @@ var result = multiplayerAgentApplyDamageModel.CanWeaponDismount(attackerAgent, a
 ### CalculateDefendedBlowStunMultipliers
 `public override void CalculateDefendedBlowStunMultipliers(Agent attackerAgent, Agent defenderAgent, CombatCollisionResult collisionResult, WeaponComponentData attackerWeapon, WeaponComponentData defenderWeapon, ref float attackerStunPeriod, ref float defenderStunPeriod)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算defended blow stun multipliers的当前值或结果。
+**用途 / Purpose:** 计算defended blow stun multipliers的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -133,7 +133,7 @@ multiplayerAgentApplyDamageModel.CalculateDefendedBlowStunMultipliers(attackerAg
 ### CanWeaponKnockback
 `public override bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon knockback 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 weapon knockback 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -144,7 +144,7 @@ var result = multiplayerAgentApplyDamageModel.CanWeaponKnockback(attackerAgent, 
 ### CanWeaponKnockDown
 `public override bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon knock down 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 weapon knock down 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -155,7 +155,7 @@ var result = multiplayerAgentApplyDamageModel.CanWeaponKnockDown(attackerAgent, 
 ### GetDismountPenetration
 `public override float GetDismountPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dismount penetration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 dismount penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -166,7 +166,7 @@ var result = multiplayerAgentApplyDamageModel.GetDismountPenetration(attackerAge
 ### GetKnockBackPenetration
 `public override float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock back penetration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 knock back penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -177,7 +177,7 @@ var result = multiplayerAgentApplyDamageModel.GetKnockBackPenetration(attackerAg
 ### GetKnockDownPenetration
 `public override float GetKnockDownPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock down penetration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 knock down penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -188,7 +188,7 @@ var result = multiplayerAgentApplyDamageModel.GetKnockDownPenetration(attackerAg
 ### GetHorseChargePenetration
 `public override float GetHorseChargePenetration()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 horse charge penetration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 horse charge penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -199,7 +199,7 @@ var result = multiplayerAgentApplyDamageModel.GetHorseChargePenetration();
 ### CalculateStaggerThresholdDamage
 `public override float CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算stagger threshold damage的当前值或结果。
+**用途 / Purpose:** 计算stagger threshold damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -210,7 +210,7 @@ var result = multiplayerAgentApplyDamageModel.CalculateStaggerThresholdDamage(de
 ### CalculateAlternativeAttackDamage
 `public override float CalculateAlternativeAttackDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算alternative attack damage的当前值或结果。
+**用途 / Purpose:** 计算alternative attack damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -221,7 +221,7 @@ var result = multiplayerAgentApplyDamageModel.CalculateAlternativeAttackDamage(a
 ### CalculatePassiveAttackDamage
 `public override float CalculatePassiveAttackDamage(BasicCharacterObject attackerCharacter, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算passive attack damage的当前值或结果。
+**用途 / Purpose:** 计算passive attack damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -232,7 +232,7 @@ var result = multiplayerAgentApplyDamageModel.CalculatePassiveAttackDamage(attac
 ### DecidePassiveAttackCollisionReaction
 `public override MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecidePassiveAttackCollisionReaction 对应的操作。
+**用途 / Purpose:** 调用 DecidePassiveAttackCollisionReaction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -243,7 +243,7 @@ var result = multiplayerAgentApplyDamageModel.DecidePassiveAttackCollisionReacti
 ### CalculateShieldDamage
 `public override float CalculateShieldDamage(in AttackInformation attackInformation, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算shield damage的当前值或结果。
+**用途 / Purpose:** 计算shield damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -254,7 +254,7 @@ var result = multiplayerAgentApplyDamageModel.CalculateShieldDamage(attackInform
 ### CalculateSailFireDamage
 `public override float CalculateSailFireDamage(Agent attackerAgent, float baseDamage, bool damageFromShipMachine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算sail fire damage的当前值或结果。
+**用途 / Purpose:** 计算sail fire damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -265,7 +265,7 @@ var result = multiplayerAgentApplyDamageModel.CalculateSailFireDamage(attackerAg
 ### GetDamageMultiplierForBodyPart
 `public override float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage multiplier for body part 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 damage multiplier for body part 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -276,7 +276,7 @@ var result = multiplayerAgentApplyDamageModel.GetDamageMultiplierForBodyPart(bod
 ### CanWeaponIgnoreFriendlyFireChecks
 `public override bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon ignore friendly fire checks 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 weapon ignore friendly fire checks 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -287,7 +287,7 @@ var result = multiplayerAgentApplyDamageModel.CanWeaponIgnoreFriendlyFireChecks(
 ### DecideAgentShrugOffBlow
 `public override bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentShrugOffBlow 对应的操作。
+**用途 / Purpose:** 调用 DecideAgentShrugOffBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -298,7 +298,7 @@ var result = multiplayerAgentApplyDamageModel.DecideAgentShrugOffBlow(victimAgen
 ### DecideAgentDismountedByBlow
 `public override bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentDismountedByBlow 对应的操作。
+**用途 / Purpose:** 调用 DecideAgentDismountedByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -309,7 +309,7 @@ var result = multiplayerAgentApplyDamageModel.DecideAgentDismountedByBlow(attack
 ### DecideAgentKnockedBackByBlow
 `public override bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentKnockedBackByBlow 对应的操作。
+**用途 / Purpose:** 调用 DecideAgentKnockedBackByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -320,7 +320,7 @@ var result = multiplayerAgentApplyDamageModel.DecideAgentKnockedBackByBlow(attac
 ### DecideAgentKnockedDownByBlow
 `public override bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentKnockedDownByBlow 对应的操作。
+**用途 / Purpose:** 调用 DecideAgentKnockedDownByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -331,7 +331,7 @@ var result = multiplayerAgentApplyDamageModel.DecideAgentKnockedDownByBlow(attac
 ### DecideMountRearedByBlow
 `public override bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideMountRearedByBlow 对应的操作。
+**用途 / Purpose:** 调用 DecideMountRearedByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -342,7 +342,7 @@ var result = multiplayerAgentApplyDamageModel.DecideMountRearedByBlow(attackerAg
 ### DecideWeaponCollisionReaction
 `public override void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecideWeaponCollisionReaction 对应的操作。
+**用途 / Purpose:** 调用 DecideWeaponCollisionReaction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -353,7 +353,7 @@ multiplayerAgentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, c
 ### ShouldMissilePassThroughAfterShieldBreak
 `public override bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldMissilePassThroughAfterShieldBreak 对应的操作。
+**用途 / Purpose:** 调用 ShouldMissilePassThroughAfterShieldBreak 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例
@@ -364,7 +364,7 @@ var result = multiplayerAgentApplyDamageModel.ShouldMissilePassThroughAfterShiel
 ### CalculateRemainingMomentum
 `public override float CalculateRemainingMomentum(float originalMomentum, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算remaining momentum的当前值或结果。
+**用途 / Purpose:** 计算remaining momentum的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAgentApplyDamageModel 实例

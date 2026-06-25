@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitBodyGenerator
 `public FaceGenerationParams InitBodyGenerator(bool isDressed)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by body generator.
+**Purpose:** Prepares the resources, state, or bindings required by body generator.
 
 ```csharp
 // Obtain an instance of BodyGenerator from the subsystem API first
@@ -40,7 +40,7 @@ var result = bodyGenerator.InitBodyGenerator(false);
 ### RefreshFace
 `public void RefreshFace(FaceGenerationParams faceGenerationParams, bool hasEquipment)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of face in sync with the underlying state.
+**Purpose:** Keeps the display or cache of face in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BodyGenerator from the subsystem API first
@@ -51,7 +51,7 @@ bodyGenerator.RefreshFace(faceGenerationParams, false);
 ### SaveCurrentCharacter
 `public void SaveCurrentCharacter()`
 
-**Purpose:** **Purpose:** Writes current character to persistent storage or a stream.
+**Purpose:** Writes current character to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of BodyGenerator from the subsystem API first

@@ -23,7 +23,7 @@ Treat `DefaultItemDiscardModel` as a Model-style extension point: first identify
 ### PlayerCanDonateItem
 `public override bool PlayerCanDonateItem(ItemObject item)`
 
-**Purpose:** **Purpose:** Executes the PlayerCanDonateItem logic.
+**Purpose:** Executes the PlayerCanDonateItem logic.
 
 ```csharp
 // Obtain an instance of DefaultItemDiscardModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultItemDiscardModel.PlayerCanDonateItem(item);
 ### GetXpBonusForDiscardingItem
 `public override int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**Purpose:** **Purpose:** Reads and returns the xp bonus for discarding item value held by the this instance.
+**Purpose:** Reads and returns the xp bonus for discarding item value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultItemDiscardModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultItemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
 ### GetXpBonusForDiscardingItems
 `public override int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**Purpose:** **Purpose:** Reads and returns the xp bonus for discarding items value held by the this instance.
+**Purpose:** Reads and returns the xp bonus for discarding items value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultItemDiscardModel from the subsystem API first

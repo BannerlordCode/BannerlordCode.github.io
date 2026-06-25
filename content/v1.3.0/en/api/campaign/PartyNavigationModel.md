@@ -23,7 +23,7 @@ Treat `PartyNavigationModel` as a Model-style extension point: first identify wh
 ### GetEmbarkDisembarkThresholdDistance
 `public abstract float GetEmbarkDisembarkThresholdDistance()`
 
-**Purpose:** **Purpose:** Reads and returns the embark disembark threshold distance value held by the this instance.
+**Purpose:** Reads and returns the embark disembark threshold distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyNavigationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyNavigationModel.GetEmbarkDisembarkThresholdDistance();
 ### IsTerrainTypeValidForNavigationType
 `public abstract bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the terrain type valid for navigation type state or condition.
+**Purpose:** Determines whether the this instance is in the terrain type valid for navigation type state or condition.
 
 ```csharp
 // Obtain an instance of PartyNavigationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyNavigationModel.IsTerrainTypeValidForNavigationType(terrainTyp
 ### GetInvalidTerrainTypesForNavigationType
 `public abstract int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Reads and returns the invalid terrain types for navigation type value held by the this instance.
+**Purpose:** Reads and returns the invalid terrain types for navigation type value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyNavigationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyNavigationModel.GetInvalidTerrainTypesForNavigationType(naviga
 ### HasNavalNavigationCapability
 `public abstract bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds naval navigation capability.
+**Purpose:** Determines whether the this instance already holds naval navigation capability.
 
 ```csharp
 // Obtain an instance of PartyNavigationModel from the subsystem API first

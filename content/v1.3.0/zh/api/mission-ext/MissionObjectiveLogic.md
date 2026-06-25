@@ -29,7 +29,7 @@ description: "MissionObjectiveLogic 的自动生成类参考。"
 ### EnqueueObjective
 `public void EnqueueObjective(MissionObjective objective)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnqueueObjective 对应的操作。
+**用途 / Purpose:** 调用 EnqueueObjective 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -40,7 +40,7 @@ missionObjectiveLogic.EnqueueObjective(objective);
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(string objectiveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 objective from queue。
+**用途 / Purpose:** 从当前容器或状态中移除 objective from queue。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -51,7 +51,7 @@ missionObjectiveLogic.RemoveObjectiveFromQueue("example");
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(MissionObjective objective)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 objective from queue。
+**用途 / Purpose:** 从当前容器或状态中移除 objective from queue。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -62,7 +62,7 @@ missionObjectiveLogic.RemoveObjectiveFromQueue(objective);
 ### GetCurrentObjective
 `public MissionObjective GetCurrentObjective()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current objective 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current objective 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -73,7 +73,7 @@ var result = missionObjectiveLogic.GetCurrentObjective();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例

@@ -23,7 +23,7 @@ description: "SpawnerBase 的自动生成类参考。"
 ### AssignParameters
 `public virtual void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AssignParameters 对应的操作。
+**用途 / Purpose:** 调用 AssignParameters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerBase 实例

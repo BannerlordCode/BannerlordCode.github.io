@@ -42,7 +42,7 @@ description: "MissionTime 的自动生成类参考。"
 ### MillisecondsFromNow
 `public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MillisecondsFromNow 对应的操作。
+**用途 / Purpose:** 调用 MillisecondsFromNow 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ MissionTime.MillisecondsFromNow(0);
 ### SecondsFromNow
 `public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SecondsFromNow 对应的操作。
+**用途 / Purpose:** 调用 SecondsFromNow 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ MissionTime.SecondsFromNow(0);
 ### Equals
 `public bool Equals(MissionTime other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTime 实例
@@ -73,7 +73,7 @@ var result = missionTime.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTime 实例
@@ -84,7 +84,7 @@ var result = missionTime.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTime 实例
@@ -95,7 +95,7 @@ var result = missionTime.GetHashCode();
 ### CompareTo
 `public int CompareTo(MissionTime other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTime 实例
@@ -106,7 +106,7 @@ var result = missionTime.CompareTo(other);
 ### Milliseconds
 `public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Milliseconds 对应的操作。
+**用途 / Purpose:** 调用 Milliseconds 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -116,7 +116,7 @@ MissionTime.Milliseconds(0);
 ### Seconds
 `public static MissionTime Seconds(float valueInSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Seconds 对应的操作。
+**用途 / Purpose:** 调用 Seconds 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -126,7 +126,7 @@ MissionTime.Seconds(0);
 ### Minutes
 `public static MissionTime Minutes(float valueInMinutes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Minutes 对应的操作。
+**用途 / Purpose:** 调用 Minutes 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -136,7 +136,7 @@ MissionTime.Minutes(0);
 ### Hours
 `public static MissionTime Hours(float valueInHours)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Hours 对应的操作。
+**用途 / Purpose:** 调用 Hours 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

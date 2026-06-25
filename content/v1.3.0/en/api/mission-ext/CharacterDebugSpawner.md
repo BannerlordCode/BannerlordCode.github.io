@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**Purpose:** **Purpose:** Assigns a new value to cloth colors and updates the object's internal state.
+**Purpose:** Assigns a new value to cloth colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDebugSpawner from the subsystem API first
@@ -41,7 +41,7 @@ characterDebugSpawner.SetClothColors(0, 0);
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**Purpose:** **Purpose:** Executes the SpawnCharacter logic.
+**Purpose:** Executes the SpawnCharacter logic.
 
 ```csharp
 // Obtain an instance of CharacterDebugSpawner from the subsystem API first
@@ -52,7 +52,7 @@ characterDebugSpawner.SpawnCharacter();
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CharacterDebugSpawner from the subsystem API first
@@ -63,7 +63,7 @@ characterDebugSpawner.Reset();
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with character.
+**Purpose:** Prepares the resources, state, or bindings required by with character.
 
 ```csharp
 // Obtain an instance of CharacterDebugSpawner from the subsystem API first
@@ -74,7 +74,7 @@ characterDebugSpawner.InitWithCharacter(characterCode);
 ### WieldWeapon
 `public void WieldWeapon(CharacterCode characterCode)`
 
-**Purpose:** **Purpose:** Executes the WieldWeapon logic.
+**Purpose:** Executes the WieldWeapon logic.
 
 ```csharp
 // Obtain an instance of CharacterDebugSpawner from the subsystem API first

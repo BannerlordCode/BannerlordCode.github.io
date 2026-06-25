@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Inte
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first
@@ -34,7 +34,7 @@ missionGenericInteractionItemVM.RefreshValues();
 ### SetData
 `public void SetData(TextObject message, bool isDisabled = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
+**Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first
@@ -45,7 +45,7 @@ missionGenericInteractionItemVM.SetData(message, false);
 ### ResetData
 `public void ResetData()`
 
-**Purpose:** **Purpose:** Returns data to its default or initial condition.
+**Purpose:** Returns data to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first

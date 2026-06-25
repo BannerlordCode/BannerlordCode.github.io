@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorDefensiveRing from the subsystem API first
@@ -34,7 +34,7 @@ behaviorDefensiveRing.TickOccasionally();
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** **Purpose:** Returns behavior to its default or initial condition.
+**Purpose:** Returns behavior to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BehaviorDefensiveRing from the subsystem API first

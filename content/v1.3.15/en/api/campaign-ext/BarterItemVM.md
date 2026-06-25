@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first
@@ -52,7 +52,7 @@ barterItemVM.RefreshValues();
 ### RefreshCompabilityWithItem
 `public void RefreshCompabilityWithItem(BarterItemVM item, bool isItemGotOffered)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of compability with item in sync with the underlying state.
+**Purpose:** Keeps the display or cache of compability with item in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first
@@ -63,7 +63,7 @@ barterItemVM.RefreshCompabilityWithItem(item, false);
 ### ExecuteAddOffered
 `public void ExecuteAddOffered()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add offered.
+**Purpose:** Runs the operation or workflow associated with add offered.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first
@@ -74,7 +74,7 @@ barterItemVM.ExecuteAddOffered();
 ### ExecuteRemoveOffered
 `public void ExecuteRemoveOffered()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove offered.
+**Purpose:** Runs the operation or workflow associated with remove offered.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first
@@ -85,7 +85,7 @@ barterItemVM.ExecuteRemoveOffered();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first
@@ -96,7 +96,7 @@ barterItemVM.ExecuteAction();
 ### BarterTransferEventDelegate
 `public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)`
 
-**Purpose:** **Purpose:** Executes the BarterTransferEventDelegate logic.
+**Purpose:** Executes the BarterTransferEventDelegate logic.
 
 ```csharp
 // Obtain an instance of BarterItemVM from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MultiplayerGameManager` as a Manager-style extension point: first identif
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the load finished event is raised.
+**Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameManager from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerGameManager.OnLoadFinished();
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after campaign start event is raised.
+**Purpose:** Invoked when the after campaign start event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameManager from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerGameManager.OnAfterCampaignStart(game);
 ### OnNewCampaignStart
 `public override void OnNewCampaignStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the new campaign start event is raised.
+**Purpose:** Invoked when the new campaign start event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameManager from the subsystem API first
@@ -56,7 +56,7 @@ multiplayerGameManager.OnNewCampaignStart(game, starterObject);
 ### OnSessionInvitationAccepted
 `public override void OnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**Purpose:** **Purpose:** Invoked when the session invitation accepted event is raised.
+**Purpose:** Invoked when the session invitation accepted event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameManager from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerGameManager.OnSessionInvitationAccepted(sessionInvitationType);
 ### OnPlatformRequestedMultiplayer
 `public override void OnPlatformRequestedMultiplayer()`
 
-**Purpose:** **Purpose:** Invoked when the platform requested multiplayer event is raised.
+**Purpose:** Invoked when the platform requested multiplayer event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameManager from the subsystem API first

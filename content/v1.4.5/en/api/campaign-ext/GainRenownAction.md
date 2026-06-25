@@ -19,7 +19,7 @@ GainRenownAction is a set of static methods that trigger "GainRenown" in the cam
 public static void Apply(Hero hero, float renownValue, bool doNotNotify = false)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

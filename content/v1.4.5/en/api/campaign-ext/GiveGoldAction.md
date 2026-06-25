@@ -19,7 +19,7 @@ GiveGoldAction is a set of static methods that trigger "GiveGold" in the campaig
 public static void ApplyBetweenCharacters(Hero giverHero, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of between characters to the this instance.
+**Purpose:** Applies the effect of between characters to the this instance.
 
 ### ApplyForCharacterToSettlement
 
@@ -27,7 +27,7 @@ public static void ApplyBetweenCharacters(Hero giverHero, Hero recipientHero, in
 public static void ApplyForCharacterToSettlement(Hero giverHero, Settlement settlement, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for character to settlement to the this instance.
+**Purpose:** Applies the effect of for character to settlement to the this instance.
 
 ### ApplyForSettlementToCharacter
 
@@ -35,7 +35,7 @@ public static void ApplyForCharacterToSettlement(Hero giverHero, Settlement sett
 public static void ApplyForSettlementToCharacter(Settlement giverSettlement, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for settlement to character to the this instance.
+**Purpose:** Applies the effect of for settlement to character to the this instance.
 
 ### ApplyForSettlementToParty
 
@@ -43,7 +43,7 @@ public static void ApplyForSettlementToCharacter(Settlement giverSettlement, Her
 public static void ApplyForSettlementToParty(Settlement giverSettlement, PartyBase recipientParty, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for settlement to party to the this instance.
+**Purpose:** Applies the effect of for settlement to party to the this instance.
 
 ### ApplyForPartyToSettlement
 
@@ -51,7 +51,7 @@ public static void ApplyForSettlementToParty(Settlement giverSettlement, PartyBa
 public static void ApplyForPartyToSettlement(PartyBase giverParty, Settlement settlement, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for party to settlement to the this instance.
+**Purpose:** Applies the effect of for party to settlement to the this instance.
 
 ### ApplyForPartyToCharacter
 
@@ -59,7 +59,7 @@ public static void ApplyForPartyToSettlement(PartyBase giverParty, Settlement se
 public static void ApplyForPartyToCharacter(PartyBase giverParty, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for party to character to the this instance.
+**Purpose:** Applies the effect of for party to character to the this instance.
 
 ### ApplyForCharacterToParty
 
@@ -67,7 +67,7 @@ public static void ApplyForPartyToCharacter(PartyBase giverParty, Hero recipient
 public static void ApplyForCharacterToParty(Hero giverHero, PartyBase receipentParty, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for character to party to the this instance.
+**Purpose:** Applies the effect of for character to party to the this instance.
 
 ### ApplyForPartyToParty
 
@@ -75,7 +75,7 @@ public static void ApplyForCharacterToParty(Hero giverHero, PartyBase receipentP
 public static void ApplyForPartyToParty(PartyBase giverParty, PartyBase receipentParty, int amount, bool disableNotification = false)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of for party to party to the this instance.
+**Purpose:** Applies the effect of for party to party to the this instance.
 
 ## Usage Example
 

@@ -23,7 +23,7 @@ Treat `DefaultIssueModel` as a Model-style extension point: first identify who c
 ### GetIssueDifficultyMultiplier
 `public override float GetIssueDifficultyMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the issue difficulty multiplier value held by the this instance.
+**Purpose:** Reads and returns the issue difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultIssueModel.GetIssueDifficultyMultiplier();
 ### GetIssueEffectsOfSettlement
 `public override void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** **Purpose:** Reads and returns the issue effects of settlement value held by the this instance.
+**Purpose:** Reads and returns the issue effects of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -45,7 +45,7 @@ defaultIssueModel.GetIssueEffectsOfSettlement(issueEffect, settlement, explained
 ### GetIssueEffectOfHero
 `public override void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** **Purpose:** Reads and returns the issue effect of hero value held by the this instance.
+**Purpose:** Reads and returns the issue effect of hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -56,7 +56,7 @@ defaultIssueModel.GetIssueEffectOfHero(issueEffect, hero, explainedNumber);
 ### GetIssueEffectOfClan
 `public override void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** **Purpose:** Reads and returns the issue effect of clan value held by the this instance.
+**Purpose:** Reads and returns the issue effect of clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -67,7 +67,7 @@ defaultIssueModel.GetIssueEffectOfClan(issueEffect, clan, explainedNumber);
 ### GetFailureRiskForHero
 `public override float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** **Purpose:** Reads and returns the failure risk for hero value held by the this instance.
+**Purpose:** Reads and returns the failure risk for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultIssueModel.GetFailureRiskForHero(alternativeSolutionHero, is
 ### GetDurationOfResolutionForHero
 `public override CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** **Purpose:** Reads and returns the duration of resolution for hero value held by the this instance.
+**Purpose:** Reads and returns the duration of resolution for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultIssueModel.GetDurationOfResolutionForHero(alternativeSolutio
 ### GetTroopsRequiredForHero
 `public override int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** **Purpose:** Reads and returns the troops required for hero value held by the this instance.
+**Purpose:** Reads and returns the troops required for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultIssueModel.GetTroopsRequiredForHero(alternativeSolutionHero,
 ### CanTroopsReturnFromAlternativeSolution
 `public override bool CanTroopsReturnFromAlternativeSolution()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for troops return from alternative solution.
+**Purpose:** Checks whether the this instance meets the preconditions for troops return from alternative solution.
 
 ```csharp
 // Obtain an instance of DefaultIssueModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "PreloadHelper 的自动生成类参考。"
 ### PreloadCharacters
 `public void PreloadCharacters(List<BasicCharacterObject> characters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadCharacters 对应的操作。
+**用途 / Purpose:** 调用 PreloadCharacters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -34,7 +34,7 @@ preloadHelper.PreloadCharacters(characters);
 ### WaitForMeshesToBeLoaded
 `public void WaitForMeshesToBeLoaded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到for meshes to be loaded条件满足。
+**用途 / Purpose:** 暂停当前流程，直到for meshes to be loaded条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -45,7 +45,7 @@ preloadHelper.WaitForMeshesToBeLoaded();
 ### PreloadEquipments
 `public void PreloadEquipments(List<Equipment> equipments)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadEquipments 对应的操作。
+**用途 / Purpose:** 调用 PreloadEquipments 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -56,7 +56,7 @@ preloadHelper.PreloadEquipments(equipments);
 ### PreloadItems
 `public void PreloadItems(List<ItemObject> items)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadItems 对应的操作。
+**用途 / Purpose:** 调用 PreloadItems 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -67,7 +67,7 @@ preloadHelper.PreloadItems(items);
 ### PreloadEntities
 `public void PreloadEntities(List<WeakGameEntity> entities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadEntities 对应的操作。
+**用途 / Purpose:** 调用 PreloadEntities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -78,7 +78,7 @@ preloadHelper.PreloadEntities(entities);
 ### PreloadMeshesAndPhysics
 `public void PreloadMeshesAndPhysics()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadMeshesAndPhysics 对应的操作。
+**用途 / Purpose:** 调用 PreloadMeshesAndPhysics 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -89,7 +89,7 @@ preloadHelper.PreloadMeshesAndPhysics();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例

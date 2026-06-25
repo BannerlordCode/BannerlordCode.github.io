@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of CraftingSecondaryUsageItemVM from the subsystem API first

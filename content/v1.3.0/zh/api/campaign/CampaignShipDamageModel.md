@@ -23,7 +23,7 @@ description: "CampaignShipDamageModel 的自动生成类参考。"
 ### GetHourlyShipDamage
 `public abstract int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hourly ship damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hourly ship damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignShipDamageModel 实例
@@ -34,7 +34,7 @@ var result = campaignShipDamageModel.GetHourlyShipDamage(owner, ship);
 ### GetEstimatedSafeSailDuration
 `public abstract float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated safe sail duration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 estimated safe sail duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignShipDamageModel 实例
@@ -45,7 +45,7 @@ var result = campaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
 ### GetShipDamage
 `public abstract float GetShipDamage(Ship ship, float rawDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignShipDamageModel 实例

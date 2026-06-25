@@ -23,7 +23,7 @@ Treat `DefaultPartyShipLimitModel` as a Model-style extension point: first ident
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the ideal ship number value held by the this instance.
+**Purpose:** Reads and returns the ideal ship number value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyShipLimitModel.GetIdealShipNumber(mobileParty);
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the ideal ship number value held by the this instance.
+**Purpose:** Reads and returns the ideal ship number value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyShipLimitModel.GetIdealShipNumber(clan);
 ### GetShipPriority
 `public override float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**Purpose:** **Purpose:** Reads and returns the ship priority value held by the this instance.
+**Purpose:** Reads and returns the ship priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first

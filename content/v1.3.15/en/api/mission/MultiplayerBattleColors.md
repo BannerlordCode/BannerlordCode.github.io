@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Multiplayer` to place it
 ### CreateWith
 `public static MultiplayerBattleColors CreateWith(BasicCultureObject attackerCulture, BasicCultureObject defenderCulture)`
 
-**Purpose:** **Purpose:** Constructs a new with entity and returns it to the caller.
+**Purpose:** Constructs a new with entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerBattleColors.CreateWith(attackerCulture, defenderCulture);
 ### GetPeerColors
 `public MultiplayerBattleColors.MultiplayerCultureColorInfo GetPeerColors(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Reads and returns the peer colors value held by the this instance.
+**Purpose:** Reads and returns the peer colors value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerBattleColors from the subsystem API first

@@ -86,7 +86,7 @@ description: "PartyCharacterVM 的自动生成类参考。"
 ### UpdateTalkable
 `public void UpdateTalkable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 talkable 的最新表示。
+**用途 / Purpose:** 重新计算并更新 talkable 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -97,7 +97,7 @@ partyCharacterVM.UpdateTalkable();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -108,7 +108,7 @@ partyCharacterVM.RefreshValues();
 ### ExecuteSetSelected
 `public void ExecuteSetSelected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set selected 对应的操作或工作流。
+**用途 / Purpose:** 执行 set selected 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -119,7 +119,7 @@ partyCharacterVM.ExecuteSetSelected();
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 talk 对应的操作或工作流。
+**用途 / Purpose:** 执行 talk 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -130,7 +130,7 @@ partyCharacterVM.ExecuteTalk();
 ### UpdateTradeData
 `public void UpdateTradeData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 trade data 的最新表示。
+**用途 / Purpose:** 重新计算并更新 trade data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -141,7 +141,7 @@ partyCharacterVM.UpdateTradeData();
 ### UpdateRecruitable
 `public void UpdateRecruitable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 recruitable 的最新表示。
+**用途 / Purpose:** 重新计算并更新 recruitable 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -152,7 +152,7 @@ partyCharacterVM.UpdateRecruitable();
 ### InitializeUpgrades
 `public void InitializeUpgrades()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 upgrades 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 upgrades 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -163,7 +163,7 @@ partyCharacterVM.InitializeUpgrades();
 ### OnTransferred
 `public void OnTransferred()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 transferred 事件触发时调用此回调。
+**用途 / Purpose:** 在 transferred 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -174,7 +174,7 @@ partyCharacterVM.OnTransferred();
 ### ThrowOnPropertyChanged
 `public void ThrowOnPropertyChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ThrowOnPropertyChanged 对应的操作。
+**用途 / Purpose:** 调用 ThrowOnPropertyChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -185,7 +185,7 @@ partyCharacterVM.ThrowOnPropertyChanged();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -196,7 +196,7 @@ var result = partyCharacterVM.Equals(obj);
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -207,7 +207,7 @@ partyCharacterVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -218,7 +218,7 @@ partyCharacterVM.ExecuteSetUnfocused();
 ### ExecuteTransferSingle
 `public void ExecuteTransferSingle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer single 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer single 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -229,7 +229,7 @@ partyCharacterVM.ExecuteTransferSingle();
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset trade 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset trade 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -240,7 +240,7 @@ partyCharacterVM.ExecuteResetTrade();
 ### Upgrade
 `public void Upgrade(int upgradeIndex, int maxUpgradeCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Upgrade 对应的操作。
+**用途 / Purpose:** 调用 Upgrade 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -251,7 +251,7 @@ partyCharacterVM.Upgrade(0, 0);
 ### FocusUpgrade
 `public void FocusUpgrade(UpgradeTargetVM upgrade)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusUpgrade 对应的操作。
+**用途 / Purpose:** 调用 FocusUpgrade 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -262,7 +262,7 @@ partyCharacterVM.FocusUpgrade(upgrade);
 ### RecruitAll
 `public void RecruitAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RecruitAll 对应的操作。
+**用途 / Purpose:** 调用 RecruitAll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -273,7 +273,7 @@ partyCharacterVM.RecruitAll();
 ### ExecuteRecruitTroop
 `public void ExecuteRecruitTroop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 recruit troop 对应的操作或工作流。
+**用途 / Purpose:** 执行 recruit troop 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -284,7 +284,7 @@ partyCharacterVM.ExecuteRecruitTroop();
 ### ExecuteExecuteTroop
 `public void ExecuteExecuteTroop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 execute troop 对应的操作或工作流。
+**用途 / Purpose:** 执行 execute troop 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -295,7 +295,7 @@ partyCharacterVM.ExecuteExecuteTroop();
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open troop encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open troop encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -306,7 +306,7 @@ partyCharacterVM.ExecuteOpenTroopEncyclopedia();
 ### SetIsUpgradeButtonHighlighted
 `public void SetIsUpgradeButtonHighlighted(bool isHighlighted)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is upgrade button highlighted 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is upgrade button highlighted 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -317,7 +317,7 @@ partyCharacterVM.SetIsUpgradeButtonHighlighted(false);
 ### GetNumOfCategoryItemPartyHas
 `public int GetNumOfCategoryItemPartyHas(ItemRoster items, ItemCategory itemCategory)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num of category item party has 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 num of category item party has 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -328,7 +328,7 @@ var result = partyCharacterVM.GetNumOfCategoryItemPartyHas(items, itemCategory);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例

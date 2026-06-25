@@ -59,7 +59,7 @@ description: "BannerEditorVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -70,7 +70,7 @@ bannerEditorVM.RefreshValues();
 ### RefreshSelectedColorsAndSigils
 `public void RefreshSelectedColorsAndSigils()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 selected colors and sigils 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 selected colors and sigils 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -81,7 +81,7 @@ bannerEditorVM.RefreshSelectedColorsAndSigils();
 ### SetClanRelatedRules
 `public void SetClanRelatedRules(bool canChangeBackgroundColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 clan related rules 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 clan related rules 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -92,7 +92,7 @@ bannerEditorVM.SetClanRelatedRules(false);
 ### ExecuteSwitchColors
 `public void ExecuteSwitchColors()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch colors 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch colors 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -103,7 +103,7 @@ bannerEditorVM.ExecuteSwitchColors();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -114,7 +114,7 @@ bannerEditorVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -125,7 +125,7 @@ bannerEditorVM.ExecuteCancel();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -136,7 +136,7 @@ bannerEditorVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -147,7 +147,7 @@ bannerEditorVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -158,7 +158,7 @@ bannerEditorVM.SetDoneInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
+**用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -169,7 +169,7 @@ bannerEditorVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
+**用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -180,7 +180,7 @@ bannerEditorVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
+**用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例
@@ -191,7 +191,7 @@ bannerEditorVM.AddCameraControlInputKey(gameAxisKey, keyName);
 ### ExecuteGoToIndex
 `public void ExecuteGoToIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 go to index 对应的操作或工作流。
+**用途 / Purpose:** 执行 go to index 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorVM 实例

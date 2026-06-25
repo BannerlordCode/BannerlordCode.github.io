@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(string overridenFolder)`
 
-**Purpose:** **Purpose:** Executes the OverrideManagedDllFolder logic.
+**Purpose:** Executes the OverrideManagedDllFolder logic.
 
 ```csharp
 // Static call; no instance required

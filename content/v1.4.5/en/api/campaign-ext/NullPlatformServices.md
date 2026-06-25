@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of NullPlatformServices from the subsystem API first
@@ -34,7 +34,7 @@ nullPlatformServices.Tick(0);
 ### ActivateFriendList
 `public void ActivateFriendList()`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with friend list.
+**Purpose:** Activates the resource, state, or feature associated with friend list.
 
 ```csharp
 // Obtain an instance of NullPlatformServices from the subsystem API first

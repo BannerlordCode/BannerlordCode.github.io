@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of CircularSchiltronFormation from the subsystem API first
@@ -40,7 +40,7 @@ var result = circularSchiltronFormation.Clone(formation);
 ### Form
 `public void Form()`
 
-**Purpose:** **Purpose:** Executes the Form logic.
+**Purpose:** Executes the Form logic.
 
 ```csharp
 // Obtain an instance of CircularSchiltronFormation from the subsystem API first

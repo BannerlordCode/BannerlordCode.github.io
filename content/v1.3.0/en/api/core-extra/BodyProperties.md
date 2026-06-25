@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### FromXmlNode
 `public static bool FromXmlNode(XmlNode node, out BodyProperties bodyProperties)`
 
-**Purpose:** **Purpose:** Executes the FromXmlNode logic.
+**Purpose:** Executes the FromXmlNode logic.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ BodyProperties.FromXmlNode(node, bodyProperties);
 ### FromString
 `public static bool FromString(string keyValue, out BodyProperties bodyProperties)`
 
-**Purpose:** **Purpose:** Executes the FromString logic.
+**Purpose:** Executes the FromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ BodyProperties.FromString("example", bodyProperties);
 ### GetRandomBodyProperties
 `public static BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, int seed, string hairTags, string beardTags, string tattooTags, float variationAmount = 0f)`
 
-**Purpose:** **Purpose:** Reads and returns the random body properties value held by the this instance.
+**Purpose:** Reads and returns the random body properties value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -72,7 +72,7 @@ BodyProperties.GetRandomBodyProperties(0, false, bodyPropertiesMin, bodyProperti
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BodyProperties from the subsystem API first
@@ -83,7 +83,7 @@ var result = bodyProperties.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of BodyProperties from the subsystem API first
@@ -94,7 +94,7 @@ var result = bodyProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of BodyProperties from the subsystem API first
@@ -105,7 +105,7 @@ var result = bodyProperties.GetHashCode();
 ### ClampForMultiplayer
 `public BodyProperties ClampForMultiplayer()`
 
-**Purpose:** **Purpose:** Executes the ClampForMultiplayer logic.
+**Purpose:** Executes the ClampForMultiplayer logic.
 
 ```csharp
 // Obtain an instance of BodyProperties from the subsystem API first

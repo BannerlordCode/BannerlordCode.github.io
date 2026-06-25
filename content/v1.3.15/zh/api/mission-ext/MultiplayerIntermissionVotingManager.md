@@ -32,7 +32,7 @@ description: "MultiplayerIntermissionVotingManager 的自动生成类参考。"
 ### AddMapItem
 `public void AddMapItem(string mapID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 map item 添加到当前容器或状态中。
+**用途 / Purpose:** 将 map item 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -43,7 +43,7 @@ multiplayerIntermissionVotingManager.AddMapItem("example");
 ### AddUsableMap
 `public void AddUsableMap(CustomGameUsableMap usableMap)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 usable map 添加到当前容器或状态中。
+**用途 / Purpose:** 将 usable map 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -54,7 +54,7 @@ multiplayerIntermissionVotingManager.AddUsableMap(usableMap);
 ### GetUsableMaps
 `public List<string> GetUsableMaps(string gameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usable maps 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 usable maps 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -65,7 +65,7 @@ var result = multiplayerIntermissionVotingManager.GetUsableMaps("example");
 ### AddCultureItem
 `public void AddCultureItem(string cultureID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 culture item 添加到当前容器或状态中。
+**用途 / Purpose:** 将 culture item 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -76,7 +76,7 @@ multiplayerIntermissionVotingManager.AddCultureItem("example");
 ### AddVote
 `public void AddVote(PlayerId voterID, string itemID, int voteCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 vote 添加到当前容器或状态中。
+**用途 / Purpose:** 将 vote 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -87,7 +87,7 @@ multiplayerIntermissionVotingManager.AddVote(voterID, "example", 0);
 ### SetVotesOfMap
 `public void SetVotesOfMap(int mapItemIndex, int voteCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 votes of map 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 votes of map 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -98,7 +98,7 @@ multiplayerIntermissionVotingManager.SetVotesOfMap(0, 0);
 ### SetVotesOfCulture
 `public void SetVotesOfCulture(int cultureItemIndex, int voteCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 votes of culture 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 votes of culture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -109,7 +109,7 @@ multiplayerIntermissionVotingManager.SetVotesOfCulture(0, 0);
 ### ClearVotes
 `public void ClearVotes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的votes。
+**用途 / Purpose:** 清空当前对象中的votes。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -120,7 +120,7 @@ multiplayerIntermissionVotingManager.ClearVotes();
 ### ClearItems
 `public void ClearItems()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的items。
+**用途 / Purpose:** 清空当前对象中的items。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -131,7 +131,7 @@ multiplayerIntermissionVotingManager.ClearItems();
 ### IsCultureItem
 `public bool IsCultureItem(string itemID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 culture item 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 culture item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -142,7 +142,7 @@ var result = multiplayerIntermissionVotingManager.IsCultureItem("example");
 ### IsMapItem
 `public bool IsMapItem(string itemID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 map item 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 map item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -153,7 +153,7 @@ var result = multiplayerIntermissionVotingManager.IsMapItem("example");
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
+**用途 / Purpose:** 响应 player disconnect 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -164,7 +164,7 @@ multiplayerIntermissionVotingManager.HandlePlayerDisconnect(playerID);
 ### SelectRandomCultures
 `public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectRandomCultures 对应的操作。
+**用途 / Purpose:** 调用 SelectRandomCultures 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -175,7 +175,7 @@ multiplayerIntermissionVotingManager.SelectRandomCultures(accessMode);
 ### IsPeerVotedForItem
 `public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 peer voted for item 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 peer voted for item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -186,7 +186,7 @@ var result = multiplayerIntermissionVotingManager.IsPeerVotedForItem(peer, "exam
 ### SortVotesAndPickBest
 `public void SortVotesAndPickBest()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SortVotesAndPickBest 对应的操作。
+**用途 / Purpose:** 调用 SortVotesAndPickBest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -197,7 +197,7 @@ multiplayerIntermissionVotingManager.SortVotesAndPickBest();
 ### MapItemAddedDelegate
 `public delegate void MapItemAddedDelegate(string mapId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MapItemAddedDelegate 对应的操作。
+**用途 / Purpose:** 调用 MapItemAddedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -208,7 +208,7 @@ multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
 ### CultureItemAddedDelegate
 `public delegate void CultureItemAddedDelegate(string cultureId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CultureItemAddedDelegate 对应的操作。
+**用途 / Purpose:** 调用 CultureItemAddedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -219,7 +219,7 @@ multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
 ### MapItemVoteCountChangedDelegate
 `public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MapItemVoteCountChangedDelegate 对应的操作。
+**用途 / Purpose:** 调用 MapItemVoteCountChangedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -230,7 +230,7 @@ multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
 ### CultureItemVoteCountChangedDelegate
 `public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CultureItemVoteCountChangedDelegate 对应的操作。
+**用途 / Purpose:** 调用 CultureItemVoteCountChangedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例

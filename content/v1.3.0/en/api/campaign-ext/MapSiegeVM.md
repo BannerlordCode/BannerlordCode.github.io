@@ -33,7 +33,7 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegeVM from the subsystem API first
@@ -44,7 +44,7 @@ mapSiegeVM.RefreshValues();
 ### OnSelectionFromScene
 `public void OnSelectionFromScene(MatrixFrame frameOfEngine)`
 
-**Purpose:** **Purpose:** Invoked when the selection from scene event is raised.
+**Purpose:** Invoked when the selection from scene event is raised.
 
 ```csharp
 // Obtain an instance of MapSiegeVM from the subsystem API first
@@ -55,7 +55,7 @@ mapSiegeVM.OnSelectionFromScene(frameOfEngine);
 ### Update
 `public void Update(float mapCameraDistanceValue)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapSiegeVM from the subsystem API first
@@ -66,7 +66,7 @@ mapSiegeVM.Update(0);
 ### Compare
 `public int Compare(MapSiegePOIVM x, MapSiegePOIVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MapSiegeVM from the subsystem API first

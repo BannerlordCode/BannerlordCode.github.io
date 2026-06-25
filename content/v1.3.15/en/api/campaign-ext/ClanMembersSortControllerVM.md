@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -45,7 +45,7 @@ clanMembersSortControllerVM.RefreshValues();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
+**Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -56,7 +56,7 @@ clanMembersSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByLocation
 `public void ExecuteSortByLocation()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by location.
+**Purpose:** Runs the operation or workflow associated with sort by location.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -67,7 +67,7 @@ clanMembersSortControllerVM.ExecuteSortByLocation();
 ### ResetAllStates
 `public void ResetAllStates()`
 
-**Purpose:** **Purpose:** Returns all states to its default or initial condition.
+**Purpose:** Returns all states to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -78,7 +78,7 @@ clanMembersSortControllerVM.ResetAllStates();
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -89,7 +89,7 @@ clanMembersSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -100,7 +100,7 @@ var result = clanMembersSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
@@ -111,7 +111,7 @@ var result = clanMembersSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ClanMembersSortControllerVM from the subsystem API first

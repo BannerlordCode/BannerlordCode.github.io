@@ -33,7 +33,7 @@ description: "Missile 的自动生成类参考。"
 ### CalculatePassbySoundParametersMT
 `public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算passby sound parameters m t的当前值或结果。
+**用途 / Purpose:** 计算passby sound parameters m t的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Missile 实例
@@ -44,7 +44,7 @@ missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ### CalculateBounceBackVelocity
 `public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算bounce back velocity的当前值或结果。
+**用途 / Purpose:** 计算bounce back velocity的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Missile 实例
@@ -55,7 +55,7 @@ missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angu
 ### PassThroughEntity
 `public void PassThroughEntity(GameEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PassThroughEntity 对应的操作。
+**用途 / Purpose:** 调用 PassThroughEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Missile 实例

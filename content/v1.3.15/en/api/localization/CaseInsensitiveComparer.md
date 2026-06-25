@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### Equals
 `public bool Equals(string x, string y)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of CaseInsensitiveComparer from the subsystem API first
@@ -34,7 +34,7 @@ var result = caseInsensitiveComparer.Equals("example", "example");
 ### GetHashCode
 `public int GetHashCode(string x)`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of CaseInsensitiveComparer from the subsystem API first

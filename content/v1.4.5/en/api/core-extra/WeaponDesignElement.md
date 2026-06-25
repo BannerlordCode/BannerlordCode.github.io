@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetScale
 `public void SetScale(int scalePercentage)`
 
-**Purpose:** **Purpose:** Assigns a new value to scale and updates the object's internal state.
+**Purpose:** Assigns a new value to scale and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeaponDesignElement from the subsystem API first
@@ -48,7 +48,7 @@ weaponDesignElement.SetScale(0);
 ### GetCopy
 `public WeaponDesignElement GetCopy()`
 
-**Purpose:** **Purpose:** Reads and returns the copy value held by the this instance.
+**Purpose:** Reads and returns the copy value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponDesignElement from the subsystem API first
@@ -59,7 +59,7 @@ var result = weaponDesignElement.GetCopy();
 ### GetInvalidPieceForType
 `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** **Purpose:** Reads and returns the invalid piece for type value held by the this instance.
+**Purpose:** Reads and returns the invalid piece for type value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ WeaponDesignElement.GetInvalidPieceForType(pieceType);
 ### CreateUsablePiece
 `public static WeaponDesignElement CreateUsablePiece(CraftingPiece craftingPiece, int scalePercentage = 100)`
 
-**Purpose:** **Purpose:** Constructs a new usable piece entity and returns it to the caller.
+**Purpose:** Constructs a new usable piece entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

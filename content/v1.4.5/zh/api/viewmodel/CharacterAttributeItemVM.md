@@ -40,7 +40,7 @@ description: "CharacterAttributeItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
@@ -51,7 +51,7 @@ characterAttributeItemVM.RefreshValues();
 ### ExecuteInspectAttribute
 `public void ExecuteInspectAttribute()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 inspect attribute 对应的操作或工作流。
+**用途 / Purpose:** 执行 inspect attribute 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
@@ -62,7 +62,7 @@ characterAttributeItemVM.ExecuteInspectAttribute();
 ### ExecuteAddAttributePoint
 `public void ExecuteAddAttributePoint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 add attribute point 对应的操作或工作流。
+**用途 / Purpose:** 执行 add attribute point 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
@@ -73,7 +73,7 @@ characterAttributeItemVM.ExecuteAddAttributePoint();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
@@ -84,7 +84,7 @@ characterAttributeItemVM.Reset();
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with current values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with current values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
@@ -95,7 +95,7 @@ characterAttributeItemVM.RefreshWithCurrentValues();
 ### Commit
 `public void Commit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Commit 对应的操作。
+**用途 / Purpose:** 调用 Commit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterAttributeItemVM 实例

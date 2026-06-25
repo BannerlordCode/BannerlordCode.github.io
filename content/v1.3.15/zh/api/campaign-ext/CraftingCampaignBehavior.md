@@ -31,7 +31,7 @@ description: "CraftingCampaignBehavior 的自动生成类参考。"
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -42,7 +42,7 @@ craftingCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -53,7 +53,7 @@ craftingCampaignBehavior.RegisterEvents();
 ### IsOpened
 `public bool IsOpened(CraftingPiece craftingPiece, CraftingTemplate craftingTemplate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 opened 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 opened 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -64,7 +64,7 @@ var result = craftingCampaignBehavior.IsOpened(craftingPiece, craftingTemplate);
 ### GetCraftingDifficulty
 `public int GetCraftingDifficulty(WeaponDesign weaponDesign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafting difficulty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafting difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -75,7 +75,7 @@ var result = craftingCampaignBehavior.GetCraftingDifficulty(weaponDesign);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
+**用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -86,7 +86,7 @@ craftingCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### GetHeroCraftingStamina
 `public int GetHeroCraftingStamina(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero crafting stamina 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hero crafting stamina 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -97,7 +97,7 @@ var result = craftingCampaignBehavior.GetHeroCraftingStamina(hero);
 ### SetHeroCraftingStamina
 `public void SetHeroCraftingStamina(Hero hero, int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hero crafting stamina 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hero crafting stamina 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -108,7 +108,7 @@ craftingCampaignBehavior.SetHeroCraftingStamina(hero, 0);
 ### SetCraftedWeaponName
 `public void SetCraftedWeaponName(ItemObject craftedWeaponItem, TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 crafted weapon name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 crafted weapon name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -119,7 +119,7 @@ craftingCampaignBehavior.SetCraftedWeaponName(craftedWeaponItem, name);
 ### GetMaxHeroCraftingStamina
 `public int GetMaxHeroCraftingStamina(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max hero crafting stamina 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max hero crafting stamina 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -130,7 +130,7 @@ var result = craftingCampaignBehavior.GetMaxHeroCraftingStamina(hero);
 ### DoRefinement
 `public void DoRefinement(Hero hero, Crafting.RefiningFormula refineFormula)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoRefinement 对应的操作。
+**用途 / Purpose:** 调用 DoRefinement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -141,7 +141,7 @@ craftingCampaignBehavior.DoRefinement(hero, refineFormula);
 ### DoSmelting
 `public void DoSmelting(Hero currentCraftingHero, EquipmentElement equipmentElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoSmelting 对应的操作。
+**用途 / Purpose:** 调用 DoSmelting 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -152,7 +152,7 @@ craftingCampaignBehavior.DoSmelting(currentCraftingHero, equipmentElement);
 ### CreateCraftedWeaponInFreeBuildMode
 `public ItemObject CreateCraftedWeaponInFreeBuildMode(Hero hero, WeaponDesign weaponDesign, ItemModifier weaponModifier = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 crafted weapon in free build mode 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 crafted weapon in free build mode 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -163,7 +163,7 @@ var result = craftingCampaignBehavior.CreateCraftedWeaponInFreeBuildMode(hero, w
 ### CreateCraftedWeaponInCraftingOrderMode
 `public ItemObject CreateCraftedWeaponInCraftingOrderMode(Hero crafterHero, CraftingOrder craftingOrder, WeaponDesign weaponDesign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 crafted weapon in crafting order mode 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 crafted weapon in crafting order mode 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -174,7 +174,7 @@ var result = craftingCampaignBehavior.CreateCraftedWeaponInCraftingOrderMode(cra
 ### GetActiveCraftingHero
 `public Hero GetActiveCraftingHero()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active crafting hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active crafting hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -185,7 +185,7 @@ var result = craftingCampaignBehavior.GetActiveCraftingHero();
 ### SetActiveCraftingHero
 `public void SetActiveCraftingHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active crafting hero 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active crafting hero 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -196,7 +196,7 @@ craftingCampaignBehavior.SetActiveCraftingHero(hero);
 ### CreateTownOrder
 `public void CreateTownOrder(Hero orderOwner, int orderSlot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 town order 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 town order 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -207,7 +207,7 @@ craftingCampaignBehavior.CreateTownOrder(orderOwner, 0);
 ### CreateCustomOrderForHero
 `public CraftingOrder CreateCustomOrderForHero(Hero orderOwner, float orderDifficulty = -1f, WeaponDesign weaponDesign = null, CraftingTemplate craftingTemplate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 custom order for hero 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 custom order for hero 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -218,7 +218,7 @@ var result = craftingCampaignBehavior.CreateCustomOrderForHero(orderOwner, 0, nu
 ### GetOrderResult
 `public void GetOrderResult(CraftingOrder craftingOrder, ItemObject craftedItem, out bool isSucceed, out TextObject orderRemark, out TextObject orderResult, out int finalReward)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order result 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 order result 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -229,7 +229,7 @@ craftingCampaignBehavior.GetOrderResult(craftingOrder, craftedItem, isSucceed, o
 ### CompleteOrder
 `public void CompleteOrder(Town town, CraftingOrder craftingOrder, ItemObject craftedItem, Hero completerHero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteOrder 对应的操作。
+**用途 / Purpose:** 调用 CompleteOrder 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -240,7 +240,7 @@ craftingCampaignBehavior.CompleteOrder(town, craftingOrder, craftedItem, complet
 ### GetCurrentItemModifier
 `public ItemModifier GetCurrentItemModifier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current item modifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current item modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -251,7 +251,7 @@ var result = craftingCampaignBehavior.GetCurrentItemModifier();
 ### SetCurrentItemModifier
 `public void SetCurrentItemModifier(ItemModifier modifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current item modifier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current item modifier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -262,7 +262,7 @@ craftingCampaignBehavior.SetCurrentItemModifier(modifier);
 ### CancelCustomOrder
 `public void CancelCustomOrder(Town town, CraftingOrder craftingOrder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel custom order 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 cel custom order 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -273,7 +273,7 @@ craftingCampaignBehavior.CancelCustomOrder(town, craftingOrder);
 ### IsThereAvailableSlot
 `public bool IsThereAvailableSlot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there available slot 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there available slot 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -284,7 +284,7 @@ var result = craftingCampaignBehavior.IsThereAvailableSlot();
 ### GetAvailableSlot
 `public int GetAvailableSlot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 available slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例

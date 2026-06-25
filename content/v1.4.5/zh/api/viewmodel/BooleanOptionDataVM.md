@@ -29,7 +29,7 @@ description: "BooleanOptionDataVM 的自动生成类参考。"
 ### UpdateValue
 `public override void UpdateValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
+**用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例
@@ -40,7 +40,7 @@ booleanOptionDataVM.UpdateValue();
 ### Cancel
 `public override void Cancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 cel 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例
@@ -51,7 +51,7 @@ booleanOptionDataVM.Cancel();
 ### SetValue
 `public override void SetValue(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例
@@ -62,7 +62,7 @@ booleanOptionDataVM.SetValue(0);
 ### ResetData
 `public override void ResetData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 data 重置回默认或初始状态。
+**用途 / Purpose:** 将 data 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例
@@ -73,7 +73,7 @@ booleanOptionDataVM.ResetData();
 ### IsChanged
 `public override bool IsChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 changed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 changed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例
@@ -84,7 +84,7 @@ var result = booleanOptionDataVM.IsChanged();
 ### ApplyValue
 `public override void ApplyValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 value 的效果应用到当前对象。
+**用途 / Purpose:** 将 value 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 BooleanOptionDataVM 实例

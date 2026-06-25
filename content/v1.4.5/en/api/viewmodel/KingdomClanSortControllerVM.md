@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -49,7 +49,7 @@ kingdomClanSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -60,7 +60,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -71,7 +71,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -82,7 +82,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -93,7 +93,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -104,7 +104,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
@@ -115,7 +115,7 @@ var result = kingdomClanSortControllerVM.Compare(x, y);
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** **Purpose:** Executes the SortByCurrentState logic.
+**Purpose:** Executes the SortByCurrentState logic.
 
 ```csharp
 // Obtain an instance of KingdomClanSortControllerVM from the subsystem API first

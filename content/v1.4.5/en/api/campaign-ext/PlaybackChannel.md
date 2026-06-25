@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### OnPlaybackHasStarted
 `public void OnPlaybackHasStarted()`
 
-**Purpose:** **Purpose:** Invoked when the playback has started event is raised.
+**Purpose:** Invoked when the playback has started event is raised.
 
 ```csharp
 // Obtain an instance of PlaybackChannel from the subsystem API first

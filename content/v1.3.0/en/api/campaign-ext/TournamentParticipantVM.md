@@ -40,7 +40,7 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentParticipantVM from the subsystem API first
@@ -51,7 +51,7 @@ tournamentParticipantVM.RefreshValues();
 ### Refresh
 `public void Refresh(TournamentParticipant participant, Color teamColor)`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentParticipantVM from the subsystem API first
@@ -62,7 +62,7 @@ tournamentParticipantVM.Refresh(participant, teamColor);
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
+**Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of TournamentParticipantVM from the subsystem API first
@@ -73,7 +73,7 @@ tournamentParticipantVM.ExecuteOpenEncyclopedia();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentParticipantVM from the subsystem API first

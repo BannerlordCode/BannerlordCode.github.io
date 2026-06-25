@@ -23,7 +23,7 @@ description: "AgentVisualsCreator 的自动生成类参考。"
 ### Create
 `public IAgentVisual Create(AgentVisualsData data, string name, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsCreator 实例

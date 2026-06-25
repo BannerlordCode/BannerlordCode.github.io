@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnAuthSuccess
 `public override void OnAuthSuccess()`
 
-**Purpose:** **Purpose:** Invoked when the auth success event is raised.
+**Purpose:** Invoked when the auth success event is raised.
 
 ```csharp
 // Obtain an instance of AuthenticationListener from the subsystem API first
@@ -40,7 +40,7 @@ authenticationListener.OnAuthSuccess();
 ### OnAuthFailure
 `public override void OnAuthFailure(IAuthListener.FailureReason failureReason)`
 
-**Purpose:** **Purpose:** Invoked when the auth failure event is raised.
+**Purpose:** Invoked when the auth failure event is raised.
 
 ```csharp
 // Obtain an instance of AuthenticationListener from the subsystem API first
@@ -51,7 +51,7 @@ authenticationListener.OnAuthFailure(failureReason);
 ### OnAuthLost
 `public override void OnAuthLost()`
 
-**Purpose:** **Purpose:** Invoked when the auth lost event is raised.
+**Purpose:** Invoked when the auth lost event is raised.
 
 ```csharp
 // Obtain an instance of AuthenticationListener from the subsystem API first

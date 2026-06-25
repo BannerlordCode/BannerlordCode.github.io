@@ -30,7 +30,7 @@ Treat `LoadingWindowHandler` as a Handler-style extension point: first identify 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of LoadingWindowHandler from the subsystem API first
@@ -41,7 +41,7 @@ loadingWindowHandler.Initialize();
 ### Enable
 `public void Enable()`
 
-**Purpose:** **Purpose:** Executes the Enable logic.
+**Purpose:** Executes the Enable logic.
 
 ```csharp
 // Obtain an instance of LoadingWindowHandler from the subsystem API first
@@ -52,7 +52,7 @@ loadingWindowHandler.Enable();
 ### Disable
 `public void Disable()`
 
-**Purpose:** **Purpose:** Executes the Disable logic.
+**Purpose:** Executes the Disable logic.
 
 ```csharp
 // Obtain an instance of LoadingWindowHandler from the subsystem API first
@@ -63,7 +63,7 @@ loadingWindowHandler.Disable();
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** **Purpose:** Executes the Destroy logic.
+**Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of LoadingWindowHandler from the subsystem API first
@@ -74,7 +74,7 @@ loadingWindowHandler.Destroy();
 ### SetCurrentModeIsMultiplayer
 `public void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** **Purpose:** Assigns a new value to current mode is multiplayer and updates the object's internal state.
+**Purpose:** Assigns a new value to current mode is multiplayer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LoadingWindowHandler from the subsystem API first

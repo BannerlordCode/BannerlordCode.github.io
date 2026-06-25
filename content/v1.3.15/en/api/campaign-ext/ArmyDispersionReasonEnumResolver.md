@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**Purpose:** **Purpose:** Executes the ResolveObject logic.
+**Purpose:** Executes the ResolveObject logic.
 
 ```csharp
 // Obtain an instance of ArmyDispersionReasonEnumResolver from the subsystem API first

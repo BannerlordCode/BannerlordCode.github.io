@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**Purpose:** **Purpose:** Writes statistics to persistent storage or a stream.
+**Purpose:** Writes statistics to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SaveStatistics from the subsystem API first
@@ -34,7 +34,7 @@ var result = saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dic
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the container size value held by the this instance.
+**Purpose:** Reads and returns the container size value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveStatistics from the subsystem API first
@@ -45,7 +45,7 @@ var result = saveStatistics.GetContainerSize("example");
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** **Purpose:** Reads and returns the type keys value held by the this instance.
+**Purpose:** Reads and returns the type keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveStatistics from the subsystem API first
@@ -56,7 +56,7 @@ var result = saveStatistics.GetTypeKeys();
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** **Purpose:** Reads and returns the container keys value held by the this instance.
+**Purpose:** Reads and returns the container keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveStatistics from the subsystem API first

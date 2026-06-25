@@ -23,7 +23,7 @@ description: "WorldFrame 的自动生成类参考。"
 ### WorldFrame
 `public struct WorldFrame(Mat3 rotation, WorldPosition origin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WorldFrame 对应的操作。
+**用途 / Purpose:** 调用 WorldFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WorldFrame 实例
@@ -34,7 +34,7 @@ var result = worldFrame.WorldFrame(rotation, origin);
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToGroundMatrixFrame 对应的操作。
+**用途 / Purpose:** 调用 ToGroundMatrixFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WorldFrame 实例
@@ -45,7 +45,7 @@ var result = worldFrame.ToGroundMatrixFrame();
 ### ToGroundMatrixFrameMT
 `public MatrixFrame ToGroundMatrixFrameMT()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToGroundMatrixFrameMT 对应的操作。
+**用途 / Purpose:** 调用 ToGroundMatrixFrameMT 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WorldFrame 实例
@@ -56,7 +56,7 @@ var result = worldFrame.ToGroundMatrixFrameMT();
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToNavMeshMatrixFrame 对应的操作。
+**用途 / Purpose:** 调用 ToNavMeshMatrixFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WorldFrame 实例

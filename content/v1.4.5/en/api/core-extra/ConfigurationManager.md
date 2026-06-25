@@ -23,7 +23,7 @@ Treat `ConfigurationManager` as a Manager-style extension point: first identify 
 ### SetConfigurationManager
 `public static void SetConfigurationManager(IConfigurationManager configurationManager)`
 
-**Purpose:** **Purpose:** Assigns a new value to configuration manager and updates the object's internal state.
+**Purpose:** Assigns a new value to configuration manager and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ConfigurationManager.SetConfigurationManager(configurationManager);
 ### GetAppSettings
 `public static string GetAppSettings(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the app settings value held by the this instance.
+**Purpose:** Reads and returns the app settings value held by the this instance.
 
 ```csharp
 // Static call; no instance required

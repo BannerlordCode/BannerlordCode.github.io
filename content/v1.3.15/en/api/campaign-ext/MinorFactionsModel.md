@@ -30,7 +30,7 @@ Treat `MinorFactionsModel` as a Model-style extension point: first identify who 
 ### GetMercenaryAwardFactorToJoinKingdom
 `public abstract int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**Purpose:** **Purpose:** Reads and returns the mercenary award factor to join kingdom value held by the this instance.
+**Purpose:** Reads and returns the mercenary award factor to join kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of MinorFactionsModel from the subsystem API first

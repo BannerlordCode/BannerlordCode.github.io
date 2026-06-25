@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeat
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** **Purpose:** Reads and returns the gameplay campaign options value held by the this instance.
+**Purpose:** Reads and returns the gameplay campaign options value held by the this instance.
 
 ```csharp
 // Obtain an instance of BirthAndDeathOptionsProvider from the subsystem API first
@@ -34,7 +34,7 @@ var result = birthAndDeathOptionsProvider.GetGameplayCampaignOptions();
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** **Purpose:** Reads and returns the character creation campaign options value held by the this instance.
+**Purpose:** Reads and returns the character creation campaign options value held by the this instance.
 
 ```csharp
 // Obtain an instance of BirthAndDeathOptionsProvider from the subsystem API first

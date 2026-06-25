@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Check
 `public virtual bool Check(float gameTime)`
 
-**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
+**Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of Timer from the subsystem API first
@@ -41,7 +41,7 @@ var result = timer.Check(0);
 ### ElapsedTime
 `public float ElapsedTime()`
 
-**Purpose:** **Purpose:** Executes the ElapsedTime logic.
+**Purpose:** Executes the ElapsedTime logic.
 
 ```csharp
 // Obtain an instance of Timer from the subsystem API first
@@ -52,7 +52,7 @@ var result = timer.ElapsedTime();
 ### Reset
 `public void Reset(float gameTime)`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Timer from the subsystem API first
@@ -63,7 +63,7 @@ timer.Reset(0);
 ### Reset
 `public void Reset(float gameTime, float newDuration)`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Timer from the subsystem API first
@@ -74,7 +74,7 @@ timer.Reset(0, 0);
 ### AdjustStartTime
 `public void AdjustStartTime(float deltaTime)`
 
-**Purpose:** **Purpose:** Executes the AdjustStartTime logic.
+**Purpose:** Executes the AdjustStartTime logic.
 
 ```csharp
 // Obtain an instance of Timer from the subsystem API first

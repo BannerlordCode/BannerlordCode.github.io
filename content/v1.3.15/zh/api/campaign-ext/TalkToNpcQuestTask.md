@@ -23,7 +23,7 @@ description: "TalkToNpcQuestTask 的自动生成类参考。"
 ### IsTaskCharacter
 `public bool IsTaskCharacter()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 task character 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 task character 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TalkToNpcQuestTask 实例
@@ -34,7 +34,7 @@ var result = talkToNpcQuestTask.IsTaskCharacter();
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TalkToNpcQuestTask 实例

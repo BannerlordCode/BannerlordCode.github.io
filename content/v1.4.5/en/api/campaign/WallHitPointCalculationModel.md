@@ -23,7 +23,7 @@ Treat `WallHitPointCalculationModel` as a Model-style extension point: first ide
 ### CalculateMaximumWallHitPoint
 `public abstract float CalculateMaximumWallHitPoint(Town town)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of maximum wall hit point.
+**Purpose:** Calculates the current value or result of maximum wall hit point.
 
 ```csharp
 // Obtain an instance of WallHitPointCalculationModel from the subsystem API first

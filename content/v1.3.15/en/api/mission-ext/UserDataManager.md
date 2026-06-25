@@ -29,7 +29,7 @@ Treat `UserDataManager` as a Manager-style extension point: first identify who c
 ### HasUserData
 `public bool HasUserData()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds user data.
+**Purpose:** Determines whether the this instance already holds user data.
 
 ```csharp
 // Obtain an instance of UserDataManager from the subsystem API first
@@ -40,7 +40,7 @@ var result = userDataManager.HasUserData();
 ### LoadUserData
 `public void LoadUserData()`
 
-**Purpose:** **Purpose:** Reads user data from persistent storage or a stream.
+**Purpose:** Reads user data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of UserDataManager from the subsystem API first
@@ -51,7 +51,7 @@ userDataManager.LoadUserData();
 ### SaveUserData
 `public void SaveUserData()`
 
-**Purpose:** **Purpose:** Writes user data to persistent storage or a stream.
+**Purpose:** Writes user data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of UserDataManager from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MissionBattleSchedulerClientComponent` as a Component-style extension poi
 ### QuitMission
 `public override void QuitMission()`
 
-**Purpose:** **Purpose:** Executes the QuitMission logic.
+**Purpose:** Executes the QuitMission logic.
 
 ```csharp
 // Obtain an instance of MissionBattleSchedulerClientComponent from the subsystem API first

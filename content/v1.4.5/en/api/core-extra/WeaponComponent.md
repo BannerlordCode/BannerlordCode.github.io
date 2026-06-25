@@ -23,7 +23,7 @@ Treat `WeaponComponent` as a Component-style extension point: first identify who
 ### AddWeapon
 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`
 
-**Purpose:** **Purpose:** Adds weapon to the current collection or state.
+**Purpose:** Adds weapon to the current collection or state.
 
 ```csharp
 // Obtain an instance of WeaponComponent from the subsystem API first
@@ -34,7 +34,7 @@ weaponComponent.AddWeapon(weaponComponentData, itemModifierGroup);
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** **Purpose:** Reads and returns the copy value held by the this instance.
+**Purpose:** Reads and returns the copy value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponComponent from the subsystem API first
@@ -45,7 +45,7 @@ var result = weaponComponent.GetCopy();
 ### GetItemType
 `public ItemObject.ItemTypeEnum GetItemType()`
 
-**Purpose:** **Purpose:** Reads and returns the item type value held by the this instance.
+**Purpose:** Reads and returns the item type value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponComponent from the subsystem API first
@@ -56,7 +56,7 @@ var result = weaponComponent.GetItemType();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of WeaponComponent from the subsystem API first

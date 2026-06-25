@@ -67,7 +67,7 @@ Treat `WeaponComponentData` as a Data-style extension point: first identify who 
 ### Init
 `public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponTiers tier, short reloadPhaseCount)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first
@@ -78,7 +78,7 @@ weaponComponentData.Init("example", "example", "example", thrustDamageType, swin
 ### SetFrame
 `public void SetFrame(MatrixFrame frame)`
 
-**Purpose:** **Purpose:** Assigns a new value to frame and updates the object's internal state.
+**Purpose:** Assigns a new value to frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first
@@ -89,7 +89,7 @@ weaponComponentData.SetFrame(frame);
 ### SetAmmoOffset
 `public void SetAmmoOffset(Vec3 ammoOffset)`
 
-**Purpose:** **Purpose:** Assigns a new value to ammo offset and updates the object's internal state.
+**Purpose:** Assigns a new value to ammo offset and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first
@@ -100,7 +100,7 @@ weaponComponentData.SetAmmoOffset(ammoOffset);
 ### GetRelevantSkillFromWeaponClass
 `public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Reads and returns the relevant skill from weapon class value held by the this instance.
+**Purpose:** Reads and returns the relevant skill from weapon class value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -110,7 +110,7 @@ WeaponComponentData.GetRelevantSkillFromWeaponClass(weaponClass);
 ### GetItemTypeFromWeaponClass
 `public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Reads and returns the item type from weapon class value held by the this instance.
+**Purpose:** Reads and returns the item type from weapon class value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -120,7 +120,7 @@ WeaponComponentData.GetItemTypeFromWeaponClass(weaponClass);
 ### Deserialize
 `public void Deserialize(ItemObject item, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first
@@ -131,7 +131,7 @@ weaponComponentData.Deserialize(item, node);
 ### GetRealWeaponLength
 `public float GetRealWeaponLength()`
 
-**Purpose:** **Purpose:** Reads and returns the real weapon length value held by the this instance.
+**Purpose:** Reads and returns the real weapon length value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first
@@ -142,7 +142,7 @@ var result = weaponComponentData.GetRealWeaponLength();
 ### GetMissileStartingFrame
 `public MatrixFrame GetMissileStartingFrame()`
 
-**Purpose:** **Purpose:** Reads and returns the missile starting frame value held by the this instance.
+**Purpose:** Reads and returns the missile starting frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponComponentData from the subsystem API first

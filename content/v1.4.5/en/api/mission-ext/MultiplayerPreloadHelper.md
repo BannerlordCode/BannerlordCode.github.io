@@ -23,7 +23,7 @@ Treat `MultiplayerPreloadHelper` as a Helper-style extension point: first identi
 ### GetExtraEquipmentElementsForCharacter
 `public override List<EquipmentElement> GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)`
 
-**Purpose:** **Purpose:** Reads and returns the extra equipment elements for character value held by the this instance.
+**Purpose:** Reads and returns the extra equipment elements for character value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerPreloadHelper from the subsystem API first

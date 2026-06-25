@@ -33,7 +33,7 @@ Treat `MultiplayerLobbyAfterBattleExperiencePanelWidget` as a Widget-style exten
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** **Purpose:** Starts the animation flow or state machine.
+**Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyAfterBattleExperiencePanelWidget from the subsystem API first
@@ -44,7 +44,7 @@ multiplayerLobbyAfterBattleExperiencePanelWidget.StartAnimation();
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyAfterBattleExperiencePanelWidget from the subsystem API first

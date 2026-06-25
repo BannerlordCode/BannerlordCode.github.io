@@ -23,7 +23,7 @@ description: "PersuasionTask 的自动生成类参考。"
 ### AddOptionToTask
 `public void AddOptionToTask(PersuasionOptionArgs option)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 option to task 添加到当前容器或状态中。
+**用途 / Purpose:** 将 option to task 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例
@@ -34,7 +34,7 @@ persuasionTask.AddOptionToTask(option);
 ### BlockAllOptions
 `public void BlockAllOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BlockAllOptions 对应的操作。
+**用途 / Purpose:** 调用 BlockAllOptions 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例
@@ -45,7 +45,7 @@ persuasionTask.BlockAllOptions();
 ### UnblockAllOptions
 `public void UnblockAllOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnblockAllOptions 对应的操作。
+**用途 / Purpose:** 调用 UnblockAllOptions 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例
@@ -56,7 +56,7 @@ persuasionTask.UnblockAllOptions();
 ### ApplyEffects
 `public void ApplyEffects(float moveToNextStageChance, float blockRandomOptionChance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 effects 的效果应用到当前对象。
+**用途 / Purpose:** 将 effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例

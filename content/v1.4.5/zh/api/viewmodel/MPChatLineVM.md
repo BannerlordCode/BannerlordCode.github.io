@@ -32,7 +32,7 @@ description: "MPChatLineVM 的自动生成类参考。"
 ### HandleFading
 `public void HandleFading(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行与 fading 相关的响应逻辑。
+**用途 / Purpose:** 响应 fading 事件，执行对应的处理逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatLineVM 实例
@@ -43,7 +43,7 @@ mPChatLineVM.HandleFading(0);
 ### ForceInvisible
 `public void ForceInvisible()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceInvisible 对应的操作。
+**用途 / Purpose:** 调用 ForceInvisible 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatLineVM 实例
@@ -54,7 +54,7 @@ mPChatLineVM.ForceInvisible();
 ### ToggleForceVisible
 `public void ToggleForceVisible(bool visible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleForceVisible 对应的操作。
+**用途 / Purpose:** 调用 ToggleForceVisible 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatLineVM 实例

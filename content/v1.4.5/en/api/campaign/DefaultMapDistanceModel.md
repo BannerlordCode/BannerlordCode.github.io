@@ -23,7 +23,7 @@ Treat `DefaultMapDistanceModel` as a Model-style extension point: first identify
 ### RegisterDistanceCache
 `public override void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, INavigationCache cacheToRegister)`
 
-**Purpose:** **Purpose:** Registers distance cache with the current system so it can later be observed or dispatched.
+**Purpose:** Registers distance cache with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -34,7 +34,7 @@ defaultMapDistanceModel.RegisterDistanceCache(navigationCapability, cacheToRegis
 ### GetMaximumDistanceBetweenTwoConnectedSettlements
 `public override float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationCapabilities)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum distance between two connected settlements value held by the this instance.
+**Purpose:** Reads and returns the maximum distance between two connected settlements value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultMapDistanceModel.GetMaximumDistanceBetweenTwoConnectedSettle
 ### GetLandRatioOfPathBetweenSettlements
 `public override float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Reads and returns the land ratio of path between settlements value held by the this instance.
+**Purpose:** Reads and returns the land ratio of path between settlements value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultMapDistanceModel.GetLandRatioOfPathBetweenSettlements(fromSe
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort = false, bool isTargetingPort = false, MobileParty.NavigationType navigationCapability = MobileParty.NavigationType.Default)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toSettlement, f
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toSettlement, f
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toSettlement, 
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toMobileParty,
 ### GetDistance
 `public override bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toMobileParty,
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toPoint, custo
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType customCapability)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toPoint, false,
 ### GetPortToGateDistanceForSettlement
 `public override float GetPortToGateDistanceForSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the port to gate distance for settlement value held by the this instance.
+**Purpose:** Reads and returns the port to gate distance for settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = defaultMapDistanceModel.GetPortToGateDistanceForSettlement(settleme
 ### PathExistBetweenPoints
 `public override bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Executes the PathExistBetweenPoints logic.
+**Purpose:** Executes the PathExistBetweenPoints logic.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = defaultMapDistanceModel.PathExistBetweenPoints(fromPoint, toPoint, 
 ### GetNeighborsOfFortification
 `public override MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)`
 
-**Purpose:** **Purpose:** Reads and returns the neighbors of fortification value held by the this instance.
+**Purpose:** Reads and returns the neighbors of fortification value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = defaultMapDistanceModel.GetNeighborsOfFortification(town, navigatio
 ### GetTransitionCostAdjustment
 `public override float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)`
 
-**Purpose:** **Purpose:** Reads and returns the transition cost adjustment value held by the this instance.
+**Purpose:** Reads and returns the transition cost adjustment value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapDistanceModel from the subsystem API first

@@ -29,7 +29,7 @@ description: "MapEventVisualsVM 的自动生成类参考。"
 ### Update
 `public void Update(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualsVM 实例
@@ -40,7 +40,7 @@ mapEventVisualsVM.Update(0);
 ### OnMapEventVisibilityChanged
 `public void OnMapEventVisibilityChanged(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map event visibility changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 map event visibility changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualsVM 实例
@@ -51,7 +51,7 @@ mapEventVisualsVM.OnMapEventVisibilityChanged(mapEvent);
 ### OnMapEventStarted
 `public void OnMapEventStarted(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map event started 事件触发时调用此回调。
+**用途 / Purpose:** 在 map event started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualsVM 实例
@@ -62,7 +62,7 @@ mapEventVisualsVM.OnMapEventStarted(mapEvent);
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map event ended 事件触发时调用此回调。
+**用途 / Purpose:** 在 map event ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualsVM 实例

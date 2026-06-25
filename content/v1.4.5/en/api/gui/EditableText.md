@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### SetCursorPosition
 `public void SetCursorPosition(int position, bool visible)`
 
-**Purpose:** **Purpose:** Assigns a new value to cursor position and updates the object's internal state.
+**Purpose:** Assigns a new value to cursor position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -46,7 +46,7 @@ editableText.SetCursorPosition(0, false);
 ### BlinkCursor
 `public void BlinkCursor()`
 
-**Purpose:** **Purpose:** Executes the BlinkCursor logic.
+**Purpose:** Executes the BlinkCursor logic.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -57,7 +57,7 @@ editableText.BlinkCursor();
 ### IsCursorVisible
 `public bool IsCursorVisible()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the cursor visible state or condition.
+**Purpose:** Determines whether the this instance is in the cursor visible state or condition.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -68,7 +68,7 @@ var result = editableText.IsCursorVisible();
 ### ResetSelected
 `public void ResetSelected()`
 
-**Purpose:** **Purpose:** Returns selected to its default or initial condition.
+**Purpose:** Returns selected to its default or initial condition.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -79,7 +79,7 @@ editableText.ResetSelected();
 ### BeginSelection
 `public void BeginSelection()`
 
-**Purpose:** **Purpose:** Executes the BeginSelection logic.
+**Purpose:** Executes the BeginSelection logic.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -90,7 +90,7 @@ editableText.BeginSelection();
 ### IsAnySelected
 `public bool IsAnySelected()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any selected state or condition.
+**Purpose:** Determines whether the this instance is in the any selected state or condition.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -101,7 +101,7 @@ var result = editableText.IsAnySelected();
 ### GetCursorPosition
 `public Vector2 GetCursorPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the cursor position value held by the this instance.
+**Purpose:** Reads and returns the cursor position value held by the this instance.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -112,7 +112,7 @@ var result = editableText.GetCursorPosition();
 ### Update
 `public override void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -123,7 +123,7 @@ editableText.Update(0, spriteData, focusPosition, false, false, false, 0);
 ### SelectAll
 `public void SelectAll()`
 
-**Purpose:** **Purpose:** Executes the SelectAll logic.
+**Purpose:** Executes the SelectAll logic.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -134,7 +134,7 @@ editableText.SelectAll();
 ### FindNextWordPosition
 `public int FindNextWordPosition(int direction)`
 
-**Purpose:** **Purpose:** Looks up the matching next word position in the current collection or scope.
+**Purpose:** Looks up the matching next word position in the current collection or scope.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first
@@ -145,7 +145,7 @@ var result = editableText.FindNextWordPosition(0);
 ### SetCursor
 `public void SetCursor(int position, bool visible = true, bool withSelection = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to cursor and updates the object's internal state.
+**Purpose:** Assigns a new value to cursor and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EditableText from the subsystem API first

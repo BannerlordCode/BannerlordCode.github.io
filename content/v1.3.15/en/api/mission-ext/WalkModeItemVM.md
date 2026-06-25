@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode`
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first
@@ -44,7 +44,7 @@ walkModeItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first
@@ -55,7 +55,7 @@ walkModeItemVM.OnFinalize();
 ### OnEnabled
 `public void OnEnabled()`
 
-**Purpose:** **Purpose:** Invoked when the enabled event is raised.
+**Purpose:** Invoked when the enabled event is raised.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first
@@ -66,7 +66,7 @@ walkModeItemVM.OnEnabled();
 ### ToggleState
 `public void ToggleState()`
 
-**Purpose:** **Purpose:** Executes the ToggleState logic.
+**Purpose:** Executes the ToggleState logic.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first
@@ -77,7 +77,7 @@ walkModeItemVM.ToggleState();
 ### SetToggleInputKey
 `public void SetToggleInputKey(HotKey hotKey, bool isHotKeyConsoleOnly)`
 
-**Purpose:** **Purpose:** Assigns a new value to toggle input key and updates the object's internal state.
+**Purpose:** Assigns a new value to toggle input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first
@@ -88,7 +88,7 @@ walkModeItemVM.SetToggleInputKey(hotKey, false);
 ### SetToggleInputKey
 `public void SetToggleInputKey(GameKey gameKey, bool isHotKeyConsoleOnly)`
 
-**Purpose:** **Purpose:** Assigns a new value to toggle input key and updates the object's internal state.
+**Purpose:** Assigns a new value to toggle input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WalkModeItemVM from the subsystem API first

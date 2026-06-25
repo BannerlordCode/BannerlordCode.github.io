@@ -49,7 +49,7 @@ description: "MissionOrderVM 的自动生成类参考。"
 ### SetDeploymentParemeters
 `public void SetDeploymentParemeters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 deployment paremeters 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 deployment paremeters 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -60,7 +60,7 @@ missionOrderVM.SetDeploymentParemeters(deploymentCamera, deploymentPoints);
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 callbacks 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 callbacks 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -71,7 +71,7 @@ missionOrderVM.SetCallbacks(callbacks);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -82,7 +82,7 @@ missionOrderVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -93,7 +93,7 @@ missionOrderVM.OnFinalize();
 ### OnOrderExecuted
 `public void OnOrderExecuted(OrderItemVM orderItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 order executed 事件触发时调用此回调。
+**用途 / Purpose:** 在 order executed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -104,7 +104,7 @@ missionOrderVM.OnOrderExecuted(orderItem);
 ### OnOrderLayoutTypeChanged
 `public virtual void OnOrderLayoutTypeChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 order layout type changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 order layout type changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -115,7 +115,7 @@ missionOrderVM.OnOrderLayoutTypeChanged();
 ### OpenToggleOrder
 `public void OpenToggleOrder(bool fromHold, bool displayMessage = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开toggle order对应的资源或界面。
+**用途 / Purpose:** 打开toggle order对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -126,7 +126,7 @@ missionOrderVM.OpenToggleOrder(false, false);
 ### TryCloseToggleOrder
 `public bool TryCloseToggleOrder(bool applySelectedOrders = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 close toggle order 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 close toggle order 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -137,7 +137,7 @@ var result = missionOrderVM.TryCloseToggleOrder(false);
 ### SetActiveOrders
 `public void SetActiveOrders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active orders 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active orders 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -148,7 +148,7 @@ missionOrderVM.SetActiveOrders();
 ### SetFocusedFormations
 `public void SetFocusedFormations(MBReadOnlyList<Formation> focusedFormationsCache)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 focused formations 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 focused formations 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -159,7 +159,7 @@ missionOrderVM.SetFocusedFormations(focusedFormationsCache);
 ### AfterInitialize
 `public void AfterInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterInitialize 对应的操作。
+**用途 / Purpose:** 调用 AfterInitialize 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -170,7 +170,7 @@ missionOrderVM.AfterInitialize();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -181,7 +181,7 @@ missionOrderVM.Update();
 ### OnEscape
 `public void OnEscape()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
+**用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -192,7 +192,7 @@ missionOrderVM.OnEscape();
 ### ViewOrders
 `public void ViewOrders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ViewOrders 对应的操作。
+**用途 / Purpose:** 调用 ViewOrders 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -203,7 +203,7 @@ missionOrderVM.ViewOrders();
 ### GetOrderSetAtIndex
 `public OrderSetVM GetOrderSetAtIndex(int orderSetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order set at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 order set at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -214,7 +214,7 @@ var result = missionOrderVM.GetOrderSetAtIndex(0);
 ### TrySelectOrderSet
 `public bool TrySelectOrderSet(OrderSetVM orderSet)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 select order set 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 select order set 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -225,7 +225,7 @@ var result = missionOrderVM.TrySelectOrderSet(orderSet);
 ### OnTroopFormationSelected
 `public void OnTroopFormationSelected(int formationTroopIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop formation selected 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop formation selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -236,7 +236,7 @@ missionOrderVM.OnTroopFormationSelected(0);
 ### ExecuteSelectHighlightedFormation
 `public void ExecuteSelectHighlightedFormation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select highlighted formation 对应的操作或工作流。
+**用途 / Purpose:** 执行 select highlighted formation 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -247,7 +247,7 @@ missionOrderVM.ExecuteSelectHighlightedFormation();
 ### OnTroopHighlightSelection
 `public void OnTroopHighlightSelection(bool isDirectionLeft)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop highlight selection 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop highlight selection 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -258,7 +258,7 @@ missionOrderVM.OnTroopHighlightSelection(false);
 ### ExecuteToggleHighlightedFormation
 `public void ExecuteToggleHighlightedFormation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle highlighted formation 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle highlighted formation 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -269,7 +269,7 @@ missionOrderVM.ExecuteToggleHighlightedFormation();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -280,7 +280,7 @@ missionOrderVM.OnDeploymentFinished();
 ### OnAfterDeploymentFinished
 `public void OnAfterDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 after deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -291,7 +291,7 @@ missionOrderVM.OnAfterDeploymentFinished();
 ### OnFiltersSet
 `public void OnFiltersSet(List<MissionOrderVM.FormationConfiguration> filterData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 filters set 事件触发时调用此回调。
+**用途 / Purpose:** 在 filters set 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -302,7 +302,7 @@ missionOrderVM.OnFiltersSet(filterData);
 ### UpdateCanUseShortcuts
 `public void UpdateCanUseShortcuts(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 can use shortcuts 的最新表示。
+**用途 / Purpose:** 重新计算并更新 can use shortcuts 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -313,7 +313,7 @@ missionOrderVM.UpdateCanUseShortcuts(false);
 ### SetOrderIndexKey
 `public void SetOrderIndexKey(int orderIndex, GameKey gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 order index key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 order index key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -324,7 +324,7 @@ missionOrderVM.SetOrderIndexKey(0, gameKey);
 ### SetReturnKey
 `public void SetReturnKey(GameKey gameKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 return key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 return key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -335,7 +335,7 @@ missionOrderVM.SetReturnKey(gameKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例

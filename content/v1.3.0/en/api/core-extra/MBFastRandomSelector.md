@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -40,7 +40,7 @@ mBFastRandomSelector.Initialize(list);
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -51,7 +51,7 @@ mBFastRandomSelector.Reset();
 ### Pack
 `public void Pack()`
 
-**Purpose:** **Purpose:** Executes the Pack logic.
+**Purpose:** Executes the Pack logic.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -62,7 +62,7 @@ mBFastRandomSelector.Pack();
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**Purpose:** **Purpose:** Executes the SelectRandom logic.
+**Purpose:** Executes the SelectRandom logic.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first

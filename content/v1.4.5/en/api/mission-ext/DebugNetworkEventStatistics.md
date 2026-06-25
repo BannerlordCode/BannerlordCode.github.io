@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network` to place it in the stack
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
@@ -41,7 +41,7 @@ var result = debugNetworkEventStatistics.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
@@ -52,7 +52,7 @@ var result = debugNetworkEventStatistics.GetHashCode();
 ### CompareTo
 `public int CompareTo(PerEventData other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
+**Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
@@ -63,7 +63,7 @@ var result = debugNetworkEventStatistics.CompareTo(other);
 ### OpenExternalMonitor
 `public static void OpenExternalMonitor()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with external monitor.
+**Purpose:** Opens the resource or UI associated with external monitor.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ DebugNetworkEventStatistics.OpenExternalMonitor();
 ### ControlActivate
 `public static void ControlActivate()`
 
-**Purpose:** **Purpose:** Executes the ControlActivate logic.
+**Purpose:** Executes the ControlActivate logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ DebugNetworkEventStatistics.ControlActivate();
 ### ControlDeactivate
 `public static void ControlDeactivate()`
 
-**Purpose:** **Purpose:** Executes the ControlDeactivate logic.
+**Purpose:** Executes the ControlDeactivate logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ DebugNetworkEventStatistics.ControlDeactivate();
 ### ControlJustDump
 `public static void ControlJustDump()`
 
-**Purpose:** **Purpose:** Executes the ControlJustDump logic.
+**Purpose:** Executes the ControlJustDump logic.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ DebugNetworkEventStatistics.ControlJustDump();
 ### ControlDumpAll
 `public static void ControlDumpAll()`
 
-**Purpose:** **Purpose:** Executes the ControlDumpAll logic.
+**Purpose:** Executes the ControlDumpAll logic.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ DebugNetworkEventStatistics.ControlDumpAll();
 ### ControlClear
 `public static void ControlClear()`
 
-**Purpose:** **Purpose:** Executes the ControlClear logic.
+**Purpose:** Executes the ControlClear logic.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ DebugNetworkEventStatistics.ControlClear();
 ### ClearNetGraphs
 `public static void ClearNetGraphs()`
 
-**Purpose:** **Purpose:** Removes all net graphs from the this instance.
+**Purpose:** Removes all net graphs from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ DebugNetworkEventStatistics.ClearNetGraphs();
 ### ClearFpsGraph
 `public static void ClearFpsGraph()`
 
-**Purpose:** **Purpose:** Removes all fps graph from the this instance.
+**Purpose:** Removes all fps graph from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ DebugNetworkEventStatistics.ClearFpsGraph();
 ### ControlClearAll
 `public static void ControlClearAll()`
 
-**Purpose:** **Purpose:** Executes the ControlClearAll logic.
+**Purpose:** Executes the ControlClearAll logic.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ DebugNetworkEventStatistics.ControlClearAll();
 ### ControlDumpReplicationData
 `public static void ControlDumpReplicationData()`
 
-**Purpose:** **Purpose:** Executes the ControlDumpReplicationData logic.
+**Purpose:** Executes the ControlDumpReplicationData logic.
 
 ```csharp
 // Static call; no instance required
@@ -163,7 +163,7 @@ DebugNetworkEventStatistics.ControlDumpReplicationData();
 ### EndTick
 `public static void EndTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the EndTick logic.
+**Purpose:** Executes the EndTick logic.
 
 ```csharp
 // Static call; no instance required

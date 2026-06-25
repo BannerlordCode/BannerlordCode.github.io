@@ -23,7 +23,7 @@ Treat `MissionGauntletMainAgentControlModeView` as a View-style extension point:
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletMainAgentControlModeView.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletMainAgentControlModeView.AfterStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletMainAgentControlModeView.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletMainAgentControlModeView.OnMissionScreenTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletMainAgentControlModeView.OnAgentRemoved(affectedAgent, affectorAg
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
@@ -89,7 +89,7 @@ missionGauntletMainAgentControlModeView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first

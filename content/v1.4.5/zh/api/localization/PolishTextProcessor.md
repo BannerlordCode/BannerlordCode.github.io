@@ -23,7 +23,7 @@ description: "PolishTextProcessor 的自动生成类参考。"
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的temporary data。
+**用途 / Purpose:** 清空当前对象中的temporary data。
 
 ```csharp
 // 先通过子系统 API 拿到 PolishTextProcessor 实例
@@ -34,7 +34,7 @@ polishTextProcessor.ClearTemporaryData();
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessToken 对应的操作。
+**用途 / Purpose:** 调用 ProcessToken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PolishTextProcessor 实例
@@ -45,7 +45,7 @@ polishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 processed nouns 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 processed nouns 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -55,7 +55,7 @@ PolishTextProcessor.GetProcessedNouns("example", "example", "example");
 ### GetProcessedAdjectives
 `public static string GetProcessedAdjectives(string str, string gender, string tokens = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 processed adjectives 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 processed adjectives 的结果。
 
 ```csharp
 // 静态调用，不需要实例

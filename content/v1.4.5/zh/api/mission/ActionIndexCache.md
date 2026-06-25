@@ -29,7 +29,7 @@ description: "ActionIndexCache 的自动生成类参考。"
 ### Create
 `public static ActionIndexCache Create(string actName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ ActionIndexCache.Create("example");
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionIndexCache 实例
@@ -50,7 +50,7 @@ var result = actionIndexCache.GetName();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionIndexCache 实例
@@ -61,7 +61,7 @@ var result = actionIndexCache.Equals(obj);
 ### Equals
 `public bool Equals(ActionIndexCache other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionIndexCache 实例
@@ -72,7 +72,7 @@ var result = actionIndexCache.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionIndexCache 实例

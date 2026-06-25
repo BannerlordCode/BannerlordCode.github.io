@@ -23,7 +23,7 @@ description: "WidgetAttributeKeyTypeAttribute 的自动生成类参考。"
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查key type在当前对象中是否成立。
+**用途 / Purpose:** 检查key type在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例
@@ -34,7 +34,7 @@ var result = widgetAttributeKeyTypeAttribute.CheckKeyType("example");
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例
@@ -45,7 +45,7 @@ var result = widgetAttributeKeyTypeAttribute.GetKeyName("example");
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 serialized key 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 serialized key 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例

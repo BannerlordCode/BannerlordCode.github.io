@@ -23,7 +23,7 @@ description: "MissionAgentStatusUIHandler 的自动生成类参考。"
 ### AddInteractionMessage
 `public virtual void AddInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 interaction message 添加到当前容器或状态中。
+**用途 / Purpose:** 将 interaction message 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例
@@ -34,7 +34,7 @@ missionAgentStatusUIHandler.AddInteractionMessage(message);
 ### RemoveInteractionMessage
 `public virtual void RemoveInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 interaction message。
+**用途 / Purpose:** 从当前容器或状态中移除 interaction message。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例
@@ -45,7 +45,7 @@ missionAgentStatusUIHandler.RemoveInteractionMessage(message);
 ### HasInteractionMessage
 `public virtual bool HasInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 interaction message。
+**用途 / Purpose:** 判断当前对象是否已经持有 interaction message。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例

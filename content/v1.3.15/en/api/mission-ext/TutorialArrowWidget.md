@@ -32,7 +32,7 @@ Treat `TutorialArrowWidget` as a Widget-style extension point: first identify wh
 ### SetArrowProperties
 `public void SetArrowProperties(float width, float height, bool isDirectionDown, bool isDirectionRight)`
 
-**Purpose:** **Purpose:** Assigns a new value to arrow properties and updates the object's internal state.
+**Purpose:** Assigns a new value to arrow properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialArrowWidget from the subsystem API first
@@ -43,7 +43,7 @@ tutorialArrowWidget.SetArrowProperties(0, 0, false, false);
 ### ResetFade
 `public void ResetFade()`
 
-**Purpose:** **Purpose:** Returns fade to its default or initial condition.
+**Purpose:** Returns fade to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TutorialArrowWidget from the subsystem API first
@@ -54,7 +54,7 @@ tutorialArrowWidget.ResetFade();
 ### DisableFade
 `public void DisableFade()`
 
-**Purpose:** **Purpose:** Executes the DisableFade logic.
+**Purpose:** Executes the DisableFade logic.
 
 ```csharp
 // Obtain an instance of TutorialArrowWidget from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionGauntletEscapeMenuBase 的自动生成类参考。"
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletEscapeMenuBase 实例
@@ -34,7 +34,7 @@ missionGauntletEscapeMenuBase.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
+**用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletEscapeMenuBase 实例
@@ -45,7 +45,7 @@ var result = missionGauntletEscapeMenuBase.OnEscape();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletEscapeMenuBase 实例
@@ -56,7 +56,7 @@ missionGauntletEscapeMenuBase.OnMissionScreenTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 scene rendering started 事件触发时调用此回调。
+**用途 / Purpose:** 在 scene rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletEscapeMenuBase 实例

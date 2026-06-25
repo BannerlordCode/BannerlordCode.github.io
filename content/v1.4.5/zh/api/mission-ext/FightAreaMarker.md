@@ -23,7 +23,7 @@ description: "FightAreaMarker 的自动生成类参考。"
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(Team team, bool humanOnly = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agents in range 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agents in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FightAreaMarker 实例
@@ -34,7 +34,7 @@ var result = fightAreaMarker.GetAgentsInRange(team, false);
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(BattleSideEnum side, bool humanOnly = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agents in range 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agents in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FightAreaMarker 实例

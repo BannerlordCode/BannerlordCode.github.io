@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -50,7 +50,7 @@ mPLobbyHomeVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -61,7 +61,7 @@ mPLobbyHomeVM.OnTick(0);
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData, bool updateRating = true)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of player data in sync with the underlying state.
+**Purpose:** Keeps the display or cache of player data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -72,7 +72,7 @@ mPLobbyHomeVM.RefreshPlayerData(playerData, false);
 ### OnMatchSelectionChanged
 `public void OnMatchSelectionChanged(string selectionInfo, bool isMatchFindPossible)`
 
-**Purpose:** **Purpose:** Invoked when the match selection changed event is raised.
+**Purpose:** Invoked when the match selection changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -83,7 +83,7 @@ mPLobbyHomeVM.OnMatchSelectionChanged("example", false);
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
+**Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -94,7 +94,7 @@ mPLobbyHomeVM.OnClanInfoChanged();
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** **Purpose:** Invoked when the player name updated event is raised.
+**Purpose:** Invoked when the player name updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first
@@ -105,7 +105,7 @@ mPLobbyHomeVM.OnPlayerNameUpdated("example");
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyHomeVM from the subsystem API first

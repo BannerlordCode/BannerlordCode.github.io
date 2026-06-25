@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### ClearSelectionRecursive
 `public void ClearSelectionRecursive()`
 
-**Purpose:** **Purpose:** Removes all selection recursive from the this instance.
+**Purpose:** Removes all selection recursive from the this instance.
 
 ```csharp
 // Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
@@ -48,7 +48,7 @@ cheerBarkNodeItemVM.ClearSelectionRecursive();
 ### ExecuteFocused
 `public void ExecuteFocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focused.
+**Purpose:** Runs the operation or workflow associated with focused.
 
 ```csharp
 // Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
@@ -59,7 +59,7 @@ cheerBarkNodeItemVM.ExecuteFocused();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
@@ -70,7 +70,7 @@ cheerBarkNodeItemVM.RefreshValues();
 ### AddSubNode
 `public void AddSubNode(CheerBarkNodeItemVM subNode)`
 
-**Purpose:** **Purpose:** Adds sub node to the current collection or state.
+**Purpose:** Adds sub node to the current collection or state.
 
 ```csharp
 // Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
@@ -81,7 +81,7 @@ cheerBarkNodeItemVM.AddSubNode(subNode);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CheerBarkNodeItemVM from the subsystem API first

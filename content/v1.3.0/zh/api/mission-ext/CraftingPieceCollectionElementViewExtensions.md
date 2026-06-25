@@ -23,7 +23,7 @@ description: "CraftingPieceCollectionElementViewExtensions 的自动生成类参
 ### GetCraftingPieceFrameForInventory
 `public static MatrixFrame GetCraftingPieceFrameForInventory(this CraftingPiece craftingPiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafting piece frame for inventory 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafting piece frame for inventory 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -29,7 +29,7 @@ Treat `LauncherModsDLLManager` as a Manager-style extension point: first identif
 ### GetSubModuleVerifyData
 `public LauncherDLLData GetSubModuleVerifyData(SubModuleInfo subModuleInfo)`
 
-**Purpose:** **Purpose:** Reads and returns the sub module verify data value held by the this instance.
+**Purpose:** Reads and returns the sub module verify data value held by the this instance.
 
 ```csharp
 // Obtain an instance of LauncherModsDLLManager from the subsystem API first

@@ -30,7 +30,7 @@ description: "OpenGLTexture 的自动生成类参考。"
 ### Initialize
 `public void Initialize(string name, int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -41,7 +41,7 @@ openGLTexture.Initialize("example", 0, 0);
 ### CopyFrom
 `public void CopyFrom(OpenGLTexture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的from状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的from状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -52,7 +52,7 @@ openGLTexture.CopyFrom(texture);
 ### Delete
 `public void Delete()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Delete 对应的操作。
+**用途 / Purpose:** 调用 Delete 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -63,7 +63,7 @@ openGLTexture.Delete();
 ### FromFile
 `public static OpenGLTexture FromFile(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FromFile 对应的操作。
+**用途 / Purpose:** 调用 FromFile 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ OpenGLTexture.FromFile(resourceDepot, "example");
 ### FromFile
 `public static OpenGLTexture FromFile(string fullFilePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FromFile 对应的操作。
+**用途 / Purpose:** 调用 FromFile 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ OpenGLTexture.FromFile("example");
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -94,7 +94,7 @@ openGLTexture.Release();
 ### LoadFromFile
 `public void LoadFromFile(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from file。
+**用途 / Purpose:** 从持久化存储或流中读取 from file。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -105,7 +105,7 @@ openGLTexture.LoadFromFile(resourceDepot, "example");
 ### LoadFromFile
 `public void LoadFromFile(string fullPathName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from file。
+**用途 / Purpose:** 从持久化存储或流中读取 from file。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -116,7 +116,7 @@ openGLTexture.LoadFromFile("example");
 ### IsLoaded
 `public bool IsLoaded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 loaded 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 loaded 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例

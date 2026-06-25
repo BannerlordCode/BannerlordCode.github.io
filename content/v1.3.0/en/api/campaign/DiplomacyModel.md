@@ -37,7 +37,7 @@ Treat `DiplomacyModel` as a Model-style extension point: first identify who crea
 ### GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom
 `public abstract float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)`
 
-**Purpose:** **Purpose:** Reads and returns the strength threshold for non mutual wars to be ignored to join kingdom value held by the this instance.
+**Purpose:** Reads and returns the strength threshold for non mutual wars to be ignored to join kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -48,7 +48,7 @@ var result = diplomacyModel.GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoi
 ### GetRelationIncreaseFactor
 `public abstract float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationValue)`
 
-**Purpose:** **Purpose:** Reads and returns the relation increase factor value held by the this instance.
+**Purpose:** Reads and returns the relation increase factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -59,7 +59,7 @@ var result = diplomacyModel.GetRelationIncreaseFactor(hero1, hero2, 0);
 ### GetInfluenceAwardForSettlementCapturer
 `public abstract int GetInfluenceAwardForSettlementCapturer(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the influence award for settlement capturer value held by the this instance.
+**Purpose:** Reads and returns the influence award for settlement capturer value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -70,7 +70,7 @@ var result = diplomacyModel.GetInfluenceAwardForSettlementCapturer(settlement);
 ### GetHourlyInfluenceAwardForRaidingEnemyVillage
 `public abstract float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the hourly influence award for raiding enemy village value held by the this instance.
+**Purpose:** Reads and returns the hourly influence award for raiding enemy village value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -81,7 +81,7 @@ var result = diplomacyModel.GetHourlyInfluenceAwardForRaidingEnemyVillage(mobile
 ### GetHourlyInfluenceAwardForBesiegingEnemyFortification
 `public abstract float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the hourly influence award for besieging enemy fortification value held by the this instance.
+**Purpose:** Reads and returns the hourly influence award for besieging enemy fortification value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -92,7 +92,7 @@ var result = diplomacyModel.GetHourlyInfluenceAwardForBesiegingEnemyFortificatio
 ### GetHourlyInfluenceAwardForBeingArmyMember
 `public abstract float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the hourly influence award for being army member value held by the this instance.
+**Purpose:** Reads and returns the hourly influence award for being army member value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -103,7 +103,7 @@ var result = diplomacyModel.GetHourlyInfluenceAwardForBeingArmyMember(mobilePart
 ### GetScoreOfClanToJoinKingdom
 `public abstract float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the score of clan to join kingdom value held by the this instance.
+**Purpose:** Reads and returns the score of clan to join kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -114,7 +114,7 @@ var result = diplomacyModel.GetScoreOfClanToJoinKingdom(clan, kingdom);
 ### GetScoreOfClanToLeaveKingdom
 `public abstract float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the score of clan to leave kingdom value held by the this instance.
+**Purpose:** Reads and returns the score of clan to leave kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -125,7 +125,7 @@ var result = diplomacyModel.GetScoreOfClanToLeaveKingdom(clan, kingdom);
 ### GetScoreOfKingdomToGetClan
 `public abstract float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the score of kingdom to get clan value held by the this instance.
+**Purpose:** Reads and returns the score of kingdom to get clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -136,7 +136,7 @@ var result = diplomacyModel.GetScoreOfKingdomToGetClan(kingdom, clan);
 ### GetScoreOfKingdomToSackClan
 `public abstract float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the score of kingdom to sack clan value held by the this instance.
+**Purpose:** Reads and returns the score of kingdom to sack clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -147,7 +147,7 @@ var result = diplomacyModel.GetScoreOfKingdomToSackClan(kingdom, clan);
 ### GetScoreOfMercenaryToJoinKingdom
 `public abstract float GetScoreOfMercenaryToJoinKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the score of mercenary to join kingdom value held by the this instance.
+**Purpose:** Reads and returns the score of mercenary to join kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -158,7 +158,7 @@ var result = diplomacyModel.GetScoreOfMercenaryToJoinKingdom(clan, kingdom);
 ### GetScoreOfMercenaryToLeaveKingdom
 `public abstract float GetScoreOfMercenaryToLeaveKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the score of mercenary to leave kingdom value held by the this instance.
+**Purpose:** Reads and returns the score of mercenary to leave kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -169,7 +169,7 @@ var result = diplomacyModel.GetScoreOfMercenaryToLeaveKingdom(clan, kingdom);
 ### GetScoreOfKingdomToHireMercenary
 `public abstract float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**Purpose:** **Purpose:** Reads and returns the score of kingdom to hire mercenary value held by the this instance.
+**Purpose:** Reads and returns the score of kingdom to hire mercenary value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -180,7 +180,7 @@ var result = diplomacyModel.GetScoreOfKingdomToHireMercenary(kingdom, mercenaryC
 ### GetScoreOfKingdomToSackMercenary
 `public abstract float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**Purpose:** **Purpose:** Reads and returns the score of kingdom to sack mercenary value held by the this instance.
+**Purpose:** Reads and returns the score of kingdom to sack mercenary value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -191,7 +191,7 @@ var result = diplomacyModel.GetScoreOfKingdomToSackMercenary(kingdom, mercenaryC
 ### GetScoreOfDeclaringPeaceForClan
 `public abstract float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason)`
 
-**Purpose:** **Purpose:** Reads and returns the score of declaring peace for clan value held by the this instance.
+**Purpose:** Reads and returns the score of declaring peace for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -202,7 +202,7 @@ var result = diplomacyModel.GetScoreOfDeclaringPeaceForClan(factionDeclaresPeace
 ### GetScoreOfDeclaringPeace
 `public abstract float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** **Purpose:** Reads and returns the score of declaring peace value held by the this instance.
+**Purpose:** Reads and returns the score of declaring peace value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -213,7 +213,7 @@ var result = diplomacyModel.GetScoreOfDeclaringPeace(factionDeclaresPeace, facti
 ### IsPeaceSuitable
 `public abstract bool IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the peace suitable state or condition.
+**Purpose:** Determines whether the this instance is in the peace suitable state or condition.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -224,7 +224,7 @@ var result = diplomacyModel.IsPeaceSuitable(factionDeclaresPeace, factionDeclare
 ### GetScoreOfDeclaringWar
 `public abstract float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason)`
 
-**Purpose:** **Purpose:** Reads and returns the score of declaring war value held by the this instance.
+**Purpose:** Reads and returns the score of declaring war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -235,7 +235,7 @@ var result = diplomacyModel.GetScoreOfDeclaringWar(factionDeclaresWar, factionDe
 ### GetScoreOfLettingPartyGo
 `public abstract float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)`
 
-**Purpose:** **Purpose:** Reads and returns the score of letting party go value held by the this instance.
+**Purpose:** Reads and returns the score of letting party go value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -246,7 +246,7 @@ var result = diplomacyModel.GetScoreOfLettingPartyGo(party, partyToLetGo);
 ### GetValueOfHeroForFaction
 `public abstract float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)`
 
-**Purpose:** **Purpose:** Reads and returns the value of hero for faction value held by the this instance.
+**Purpose:** Reads and returns the value of hero for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -257,7 +257,7 @@ var result = diplomacyModel.GetValueOfHeroForFaction(examinedHero, targetFaction
 ### GetRelationCostOfExpellingClanFromKingdom
 `public abstract int GetRelationCostOfExpellingClanFromKingdom()`
 
-**Purpose:** **Purpose:** Reads and returns the relation cost of expelling clan from kingdom value held by the this instance.
+**Purpose:** Reads and returns the relation cost of expelling clan from kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -268,7 +268,7 @@ var result = diplomacyModel.GetRelationCostOfExpellingClanFromKingdom();
 ### GetInfluenceCostOfSupportingClan
 `public abstract int GetInfluenceCostOfSupportingClan()`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of supporting clan value held by the this instance.
+**Purpose:** Reads and returns the influence cost of supporting clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -279,7 +279,7 @@ var result = diplomacyModel.GetInfluenceCostOfSupportingClan();
 ### GetInfluenceCostOfExpellingClan
 `public abstract int GetInfluenceCostOfExpellingClan(Clan proposingClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of expelling clan value held by the this instance.
+**Purpose:** Reads and returns the influence cost of expelling clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -290,7 +290,7 @@ var result = diplomacyModel.GetInfluenceCostOfExpellingClan(proposingClan);
 ### GetInfluenceCostOfProposingPeace
 `public abstract int GetInfluenceCostOfProposingPeace(Clan proposingClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of proposing peace value held by the this instance.
+**Purpose:** Reads and returns the influence cost of proposing peace value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -301,7 +301,7 @@ var result = diplomacyModel.GetInfluenceCostOfProposingPeace(proposingClan);
 ### GetInfluenceCostOfProposingWar
 `public abstract int GetInfluenceCostOfProposingWar(Clan proposingClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of proposing war value held by the this instance.
+**Purpose:** Reads and returns the influence cost of proposing war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -312,7 +312,7 @@ var result = diplomacyModel.GetInfluenceCostOfProposingWar(proposingClan);
 ### GetInfluenceValueOfSupportingClan
 `public abstract int GetInfluenceValueOfSupportingClan()`
 
-**Purpose:** **Purpose:** Reads and returns the influence value of supporting clan value held by the this instance.
+**Purpose:** Reads and returns the influence value of supporting clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -323,7 +323,7 @@ var result = diplomacyModel.GetInfluenceValueOfSupportingClan();
 ### GetRelationValueOfSupportingClan
 `public abstract int GetRelationValueOfSupportingClan()`
 
-**Purpose:** **Purpose:** Reads and returns the relation value of supporting clan value held by the this instance.
+**Purpose:** Reads and returns the relation value of supporting clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -334,7 +334,7 @@ var result = diplomacyModel.GetRelationValueOfSupportingClan();
 ### GetInfluenceCostOfAnnexation
 `public abstract int GetInfluenceCostOfAnnexation(Clan proposingClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of annexation value held by the this instance.
+**Purpose:** Reads and returns the influence cost of annexation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -345,7 +345,7 @@ var result = diplomacyModel.GetInfluenceCostOfAnnexation(proposingClan);
 ### GetInfluenceCostOfChangingLeaderOfArmy
 `public abstract int GetInfluenceCostOfChangingLeaderOfArmy()`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of changing leader of army value held by the this instance.
+**Purpose:** Reads and returns the influence cost of changing leader of army value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -356,7 +356,7 @@ var result = diplomacyModel.GetInfluenceCostOfChangingLeaderOfArmy();
 ### GetInfluenceCostOfDisbandingArmy
 `public abstract int GetInfluenceCostOfDisbandingArmy()`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of disbanding army value held by the this instance.
+**Purpose:** Reads and returns the influence cost of disbanding army value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -367,7 +367,7 @@ var result = diplomacyModel.GetInfluenceCostOfDisbandingArmy();
 ### GetRelationCostOfDisbandingArmy
 `public abstract int GetRelationCostOfDisbandingArmy(bool isLeaderParty)`
 
-**Purpose:** **Purpose:** Reads and returns the relation cost of disbanding army value held by the this instance.
+**Purpose:** Reads and returns the relation cost of disbanding army value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -378,7 +378,7 @@ var result = diplomacyModel.GetRelationCostOfDisbandingArmy(false);
 ### GetInfluenceCostOfPolicyProposalAndDisavowal
 `public abstract int GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposingClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of policy proposal and disavowal value held by the this instance.
+**Purpose:** Reads and returns the influence cost of policy proposal and disavowal value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -389,7 +389,7 @@ var result = diplomacyModel.GetInfluenceCostOfPolicyProposalAndDisavowal(proposi
 ### GetInfluenceCostOfAbandoningArmy
 `public abstract int GetInfluenceCostOfAbandoningArmy()`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of abandoning army value held by the this instance.
+**Purpose:** Reads and returns the influence cost of abandoning army value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -400,7 +400,7 @@ var result = diplomacyModel.GetInfluenceCostOfAbandoningArmy();
 ### GetEffectiveRelation
 `public abstract int GetEffectiveRelation(Hero hero, Hero hero1)`
 
-**Purpose:** **Purpose:** Reads and returns the effective relation value held by the this instance.
+**Purpose:** Reads and returns the effective relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -411,7 +411,7 @@ var result = diplomacyModel.GetEffectiveRelation(hero, hero1);
 ### GetBaseRelation
 `public abstract int GetBaseRelation(Hero hero, Hero hero1)`
 
-**Purpose:** **Purpose:** Reads and returns the base relation value held by the this instance.
+**Purpose:** Reads and returns the base relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -422,7 +422,7 @@ var result = diplomacyModel.GetBaseRelation(hero, hero1);
 ### GetHeroesForEffectiveRelation
 `public abstract void GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)`
 
-**Purpose:** **Purpose:** Reads and returns the heroes for effective relation value held by the this instance.
+**Purpose:** Reads and returns the heroes for effective relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -433,7 +433,7 @@ diplomacyModel.GetHeroesForEffectiveRelation(hero1, hero2, effectiveHero1, effec
 ### GetRelationChangeAfterClanLeaderIsDead
 `public abstract int GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)`
 
-**Purpose:** **Purpose:** Reads and returns the relation change after clan leader is dead value held by the this instance.
+**Purpose:** Reads and returns the relation change after clan leader is dead value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -444,7 +444,7 @@ var result = diplomacyModel.GetRelationChangeAfterClanLeaderIsDead(deadLeader, r
 ### GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision
 `public abstract int GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)`
 
-**Purpose:** **Purpose:** Reads and returns the relation change after voting in settlement owner preliminary decision value held by the this instance.
+**Purpose:** Reads and returns the relation change after voting in settlement owner preliminary decision value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -455,7 +455,7 @@ var result = diplomacyModel.GetRelationChangeAfterVotingInSettlementOwnerPrelimi
 ### GetClanStrength
 `public abstract float GetClanStrength(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the clan strength value held by the this instance.
+**Purpose:** Reads and returns the clan strength value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -466,7 +466,7 @@ var result = diplomacyModel.GetClanStrength(clan);
 ### GetHeroCommandingStrengthForClan
 `public abstract float GetHeroCommandingStrengthForClan(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the hero commanding strength for clan value held by the this instance.
+**Purpose:** Reads and returns the hero commanding strength for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -477,7 +477,7 @@ var result = diplomacyModel.GetHeroCommandingStrengthForClan(hero);
 ### GetHeroGoverningStrengthForClan
 `public abstract float GetHeroGoverningStrengthForClan(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the hero governing strength for clan value held by the this instance.
+**Purpose:** Reads and returns the hero governing strength for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -488,7 +488,7 @@ var result = diplomacyModel.GetHeroGoverningStrengthForClan(hero);
 ### GetNotificationColor
 `public abstract uint GetNotificationColor(ChatNotificationType notificationType)`
 
-**Purpose:** **Purpose:** Reads and returns the notification color value held by the this instance.
+**Purpose:** Reads and returns the notification color value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -499,7 +499,7 @@ var result = diplomacyModel.GetNotificationColor(notificationType);
 ### GetDailyTributeToPay
 `public abstract int GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive)`
 
-**Purpose:** **Purpose:** Reads and returns the daily tribute to pay value held by the this instance.
+**Purpose:** Reads and returns the daily tribute to pay value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -510,7 +510,7 @@ var result = diplomacyModel.GetDailyTributeToPay(factionToPay, factionToReceive)
 ### GetDecisionMakingThreshold
 `public abstract float GetDecisionMakingThreshold(IFaction consideringFaction)`
 
-**Purpose:** **Purpose:** Reads and returns the decision making threshold value held by the this instance.
+**Purpose:** Reads and returns the decision making threshold value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -521,7 +521,7 @@ var result = diplomacyModel.GetDecisionMakingThreshold(consideringFaction);
 ### GetValueOfSettlementsForFaction
 `public abstract float GetValueOfSettlementsForFaction(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the value of settlements for faction value held by the this instance.
+**Purpose:** Reads and returns the value of settlements for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -532,7 +532,7 @@ var result = diplomacyModel.GetValueOfSettlementsForFaction(faction);
 ### CanSettlementBeGifted
 `public abstract bool CanSettlementBeGifted(Settlement settlement)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for settlement be gifted.
+**Purpose:** Checks whether the this instance meets the preconditions for settlement be gifted.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -543,7 +543,7 @@ var result = diplomacyModel.CanSettlementBeGifted(settlement);
 ### IsClanEligibleToBecomeRuler
 `public abstract bool IsClanEligibleToBecomeRuler(Clan clan)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the clan eligible to become ruler state or condition.
+**Purpose:** Determines whether the this instance is in the clan eligible to become ruler state or condition.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -554,7 +554,7 @@ var result = diplomacyModel.IsClanEligibleToBecomeRuler(clan);
 ### GetBarterGroups
 `public abstract IEnumerable<BarterGroup> GetBarterGroups()`
 
-**Purpose:** **Purpose:** Reads and returns the barter groups value held by the this instance.
+**Purpose:** Reads and returns the barter groups value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -565,7 +565,7 @@ var result = diplomacyModel.GetBarterGroups();
 ### GetCharmExperienceFromRelationGain
 `public abstract int GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)`
 
-**Purpose:** **Purpose:** Reads and returns the charm experience from relation gain value held by the this instance.
+**Purpose:** Reads and returns the charm experience from relation gain value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -576,7 +576,7 @@ var result = diplomacyModel.GetCharmExperienceFromRelationGain(hero, 0, detail);
 ### DenarsToInfluence
 `public abstract float DenarsToInfluence()`
 
-**Purpose:** **Purpose:** Executes the DenarsToInfluence logic.
+**Purpose:** Executes the DenarsToInfluence logic.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -587,7 +587,7 @@ var result = diplomacyModel.DenarsToInfluence();
 ### GetShallowDiplomaticStance
 `public abstract DiplomacyModel.DiplomacyStance? GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**Purpose:** **Purpose:** Reads and returns the shallow diplomatic stance value held by the this instance.
+**Purpose:** Reads and returns the shallow diplomatic stance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -598,7 +598,7 @@ var result = diplomacyModel.GetShallowDiplomaticStance(faction1, faction2);
 ### GetDefaultDiplomaticStance
 `public abstract DiplomacyModel.DiplomacyStance GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**Purpose:** **Purpose:** Reads and returns the default diplomatic stance value held by the this instance.
+**Purpose:** Reads and returns the default diplomatic stance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first
@@ -609,7 +609,7 @@ var result = diplomacyModel.GetDefaultDiplomaticStance(faction1, faction2);
 ### IsAtConstantWar
 `public abstract bool IsAtConstantWar(IFaction faction1, IFaction faction2)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the at constant war state or condition.
+**Purpose:** Determines whether the this instance is in the at constant war state or condition.
 
 ```csharp
 // Obtain an instance of DiplomacyModel from the subsystem API first

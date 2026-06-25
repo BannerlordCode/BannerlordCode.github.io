@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Quests.QuestTasks` to place it in the stack, the
 ### InitializeTaskOnLoad
 `public void InitializeTaskOnLoad(int targetItemAmount, ItemObject item)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by task on load.
+**Purpose:** Prepares the resources, state, or bindings required by task on load.
 
 ```csharp
 // Obtain an instance of PurchaseItemTutorialQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ purchaseItemTutorialQuestTask.InitializeTaskOnLoad(0, item);
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PurchaseItemTutorialQuestTask from the subsystem API first

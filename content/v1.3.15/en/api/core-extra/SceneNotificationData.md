@@ -44,7 +44,7 @@ Treat `SceneNotificationData` as a Data-style extension point: first identify wh
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
 
-**Purpose:** **Purpose:** Invoked when the affirmative action event is raised.
+**Purpose:** Invoked when the affirmative action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -55,7 +55,7 @@ sceneNotificationData.OnAffirmativeAction();
 ### OnNegativeAction
 `public virtual void OnNegativeAction()`
 
-**Purpose:** **Purpose:** Invoked when the negative action event is raised.
+**Purpose:** Invoked when the negative action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -66,7 +66,7 @@ sceneNotificationData.OnNegativeAction();
 ### OnCloseAction
 `public virtual void OnCloseAction()`
 
-**Purpose:** **Purpose:** Invoked when the close action event is raised.
+**Purpose:** Invoked when the close action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -77,7 +77,7 @@ sceneNotificationData.OnCloseAction();
 ### GetBanners
 `public virtual Banner GetBanners()`
 
-**Purpose:** **Purpose:** Reads and returns the banners value held by the this instance.
+**Purpose:** Reads and returns the banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -88,7 +88,7 @@ var result = sceneNotificationData.GetBanners();
 ### GetSceneNotificationCharacters
 `public virtual SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
+**Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -99,7 +99,7 @@ var result = sceneNotificationData.GetSceneNotificationCharacters();
 ### GetShips
 `public virtual SceneNotificationData.SceneNotificationShip GetShips()`
 
-**Purpose:** **Purpose:** Reads and returns the ships value held by the this instance.
+**Purpose:** Reads and returns the ships value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first

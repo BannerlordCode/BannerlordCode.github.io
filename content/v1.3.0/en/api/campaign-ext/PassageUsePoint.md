@@ -34,7 +34,7 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
+**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -45,7 +45,7 @@ var result = passageUsePoint.IsDisabledForAgent(agent);
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
+**Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -56,7 +56,7 @@ passageUsePoint.AfterMissionStart();
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use event is raised.
+**Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -67,7 +67,7 @@ passageUsePoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
+**Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -78,7 +78,7 @@ passageUsePoint.OnUseStopped(userAgent, false, 0);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the usable by agent state or condition.
+**Purpose:** Determines whether the this instance is in the usable by agent state or condition.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -89,7 +89,7 @@ var result = passageUsePoint.IsUsableByAgent(userAgent);
 ### GetMovingAgentCount
 `public override int GetMovingAgentCount()`
 
-**Purpose:** **Purpose:** Reads and returns the moving agent count value held by the this instance.
+**Purpose:** Reads and returns the moving agent count value held by the this instance.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -100,7 +100,7 @@ var result = passageUsePoint.GetMovingAgentCount();
 ### GetMovingAgentWithIndex
 `public override Agent GetMovingAgentWithIndex(int index)`
 
-**Purpose:** **Purpose:** Reads and returns the moving agent with index value held by the this instance.
+**Purpose:** Reads and returns the moving agent with index value held by the this instance.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -111,7 +111,7 @@ var result = passageUsePoint.GetMovingAgentWithIndex(0);
 ### AddMovingAgent
 `public override void AddMovingAgent(Agent movingAgent)`
 
-**Purpose:** **Purpose:** Adds moving agent to the current collection or state.
+**Purpose:** Adds moving agent to the current collection or state.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -122,7 +122,7 @@ passageUsePoint.AddMovingAgent(movingAgent);
 ### RemoveMovingAgent
 `public override void RemoveMovingAgent(Agent movingAgent)`
 
-**Purpose:** **Purpose:** Removes moving agent from the current collection or state.
+**Purpose:** Removes moving agent from the current collection or state.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first
@@ -133,7 +133,7 @@ passageUsePoint.RemoveMovingAgent(movingAgent);
 ### IsAIMovingTo
 `public override bool IsAIMovingTo(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the a i moving to state or condition.
+**Purpose:** Determines whether the this instance is in the a i moving to state or condition.
 
 ```csharp
 // Obtain an instance of PassageUsePoint from the subsystem API first

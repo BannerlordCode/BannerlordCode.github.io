@@ -36,7 +36,7 @@ description: "ItemCategory 的自动生成类参考。"
 ### InitializeObject
 `public ItemCategory InitializeObject(bool isTradeGood = false, int baseDemand = 0, int luxuryDemand = 0, Property properties = Property.None, ItemCategory canSubstitute = null, float substitutionFactor = 0f, bool isAnimal = false, bool isValid = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 object 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 object 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCategory 实例
@@ -47,7 +47,7 @@ var result = itemCategory.InitializeObject(false, 0, 0, property.None, null, 0, 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCategory 实例
@@ -58,7 +58,7 @@ var result = itemCategory.GetName();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemCategory 实例

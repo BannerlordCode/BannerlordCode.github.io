@@ -29,7 +29,7 @@ description: "HideoutEventComponent 的自动生成类参考。"
 ### CreateHideoutEvent
 `public static HideoutEventComponent CreateHideoutEvent(PartyBase attackerParty, PartyBase defenderParty, bool isSendTroops)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 hideout event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 hideout event 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ HideoutEventComponent.CreateHideoutEvent(attackerParty, defenderParty, false);
 ### CreateComponentForOldSaves
 `public static HideoutEventComponent CreateComponentForOldSaves(MapEvent mapEvent, bool isSendTroops)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

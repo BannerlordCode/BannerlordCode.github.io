@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
+**Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of GlobalLayer from the subsystem API first
@@ -40,7 +40,7 @@ var result = globalLayer.CompareTo(obj);
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
+**Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Obtain an instance of GlobalLayer from the subsystem API first

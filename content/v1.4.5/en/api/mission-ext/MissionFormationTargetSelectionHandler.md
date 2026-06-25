@@ -23,7 +23,7 @@ Treat `MissionFormationTargetSelectionHandler` as a Handler-style extension poin
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre display mission tick event is raised.
+**Purpose:** Invoked when the pre display mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionFormationTargetSelectionHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionFormationTargetSelectionHandler.OnPreDisplayMissionTick(0);
 ### SetIsFormationTargetingDisabled
 `public void SetIsFormationTargetingDisabled(bool isDisabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to is formation targeting disabled and updates the object's internal state.
+**Purpose:** Assigns a new value to is formation targeting disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionFormationTargetSelectionHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionFormationTargetSelectionHandler.SetIsFormationTargetingDisabled(false);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionFormationTargetSelectionHandler from the subsystem API first

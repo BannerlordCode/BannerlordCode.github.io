@@ -23,7 +23,7 @@ description: "MBAgentRendererSceneController 的自动生成类参考。"
 ### SetEnforcedVisibilityForAllAgents
 `public void SetEnforcedVisibilityForAllAgents(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 enforced visibility for all agents 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 enforced visibility for all agents 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentRendererSceneController 实例
@@ -34,7 +34,7 @@ mBAgentRendererSceneController.SetEnforcedVisibilityForAllAgents(scene);
 ### CreateNewAgentRendererSceneController
 `public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new agent renderer scene controller 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 new agent renderer scene controller 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ MBAgentRendererSceneController.CreateNewAgentRendererSceneController(scene);
 ### SetDoTimerBasedForcedSkeletonUpdates
 `public void SetDoTimerBasedForcedSkeletonUpdates(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 do timer based forced skeleton updates 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 do timer based forced skeleton updates 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentRendererSceneController 实例
@@ -55,7 +55,7 @@ mBAgentRendererSceneController.SetDoTimerBasedForcedSkeletonUpdates(false);
 ### DestructAgentRendererSceneController
 `public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DestructAgentRendererSceneController 对应的操作。
+**用途 / Purpose:** 调用 DestructAgentRendererSceneController 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ MBAgentRendererSceneController.DestructAgentRendererSceneController(scene, rende
 ### ValidateAgentVisualsReseted
 `public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查agent visuals reseted是否满足约束条件，通常返回布尔值。
+**用途 / Purpose:** 检查agent visuals reseted是否满足约束条件，通常返回布尔值。
 
 ```csharp
 // 静态调用，不需要实例

@@ -37,7 +37,7 @@ description: "PersuasionVM 的自动生成类参考。"
 ### OnPersuasionProgress
 `public void OnPersuasionProgress(Tuple<PersuasionOptionArgs, PersuasionOptionResult> selectedOption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 persuasion progress 事件触发时调用此回调。
+**用途 / Purpose:** 在 persuasion progress 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionVM 实例
@@ -48,7 +48,7 @@ persuasionVM.OnPersuasionProgress(tuple<PersuasionOptionArgs, selectedOption);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionVM 实例
@@ -59,7 +59,7 @@ persuasionVM.RefreshValues();
 ### SetCurrentOption
 `public void SetCurrentOption(PersuasionOptionVM option)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current option 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current option 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionVM 实例
@@ -70,7 +70,7 @@ persuasionVM.SetCurrentOption(option);
 ### RefreshPersusasion
 `public void RefreshPersusasion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 persusasion 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 persusasion 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionVM 实例

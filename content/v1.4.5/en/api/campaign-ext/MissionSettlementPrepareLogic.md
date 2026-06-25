@@ -23,7 +23,7 @@ Treat `MissionSettlementPrepareLogic` as a Logic-style extension point: first id
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionSettlementPrepareLogic from the subsystem API first

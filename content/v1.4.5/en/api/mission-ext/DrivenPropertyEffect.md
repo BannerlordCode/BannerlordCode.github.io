@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** **Purpose:** Invoked when the update event is raised.
+**Purpose:** Invoked when the update event is raised.
 
 ```csharp
 // Obtain an instance of DrivenPropertyEffect from the subsystem API first
@@ -34,7 +34,7 @@ drivenPropertyEffect.OnUpdate(agent, false);
 ### GetDrivenPropertyBonus
 `public override float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** **Purpose:** Reads and returns the driven property bonus value held by the this instance.
+**Purpose:** Reads and returns the driven property bonus value held by the this instance.
 
 ```csharp
 // Obtain an instance of DrivenPropertyEffect from the subsystem API first

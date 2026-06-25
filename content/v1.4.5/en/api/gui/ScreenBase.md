@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### OnLayerAddedEvent
 `public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)`
 
-**Purpose:** **Purpose:** Invoked when the layer added event event is raised.
+**Purpose:** Invoked when the layer added event event is raised.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -44,7 +44,7 @@ screenBase.OnLayerAddedEvent(addedLayer);
 ### OnLayerRemovedEvent
 `public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)`
 
-**Purpose:** **Purpose:** Invoked when the layer removed event event is raised.
+**Purpose:** Invoked when the layer removed event event is raised.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -55,7 +55,7 @@ screenBase.OnLayerRemovedEvent(removedLayer);
 ### ActivateAllLayers
 `public void ActivateAllLayers()`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with all layers.
+**Purpose:** Activates the resource, state, or feature associated with all layers.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -66,7 +66,7 @@ screenBase.ActivateAllLayers();
 ### DeactivateAllLayers
 `public void DeactivateAllLayers()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature associated with all layers.
+**Purpose:** Deactivates the resource, state, or feature associated with all layers.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -77,7 +77,7 @@ screenBase.DeactivateAllLayers();
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
+**Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -88,7 +88,7 @@ screenBase.Deactivate();
 ### Activate
 `public void Activate()`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
+**Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -99,7 +99,7 @@ screenBase.Activate();
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
+**Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -110,7 +110,7 @@ screenBase.UpdateLayout();
 ### OnFocusChangeOnGameWindow
 `public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** **Purpose:** Invoked when the focus change on game window event is raised.
+**Purpose:** Invoked when the focus change on game window event is raised.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -121,7 +121,7 @@ screenBase.OnFocusChangeOnGameWindow(false);
 ### AddComponent
 `public void AddComponent(ScreenComponent component)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -132,7 +132,7 @@ screenBase.AddComponent(component);
 ### AddLayer
 `public void AddLayer(ScreenLayer layer)`
 
-**Purpose:** **Purpose:** Adds layer to the current collection or state.
+**Purpose:** Adds layer to the current collection or state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -143,7 +143,7 @@ screenBase.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(ScreenLayer layer)`
 
-**Purpose:** **Purpose:** Removes layer from the current collection or state.
+**Purpose:** Removes layer from the current collection or state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -154,7 +154,7 @@ screenBase.RemoveLayer(layer);
 ### HasLayer
 `public bool HasLayer(ScreenLayer layer)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds layer.
+**Purpose:** Determines whether the this instance already holds layer.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -165,7 +165,7 @@ var result = screenBase.HasLayer(layer);
 ### SetLayerCategoriesState
 `public void SetLayerCategoriesState(string categoryIds, bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to layer categories state and updates the object's internal state.
+**Purpose:** Assigns a new value to layer categories state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -176,7 +176,7 @@ screenBase.SetLayerCategoriesState("example", false);
 ### SetLayerCategoriesStateAndToggleOthers
 `public void SetLayerCategoriesStateAndToggleOthers(string categoryIds, bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to layer categories state and toggle others and updates the object's internal state.
+**Purpose:** Assigns a new value to layer categories state and toggle others and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first
@@ -187,7 +187,7 @@ screenBase.SetLayerCategoriesStateAndToggleOthers("example", false);
 ### SetLayerCategoriesStateAndDeactivateOthers
 `public void SetLayerCategoriesStateAndDeactivateOthers(string categoryIds, bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to layer categories state and deactivate others and updates the object's internal state.
+**Purpose:** Assigns a new value to layer categories state and deactivate others and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScreenBase from the subsystem API first

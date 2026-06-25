@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of AttackEntityOrderSecondaryDetachment from the subsystem API first
@@ -34,7 +34,7 @@ attackEntityOrderSecondaryDetachment.TickOccasionally(formation);
 ### Disband
 `public void Disband(Formation formation)`
 
-**Purpose:** **Purpose:** Executes the Disband logic.
+**Purpose:** Executes the Disband logic.
 
 ```csharp
 // Obtain an instance of AttackEntityOrderSecondaryDetachment from the subsystem API first

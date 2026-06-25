@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetCraftingPieceFrameForInventory
 `public static MatrixFrame GetCraftingPieceFrameForInventory(this CraftingPiece craftingPiece)`
 
-**Purpose:** **Purpose:** Reads and returns the crafting piece frame for inventory value held by the this instance.
+**Purpose:** Reads and returns the crafting piece frame for inventory value held by the this instance.
 
 ```csharp
 // Static call; no instance required

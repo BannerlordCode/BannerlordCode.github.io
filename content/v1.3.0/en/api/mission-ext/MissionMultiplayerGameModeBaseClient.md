@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetGoldAmount
 `public abstract int GetGoldAmount()`
 
-**Purpose:** **Purpose:** Reads and returns the gold amount value held by the this instance.
+**Purpose:** Reads and returns the gold amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionMultiplayerGameModeBaseClient.GetGoldAmount();
 ### GetMissionCameraLockMode
 `public virtual SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**Purpose:** **Purpose:** Reads and returns the mission camera lock mode value held by the this instance.
+**Purpose:** Reads and returns the mission camera lock mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -67,7 +67,7 @@ var result = missionMultiplayerGameModeBaseClient.GetMissionCameraLockMode(false
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -78,7 +78,7 @@ missionMultiplayerGameModeBaseClient.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -89,7 +89,7 @@ missionMultiplayerGameModeBaseClient.EarlyStart();
 ### CheckTimer
 `public bool CheckTimer(out int remainingTime, out int remainingWarningTime, bool forceUpdate = false)`
 
-**Purpose:** **Purpose:** Verifies whether timer holds true for the this instance.
+**Purpose:** Verifies whether timer holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -100,7 +100,7 @@ var result = missionMultiplayerGameModeBaseClient.CheckTimer(remainingTime, rema
 ### OnGoldAmountChangedForRepresentative
 `public abstract void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** **Purpose:** Invoked when the gold amount changed for representative event is raised.
+**Purpose:** Invoked when the gold amount changed for representative event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -111,7 +111,7 @@ missionMultiplayerGameModeBaseClient.OnGoldAmountChangedForRepresentative(repres
 ### CanRequestTroopChange
 `public virtual bool CanRequestTroopChange()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for request troop change.
+**Purpose:** Checks whether the this instance meets the preconditions for request troop change.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -122,7 +122,7 @@ var result = missionMultiplayerGameModeBaseClient.CanRequestTroopChange();
 ### CanRequestCultureChange
 `public virtual bool CanRequestCultureChange()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for request culture change.
+**Purpose:** Checks whether the this instance meets the preconditions for request culture change.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
@@ -133,7 +133,7 @@ var result = missionMultiplayerGameModeBaseClient.CanRequestCultureChange();
 ### IsClassAvailable
 `public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the class available state or condition.
+**Purpose:** Determines whether the this instance is in the class available state or condition.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first

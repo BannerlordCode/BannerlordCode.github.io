@@ -19,7 +19,7 @@ GatherArmyAction is a set of static methods that trigger "GatherArmy" in the cam
 public static void Apply(MobileParty leaderParty, IMapPoint gatheringPoint)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

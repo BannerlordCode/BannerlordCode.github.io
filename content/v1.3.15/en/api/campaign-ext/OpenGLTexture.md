@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Initialize
 `public void Initialize(string name, int width, int height)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -44,7 +44,7 @@ openGLTexture.Initialize("example", 0, 0);
 ### CopyFrom
 `public void CopyFrom(OpenGLTexture texture)`
 
-**Purpose:** **Purpose:** Copies the from state of the this instance to a target.
+**Purpose:** Copies the from state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -55,7 +55,7 @@ openGLTexture.CopyFrom(texture);
 ### Delete
 `public void Delete()`
 
-**Purpose:** **Purpose:** Executes the Delete logic.
+**Purpose:** Executes the Delete logic.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -66,7 +66,7 @@ openGLTexture.Delete();
 ### FromFile
 `public static OpenGLTexture FromFile(ResourceDepot resourceDepot, string name)`
 
-**Purpose:** **Purpose:** Executes the FromFile logic.
+**Purpose:** Executes the FromFile logic.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ OpenGLTexture.FromFile(resourceDepot, "example");
 ### FromFile
 `public static OpenGLTexture FromFile(string fullFilePath)`
 
-**Purpose:** **Purpose:** Executes the FromFile logic.
+**Purpose:** Executes the FromFile logic.
 
 ```csharp
 // Static call; no instance required
@@ -86,7 +86,7 @@ OpenGLTexture.FromFile("example");
 ### Release
 `public void Release()`
 
-**Purpose:** **Purpose:** Executes the Release logic.
+**Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -97,7 +97,7 @@ openGLTexture.Release();
 ### LoadFromFile
 `public void LoadFromFile(ResourceDepot resourceDepot, string name)`
 
-**Purpose:** **Purpose:** Reads from file from persistent storage or a stream.
+**Purpose:** Reads from file from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -108,7 +108,7 @@ openGLTexture.LoadFromFile(resourceDepot, "example");
 ### LoadFromFile
 `public void LoadFromFile(string fullPathName)`
 
-**Purpose:** **Purpose:** Reads from file from persistent storage or a stream.
+**Purpose:** Reads from file from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first
@@ -119,7 +119,7 @@ openGLTexture.LoadFromFile("example");
 ### IsLoaded
 `public bool IsLoaded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the loaded state or condition.
+**Purpose:** Determines whether the this instance is in the loaded state or condition.
 
 ```csharp
 // Obtain an instance of OpenGLTexture from the subsystem API first

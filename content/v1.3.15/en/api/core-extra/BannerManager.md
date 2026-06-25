@@ -31,7 +31,7 @@ Treat `BannerManager` as a Manager-style extension point: first identify who cre
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ BannerManager.Initialize();
 ### ResetAndLoad
 `public static void ResetAndLoad()`
 
-**Purpose:** **Purpose:** Returns and load to its default or initial condition.
+**Purpose:** Returns and load to its default or initial condition.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ BannerManager.ResetAndLoad();
 ### GetColor
 `public static uint GetColor(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the color value held by the this instance.
+**Purpose:** Reads and returns the color value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ BannerManager.GetColor(0);
 ### GetColorId
 `public static int GetColorId(uint color)`
 
-**Purpose:** **Purpose:** Reads and returns the color id value held by the this instance.
+**Purpose:** Reads and returns the color id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -71,7 +71,7 @@ BannerManager.GetColorId(0);
 ### GetRandomColorId
 `public int GetRandomColorId(MBFastRandom random)`
 
-**Purpose:** **Purpose:** Reads and returns the random color id value held by the this instance.
+**Purpose:** Reads and returns the random color id value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -82,7 +82,7 @@ var result = bannerManager.GetRandomColorId(random);
 ### GetIconDataFromIconId
 `public BannerIconData GetIconDataFromIconId(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the icon data from icon id value held by the this instance.
+**Purpose:** Reads and returns the icon data from icon id value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -93,7 +93,7 @@ var result = bannerManager.GetIconDataFromIconId(0);
 ### GetRandomBackgroundId
 `public int GetRandomBackgroundId(MBFastRandom random)`
 
-**Purpose:** **Purpose:** Reads and returns the random background id value held by the this instance.
+**Purpose:** Reads and returns the random background id value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -104,7 +104,7 @@ var result = bannerManager.GetRandomBackgroundId(random);
 ### GetRandomBannerIconId
 `public int GetRandomBannerIconId(MBFastRandom random)`
 
-**Purpose:** **Purpose:** Reads and returns the random banner icon id value held by the this instance.
+**Purpose:** Reads and returns the random banner icon id value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -115,7 +115,7 @@ var result = bannerManager.GetRandomBannerIconId(random);
 ### GetBackgroundMeshName
 `public string GetBackgroundMeshName(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the background mesh name value held by the this instance.
+**Purpose:** Reads and returns the background mesh name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -126,7 +126,7 @@ var result = bannerManager.GetBackgroundMeshName(0);
 ### GetIconSourceTextureName
 `public string GetIconSourceTextureName(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the icon source texture name value held by the this instance.
+**Purpose:** Reads and returns the icon source texture name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -137,7 +137,7 @@ var result = bannerManager.GetIconSourceTextureName(0);
 ### SetBaseBackgroundId
 `public void SetBaseBackgroundId(int id)`
 
-**Purpose:** **Purpose:** Assigns a new value to base background id and updates the object's internal state.
+**Purpose:** Assigns a new value to base background id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -148,7 +148,7 @@ bannerManager.SetBaseBackgroundId(0);
 ### SetCultureColors
 `public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)`
 
-**Purpose:** **Purpose:** Assigns a new value to culture colors and updates the object's internal state.
+**Purpose:** Assigns a new value to culture colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -159,7 +159,7 @@ bannerManager.SetCultureColors(culture, color);
 ### LoadBannerIcons
 `public void LoadBannerIcons()`
 
-**Purpose:** **Purpose:** Reads banner icons from persistent storage or a stream.
+**Purpose:** Reads banner icons from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first
@@ -170,7 +170,7 @@ bannerManager.LoadBannerIcons();
 ### LoadBannerIcons
 `public void LoadBannerIcons(string xmlPath)`
 
-**Purpose:** **Purpose:** Reads banner icons from persistent storage or a stream.
+**Purpose:** Reads banner icons from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of BannerManager from the subsystem API first

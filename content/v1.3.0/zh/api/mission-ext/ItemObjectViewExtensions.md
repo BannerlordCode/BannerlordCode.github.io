@@ -23,7 +23,7 @@ description: "ItemObjectViewExtensions 的自动生成类参考。"
 ### GetCraftedMultiMesh
 `public static MetaMesh GetCraftedMultiMesh(this ItemObject itemObject, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafted multi mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafted multi mesh 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ItemObjectViewExtensions.GetCraftedMultiMesh(itemObject, false);
 ### GetMultiMeshCopy
 `public static MetaMesh GetMultiMeshCopy(this ItemObject itemObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ItemObjectViewExtensions.GetMultiMeshCopy(itemObject);
 ### GetMultiMeshCopyWithGenderData
 `public static MetaMesh GetMultiMeshCopyWithGenderData(this ItemObject itemObject, bool isFemale, bool hasGloves, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh copy with gender data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh copy with gender data 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ItemObjectViewExtensions.GetMultiMeshCopyWithGenderData(itemObject, false, false
 ### GetScaledFrame
 `public static MatrixFrame GetScaledFrame(this ItemObject itemObject, Mat3 rotationMatrix, MetaMesh metaMesh, float scaleFactor, Vec3 positionShift)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scaled frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scaled frame 的结果。
 
 ```csharp
 // 静态调用，不需要实例

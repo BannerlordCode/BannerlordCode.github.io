@@ -23,7 +23,7 @@ description: "PrisonerRecruitCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
@@ -34,7 +34,7 @@ prisonerRecruitCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
@@ -45,7 +45,7 @@ prisonerRecruitCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
+**用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
@@ -56,7 +56,7 @@ prisonerRecruitCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### conversation_prisoner_recruit_on_condition
 `public bool conversation_prisoner_recruit_on_condition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 conversation_prisoner_recruit_on_condition 对应的操作。
+**用途 / Purpose:** 调用 conversation_prisoner_recruit_on_condition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
@@ -67,7 +67,7 @@ var result = prisonerRecruitCampaignBehavior.conversation_prisoner_recruit_on_co
 ### conversation_prisoner_recruit_no_on_condition
 `public bool conversation_prisoner_recruit_no_on_condition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 conversation_prisoner_recruit_no_on_condition 对应的操作。
+**用途 / Purpose:** 调用 conversation_prisoner_recruit_no_on_condition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例

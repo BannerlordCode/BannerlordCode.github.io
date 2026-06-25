@@ -30,7 +30,7 @@ description: "CharacterCreationState 的自动生成类参考。"
 ### FinalizeCharacterCreationState
 `public void FinalizeCharacterCreationState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeCharacterCreationState 对应的操作。
+**用途 / Purpose:** 调用 FinalizeCharacterCreationState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationState 实例
@@ -41,7 +41,7 @@ characterCreationState.FinalizeCharacterCreationState();
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationState 实例
@@ -52,7 +52,7 @@ characterCreationState.Refresh();
 ### OnStageActivated
 `public void OnStageActivated(CharacterCreationStageBase stage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 stage activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 stage activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationState 实例

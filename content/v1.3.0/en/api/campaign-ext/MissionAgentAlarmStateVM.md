@@ -30,7 +30,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### Initialize
 `public void Initialize(Mission mission, Camera camera)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmStateVM from the subsystem API first
@@ -41,7 +41,7 @@ missionAgentAlarmStateVM.Initialize(mission, camera);
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmStateVM from the subsystem API first
@@ -52,7 +52,7 @@ missionAgentAlarmStateVM.Update();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmStateVM from the subsystem API first
@@ -63,7 +63,7 @@ missionAgentAlarmStateVM.OnAgentRemoved(agent);
 ### OnAgentBuild
 `public void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmStateVM from the subsystem API first
@@ -74,7 +74,7 @@ missionAgentAlarmStateVM.OnAgentBuild(agent, banner);
 ### OnAgentTeamChanged
 `public void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent team changed event is raised.
+**Purpose:** Invoked when the agent team changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmStateVM from the subsystem API first

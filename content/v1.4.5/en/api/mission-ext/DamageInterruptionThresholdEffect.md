@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDamageInterruptionThreshold
 `public override float GetDamageInterruptionThreshold()`
 
-**Purpose:** **Purpose:** Reads and returns the damage interruption threshold value held by the this instance.
+**Purpose:** Reads and returns the damage interruption threshold value held by the this instance.
 
 ```csharp
 // Obtain an instance of DamageInterruptionThresholdEffect from the subsystem API first

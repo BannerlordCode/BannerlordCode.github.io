@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### MPTeammateCompassTargetVM
 `public unsafe MPTeammateCompassTargetVM(TargetIconType iconType, uint color, uint color2, Banner banner, bool isAlly)`
 
-**Purpose:** **Purpose:** Executes the MPTeammateCompassTargetVM logic.
+**Purpose:** Executes the MPTeammateCompassTargetVM logic.
 
 ```csharp
 // Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first
@@ -34,7 +34,7 @@ var result = mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0,
 ### RefreshTargetIconType
 `public unsafe void RefreshTargetIconType(TargetIconType targetIconType)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of target icon type in sync with the underlying state.
+**Purpose:** Keeps the display or cache of target icon type in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first
@@ -45,7 +45,7 @@ mPTeammateCompassTargetVM.RefreshTargetIconType(targetIconType);
 ### RefreshTeam
 `public void RefreshTeam(Banner banner, bool isAlly)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of team in sync with the underlying state.
+**Purpose:** Keeps the display or cache of team in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first

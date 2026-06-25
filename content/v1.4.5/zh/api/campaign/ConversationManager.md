@@ -39,7 +39,7 @@ description: "ConversationManager 的自动生成类参考。"
 ### CreateConversationSentenceIndex
 `public int CreateConversationSentenceIndex()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 conversation sentence index 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 conversation sentence index 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -50,7 +50,7 @@ var result = conversationManager.CreateConversationSentenceIndex();
 ### StartNew
 `public void StartNew(int startingToken, bool setActionsInstantly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动new流程或状态机。
+**用途 / Purpose:** 启动new流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -61,7 +61,7 @@ conversationManager.StartNew(0, false);
 ### ProcessSentence
 `public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessSentence 对应的操作。
+**用途 / Purpose:** 调用 ProcessSentence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -72,7 +72,7 @@ conversationManager.ProcessSentence(conversationSentenceOption);
 ### UpdateCurrentSentenceText
 `public void UpdateCurrentSentenceText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 current sentence text 的最新表示。
+**用途 / Purpose:** 重新计算并更新 current sentence text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -83,7 +83,7 @@ conversationManager.UpdateCurrentSentenceText();
 ### IsConversationEnded
 `public bool IsConversationEnded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conversation ended 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 conversation ended 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -94,7 +94,7 @@ var result = conversationManager.IsConversationEnded();
 ### ClearCurrentOptions
 `public void ClearCurrentOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的current options。
+**用途 / Purpose:** 清空当前对象中的current options。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -105,7 +105,7 @@ conversationManager.ClearCurrentOptions();
 ### AddToCurrentOptions
 `public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to current options 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to current options 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -116,7 +116,7 @@ conversationManager.AddToCurrentOptions(text, "example", false, hintText);
 ### GetPlayerSentenceOptions
 `public void GetPlayerSentenceOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player sentence options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player sentence options 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -127,7 +127,7 @@ conversationManager.GetPlayerSentenceOptions();
 ### GetStateIndex
 `public int GetStateIndex(string str)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 state index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 state index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -138,7 +138,7 @@ var result = conversationManager.GetStateIndex("example");
 ### DisableSentenceSort
 `public void DisableSentenceSort()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableSentenceSort 对应的操作。
+**用途 / Purpose:** 调用 DisableSentenceSort 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -149,7 +149,7 @@ conversationManager.DisableSentenceSort();
 ### EnableSentenceSort
 `public void EnableSentenceSort()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableSentenceSort 对应的操作。
+**用途 / Purpose:** 调用 EnableSentenceSort 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -160,7 +160,7 @@ conversationManager.EnableSentenceSort();
 ### AddDialogFlow
 `public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog flow 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog flow 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -171,7 +171,7 @@ conversationManager.AddDialogFlow(dialogFlow, null);
 ### AddDialogLineMultiAgent
 `public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog line multi agent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog line multi agent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -182,7 +182,7 @@ var result = conversationManager.AddDialogLineMultiAgent("example", "example", "
 ### IsAgentInConversation
 `public bool IsAgentInConversation(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent in conversation 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 agent in conversation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -193,7 +193,7 @@ var result = conversationManager.IsAgentInConversation(agent);
 ### BeginConversation
 `public void BeginConversation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginConversation 对应的操作。
+**用途 / Purpose:** 调用 BeginConversation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -204,7 +204,7 @@ conversationManager.BeginConversation();
 ### EndConversation
 `public void EndConversation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndConversation 对应的操作。
+**用途 / Purpose:** 调用 EndConversation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -215,7 +215,7 @@ conversationManager.EndConversation();
 ### DoOption
 `public void DoOption(int optionIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoOption 对应的操作。
+**用途 / Purpose:** 调用 DoOption 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -226,7 +226,7 @@ conversationManager.DoOption(0);
 ### DoOption
 `public void DoOption(string optionID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoOption 对应的操作。
+**用途 / Purpose:** 调用 DoOption 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -237,7 +237,7 @@ conversationManager.DoOption("example");
 ### DoConversationContinuedCallback
 `public void DoConversationContinuedCallback()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoConversationContinuedCallback 对应的操作。
+**用途 / Purpose:** 调用 DoConversationContinuedCallback 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -248,7 +248,7 @@ conversationManager.DoConversationContinuedCallback();
 ### DoOptionContinue
 `public void DoOptionContinue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoOptionContinue 对应的操作。
+**用途 / Purpose:** 调用 DoOptionContinue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -259,7 +259,7 @@ conversationManager.DoOptionContinue();
 ### ContinueConversation
 `public void ContinueConversation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ContinueConversation 对应的操作。
+**用途 / Purpose:** 调用 ContinueConversation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -270,7 +270,7 @@ conversationManager.ContinueConversation();
 ### SetupAndStartMissionConversation
 `public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 up and start mission conversation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 up and start mission conversation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -281,7 +281,7 @@ conversationManager.SetupAndStartMissionConversation(agent, mainAgent, false);
 ### SetupAndStartMissionConversationWithMultipleAgents
 `public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 up and start mission conversation with multiple agents 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 up and start mission conversation with multiple agents 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -292,7 +292,7 @@ conversationManager.SetupAndStartMissionConversationWithMultipleAgents(agents, m
 ### SetupAndStartMapConversation
 `public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 up and start map conversation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 up and start map conversation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -303,7 +303,7 @@ conversationManager.SetupAndStartMapConversation(party, agent, mainAgent);
 ### AddConversationAgents
 `public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 conversation agents 添加到当前容器或状态中。
+**用途 / Purpose:** 将 conversation agents 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -314,7 +314,7 @@ conversationManager.AddConversationAgents(agents, false);
 ### RemoveConversationAgent
 `public void RemoveConversationAgent(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 conversation agent。
+**用途 / Purpose:** 从当前容器或状态中移除 conversation agent。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -325,7 +325,7 @@ conversationManager.RemoveConversationAgent(agent);
 ### IsConversationAgent
 `public bool IsConversationAgent(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conversation agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 conversation agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -336,7 +336,7 @@ var result = conversationManager.IsConversationAgent(agent);
 ### RemoveRelatedLines
 `public void RemoveRelatedLines(object o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 related lines。
+**用途 / Purpose:** 从当前容器或状态中移除 related lines。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -347,7 +347,7 @@ conversationManager.RemoveRelatedLines(o);
 ### OnConversationDeactivate
 `public void OnConversationDeactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 conversation deactivate 事件触发时调用此回调。
+**用途 / Purpose:** 在 conversation deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -358,7 +358,7 @@ conversationManager.OnConversationDeactivate();
 ### OnConversationActivate
 `public void OnConversationActivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 conversation activate 事件触发时调用此回调。
+**用途 / Purpose:** 在 conversation activate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -369,7 +369,7 @@ conversationManager.OnConversationActivate();
 ### FindMatchingTextOrNull
 `public TextObject FindMatchingTextOrNull(string id, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的matching text or null。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的matching text or null。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -380,7 +380,7 @@ var result = conversationManager.FindMatchingTextOrNull("example", character);
 ### GetApplicableTagNames
 `public IEnumerable<string> GetApplicableTagNames(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 applicable tag names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 applicable tag names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -391,7 +391,7 @@ var result = conversationManager.GetApplicableTagNames(character);
 ### IsTagApplicable
 `public bool IsTagApplicable(string tagId, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 tag applicable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 tag applicable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -402,7 +402,7 @@ var result = conversationManager.IsTagApplicable("example", character);
 ### OpenMapConversation
 `public void OpenMapConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开map conversation对应的资源或界面。
+**用途 / Purpose:** 打开map conversation对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -413,7 +413,7 @@ conversationManager.OpenMapConversation(playerCharacterData, conversationPartner
 ### StartPersuasion
 `public static void StartPersuasion(float goalValue, float successValue, float failValue, float criticalSuccessValue, float criticalFailValue, float initialProgress = -1f, PersuasionDifficulty difficulty = PersuasionDifficulty.Medium)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动persuasion流程或状态机。
+**用途 / Purpose:** 启动persuasion流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -423,7 +423,7 @@ ConversationManager.StartPersuasion(0, 0, 0, 0, 0, 0, persuasionDifficulty.Mediu
 ### EndPersuasion
 `public static void EndPersuasion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndPersuasion 对应的操作。
+**用途 / Purpose:** 调用 EndPersuasion 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -433,7 +433,7 @@ ConversationManager.EndPersuasion();
 ### PersuasionCommitProgress
 `public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PersuasionCommitProgress 对应的操作。
+**用途 / Purpose:** 调用 PersuasionCommitProgress 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -443,7 +443,7 @@ ConversationManager.PersuasionCommitProgress(persuasionOptionArgs);
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 静态调用，不需要实例
@@ -453,7 +453,7 @@ ConversationManager.Clear();
 ### GetPersuasionChanceValues
 `public void GetPersuasionChanceValues(out float successValue, out float critSuccessValue, out float critFailValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion chance values 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion chance values 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -464,7 +464,7 @@ conversationManager.GetPersuasionChanceValues(successValue, critSuccessValue, cr
 ### GetPersuasionIsActive
 `public static bool GetPersuasionIsActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion is active 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion is active 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -474,7 +474,7 @@ ConversationManager.GetPersuasionIsActive();
 ### GetPersuasionProgressSatisfied
 `public static bool GetPersuasionProgressSatisfied()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion progress satisfied 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion progress satisfied 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -484,7 +484,7 @@ ConversationManager.GetPersuasionProgressSatisfied();
 ### GetPersuasionIsFailure
 `public static bool GetPersuasionIsFailure()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion is failure 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion is failure 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -494,7 +494,7 @@ ConversationManager.GetPersuasionIsFailure();
 ### GetPersuasionProgress
 `public static float GetPersuasionProgress()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion progress 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -504,7 +504,7 @@ ConversationManager.GetPersuasionProgress();
 ### GetPersuasionGoalValue
 `public static float GetPersuasionGoalValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion goal value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion goal value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -514,7 +514,7 @@ ConversationManager.GetPersuasionGoalValue();
 ### GetPersuasionChosenOptions
 `public static IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetPersuasionChosenOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion chosen options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion chosen options 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -524,7 +524,7 @@ ConversationManager.GetPersuasionChosenOptions();
 ### GetPersuasionChances
 `public void GetPersuasionChances(ConversationSentenceOption conversationSentenceOption, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 persuasion chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例

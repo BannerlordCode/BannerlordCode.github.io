@@ -23,7 +23,7 @@ description: "BoardGameMuTorere 的自动生成类参考。"
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BoardInformation 对应的操作。
+**用途 / Purpose:** 调用 BoardInformation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -34,7 +34,7 @@ var result = boardGameMuTorere.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PawnInformation 对应的操作。
+**用途 / Purpose:** 调用 PawnInformation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -45,7 +45,7 @@ var result = boardGameMuTorere.PawnInformation(0);
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 units 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 units 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -56,7 +56,7 @@ boardGameMuTorere.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tiles 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 tiles 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -67,7 +67,7 @@ boardGameMuTorere.InitializeTiles();
 ### InitializeCapturedUnitsZones
 `public override void InitializeCapturedUnitsZones()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 captured units zones 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 captured units zones 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -78,7 +78,7 @@ boardGameMuTorere.InitializeCapturedUnitsZones();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sound 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 sound 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -89,7 +89,7 @@ boardGameMuTorere.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -100,7 +100,7 @@ boardGameMuTorere.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算valid moves的当前值或结果。
+**用途 / Purpose:** 计算valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -111,7 +111,7 @@ var result = boardGameMuTorere.CalculateValidMoves(pawn);
 ### FindTileByCoordinate
 `public TileMuTorere FindTileByCoordinate(int x)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的tile by coordinate。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的tile by coordinate。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -122,7 +122,7 @@ var result = boardGameMuTorere.FindTileByCoordinate(0);
 ### TakePawnsSnapshot
 `public BoardInformation TakePawnsSnapshot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TakePawnsSnapshot 对应的操作。
+**用途 / Purpose:** 调用 TakePawnsSnapshot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -133,7 +133,7 @@ var result = boardGameMuTorere.TakePawnsSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UndoMove 对应的操作。
+**用途 / Purpose:** 调用 UndoMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -144,7 +144,7 @@ boardGameMuTorere.UndoMove(board);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AIMakeMove 对应的操作。
+**用途 / Purpose:** 调用 AIMakeMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -155,7 +155,7 @@ boardGameMuTorere.AIMakeMove(move);
 ### FindAvailableTile
 `public TileBase FindAvailableTile()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的available tile。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的available tile。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例

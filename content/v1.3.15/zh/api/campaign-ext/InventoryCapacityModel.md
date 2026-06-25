@@ -23,7 +23,7 @@ description: "InventoryCapacityModel 的自动生成类参考。"
 ### CalculateInventoryCapacity
 `public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算inventory capacity的当前值或结果。
+**用途 / Purpose:** 计算inventory capacity的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryCapacityModel 实例
@@ -34,7 +34,7 @@ var result = inventoryCapacityModel.CalculateInventoryCapacity(mobileParty, fals
 ### GetItemAverageWeight
 `public abstract int GetItemAverageWeight()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item average weight 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item average weight 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryCapacityModel 实例
@@ -45,7 +45,7 @@ var result = inventoryCapacityModel.GetItemAverageWeight();
 ### GetItemEffectiveWeight
 `public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item effective weight 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item effective weight 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryCapacityModel 实例
@@ -56,7 +56,7 @@ var result = inventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mob
 ### CalculateTotalWeightCarried
 `public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算total weight carried的当前值或结果。
+**用途 / Purpose:** 计算total weight carried的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryCapacityModel 实例

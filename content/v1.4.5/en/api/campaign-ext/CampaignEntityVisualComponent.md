@@ -23,7 +23,7 @@ Treat `CampaignEntityVisualComponent` as a Component-style extension point: firs
 ### OnVisualTick
 `public virtual void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** **Purpose:** Invoked when the visual tick event is raised.
+**Purpose:** Invoked when the visual tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -34,7 +34,7 @@ campaignEntityVisualComponent.OnVisualTick(screen, 0, 0);
 ### OnMouseClick
 `public virtual bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** **Purpose:** Invoked when the mouse click event is raised.
+**Purpose:** Invoked when the mouse click event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -45,7 +45,7 @@ var result = campaignEntityVisualComponent.OnMouseClick(visualOfSelectedEntity, 
 ### OnVisualIntersected
 `public virtual bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** **Purpose:** Invoked when the visual intersected event is raised.
+**Purpose:** Invoked when the visual intersected event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -56,7 +56,7 @@ var result = campaignEntityVisualComponent.OnVisualIntersected(mouseRay, interse
 ### OnFrameTick
 `public virtual void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -67,7 +67,7 @@ campaignEntityVisualComponent.OnFrameTick(0);
 ### OnGameLoadFinished
 `public virtual void OnGameLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the game load finished event is raised.
+**Purpose:** Invoked when the game load finished event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -78,7 +78,7 @@ campaignEntityVisualComponent.OnGameLoadFinished();
 ### OnTick
 `public virtual void OnTick(float realDt, float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
@@ -89,7 +89,7 @@ campaignEntityVisualComponent.OnTick(0, 0);
 ### ClearVisualMemory
 `public virtual void ClearVisualMemory()`
 
-**Purpose:** **Purpose:** Removes all visual memory from the this instance.
+**Purpose:** Removes all visual memory from the this instance.
 
 ```csharp
 // Obtain an instance of CampaignEntityVisualComponent from the subsystem API first

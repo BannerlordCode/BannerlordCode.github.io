@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### ResetValues
 `public void ResetValues()`
 
-**Purpose:** **Purpose:** Returns values to its default or initial condition.
+**Purpose:** Returns values to its default or initial condition.
 
 ```csharp
 // Obtain an instance of EducationGainGroupItemVM from the subsystem API first

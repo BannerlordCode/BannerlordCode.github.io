@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ShipSlotAndPieceName
 `public struct ShipSlotAndPieceName(string slotName, string pieceName)`
 
-**Purpose:** **Purpose:** Executes the ShipSlotAndPieceName logic.
+**Purpose:** Executes the ShipSlotAndPieceName logic.
 
 ```csharp
 // Obtain an instance of ShipSlotAndPieceName from the subsystem API first

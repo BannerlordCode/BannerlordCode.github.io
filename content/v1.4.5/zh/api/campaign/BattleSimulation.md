@@ -31,7 +31,7 @@ description: "BattleSimulation 的自动生成类参考。"
 ### Play
 `public void Play()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Play 对应的操作。
+**用途 / Purpose:** 调用 Play 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -42,7 +42,7 @@ battleSimulation.Play();
 ### FastForward
 `public void FastForward()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FastForward 对应的操作。
+**用途 / Purpose:** 调用 FastForward 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -53,7 +53,7 @@ battleSimulation.FastForward();
 ### Skip
 `public void Skip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Skip 对应的操作。
+**用途 / Purpose:** 调用 Skip 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -64,7 +64,7 @@ battleSimulation.Skip();
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Pause 对应的操作。
+**用途 / Purpose:** 调用 Pause 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -75,7 +75,7 @@ battleSimulation.Pause();
 ### OnFinished
 `public void OnFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -86,7 +86,7 @@ battleSimulation.OnFinished();
 ### OnPlayerRetreat
 `public void OnPlayerRetreat()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player retreat 事件触发时调用此回调。
+**用途 / Purpose:** 在 player retreat 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -97,7 +97,7 @@ battleSimulation.OnPlayerRetreat();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -108,7 +108,7 @@ battleSimulation.Tick(0);
 ### ResetSimulation
 `public void ResetSimulation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 simulation 重置回默认或初始状态。
+**用途 / Purpose:** 将 simulation 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -119,7 +119,7 @@ battleSimulation.ResetSimulation();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberKilled = 0, int numberWounded = 0, int numberRouted = 0, int killCount = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TroopNumberChanged 对应的操作。
+**用途 / Purpose:** 调用 TroopNumberChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -130,7 +130,7 @@ battleSimulation.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject skill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HeroSkillIncreased 对应的操作。
+**用途 / Purpose:** 调用 HeroSkillIncreased 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -141,7 +141,7 @@ battleSimulation.HeroSkillIncreased(side, battleCombatant, heroCharacter, skill)
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BattleResultsReady 对应的操作。
+**用途 / Purpose:** 调用 BattleResultsReady 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例
@@ -152,7 +152,7 @@ battleSimulation.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TroopSideChanged 对应的操作。
+**用途 / Purpose:** 调用 TroopSideChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSimulation 实例

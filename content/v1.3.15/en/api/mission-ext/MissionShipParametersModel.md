@@ -23,7 +23,7 @@ Treat `MissionShipParametersModel` as a Model-style extension point: first ident
 ### CalculateMainDeckCrewSize
 `public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of main deck crew size.
+**Purpose:** Calculates the current value or result of main deck crew size.
 
 ```csharp
 // Obtain an instance of MissionShipParametersModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionShipParametersModel.CalculateMainDeckCrewSize(shipOrigin, ca
 ### CalculateWindBonus
 `public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of wind bonus.
+**Purpose:** Calculates the current value or result of wind bonus.
 
 ```csharp
 // Obtain an instance of MissionShipParametersModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionShipParametersModel.CalculateWindBonus(shipOrigin, captain, 
 ### CalculateOarForceMultiplier
 `public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of oar force multiplier.
+**Purpose:** Calculates the current value or result of oar force multiplier.
 
 ```csharp
 // Obtain an instance of MissionShipParametersModel from the subsystem API first

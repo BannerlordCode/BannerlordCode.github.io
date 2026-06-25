@@ -30,7 +30,7 @@ description: "TutorialArea 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -41,7 +41,7 @@ tutorialArea.AfterMissionStart();
 ### MarkTrainingIcons
 `public void MarkTrainingIcons(bool mark)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MarkTrainingIcons 对应的操作。
+**用途 / Purpose:** 调用 MarkTrainingIcons 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -52,7 +52,7 @@ tutorialArea.MarkTrainingIcons(false);
 ### GetActiveTrainingIcon
 `public TrainingIcon GetActiveTrainingIcon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active training icon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active training icon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -63,7 +63,7 @@ var result = tutorialArea.GetActiveTrainingIcon();
 ### GetIndexFromTag
 `public int GetIndexFromTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index from tag 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 index from tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -74,7 +74,7 @@ var result = tutorialArea.GetIndexFromTag("example");
 ### GetSubTrainingTags
 `public List<string> GetSubTrainingTags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sub training tags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sub training tags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -85,7 +85,7 @@ var result = tutorialArea.GetSubTrainingTags();
 ### ActivateTaggedWeapons
 `public void ActivateTaggedWeapons(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活tagged weapons对应的资源、状态或功能。
+**用途 / Purpose:** 激活tagged weapons对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -96,7 +96,7 @@ tutorialArea.ActivateTaggedWeapons(0);
 ### EquipWeaponsToPlayer
 `public void EquipWeaponsToPlayer(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EquipWeaponsToPlayer 对应的操作。
+**用途 / Purpose:** 调用 EquipWeaponsToPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -107,7 +107,7 @@ tutorialArea.EquipWeaponsToPlayer(0);
 ### DeactivateAllWeapons
 `public void DeactivateAllWeapons(bool resetDestructibles)`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用all weapons对应的资源、状态或功能。
+**用途 / Purpose:** 停用all weapons对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -118,7 +118,7 @@ tutorialArea.DeactivateAllWeapons(false);
 ### ActivateBoundaries
 `public void ActivateBoundaries()`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活boundaries对应的资源、状态或功能。
+**用途 / Purpose:** 激活boundaries对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -129,7 +129,7 @@ tutorialArea.ActivateBoundaries();
 ### HideBoundaries
 `public void HideBoundaries()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏boundaries对应的界面或元素。
+**用途 / Purpose:** 隐藏boundaries对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -140,7 +140,7 @@ tutorialArea.HideBoundaries();
 ### GetBreakablesCount
 `public int GetBreakablesCount(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 breakables count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 breakables count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -151,7 +151,7 @@ var result = tutorialArea.GetBreakablesCount(0);
 ### MakeDestructible
 `public void MakeDestructible(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeDestructible 对应的操作。
+**用途 / Purpose:** 调用 MakeDestructible 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -162,7 +162,7 @@ tutorialArea.MakeDestructible(0);
 ### MarkAllTargets
 `public void MarkAllTargets(int index, bool mark)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MarkAllTargets 对应的操作。
+**用途 / Purpose:** 调用 MarkAllTargets 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -173,7 +173,7 @@ tutorialArea.MarkAllTargets(0, false);
 ### ResetMarkingTargetTimers
 `public void ResetMarkingTargetTimers(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 marking target timers 重置回默认或初始状态。
+**用途 / Purpose:** 将 marking target timers 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -184,7 +184,7 @@ tutorialArea.ResetMarkingTargetTimers(0);
 ### MakeInDestructible
 `public void MakeInDestructible(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeInDestructible 对应的操作。
+**用途 / Purpose:** 调用 MakeInDestructible 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -195,7 +195,7 @@ tutorialArea.MakeInDestructible(0);
 ### AllBreakablesAreBroken
 `public bool AllBreakablesAreBroken(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AllBreakablesAreBroken 对应的操作。
+**用途 / Purpose:** 调用 AllBreakablesAreBroken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -206,7 +206,7 @@ var result = tutorialArea.AllBreakablesAreBroken(0);
 ### GetBrokenBreakableCount
 `public int GetBrokenBreakableCount(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 broken breakable count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 broken breakable count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -217,7 +217,7 @@ var result = tutorialArea.GetBrokenBreakableCount(0);
 ### GetUnbrokenBreakableCount
 `public int GetUnbrokenBreakableCount(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unbroken breakable count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 unbroken breakable count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -228,7 +228,7 @@ var result = tutorialArea.GetUnbrokenBreakableCount(0);
 ### ResetBreakables
 `public void ResetBreakables(int index, bool makeIndestructible = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 breakables 重置回默认或初始状态。
+**用途 / Purpose:** 将 breakables 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -239,7 +239,7 @@ tutorialArea.ResetBreakables(0, false);
 ### HasMainAgentPickedAll
 `public bool HasMainAgentPickedAll(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 main agent picked all。
+**用途 / Purpose:** 判断当前对象是否已经持有 main agent picked all。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -250,7 +250,7 @@ var result = tutorialArea.HasMainAgentPickedAll(0);
 ### CheckMainAgentEquipment
 `public void CheckMainAgentEquipment(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查main agent equipment在当前对象中是否成立。
+**用途 / Purpose:** 检查main agent equipment在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -261,7 +261,7 @@ tutorialArea.CheckMainAgentEquipment(0);
 ### CheckWeapons
 `public void CheckWeapons(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查weapons在当前对象中是否成立。
+**用途 / Purpose:** 检查weapons在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -272,7 +272,7 @@ tutorialArea.CheckWeapons(0);
 ### IsPositionInsideTutorialArea
 `public bool IsPositionInsideTutorialArea(Vec3 position, out string volumeBoxTags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 position inside tutorial area 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 position inside tutorial area 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例

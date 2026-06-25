@@ -23,7 +23,7 @@ description: "MissionGauntletBattleScore 的自动生成类参考。"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -34,7 +34,7 @@ missionGauntletBattleScore.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -45,7 +45,7 @@ missionGauntletBattleScore.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
+**用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -56,7 +56,7 @@ var result = missionGauntletBattleScore.OnEscape();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -67,7 +67,7 @@ missionGauntletBattleScore.EarlyStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -78,7 +78,7 @@ missionGauntletBattleScore.OnMissionScreenTick(0);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -89,7 +89,7 @@ missionGauntletBattleScore.OnDeploymentFinished();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -100,7 +100,7 @@ missionGauntletBattleScore.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBattleScore 实例
@@ -111,7 +111,7 @@ missionGauntletBattleScore.OnPhotoModeDeactivated();
 ### ForceScoreboardToggle
 `public static string ForceScoreboardToggle(List<string> args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceScoreboardToggle 对应的操作。
+**用途 / Purpose:** 调用 ForceScoreboardToggle 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

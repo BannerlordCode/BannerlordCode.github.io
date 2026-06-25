@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Missions.NameMarkers` to place it in the stac
 ### CreateMarkers
 `public override void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** **Purpose:** Constructs a new markers entity and returns it to the caller.
+**Purpose:** Constructs a new markers entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of StealthNameMarkerProvider from the subsystem API first

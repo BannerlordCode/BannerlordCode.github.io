@@ -29,7 +29,7 @@ description: "MultiplayerLobbyClanMemberRankVisualBrushWidget 的自动生成类
 ### MultiplayerLobbyClanMemberRankVisualBrushWidget
 `public class MultiplayerLobbyClanMemberRankVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerLobbyClanMemberRankVisualBrushWidget 对应的操作。
+**用途 / Purpose:** 调用 MultiplayerLobbyClanMemberRankVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyClanMemberRankVisualBrushWidget 实例

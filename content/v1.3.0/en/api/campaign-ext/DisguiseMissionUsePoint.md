@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
@@ -34,7 +34,7 @@ var result = disguiseMissionUsePoint.GetDescriptionText(gameEntity);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use event is raised.
+**Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
@@ -45,7 +45,7 @@ disguiseMissionUsePoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
+**Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
@@ -56,7 +56,7 @@ disguiseMissionUsePoint.OnUseStopped(userAgent, false, 0);
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
+**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
@@ -67,7 +67,7 @@ var result = disguiseMissionUsePoint.IsDisabledForAgent(agent);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the usable by agent state or condition.
+**Purpose:** Determines whether the this instance is in the usable by agent state or condition.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
@@ -78,7 +78,7 @@ var result = disguiseMissionUsePoint.IsUsableByAgent(userAgent);
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the user frame for agent value held by the this instance.
+**Purpose:** Reads and returns the user frame for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of DisguiseMissionUsePoint from the subsystem API first

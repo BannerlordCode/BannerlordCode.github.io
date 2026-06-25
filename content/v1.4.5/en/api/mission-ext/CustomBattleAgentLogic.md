@@ -23,7 +23,7 @@ Treat `CustomBattleAgentLogic` as a Logic-style extension point: first identify 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentLogic from the subsystem API first
@@ -34,7 +34,7 @@ customBattleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleAgentLogic from the subsystem API first

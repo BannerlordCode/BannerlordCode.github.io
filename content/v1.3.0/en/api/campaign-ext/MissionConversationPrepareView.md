@@ -23,7 +23,7 @@ Treat `MissionConversationPrepareView` as a View-style extension point: first id
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionConversationPrepareView from the subsystem API first
@@ -34,7 +34,7 @@ missionConversationPrepareView.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionConversationPrepareView from the subsystem API first

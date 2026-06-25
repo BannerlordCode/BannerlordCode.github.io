@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetSaveFilePath
 `public static PlatformFilePath GetSaveFilePath(string fileName)`
 
-**Purpose:** **Purpose:** Reads and returns the save file path value held by the this instance.
+**Purpose:** Reads and returns the save file path value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ FileDriver.GetSaveFilePath("example");
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
+**Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -50,7 +50,7 @@ var result = fileDriver.Save("example", 0, metaData, gameData);
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**Purpose:** **Purpose:** Reads meta data from persistent storage or a stream.
+**Purpose:** Reads meta data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -61,7 +61,7 @@ var result = fileDriver.LoadMetaData("example");
 ### Load
 `public LoadData Load(string saveName)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -72,7 +72,7 @@ var result = fileDriver.Load("example");
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**Purpose:** **Purpose:** Reads and returns the save game file infos value held by the this instance.
+**Purpose:** Reads and returns the save game file infos value held by the this instance.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -83,7 +83,7 @@ var result = fileDriver.GetSaveGameFileInfos();
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**Purpose:** **Purpose:** Reads and returns the save game file names value held by the this instance.
+**Purpose:** Reads and returns the save game file names value held by the this instance.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -94,7 +94,7 @@ var result = fileDriver.GetSaveGameFileNames();
 ### Delete
 `public bool Delete(string saveName)`
 
-**Purpose:** **Purpose:** Executes the Delete logic.
+**Purpose:** Executes the Delete logic.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -105,7 +105,7 @@ var result = fileDriver.Delete("example");
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the save game file exists state or condition.
+**Purpose:** Determines whether the this instance is in the save game file exists state or condition.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first
@@ -116,7 +116,7 @@ var result = fileDriver.IsSaveGameFileExists("example");
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the working async state or condition.
+**Purpose:** Determines whether the this instance is in the working async state or condition.
 
 ```csharp
 // Obtain an instance of FileDriver from the subsystem API first

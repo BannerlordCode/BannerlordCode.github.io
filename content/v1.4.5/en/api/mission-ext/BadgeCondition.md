@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### Check
 `public bool Check(string value)`
 
-**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
+**Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of BadgeCondition from the subsystem API first
@@ -44,7 +44,7 @@ var result = badgeCondition.Check("example");
 ### Check
 `public bool Check(int value)`
 
-**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
+**Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of BadgeCondition from the subsystem API first

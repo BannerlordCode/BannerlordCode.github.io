@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin.Internal` to pl
 ### BuildAvailableOptions
 `public virtual AdminPanelMultiSelectionOption BuildAvailableOptions(MBReadOnlyList<IAdminPanelMultiSelectionItem> options)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for available options.
+**Purpose:** Assembles and returns the built result for available options.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionOption from the subsystem API first
@@ -34,7 +34,7 @@ var result = adminPanelMultiSelectionOption.BuildAvailableOptions(options);
 ### BuildAvailableOptions
 `public virtual AdminPanelMultiSelectionOption BuildAvailableOptions(OptionType optionType, bool buildDefaultValue = true)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for available options.
+**Purpose:** Assembles and returns the built result for available options.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionOption from the subsystem API first
@@ -45,7 +45,7 @@ var result = adminPanelMultiSelectionOption.BuildAvailableOptions(optionType, fa
 ### GetAvailableOptions
 `public MBReadOnlyList<IAdminPanelMultiSelectionItem> GetAvailableOptions()`
 
-**Purpose:** **Purpose:** Reads and returns the available options value held by the this instance.
+**Purpose:** Reads and returns the available options value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionOption from the subsystem API first

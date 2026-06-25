@@ -23,7 +23,7 @@ description: "DefaultNotableSpawnModel 的自动生成类参考。"
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target notable count for settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target notable count for settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotableSpawnModel 实例

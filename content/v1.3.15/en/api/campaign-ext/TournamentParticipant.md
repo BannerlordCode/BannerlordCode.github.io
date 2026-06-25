@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### SetTeam
 `public void SetTeam(TournamentTeam team)`
 
-**Purpose:** **Purpose:** Assigns a new value to team and updates the object's internal state.
+**Purpose:** Assigns a new value to team and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TournamentParticipant from the subsystem API first
@@ -46,7 +46,7 @@ tournamentParticipant.SetTeam(team);
 ### AddScore
 `public int AddScore(int score)`
 
-**Purpose:** **Purpose:** Adds score to the current collection or state.
+**Purpose:** Adds score to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentParticipant from the subsystem API first
@@ -57,7 +57,7 @@ var result = tournamentParticipant.AddScore(0);
 ### ResetScore
 `public void ResetScore()`
 
-**Purpose:** **Purpose:** Returns score to its default or initial condition.
+**Purpose:** Returns score to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TournamentParticipant from the subsystem API first

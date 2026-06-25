@@ -23,7 +23,7 @@ description: "MissionGamepadEffectsView 的自动生成类参考。"
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission state activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission state activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGamepadEffectsView 实例
@@ -34,7 +34,7 @@ missionGamepadEffectsView.OnMissionStateActivated();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission state deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission state deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGamepadEffectsView 实例
@@ -45,7 +45,7 @@ missionGamepadEffectsView.OnMissionStateDeactivated();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGamepadEffectsView 实例
@@ -56,7 +56,7 @@ missionGamepadEffectsView.OnPreMissionTick(0);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGamepadEffectsView 实例
@@ -67,7 +67,7 @@ missionGamepadEffectsView.OnAgentHit(affectedAgent, affectorAgent, affectorWeapo
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGamepadEffectsView 实例

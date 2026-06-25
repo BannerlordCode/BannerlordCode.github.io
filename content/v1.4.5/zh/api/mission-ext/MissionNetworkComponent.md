@@ -23,7 +23,7 @@ description: "MissionNetworkComponent 的自动生成类参考。"
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
+**用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -34,7 +34,7 @@ missionNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -45,7 +45,7 @@ missionNetworkComponent.OnRemoveBehavior();
 ### OnAddTeam
 `public override void OnAddTeam(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 add team 事件触发时调用此回调。
+**用途 / Purpose:** 在 add team 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -56,7 +56,7 @@ missionNetworkComponent.OnAddTeam(team);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -67,7 +67,7 @@ missionNetworkComponent.OnBehaviorInitialize();
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
+**用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -78,7 +78,7 @@ missionNetworkComponent.OnClearScene();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -89,7 +89,7 @@ missionNetworkComponent.OnMissionTick(0);
 ### OnPeerSelectedTeam
 `public void OnPeerSelectedTeam(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 peer selected team 事件触发时调用此回调。
+**用途 / Purpose:** 在 peer selected team 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例
@@ -100,7 +100,7 @@ missionNetworkComponent.OnPeerSelectedTeam(missionPeer);
 ### OnClientSynchronized
 `public void OnClientSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 client synchronized 事件触发时调用此回调。
+**用途 / Purpose:** 在 client synchronized 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetworkComponent 实例

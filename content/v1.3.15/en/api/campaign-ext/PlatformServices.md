@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### Setup
 `public static void Setup(IPlatformServices platformServices)`
 
-**Purpose:** **Purpose:** Assigns a new value to up and updates the object's internal state.
+**Purpose:** Assigns a new value to up and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ PlatformServices.Setup(platformServices);
 ### Initialize
 `public static bool Initialize(IFriendListService additionalFriendListServices)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -57,7 +57,7 @@ PlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public static void Terminate()`
 
-**Purpose:** **Purpose:** Executes the Terminate logic.
+**Purpose:** Executes the Terminate logic.
 
 ```csharp
 // Static call; no instance required
@@ -67,7 +67,7 @@ PlatformServices.Terminate();
 ### ConnectionStateChanged
 `public static void ConnectionStateChanged(bool isAuthenticated)`
 
-**Purpose:** **Purpose:** Executes the ConnectionStateChanged logic.
+**Purpose:** Executes the ConnectionStateChanged logic.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ PlatformServices.ConnectionStateChanged(false);
 ### MultiplayerGameStateChanged
 `public static void MultiplayerGameStateChanged(bool isPlaying)`
 
-**Purpose:** **Purpose:** Executes the MultiplayerGameStateChanged logic.
+**Purpose:** Executes the MultiplayerGameStateChanged logic.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ PlatformServices.MultiplayerGameStateChanged(false);
 ### LobbyClientStateChanged
 `public static void LobbyClientStateChanged(bool atLobby, bool isPartyLeaderOrSolo)`
 
-**Purpose:** **Purpose:** Executes the LobbyClientStateChanged logic.
+**Purpose:** Executes the LobbyClientStateChanged logic.
 
 ```csharp
 // Static call; no instance required
@@ -97,7 +97,7 @@ PlatformServices.LobbyClientStateChanged(false, false);
 ### FireOnSessionInvitationAccepted
 `public static void FireOnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**Purpose:** **Purpose:** Executes the FireOnSessionInvitationAccepted logic.
+**Purpose:** Executes the FireOnSessionInvitationAccepted logic.
 
 ```csharp
 // Static call; no instance required
@@ -107,7 +107,7 @@ PlatformServices.FireOnSessionInvitationAccepted(sessionInvitationType);
 ### FireOnPlatformRequestedMultiplayer
 `public static void FireOnPlatformRequestedMultiplayer()`
 
-**Purpose:** **Purpose:** Executes the FireOnPlatformRequestedMultiplayer logic.
+**Purpose:** Executes the FireOnPlatformRequestedMultiplayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -117,7 +117,7 @@ PlatformServices.FireOnPlatformRequestedMultiplayer();
 ### OnSessionInvitationHandled
 `public static void OnSessionInvitationHandled()`
 
-**Purpose:** **Purpose:** Invoked when the session invitation handled event is raised.
+**Purpose:** Invoked when the session invitation handled event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -127,7 +127,7 @@ PlatformServices.OnSessionInvitationHandled();
 ### OnPlatformMultiplayerRequestHandled
 `public static void OnPlatformMultiplayerRequestHandled()`
 
-**Purpose:** **Purpose:** Invoked when the platform multiplayer request handled event is raised.
+**Purpose:** Invoked when the platform multiplayer request handled event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -137,7 +137,7 @@ PlatformServices.OnPlatformMultiplayerRequestHandled();
 ### SetIsPlatformRequestedContinueGame
 `public static void SetIsPlatformRequestedContinueGame(bool isRequested)`
 
-**Purpose:** **Purpose:** Assigns a new value to is platform requested continue game and updates the object's internal state.
+**Purpose:** Assigns a new value to is platform requested continue game and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -147,7 +147,7 @@ PlatformServices.SetIsPlatformRequestedContinueGame(false);
 ### FilterString
 `public static Task<string> FilterString(string content, string defaultContent)`
 
-**Purpose:** **Purpose:** Executes the FilterString logic.
+**Purpose:** Executes the FilterString logic.
 
 ```csharp
 // Static call; no instance required
@@ -157,7 +157,7 @@ PlatformServices.FilterString("example", "example");
 ### TriggerInvitation
 `public static string TriggerInvitation(List<string> strings)`
 
-**Purpose:** **Purpose:** Triggers the logic or event associated with invitation.
+**Purpose:** Triggers the logic or event associated with invitation.
 
 ```csharp
 // Static call; no instance required

@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyMenuVM from the subsystem API first
@@ -50,7 +50,7 @@ mPLobbyMenuVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyMenuVM from the subsystem API first
@@ -61,7 +61,7 @@ mPLobbyMenuVM.OnFinalize();
 ### SetPage
 `public void SetPage(MPLobbyVM.LobbyPage lobbyPage)`
 
-**Purpose:** **Purpose:** Assigns a new value to page and updates the object's internal state.
+**Purpose:** Assigns a new value to page and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyMenuVM from the subsystem API first
@@ -72,7 +72,7 @@ mPLobbyMenuVM.SetPage(lobbyPage);
 ### ExecuteExit
 `public async void ExecuteExit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with exit.
+**Purpose:** Runs the operation or workflow associated with exit.
 
 ```csharp
 // Obtain an instance of MPLobbyMenuVM from the subsystem API first
@@ -83,7 +83,7 @@ mPLobbyMenuVM.ExecuteExit();
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**Purpose:** **Purpose:** Invoked when the supported features refreshed event is raised.
+**Purpose:** Invoked when the supported features refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyMenuVM from the subsystem API first

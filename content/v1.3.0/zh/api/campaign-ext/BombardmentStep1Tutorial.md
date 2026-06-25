@@ -23,7 +23,7 @@ description: "BombardmentStep1Tutorial 的自动生成类参考。"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
@@ -34,7 +34,7 @@ var result = bombardmentStep1Tutorial.IsConditionsMetForCompletion();
 ### OnPlayerStartEngineConstruction
 `public override void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player start engine construction 事件触发时调用此回调。
+**用途 / Purpose:** 在 player start engine construction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
@@ -45,7 +45,7 @@ bombardmentStep1Tutorial.OnPlayerStartEngineConstruction(obj);
 ### OnGameMenuOptionSelected
 `public override void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game menu option selected 事件触发时调用此回调。
+**用途 / Purpose:** 在 game menu option selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
@@ -56,7 +56,7 @@ bombardmentStep1Tutorial.OnGameMenuOptionSelected(obj);
 ### OnGameMenuOpened
 `public override void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game menu opened 事件触发时调用此回调。
+**用途 / Purpose:** 在 game menu opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
@@ -67,7 +67,7 @@ bombardmentStep1Tutorial.OnGameMenuOpened(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
@@ -78,7 +78,7 @@ var result = bombardmentStep1Tutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例

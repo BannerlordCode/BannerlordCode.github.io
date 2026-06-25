@@ -34,7 +34,7 @@ description: "BrushAnimation 的自动生成类参考。"
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 animation property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 animation property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimation 实例
@@ -45,7 +45,7 @@ brushAnimation.AddAnimationProperty(property);
 ### RemoveAnimationProperty
 `public void RemoveAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 animation property。
+**用途 / Purpose:** 从当前容器或状态中移除 animation property。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimation 实例
@@ -56,7 +56,7 @@ brushAnimation.RemoveAnimationProperty(property);
 ### FillFrom
 `public void FillFrom(BrushAnimation animation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimation 实例
@@ -67,7 +67,7 @@ brushAnimation.FillFrom(animation);
 ### GetLayerAnimation
 `public BrushLayerAnimation GetLayerAnimation(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layer animation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layer animation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimation 实例
@@ -78,7 +78,7 @@ var result = brushAnimation.GetLayerAnimation("example");
 ### GetLayerAnimations
 `public IEnumerable<BrushLayerAnimation> GetLayerAnimations()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layer animations 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layer animations 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushAnimation 实例

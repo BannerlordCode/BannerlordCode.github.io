@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### SpriteNinePatchParameters
 `public struct SpriteNinePatchParameters(int leftWidth, int rightWidth, int topHeight, int bottomHeight)`
 
-**Purpose:** **Purpose:** Executes the SpriteNinePatchParameters logic.
+**Purpose:** Executes the SpriteNinePatchParameters logic.
 
 ```csharp
 // Obtain an instance of SpriteNinePatchParameters from the subsystem API first

@@ -19,7 +19,7 @@ EndMercenaryServiceAction is a set of static methods that trigger "EndMercenaryS
 public static void EndByDefault(Clan clan)
 ```
 
-**Purpose:** **Purpose:** Executes the EndByDefault logic.
+**Purpose:** Executes the EndByDefault logic.
 
 ### EndByLeavingKingdom
 
@@ -27,7 +27,7 @@ public static void EndByDefault(Clan clan)
 public static void EndByLeavingKingdom(Clan clan)
 ```
 
-**Purpose:** **Purpose:** Executes the EndByLeavingKingdom logic.
+**Purpose:** Executes the EndByLeavingKingdom logic.
 
 ### EndByBecomingVassal
 
@@ -35,7 +35,7 @@ public static void EndByLeavingKingdom(Clan clan)
 public static void EndByBecomingVassal(Clan clan)
 ```
 
-**Purpose:** **Purpose:** Executes the EndByBecomingVassal logic.
+**Purpose:** Executes the EndByBecomingVassal logic.
 
 ## Usage Example
 

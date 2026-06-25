@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AlleyItemComparerBase from the subsystem API first
@@ -34,7 +34,7 @@ alleyItemComparerBase.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of AlleyItemComparerBase from the subsystem API first

@@ -23,7 +23,7 @@ description: "ThreadedClientSessionDisconnectTask 的自动生成类参考。"
 ### BeginJob
 `public override void BeginJob()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginJob 对应的操作。
+**用途 / Purpose:** 调用 BeginJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClientSessionDisconnectTask 实例
@@ -34,7 +34,7 @@ threadedClientSessionDisconnectTask.BeginJob();
 ### DoMainThreadJob
 `public override void DoMainThreadJob()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoMainThreadJob 对应的操作。
+**用途 / Purpose:** 调用 DoMainThreadJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClientSessionDisconnectTask 实例

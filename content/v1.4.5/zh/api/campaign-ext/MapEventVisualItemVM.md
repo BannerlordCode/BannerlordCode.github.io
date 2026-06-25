@@ -32,7 +32,7 @@ description: "MapEventVisualItemVM 的自动生成类参考。"
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 properties 的最新表示。
+**用途 / Purpose:** 重新计算并更新 properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualItemVM 实例
@@ -43,7 +43,7 @@ mapEventVisualItemVM.UpdateProperties();
 ### ParallelUpdatePosition
 `public void ParallelUpdatePosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ParallelUpdatePosition 对应的操作。
+**用途 / Purpose:** 调用 ParallelUpdatePosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualItemVM 实例
@@ -54,7 +54,7 @@ mapEventVisualItemVM.ParallelUpdatePosition();
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定is visible on map的结果。
+**用途 / Purpose:** 根据当前状态判定is visible on map的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualItemVM 实例
@@ -65,7 +65,7 @@ mapEventVisualItemVM.DetermineIsVisibleOnMap();
 ### UpdateBindingProperties
 `public void UpdateBindingProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 binding properties 的最新表示。
+**用途 / Purpose:** 重新计算并更新 binding properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualItemVM 实例

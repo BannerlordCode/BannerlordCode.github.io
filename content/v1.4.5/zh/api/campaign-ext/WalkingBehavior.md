@@ -23,7 +23,7 @@ description: "WalkingBehavior 的自动生成类参考。"
 ### SetIndoorWandering
 `public void SetIndoorWandering(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 indoor wandering 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 indoor wandering 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -34,7 +34,7 @@ walkingBehavior.SetIndoorWandering(false);
 ### SetOutdoorWandering
 `public void SetOutdoorWandering(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 outdoor wandering 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 outdoor wandering 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -45,7 +45,7 @@ walkingBehavior.SetOutdoorWandering(false);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -56,7 +56,7 @@ walkingBehavior.Tick(0, false);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationTick 对应的操作。
+**用途 / Purpose:** 调用 ConversationTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -67,7 +67,7 @@ walkingBehavior.ConversationTick();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -78,7 +78,7 @@ var result = walkingBehavior.GetAvailability(false);
 ### SetCustomWanderTarget
 `public override void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom wander target 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom wander target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -89,7 +89,7 @@ walkingBehavior.SetCustomWanderTarget(customUsableMachine);
 ### OnSpecialTargetChanged
 `public override void OnSpecialTargetChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 special target changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 special target changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例
@@ -100,7 +100,7 @@ walkingBehavior.OnSpecialTargetChanged();
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkingBehavior 实例

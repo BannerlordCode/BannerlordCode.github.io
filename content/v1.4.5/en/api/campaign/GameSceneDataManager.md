@@ -29,7 +29,7 @@ Treat `GameSceneDataManager` as a Manager-style extension point: first identify 
 ### LoadSPBattleScenes
 `public void LoadSPBattleScenes(string path)`
 
-**Purpose:** **Purpose:** Reads s p battle scenes from persistent storage or a stream.
+**Purpose:** Reads s p battle scenes from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameSceneDataManager from the subsystem API first
@@ -40,7 +40,7 @@ gameSceneDataManager.LoadSPBattleScenes("example");
 ### LoadConversationScenes
 `public void LoadConversationScenes(string path)`
 
-**Purpose:** **Purpose:** Reads conversation scenes from persistent storage or a stream.
+**Purpose:** Reads conversation scenes from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameSceneDataManager from the subsystem API first
@@ -51,7 +51,7 @@ gameSceneDataManager.LoadConversationScenes("example");
 ### LoadMeetingScenes
 `public void LoadMeetingScenes(string path)`
 
-**Purpose:** **Purpose:** Reads meeting scenes from persistent storage or a stream.
+**Purpose:** Reads meeting scenes from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameSceneDataManager from the subsystem API first

@@ -31,7 +31,7 @@ description: "HandlerResult 的自动生成类参考。"
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 successful 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 successful 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ HandlerResult.CreateSuccessful();
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful(Message nextMessage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 successful 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 successful 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ HandlerResult.CreateSuccessful(nextMessage);
 ### CreateFailed
 `public static HandlerResult CreateFailed(string error)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 failed 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 failed 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

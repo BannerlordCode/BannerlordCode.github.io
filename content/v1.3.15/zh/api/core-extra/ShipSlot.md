@@ -31,7 +31,7 @@ description: "ShipSlot 的自动生成类参考。"
 ### AfterRegister
 `public override void AfterRegister()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterRegister 对应的操作。
+**用途 / Purpose:** 调用 AfterRegister 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSlot 实例
@@ -42,7 +42,7 @@ shipSlot.AfterRegister();
 ### AddMatchingPiece
 `public void AddMatchingPiece(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 matching piece 添加到当前容器或状态中。
+**用途 / Purpose:** 将 matching piece 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSlot 实例
@@ -53,7 +53,7 @@ shipSlot.AddMatchingPiece(upgradePiece);
 ### GetSlotTypeName
 `public TextObject GetSlotTypeName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 slot type name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 slot type name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSlot 实例
@@ -64,7 +64,7 @@ var result = shipSlot.GetSlotTypeName();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSlot 实例

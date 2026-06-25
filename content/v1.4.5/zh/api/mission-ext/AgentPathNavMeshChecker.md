@@ -23,7 +23,7 @@ description: "AgentPathNavMeshChecker 的自动生成类参考。"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例
@@ -34,7 +34,7 @@ agentPathNavMeshChecker.Tick(0);
 ### TickOccasionally
 `public void TickOccasionally(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例
@@ -45,7 +45,7 @@ agentPathNavMeshChecker.TickOccasionally(0);
 ### HasAgentsUsingPath
 `public bool HasAgentsUsingPath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 agents using path。
+**用途 / Purpose:** 判断当前对象是否已经持有 agents using path。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例

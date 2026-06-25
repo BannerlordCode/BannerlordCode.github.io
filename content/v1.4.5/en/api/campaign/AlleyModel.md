@@ -32,7 +32,7 @@ Treat `AlleyModel` as a Model-style extension point: first identify who creates 
 ### GetDailyXpGainForAssignedClanMember
 `public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
 
-**Purpose:** **Purpose:** Reads and returns the daily xp gain for assigned clan member value held by the this instance.
+**Purpose:** Reads and returns the daily xp gain for assigned clan member value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -43,7 +43,7 @@ var result = alleyModel.GetDailyXpGainForAssignedClanMember(assignedHero);
 ### GetDailyXpGainForMainHero
 `public abstract float GetDailyXpGainForMainHero()`
 
-**Purpose:** **Purpose:** Reads and returns the daily xp gain for main hero value held by the this instance.
+**Purpose:** Reads and returns the daily xp gain for main hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -54,7 +54,7 @@ var result = alleyModel.GetDailyXpGainForMainHero();
 ### GetInitialXpGainForMainHero
 `public abstract float GetInitialXpGainForMainHero()`
 
-**Purpose:** **Purpose:** Reads and returns the initial xp gain for main hero value held by the this instance.
+**Purpose:** Reads and returns the initial xp gain for main hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -65,7 +65,7 @@ var result = alleyModel.GetInitialXpGainForMainHero();
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
 `public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
 
-**Purpose:** **Purpose:** Reads and returns the xp gain after successful alley defense for main hero value held by the this instance.
+**Purpose:** Reads and returns the xp gain after successful alley defense for main hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -76,7 +76,7 @@ var result = alleyModel.GetXpGainAfterSuccessfulAlleyDefenseForMainHero();
 ### GetTroopsOfAIOwnedAlley
 `public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
 
-**Purpose:** **Purpose:** Reads and returns the troops of a i owned alley value held by the this instance.
+**Purpose:** Reads and returns the troops of a i owned alley value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -87,7 +87,7 @@ var result = alleyModel.GetTroopsOfAIOwnedAlley(alley);
 ### GetTroopsOfAlleyForBattleMission
 `public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
 
-**Purpose:** **Purpose:** Reads and returns the troops of alley for battle mission value held by the this instance.
+**Purpose:** Reads and returns the troops of alley for battle mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -98,7 +98,7 @@ var result = alleyModel.GetTroopsOfAlleyForBattleMission(alley);
 ### GetDailyIncomeOfAlley
 `public abstract int GetDailyIncomeOfAlley(Alley alley)`
 
-**Purpose:** **Purpose:** Reads and returns the daily income of alley value held by the this instance.
+**Purpose:** Reads and returns the daily income of alley value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -109,7 +109,7 @@ var result = alleyModel.GetDailyIncomeOfAlley(alley);
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
 `public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
 
-**Purpose:** **Purpose:** Reads and returns the troops to recruit from alley depending on alley random value held by the this instance.
+**Purpose:** Reads and returns the troops to recruit from alley depending on alley random value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -120,7 +120,7 @@ var result = alleyModel.GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(alley,
 ### GetDisabledReasonTextForHero
 `public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
 
-**Purpose:** **Purpose:** Reads and returns the disabled reason text for hero value held by the this instance.
+**Purpose:** Reads and returns the disabled reason text for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first
@@ -131,7 +131,7 @@ var result = alleyModel.GetDisabledReasonTextForHero(hero, alley, detail);
 ### GetAlleyAttackResponseTimeInDays
 `public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
 
-**Purpose:** **Purpose:** Reads and returns the alley attack response time in days value held by the this instance.
+**Purpose:** Reads and returns the alley attack response time in days value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyModel from the subsystem API first

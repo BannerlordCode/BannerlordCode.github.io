@@ -29,7 +29,7 @@ Treat `EncyclopediaManager` as a Manager-style extension point: first identify w
 ### CreateEncyclopediaPages
 `public void CreateEncyclopediaPages()`
 
-**Purpose:** **Purpose:** Constructs a new encyclopedia pages entity and returns it to the caller.
+**Purpose:** Constructs a new encyclopedia pages entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -40,7 +40,7 @@ encyclopediaManager.CreateEncyclopediaPages();
 ### GetEncyclopediaPages
 `public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia pages value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia pages value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -51,7 +51,7 @@ var result = encyclopediaManager.GetEncyclopediaPages();
 ### GetPageOf
 `public EncyclopediaPage GetPageOf(Type type)`
 
-**Purpose:** **Purpose:** Reads and returns the page of value held by the this instance.
+**Purpose:** Reads and returns the page of value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -62,7 +62,7 @@ var result = encyclopediaManager.GetPageOf(type);
 ### GetIdentifier
 `public string GetIdentifier(Type type)`
 
-**Purpose:** **Purpose:** Reads and returns the identifier value held by the this instance.
+**Purpose:** Reads and returns the identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -73,7 +73,7 @@ var result = encyclopediaManager.GetIdentifier(type);
 ### GoToLink
 `public void GoToLink(string pageType, string stringID)`
 
-**Purpose:** **Purpose:** Executes the GoToLink logic.
+**Purpose:** Executes the GoToLink logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -84,7 +84,7 @@ encyclopediaManager.GoToLink("example", "example");
 ### GoToLink
 `public void GoToLink(string link)`
 
-**Purpose:** **Purpose:** Executes the GoToLink logic.
+**Purpose:** Executes the GoToLink logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first
@@ -95,7 +95,7 @@ encyclopediaManager.GoToLink("example");
 ### SetLinkCallback
 `public void SetLinkCallback(Action<string, object> ExecuteLink)`
 
-**Purpose:** **Purpose:** Assigns a new value to link callback and updates the object's internal state.
+**Purpose:** Assigns a new value to link callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaManager from the subsystem API first

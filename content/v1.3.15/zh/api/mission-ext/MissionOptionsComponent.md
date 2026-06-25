@@ -23,7 +23,7 @@ description: "MissionOptionsComponent 的自动生成类参考。"
 ### OnAddOptionsUIHandler
 `public void OnAddOptionsUIHandler()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 add options u i handler 事件触发时调用此回调。
+**用途 / Purpose:** 在 add options u i handler 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOptionsComponent 实例

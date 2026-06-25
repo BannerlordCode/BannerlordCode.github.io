@@ -23,7 +23,7 @@ description: "PeerExtensions 的自动生成类参考。"
 ### SendExistingObjects
 `public static void SendExistingObjects(this NetworkCommunicator peer, Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SendExistingObjects 对应的操作。
+**用途 / Purpose:** 调用 SendExistingObjects 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PeerExtensions.SendExistingObjects(peer, mission);
 ### GetPeer
 `public static VirtualPlayer GetPeer(this PeerComponent peerComponent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 peer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 peer 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PeerExtensions.GetPeer(peerComponent);
 ### GetNetworkPeer
 `public static NetworkCommunicator GetNetworkPeer(this PeerComponent peerComponent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 network peer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 network peer 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PeerExtensions.GetNetworkPeer(peerComponent);
 ### RemoveComponent
 `public static void RemoveComponent(this NetworkCommunicator networkPeer, PeerComponent component)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 component。
+**用途 / Purpose:** 从当前容器或状态中移除 component。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ PeerExtensions.RemoveComponent(networkPeer, component);
 ### GetComponent
 `public static PeerComponent GetComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 component 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 component 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ PeerExtensions.GetComponent(networkPeer, 0);
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, Type peerComponentType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
+**用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ PeerExtensions.AddComponent(networkPeer, peerComponentType);
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
+**用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ description: "EncyclopediaContentPageVM 的自动生成类参考。"
 ### EncyclopediaContentPageVM
 `public class EncyclopediaContentPageVM(EncyclopediaPageArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EncyclopediaContentPageVM 对应的操作。
+**用途 / Purpose:** 调用 EncyclopediaContentPageVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
@@ -45,7 +45,7 @@ var result = encyclopediaContentPageVM.EncyclopediaContentPageVM(args);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
@@ -56,7 +56,7 @@ encyclopediaContentPageVM.RefreshValues();
 ### InitializeQuickNavigation
 `public void InitializeQuickNavigation(EncyclopediaListVM list)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 quick navigation 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 quick navigation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
@@ -67,7 +67,7 @@ encyclopediaContentPageVM.InitializeQuickNavigation(list);
 ### ExecuteGoToNextItem
 `public void ExecuteGoToNextItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 go to next item 对应的操作或工作流。
+**用途 / Purpose:** 执行 go to next item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
@@ -78,7 +78,7 @@ encyclopediaContentPageVM.ExecuteGoToNextItem();
 ### ExecuteGoToPreviousItem
 `public void ExecuteGoToPreviousItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 go to previous item 对应的操作或工作流。
+**用途 / Purpose:** 执行 go to previous item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例

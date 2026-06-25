@@ -23,7 +23,7 @@ Treat `ReinforcementFormationData` as a Data-style extension point: first identi
 ### Initialize
 `public void Initialize(Formation formation, uint initTime)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ReinforcementFormationData from the subsystem API first
@@ -34,7 +34,7 @@ reinforcementFormationData.Initialize(formation, 0);
 ### AddProspectiveTroop
 `public void AddProspectiveTroop(FormationClass troopClass)`
 
-**Purpose:** **Purpose:** Adds prospective troop to the current collection or state.
+**Purpose:** Adds prospective troop to the current collection or state.
 
 ```csharp
 // Obtain an instance of ReinforcementFormationData from the subsystem API first
@@ -45,7 +45,7 @@ reinforcementFormationData.AddProspectiveTroop(troopClass);
 ### IsInitialized
 `public bool IsInitialized(uint initTime)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the initialized state or condition.
+**Purpose:** Determines whether the this instance is in the initialized state or condition.
 
 ```csharp
 // Obtain an instance of ReinforcementFormationData from the subsystem API first
@@ -56,7 +56,7 @@ var result = reinforcementFormationData.IsInitialized(0);
 ### GetPriority
 `public ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
-**Purpose:** **Purpose:** Reads and returns the priority value held by the this instance.
+**Purpose:** Reads and returns the priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of ReinforcementFormationData from the subsystem API first

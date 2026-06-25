@@ -23,7 +23,7 @@ description: "VisualTestsScreen 的自动生成类参考。"
 ### StartedRendering
 `public bool StartedRendering()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动ed rendering流程或状态机。
+**用途 / Purpose:** 启动ed rendering流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTestsScreen 实例
@@ -34,7 +34,7 @@ var result = visualTestsScreen.StartedRendering();
 ### GetSubTestName
 `public string GetSubTestName(VisualTestsScreen.CameraPointTestType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sub test name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sub test name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTestsScreen 实例
@@ -45,7 +45,7 @@ var result = visualTestsScreen.GetSubTestName(type);
 ### GetRenderMode
 `public Utilities.EngineRenderDisplayMode GetRenderMode(VisualTestsScreen.CameraPointTestType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 render mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 render mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTestsScreen 实例
@@ -56,7 +56,7 @@ var result = visualTestsScreen.GetRenderMode(type);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTestsScreen 实例

@@ -32,7 +32,7 @@ Treat `SettlementFoodModel` as a Model-style extension point: first identify who
 ### CalculateTownFoodStocksChange
 `public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of town food stocks change.
+**Purpose:** Calculates the current value or result of town food stocks change.
 
 ```csharp
 // Obtain an instance of SettlementFoodModel from the subsystem API first

@@ -34,7 +34,7 @@ Treat `BehaviorComponent` as a Component-style extension point: first identify w
 ### OnBehaviorCanceled
 `public virtual void OnBehaviorCanceled()`
 
-**Purpose:** **Purpose:** Invoked when the behavior canceled event is raised.
+**Purpose:** Invoked when the behavior canceled event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -45,7 +45,7 @@ behaviorComponent.OnBehaviorCanceled();
 ### OnLostAIControl
 `public virtual void OnLostAIControl()`
 
-**Purpose:** **Purpose:** Invoked when the lost a i control event is raised.
+**Purpose:** Invoked when the lost a i control event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -56,7 +56,7 @@ behaviorComponent.OnLostAIControl();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -67,7 +67,7 @@ behaviorComponent.OnAgentRemoved(agent);
 ### RemindSergeantPlayer
 `public void RemindSergeantPlayer()`
 
-**Purpose:** **Purpose:** Executes the RemindSergeantPlayer logic.
+**Purpose:** Executes the RemindSergeantPlayer logic.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -78,7 +78,7 @@ behaviorComponent.RemindSergeantPlayer();
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -89,7 +89,7 @@ behaviorComponent.TickOccasionally();
 ### GetAIWeight
 `public float GetAIWeight()`
 
-**Purpose:** **Purpose:** Reads and returns the a i weight value held by the this instance.
+**Purpose:** Reads and returns the a i weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -100,7 +100,7 @@ var result = behaviorComponent.GetAIWeight();
 ### ResetBehavior
 `public virtual void ResetBehavior()`
 
-**Purpose:** **Purpose:** Returns behavior to its default or initial condition.
+**Purpose:** Returns behavior to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -111,7 +111,7 @@ behaviorComponent.ResetBehavior();
 ### GetBehaviorString
 `public virtual TextObject GetBehaviorString()`
 
-**Purpose:** **Purpose:** Reads and returns the behavior string value held by the this instance.
+**Purpose:** Reads and returns the behavior string value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -122,7 +122,7 @@ var result = behaviorComponent.GetBehaviorString();
 ### OnValidBehaviorSideChanged
 `public virtual void OnValidBehaviorSideChanged()`
 
-**Purpose:** **Purpose:** Invoked when the valid behavior side changed event is raised.
+**Purpose:** Invoked when the valid behavior side changed event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -133,7 +133,7 @@ behaviorComponent.OnValidBehaviorSideChanged();
 ### PrecalculateMovementOrder
 `public void PrecalculateMovementOrder()`
 
-**Purpose:** **Purpose:** Executes the PrecalculateMovementOrder logic.
+**Purpose:** Executes the PrecalculateMovementOrder logic.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -144,7 +144,7 @@ behaviorComponent.PrecalculateMovementOrder();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -155,7 +155,7 @@ var result = behaviorComponent.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first
@@ -166,7 +166,7 @@ var result = behaviorComponent.GetHashCode();
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorComponent from the subsystem API first

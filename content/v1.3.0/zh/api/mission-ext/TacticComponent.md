@@ -29,7 +29,7 @@ description: "TacticComponent 的自动生成类参考。"
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticComponent 实例
@@ -40,7 +40,7 @@ tacticComponent.TickOccasionally();
 ### ResetTactic
 `public void ResetTactic()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 tactic 重置回默认或初始状态。
+**用途 / Purpose:** 将 tactic 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticComponent 实例
@@ -51,7 +51,7 @@ tacticComponent.ResetTactic();
 ### SetDefaultBehaviorWeights
 `public static void SetDefaultBehaviorWeights(Formation f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default behavior weights 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 default behavior weights 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

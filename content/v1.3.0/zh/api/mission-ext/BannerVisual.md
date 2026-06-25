@@ -29,7 +29,7 @@ description: "BannerVisual 的自动生成类参考。"
 ### ValidateCreateTableauTextures
 `public void ValidateCreateTableauTextures()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查create tableau textures是否满足约束条件，通常返回布尔值。
+**用途 / Purpose:** 检查create tableau textures是否满足约束条件，通常返回布尔值。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerVisual 实例
@@ -40,7 +40,7 @@ bannerVisual.ValidateCreateTableauTextures();
 ### GetTableauTextureSmall
 `public Texture GetTableauTextureSmall(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture small 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tableau texture small 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerVisual 实例
@@ -51,7 +51,7 @@ var result = bannerVisual.GetTableauTextureSmall(setAction, false);
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerVisual 实例
@@ -62,7 +62,7 @@ var result = bannerVisual.GetTableauTextureLarge(setAction, false);
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, out BannerThumbnailCreationData creationData, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerVisual 实例
@@ -73,7 +73,7 @@ var result = bannerVisual.GetTableauTextureLarge(setAction, creationData, false)
 ### GetMeshMatrix
 `public static MatrixFrame GetMeshMatrix(ref Mesh mesh, float marginLeft, float marginTop, float width, float height, bool mirrored, float rotation, float deltaZ)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mesh matrix 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mesh matrix 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ BannerVisual.GetMeshMatrix(mesh, 0, 0, 0, 0, false, 0, 0);
 ### ConvertToMultiMesh
 `public MetaMesh ConvertToMultiMesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 把to multi mesh转换为另一种表示或类型。
+**用途 / Purpose:** 把to multi mesh转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerVisual 实例

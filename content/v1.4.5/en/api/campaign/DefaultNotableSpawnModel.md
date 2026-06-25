@@ -23,7 +23,7 @@ Treat `DefaultNotableSpawnModel` as a Model-style extension point: first identif
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**Purpose:** **Purpose:** Reads and returns the target notable count for settlement value held by the this instance.
+**Purpose:** Reads and returns the target notable count for settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultNotableSpawnModel from the subsystem API first

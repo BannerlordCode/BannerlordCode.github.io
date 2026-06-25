@@ -30,7 +30,7 @@ description: "SettlementDailyProjectVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -41,7 +41,7 @@ settlementDailyProjectVM.RefreshValues();
 ### RefreshProductionText
 `public override void RefreshProductionText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 production text 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 production text 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -52,7 +52,7 @@ settlementDailyProjectVM.RefreshProductionText();
 ### ExecuteAddRemoveToQueue
 `public override void ExecuteAddRemoveToQueue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 add remove to queue 对应的操作或工作流。
+**用途 / Purpose:** 执行 add remove to queue 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -63,7 +63,7 @@ settlementDailyProjectVM.ExecuteAddRemoveToQueue();
 ### ExecuteSetAsActiveDevelopment
 `public override void ExecuteSetAsActiveDevelopment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set as active development 对应的操作或工作流。
+**用途 / Purpose:** 执行 set as active development 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -74,7 +74,7 @@ settlementDailyProjectVM.ExecuteSetAsActiveDevelopment();
 ### ExecuteSetAsCurrent
 `public override void ExecuteSetAsCurrent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set as current 对应的操作或工作流。
+**用途 / Purpose:** 执行 set as current 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -85,7 +85,7 @@ settlementDailyProjectVM.ExecuteSetAsCurrent();
 ### ExecuteResetCurrent
 `public override void ExecuteResetCurrent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset current 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset current 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例
@@ -96,7 +96,7 @@ settlementDailyProjectVM.ExecuteResetCurrent();
 ### ExecuteToggleSelected
 `public override void ExecuteToggleSelected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle selected 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle selected 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementDailyProjectVM 实例

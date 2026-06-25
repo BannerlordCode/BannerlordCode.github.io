@@ -23,7 +23,7 @@ description: "NameGenerator 的自动生成类参考。"
 ### GenerateHeroNameAndHeroFullName
 `public void GenerateHeroNameAndHeroFullName(Hero hero, out TextObject firstName, out TextObject fullName, bool useDeterministicValues = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成hero name and hero full name的实例、数据或表示。
+**用途 / Purpose:** 生成hero name and hero full name的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例
@@ -34,7 +34,7 @@ nameGenerator.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
 ### GenerateHeroFirstName
 `public TextObject GenerateHeroFirstName(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成hero first name的实例、数据或表示。
+**用途 / Purpose:** 生成hero first name的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例
@@ -45,7 +45,7 @@ var result = nameGenerator.GenerateHeroFirstName(hero);
 ### GenerateFirstNameForPlayer
 `public TextObject GenerateFirstNameForPlayer(CultureObject culture, bool isFemale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成first name for player的实例、数据或表示。
+**用途 / Purpose:** 生成first name for player的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例
@@ -56,7 +56,7 @@ var result = nameGenerator.GenerateFirstNameForPlayer(culture, false);
 ### GenerateClanName
 `public TextObject GenerateClanName(CultureObject culture, Settlement clanOriginSettlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成clan name的实例、数据或表示。
+**用途 / Purpose:** 生成clan name的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例
@@ -67,7 +67,7 @@ var result = nameGenerator.GenerateClanName(culture, clanOriginSettlement);
 ### GetNameListForCulture
 `public MBReadOnlyList<TextObject> GetNameListForCulture(CultureObject npcCulture, bool isFemale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name list for culture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name list for culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例
@@ -78,7 +78,7 @@ var result = nameGenerator.GetNameListForCulture(npcCulture, false);
 ### AddName
 `public void AddName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 name 添加到当前容器或状态中。
+**用途 / Purpose:** 将 name 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 NameGenerator 实例

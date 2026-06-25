@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTacticsSkillAmount
 `public int GetTacticsSkillAmount()`
 
-**Purpose:** **Purpose:** Reads and returns the tactics skill amount value held by the this instance.
+**Purpose:** Reads and returns the tactics skill amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleCombatant from the subsystem API first
@@ -50,7 +50,7 @@ var result = customBattleCombatant.GetTacticsSkillAmount();
 ### AddCharacter
 `public void AddCharacter(BasicCharacterObject characterObject, int number)`
 
-**Purpose:** **Purpose:** Adds character to the current collection or state.
+**Purpose:** Adds character to the current collection or state.
 
 ```csharp
 // Obtain an instance of CustomBattleCombatant from the subsystem API first
@@ -61,7 +61,7 @@ customBattleCombatant.AddCharacter(characterObject, 0);
 ### SetGeneral
 `public void SetGeneral(BasicCharacterObject generalCharacter)`
 
-**Purpose:** **Purpose:** Assigns a new value to general and updates the object's internal state.
+**Purpose:** Assigns a new value to general and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleCombatant from the subsystem API first
@@ -72,7 +72,7 @@ customBattleCombatant.SetGeneral(generalCharacter);
 ### KillCharacter
 `public void KillCharacter(BasicCharacterObject character)`
 
-**Purpose:** **Purpose:** Executes the KillCharacter logic.
+**Purpose:** Executes the KillCharacter logic.
 
 ```csharp
 // Obtain an instance of CustomBattleCombatant from the subsystem API first

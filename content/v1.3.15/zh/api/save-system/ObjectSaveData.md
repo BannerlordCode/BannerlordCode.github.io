@@ -33,7 +33,7 @@ description: "ObjectSaveData 的自动生成类参考。"
 ### GetFolderCount
 `public int GetFolderCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 folder count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 folder count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -44,7 +44,7 @@ var result = objectSaveData.GetFolderCount();
 ### GetEntryCount
 `public int GetEntryCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entry count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entry count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -55,7 +55,7 @@ var result = objectSaveData.GetEntryCount();
 ### CollectMembers
 `public void CollectMembers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectMembers 对应的操作。
+**用途 / Purpose:** 调用 CollectMembers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -66,7 +66,7 @@ objectSaveData.CollectMembers();
 ### CollectStringsInto
 `public void CollectStringsInto(List<string> collection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStringsInto 对应的操作。
+**用途 / Purpose:** 调用 CollectStringsInto 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -77,7 +77,7 @@ objectSaveData.CollectStringsInto(collection);
 ### CollectStrings
 `public void CollectStrings()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStrings 对应的操作。
+**用途 / Purpose:** 调用 CollectStrings 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -88,7 +88,7 @@ objectSaveData.CollectStrings();
 ### CollectStructs
 `public void CollectStructs()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStructs 对应的操作。
+**用途 / Purpose:** 调用 CollectStructs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -99,7 +99,7 @@ objectSaveData.CollectStructs();
 ### SaveHeaderTo
 `public void SaveHeaderTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -110,7 +110,7 @@ objectSaveData.SaveHeaderTo(parentFolder, archiveContext);
 ### SaveHeaderFolderTo
 `public void SaveHeaderFolderTo(BinaryWriter headerWriter, int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header folder to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header folder to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -121,7 +121,7 @@ objectSaveData.SaveHeaderFolderTo(headerWriter, 0);
 ### SaveHeaderDataTo
 `public void SaveHeaderDataTo(BinaryWriter headerWriter, int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header data to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header data to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -132,7 +132,7 @@ objectSaveData.SaveHeaderDataTo(headerWriter, 0);
 ### GetHeaderSize
 `public int GetHeaderSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 header size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 header size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -143,7 +143,7 @@ var result = objectSaveData.GetHeaderSize();
 ### GetDataSize
 `public int GetDataSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 data size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -154,7 +154,7 @@ var result = objectSaveData.GetDataSize();
 ### SaveDataFolder
 `public void SaveDataFolder(BinaryWriter writer, int parentFolderId, ref int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 data folder 写入持久化存储或流中。
+**用途 / Purpose:** 将 data folder 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -165,7 +165,7 @@ objectSaveData.SaveDataFolder(writer, 0, folderId);
 ### SaveTo
 `public void SaveTo(BinaryWriter writer, ref int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to 写入持久化存储或流中。
+**用途 / Purpose:** 将 to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -176,7 +176,7 @@ objectSaveData.SaveTo(writer, folderId);
 ### SaveTo
 `public void SaveTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to 写入持久化存储或流中。
+**用途 / Purpose:** 将 to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -187,7 +187,7 @@ objectSaveData.SaveTo(parentFolder, archiveContext);
 ### GetChildObjects
 `public IEnumerable<object> GetChildObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -198,7 +198,7 @@ var result = objectSaveData.GetChildObjects();
 ### GetChildObjects
 `public static void GetChildObjects(ISaveContext context, TypeDefinition typeDefinition, object target, List<object> collectedObjects)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
 
 ```csharp
 // 静态调用，不需要实例

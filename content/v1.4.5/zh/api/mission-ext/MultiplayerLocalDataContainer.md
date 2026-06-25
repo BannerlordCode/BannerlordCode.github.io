@@ -23,7 +23,7 @@ description: "MultiplayerLocalDataContainer 的自动生成类参考。"
 ### CreateAsAdd
 `public static ContainerOperation CreateAsAdd(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 as add 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 as add 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerLocalDataContainer.CreateAsAdd(item);
 ### CreateAsRemove
 `public static ContainerOperation CreateAsRemove(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 as remove 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 as remove 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MultiplayerLocalDataContainer.CreateAsRemove(item);
 ### CreateAsInsert
 `public static ContainerOperation CreateAsInsert(T item, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 as insert 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 as insert 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
 ### Compare
 `public int Compare(ContainerOperation x, ContainerOperation y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
@@ -64,7 +64,7 @@ var result = multiplayerLocalDataContainer.Compare(x, y);
 ### AddEntry
 `public void AddEntry(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 entry 添加到当前容器或状态中。
+**用途 / Purpose:** 将 entry 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
@@ -75,7 +75,7 @@ multiplayerLocalDataContainer.AddEntry(item);
 ### InsertEntry
 `public void InsertEntry(T item, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InsertEntry 对应的操作。
+**用途 / Purpose:** 调用 InsertEntry 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
@@ -86,7 +86,7 @@ multiplayerLocalDataContainer.InsertEntry(item, 0);
 ### RemoveEntry
 `public void RemoveEntry(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 entry。
+**用途 / Purpose:** 从当前容器或状态中移除 entry。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
@@ -97,7 +97,7 @@ multiplayerLocalDataContainer.RemoveEntry(item);
 ### GetEntries
 `public MBReadOnlyList<T> GetEntries()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entries 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entries 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例

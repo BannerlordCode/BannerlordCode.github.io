@@ -32,7 +32,7 @@ description: "RevenueFarmingIssueQuest 的自动生成类参考。"
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RevenuesAreDeliveredToSteward 对应的操作。
+**用途 / Purpose:** 调用 RevenuesAreDeliveredToSteward 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例
@@ -43,7 +43,7 @@ revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
 ### FindCurrentRevenueVillage
 `public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的current revenue village。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的current revenue village。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例
@@ -54,7 +54,7 @@ var result = revenueFarmingIssueQuest.FindCurrentRevenueVillage();
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 village as completed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 village as completed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例

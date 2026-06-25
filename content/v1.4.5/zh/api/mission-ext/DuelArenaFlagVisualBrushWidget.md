@@ -29,7 +29,7 @@ description: "DuelArenaFlagVisualBrushWidget 的自动生成类参考。"
 ### DuelArenaFlagVisualBrushWidget
 `public class DuelArenaFlagVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DuelArenaFlagVisualBrushWidget 对应的操作。
+**用途 / Purpose:** 调用 DuelArenaFlagVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelArenaFlagVisualBrushWidget 实例

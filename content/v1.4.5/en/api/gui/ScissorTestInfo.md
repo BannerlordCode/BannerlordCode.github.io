@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### ReduceToIntersection
 `public void ReduceToIntersection(ScissorTestInfo other)`
 
-**Purpose:** **Purpose:** Executes the ReduceToIntersection logic.
+**Purpose:** Executes the ReduceToIntersection logic.
 
 ```csharp
 // Obtain an instance of ScissorTestInfo from the subsystem API first
@@ -34,7 +34,7 @@ scissorTestInfo.ReduceToIntersection(other);
 ### GetSimpleRectangle
 `public SimpleRectangle GetSimpleRectangle()`
 
-**Purpose:** **Purpose:** Reads and returns the simple rectangle value held by the this instance.
+**Purpose:** Reads and returns the simple rectangle value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScissorTestInfo from the subsystem API first
@@ -45,7 +45,7 @@ var result = scissorTestInfo.GetSimpleRectangle();
 ### IsCollide
 `public bool IsCollide(in Rectangle2D other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the collide state or condition.
+**Purpose:** Determines whether the this instance is in the collide state or condition.
 
 ```csharp
 // Obtain an instance of ScissorTestInfo from the subsystem API first

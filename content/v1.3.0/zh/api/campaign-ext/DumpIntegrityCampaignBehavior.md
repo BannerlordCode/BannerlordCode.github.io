@@ -23,7 +23,7 @@ description: "DumpIntegrityCampaignBehavior 的自动生成类参考。"
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 DumpIntegrityCampaignBehavior 实例
@@ -34,7 +34,7 @@ dumpIntegrityCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 DumpIntegrityCampaignBehavior 实例
@@ -45,7 +45,7 @@ dumpIntegrityCampaignBehavior.RegisterEvents();
 ### IsGameIntegrityAchieved
 `public static bool IsGameIntegrityAchieved(out TextObject reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 game integrity achieved 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 game integrity achieved 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

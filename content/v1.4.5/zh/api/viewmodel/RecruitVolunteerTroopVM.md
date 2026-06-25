@@ -40,7 +40,7 @@ description: "RecruitVolunteerTroopVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -51,7 +51,7 @@ recruitVolunteerTroopVM.RefreshValues();
 ### ExecuteRecruit
 `public void ExecuteRecruit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 recruit 对应的操作或工作流。
+**用途 / Purpose:** 执行 recruit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -62,7 +62,7 @@ recruitVolunteerTroopVM.ExecuteRecruit();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -73,7 +73,7 @@ recruitVolunteerTroopVM.ExecuteOpenEncyclopedia();
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 remove from cart 对应的操作或工作流。
+**用途 / Purpose:** 执行 remove from cart 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -84,7 +84,7 @@ recruitVolunteerTroopVM.ExecuteRemoveFromCart();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -95,7 +95,7 @@ recruitVolunteerTroopVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -106,7 +106,7 @@ recruitVolunteerTroopVM.ExecuteEndHint();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 focus 对应的操作或工作流。
+**用途 / Purpose:** 执行 focus 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
@@ -117,7 +117,7 @@ recruitVolunteerTroopVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 unfocus 对应的操作或工作流。
+**用途 / Purpose:** 执行 unfocus 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例

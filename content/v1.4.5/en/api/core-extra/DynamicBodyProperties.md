@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### DynamicBodyProperties
 `public struct DynamicBodyProperties(float age, float weight, float build)`
 
-**Purpose:** **Purpose:** Executes the DynamicBodyProperties logic.
+**Purpose:** Executes the DynamicBodyProperties logic.
 
 ```csharp
 // Obtain an instance of DynamicBodyProperties from the subsystem API first
@@ -34,7 +34,7 @@ var result = dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of DynamicBodyProperties from the subsystem API first
@@ -45,7 +45,7 @@ var result = dynamicBodyProperties.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of DynamicBodyProperties from the subsystem API first
@@ -56,7 +56,7 @@ var result = dynamicBodyProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of DynamicBodyProperties from the subsystem API first
@@ -67,7 +67,7 @@ var result = dynamicBodyProperties.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of DynamicBodyProperties from the subsystem API first

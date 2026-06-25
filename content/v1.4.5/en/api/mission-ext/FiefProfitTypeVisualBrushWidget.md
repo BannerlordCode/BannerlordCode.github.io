@@ -29,7 +29,7 @@ Treat `FiefProfitTypeVisualBrushWidget` as a Widget-style extension point: first
 ### FiefProfitTypeVisualBrushWidget
 `public class FiefProfitTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the FiefProfitTypeVisualBrushWidget logic.
+**Purpose:** Executes the FiefProfitTypeVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of FiefProfitTypeVisualBrushWidget from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### CreateEmpty
 `public static RenderCallbackCollection CreateEmpty()`
 
-**Purpose:** **Purpose:** Constructs a new empty entity and returns it to the caller.
+**Purpose:** Constructs a new empty entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

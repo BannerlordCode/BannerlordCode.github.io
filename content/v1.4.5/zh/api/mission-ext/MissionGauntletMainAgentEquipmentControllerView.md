@@ -23,7 +23,7 @@ description: "MissionGauntletMainAgentEquipmentControllerView 的自动生成类
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -34,7 +34,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -45,7 +45,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -56,7 +56,7 @@ missionGauntletMainAgentEquipmentControllerView.OnMissionScreenTick(0);
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -67,7 +67,7 @@ missionGauntletMainAgentEquipmentControllerView.OnFocusGained(agent, focusableOb
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -78,7 +78,7 @@ missionGauntletMainAgentEquipmentControllerView.OnFocusLost(agent, focusableObje
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
@@ -89,7 +89,7 @@ missionGauntletMainAgentEquipmentControllerView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例

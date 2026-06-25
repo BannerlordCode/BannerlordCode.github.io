@@ -85,7 +85,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### OnVisibilityChanged
 `public void OnVisibilityChanged(bool value)`
 
-**Purpose:** **Purpose:** Invoked when the visibility changed event is raised.
+**Purpose:** Invoked when the visibility changed event is raised.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -96,7 +96,7 @@ partyBase.OnVisibilityChanged(false);
 ### OnConsumedFood
 `public void OnConsumedFood()`
 
-**Purpose:** **Purpose:** Invoked when the consumed food event is raised.
+**Purpose:** Invoked when the consumed food event is raised.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -107,7 +107,7 @@ partyBase.OnConsumedFood();
 ### SetCustomOwner
 `public void SetCustomOwner(Hero customOwner)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom owner and updates the object's internal state.
+**Purpose:** Assigns a new value to custom owner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -118,7 +118,7 @@ partyBase.SetCustomOwner(customOwner);
 ### IsPartyUnderPlayerCommand
 `public static bool IsPartyUnderPlayerCommand(PartyBase party)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the party under player command state or condition.
+**Purpose:** Determines whether the this instance is in the party under player command state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -128,7 +128,7 @@ PartyBase.IsPartyUnderPlayerCommand(party);
 ### SetLevelMaskIsDirty
 `public void SetLevelMaskIsDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to level mask is dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to level mask is dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -139,7 +139,7 @@ partyBase.SetLevelMaskIsDirty();
 ### OnLevelMaskUpdated
 `public void OnLevelMaskUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the level mask updated event is raised.
+**Purpose:** Invoked when the level mask updated event is raised.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -150,7 +150,7 @@ partyBase.OnLevelMaskUpdated();
 ### SetCustomName
 `public void SetCustomName(TextObject name)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom name and updates the object's internal state.
+**Purpose:** Assigns a new value to custom name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -161,7 +161,7 @@ partyBase.SetCustomName(name);
 ### SetCustomBanner
 `public void SetCustomBanner(Banner banner)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom banner and updates the object's internal state.
+**Purpose:** Assigns a new value to custom banner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -172,7 +172,7 @@ partyBase.SetCustomBanner(banner);
 ### GetNumberOfHealthyMenOfTier
 `public int GetNumberOfHealthyMenOfTier(int tier)`
 
-**Purpose:** **Purpose:** Reads and returns the number of healthy men of tier value held by the this instance.
+**Purpose:** Reads and returns the number of healthy men of tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -183,7 +183,7 @@ var result = partyBase.GetNumberOfHealthyMenOfTier(0);
 ### CalculateCurrentStrength
 `public float CalculateCurrentStrength()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of current strength.
+**Purpose:** Calculates the current value or result of current strength.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -194,7 +194,7 @@ var result = partyBase.CalculateCurrentStrength();
 ### GetCustomStrength
 `public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** **Purpose:** Reads and returns the custom strength value held by the this instance.
+**Purpose:** Reads and returns the custom strength value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -205,7 +205,7 @@ var result = partyBase.GetCustomStrength(side, context);
 ### GetShipsVersion
 `public int GetShipsVersion()`
 
-**Purpose:** **Purpose:** Reads and returns the ships version value held by the this instance.
+**Purpose:** Reads and returns the ships version value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -216,7 +216,7 @@ var result = partyBase.GetShipsVersion();
 ### GetNumberOfMenWith
 `public int GetNumberOfMenWith(TraitObject trait)`
 
-**Purpose:** **Purpose:** Reads and returns the number of men with value held by the this instance.
+**Purpose:** Reads and returns the number of men with value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -227,7 +227,7 @@ var result = partyBase.GetNumberOfMenWith(trait);
 ### AddPrisoner
 `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**Purpose:** **Purpose:** Adds prisoner to the current collection or state.
+**Purpose:** Adds prisoner to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -238,7 +238,7 @@ var result = partyBase.AddPrisoner(element, 0);
 ### AddMember
 `public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)`
 
-**Purpose:** **Purpose:** Adds member to the current collection or state.
+**Purpose:** Adds member to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -249,7 +249,7 @@ var result = partyBase.AddMember(element, 0, 0);
 ### AddPrisoners
 `public void AddPrisoners(TroopRoster roster)`
 
-**Purpose:** **Purpose:** Adds prisoners to the current collection or state.
+**Purpose:** Adds prisoners to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -260,7 +260,7 @@ partyBase.AddPrisoners(roster);
 ### AddMembers
 `public void AddMembers(TroopRoster roster)`
 
-**Purpose:** **Purpose:** Adds members to the current collection or state.
+**Purpose:** Adds members to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -271,7 +271,7 @@ partyBase.AddMembers(roster);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -282,7 +282,7 @@ var result = partyBase.ToString();
 ### AddElementToMemberRoster
 `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
 
-**Purpose:** **Purpose:** Adds element to member roster to the current collection or state.
+**Purpose:** Adds element to member roster to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -293,7 +293,7 @@ var result = partyBase.AddElementToMemberRoster(element, 0, false);
 ### AddToMemberRosterElementAtIndex
 `public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)`
 
-**Purpose:** **Purpose:** Adds to member roster element at index to the current collection or state.
+**Purpose:** Adds to member roster element at index to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -304,7 +304,7 @@ partyBase.AddToMemberRosterElementAtIndex(0, 0, 0);
 ### WoundMemberRosterElements
 `public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
 
-**Purpose:** **Purpose:** Executes the WoundMemberRosterElements logic.
+**Purpose:** Executes the WoundMemberRosterElements logic.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -315,7 +315,7 @@ partyBase.WoundMemberRosterElements(elementObj, 0);
 ### WoundMemberRosterElementsWithIndex
 `public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
 
-**Purpose:** **Purpose:** Executes the WoundMemberRosterElementsWithIndex logic.
+**Purpose:** Executes the WoundMemberRosterElementsWithIndex logic.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -326,7 +326,7 @@ partyBase.WoundMemberRosterElementsWithIndex(0, 0);
 ### UpdateVisibilityAndInspected
 `public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of visibility and inspected.
+**Purpose:** Recalculates and stores the latest representation of visibility and inspected.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -337,7 +337,7 @@ partyBase.UpdateVisibilityAndInspected(fromPosition, 0);
 ### SetAsCameraFollowParty
 `public void SetAsCameraFollowParty()`
 
-**Purpose:** **Purpose:** Assigns a new value to as camera follow party and updates the object's internal state.
+**Purpose:** Assigns a new value to as camera follow party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -348,7 +348,7 @@ partyBase.SetAsCameraFollowParty();
 ### SetVisualAsDirty
 `public void SetVisualAsDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to visual as dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to visual as dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first
@@ -359,7 +359,7 @@ partyBase.SetVisualAsDirty();
 ### OnVisualsUpdated
 `public void OnVisualsUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the visuals updated event is raised.
+**Purpose:** Invoked when the visuals updated event is raised.
 
 ```csharp
 // Obtain an instance of PartyBase from the subsystem API first

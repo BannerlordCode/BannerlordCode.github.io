@@ -23,7 +23,7 @@ description: "LocalizedVoiceManager 的自动生成类参考。"
 ### GetLocalizedVoice
 `public static VoiceObject GetLocalizedVoice(string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 localized voice 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 localized voice 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ LocalizedVoiceManager.GetLocalizedVoice("example");
 ### GetVoiceLanguageIds
 `public static List<string> GetVoiceLanguageIds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 voice language ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 voice language ids 的结果。
 
 ```csharp
 // 静态调用，不需要实例

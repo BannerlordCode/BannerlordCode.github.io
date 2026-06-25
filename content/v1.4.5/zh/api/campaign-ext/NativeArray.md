@@ -23,7 +23,7 @@ description: "NativeArray 的自动生成类参考。"
 ### Create
 `public static NativeArray Create()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ NativeArray.Create();
 ### AddElement
 `public void AddElement(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 element 添加到当前容器或状态中。
+**用途 / Purpose:** 将 element 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeArray 实例
@@ -44,7 +44,7 @@ nativeArray.AddElement(0);
 ### AddElement
 `public void AddElement(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 element 添加到当前容器或状态中。
+**用途 / Purpose:** 将 element 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeArray 实例
@@ -55,7 +55,7 @@ nativeArray.AddElement(0);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeArray 实例

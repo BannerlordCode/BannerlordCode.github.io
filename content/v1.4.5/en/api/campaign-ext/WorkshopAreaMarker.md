@@ -29,7 +29,7 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### GetWorkshop
 `public Workshop GetWorkshop()`
 
-**Purpose:** **Purpose:** Reads and returns the workshop value held by the this instance.
+**Purpose:** Reads and returns the workshop value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopAreaMarker from the subsystem API first
@@ -40,7 +40,7 @@ var result = workshopAreaMarker.GetWorkshop();
 ### GetWorkshopType
 `public WorkshopType GetWorkshopType()`
 
-**Purpose:** **Purpose:** Reads and returns the workshop type value held by the this instance.
+**Purpose:** Reads and returns the workshop type value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopAreaMarker from the subsystem API first
@@ -51,7 +51,7 @@ var result = workshopAreaMarker.GetWorkshopType();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopAreaMarker from the subsystem API first

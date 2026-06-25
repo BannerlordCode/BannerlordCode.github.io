@@ -23,7 +23,7 @@ Treat `MultiplayerPlayerContextMenuHelper` as a Helper-style extension point: fi
 ### AddLobbyViewProfileOptions
 `public static void AddLobbyViewProfileOptions(MPLobbyPlayerBaseVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**Purpose:** **Purpose:** Adds lobby view profile options to the current collection or state.
+**Purpose:** Adds lobby view profile options to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerPlayerContextMenuHelper.AddLobbyViewProfileOptions(player, contextMen
 ### AddMissionViewProfileOptions
 `public static void AddMissionViewProfileOptions(MPPlayerVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**Purpose:** **Purpose:** Adds mission view profile options to the current collection or state.
+**Purpose:** Adds mission view profile options to the current collection or state.
 
 ```csharp
 // Static call; no instance required

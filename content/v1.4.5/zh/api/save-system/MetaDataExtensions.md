@@ -23,7 +23,7 @@ description: "MetaDataExtensions 的自动生成类参考。"
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 application version 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 application version 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MetaDataExtensions.GetApplicationVersion(metaData);
 ### GetNewGameVersion
 `public static ApplicationVersion GetNewGameVersion(this MetaData metaData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 new game version 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 new game version 的结果。
 
 ```csharp
 // 静态调用，不需要实例

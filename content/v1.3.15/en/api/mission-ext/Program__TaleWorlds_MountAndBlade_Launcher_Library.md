@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### NativeMain
 `public static void NativeMain(string commandLine)`
 
-**Purpose:** **Purpose:** Executes the NativeMain logic.
+**Purpose:** Executes the NativeMain logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Program.NativeMain("example");
 ### Main
 `public static void Main(string args)`
 
-**Purpose:** **Purpose:** Executes the Main logic.
+**Purpose:** Executes the Main logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Program.Main("example");
 ### StartGame
 `public static void StartGame()`
 
-**Purpose:** **Purpose:** Starts the game flow or state machine.
+**Purpose:** Starts the game flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Program.StartGame();
 ### StartDigitalCompanion
 `public static void StartDigitalCompanion()`
 
-**Purpose:** **Purpose:** Starts the digital companion flow or state machine.
+**Purpose:** Starts the digital companion flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ Program.StartDigitalCompanion();
 ### IsDigitalCompanionAvailable
 `public static bool IsDigitalCompanionAvailable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the digital companion available state or condition.
+**Purpose:** Determines whether the this instance is in the digital companion available state or condition.
 
 ```csharp
 // Static call; no instance required

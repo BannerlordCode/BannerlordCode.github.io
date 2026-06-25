@@ -30,7 +30,7 @@ description: "FormationDeploymentOrder 的自动生成类参考。"
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationDeploymentOrder 实例
@@ -41,7 +41,7 @@ var result = formationDeploymentOrder.Compare(a, b);
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment order 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment order 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 ### GetComparer
 `public static DeploymentOrderComparer GetComparer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 comparer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 comparer 的结果。
 
 ```csharp
 // 静态调用，不需要实例

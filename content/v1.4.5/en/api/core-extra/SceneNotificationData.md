@@ -44,7 +44,7 @@ Treat `SceneNotificationData` as a Data-style extension point: first identify wh
 ### SceneNotificationCharacter
 `public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
 
-**Purpose:** **Purpose:** Executes the SceneNotificationCharacter logic.
+**Purpose:** Executes the SceneNotificationCharacter logic.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -55,7 +55,7 @@ var result = sceneNotificationData.SceneNotificationCharacter(character, null, d
 ### SceneNotificationShip
 `public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
 
-**Purpose:** **Purpose:** Executes the SceneNotificationShip logic.
+**Purpose:** Executes the SceneNotificationShip logic.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -66,7 +66,7 @@ var result = sceneNotificationData.SceneNotificationShip("example", shipUpgrades
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
 
-**Purpose:** **Purpose:** Invoked when the affirmative action event is raised.
+**Purpose:** Invoked when the affirmative action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -77,7 +77,7 @@ sceneNotificationData.OnAffirmativeAction();
 ### OnNegativeAction
 `public virtual void OnNegativeAction()`
 
-**Purpose:** **Purpose:** Invoked when the negative action event is raised.
+**Purpose:** Invoked when the negative action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -88,7 +88,7 @@ sceneNotificationData.OnNegativeAction();
 ### OnCloseAction
 `public virtual void OnCloseAction()`
 
-**Purpose:** **Purpose:** Invoked when the close action event is raised.
+**Purpose:** Invoked when the close action event is raised.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -99,7 +99,7 @@ sceneNotificationData.OnCloseAction();
 ### GetBanners
 `public virtual Banner GetBanners()`
 
-**Purpose:** **Purpose:** Reads and returns the banners value held by the this instance.
+**Purpose:** Reads and returns the banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -110,7 +110,7 @@ var result = sceneNotificationData.GetBanners();
 ### GetSceneNotificationCharacters
 `public virtual SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
+**Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first
@@ -121,7 +121,7 @@ var result = sceneNotificationData.GetSceneNotificationCharacters();
 ### GetShips
 `public virtual SceneNotificationShip GetShips()`
 
-**Purpose:** **Purpose:** Reads and returns the ships value held by the this instance.
+**Purpose:** Reads and returns the ships value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneNotificationData from the subsystem API first

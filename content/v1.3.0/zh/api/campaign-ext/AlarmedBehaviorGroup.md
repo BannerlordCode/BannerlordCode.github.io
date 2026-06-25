@@ -29,7 +29,7 @@ description: "AlarmedBehaviorGroup 的自动生成类参考。"
 ### SetCanMoveWhenCautious
 `public void SetCanMoveWhenCautious(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 can move when cautious 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 can move when cautious 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -40,7 +40,7 @@ alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
 ### AddIgnoredAgentsForAlarm
 `public void AddIgnoredAgentsForAlarm(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 ignored agents for alarm 添加到当前容器或状态中。
+**用途 / Purpose:** 将 ignored agents for alarm 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -51,7 +51,7 @@ alarmedBehaviorGroup.AddIgnoredAgentsForAlarm(agent);
 ### GetVisualFactor
 `public float GetVisualFactor(Vec3 usedGlobalLookDirection, Agent currentAgent, ref bool hasVisualOnCorpse, ref bool hasVisualOnEnemy)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -62,7 +62,7 @@ var result = alarmedBehaviorGroup.GetVisualFactor(usedGlobalLookDirection, curre
 ### ResetAlarmFactor
 `public void ResetAlarmFactor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 alarm factor 重置回默认或初始状态。
+**用途 / Purpose:** 将 alarm factor 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -73,7 +73,7 @@ alarmedBehaviorGroup.ResetAlarmFactor();
 ### AddAlarmFactor
 `public void AddAlarmFactor(float addedAlarmFactor, in WorldPosition suspiciousPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 alarm factor 添加到当前容器或状态中。
+**用途 / Purpose:** 将 alarm factor 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -84,7 +84,7 @@ alarmedBehaviorGroup.AddAlarmFactor(0, suspiciousPosition);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -95,7 +95,7 @@ alarmedBehaviorGroup.Tick(0, false);
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -106,7 +106,7 @@ var result = alarmedBehaviorGroup.GetScore(false);
 ### GetClosestAlarmSource
 `public Agent GetClosestAlarmSource(out float distanceSquared)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest alarm source 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 closest alarm source 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -117,7 +117,7 @@ var result = alarmedBehaviorGroup.GetClosestAlarmSource(distanceSquared);
 ### AlarmAgent
 `public static void AlarmAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AlarmAgent 对应的操作。
+**用途 / Purpose:** 调用 AlarmAgent 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -127,7 +127,7 @@ AlarmedBehaviorGroup.AlarmAgent(agent);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
@@ -138,7 +138,7 @@ alarmedBehaviorGroup.OnAgentRemoved(agent);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceThink 对应的操作。
+**用途 / Purpose:** 调用 ForceThink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例

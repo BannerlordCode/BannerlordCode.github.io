@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -49,7 +49,7 @@ var result = mapEventParty.ToString();
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -60,7 +60,7 @@ mapEventParty.Update();
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop killed event is raised.
+**Purpose:** Invoked when the troop killed event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -71,7 +71,7 @@ mapEventParty.OnTroopKilled(troopSeed);
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop wounded event is raised.
+**Purpose:** Invoked when the troop wounded event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -82,7 +82,7 @@ mapEventParty.OnTroopWounded(troopSeed);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop routed event is raised.
+**Purpose:** Invoked when the troop routed event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -93,7 +93,7 @@ mapEventParty.OnTroopRouted(troopSeed);
 ### OnShipSunk
 `public void OnShipSunk(Ship ship)`
 
-**Purpose:** **Purpose:** Invoked when the ship sunk event is raised.
+**Purpose:** Invoked when the ship sunk event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -104,7 +104,7 @@ mapEventParty.OnShipSunk(ship);
 ### OnShipDamaged
 `public void OnShipDamaged(Ship ship, SiegeEngineType siegeEngine, int damage)`
 
-**Purpose:** **Purpose:** Invoked when the ship damaged event is raised.
+**Purpose:** Invoked when the ship damaged event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -115,7 +115,7 @@ mapEventParty.OnShipDamaged(ship, siegeEngine, 0);
 ### OnShipScoreHit
 `public void OnShipScoreHit(Ship ship, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
 
-**Purpose:** **Purpose:** Invoked when the ship score hit event is raised.
+**Purpose:** Invoked when the ship score hit event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -126,7 +126,7 @@ mapEventParty.OnShipScoreHit(ship, struckShip, siegeEngine, 0, false);
 ### GetTroop
 `public CharacterObject GetTroop(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Reads and returns the troop value held by the this instance.
+**Purpose:** Reads and returns the troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -137,7 +137,7 @@ var result = mapEventParty.GetTroop(troopSeed);
 ### GetTroopState
 `public RosterTroopState GetTroopState(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Reads and returns the troop state value held by the this instance.
+**Purpose:** Reads and returns the troop state value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -148,7 +148,7 @@ var result = mapEventParty.GetTroopState(troopSeed);
 ### OnRoundEnd
 `public void OnRoundEnd(MapEventSide partySide, BattleSideEnum roundWinner)`
 
-**Purpose:** **Purpose:** Invoked when the round end event is raised.
+**Purpose:** Invoked when the round end event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -159,7 +159,7 @@ mapEventParty.OnRoundEnd(partySide, roundWinner);
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor attackerTroopDesc, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
 
-**Purpose:** **Purpose:** Invoked when the troop score hit event is raised.
+**Purpose:** Invoked when the troop score hit event is raised.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first
@@ -170,7 +170,7 @@ mapEventParty.OnTroopScoreHit(attackerTroopDesc, attackedTroop, 0, false, false,
 ### SetRenownInfluenceAndMoraleOnBattleEnd
 `public void SetRenownInfluenceAndMoraleOnBattleEnd(ExplainedNumber renown, ExplainedNumber influence, ExplainedNumber morale)`
 
-**Purpose:** **Purpose:** Assigns a new value to renown influence and morale on battle end and updates the object's internal state.
+**Purpose:** Assigns a new value to renown influence and morale on battle end and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapEventParty from the subsystem API first

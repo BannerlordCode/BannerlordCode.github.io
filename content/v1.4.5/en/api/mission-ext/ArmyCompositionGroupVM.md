@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
@@ -47,7 +47,7 @@ armyCompositionGroupVM.RefreshValues();
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject selectedCulture)`
 
-**Purpose:** **Purpose:** Assigns a new value to current selected culture and updates the object's internal state.
+**Purpose:** Assigns a new value to current selected culture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
@@ -58,7 +58,7 @@ armyCompositionGroupVM.SetCurrentSelectedCulture(selectedCulture);
 ### ExecuteRandomize
 `public void ExecuteRandomize(ArmyCompositionGroupVM oppositeSide = null)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
+**Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
@@ -69,7 +69,7 @@ armyCompositionGroupVM.ExecuteRandomize(null);
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**Purpose:** **Purpose:** Invoked when the player type change event is raised.
+**Purpose:** Invoked when the player type change event is raised.
 
 ```csharp
 // Obtain an instance of ArmyCompositionGroupVM from the subsystem API first

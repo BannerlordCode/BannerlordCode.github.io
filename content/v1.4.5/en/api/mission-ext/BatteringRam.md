@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** **Purpose:** Reads the data or state of from network.
+**Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -46,7 +46,7 @@ var result = batteringRam.ReadFromNetwork(bufferReadValid);
 ### HasCompletedAction
 `public bool HasCompletedAction()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds completed action.
+**Purpose:** Determines whether the this instance already holds completed action.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -57,7 +57,7 @@ var result = batteringRam.HasCompletedAction();
 ### Disable
 `public override void Disable()`
 
-**Purpose:** **Purpose:** Executes the Disable logic.
+**Purpose:** Executes the Disable logic.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -68,7 +68,7 @@ batteringRam.Disable();
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
+**Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -79,7 +79,7 @@ var result = batteringRam.GetSiegeEngineType();
 ### GetInitialFrame
 `public MatrixFrame GetInitialFrame()`
 
-**Purpose:** **Purpose:** Reads and returns the initial frame value held by the this instance.
+**Purpose:** Reads and returns the initial frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -90,7 +90,7 @@ var result = batteringRam.GetInitialFrame();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -101,7 +101,7 @@ var result = batteringRam.GetTickRequirement();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -112,7 +112,7 @@ var result = batteringRam.CreateAIBehaviorObject();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** **Purpose:** Writes to network to the target location.
+**Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -123,7 +123,7 @@ batteringRam.WriteToNetwork();
 ### HighlightPath
 `public void HighlightPath()`
 
-**Purpose:** **Purpose:** Executes the HighlightPath logic.
+**Purpose:** Executes the HighlightPath logic.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -134,7 +134,7 @@ batteringRam.HighlightPath();
 ### SwitchGhostEntityMovementMode
 `public void SwitchGhostEntityMovementMode(bool isGhostEnabled)`
 
-**Purpose:** **Purpose:** Executes the SwitchGhostEntityMovementMode logic.
+**Purpose:** Executes the SwitchGhostEntityMovementMode logic.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -145,7 +145,7 @@ batteringRam.SwitchGhostEntityMovementMode(false);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -156,7 +156,7 @@ var result = batteringRam.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -167,7 +167,7 @@ var result = batteringRam.GetActionTextForStandingPoint(usableGameObject);
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
+**Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -178,7 +178,7 @@ var result = batteringRam.GetOrder(side);
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** **Purpose:** Reads and returns the target flags value held by the this instance.
+**Purpose:** Reads and returns the target flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -189,7 +189,7 @@ var result = batteringRam.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** **Purpose:** Reads and returns the target value value held by the this instance.
+**Purpose:** Reads and returns the target value value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -200,7 +200,7 @@ var result = batteringRam.GetTargetValue(weaponPos);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** **Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
+**Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -211,7 +211,7 @@ batteringRam.SetSpawnedFromSpawner();
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string gateTag, string sideTag, int bridgeNavMeshID1, int bridgeNavMeshID2, int ditchNavMeshID1, int ditchNavMeshID2, int groundToBridgeNavMeshID1, int groundToBridgeNavMeshID2, string pathEntityName)`
 
-**Purpose:** **Purpose:** Executes the AssignParametersFromSpawner logic.
+**Purpose:** Executes the AssignParametersFromSpawner logic.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -222,7 +222,7 @@ batteringRam.AssignParametersFromSpawner("example", "example", 0, 0, 0, 0, 0, 0,
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** **Purpose:** Invoked when the after read from network event is raised.
+**Purpose:** Invoked when the after read from network event is raised.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first
@@ -233,7 +233,7 @@ batteringRam.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, syn
 ### GetNavmeshFaceIds
 `public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
 
-**Purpose:** **Purpose:** Reads and returns the navmesh face ids value held by the this instance.
+**Purpose:** Reads and returns the navmesh face ids value held by the this instance.
 
 ```csharp
 // Obtain an instance of BatteringRam from the subsystem API first

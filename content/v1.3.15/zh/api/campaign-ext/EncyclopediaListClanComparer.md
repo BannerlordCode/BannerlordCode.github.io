@@ -23,7 +23,7 @@ description: "EncyclopediaListClanComparer 的自动生成类参考。"
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较两个clans对象并返回大小/顺序结果。
+**用途 / Purpose:** 比较两个clans对象并返回大小/顺序结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListClanComparer 实例

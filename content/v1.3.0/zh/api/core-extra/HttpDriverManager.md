@@ -23,7 +23,7 @@ description: "HttpDriverManager 的自动生成类参考。"
 ### AddHttpDriver
 `public static void AddHttpDriver(string name, IHttpDriver driver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 http driver 添加到当前容器或状态中。
+**用途 / Purpose:** 将 http driver 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ HttpDriverManager.AddHttpDriver("example", driver);
 ### SetDefault
 `public static void SetDefault(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 default 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ HttpDriverManager.SetDefault("example");
 ### GetHttpDriver
 `public static IHttpDriver GetHttpDriver(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 http driver 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 http driver 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ HttpDriverManager.GetHttpDriver("example");
 ### GetDefaultHttpDriver
 `public static IHttpDriver GetDefaultHttpDriver()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default http driver 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default http driver 的结果。
 
 ```csharp
 // 静态调用，不需要实例

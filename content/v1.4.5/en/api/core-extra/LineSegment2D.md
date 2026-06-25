@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### LineSegment2D
 `public struct LineSegment2D(Vec2 point1, Vec2 point2)`
 
-**Purpose:** **Purpose:** Executes the LineSegment2D logic.
+**Purpose:** Executes the LineSegment2D logic.
 
 ```csharp
 // Obtain an instance of LineSegment2D from the subsystem API first

@@ -23,7 +23,7 @@ Treat `FontData` as a Data-style extension point: first identify who creates it,
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**Purpose:** **Purpose:** Executes the FontData logic.
+**Purpose:** Executes the FontData logic.
 
 ```csharp
 // Obtain an instance of FontData from the subsystem API first

@@ -29,7 +29,7 @@ description: "PsaiMusicEntity 的自动生成类参考。"
 ### GetClassString
 `public abstract string GetClassString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 class string 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 class string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -40,7 +40,7 @@ var result = psaiMusicEntity.GetClassString();
 ### GetCompatibilitySetting
 `public abstract CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compatibility setting 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 compatibility setting 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -51,7 +51,7 @@ var result = psaiMusicEntity.GetCompatibilitySetting(targetEntity);
 ### GetCompatibilityType
 `public abstract CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compatibility type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 compatibility type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -62,7 +62,7 @@ var result = psaiMusicEntity.GetCompatibilityType(targetEntity, reason);
 ### GetParent
 `public abstract PsaiMusicEntity GetParent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 parent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -73,7 +73,7 @@ var result = psaiMusicEntity.GetParent();
 ### GetChildren
 `public abstract List<PsaiMusicEntity> GetChildren()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 children 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 children 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -84,7 +84,7 @@ var result = psaiMusicEntity.GetChildren();
 ### GetIndexPositionWithinParentEntity
 `public abstract int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index position within parent entity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 index position within parent entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -95,7 +95,7 @@ var result = psaiMusicEntity.GetIndexPositionWithinParentEntity(parentProject);
 ### Clone
 `public virtual object Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -106,7 +106,7 @@ var result = psaiMusicEntity.Clone();
 ### ShallowCopy
 `public virtual PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShallowCopy 对应的操作。
+**用途 / Purpose:** 调用 ShallowCopy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -117,7 +117,7 @@ var result = psaiMusicEntity.ShallowCopy();
 ### PropertyDifferencesAffectCompatibilities
 `public virtual bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyDifferencesAffectCompatibilities 对应的操作。
+**用途 / Purpose:** 调用 PropertyDifferencesAffectCompatibilities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -128,7 +128,7 @@ var result = psaiMusicEntity.PropertyDifferencesAffectCompatibilities(otherEntit
 ### GetTheme
 `public Theme GetTheme()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 theme 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 theme 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例

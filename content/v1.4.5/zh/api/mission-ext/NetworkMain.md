@@ -31,7 +31,7 @@ description: "NetworkMain 的自动生成类参考。"
 ### SetPeers
 `public static void SetPeers(LobbyClient gameClient, CommunityClient communityClient, CustomBattleServer customBattleServer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 peers 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 peers 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

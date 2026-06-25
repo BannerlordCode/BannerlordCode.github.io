@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### AddExtension
 `public void AddExtension(PrefabExtension prefabExtension)`
 
-**Purpose:** **Purpose:** Adds extension to the current collection or state.
+**Purpose:** Adds extension to the current collection or state.
 
 ```csharp
 // Obtain an instance of PrefabExtensionContext from the subsystem API first

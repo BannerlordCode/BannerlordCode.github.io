@@ -23,7 +23,7 @@ Treat `HeroRelatedIssueCoolDownData` as a Data-style extension point: first iden
 ### IsRelatedTo
 `public override bool IsRelatedTo(object obj)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the related to state or condition.
+**Purpose:** Determines whether the this instance is in the related to state or condition.
 
 ```csharp
 // Obtain an instance of HeroRelatedIssueCoolDownData from the subsystem API first
@@ -34,7 +34,7 @@ var result = heroRelatedIssueCoolDownData.IsRelatedTo(obj);
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of HeroRelatedIssueCoolDownData from the subsystem API first

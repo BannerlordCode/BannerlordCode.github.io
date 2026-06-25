@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetMinUvs
 `public abstract Vec2 GetMinUvs()`
 
-**Purpose:** **Purpose:** Reads and returns the min uvs value held by the this instance.
+**Purpose:** Reads and returns the min uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of Sprite from the subsystem API first
@@ -44,7 +44,7 @@ var result = sprite.GetMinUvs();
 ### GetMaxUvs
 `public abstract Vec2 GetMaxUvs()`
 
-**Purpose:** **Purpose:** Reads and returns the max uvs value held by the this instance.
+**Purpose:** Reads and returns the max uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of Sprite from the subsystem API first
@@ -55,7 +55,7 @@ var result = sprite.GetMaxUvs();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Sprite from the subsystem API first

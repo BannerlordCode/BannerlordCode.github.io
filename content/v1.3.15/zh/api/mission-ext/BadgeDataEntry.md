@@ -32,7 +32,7 @@ description: "BadgeDataEntry 的自动生成类参考。"
 ### ToDictionary
 `public static Dictionary<ValueTuple<PlayerId, string, string>, int> ToDictionary(List<BadgeDataEntry> entries)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToDictionary 对应的操作。
+**用途 / Purpose:** 调用 ToDictionary 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ BadgeDataEntry.ToDictionary(entries);
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<ValueTuple<PlayerId, string, string>, int> dictionary)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToList 对应的操作。
+**用途 / Purpose:** 调用 ToList 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

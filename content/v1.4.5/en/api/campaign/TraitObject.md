@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, bool isHidden, int minValue, int maxValue)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TraitObject from the subsystem API first

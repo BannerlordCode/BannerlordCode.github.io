@@ -23,7 +23,7 @@ description: "ParallaxContainerWidget 的自动生成类参考。"
 ### ParallaxContainerWidget
 `public class ParallaxContainerWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ParallaxContainerWidget 对应的操作。
+**用途 / Purpose:** 调用 ParallaxContainerWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ParallaxContainerWidget 实例

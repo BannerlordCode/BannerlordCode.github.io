@@ -30,7 +30,7 @@ description: "PermaMuteList 的自动生成类参考。"
 ### SetPermanentMuteAvailableCallback
 `public static void SetPermanentMuteAvailableCallback(Func<bool> getPermanentMuteAvailable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 permanent mute available callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 permanent mute available callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
 ### LoadMutedPlayers
 `public static Task LoadMutedPlayers(PlayerId currentPlayerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 muted players。
+**用途 / Purpose:** 从持久化存储或流中读取 muted players。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ PermaMuteList.LoadMutedPlayers(currentPlayerId);
 ### SaveMutedPlayers
 `public static void SaveMutedPlayers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 muted players 写入持久化存储或流中。
+**用途 / Purpose:** 将 muted players 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ PermaMuteList.SaveMutedPlayers();
 ### IsPlayerMuted
 `public static bool IsPlayerMuted(PlayerId player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player muted 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player muted 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ PermaMuteList.IsPlayerMuted(player);
 ### MutePlayer
 `public static void MutePlayer(PlayerId player, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MutePlayer 对应的操作。
+**用途 / Purpose:** 调用 MutePlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ PermaMuteList.MutePlayer(player, "example");
 ### RemoveMutedPlayer
 `public static void RemoveMutedPlayer(PlayerId player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 muted player。
+**用途 / Purpose:** 从当前容器或状态中移除 muted player。
 
 ```csharp
 // 静态调用，不需要实例

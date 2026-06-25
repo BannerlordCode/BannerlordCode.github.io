@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDrivenPropertyBonusOnSpawn
 `public override float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** **Purpose:** Reads and returns the driven property bonus on spawn value held by the this instance.
+**Purpose:** Reads and returns the driven property bonus on spawn value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArmorEffect from the subsystem API first

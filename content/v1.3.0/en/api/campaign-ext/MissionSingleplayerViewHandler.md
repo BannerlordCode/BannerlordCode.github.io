@@ -23,7 +23,7 @@ Treat `MissionSingleplayerViewHandler` as a Handler-style extension point: first
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionSingleplayerViewHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionSingleplayerViewHandler.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionSingleplayerViewHandler from the subsystem API first

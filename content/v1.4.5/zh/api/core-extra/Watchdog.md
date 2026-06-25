@@ -23,7 +23,7 @@ description: "Watchdog 的自动生成类参考。"
 ### SetDumpDirectory
 `public static void SetDumpDirectory(string Path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dump directory 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dump directory 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Watchdog.SetDumpDirectory("example");
 ### DetachAndClose
 `public static void DetachAndClose()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DetachAndClose 对应的操作。
+**用途 / Purpose:** 调用 DetachAndClose 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Watchdog.DetachAndClose();
 ### LogProperty
 `public static void LogProperty(string FileName, string GroupName, string Key, string Value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LogProperty 对应的操作。
+**用途 / Purpose:** 调用 LogProperty 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Watchdog.LogProperty("example", "example", "example", "example");
 ### Attached
 `public static bool Attached()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Attached 对应的操作。
+**用途 / Purpose:** 调用 Attached 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

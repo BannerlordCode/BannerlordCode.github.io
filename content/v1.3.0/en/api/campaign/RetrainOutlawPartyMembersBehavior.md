@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RetrainOutlawPartyMembersBehavior from the subsystem API first
@@ -34,7 +34,7 @@ retrainOutlawPartyMembersBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RetrainOutlawPartyMembersBehavior from the subsystem API first
@@ -45,7 +45,7 @@ retrainOutlawPartyMembersBehavior.SyncData(dataStore);
 ### GetRetrainedNumber
 `public int GetRetrainedNumber(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the retrained number value held by the this instance.
+**Purpose:** Reads and returns the retrained number value held by the this instance.
 
 ```csharp
 // Obtain an instance of RetrainOutlawPartyMembersBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = retrainOutlawPartyMembersBehavior.GetRetrainedNumber(character);
 ### SetRetrainedNumber
 `public void SetRetrainedNumber(CharacterObject character, int number)`
 
-**Purpose:** **Purpose:** Assigns a new value to retrained number and updates the object's internal state.
+**Purpose:** Assigns a new value to retrained number and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RetrainOutlawPartyMembersBehavior from the subsystem API first

@@ -36,7 +36,7 @@ description: "SpriteCategory 的自动生成类参考。"
 ### Compare
 `public int Compare(SpritePart x, SpritePart y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -47,7 +47,7 @@ var result = spriteCategory.Compare(x, y);
 ### Load
 `public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -58,7 +58,7 @@ spriteCategory.Load(resourceContext, resourceDepot);
 ### Unload
 `public void Unload()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Unload 对应的操作。
+**用途 / Purpose:** 调用 Unload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -69,7 +69,7 @@ spriteCategory.Unload();
 ### Reload
 `public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Reload 对应的操作。
+**用途 / Purpose:** 调用 Reload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -80,7 +80,7 @@ spriteCategory.Reload(resourceContext, resourceDepot, newCategoryInfo);
 ### InitializePartialLoad
 `public void InitializePartialLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 partial load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 partial load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -91,7 +91,7 @@ spriteCategory.InitializePartialLoad();
 ### ReleasePartialLoad
 `public void ReleasePartialLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleasePartialLoad 对应的操作。
+**用途 / Purpose:** 调用 ReleasePartialLoad 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -102,7 +102,7 @@ spriteCategory.ReleasePartialLoad();
 ### PartialLoadAtIndex
 `public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PartialLoadAtIndex 对应的操作。
+**用途 / Purpose:** 调用 PartialLoadAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -113,7 +113,7 @@ spriteCategory.PartialLoadAtIndex(resourceContext, resourceDepot, 0);
 ### PartialUnloadAtIndex
 `public void PartialUnloadAtIndex(int sheetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PartialUnloadAtIndex 对应的操作。
+**用途 / Purpose:** 调用 PartialUnloadAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -124,7 +124,7 @@ spriteCategory.PartialUnloadAtIndex(0);
 ### SortList
 `public void SortList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SortList 对应的操作。
+**用途 / Purpose:** 调用 SortList 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -135,7 +135,7 @@ spriteCategory.SortList();
 ### IsCategoryFullyLoaded
 `public bool IsCategoryFullyLoaded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 category fully loaded 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 category fully loaded 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例

@@ -44,7 +44,7 @@ description: "GameType 的自动生成类参考。"
 ### OnStateChanged
 `public abstract void OnStateChanged(GameState oldState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 state changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameType 实例
@@ -55,7 +55,7 @@ gameType.OnStateChanged(oldState);
 ### DoLoadingForGameType
 `public bool DoLoadingForGameType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoLoadingForGameType 对应的操作。
+**用途 / Purpose:** 调用 DoLoadingForGameType 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameType 实例
@@ -66,7 +66,7 @@ var result = gameType.DoLoadingForGameType();
 ### OnDestroy
 `public abstract void OnDestroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 destroy 事件触发时调用此回调。
+**用途 / Purpose:** 在 destroy 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameType 实例
@@ -77,7 +77,7 @@ gameType.OnDestroy();
 ### OnMissionIsStarting
 `public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission is starting 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission is starting 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameType 实例
@@ -88,7 +88,7 @@ gameType.OnMissionIsStarting("example", rec);
 ### InitializeParameters
 `public virtual void InitializeParameters()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 parameters 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 parameters 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GameType 实例

@@ -32,7 +32,7 @@ Treat `BannerEditorView` as a View-style extension point: first identify who cre
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of BannerEditorView from the subsystem API first
@@ -43,7 +43,7 @@ bannerEditorView.OnTick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BannerEditorView from the subsystem API first
@@ -54,7 +54,7 @@ bannerEditorView.OnFinalize();
 ### Exit
 `public void Exit(bool isCancel)`
 
-**Purpose:** **Purpose:** Executes the Exit logic.
+**Purpose:** Executes the Exit logic.
 
 ```csharp
 // Obtain an instance of BannerEditorView from the subsystem API first
@@ -65,7 +65,7 @@ bannerEditorView.Exit(false);
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**Purpose:** **Purpose:** Invoked when the deactivate event is raised.
+**Purpose:** Invoked when the deactivate event is raised.
 
 ```csharp
 // Obtain an instance of BannerEditorView from the subsystem API first
@@ -76,7 +76,7 @@ bannerEditorView.OnDeactivate();
 ### GoToIndex
 `public void GoToIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the GoToIndex logic.
+**Purpose:** Executes the GoToIndex logic.
 
 ```csharp
 // Obtain an instance of BannerEditorView from the subsystem API first

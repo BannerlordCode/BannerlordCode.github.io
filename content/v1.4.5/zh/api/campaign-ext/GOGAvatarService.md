@@ -23,7 +23,7 @@ description: "GOGAvatarService 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGAvatarService 实例
@@ -34,7 +34,7 @@ gOGAvatarService.Initialize();
 ### ClearCache
 `public void ClearCache()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cache。
+**用途 / Purpose:** 清空当前对象中的cache。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGAvatarService 实例
@@ -45,7 +45,7 @@ gOGAvatarService.ClearCache();
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player avatar 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player avatar 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGAvatarService 实例
@@ -56,7 +56,7 @@ var result = gOGAvatarService.GetPlayerAvatar(playerId);
 ### IsInitialized
 `public bool IsInitialized()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 initialized 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 initialized 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGAvatarService 实例
@@ -67,7 +67,7 @@ var result = gOGAvatarService.IsInitialized();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGAvatarService 实例

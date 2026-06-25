@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPMatchmakingItemVM
 `public unsafe MPMatchmakingItemVM(MultiplayerGameType type)`
 
-**Purpose:** **Purpose:** Executes the MPMatchmakingItemVM logic.
+**Purpose:** Executes the MPMatchmakingItemVM logic.
 
 ```csharp
 // Obtain an instance of MPMatchmakingItemVM from the subsystem API first
@@ -43,7 +43,7 @@ var result = mPMatchmakingItemVM.MPMatchmakingItemVM(type);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingItemVM from the subsystem API first

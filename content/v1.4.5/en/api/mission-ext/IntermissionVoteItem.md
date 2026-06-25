@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetVoteCount
 `public void SetVoteCount(int voteCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to vote count and updates the object's internal state.
+**Purpose:** Assigns a new value to vote count and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of IntermissionVoteItem from the subsystem API first
@@ -40,7 +40,7 @@ intermissionVoteItem.SetVoteCount(0);
 ### IncreaseVoteCount
 `public void IncreaseVoteCount(int incrementAmount)`
 
-**Purpose:** **Purpose:** Executes the IncreaseVoteCount logic.
+**Purpose:** Executes the IncreaseVoteCount logic.
 
 ```csharp
 // Obtain an instance of IntermissionVoteItem from the subsystem API first

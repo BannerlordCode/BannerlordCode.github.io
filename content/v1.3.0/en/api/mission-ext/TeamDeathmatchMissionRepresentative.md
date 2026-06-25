@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** **Purpose:** Invoked when the agent spawned event is raised.
+**Purpose:** Invoked when the agent spawned event is raised.
 
 ```csharp
 // Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first
@@ -34,7 +34,7 @@ teamDeathmatchMissionRepresentative.OnAgentSpawned();
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**Purpose:** **Purpose:** Reads and returns the gold gains from kill data and update flags value held by the this instance.
+**Purpose:** Reads and returns the gold gains from kill data and update flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first
@@ -45,7 +45,7 @@ var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromKillDataAndUpda
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** **Purpose:** Reads and returns the gold gains from ally death reward value held by the this instance.
+**Purpose:** Reads and returns the gold gains from ally death reward value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first

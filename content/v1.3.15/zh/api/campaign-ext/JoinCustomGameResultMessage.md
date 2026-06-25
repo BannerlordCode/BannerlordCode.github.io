@@ -33,7 +33,7 @@ description: "JoinCustomGameResultMessage 的自动生成类参考。"
 ### CreateSuccess
 `public static JoinCustomGameResultMessage CreateSuccess(JoinGameData joinGameData, string matchId, bool isAdmin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 success 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 success 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
 ### CreateFailed
 `public static JoinCustomGameResultMessage CreateFailed(CustomGameJoinResponse response)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 failed 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 failed 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

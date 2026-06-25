@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### GetGold
 `public override int GetGold()`
 
-**Purpose:** **Purpose:** Reads and returns the gold value held by the this instance.
+**Purpose:** Reads and returns the gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of FakeInventoryListener from the subsystem API first
@@ -34,7 +34,7 @@ var result = fakeInventoryListener.GetGold();
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**Purpose:** **Purpose:** Reads and returns the trader name value held by the this instance.
+**Purpose:** Reads and returns the trader name value held by the this instance.
 
 ```csharp
 // Obtain an instance of FakeInventoryListener from the subsystem API first
@@ -45,7 +45,7 @@ var result = fakeInventoryListener.GetTraderName();
 ### SetGold
 `public override void SetGold(int gold)`
 
-**Purpose:** **Purpose:** Assigns a new value to gold and updates the object's internal state.
+**Purpose:** Assigns a new value to gold and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FakeInventoryListener from the subsystem API first
@@ -56,7 +56,7 @@ fakeInventoryListener.SetGold(0);
 ### OnTransaction
 `public override void OnTransaction()`
 
-**Purpose:** **Purpose:** Invoked when the transaction event is raised.
+**Purpose:** Invoked when the transaction event is raised.
 
 ```csharp
 // Obtain an instance of FakeInventoryListener from the subsystem API first
@@ -67,7 +67,7 @@ fakeInventoryListener.OnTransaction();
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**Purpose:** **Purpose:** Reads and returns the opposite party value held by the this instance.
+**Purpose:** Reads and returns the opposite party value held by the this instance.
 
 ```csharp
 // Obtain an instance of FakeInventoryListener from the subsystem API first

@@ -30,7 +30,7 @@ Treat `VassalRewardsModel` as a Model-style extension point: first identify who 
 ### GetTroopRewardsForJoiningKingdom
 `public abstract TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the troop rewards for joining kingdom value held by the this instance.
+**Purpose:** Reads and returns the troop rewards for joining kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of VassalRewardsModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = vassalRewardsModel.GetTroopRewardsForJoiningKingdom(kingdom);
 ### GetEquipmentRewardsForJoiningKingdom
 `public abstract ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment rewards for joining kingdom value held by the this instance.
+**Purpose:** Reads and returns the equipment rewards for joining kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of VassalRewardsModel from the subsystem API first

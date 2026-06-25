@@ -23,7 +23,7 @@ Treat `SandboxBattleBannerBearersModel` as a Model-style extension point: first 
 ### GetMinimumFormationTroopCountToBearBanners
 `public override int GetMinimumFormationTroopCountToBearBanners()`
 
-**Purpose:** **Purpose:** Reads and returns the minimum formation troop count to bear banners value held by the this instance.
+**Purpose:** Reads and returns the minimum formation troop count to bear banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = sandboxBattleBannerBearersModel.GetMinimumFormationTroopCountToBear
 ### GetBannerInteractionDistance
 `public override float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**Purpose:** **Purpose:** Reads and returns the banner interaction distance value held by the this instance.
+**Purpose:** Reads and returns the banner interaction distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = sandboxBattleBannerBearersModel.GetBannerInteractionDistance(intera
 ### CanBannerBearerProvideEffectToFormation
 `public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for banner bearer provide effect to formation.
+**Purpose:** Checks whether the this instance meets the preconditions for banner bearer provide effect to formation.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = sandboxBattleBannerBearersModel.CanBannerBearerProvideEffectToForma
 ### CanAgentPickUpAnyBanner
 `public override bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent pick up any banner.
+**Purpose:** Checks whether the this instance meets the preconditions for agent pick up any banner.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = sandboxBattleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
 ### CanAgentBecomeBannerBearer
 `public override bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent become banner bearer.
+**Purpose:** Checks whether the this instance meets the preconditions for agent become banner bearer.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = sandboxBattleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
 ### GetAgentBannerBearingPriority
 `public override int GetAgentBannerBearingPriority(Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the agent banner bearing priority value held by the this instance.
+**Purpose:** Reads and returns the agent banner bearing priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = sandboxBattleBannerBearersModel.GetAgentBannerBearingPriority(agent
 ### CanFormationDeployBannerBearers
 `public override bool CanFormationDeployBannerBearers(Formation formation)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for formation deploy banner bearers.
+**Purpose:** Checks whether the this instance meets the preconditions for formation deploy banner bearers.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = sandboxBattleBannerBearersModel.CanFormationDeployBannerBearers(for
 ### GetDesiredNumberOfBannerBearersForFormation
 `public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**Purpose:** **Purpose:** Reads and returns the desired number of banner bearers for formation value held by the this instance.
+**Purpose:** Reads and returns the desired number of banner bearers for formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = sandboxBattleBannerBearersModel.GetDesiredNumberOfBannerBearersForF
 ### GetBannerBearerReplacementWeapon
 `public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**Purpose:** **Purpose:** Reads and returns the banner bearer replacement weapon value held by the this instance.
+**Purpose:** Reads and returns the banner bearer replacement weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first

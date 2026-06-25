@@ -23,7 +23,7 @@ description: "TWParallel 的自动生成类参考。"
 ### InitializeAndSetImplementation
 `public static void InitializeAndSetImplementation(IParallelDriver parallelDriver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 and set implementation 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 and set implementation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TWParallel.InitializeAndSetImplementation(parallelDriver);
 ### For
 `public static void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TWParallel.For(0, 0, body, 0);
 ### For
 `public static void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TWParallel.For(0, 0, 0, body, 0);
 ### AssertIsMainThread
 `public static void AssertIsMainThread()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AssertIsMainThread 对应的操作。
+**用途 / Purpose:** 调用 AssertIsMainThread 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ TWParallel.AssertIsMainThread();
 ### IsMainThread
 `public static bool IsMainThread()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 main thread 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 main thread 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TWParallel.IsMainThread();
 ### ParallelForAuxPredicate
 `public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ParallelForAuxPredicate 对应的操作。
+**用途 / Purpose:** 调用 ParallelForAuxPredicate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWParallel 实例
@@ -84,7 +84,7 @@ tWParallel.ParallelForAuxPredicate(0, 0);
 ### ParallelForWithDtAuxPredicate
 `public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ParallelForWithDtAuxPredicate 对应的操作。
+**用途 / Purpose:** 调用 ParallelForWithDtAuxPredicate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWParallel 实例

@@ -29,7 +29,7 @@ description: "DefaultPartyWageModel 的自动生成类参考。"
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character wage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 character wage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyWageModel 实例
@@ -40,7 +40,7 @@ var result = defaultPartyWageModel.GetCharacterWage(character);
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total wage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total wage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyWageModel 实例
@@ -51,7 +51,7 @@ var result = defaultPartyWageModel.GetTotalWage(mobileParty, troopRoster, false)
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop recruitment cost 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop recruitment cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyWageModel 实例

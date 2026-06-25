@@ -29,7 +29,7 @@ Treat `FleetManagementModel` as a Model-style extension point: first identify wh
 ### CanTroopsReturn
 `public abstract bool CanTroopsReturn()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for troops return.
+**Purpose:** Checks whether the this instance meets the preconditions for troops return.
 
 ```csharp
 // Obtain an instance of FleetManagementModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = fleetManagementModel.CanTroopsReturn();
 ### GetReturnTimeForTroops
 `public abstract CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**Purpose:** **Purpose:** Reads and returns the return time for troops value held by the this instance.
+**Purpose:** Reads and returns the return time for troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of FleetManagementModel from the subsystem API first

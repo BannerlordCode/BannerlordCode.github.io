@@ -31,7 +31,7 @@ description: "EncyclopediaHomeVM 的自动生成类参考。"
 ### Refresh
 `public override void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaHomeVM 实例
@@ -42,7 +42,7 @@ encyclopediaHomeVM.Refresh();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaHomeVM 实例
@@ -53,7 +53,7 @@ encyclopediaHomeVM.RefreshValues();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaHomeVM 实例
@@ -64,7 +64,7 @@ var result = encyclopediaHomeVM.GetNavigationBarURL();
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaHomeVM 实例

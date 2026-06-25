@@ -34,7 +34,7 @@ description: "MBReadOnlyDictionary 的自动生成类参考。"
 ### GetEnumerator
 `public Dictionary<TKey, TValue>.Enumerator GetEnumerator()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 enumerator 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 enumerator 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
@@ -45,7 +45,7 @@ var result = mBReadOnlyDictionary.GetEnumerator();
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含key。
+**用途 / Purpose:** 检查当前对象是否含有key。
 
 ```csharp
 // 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
@@ -56,7 +56,7 @@ var result = mBReadOnlyDictionary.ContainsKey(key);
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get value 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get value 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
@@ -67,7 +67,7 @@ var result = mBReadOnlyDictionary.TryGetValue(key, value);
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的to状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的to状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBReadOnlyDictionary 实例

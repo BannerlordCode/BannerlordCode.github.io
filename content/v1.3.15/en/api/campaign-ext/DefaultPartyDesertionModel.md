@@ -23,7 +23,7 @@ Treat `DefaultPartyDesertionModel` as a Model-style extension point: first ident
 ### GetMoraleThresholdForTroopDesertion
 `public override int GetMoraleThresholdForTroopDesertion()`
 
-**Purpose:** **Purpose:** Reads and returns the morale threshold for troop desertion value held by the this instance.
+**Purpose:** Reads and returns the morale threshold for troop desertion value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyDesertionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyDesertionModel.GetMoraleThresholdForTroopDesertion();
 ### GetDesertionChanceForTroop
 `public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**Purpose:** **Purpose:** Reads and returns the desertion chance for troop value held by the this instance.
+**Purpose:** Reads and returns the desertion chance for troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyDesertionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyDesertionModel.GetDesertionChanceForTroop(mobileParty, 
 ### GetTroopsToDesert
 `public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the troops to desert value held by the this instance.
+**Purpose:** Reads and returns the troops to desert value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyDesertionModel from the subsystem API first

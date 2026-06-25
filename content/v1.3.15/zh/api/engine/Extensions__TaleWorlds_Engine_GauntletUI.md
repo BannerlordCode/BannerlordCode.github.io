@@ -23,7 +23,7 @@ description: "Extensions 的自动生成类参考。"
 ### Load
 `public static void Load(this SpriteCategory category)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 静态调用，不需要实例

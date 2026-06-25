@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
+**Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryJoinKingdomBarterable from the subsystem API first
@@ -40,7 +40,7 @@ var result = mercenaryJoinKingdomBarterable.GetUnitValueForFaction(faction);
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable linkedBarterable)`
 
-**Purpose:** **Purpose:** Verifies whether barter link holds true for the this instance.
+**Purpose:** Verifies whether barter link holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryJoinKingdomBarterable from the subsystem API first
@@ -51,7 +51,7 @@ mercenaryJoinKingdomBarterable.CheckBarterLink(linkedBarterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
+**Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryJoinKingdomBarterable from the subsystem API first
@@ -62,7 +62,7 @@ var result = mercenaryJoinKingdomBarterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia link value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia link value held by the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryJoinKingdomBarterable from the subsystem API first
@@ -73,7 +73,7 @@ var result = mercenaryJoinKingdomBarterable.GetEncyclopediaLink();
 ### Apply
 `public override void Apply()`
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of MercenaryJoinKingdomBarterable from the subsystem API first

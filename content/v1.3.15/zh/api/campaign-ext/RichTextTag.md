@@ -30,7 +30,7 @@ description: "RichTextTag 的自动生成类参考。"
 ### AddAtrribute
 `public void AddAtrribute(string key, string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 atrribute 添加到当前容器或状态中。
+**用途 / Purpose:** 将 atrribute 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 RichTextTag 实例
@@ -41,7 +41,7 @@ richTextTag.AddAtrribute("example", "example");
 ### GetAttribute
 `public string GetAttribute(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attribute 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 attribute 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RichTextTag 实例

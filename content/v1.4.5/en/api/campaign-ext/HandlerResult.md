@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful()`
 
-**Purpose:** **Purpose:** Constructs a new successful entity and returns it to the caller.
+**Purpose:** Constructs a new successful entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ HandlerResult.CreateSuccessful();
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful(Message nextMessage)`
 
-**Purpose:** **Purpose:** Constructs a new successful entity and returns it to the caller.
+**Purpose:** Constructs a new successful entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ HandlerResult.CreateSuccessful(nextMessage);
 ### CreateFailed
 `public static HandlerResult CreateFailed(string error)`
 
-**Purpose:** **Purpose:** Constructs a new failed entity and returns it to the caller.
+**Purpose:** Constructs a new failed entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

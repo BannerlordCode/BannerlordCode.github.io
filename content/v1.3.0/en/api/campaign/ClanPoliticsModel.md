@@ -23,7 +23,7 @@ Treat `ClanPoliticsModel` as a Model-style extension point: first identify who c
 ### CalculateInfluenceChange
 `public abstract ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of influence change.
+**Purpose:** Calculates the current value or result of influence change.
 
 ```csharp
 // Obtain an instance of ClanPoliticsModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = clanPoliticsModel.CalculateInfluenceChange(clan, false);
 ### CalculateSupportForPolicyInClan
 `public abstract float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of support for policy in clan.
+**Purpose:** Calculates the current value or result of support for policy in clan.
 
 ```csharp
 // Obtain an instance of ClanPoliticsModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = clanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
 ### CalculateRelationshipChangeWithSponsor
 `public abstract float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of relationship change with sponsor.
+**Purpose:** Calculates the current value or result of relationship change with sponsor.
 
 ```csharp
 // Obtain an instance of ClanPoliticsModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = clanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, spon
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public abstract int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**Purpose:** **Purpose:** Reads and returns the influence required to override kingdom decision value held by the this instance.
+**Purpose:** Reads and returns the influence required to override kingdom decision value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanPoliticsModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = clanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(pop
 ### CanHeroBeGovernor
 `public abstract bool CanHeroBeGovernor(Hero hero)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero be governor.
+**Purpose:** Checks whether the this instance meets the preconditions for hero be governor.
 
 ```csharp
 // Obtain an instance of ClanPoliticsModel from the subsystem API first

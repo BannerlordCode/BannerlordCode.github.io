@@ -34,7 +34,7 @@ description: "VisualDefinition 的自动生成类参考。"
 ### AddVisualState
 `public void AddVisualState(VisualState visualState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 visual state 添加到当前容器或状态中。
+**用途 / Purpose:** 将 visual state 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualDefinition 实例
@@ -45,7 +45,7 @@ visualDefinition.AddVisualState(visualState);
 ### GetVisualState
 `public VisualState GetVisualState(string state)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualDefinition 实例

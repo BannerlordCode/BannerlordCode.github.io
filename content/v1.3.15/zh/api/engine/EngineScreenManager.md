@@ -23,7 +23,7 @@ description: "EngineScreenManager 的自动生成类参考。"
 ### Tick
 `public static void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 静态调用，不需要实例

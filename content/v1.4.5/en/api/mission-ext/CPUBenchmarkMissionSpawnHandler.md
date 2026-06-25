@@ -23,7 +23,7 @@ Treat `CPUBenchmarkMissionSpawnHandler` as a Handler-style extension point: firs
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionSpawnHandler from the subsystem API first
@@ -34,7 +34,7 @@ cPUBenchmarkMissionSpawnHandler.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionSpawnHandler from the subsystem API first

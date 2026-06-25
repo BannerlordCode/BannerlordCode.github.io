@@ -37,7 +37,7 @@ description: "TutorialPhase 的自动生成类参考。"
 ### PlayerTalkedWithBrotherForTheFirstTime
 `public void PlayerTalkedWithBrotherForTheFirstTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerTalkedWithBrotherForTheFirstTime 对应的操作。
+**用途 / Purpose:** 调用 PlayerTalkedWithBrotherForTheFirstTime 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -48,7 +48,7 @@ tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
 ### SetLockTutorialVillageEnter
 `public void SetLockTutorialVillageEnter(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 lock tutorial village enter 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 lock tutorial village enter 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -59,7 +59,7 @@ tutorialPhase.SetLockTutorialVillageEnter(false);
 ### CompleteTutorial
 `public void CompleteTutorial(bool isSkipped)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteTutorial 对应的操作。
+**用途 / Purpose:** 调用 CompleteTutorial 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -70,7 +70,7 @@ tutorialPhase.CompleteTutorial(false);
 ### SetTutorialFocusSettlement
 `public void SetTutorialFocusSettlement(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tutorial focus settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 tutorial focus settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -81,7 +81,7 @@ tutorialPhase.SetTutorialFocusSettlement(settlement);
 ### RemoveTutorialFocusSettlement
 `public void RemoveTutorialFocusSettlement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tutorial focus settlement。
+**用途 / Purpose:** 从当前容器或状态中移除 tutorial focus settlement。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -92,7 +92,7 @@ tutorialPhase.RemoveTutorialFocusSettlement();
 ### RemoveTutorialFocusMobileParty
 `public void RemoveTutorialFocusMobileParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tutorial focus mobile party。
+**用途 / Purpose:** 从当前容器或状态中移除 tutorial focus mobile party。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -103,7 +103,7 @@ tutorialPhase.RemoveTutorialFocusMobileParty();
 ### PrepareRecruitOptionForTutorial
 `public void PrepareRecruitOptionForTutorial()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为即将执行的recruit option for tutorial操作完成前置准备工作。
+**用途 / Purpose:** 为即将执行的recruit option for tutorial操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -114,7 +114,7 @@ tutorialPhase.PrepareRecruitOptionForTutorial();
 ### GetAndPrepareBuyProductsOptionForTutorial
 `public ItemRoster GetAndPrepareBuyProductsOptionForTutorial(Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 and prepare buy products option for tutorial 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 and prepare buy products option for tutorial 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -125,7 +125,7 @@ var result = tutorialPhase.GetAndPrepareBuyProductsOptionForTutorial(village);
 ### SetTutorialQuestPhase
 `public void SetTutorialQuestPhase(TutorialQuestPhase tutorialQuestPhase)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tutorial quest phase 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 tutorial quest phase 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -136,7 +136,7 @@ tutorialPhase.SetTutorialQuestPhase(tutorialQuestPhase);
 ### InitializeTutorialVillageItemRoster
 `public void InitializeTutorialVillageItemRoster()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tutorial village item roster 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 tutorial village item roster 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例

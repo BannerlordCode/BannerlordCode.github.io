@@ -23,7 +23,7 @@ description: "ManagedMeshEditOperations 的自动生成类参考。"
 ### Create
 `public static ManagedMeshEditOperations Create(Mesh meshToEdit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ManagedMeshEditOperations.Create(meshToEdit);
 ### Weld
 `public void Weld()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Weld 对应的操作。
+**用途 / Purpose:** 调用 Weld 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -44,7 +44,7 @@ managedMeshEditOperations.Weld();
 ### AddVertex
 `public int AddVertex(Vec3 vertexPos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 vertex 添加到当前容器或状态中。
+**用途 / Purpose:** 将 vertex 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -55,7 +55,7 @@ var result = managedMeshEditOperations.AddVertex(vertexPos);
 ### AddFaceCorner
 `public int AddFaceCorner(int vertexIndex, Vec2 uv0, Vec3 color, Vec3 normal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -66,7 +66,7 @@ var result = managedMeshEditOperations.AddFaceCorner(0, uv0, color, normal);
 ### AddFaceCorner
 `public int AddFaceCorner(int vertexIndex, Vec2 uv0, Vec2 uv1, Vec3 color, Vec3 normal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -77,7 +77,7 @@ var result = managedMeshEditOperations.AddFaceCorner(0, uv0, uv1, color, normal)
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 face 添加到当前容器或状态中。
+**用途 / Purpose:** 将 face 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -88,7 +88,7 @@ var result = managedMeshEditOperations.AddFace(0, 0, 0);
 ### AddTriangle
 `public void AddTriangle(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 triangle 添加到当前容器或状态中。
+**用途 / Purpose:** 将 triangle 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -99,7 +99,7 @@ managedMeshEditOperations.AddTriangle(p1, p2, p3, uv1, uv2, uv3, color);
 ### AddTriangle
 `public void AddTriangle(Vec3 p1, Vec3 p2, Vec3 p3, Vec3 n1, Vec3 n2, Vec3 n3, Vec2 uv1, Vec2 uv2, Vec2 uv3, Vec3 c1, Vec3 c2, Vec3 c3)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 triangle 添加到当前容器或状态中。
+**用途 / Purpose:** 将 triangle 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -110,7 +110,7 @@ managedMeshEditOperations.AddTriangle(p1, p2, p3, n1, n2, n3, uv1, uv2, uv3, c1,
 ### AddRectangle3
 `public void AddRectangle3(Vec3 o, Vec2 size, Vec2 uv_origin, Vec2 uvSize, Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 rectangle3 添加到当前容器或状态中。
+**用途 / Purpose:** 将 rectangle3 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -121,7 +121,7 @@ managedMeshEditOperations.AddRectangle3(o, size, uv_origin, uvSize, color);
 ### AddRectangleWithInverseUV
 `public void AddRectangleWithInverseUV(Vec3 o, Vec2 size, Vec2 uv_origin, Vec2 uvSize, Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 rectangle with inverse u v 添加到当前容器或状态中。
+**用途 / Purpose:** 将 rectangle with inverse u v 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -132,7 +132,7 @@ managedMeshEditOperations.AddRectangleWithInverseUV(o, size, uv_origin, uvSize, 
 ### AddRect
 `public void AddRect(Vec3 originBegin, Vec3 originEnd, Vec2 uvBegin, Vec2 uvEnd, Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 rect 添加到当前容器或状态中。
+**用途 / Purpose:** 将 rect 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -143,7 +143,7 @@ managedMeshEditOperations.AddRect(originBegin, originEnd, uvBegin, uvEnd, color)
 ### AddRectWithZUp
 `public void AddRectWithZUp(Vec3 originBegin, Vec3 originEnd, Vec2 uvBegin, Vec2 uvEnd, Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 rect with z up 添加到当前容器或状态中。
+**用途 / Purpose:** 将 rect with z up 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -154,7 +154,7 @@ managedMeshEditOperations.AddRectWithZUp(originBegin, originEnd, uvBegin, uvEnd,
 ### InvertFacesWindingOrder
 `public void InvertFacesWindingOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvertFacesWindingOrder 对应的操作。
+**用途 / Purpose:** 调用 InvertFacesWindingOrder 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -165,7 +165,7 @@ managedMeshEditOperations.InvertFacesWindingOrder();
 ### ScaleVertices
 `public void ScaleVertices(float newScale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScaleVertices 对应的操作。
+**用途 / Purpose:** 调用 ScaleVertices 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -176,7 +176,7 @@ managedMeshEditOperations.ScaleVertices(0);
 ### MoveVerticesAlongNormal
 `public void MoveVerticesAlongNormal(float moveAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 移动vertices along normal到新的位置或状态。
+**用途 / Purpose:** 移动vertices along normal到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -187,7 +187,7 @@ managedMeshEditOperations.MoveVerticesAlongNormal(0);
 ### ScaleVertices
 `public void ScaleVertices(Vec3 newScale, bool keepUvX = false, float maxUvSize = 1f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScaleVertices 对应的操作。
+**用途 / Purpose:** 调用 ScaleVertices 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -198,7 +198,7 @@ managedMeshEditOperations.ScaleVertices(newScale, false, 0);
 ### TranslateVertices
 `public void TranslateVertices(Vec3 newOrigin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TranslateVertices 对应的操作。
+**用途 / Purpose:** 调用 TranslateVertices 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -209,7 +209,7 @@ managedMeshEditOperations.TranslateVertices(newOrigin);
 ### AddMeshAux
 `public void AddMeshAux(Mesh mesh, MatrixFrame frame, sbyte boneNo, Vec3 color, bool transformNormal, bool heightGradient, bool addSkinData, bool useDoublePrecision = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh aux 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh aux 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -220,7 +220,7 @@ managedMeshEditOperations.AddMeshAux(mesh, frame, 0, color, false, false, false,
 ### ComputeTangents
 `public int ComputeTangents(bool checkFixedNormals)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeTangents 对应的操作。
+**用途 / Purpose:** 调用 ComputeTangents 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -231,7 +231,7 @@ var result = managedMeshEditOperations.ComputeTangents(false);
 ### GenerateGrid
 `public void GenerateGrid(Vec2i numEdges, Vec2 edgeScale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成grid的实例、数据或表示。
+**用途 / Purpose:** 生成grid的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -242,7 +242,7 @@ managedMeshEditOperations.GenerateGrid(numEdges, edgeScale);
 ### RescaleMesh2d
 `public void RescaleMesh2d(Vec2 scaleSizeMin, Vec2 scaleSizeMax)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2d 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2d 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -253,7 +253,7 @@ managedMeshEditOperations.RescaleMesh2d(scaleSizeMin, scaleSizeMax);
 ### RescaleMesh2dRepeatX
 `public void RescaleMesh2dRepeatX(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2dRepeatX 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2dRepeatX 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -264,7 +264,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatX(scaleSizeMin, scaleSizeMax, 0, 0)
 ### RescaleMesh2dRepeatY
 `public void RescaleMesh2dRepeatY(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2dRepeatY 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2dRepeatY 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -275,7 +275,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatY(scaleSizeMin, scaleSizeMax, 0, 0)
 ### RescaleMesh2dRepeatXWithTiling
 `public void RescaleMesh2dRepeatXWithTiling(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0, float xyRatio = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2dRepeatXWithTiling 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2dRepeatXWithTiling 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -286,7 +286,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatXWithTiling(scaleSizeMin, scaleSize
 ### RescaleMesh2dRepeatYWithTiling
 `public void RescaleMesh2dRepeatYWithTiling(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0, float xyRatio = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2dRepeatYWithTiling 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2dRepeatYWithTiling 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -297,7 +297,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatYWithTiling(scaleSizeMin, scaleSize
 ### RescaleMesh2dWithoutChangingUV
 `public void RescaleMesh2dWithoutChangingUV(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float remaining)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RescaleMesh2dWithoutChangingUV 对应的操作。
+**用途 / Purpose:** 调用 RescaleMesh2dWithoutChangingUV 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -308,7 +308,7 @@ managedMeshEditOperations.RescaleMesh2dWithoutChangingUV(scaleSizeMin, scaleSize
 ### AddLine
 `public void AddLine(Vec3 start, Vec3 end, Vec3 color, float lineWidth = 0.004f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 line 添加到当前容器或状态中。
+**用途 / Purpose:** 将 line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -319,7 +319,7 @@ managedMeshEditOperations.AddLine(start, end, color, 0);
 ### ComputeCornerNormals
 `public void ComputeCornerNormals(bool checkFixedNormals = false, bool smoothCornerNormals = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeCornerNormals 对应的操作。
+**用途 / Purpose:** 调用 ComputeCornerNormals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -330,7 +330,7 @@ managedMeshEditOperations.ComputeCornerNormals(false, false);
 ### ComputeCornerNormalsWithSmoothingData
 `public void ComputeCornerNormalsWithSmoothingData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeCornerNormalsWithSmoothingData 对应的操作。
+**用途 / Purpose:** 调用 ComputeCornerNormalsWithSmoothingData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -341,7 +341,7 @@ managedMeshEditOperations.ComputeCornerNormalsWithSmoothingData();
 ### AddMesh
 `public void AddMesh(Mesh mesh, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -352,7 +352,7 @@ managedMeshEditOperations.AddMesh(mesh, frame);
 ### AddMeshWithSkinData
 `public void AddMeshWithSkinData(Mesh mesh, MatrixFrame frame, sbyte boneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh with skin data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh with skin data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -363,7 +363,7 @@ managedMeshEditOperations.AddMeshWithSkinData(mesh, frame, 0);
 ### AddMeshWithColor
 `public void AddMeshWithColor(Mesh mesh, MatrixFrame frame, Vec3 vertexColor, bool useDoublePrecision = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh with color 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh with color 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -374,7 +374,7 @@ managedMeshEditOperations.AddMeshWithColor(mesh, frame, vertexColor, false);
 ### AddMeshToBone
 `public void AddMeshToBone(Mesh mesh, MatrixFrame frame, sbyte boneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh to bone 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh to bone 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -385,7 +385,7 @@ managedMeshEditOperations.AddMeshToBone(mesh, frame, 0);
 ### AddMeshWithFixedNormals
 `public void AddMeshWithFixedNormals(Mesh mesh, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh with fixed normals 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh with fixed normals 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -396,7 +396,7 @@ managedMeshEditOperations.AddMeshWithFixedNormals(mesh, frame);
 ### AddMeshWithFixedNormalsWithHeightGradientColor
 `public void AddMeshWithFixedNormalsWithHeightGradientColor(Mesh mesh, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh with fixed normals with height gradient color 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh with fixed normals with height gradient color 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -407,7 +407,7 @@ managedMeshEditOperations.AddMeshWithFixedNormalsWithHeightGradientColor(mesh, f
 ### AddSkinnedMeshWithColor
 `public void AddSkinnedMeshWithColor(Mesh mesh, MatrixFrame frame, Vec3 vertexColor, bool useDoublePrecision = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 skinned mesh with color 添加到当前容器或状态中。
+**用途 / Purpose:** 将 skinned mesh with color 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -418,7 +418,7 @@ managedMeshEditOperations.AddSkinnedMeshWithColor(mesh, frame, vertexColor, fals
 ### SetCornerVertexColor
 `public void SetCornerVertexColor(int cornerNo, Vec3 vertexColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 corner vertex color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 corner vertex color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -429,7 +429,7 @@ managedMeshEditOperations.SetCornerVertexColor(0, vertexColor);
 ### SetCornerUV
 `public void SetCornerUV(int cornerNo, Vec2 newUV, int uvNumber = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 corner u v 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 corner u v 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -440,7 +440,7 @@ managedMeshEditOperations.SetCornerUV(0, newUV, 0);
 ### ReserveVertices
 `public void ReserveVertices(int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReserveVertices 对应的操作。
+**用途 / Purpose:** 调用 ReserveVertices 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -451,7 +451,7 @@ managedMeshEditOperations.ReserveVertices(0);
 ### ReserveFaceCorners
 `public void ReserveFaceCorners(int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReserveFaceCorners 对应的操作。
+**用途 / Purpose:** 调用 ReserveFaceCorners 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -462,7 +462,7 @@ managedMeshEditOperations.ReserveFaceCorners(0);
 ### ReserveFaces
 `public void ReserveFaces(int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReserveFaces 对应的操作。
+**用途 / Purpose:** 调用 ReserveFaces 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -473,7 +473,7 @@ managedMeshEditOperations.ReserveFaces(0);
 ### RemoveDuplicatedCorners
 `public int RemoveDuplicatedCorners()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 duplicated corners。
+**用途 / Purpose:** 从当前容器或状态中移除 duplicated corners。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -484,7 +484,7 @@ var result = managedMeshEditOperations.RemoveDuplicatedCorners();
 ### TransformVerticesToParent
 `public void TransformVerticesToParent(MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TransformVerticesToParent 对应的操作。
+**用途 / Purpose:** 调用 TransformVerticesToParent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -495,7 +495,7 @@ managedMeshEditOperations.TransformVerticesToParent(frame);
 ### TransformVerticesToLocal
 `public void TransformVerticesToLocal(MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TransformVerticesToLocal 对应的操作。
+**用途 / Purpose:** 调用 TransformVerticesToLocal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -506,7 +506,7 @@ managedMeshEditOperations.TransformVerticesToLocal(frame);
 ### SetVertexColor
 `public void SetVertexColor(Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vertex color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vertex color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -517,7 +517,7 @@ managedMeshEditOperations.SetVertexColor(color);
 ### GetVertexColor
 `public Vec3 GetVertexColor(int faceCornerIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vertex color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 vertex color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -528,7 +528,7 @@ var result = managedMeshEditOperations.GetVertexColor(0);
 ### SetVertexColorAlpha
 `public void SetVertexColorAlpha(float newAlpha)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vertex color alpha 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vertex color alpha 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -539,7 +539,7 @@ managedMeshEditOperations.SetVertexColorAlpha(0);
 ### GetVertexColorAlpha
 `public float GetVertexColorAlpha()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vertex color alpha 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 vertex color alpha 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -550,7 +550,7 @@ var result = managedMeshEditOperations.GetVertexColorAlpha();
 ### EnsureTransformedVertices
 `public void EnsureTransformedVertices()`
 
-**用途 / Purpose:** **用途 / Purpose:** 确保transformed vertices处于预期状态，必要时进行初始化或修正。
+**用途 / Purpose:** 确保transformed vertices处于预期状态，必要时进行初始化或修正。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -561,7 +561,7 @@ managedMeshEditOperations.EnsureTransformedVertices();
 ### ApplyCPUSkinning
 `public void ApplyCPUSkinning(Skeleton skeleton)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 c p u skinning 的效果应用到当前对象。
+**用途 / Purpose:** 将 c p u skinning 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -572,7 +572,7 @@ managedMeshEditOperations.ApplyCPUSkinning(skeleton);
 ### UpdateOverlappedVertexNormals
 `public void UpdateOverlappedVertexNormals(Mesh attachedToMesh, MatrixFrame attachFrame, float mergeRadiusSQ = 0.0025f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 overlapped vertex normals 的最新表示。
+**用途 / Purpose:** 重新计算并更新 overlapped vertex normals 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -583,7 +583,7 @@ managedMeshEditOperations.UpdateOverlappedVertexNormals(attachedToMesh, attachFr
 ### ClearAll
 `public void ClearAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all。
+**用途 / Purpose:** 清空当前对象中的all。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -594,7 +594,7 @@ managedMeshEditOperations.ClearAll();
 ### SetTangentsOfFaceCorner
 `public void SetTangentsOfFaceCorner(int faceCornerIndex, Vec3 tangent, Vec3 binormal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tangents of face corner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 tangents of face corner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -605,7 +605,7 @@ managedMeshEditOperations.SetTangentsOfFaceCorner(0, tangent, binormal);
 ### SetPositionOfVertex
 `public void SetPositionOfVertex(int vertexIndex, Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 position of vertex 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 position of vertex 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -616,7 +616,7 @@ managedMeshEditOperations.SetPositionOfVertex(0, position);
 ### GetPositionOfVertex
 `public Vec3 GetPositionOfVertex(int vertexIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position of vertex 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 position of vertex 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -627,7 +627,7 @@ var result = managedMeshEditOperations.GetPositionOfVertex(0);
 ### RemoveFace
 `public void RemoveFace(int faceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 face。
+**用途 / Purpose:** 从当前容器或状态中移除 face。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -638,7 +638,7 @@ managedMeshEditOperations.RemoveFace(0);
 ### FinalizeEditing
 `public void FinalizeEditing()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeEditing 对应的操作。
+**用途 / Purpose:** 调用 FinalizeEditing 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例

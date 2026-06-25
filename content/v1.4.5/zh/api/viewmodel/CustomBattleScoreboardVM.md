@@ -23,7 +23,7 @@ description: "CustomBattleScoreboardVM 的自动生成类参考。"
 ### CustomBattleScoreboardVM
 `public class CustomBattleScoreboardVM(BattleScoreContext scoreboardContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CustomBattleScoreboardVM 对应的操作。
+**用途 / Purpose:** 调用 CustomBattleScoreboardVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -34,7 +34,7 @@ var result = customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -45,7 +45,7 @@ customBattleScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSou
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -56,7 +56,7 @@ customBattleScoreboardVM.RefreshValues();
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 fast forward action 对应的操作或工作流。
+**用途 / Purpose:** 执行 fast forward action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -67,7 +67,7 @@ customBattleScoreboardVM.ExecuteFastForwardAction();
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 quit action 对应的操作或工作流。
+**用途 / Purpose:** 执行 quit action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -78,7 +78,7 @@ customBattleScoreboardVM.ExecuteQuitAction();
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 battle over 事件触发时调用此回调。
+**用途 / Purpose:** 在 battle over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -89,7 +89,7 @@ customBattleScoreboardVM.OnBattleOver();
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 exit battle 事件触发时调用此回调。
+**用途 / Purpose:** 在 exit battle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -100,7 +100,7 @@ customBattleScoreboardVM.OnExitBattle();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TroopNumberChanged 对应的操作。
+**用途 / Purpose:** 调用 TroopNumberChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -111,7 +111,7 @@ customBattleScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0,
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HeroSkillIncreased 对应的操作。
+**用途 / Purpose:** 调用 HeroSkillIncreased 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -122,7 +122,7 @@ customBattleScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BattleResultsReady 对应的操作。
+**用途 / Purpose:** 调用 BattleResultsReady 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -133,7 +133,7 @@ customBattleScoreboardVM.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TroopSideChanged 对应的操作。
+**用途 / Purpose:** 调用 TroopSideChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例

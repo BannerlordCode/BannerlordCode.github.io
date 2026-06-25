@@ -29,7 +29,7 @@ description: "ClanDestroyedLogEntry 的自动生成类参考。"
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 encyclopedia text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanDestroyedLogEntry 实例
@@ -40,7 +40,7 @@ var result = clanDestroyedLogEntry.GetEncyclopediaText();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 notification text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 notification text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanDestroyedLogEntry 实例

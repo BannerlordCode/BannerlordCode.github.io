@@ -32,7 +32,7 @@ description: "GameEntityWithWorldPosition 的自动生成类参考。"
 ### InvalidateWorldPosition
 `public void InvalidateWorldPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateWorldPosition 对应的操作。
+**用途 / Purpose:** 调用 InvalidateWorldPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
@@ -43,7 +43,7 @@ gameEntityWithWorldPosition.InvalidateWorldPosition();
 ### SetCustomLocalFrame
 `public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom local frame 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom local frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
@@ -54,7 +54,7 @@ gameEntityWithWorldPosition.SetCustomLocalFrame(customLocalFrame);
 ### GetNavMesh
 `public UIntPtr GetNavMesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
@@ -65,7 +65,7 @@ var result = gameEntityWithWorldPosition.GetNavMesh();
 ### GetNavMeshVec3
 `public Vec3 GetNavMeshVec3()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nav mesh vec3 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nav mesh vec3 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例

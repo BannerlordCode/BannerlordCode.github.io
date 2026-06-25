@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.Expressions` to place it in the st
 ### AddStatement
 `public void AddStatement(TextExpression s2)`
 
-**Purpose:** **Purpose:** Adds statement to the current collection or state.
+**Purpose:** Adds statement to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiStatement from the subsystem API first

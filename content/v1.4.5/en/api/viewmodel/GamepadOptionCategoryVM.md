@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GamepadOptionCategoryVM from the subsystem API first
@@ -48,7 +48,7 @@ gamepadOptionCategoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GamepadOptionCategoryVM from the subsystem API first

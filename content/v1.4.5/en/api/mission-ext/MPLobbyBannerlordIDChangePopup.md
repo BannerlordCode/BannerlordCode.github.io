@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -50,7 +50,7 @@ mPLobbyBannerlordIDChangePopup.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
+**Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -61,7 +61,7 @@ mPLobbyBannerlordIDChangePopup.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -72,7 +72,7 @@ mPLobbyBannerlordIDChangePopup.ExecuteClosePopup();
 ### ExecuteApply
 `public async void ExecuteApply()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with apply.
+**Purpose:** Runs the operation or workflow associated with apply.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -83,7 +83,7 @@ mPLobbyBannerlordIDChangePopup.ExecuteApply();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -94,7 +94,7 @@ mPLobbyBannerlordIDChangePopup.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first
@@ -105,7 +105,7 @@ mPLobbyBannerlordIDChangePopup.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDChangePopup from the subsystem API first

@@ -23,7 +23,7 @@ description: "NativeParallelDriver 的自动生成类参考。"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例
@@ -34,7 +34,7 @@ nativeParallelDriver.For(0, 0, loopBody, 0);
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例
@@ -45,7 +45,7 @@ nativeParallelDriver.For(0, 0, 0, loopBody, 0);
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 main thread id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 main thread id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例
@@ -56,7 +56,7 @@ var result = nativeParallelDriver.GetMainThreadId();
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current thread id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current thread id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例

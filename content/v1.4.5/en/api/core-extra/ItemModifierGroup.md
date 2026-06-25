@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ItemModifierGroup from the subsystem API first
@@ -41,7 +41,7 @@ itemModifierGroup.Deserialize(objectManager, node);
 ### AddItemModifier
 `public void AddItemModifier(ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Adds item modifier to the current collection or state.
+**Purpose:** Adds item modifier to the current collection or state.
 
 ```csharp
 // Obtain an instance of ItemModifierGroup from the subsystem API first
@@ -52,7 +52,7 @@ itemModifierGroup.AddItemModifier(itemModifier);
 ### GetRandomItemModifierLootScoreBased
 `public ItemModifier GetRandomItemModifierLootScoreBased()`
 
-**Purpose:** **Purpose:** Reads and returns the random item modifier loot score based value held by the this instance.
+**Purpose:** Reads and returns the random item modifier loot score based value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemModifierGroup from the subsystem API first
@@ -63,7 +63,7 @@ var result = itemModifierGroup.GetRandomItemModifierLootScoreBased();
 ### GetRandomItemModifierProductionScoreBased
 `public ItemModifier GetRandomItemModifierProductionScoreBased()`
 
-**Purpose:** **Purpose:** Reads and returns the random item modifier production score based value held by the this instance.
+**Purpose:** Reads and returns the random item modifier production score based value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemModifierGroup from the subsystem API first
@@ -74,7 +74,7 @@ var result = itemModifierGroup.GetRandomItemModifierProductionScoreBased();
 ### GetModifiersBasedOnQuality
 `public List<ItemModifier> GetModifiersBasedOnQuality(ItemQuality quality)`
 
-**Purpose:** **Purpose:** Reads and returns the modifiers based on quality value held by the this instance.
+**Purpose:** Reads and returns the modifiers based on quality value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemModifierGroup from the subsystem API first

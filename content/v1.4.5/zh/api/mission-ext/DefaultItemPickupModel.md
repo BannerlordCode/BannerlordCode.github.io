@@ -23,7 +23,7 @@ description: "DefaultItemPickupModel 的自动生成类参考。"
 ### GetItemScoreForAgent
 `public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item score for agent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item score for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemPickupModel 实例
@@ -34,7 +34,7 @@ var result = defaultItemPickupModel.GetItemScoreForAgent(item, agent);
 ### IsItemAvailableForAgent
 `public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 item available for agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 item available for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemPickupModel 实例
@@ -45,7 +45,7 @@ var result = defaultItemPickupModel.IsItemAvailableForAgent(item, agent, slotToP
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent equipment suitable for pick up availability 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 agent equipment suitable for pick up availability 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemPickupModel 实例

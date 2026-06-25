@@ -23,7 +23,7 @@ Treat `CharacterCreationBannerEditorView` as a View-style extension point: first
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** **Purpose:** Reads and returns the layers value held by the this instance.
+**Purpose:** Reads and returns the layers value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -34,7 +34,7 @@ var result = characterCreationBannerEditorView.GetLayers();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** **Purpose:** Executes the PreviousStage logic.
+**Purpose:** Executes the PreviousStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -45,7 +45,7 @@ characterCreationBannerEditorView.PreviousStage();
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** **Purpose:** Executes the NextStage logic.
+**Purpose:** Executes the NextStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -56,7 +56,7 @@ characterCreationBannerEditorView.NextStage();
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -67,7 +67,7 @@ characterCreationBannerEditorView.Tick(0);
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** **Purpose:** Reads and returns the virtual stage count value held by the this instance.
+**Purpose:** Reads and returns the virtual stage count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -78,7 +78,7 @@ var result = characterCreationBannerEditorView.GetVirtualStageCount();
 ### GoToIndex
 `public override void GoToIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the GoToIndex logic.
+**Purpose:** Executes the GoToIndex logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -89,7 +89,7 @@ characterCreationBannerEditorView.GoToIndex(0);
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** **Purpose:** Reads escape menu movie from persistent storage or a stream.
+**Purpose:** Reads escape menu movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
@@ -100,7 +100,7 @@ characterCreationBannerEditorView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** **Purpose:** Executes the ReleaseEscapeMenuMovie logic.
+**Purpose:** Executes the ReleaseEscapeMenuMovie logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first

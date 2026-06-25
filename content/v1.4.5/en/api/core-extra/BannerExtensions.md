@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsContentsSameWith
 `public static bool IsContentsSameWith(this Banner banner, Banner otherBanner)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the contents same with state or condition.
+**Purpose:** Determines whether the this instance is in the contents same with state or condition.
 
 ```csharp
 // Static call; no instance required

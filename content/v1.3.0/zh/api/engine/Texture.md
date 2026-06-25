@@ -36,7 +36,7 @@ description: "Texture 的自动生成类参考。"
 ### CreateTextureFromPath
 `public static Texture CreateTextureFromPath(PlatformFilePath filePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 texture from path 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 texture from path 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ Texture.CreateTextureFromPath(filePath);
 ### GetPixelData
 `public void GetPixelData(byte bytes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pixel data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pixel data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -57,7 +57,7 @@ texture.GetPixelData(0);
 ### TransformRenderTargetToResource
 `public void TransformRenderTargetToResource(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TransformRenderTargetToResource 对应的操作。
+**用途 / Purpose:** 调用 TransformRenderTargetToResource 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -68,7 +68,7 @@ texture.TransformRenderTargetToResource("example");
 ### GetFromResource
 `public static Texture GetFromResource(string resourceName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 from resource 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 from resource 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -78,7 +78,7 @@ Texture.GetFromResource("example");
 ### IsLoaded
 `public bool IsLoaded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 loaded 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 loaded 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -89,7 +89,7 @@ var result = texture.IsLoaded();
 ### GetSDFBoundingBoxData
 `public void GetSDFBoundingBoxData(ref Vec3 min, ref Vec3 max)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 s d f bounding box data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 s d f bounding box data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -100,7 +100,7 @@ texture.GetSDFBoundingBoxData(min, max);
 ### CheckAndGetFromResource
 `public static Texture CheckAndGetFromResource(string resourceName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查and get from resource在当前对象中是否成立。
+**用途 / Purpose:** 检查and get from resource在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -110,7 +110,7 @@ Texture.CheckAndGetFromResource("example");
 ### ScaleTextureWithRatio
 `public static void ScaleTextureWithRatio(ref int tableauSizeX, ref int tableauSizeY)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScaleTextureWithRatio 对应的操作。
+**用途 / Purpose:** 调用 ScaleTextureWithRatio 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -120,7 +120,7 @@ Texture.ScaleTextureWithRatio(tableauSizeX, tableauSizeY);
 ### PreloadTexture
 `public void PreloadTexture(bool blocking)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadTexture 对应的操作。
+**用途 / Purpose:** 调用 PreloadTexture 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -131,7 +131,7 @@ texture.PreloadTexture(false);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -142,7 +142,7 @@ texture.Release();
 ### ReleaseNextFrame
 `public void ReleaseNextFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseNextFrame 对应的操作。
+**用途 / Purpose:** 调用 ReleaseNextFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -153,7 +153,7 @@ texture.ReleaseNextFrame();
 ### LoadTextureFromPath
 `public static Texture LoadTextureFromPath(string fileName, string folder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 texture from path。
+**用途 / Purpose:** 从持久化存储或流中读取 texture from path。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ Texture.LoadTextureFromPath("example", "example");
 ### CreateDepthTarget
 `public static Texture CreateDepthTarget(string name, int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 depth target 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 depth target 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ Texture.CreateDepthTarget("example", 0, 0);
 ### CreateFromByteArray
 `public static Texture CreateFromByteArray(byte data, int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from byte array 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from byte array 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ Texture.CreateFromByteArray(0, 0, 0);
 ### SaveToFile
 `public void SaveToFile(string path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to file 写入持久化存储或流中。
+**用途 / Purpose:** 将 to file 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -194,7 +194,7 @@ texture.SaveToFile("example");
 ### SetTextureAsAlwaysValid
 `public void SetTextureAsAlwaysValid()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 texture as always valid 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 texture as always valid 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -205,7 +205,7 @@ texture.SetTextureAsAlwaysValid();
 ### CreateFromMemory
 `public static Texture CreateFromMemory(byte data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from memory 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from memory 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -215,7 +215,7 @@ Texture.CreateFromMemory(0);
 ### ReleaseGpuMemories
 `public static void ReleaseGpuMemories()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseGpuMemories 对应的操作。
+**用途 / Purpose:** 调用 ReleaseGpuMemories 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -225,7 +225,7 @@ Texture.ReleaseGpuMemories();
 ### CreateTableauTexture
 `public static Texture CreateTableauTexture(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tableau texture 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 tableau texture 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -235,7 +235,7 @@ Texture.CreateTableauTexture("example", eventHandler, objectRef, 0, 0);
 ### CreateRenderTarget
 `public static Texture CreateRenderTarget(string name, int width, int height, bool autoMipmaps, bool isTableau, bool createUninitialized = false, bool always_valid = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 render target 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 render target 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

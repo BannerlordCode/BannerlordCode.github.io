@@ -23,7 +23,7 @@ description: "ClothSimulatorComponent 的自动生成类参考。"
 ### SetMaxDistanceMultiplier
 `public void SetMaxDistanceMultiplier(float multiplier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 max distance multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 max distance multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -34,7 +34,7 @@ clothSimulatorComponent.SetMaxDistanceMultiplier(0);
 ### SetForcedWind
 `public void SetForcedWind(Vec3 windVector, bool isLocal)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced wind 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced wind 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -45,7 +45,7 @@ clothSimulatorComponent.SetForcedWind(windVector, false);
 ### DisableForcedWind
 `public void DisableForcedWind()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableForcedWind 对应的操作。
+**用途 / Purpose:** 调用 DisableForcedWind 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -56,7 +56,7 @@ clothSimulatorComponent.DisableForcedWind();
 ### SetForcedGustStrength
 `public void SetForcedGustStrength(float gustStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced gust strength 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced gust strength 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -67,7 +67,7 @@ clothSimulatorComponent.SetForcedGustStrength(0);
 ### SetResetRequired
 `public void SetResetRequired()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset required 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset required 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -78,7 +78,7 @@ clothSimulatorComponent.SetResetRequired();
 ### DisableMorphAnimation
 `public void DisableMorphAnimation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableMorphAnimation 对应的操作。
+**用途 / Purpose:** 调用 DisableMorphAnimation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -89,7 +89,7 @@ clothSimulatorComponent.DisableMorphAnimation();
 ### SetMorphBuffer
 `public void SetMorphBuffer(float morphKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 morph buffer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 morph buffer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -100,7 +100,7 @@ clothSimulatorComponent.SetMorphBuffer(0);
 ### GetNumberOfMorphKeys
 `public int GetNumberOfMorphKeys()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of morph keys 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of morph keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -111,7 +111,7 @@ var result = clothSimulatorComponent.GetNumberOfMorphKeys();
 ### SetVectorArgument
 `public void SetVectorArgument(float x, float y, float z, float w)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -122,7 +122,7 @@ clothSimulatorComponent.SetVectorArgument(0, 0, 0, 0);
 ### GetMorphAnimLeftPoints
 `public void GetMorphAnimLeftPoints(Vec3 leftPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morph anim left points 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morph anim left points 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -133,7 +133,7 @@ clothSimulatorComponent.GetMorphAnimLeftPoints(leftPoints);
 ### GetMorphAnimRightPoints
 `public void GetMorphAnimRightPoints(Vec3 rightPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morph anim right points 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morph anim right points 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -144,7 +144,7 @@ clothSimulatorComponent.GetMorphAnimRightPoints(rightPoints);
 ### GetMorphAnimCenterPoints
 `public void GetMorphAnimCenterPoints(Vec3 centerPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morph anim center points 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morph anim center points 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -155,7 +155,7 @@ clothSimulatorComponent.GetMorphAnimCenterPoints(centerPoints);
 ### SetForcedVelocity
 `public void SetForcedVelocity(in Vec3 forcedVelocity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced velocity 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced velocity 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例

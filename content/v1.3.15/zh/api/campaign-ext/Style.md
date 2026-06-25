@@ -51,7 +51,7 @@ description: "Style 的自动生成类参考。"
 ### FillFrom
 `public void FillFrom(Style style)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -62,7 +62,7 @@ style.FillFrom(style);
 ### AddLayer
 `public void AddLayer(StyleLayer layer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 layer 添加到当前容器或状态中。
+**用途 / Purpose:** 将 layer 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -73,7 +73,7 @@ style.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 layer。
+**用途 / Purpose:** 从当前容器或状态中移除 layer。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -84,7 +84,7 @@ style.RemoveLayer("example");
 ### GetLayer
 `public StyleLayer GetLayer(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -95,7 +95,7 @@ var result = style.GetLayer(0);
 ### GetLayer
 `public StyleLayer GetLayer(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -106,7 +106,7 @@ var result = style.GetLayer("example");
 ### GetLayers
 `public StyleLayer GetLayers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -117,7 +117,7 @@ var result = style.GetLayers();
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 text material 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 text material 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -128,7 +128,7 @@ var result = style.CreateTextMaterial(drawContext);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -139,7 +139,7 @@ var result = style.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -150,7 +150,7 @@ var result = style.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例
@@ -161,7 +161,7 @@ var result = style.GetValueAsSprite(propertyType);
 ### SetAsDefaultStyle
 `public void SetAsDefaultStyle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as default style 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 as default style 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Style 实例

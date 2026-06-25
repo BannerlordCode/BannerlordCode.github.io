@@ -30,7 +30,7 @@ Treat `GauntletMapConversationBarterView` as a View-style extension point: first
 ### OnBarterActiveStateChanged
 `public delegate void OnBarterActiveStateChanged(bool isBarterActive)`
 
-**Purpose:** **Purpose:** Invoked when the barter active state changed event is raised.
+**Purpose:** Invoked when the barter active state changed event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
@@ -41,7 +41,7 @@ gauntletMapConversationBarterView.OnBarterActiveStateChanged(false);
 ### CreateBarterView
 `public void CreateBarterView(BarterData args)`
 
-**Purpose:** **Purpose:** Constructs a new barter view entity and returns it to the caller.
+**Purpose:** Constructs a new barter view entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
@@ -52,7 +52,7 @@ gauntletMapConversationBarterView.CreateBarterView(args);
 ### DestroyBarterView
 `public void DestroyBarterView()`
 
-**Purpose:** **Purpose:** Executes the DestroyBarterView logic.
+**Purpose:** Executes the DestroyBarterView logic.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
@@ -63,7 +63,7 @@ gauntletMapConversationBarterView.DestroyBarterView();
 ### Activate
 `public void Activate()`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
+**Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
@@ -74,7 +74,7 @@ gauntletMapConversationBarterView.Activate();
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
+**Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
@@ -85,7 +85,7 @@ gauntletMapConversationBarterView.Deactivate();
 ### TickInput
 `public void TickInput()`
 
-**Purpose:** **Purpose:** Advances the input state each frame or update cycle.
+**Purpose:** Advances the input state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of GauntletMapConversationBarterView from the subsystem API first

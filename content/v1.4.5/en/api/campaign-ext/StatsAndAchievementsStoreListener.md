@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, FailureReason? failureReason)`
 
-**Purpose:** **Purpose:** Executes the UserStatsAndAchievementsStored logic.
+**Purpose:** Executes the UserStatsAndAchievementsStored logic.
 
 ```csharp
 // Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
@@ -34,7 +34,7 @@ statsAndAchievementsStoreListener.UserStatsAndAchievementsStored(false, failureR
 ### OnUserStatsAndAchievementsStoreFailure
 `public override void OnUserStatsAndAchievementsStoreFailure(FailureReason failureReason)`
 
-**Purpose:** **Purpose:** Invoked when the user stats and achievements store failure event is raised.
+**Purpose:** Invoked when the user stats and achievements store failure event is raised.
 
 ```csharp
 // Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
@@ -45,7 +45,7 @@ statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failure
 ### OnUserStatsAndAchievementsStoreSuccess
 `public override void OnUserStatsAndAchievementsStoreSuccess()`
 
-**Purpose:** **Purpose:** Invoked when the user stats and achievements store success event is raised.
+**Purpose:** Invoked when the user stats and achievements store success event is raised.
 
 ```csharp
 // Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first

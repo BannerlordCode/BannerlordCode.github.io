@@ -29,7 +29,7 @@ Treat `DuelArenaFlagVisualBrushWidget` as a Widget-style extension point: first 
 ### DuelArenaFlagVisualBrushWidget
 `public class DuelArenaFlagVisualBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the DuelArenaFlagVisualBrushWidget logic.
+**Purpose:** Executes the DuelArenaFlagVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of DuelArenaFlagVisualBrushWidget from the subsystem API first

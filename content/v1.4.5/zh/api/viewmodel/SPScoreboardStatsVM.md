@@ -37,7 +37,7 @@ description: "SPScoreboardStatsVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
@@ -48,7 +48,7 @@ sPScoreboardStatsVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 scores 的最新表示。
+**用途 / Purpose:** 重新计算并更新 scores 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
@@ -59,7 +59,7 @@ sPScoreboardStatsVM.UpdateScores(0, 0, 0, 0, 0, 0);
 ### IsAnyStatRelevant
 `public bool IsAnyStatRelevant()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any stat relevant 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 any stat relevant 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
@@ -70,7 +70,7 @@ var result = sPScoreboardStatsVM.IsAnyStatRelevant();
 ### GetScoreForOneAliveMember
 `public SPScoreboardStatsVM GetScoreForOneAliveMember()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score for one alive member 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score for one alive member 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardStatsVM 实例

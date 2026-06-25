@@ -30,7 +30,7 @@ description: "SkinVoiceManager 的自动生成类参考。"
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SkinVoiceManager 实例
@@ -41,7 +41,7 @@ var result = skinVoiceManager.GetName();
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
 `public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 voice definition count with monster sound and collision info class name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 voice definition count with monster sound and collision info class name 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassNam
 ### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
 `public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 voice definition list with monster sound and collision info class name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 voice definition list with monster sound and collision info class name 的结果。
 
 ```csharp
 // 静态调用，不需要实例

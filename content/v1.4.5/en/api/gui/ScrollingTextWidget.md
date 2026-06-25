@@ -34,7 +34,7 @@ Treat `ScrollingTextWidget` as a Widget-style extension point: first identify wh
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** **Purpose:** Invoked when the brush changed event is raised.
+**Purpose:** Invoked when the brush changed event is raised.
 
 ```csharp
 // Obtain an instance of ScrollingTextWidget from the subsystem API first

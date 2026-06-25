@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### EnableRecordMission
 `public static string EnableRecordMission(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the EnableRecordMission logic.
+**Purpose:** Executes the EnableRecordMission logic.
 
 ```csharp
 // Static call; no instance required

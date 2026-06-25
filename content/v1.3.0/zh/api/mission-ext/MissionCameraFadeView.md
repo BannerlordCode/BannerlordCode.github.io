@@ -33,7 +33,7 @@ description: "MissionCameraFadeView 的自动生成类参考。"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCameraFadeView 实例
@@ -44,7 +44,7 @@ missionCameraFadeView.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCameraFadeView 实例
@@ -55,7 +55,7 @@ missionCameraFadeView.OnMissionScreenTick(0);
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeOutAndIn 对应的操作。
+**用途 / Purpose:** 调用 BeginFadeOutAndIn 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCameraFadeView 实例
@@ -66,7 +66,7 @@ missionCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeOut 对应的操作。
+**用途 / Purpose:** 调用 BeginFadeOut 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCameraFadeView 实例
@@ -77,7 +77,7 @@ missionCameraFadeView.BeginFadeOut(0);
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeIn 对应的操作。
+**用途 / Purpose:** 调用 BeginFadeIn 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCameraFadeView 实例

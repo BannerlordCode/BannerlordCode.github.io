@@ -39,7 +39,7 @@ description: "MatchHistoryData 的自动生成类参考。"
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 same content with。
+**用途 / Purpose:** 判断当前对象是否已经持有 same content with。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchHistoryData 实例
@@ -50,7 +50,7 @@ var result = matchHistoryData.HasSameContentWith(other);
 ### AddOrUpdatePlayer
 `public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 or update player 添加到当前容器或状态中。
+**用途 / Purpose:** 将 or update player 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchHistoryData 实例
@@ -61,7 +61,7 @@ matchHistoryData.AddOrUpdatePlayer("example", "example", 0, 0);
 ### TryUpdatePlayerStats
 `public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 update player stats 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 update player stats 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchHistoryData 实例

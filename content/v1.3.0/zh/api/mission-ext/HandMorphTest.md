@@ -30,7 +30,7 @@ description: "HandMorphTest 的自动生成类参考。"
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnCharacter 对应的操作。
+**用途 / Purpose:** 调用 SpawnCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HandMorphTest 实例
@@ -41,7 +41,7 @@ handMorphTest.SpawnCharacter();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HandMorphTest 实例
@@ -52,7 +52,7 @@ handMorphTest.Reset();
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 with character 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 with character 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 HandMorphTest 实例

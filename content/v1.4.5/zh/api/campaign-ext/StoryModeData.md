@@ -36,7 +36,7 @@ description: "StoryModeData 的自动生成类参考。"
 ### IsKingdomImperial
 `public static bool IsKingdomImperial(Kingdom kingdomToCheck)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 kingdom imperial 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 kingdom imperial 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ StoryModeData.IsKingdomImperial(kingdomToCheck);
 ### IsConspiracyTroop
 `public static bool IsConspiracyTroop(CharacterObject troop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conspiracy troop 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 conspiracy troop 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ StoryModeData.IsConspiracyTroop(troop);
 ### OnGameEnd
 `public static void OnGameEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
+**用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

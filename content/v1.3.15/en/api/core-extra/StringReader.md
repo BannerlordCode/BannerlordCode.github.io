@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ReadSerializableObject
 `public ISerializableObject ReadSerializableObject()`
 
-**Purpose:** **Purpose:** Reads the data or state of serializable object.
+**Purpose:** Reads the data or state of serializable object.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -40,7 +40,7 @@ var result = stringReader.ReadSerializableObject();
 ### ReadInt
 `public int ReadInt()`
 
-**Purpose:** **Purpose:** Reads the data or state of int.
+**Purpose:** Reads the data or state of int.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -51,7 +51,7 @@ var result = stringReader.ReadInt();
 ### ReadShort
 `public short ReadShort()`
 
-**Purpose:** **Purpose:** Reads the data or state of short.
+**Purpose:** Reads the data or state of short.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -62,7 +62,7 @@ var result = stringReader.ReadShort();
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** **Purpose:** Reads the data or state of string.
+**Purpose:** Reads the data or state of string.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -73,7 +73,7 @@ var result = stringReader.ReadString();
 ### ReadColor
 `public Color ReadColor()`
 
-**Purpose:** **Purpose:** Reads the data or state of color.
+**Purpose:** Reads the data or state of color.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -84,7 +84,7 @@ var result = stringReader.ReadColor();
 ### ReadBool
 `public bool ReadBool()`
 
-**Purpose:** **Purpose:** Reads the data or state of bool.
+**Purpose:** Reads the data or state of bool.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -95,7 +95,7 @@ var result = stringReader.ReadBool();
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** **Purpose:** Reads the data or state of float.
+**Purpose:** Reads the data or state of float.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -106,7 +106,7 @@ var result = stringReader.ReadFloat();
 ### ReadUInt
 `public uint ReadUInt()`
 
-**Purpose:** **Purpose:** Reads the data or state of u int.
+**Purpose:** Reads the data or state of u int.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -117,7 +117,7 @@ var result = stringReader.ReadUInt();
 ### ReadULong
 `public ulong ReadULong()`
 
-**Purpose:** **Purpose:** Reads the data or state of u long.
+**Purpose:** Reads the data or state of u long.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -128,7 +128,7 @@ var result = stringReader.ReadULong();
 ### ReadLong
 `public long ReadLong()`
 
-**Purpose:** **Purpose:** Reads the data or state of long.
+**Purpose:** Reads the data or state of long.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -139,7 +139,7 @@ var result = stringReader.ReadLong();
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** **Purpose:** Reads the data or state of byte.
+**Purpose:** Reads the data or state of byte.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -150,7 +150,7 @@ var result = stringReader.ReadByte();
 ### ReadBytes
 `public byte ReadBytes(int length)`
 
-**Purpose:** **Purpose:** Reads the data or state of bytes.
+**Purpose:** Reads the data or state of bytes.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -161,7 +161,7 @@ var result = stringReader.ReadBytes(0);
 ### ReadVec2
 `public Vec2 ReadVec2()`
 
-**Purpose:** **Purpose:** Reads the data or state of vec2.
+**Purpose:** Reads the data or state of vec2.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -172,7 +172,7 @@ var result = stringReader.ReadVec2();
 ### ReadVec3
 `public Vec3 ReadVec3()`
 
-**Purpose:** **Purpose:** Reads the data or state of vec3.
+**Purpose:** Reads the data or state of vec3.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -183,7 +183,7 @@ var result = stringReader.ReadVec3();
 ### ReadVec3Int
 `public Vec3i ReadVec3Int()`
 
-**Purpose:** **Purpose:** Reads the data or state of vec3 int.
+**Purpose:** Reads the data or state of vec3 int.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -194,7 +194,7 @@ var result = stringReader.ReadVec3Int();
 ### ReadSByte
 `public sbyte ReadSByte()`
 
-**Purpose:** **Purpose:** Reads the data or state of s byte.
+**Purpose:** Reads the data or state of s byte.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -205,7 +205,7 @@ var result = stringReader.ReadSByte();
 ### ReadUShort
 `public ushort ReadUShort()`
 
-**Purpose:** **Purpose:** Reads the data or state of u short.
+**Purpose:** Reads the data or state of u short.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first
@@ -216,7 +216,7 @@ var result = stringReader.ReadUShort();
 ### ReadDouble
 `public double ReadDouble()`
 
-**Purpose:** **Purpose:** Reads the data or state of double.
+**Purpose:** Reads the data or state of double.
 
 ```csharp
 // Obtain an instance of StringReader from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MainAgentDetectionVM from the subsystem API first
@@ -46,7 +46,7 @@ mainAgentDetectionVM.RefreshValues();
 ### UpdateDetectionValues
 `public void UpdateDetectionValues(float minDetectionLevel, float maxDetectionLevel, float currentDetectionLevel)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of detection values.
+**Purpose:** Recalculates and stores the latest representation of detection values.
 
 ```csharp
 // Obtain an instance of MainAgentDetectionVM from the subsystem API first

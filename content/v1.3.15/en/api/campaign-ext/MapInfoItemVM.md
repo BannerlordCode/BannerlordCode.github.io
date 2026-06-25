@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
+**Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of MapInfoItemVM from the subsystem API first
@@ -44,7 +44,7 @@ mapInfoItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
+**Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of MapInfoItemVM from the subsystem API first
@@ -55,7 +55,7 @@ mapInfoItemVM.ExecuteEndHint();
 ### SetOverriddenVisualId
 `public void SetOverriddenVisualId(string visualId)`
 
-**Purpose:** **Purpose:** Assigns a new value to overridden visual id and updates the object's internal state.
+**Purpose:** Assigns a new value to overridden visual id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapInfoItemVM from the subsystem API first

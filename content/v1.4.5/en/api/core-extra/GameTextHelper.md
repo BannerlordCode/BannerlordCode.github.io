@@ -23,7 +23,7 @@ Treat `GameTextHelper` as a Helper-style extension point: first identify who cre
 ### Variation
 `public GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**Purpose:** **Purpose:** Executes the Variation logic.
+**Purpose:** Executes the Variation logic.
 
 ```csharp
 // Obtain an instance of GameTextHelper from the subsystem API first
@@ -34,7 +34,7 @@ var result = gameTextHelper.Variation("example", propertiesAndWeights);
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**Purpose:** **Purpose:** Executes the MergeTextObjectsWithComma logic.
+**Purpose:** Executes the MergeTextObjectsWithComma logic.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ GameTextHelper.MergeTextObjectsWithComma(textObjects, false);
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**Purpose:** **Purpose:** Executes the MergeTextObjectsWithSymbol logic.
+**Purpose:** Executes the MergeTextObjectsWithSymbol logic.
 
 ```csharp
 // Static call; no instance required

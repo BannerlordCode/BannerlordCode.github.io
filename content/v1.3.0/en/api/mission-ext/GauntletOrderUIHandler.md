@@ -35,7 +35,7 @@ Treat `GauntletOrderUIHandler` as a Handler-style extension point: first identif
 ### SelectFormationAtIndex
 `public virtual void SelectFormationAtIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the SelectFormationAtIndex logic.
+**Purpose:** Executes the SelectFormationAtIndex logic.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -46,7 +46,7 @@ gauntletOrderUIHandler.SelectFormationAtIndex(0);
 ### DeselectFormationAtIndex
 `public virtual void DeselectFormationAtIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the DeselectFormationAtIndex logic.
+**Purpose:** Executes the DeselectFormationAtIndex logic.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -57,7 +57,7 @@ gauntletOrderUIHandler.DeselectFormationAtIndex(0);
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen activate event is raised.
+**Purpose:** Invoked when the mission screen activate event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -68,7 +68,7 @@ gauntletOrderUIHandler.OnMissionScreenActivate();
 ### OnMissionScreenDeactivate
 `public override void OnMissionScreenDeactivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen deactivate event is raised.
+**Purpose:** Invoked when the mission screen deactivate event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -79,7 +79,7 @@ gauntletOrderUIHandler.OnMissionScreenDeactivate();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -90,7 +90,7 @@ gauntletOrderUIHandler.OnMissionScreenTick(0);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -101,7 +101,7 @@ gauntletOrderUIHandler.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -112,7 +112,7 @@ gauntletOrderUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -123,7 +123,7 @@ var result = gauntletOrderUIHandler.OnEscape();
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the ready state or condition.
+**Purpose:** Determines whether the this instance is in the ready state or condition.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -134,7 +134,7 @@ var result = gauntletOrderUIHandler.IsReady();
 ### OnActivateToggleOrder
 `public void OnActivateToggleOrder()`
 
-**Purpose:** **Purpose:** Invoked when the activate toggle order event is raised.
+**Purpose:** Invoked when the activate toggle order event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first
@@ -145,7 +145,7 @@ gauntletOrderUIHandler.OnActivateToggleOrder();
 ### OnDeactivateToggleOrder
 `public void OnDeactivateToggleOrder()`
 
-**Purpose:** **Purpose:** Invoked when the deactivate toggle order event is raised.
+**Purpose:** Invoked when the deactivate toggle order event is raised.
 
 ```csharp
 // Obtain an instance of GauntletOrderUIHandler from the subsystem API first

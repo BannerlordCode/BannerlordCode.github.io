@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnPlayerJoin
 `public virtual void OnPlayerJoin(PlayerData playerData)`
 
-**Purpose:** **Purpose:** Invoked when the player join event is raised.
+**Purpose:** Invoked when the player join event is raised.
 
 ```csharp
 // Obtain an instance of GameBadgeTracker from the subsystem API first
@@ -34,7 +34,7 @@ gameBadgeTracker.OnPlayerJoin(playerData);
 ### OnKill
 `public virtual void OnKill(KillData killData)`
 
-**Purpose:** **Purpose:** Invoked when the kill event is raised.
+**Purpose:** Invoked when the kill event is raised.
 
 ```csharp
 // Obtain an instance of GameBadgeTracker from the subsystem API first
@@ -45,7 +45,7 @@ gameBadgeTracker.OnKill(killData);
 ### OnStartingNextBattle
 `public virtual void OnStartingNextBattle()`
 
-**Purpose:** **Purpose:** Invoked when the starting next battle event is raised.
+**Purpose:** Invoked when the starting next battle event is raised.
 
 ```csharp
 // Obtain an instance of GameBadgeTracker from the subsystem API first

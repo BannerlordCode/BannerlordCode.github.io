@@ -31,7 +31,7 @@ description: "CircularFormation 的自动生成类参考。"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularFormation 实例
@@ -42,7 +42,7 @@ var result = circularFormation.Clone(formation);
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularFormation 实例
@@ -53,7 +53,7 @@ var result = circularFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### GetCircumferenceFromRankCount
 `public float GetCircumferenceFromRankCount(int rankCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 circumference from rank count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 circumference from rank count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularFormation 实例
@@ -64,7 +64,7 @@ var result = circularFormation.GetCircumferenceFromRankCount(0);
 ### FormFromCircumference
 `public void FormFromCircumference(float circumference)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FormFromCircumference 对应的操作。
+**用途 / Purpose:** 调用 FormFromCircumference 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CircularFormation 实例

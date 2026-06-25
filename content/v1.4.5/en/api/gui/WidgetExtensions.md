@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### SetWidgetAttributeFromString
 `public static void SetWidgetAttributeFromString(object target, string name, string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, XmlElement> customElements, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** **Purpose:** Assigns a new value to widget attribute from string and updates the object's internal state.
+**Purpose:** Assigns a new value to widget attribute from string and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brus
 ### GetWidgetAttributeType
 `public static Type GetWidgetAttributeType(object target, string name)`
 
-**Purpose:** **Purpose:** Reads and returns the widget attribute type value held by the this instance.
+**Purpose:** Reads and returns the widget attribute type value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ WidgetExtensions.GetWidgetAttributeType(target, "example");
 ### SetWidgetAttribute
 `public static void SetWidgetAttribute(UIContext context, object target, string name, object value)`
 
-**Purpose:** **Purpose:** Assigns a new value to widget attribute and updates the object's internal state.
+**Purpose:** Assigns a new value to widget attribute and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

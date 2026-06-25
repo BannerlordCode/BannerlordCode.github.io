@@ -37,7 +37,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first
@@ -48,7 +48,7 @@ nameplateVM.OnFinalize();
 ### Initialize
 `public virtual void Initialize(GameEntity strategicEntity)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first
@@ -59,7 +59,7 @@ nameplateVM.Initialize(strategicEntity);
 ### RefreshDynamicProperties
 `public virtual void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
+**Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first
@@ -70,7 +70,7 @@ nameplateVM.RefreshDynamicProperties(false);
 ### RefreshPosition
 `public virtual void RefreshPosition()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
+**Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first
@@ -81,7 +81,7 @@ nameplateVM.RefreshPosition();
 ### RefreshRelationStatus
 `public virtual void RefreshRelationStatus()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of relation status in sync with the underlying state.
+**Purpose:** Keeps the display or cache of relation status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first
@@ -92,7 +92,7 @@ nameplateVM.RefreshRelationStatus();
 ### RefreshTutorialStatus
 `public virtual void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of tutorial status in sync with the underlying state.
+**Purpose:** Keeps the display or cache of tutorial status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of NameplateVM from the subsystem API first

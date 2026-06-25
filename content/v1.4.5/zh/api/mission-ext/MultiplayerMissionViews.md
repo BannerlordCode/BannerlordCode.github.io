@@ -23,7 +23,7 @@ description: "MultiplayerMissionViews 的自动生成类参考。"
 ### OpenTeamDeathmatchMission
 `public static MissionView OpenTeamDeathmatchMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开team deathmatch mission对应的资源或界面。
+**用途 / Purpose:** 打开team deathmatch mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerMissionViews.OpenTeamDeathmatchMission(mission);
 ### OpenDuelMission
 `public static MissionView OpenDuelMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开duel mission对应的资源或界面。
+**用途 / Purpose:** 打开duel mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MultiplayerMissionViews.OpenDuelMission(mission);
 ### OpenSiegeMission
 `public static MissionView OpenSiegeMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开siege mission对应的资源或界面。
+**用途 / Purpose:** 打开siege mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MultiplayerMissionViews.OpenSiegeMission(mission);
 ### OpenBattle
 `public static MissionView OpenBattle(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开battle对应的资源或界面。
+**用途 / Purpose:** 打开battle对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MultiplayerMissionViews.OpenBattle(mission);
 ### OpenCaptain
 `public static MissionView OpenCaptain(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开captain对应的资源或界面。
+**用途 / Purpose:** 打开captain对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MultiplayerMissionViews.OpenCaptain(mission);
 ### OpenSkirmish
 `public static MissionView OpenSkirmish(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开skirmish对应的资源或界面。
+**用途 / Purpose:** 打开skirmish对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

@@ -29,7 +29,7 @@ description: "Trebuchet 的自动生成类参考。"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -40,7 +40,7 @@ var result = trebuchet.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -51,7 +51,7 @@ var result = trebuchet.GetDescriptionText(gameEntity);
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -62,7 +62,7 @@ var result = trebuchet.GetSiegeEngineType();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -73,7 +73,7 @@ var result = trebuchet.CreateAIBehaviorObject();
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -84,7 +84,7 @@ trebuchet.AfterMissionStart();
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessTargetValue 对应的操作。
+**用途 / Purpose:** 调用 ProcessTargetValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -95,7 +95,7 @@ var result = trebuchet.ProcessTargetValue(0, flags);
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -106,7 +106,7 @@ var result = trebuchet.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -117,7 +117,7 @@ var result = trebuchet.GetTargetValue(weaponPos);
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例
@@ -128,7 +128,7 @@ var result = trebuchet.GetTickRequirement();
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Trebuchet 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of LocationComplexTemplate from the subsystem API first

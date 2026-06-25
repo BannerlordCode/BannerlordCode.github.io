@@ -23,7 +23,7 @@ description: "ClanMemberRolesCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
@@ -34,7 +34,7 @@ clanMemberRolesCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
@@ -45,7 +45,7 @@ clanMemberRolesCampaignBehavior.SyncData(dataStore);
 ### IsFollowingPlayer
 `public bool IsFollowingPlayer(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 following player 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 following player 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
@@ -56,7 +56,7 @@ var result = clanMemberRolesCampaignBehavior.IsFollowingPlayer(hero);
 ### RemoveFollowingHero
 `public void RemoveFollowingHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 following hero。
+**用途 / Purpose:** 从当前容器或状态中移除 following hero。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例

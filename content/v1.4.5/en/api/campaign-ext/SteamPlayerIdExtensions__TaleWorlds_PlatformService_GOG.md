@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this GalaxyID galaxyID)`
 
-**Purpose:** **Purpose:** Executes the ToPlayerId logic.
+**Purpose:** Executes the ToPlayerId logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SteamPlayerIdExtensions.ToPlayerId(galaxyID);
 ### ToGOGID
 `public static GalaxyID ToGOGID(this PlayerId playerId)`
 
-**Purpose:** **Purpose:** Executes the ToGOGID logic.
+**Purpose:** Executes the ToGOGID logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SteamPlayerIdExtensions.ToGOGID(playerId);
 ### IsValidGOGId
 `public static bool IsValidGOGId(this PlayerId playerId)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid g o g id state or condition.
+**Purpose:** Determines whether the this instance is in the valid g o g id state or condition.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "EngineInputManager 的自动生成类参考。"
 ### SetRumbleEffect
 `public void SetRumbleEffect(float lowFrequencyLevels, float lowFrequencyDurations, int numLowFrequencyElements, float highFrequencyLevels, float highFrequencyDurations, int numHighFrequencyElements)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 rumble effect 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 rumble effect 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EngineInputManager 实例
@@ -34,7 +34,7 @@ engineInputManager.SetRumbleEffect(0, 0, 0, 0, 0, 0);
 ### SetTriggerFeedback
 `public void SetTriggerFeedback(byte leftTriggerPosition, byte leftTriggerStrength, byte rightTriggerPosition, byte rightTriggerStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 trigger feedback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 trigger feedback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EngineInputManager 实例
@@ -45,7 +45,7 @@ engineInputManager.SetTriggerFeedback(0, 0, 0, 0);
 ### SetTriggerWeaponEffect
 `public void SetTriggerWeaponEffect(byte leftStartPosition, byte leftEnd_position, byte leftStrength, byte rightStartPosition, byte rightEndPosition, byte rightStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 trigger weapon effect 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 trigger weapon effect 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EngineInputManager 实例
@@ -56,7 +56,7 @@ engineInputManager.SetTriggerWeaponEffect(0, 0, 0, 0, 0, 0);
 ### SetTriggerVibration
 `public void SetTriggerVibration(float leftTriggerAmplitudes, float leftTriggerFrequencies, float leftTriggerDurations, int numLeftTriggerElements, float rightTriggerAmplitudes, float rightTriggerFrequencies, float rightTriggerDurations, int numRightTriggerElements)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 trigger vibration 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 trigger vibration 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EngineInputManager 实例
@@ -67,7 +67,7 @@ engineInputManager.SetTriggerVibration(0, 0, 0, 0, 0, 0, 0, 0);
 ### SetLightbarColor
 `public void SetLightbarColor(float red, float green, float blue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 lightbar color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 lightbar color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EngineInputManager 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
@@ -40,7 +40,7 @@ auxiliaryKeyOptionVM.RefreshValues();
 ### Set
 `public override void Set(InputKey newKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to the this instance's property or state.
+**Purpose:** Assigns a new value to the this instance's property or state.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
@@ -51,7 +51,7 @@ auxiliaryKeyOptionVM.Set(newKey);
 ### Update
 `public override void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
@@ -62,7 +62,7 @@ auxiliaryKeyOptionVM.Update();
 ### OnDone
 `public override void OnDone()`
 
-**Purpose:** **Purpose:** Invoked when the done event is raised.
+**Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CharacterMarriedLogEntry from the subsystem API first
@@ -42,7 +42,7 @@ var result = characterMarriedLogEntry.ToString();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterMarriedLogEntry from the subsystem API first
@@ -53,7 +53,7 @@ var result = characterMarriedLogEntry.GetNotificationText();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterMarriedLogEntry from the subsystem API first

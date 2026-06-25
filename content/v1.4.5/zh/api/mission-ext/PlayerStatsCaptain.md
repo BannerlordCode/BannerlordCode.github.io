@@ -32,7 +32,7 @@ description: "PlayerStatsCaptain 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount, int captainsKilled, int mvps, int score)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillWith 对应的操作。
+**用途 / Purpose:** 调用 FillWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsCaptain 实例
@@ -43,7 +43,7 @@ playerStatsCaptain.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, int defaultRating, int defaultRatingDeviation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillWithNewPlayer 对应的操作。
+**用途 / Purpose:** 调用 FillWithNewPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsCaptain 实例
@@ -54,7 +54,7 @@ playerStatsCaptain.FillWithNewPlayer(playerId, 0, 0);
 ### Update
 `public void Update(BattlePlayerStatsCaptain stats, bool won)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsCaptain 实例

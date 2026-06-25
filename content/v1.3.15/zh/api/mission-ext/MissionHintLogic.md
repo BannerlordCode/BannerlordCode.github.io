@@ -29,7 +29,7 @@ description: "MissionHintLogic 的自动生成类参考。"
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active hint 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active hint 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionHintLogic 实例
@@ -40,7 +40,7 @@ missionHintLogic.SetActiveHint(hint);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionHintLogic 实例
@@ -51,7 +51,7 @@ missionHintLogic.Clear();
 ### MissionHintChangedDelegate
 `public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionHintChangedDelegate 对应的操作。
+**用途 / Purpose:** 调用 MissionHintChangedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionHintLogic 实例

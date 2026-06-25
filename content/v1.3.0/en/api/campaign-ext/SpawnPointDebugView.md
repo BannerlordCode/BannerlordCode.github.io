@@ -23,7 +23,7 @@ Treat `SpawnPointDebugView` as a View-style extension point: first identify who 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnPointDebugView from the subsystem API first

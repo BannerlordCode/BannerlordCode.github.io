@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
@@ -34,7 +34,7 @@ interruptingBehaviorGroup.Tick(0, false);
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
+**Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
@@ -45,7 +45,7 @@ var result = interruptingBehaviorGroup.GetScore(false);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** **Purpose:** Executes the ForceThink logic.
+**Purpose:** Executes the ForceThink logic.
 
 ```csharp
 // Obtain an instance of InterruptingBehaviorGroup from the subsystem API first

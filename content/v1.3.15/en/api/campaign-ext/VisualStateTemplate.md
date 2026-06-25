@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### SetAttribute
 `public void SetAttribute(string name, string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to attribute and updates the object's internal state.
+**Purpose:** Assigns a new value to attribute and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VisualStateTemplate from the subsystem API first
@@ -40,7 +40,7 @@ visualStateTemplate.SetAttribute("example", "example");
 ### GetAttributes
 `public Dictionary<string, string> GetAttributes()`
 
-**Purpose:** **Purpose:** Reads and returns the attributes value held by the this instance.
+**Purpose:** Reads and returns the attributes value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualStateTemplate from the subsystem API first
@@ -51,7 +51,7 @@ var result = visualStateTemplate.GetAttributes();
 ### ClearAttribute
 `public void ClearAttribute(string name)`
 
-**Purpose:** **Purpose:** Removes all attribute from the this instance.
+**Purpose:** Removes all attribute from the this instance.
 
 ```csharp
 // Obtain an instance of VisualStateTemplate from the subsystem API first
@@ -62,7 +62,7 @@ visualStateTemplate.ClearAttribute("example");
 ### CreateVisualState
 `public VisualState CreateVisualState(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** **Purpose:** Constructs a new visual state entity and returns it to the caller.
+**Purpose:** Constructs a new visual state entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of VisualStateTemplate from the subsystem API first

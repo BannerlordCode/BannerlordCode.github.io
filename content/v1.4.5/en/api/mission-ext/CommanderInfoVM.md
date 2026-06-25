@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CommanderInfoVM from the subsystem API first
@@ -58,7 +58,7 @@ commanderInfoVM.OnFinalize();
 ### UpdateWarmupDependentFlags
 `public void UpdateWarmupDependentFlags(bool isInWarmup)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of warmup dependent flags.
+**Purpose:** Recalculates and stores the latest representation of warmup dependent flags.
 
 ```csharp
 // Obtain an instance of CommanderInfoVM from the subsystem API first
@@ -69,7 +69,7 @@ commanderInfoVM.UpdateWarmupDependentFlags(false);
 ### OnUpdateMorale
 `public void OnUpdateMorale(BattleSideEnum side, float morale)`
 
-**Purpose:** **Purpose:** Invoked when the update morale event is raised.
+**Purpose:** Invoked when the update morale event is raised.
 
 ```csharp
 // Obtain an instance of CommanderInfoVM from the subsystem API first
@@ -80,7 +80,7 @@ commanderInfoVM.OnUpdateMorale(side, 0);
 ### OnTeamChanged
 `public void OnTeamChanged()`
 
-**Purpose:** **Purpose:** Invoked when the team changed event is raised.
+**Purpose:** Invoked when the team changed event is raised.
 
 ```csharp
 // Obtain an instance of CommanderInfoVM from the subsystem API first
@@ -91,7 +91,7 @@ commanderInfoVM.OnTeamChanged();
 ### RefreshColors
 `public void RefreshColors(string allyTeamColor, string allyTeamColorSecondary, string enemyTeamColor, string enemyTeamColorSecondary)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of colors in sync with the underlying state.
+**Purpose:** Keeps the display or cache of colors in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CommanderInfoVM from the subsystem API first

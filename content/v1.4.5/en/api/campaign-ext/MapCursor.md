@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### Initialize
 `public void Initialize(MapScreen parentMapScreen)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MapCursor from the subsystem API first
@@ -34,7 +34,7 @@ mapCursor.Initialize(parentMapScreen);
 ### BeforeTick
 `public void BeforeTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the BeforeTick logic.
+**Purpose:** Executes the BeforeTick logic.
 
 ```csharp
 // Obtain an instance of MapCursor from the subsystem API first
@@ -45,7 +45,7 @@ mapCursor.BeforeTick(0);
 ### SetVisible
 `public void SetVisible(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to visible and updates the object's internal state.
+**Purpose:** Assigns a new value to visible and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapCursor from the subsystem API first

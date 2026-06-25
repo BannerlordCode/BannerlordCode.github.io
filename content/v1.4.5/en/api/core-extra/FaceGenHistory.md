@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ClearHistory
 `public void ClearHistory()`
 
-**Purpose:** **Purpose:** Removes all history from the this instance.
+**Purpose:** Removes all history from the this instance.
 
 ```csharp
 // Obtain an instance of FaceGenHistory from the subsystem API first

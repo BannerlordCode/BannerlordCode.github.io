@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ GauntletGameNotification.Initialize();
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ GauntletGameNotification.OnFinalize();
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**Purpose:** **Purpose:** Reads movie from persistent storage or a stream.
+**Purpose:** Reads movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GauntletGameNotification from the subsystem API first

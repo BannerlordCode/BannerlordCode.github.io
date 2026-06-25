@@ -49,7 +49,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### ExecuteStartGame
 `public void ExecuteStartGame(int mode)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with start game.
+**Purpose:** Runs the operation or workflow associated with start game.
 
 ```csharp
 // Obtain an instance of LauncherVM from the subsystem API first
@@ -60,7 +60,7 @@ launcherVM.ExecuteStartGame(0);
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of LauncherVM from the subsystem API first
@@ -71,7 +71,7 @@ launcherVM.ExecuteClose();
 ### ExecuteMinimize
 `public void ExecuteMinimize()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with minimize.
+**Purpose:** Runs the operation or workflow associated with minimize.
 
 ```csharp
 // Obtain an instance of LauncherVM from the subsystem API first

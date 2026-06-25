@@ -23,7 +23,7 @@ description: "BattleSurgeonLogic 的自动生成类参考。"
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent created 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSurgeonLogic 实例

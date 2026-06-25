@@ -23,7 +23,7 @@ description: "TestActivityService 的自动生成类参考。"
 ### GetActivityTransition
 `public ActivityTransition GetActivityTransition(string activityId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 activity transition 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 activity transition 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TestActivityService 实例

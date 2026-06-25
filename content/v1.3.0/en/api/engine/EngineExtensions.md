@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 vec3, Scene scene)`
 
-**Purpose:** **Purpose:** Executes the ToWorldPosition logic.
+**Purpose:** Executes the ToWorldPosition logic.
 
 ```csharp
 // Static call; no instance required

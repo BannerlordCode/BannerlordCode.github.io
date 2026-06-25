@@ -23,7 +23,7 @@ description: "StandingPointWithWeaponRequirement 的自动生成类参考。"
 ### InitRequiredWeaponClasses
 `public void InitRequiredWeaponClasses(WeaponClass requiredWeaponClasses)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 required weapon classes 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 required weapon classes 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -34,7 +34,7 @@ standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClass
 ### InitRequiredWeapon
 `public void InitRequiredWeapon(ItemObject weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 required weapon 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 required weapon 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -45,7 +45,7 @@ standingPointWithWeaponRequirement.InitRequiredWeapon(weapon);
 ### InitGivenWeapon
 `public void InitGivenWeapon(ItemObject weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 given weapon 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 given weapon 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -56,7 +56,7 @@ standingPointWithWeaponRequirement.InitGivenWeapon(weapon);
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -67,7 +67,7 @@ var result = standingPointWithWeaponRequirement.IsDisabledForAgent(agent);
 ### SetHasAlternative
 `public void SetHasAlternative(bool hasAlternative)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 has alternative 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 has alternative 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -78,7 +78,7 @@ standingPointWithWeaponRequirement.SetHasAlternative(false);
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 alternative。
+**用途 / Purpose:** 判断当前对象是否已经持有 alternative。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例
@@ -89,7 +89,7 @@ var result = standingPointWithWeaponRequirement.HasAlternative();
 ### SetUsingBattleSide
 `public void SetUsingBattleSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 using battle side 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 using battle side 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithWeaponRequirement 实例

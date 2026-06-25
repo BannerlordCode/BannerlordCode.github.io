@@ -34,7 +34,7 @@ description: "StoryModeEvents 的自动生成类参考。"
 ### RemoveListeners
 `public override void RemoveListeners(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 listeners。
+**用途 / Purpose:** 从当前容器或状态中移除 listeners。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例
@@ -45,7 +45,7 @@ storyModeEvents.RemoveListeners(obj);
 ### OnMainStoryLineSideChosen
 `public void OnMainStoryLineSideChosen(MainStoryLineSide side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main story line side chosen 事件触发时调用此回调。
+**用途 / Purpose:** 在 main story line side chosen 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例
@@ -56,7 +56,7 @@ storyModeEvents.OnMainStoryLineSideChosen(side);
 ### OnStoryModeTutorialEnded
 `public void OnStoryModeTutorialEnded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 story mode tutorial ended 事件触发时调用此回调。
+**用途 / Purpose:** 在 story mode tutorial ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例
@@ -67,7 +67,7 @@ storyModeEvents.OnStoryModeTutorialEnded();
 ### OnBannerPieceCollected
 `public void OnBannerPieceCollected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 banner piece collected 事件触发时调用此回调。
+**用途 / Purpose:** 在 banner piece collected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例
@@ -78,7 +78,7 @@ storyModeEvents.OnBannerPieceCollected();
 ### OnConspiracyActivated
 `public void OnConspiracyActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 conspiracy activated 事件触发时调用此回调。
+**用途 / Purpose:** 在 conspiracy activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例
@@ -89,7 +89,7 @@ storyModeEvents.OnConspiracyActivated();
 ### OnTravelToVillageTutorialQuestStarted
 `public void OnTravelToVillageTutorialQuestStarted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 travel to village tutorial quest started 事件触发时调用此回调。
+**用途 / Purpose:** 在 travel to village tutorial quest started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEvents 实例

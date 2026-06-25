@@ -23,7 +23,7 @@ description: "SkyInformation 的自动生成类参考。"
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出from。
+**用途 / Purpose:** 从序列化数据还原出from。
 
 ```csharp
 // 先通过子系统 API 拿到 SkyInformation 实例
@@ -34,7 +34,7 @@ skyInformation.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to序列化为可存储或传输的格式。
+**用途 / Purpose:** 将to序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 SkyInformation 实例

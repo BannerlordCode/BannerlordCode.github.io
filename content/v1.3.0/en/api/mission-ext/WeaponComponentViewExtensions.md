@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the flying mesh copy value held by the this instance.
+**Purpose:** Reads and returns the flying mesh copy value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the flying mesh if exists value held by the this instance.
+**Purpose:** Reads and returns the flying mesh if exists value held by the this instance.
 
 ```csharp
 // Static call; no instance required

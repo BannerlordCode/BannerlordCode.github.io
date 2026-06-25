@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetAtParty
 `public void SetAtParty()`
 
-**Purpose:** **Purpose:** Assigns a new value to at party and updates the object's internal state.
+**Purpose:** Assigns a new value to at party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first
@@ -43,7 +43,7 @@ partyPlayerInLobbyClient.SetAtParty();
 ### SetLeader
 `public void SetLeader()`
 
-**Purpose:** **Purpose:** Assigns a new value to leader and updates the object's internal state.
+**Purpose:** Assigns a new value to leader and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first
@@ -54,7 +54,7 @@ partyPlayerInLobbyClient.SetLeader();
 ### SetMember
 `public void SetMember()`
 
-**Purpose:** **Purpose:** Assigns a new value to member and updates the object's internal state.
+**Purpose:** Assigns a new value to member and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first

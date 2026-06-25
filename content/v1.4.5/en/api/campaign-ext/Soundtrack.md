@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -34,7 +34,7 @@ soundtrack.Clear();
 ### getThemeById
 `public Theme getThemeById(int id)`
 
-**Purpose:** **Purpose:** Executes the getThemeById logic.
+**Purpose:** Executes the getThemeById logic.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -45,7 +45,7 @@ var result = soundtrack.getThemeById(0);
 ### GetSegmentById
 `public Segment GetSegmentById(int id)`
 
-**Purpose:** **Purpose:** Reads and returns the segment by id value held by the this instance.
+**Purpose:** Reads and returns the segment by id value held by the this instance.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -56,7 +56,7 @@ var result = soundtrack.GetSegmentById(0);
 ### getSoundtrackInfo
 `public SoundtrackInfo getSoundtrackInfo()`
 
-**Purpose:** **Purpose:** Executes the getSoundtrackInfo logic.
+**Purpose:** Executes the getSoundtrackInfo logic.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -67,7 +67,7 @@ var result = soundtrack.getSoundtrackInfo();
 ### getThemeInfo
 `public ThemeInfo getThemeInfo(int themeId)`
 
-**Purpose:** **Purpose:** Executes the getThemeInfo logic.
+**Purpose:** Executes the getThemeInfo logic.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -78,7 +78,7 @@ var result = soundtrack.getThemeInfo(0);
 ### getSegmentInfo
 `public SegmentInfo getSegmentInfo(int snippetId)`
 
-**Purpose:** **Purpose:** Executes the getSegmentInfo logic.
+**Purpose:** Executes the getSegmentInfo logic.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -89,7 +89,7 @@ var result = soundtrack.getSegmentInfo(0);
 ### UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets
 `public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of max pre beat ms of compatible middle or bridge snippets.
+**Purpose:** Recalculates and stores the latest representation of max pre beat ms of compatible middle or bridge snippets.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first
@@ -100,7 +100,7 @@ soundtrack.UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets();
 ### BuildAllIndirectionSequences
 `public void BuildAllIndirectionSequences()`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for all indirection sequences.
+**Purpose:** Assembles and returns the built result for all indirection sequences.
 
 ```csharp
 // Obtain an instance of Soundtrack from the subsystem API first

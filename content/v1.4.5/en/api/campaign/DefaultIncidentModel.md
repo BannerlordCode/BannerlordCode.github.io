@@ -23,7 +23,7 @@ Treat `DefaultIncidentModel` as a Model-style extension point: first identify wh
 ### GetMinGlobalCooldownTime
 `public override CampaignTime GetMinGlobalCooldownTime()`
 
-**Purpose:** **Purpose:** Reads and returns the min global cooldown time value held by the this instance.
+**Purpose:** Reads and returns the min global cooldown time value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIncidentModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultIncidentModel.GetMinGlobalCooldownTime();
 ### GetMaxGlobalCooldownTime
 `public override CampaignTime GetMaxGlobalCooldownTime()`
 
-**Purpose:** **Purpose:** Reads and returns the max global cooldown time value held by the this instance.
+**Purpose:** Reads and returns the max global cooldown time value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIncidentModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultIncidentModel.GetMaxGlobalCooldownTime();
 ### GetIncidentTriggerGlobalProbability
 `public override float GetIncidentTriggerGlobalProbability()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger global probability value held by the this instance.
+**Purpose:** Reads and returns the incident trigger global probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIncidentModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultIncidentModel.GetIncidentTriggerGlobalProbability();
 ### GetIncidentTriggerProbabilityDuringSiege
 `public override float GetIncidentTriggerProbabilityDuringSiege()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger probability during siege value held by the this instance.
+**Purpose:** Reads and returns the incident trigger probability during siege value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIncidentModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultIncidentModel.GetIncidentTriggerProbabilityDuringSiege();
 ### GetIncidentTriggerProbabilityDuringWait
 `public override float GetIncidentTriggerProbabilityDuringWait()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger probability during wait value held by the this instance.
+**Purpose:** Reads and returns the incident trigger probability during wait value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultIncidentModel from the subsystem API first

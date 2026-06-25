@@ -23,7 +23,7 @@ description: "MapViewsContainer 的自动生成类参考。"
 ### Add
 `public void Add(MapView mapView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -34,7 +34,7 @@ mapViewsContainer.Add(mapView);
 ### Remove
 `public void Remove(MapView mapView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -45,7 +45,7 @@ mapViewsContainer.Remove(mapView);
 ### Contains
 `public bool Contains(MapView mapView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含指定项。
+**用途 / Purpose:** 检查当前对象是否含有目标项。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -56,7 +56,7 @@ var result = mapViewsContainer.Contains(mapView);
 ### Foreach
 `public void Foreach(Action<MapView> action)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Foreach 对应的操作。
+**用途 / Purpose:** 调用 Foreach 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -67,7 +67,7 @@ mapViewsContainer.Foreach(action);
 ### ForeachReverse
 `public void ForeachReverse(Action<MapView> action)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForeachReverse 对应的操作。
+**用途 / Purpose:** 调用 ForeachReverse 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -78,7 +78,7 @@ mapViewsContainer.ForeachReverse(action);
 ### ReturnFirstElementWithCondition
 `public MapView ReturnFirstElementWithCondition(Func<MapView, bool> condition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReturnFirstElementWithCondition 对应的操作。
+**用途 / Purpose:** 调用 ReturnFirstElementWithCondition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -89,7 +89,7 @@ var result = mapViewsContainer.ReturnFirstElementWithCondition(func<MapView, fal
 ### GetContextToChangeTo
 `public TutorialContexts GetContextToChangeTo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 context to change to 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 context to change to 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -100,7 +100,7 @@ var result = mapViewsContainer.GetContextToChangeTo();
 ### IsThereAnyViewIsEscaped
 `public bool IsThereAnyViewIsEscaped()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there any view is escaped 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there any view is escaped 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -111,7 +111,7 @@ var result = mapViewsContainer.IsThereAnyViewIsEscaped();
 ### IsOpeningEscapeMenuOnFocusChangeAllowedForAll
 `public bool IsOpeningEscapeMenuOnFocusChangeAllowedForAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 opening escape menu on focus change allowed for all 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 opening escape menu on focus change allowed for all 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例

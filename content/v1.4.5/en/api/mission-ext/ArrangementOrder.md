@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUnitSpacingOf
 `public static int GetUnitSpacingOf(ArrangementOrderEnum a)`
 
-**Purpose:** **Purpose:** Reads and returns the unit spacing of value held by the this instance.
+**Purpose:** Reads and returns the unit spacing of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ArrangementOrder.GetUnitSpacingOf(a);
 ### GetUnitLooseness
 `public static bool GetUnitLooseness(ArrangementOrderEnum a)`
 
-**Purpose:** **Purpose:** Reads and returns the unit looseness value held by the this instance.
+**Purpose:** Reads and returns the unit looseness value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ArrangementOrder.GetUnitLooseness(a);
 ### GetMovementSpeedRestriction
 `public void GetMovementSpeedRestriction(out float? runRestriction, out float? walkRestriction)`
 
-**Purpose:** **Purpose:** Reads and returns the movement speed restriction value held by the this instance.
+**Purpose:** Reads and returns the movement speed restriction value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -54,7 +54,7 @@ arrangementOrder.GetMovementSpeedRestriction(runRestriction, walkRestriction);
 ### GetArrangement
 `public IFormationArrangement GetArrangement(Formation formation)`
 
-**Purpose:** **Purpose:** Reads and returns the arrangement value held by the this instance.
+**Purpose:** Reads and returns the arrangement value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -65,7 +65,7 @@ var result = arrangementOrder.GetArrangement(formation);
 ### OnApply
 `public void OnApply(Formation formation)`
 
-**Purpose:** **Purpose:** Invoked when the apply event is raised.
+**Purpose:** Invoked when the apply event is raised.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -76,7 +76,7 @@ arrangementOrder.OnApply(formation);
 ### SoftUpdate
 `public void SoftUpdate(Formation formation)`
 
-**Purpose:** **Purpose:** Executes the SoftUpdate logic.
+**Purpose:** Executes the SoftUpdate logic.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -87,7 +87,7 @@ arrangementOrder.SoftUpdate(formation);
 ### GetShieldDirectionOfUnit
 `public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrderEnum orderEnum)`
 
-**Purpose:** **Purpose:** Reads and returns the shield direction of unit value held by the this instance.
+**Purpose:** Reads and returns the shield direction of unit value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -97,7 +97,7 @@ ArrangementOrder.GetShieldDirectionOfUnit(formation, unit, orderEnum);
 ### GetUnitSpacing
 `public int GetUnitSpacing()`
 
-**Purpose:** **Purpose:** Reads and returns the unit spacing value held by the this instance.
+**Purpose:** Reads and returns the unit spacing value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -108,7 +108,7 @@ var result = arrangementOrder.GetUnitSpacing();
 ### Rearrange
 `public void Rearrange(Formation formation)`
 
-**Purpose:** **Purpose:** Executes the Rearrange logic.
+**Purpose:** Executes the Rearrange logic.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -119,7 +119,7 @@ arrangementOrder.Rearrange(formation);
 ### RearrangeAux
 `public void RearrangeAux(Formation formation, bool isDirectly)`
 
-**Purpose:** **Purpose:** Executes the RearrangeAux logic.
+**Purpose:** Executes the RearrangeAux logic.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -130,7 +130,7 @@ arrangementOrder.RearrangeAux(formation, false);
 ### TransposeLineFormation
 `public static void TransposeLineFormation(Formation formation)`
 
-**Purpose:** **Purpose:** Executes the TransposeLineFormation logic.
+**Purpose:** Executes the TransposeLineFormation logic.
 
 ```csharp
 // Static call; no instance required
@@ -140,7 +140,7 @@ ArrangementOrder.TransposeLineFormation(formation);
 ### OnCancel
 `public void OnCancel(Formation formation)`
 
-**Purpose:** **Purpose:** Invoked when the cancel event is raised.
+**Purpose:** Invoked when the cancel event is raised.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -151,7 +151,7 @@ arrangementOrder.OnCancel(formation);
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -162,7 +162,7 @@ arrangementOrder.TickOccasionally(formation);
 ### GetNativeEnum
 `public ArrangementOrderEnum GetNativeEnum()`
 
-**Purpose:** **Purpose:** Reads and returns the native enum value held by the this instance.
+**Purpose:** Reads and returns the native enum value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -173,7 +173,7 @@ var result = arrangementOrder.GetNativeEnum();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -184,7 +184,7 @@ var result = arrangementOrder.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -195,7 +195,7 @@ var result = arrangementOrder.GetHashCode();
 ### OnOrderPositionChanged
 `public void OnOrderPositionChanged(Formation formation, Vec2 previousOrderPosition)`
 
-**Purpose:** **Purpose:** Invoked when the order position changed event is raised.
+**Purpose:** Invoked when the order position changed event is raised.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first
@@ -206,7 +206,7 @@ arrangementOrder.OnOrderPositionChanged(formation, previousOrderPosition);
 ### GetArrangementOrderDefensiveness
 `public static int GetArrangementOrderDefensiveness(ArrangementOrderEnum orderEnum)`
 
-**Purpose:** **Purpose:** Reads and returns the arrangement order defensiveness value held by the this instance.
+**Purpose:** Reads and returns the arrangement order defensiveness value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -216,7 +216,7 @@ ArrangementOrder.GetArrangementOrderDefensiveness(orderEnum);
 ### GetArrangementOrderDefensivenessChange
 `public static int GetArrangementOrderDefensivenessChange(ArrangementOrderEnum previousOrderEnum, ArrangementOrderEnum nextOrderEnum)`
 
-**Purpose:** **Purpose:** Reads and returns the arrangement order defensiveness change value held by the this instance.
+**Purpose:** Reads and returns the arrangement order defensiveness change value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -226,7 +226,7 @@ ArrangementOrder.GetArrangementOrderDefensivenessChange(previousOrderEnum, nextO
 ### CalculateFormationDirectionEnforcingFactorForRank
 `public float CalculateFormationDirectionEnforcingFactorForRank(int formationRankIndex, int rankCount)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of formation direction enforcing factor for rank.
+**Purpose:** Calculates the current value or result of formation direction enforcing factor for rank.
 
 ```csharp
 // Obtain an instance of ArrangementOrder from the subsystem API first

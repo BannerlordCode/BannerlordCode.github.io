@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Cinematics` to place it in the stack, then
 ### StartMovement
 `public void StartMovement()`
 
-**Purpose:** **Purpose:** Starts the movement flow or state machine.
+**Purpose:** Starts the movement flow or state machine.
 
 ```csharp
 // Obtain an instance of CinematicBurningArrow from the subsystem API first
@@ -34,7 +34,7 @@ cinematicBurningArrow.StartMovement();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of CinematicBurningArrow from the subsystem API first

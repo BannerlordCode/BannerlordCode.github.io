@@ -31,7 +31,7 @@ Treat `SRTHelper` as a Helper-style extension point: first identify who creates 
 ### ParseStream
 `public static List<SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**Purpose:** **Purpose:** Parses external input into a stream the current system understands.
+**Purpose:** Parses external input into a stream the current system understands.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ SRTHelper.ParseStream(subtitleStream, encoding);
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**Purpose:** **Purpose:** Copies the stream state of the this instance to a target.
+**Purpose:** Copies the stream state of the this instance to a target.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ SRTHelper.CopyStream(inputStream);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of SRTHelper from the subsystem API first

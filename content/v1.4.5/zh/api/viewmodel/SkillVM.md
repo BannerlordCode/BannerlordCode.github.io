@@ -60,7 +60,7 @@ description: "SkillVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -71,7 +71,7 @@ skillVM.RefreshValues();
 ### InitializeValues
 `public void InitializeValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 values 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 values 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -82,7 +82,7 @@ skillVM.InitializeValues();
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with current values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with current values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -93,7 +93,7 @@ skillVM.RefreshWithCurrentValues();
 ### CreateLists
 `public void CreateLists()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 lists 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 lists 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -104,7 +104,7 @@ skillVM.CreateLists();
 ### RefreshLists
 `public void RefreshLists(SkillObject skill = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 lists 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 lists 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -115,7 +115,7 @@ skillVM.RefreshLists(null);
 ### RefreshCanAddFocus
 `public void RefreshCanAddFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 can add focus 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 can add focus 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -126,7 +126,7 @@ skillVM.RefreshCanAddFocus();
 ### ExecuteAddFocus
 `public void ExecuteAddFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 add focus 对应的操作或工作流。
+**用途 / Purpose:** 执行 add focus 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -137,7 +137,7 @@ skillVM.ExecuteAddFocus();
 ### ExecuteShowFocusConcept
 `public void ExecuteShowFocusConcept()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 show focus concept 对应的操作或工作流。
+**用途 / Purpose:** 执行 show focus concept 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -148,7 +148,7 @@ skillVM.ExecuteShowFocusConcept();
 ### ExecuteShowSkillConcept
 `public void ExecuteShowSkillConcept()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 show skill concept 对应的操作或工作流。
+**用途 / Purpose:** 执行 show skill concept 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -159,7 +159,7 @@ skillVM.ExecuteShowSkillConcept();
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 inspect 对应的操作或工作流。
+**用途 / Purpose:** 执行 inspect 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -170,7 +170,7 @@ skillVM.ExecuteInspect();
 ### ResetChanges
 `public void ResetChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 changes 重置回默认或初始状态。
+**用途 / Purpose:** 将 changes 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -181,7 +181,7 @@ skillVM.ResetChanges();
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there any changes 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there any changes 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例
@@ -192,7 +192,7 @@ var result = skillVM.IsThereAnyChanges();
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 changes 的效果应用到当前对象。
+**用途 / Purpose:** 将 changes 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 SkillVM 实例

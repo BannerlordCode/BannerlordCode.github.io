@@ -36,7 +36,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### OnStopUsingGameObject
 `public void OnStopUsingGameObject()`
 
-**Purpose:** **Purpose:** Invoked when the stop using game object event is raised.
+**Purpose:** Invoked when the stop using game object event is raised.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -47,7 +47,7 @@ agentNavigator.OnStopUsingGameObject();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -58,7 +58,7 @@ agentNavigator.OnAgentRemoved(agent);
 ### SetTarget
 `public void SetTarget(UsableMachine usableMachine, bool isInitialTarget = false, Agent.AIScriptedFrameFlags customFlags = 0)`
 
-**Purpose:** **Purpose:** Assigns a new value to target and updates the object's internal state.
+**Purpose:** Assigns a new value to target and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -69,7 +69,7 @@ agentNavigator.SetTarget(usableMachine, false, 0);
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, float rotationThreshold = -10f, Agent.AIScriptedFrameFlags flags = 0, bool disableClearTargetWhenTargetIsReached = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to target frame and updates the object's internal state.
+**Purpose:** Assigns a new value to target frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -80,7 +80,7 @@ agentNavigator.SetTargetFrame(position, 0, 0, 0, 0, false);
 ### ClearTarget
 `public void ClearTarget()`
 
-**Purpose:** **Purpose:** Removes all target from the this instance.
+**Purpose:** Removes all target from the this instance.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -91,7 +91,7 @@ agentNavigator.ClearTarget();
 ### Tick
 `public void Tick(float dt, bool isSimulation = false)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -102,7 +102,7 @@ agentNavigator.Tick(0, false);
 ### GetDistanceToTarget
 `public float GetDistanceToTarget(UsableMachine target)`
 
-**Purpose:** **Purpose:** Reads and returns the distance to target value held by the this instance.
+**Purpose:** Reads and returns the distance to target value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -113,7 +113,7 @@ var result = agentNavigator.GetDistanceToTarget(target);
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the target reached state or condition.
+**Purpose:** Determines whether the this instance is in the target reached state or condition.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -124,7 +124,7 @@ var result = agentNavigator.IsTargetReached();
 ### HoldAndHideRecentlyUsedMeshes
 `public void HoldAndHideRecentlyUsedMeshes()`
 
-**Purpose:** **Purpose:** Executes the HoldAndHideRecentlyUsedMeshes logic.
+**Purpose:** Executes the HoldAndHideRecentlyUsedMeshes logic.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -135,7 +135,7 @@ agentNavigator.HoldAndHideRecentlyUsedMeshes();
 ### RecoverRecentlyUsedMeshes
 `public void RecoverRecentlyUsedMeshes()`
 
-**Purpose:** **Purpose:** Executes the RecoverRecentlyUsedMeshes logic.
+**Purpose:** Executes the RecoverRecentlyUsedMeshes logic.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -146,7 +146,7 @@ agentNavigator.RecoverRecentlyUsedMeshes();
 ### CanSeeAgent
 `public bool CanSeeAgent(Agent otherAgent)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for see agent.
+**Purpose:** Checks whether the this instance meets the preconditions for see agent.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -157,7 +157,7 @@ var result = agentNavigator.CanSeeAgent(otherAgent);
 ### IsCarryingSomething
 `public bool IsCarryingSomething()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the carrying something state or condition.
+**Purpose:** Determines whether the this instance is in the carrying something state or condition.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -168,7 +168,7 @@ var result = agentNavigator.IsCarryingSomething();
 ### SetPrefabVisibility
 `public void SetPrefabVisibility(sbyte realBoneIndex, string prefabName, bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to prefab visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to prefab visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -179,7 +179,7 @@ agentNavigator.SetPrefabVisibility(0, "example", false);
 ### GetPrefabVisibility
 `public bool GetPrefabVisibility(sbyte realBoneIndex, string prefabName)`
 
-**Purpose:** **Purpose:** Reads and returns the prefab visibility value held by the this instance.
+**Purpose:** Reads and returns the prefab visibility value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -190,7 +190,7 @@ var result = agentNavigator.GetPrefabVisibility(0, "example");
 ### SetSpecialItem
 `public void SetSpecialItem()`
 
-**Purpose:** **Purpose:** Assigns a new value to special item and updates the object's internal state.
+**Purpose:** Assigns a new value to special item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -201,7 +201,7 @@ agentNavigator.SetSpecialItem();
 ### SetItemsVisibility
 `public void SetItemsVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to items visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to items visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -212,7 +212,7 @@ agentNavigator.SetItemsVisibility(false);
 ### SetCommonArea
 `public void SetCommonArea(Alley alley)`
 
-**Purpose:** **Purpose:** Assigns a new value to common area and updates the object's internal state.
+**Purpose:** Assigns a new value to common area and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -223,7 +223,7 @@ agentNavigator.SetCommonArea(alley);
 ### ForceThink
 `public void ForceThink(float inSeconds)`
 
-**Purpose:** **Purpose:** Executes the ForceThink logic.
+**Purpose:** Executes the ForceThink logic.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -234,7 +234,7 @@ agentNavigator.ForceThink(0);
 ### RefreshBehaviorGroups
 `public void RefreshBehaviorGroups(bool isSimulation)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of behavior groups in sync with the underlying state.
+**Purpose:** Keeps the display or cache of behavior groups in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -245,7 +245,7 @@ agentNavigator.RefreshBehaviorGroups(false);
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**Purpose:** **Purpose:** Reads and returns the active behavior value held by the this instance.
+**Purpose:** Reads and returns the active behavior value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first
@@ -256,7 +256,7 @@ var result = agentNavigator.GetActiveBehavior();
 ### GetActiveBehaviorGroup
 `public AgentBehaviorGroup GetActiveBehaviorGroup()`
 
-**Purpose:** **Purpose:** Reads and returns the active behavior group value held by the this instance.
+**Purpose:** Reads and returns the active behavior group value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentNavigator from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
+**Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of Integer from the subsystem API first
@@ -34,7 +34,7 @@ var result = integer.GetNumBits();
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**Purpose:** **Purpose:** Reads and returns the maximum value value held by the this instance.
+**Purpose:** Reads and returns the maximum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of Integer from the subsystem API first

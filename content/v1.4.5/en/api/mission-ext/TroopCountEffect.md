@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetExtraTroopCount
 `public override int GetExtraTroopCount()`
 
-**Purpose:** **Purpose:** Reads and returns the extra troop count value held by the this instance.
+**Purpose:** Reads and returns the extra troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopCountEffect from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionTimer 的自动生成类参考。"
 ### GetStartTime
 `public MissionTime GetStartTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 start time 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 start time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -34,7 +34,7 @@ var result = missionTimer.GetStartTime();
 ### GetTimerDuration
 `public float GetTimerDuration()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 timer duration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 timer duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -45,7 +45,7 @@ var result = missionTimer.GetTimerDuration();
 ### GetRemainingTimeInSeconds
 `public float GetRemainingTimeInSeconds(bool synched = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 remaining time in seconds 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 remaining time in seconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -56,7 +56,7 @@ var result = missionTimer.GetRemainingTimeInSeconds(false);
 ### Check
 `public bool Check(bool reset = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -67,7 +67,7 @@ var result = missionTimer.Check(false);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -78,7 +78,7 @@ missionTimer.Reset();
 ### Set
 `public void Set(float timeInSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为当前对象的属性或状态赋新值。
+**用途 / Purpose:** 为当前对象的属性或状态赋新值。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -89,7 +89,7 @@ missionTimer.Set(0);
 ### SetDuration
 `public void SetDuration(float duration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 duration 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 duration 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimer 实例
@@ -100,7 +100,7 @@ missionTimer.SetDuration(0);
 ### CreateSynchedTimerClient
 `public static MissionTimer CreateSynchedTimerClient(float startTimeInSeconds, float duration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 synched timer client 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 synched timer client 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

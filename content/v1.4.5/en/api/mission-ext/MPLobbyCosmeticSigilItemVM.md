@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetOnSelectionCallback
 `public static void SetOnSelectionCallback(Action<MPLobbyCosmeticSigilItemVM> onSelection)`
 
-**Purpose:** **Purpose:** Assigns a new value to on selection callback and updates the object's internal state.
+**Purpose:** Assigns a new value to on selection callback and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
 ### ResetOnSelectionCallback
 `public static void ResetOnSelectionCallback()`
 
-**Purpose:** **Purpose:** Returns on selection callback to its default or initial condition.
+**Purpose:** Returns on selection callback to its default or initial condition.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ MPLobbyCosmeticSigilItemVM.ResetOnSelectionCallback();
 ### SetOnObtainRequestedCallback
 `public static void SetOnObtainRequestedCallback(Action<MPLobbyCosmeticSigilItemVM> onObtainRequested)`
 
-**Purpose:** **Purpose:** Assigns a new value to on obtain requested callback and updates the object's internal state.
+**Purpose:** Assigns a new value to on obtain requested callback and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ MPLobbyCosmeticSigilItemVM.SetOnObtainRequestedCallback(onObtainRequested);
 ### ResetOnObtainRequestedCallback
 `public static void ResetOnObtainRequestedCallback()`
 
-**Purpose:** **Purpose:** Returns on obtain requested callback to its default or initial condition.
+**Purpose:** Returns on obtain requested callback to its default or initial condition.
 
 ```csharp
 // Static call; no instance required

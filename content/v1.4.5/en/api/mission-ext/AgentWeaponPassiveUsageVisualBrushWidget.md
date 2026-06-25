@@ -29,7 +29,7 @@ Treat `AgentWeaponPassiveUsageVisualBrushWidget` as a Widget-style extension poi
 ### AgentWeaponPassiveUsageVisualBrushWidget
 `public class AgentWeaponPassiveUsageVisualBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the AgentWeaponPassiveUsageVisualBrushWidget logic.
+**Purpose:** Executes the AgentWeaponPassiveUsageVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of AgentWeaponPassiveUsageVisualBrushWidget from the subsystem API first

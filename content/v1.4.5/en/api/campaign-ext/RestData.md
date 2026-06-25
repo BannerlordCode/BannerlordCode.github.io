@@ -29,7 +29,7 @@ Treat `RestData` as a Data-style extension point: first identify who creates it,
 ### SerializeAsJson
 `public string SerializeAsJson()`
 
-**Purpose:** **Purpose:** Serializes as json into a storable or transmittable format.
+**Purpose:** Serializes as json into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of RestData from the subsystem API first

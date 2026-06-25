@@ -23,7 +23,7 @@ description: "TradeItemPriceFactorModel 的自动生成类参考。"
 ### GetTradePenalty
 `public abstract float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade penalty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 trade penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeItemPriceFactorModel 实例
@@ -34,7 +34,7 @@ var result = tradeItemPriceFactorModel.GetTradePenalty(item, clientParty, mercha
 ### GetBasePriceFactor
 `public abstract float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base price factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 base price factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeItemPriceFactorModel 实例
@@ -45,7 +45,7 @@ var result = tradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0, 0, 0,
 ### GetPrice
 `public abstract int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeItemPriceFactorModel 实例
@@ -56,7 +56,7 @@ var result = tradeItemPriceFactorModel.GetPrice(itemRosterElement, clientParty, 
 ### GetTheoreticalMaxItemMarketValue
 `public abstract int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 theoretical max item market value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 theoretical max item market value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeItemPriceFactorModel 实例

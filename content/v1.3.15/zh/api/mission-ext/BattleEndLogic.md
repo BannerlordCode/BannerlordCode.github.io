@@ -31,7 +31,7 @@ description: "BattleEndLogic 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -42,7 +42,7 @@ battleEndLogic.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -53,7 +53,7 @@ battleEndLogic.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -64,7 +64,7 @@ battleEndLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingB
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
+**用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -75,7 +75,7 @@ var result = battleEndLogic.MissionEnded(missionResult);
 ### ChangeCanCheckForEndCondition
 `public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeCanCheckForEndCondition 对应的操作。
+**用途 / Purpose:** 调用 ChangeCanCheckForEndCondition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -86,7 +86,7 @@ battleEndLogic.ChangeCanCheckForEndCondition(false);
 ### TryExit
 `public BattleEndLogic.ExitResult TryExit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 exit 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 exit 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -97,7 +97,7 @@ var result = battleEndLogic.TryExit();
 ### EnableEnemyDefenderPullBack
 `public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnableEnemyDefenderPullBack 对应的操作。
+**用途 / Purpose:** 调用 EnableEnemyDefenderPullBack 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -108,7 +108,7 @@ battleEndLogic.EnableEnemyDefenderPullBack(0);
 ### SetNotificationDisabled
 `public void SetNotificationDisabled(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 notification disabled 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 notification disabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例

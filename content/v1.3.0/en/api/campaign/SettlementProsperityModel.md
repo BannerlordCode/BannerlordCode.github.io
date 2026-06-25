@@ -23,7 +23,7 @@ Treat `SettlementProsperityModel` as a Model-style extension point: first identi
 ### CalculateProsperityChange
 `public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of prosperity change.
+**Purpose:** Calculates the current value or result of prosperity change.
 
 ```csharp
 // Obtain an instance of SettlementProsperityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = settlementProsperityModel.CalculateProsperityChange(fortification, 
 ### CalculateHearthChange
 `public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of hearth change.
+**Purpose:** Calculates the current value or result of hearth change.
 
 ```csharp
 // Obtain an instance of SettlementProsperityModel from the subsystem API first

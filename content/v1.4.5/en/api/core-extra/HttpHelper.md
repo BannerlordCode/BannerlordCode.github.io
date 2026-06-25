@@ -23,7 +23,7 @@ Treat `HttpHelper` as a Helper-style extension point: first identify who creates
 ### DownloadStringTaskAsync
 `public static Task<string> DownloadStringTaskAsync(string url)`
 
-**Purpose:** **Purpose:** Executes the DownloadStringTaskAsync logic.
+**Purpose:** Executes the DownloadStringTaskAsync logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ HttpHelper.DownloadStringTaskAsync("example");
 ### DownloadDataTaskAsync
 `public static Task<byte > DownloadDataTaskAsync(string url)`
 
-**Purpose:** **Purpose:** Executes the DownloadDataTaskAsync logic.
+**Purpose:** Executes the DownloadDataTaskAsync logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ HttpHelper.DownloadDataTaskAsync("example");
 ### PostStringAsync
 `public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")`
 
-**Purpose:** **Purpose:** Executes the PostStringAsync logic.
+**Purpose:** Executes the PostStringAsync logic.
 
 ```csharp
 // Static call; no instance required

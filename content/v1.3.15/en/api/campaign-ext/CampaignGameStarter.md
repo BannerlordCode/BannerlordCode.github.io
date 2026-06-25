@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### UnregisterNonReadyObjects
 `public void UnregisterNonReadyObjects()`
 
-**Purpose:** **Purpose:** Unregisters non ready objects from the current system.
+**Purpose:** Unregisters non ready objects from the current system.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -41,7 +41,7 @@ campaignGameStarter.UnregisterNonReadyObjects();
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**Purpose:** **Purpose:** Adds behavior to the current collection or state.
+**Purpose:** Adds behavior to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -52,7 +52,7 @@ campaignGameStarter.AddBehavior(campaignBehavior);
 ### AddModel
 `public void AddModel(GameModel gameModel)`
 
-**Purpose:** **Purpose:** Adds model to the current collection or state.
+**Purpose:** Adds model to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -63,7 +63,7 @@ campaignGameStarter.AddModel(gameModel);
 ### AddGameMenu
 `public void AddGameMenu(string menuId, string menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**Purpose:** **Purpose:** Adds game menu to the current collection or state.
+**Purpose:** Adds game menu to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -74,7 +74,7 @@ campaignGameStarter.AddGameMenu("example", "example", initDelegate, gameMenu.Men
 ### AddWaitGameMenu
 `public void AddWaitGameMenu(string idString, string text, OnInitDelegate initDelegate, OnConditionDelegate condition, OnConsequenceDelegate consequence, OnTickDelegate tick, GameMenu.MenuAndOptionType type, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, float targetWaitHours = 0f, GameMenu.MenuFlags flags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**Purpose:** **Purpose:** Adds wait game menu to the current collection or state.
+**Purpose:** Adds wait game menu to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -85,7 +85,7 @@ campaignGameStarter.AddWaitGameMenu("example", "example", initDelegate, conditio
 ### AddGameMenuOption
 `public void AddGameMenuOption(string menuId, string optionId, string optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool isLeave = false, int index = -1, bool isRepeatable = false, object relatedObject = null)`
 
-**Purpose:** **Purpose:** Adds game menu option to the current collection or state.
+**Purpose:** Adds game menu option to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -96,7 +96,7 @@ campaignGameStarter.AddGameMenuOption("example", "example", "example", condition
 ### GetPresumedGameMenu
 `public GameMenu GetPresumedGameMenu(string stringId)`
 
-**Purpose:** **Purpose:** Reads and returns the presumed game menu value held by the this instance.
+**Purpose:** Reads and returns the presumed game menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -107,7 +107,7 @@ var result = campaignGameStarter.GetPresumedGameMenu("example");
 ### AddDialogFlow
 `public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
 
-**Purpose:** **Purpose:** Adds dialog flow to the current collection or state.
+**Purpose:** Adds dialog flow to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -118,7 +118,7 @@ campaignGameStarter.AddDialogFlow(dialogFlow, null);
 ### AddPlayerLine
 `public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds player line to the current collection or state.
+**Purpose:** Adds player line to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -129,7 +129,7 @@ var result = campaignGameStarter.AddPlayerLine("example", "example", "example", 
 ### AddRepeatablePlayerLine
 `public ConversationSentence AddRepeatablePlayerLine(string id, string inputToken, string outputToken, string text, string continueListingRepeatedObjectsText, string continueListingOptionOutputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds repeatable player line to the current collection or state.
+**Purpose:** Adds repeatable player line to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -140,7 +140,7 @@ var result = campaignGameStarter.AddRepeatablePlayerLine("example", "example", "
 ### AddDialogLineWithVariation
 `public ConversationSentence AddDialogLineWithVariation(string id, string inputToken, string outputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, string idleActionId = "", string idleFaceAnimId = "", string reactionId = "", string reactionFaceAnimId = "", ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds dialog line with variation to the current collection or state.
+**Purpose:** Adds dialog line with variation to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -151,7 +151,7 @@ var result = campaignGameStarter.AddDialogLineWithVariation("example", "example"
 ### AddDialogLine
 `public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds dialog line to the current collection or state.
+**Purpose:** Adds dialog line to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first
@@ -162,7 +162,7 @@ var result = campaignGameStarter.AddDialogLine("example", "example", "example", 
 ### AddDialogLineMultiAgent
 `public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds dialog line multi agent to the current collection or state.
+**Purpose:** Adds dialog line multi agent to the current collection or state.
 
 ```csharp
 // Obtain an instance of CampaignGameStarter from the subsystem API first

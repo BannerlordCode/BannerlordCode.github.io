@@ -29,7 +29,7 @@ description: "MultiplayerGameNotificationsComponent 的自动生成类参考。"
 ### WarmupEnding
 `public void WarmupEnding()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WarmupEnding 对应的操作。
+**用途 / Purpose:** 调用 WarmupEnding 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -40,7 +40,7 @@ multiplayerGameNotificationsComponent.WarmupEnding();
 ### GameOver
 `public void GameOver(Team winnerTeam)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GameOver 对应的操作。
+**用途 / Purpose:** 调用 GameOver 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -51,7 +51,7 @@ multiplayerGameNotificationsComponent.GameOver(winnerTeam);
 ### PreparationStarted
 `public void PreparationStarted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreparationStarted 对应的操作。
+**用途 / Purpose:** 调用 PreparationStarted 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -62,7 +62,7 @@ multiplayerGameNotificationsComponent.PreparationStarted();
 ### FlagsXRemoved
 `public void FlagsXRemoved(FlagCapturePoint removedFlag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FlagsXRemoved 对应的操作。
+**用途 / Purpose:** 调用 FlagsXRemoved 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -73,7 +73,7 @@ multiplayerGameNotificationsComponent.FlagsXRemoved(removedFlag);
 ### FlagXRemaining
 `public void FlagXRemaining(FlagCapturePoint remainingFlag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FlagXRemaining 对应的操作。
+**用途 / Purpose:** 调用 FlagXRemaining 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -84,7 +84,7 @@ multiplayerGameNotificationsComponent.FlagXRemaining(remainingFlag);
 ### FlagsWillBeRemovedInXSeconds
 `public void FlagsWillBeRemovedInXSeconds(int timeLeft)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FlagsWillBeRemovedInXSeconds 对应的操作。
+**用途 / Purpose:** 调用 FlagsWillBeRemovedInXSeconds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -95,7 +95,7 @@ multiplayerGameNotificationsComponent.FlagsWillBeRemovedInXSeconds(0);
 ### FlagXCapturedByTeamX
 `public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FlagXCapturedByTeamX 对应的操作。
+**用途 / Purpose:** 调用 FlagXCapturedByTeamX 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -106,7 +106,7 @@ multiplayerGameNotificationsComponent.FlagXCapturedByTeamX(flag, capturingTeam);
 ### GoldCarriedFromPreviousRound
 `public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GoldCarriedFromPreviousRound 对应的操作。
+**用途 / Purpose:** 调用 GoldCarriedFromPreviousRound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -117,7 +117,7 @@ multiplayerGameNotificationsComponent.GoldCarriedFromPreviousRound(0, syncToPeer
 ### PlayerIsInactive
 `public void PlayerIsInactive(NetworkCommunicator peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerIsInactive 对应的操作。
+**用途 / Purpose:** 调用 PlayerIsInactive 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -128,7 +128,7 @@ multiplayerGameNotificationsComponent.PlayerIsInactive(peer);
 ### FormationAutoFollowEnforced
 `public void FormationAutoFollowEnforced(NetworkCommunicator peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ion auto follow enforced格式化为适合显示或存储的字符串。
+**用途 / Purpose:** 将ion auto follow enforced格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -139,7 +139,7 @@ multiplayerGameNotificationsComponent.FormationAutoFollowEnforced(peer);
 ### PollRejected
 `public void PollRejected(MultiplayerPollRejectReason reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PollRejected 对应的操作。
+**用途 / Purpose:** 调用 PollRejected 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
@@ -150,7 +150,7 @@ multiplayerGameNotificationsComponent.PollRejected(reason);
 ### PlayerKicked
 `public void PlayerKicked(NetworkCommunicator kickedPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerKicked 对应的操作。
+**用途 / Purpose:** 调用 PlayerKicked 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例

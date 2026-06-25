@@ -52,7 +52,7 @@ Treat `PartyNameplateWidget` as a Widget-style extension point: first identify w
 ### PartyNameplateWidget
 `public class PartyNameplateWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the PartyNameplateWidget logic.
+**Purpose:** Executes the PartyNameplateWidget logic.
 
 ```csharp
 // Obtain an instance of PartyNameplateWidget from the subsystem API first

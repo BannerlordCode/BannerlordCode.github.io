@@ -23,7 +23,7 @@ Treat `VillageEventOptionData` as a Data-style extension point: first identify w
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**Purpose:** **Purpose:** Executes the VillageEventOptionData logic.
+**Purpose:** Executes the VillageEventOptionData logic.
 
 ```csharp
 // Obtain an instance of VillageEventOptionData from the subsystem API first

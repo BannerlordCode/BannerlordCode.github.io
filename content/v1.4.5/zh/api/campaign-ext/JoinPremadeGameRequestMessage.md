@@ -34,7 +34,7 @@ description: "JoinPremadeGameRequestMessage 的自动生成类参考。"
 ### CreateClanGameRequest
 `public static JoinPremadeGameRequestMessage CreateClanGameRequest(Guid challengerPartyId, string clanName, string sigil, PlayerId challengerPlayers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 clan game request 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 clan game request 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example"
 ### CreatePracticeGameRequest
 `public static JoinPremadeGameRequestMessage CreatePracticeGameRequest(Guid challengerPartyId, PlayerId leaderId, PlayerId challengerPlayers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 practice game request 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 practice game request 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

@@ -29,7 +29,7 @@ description: "MultiplayerTimerComponent 的自动生成类参考。"
 ### StartTimerAsServer
 `public void StartTimerAsServer(float duration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动timer as server流程或状态机。
+**用途 / Purpose:** 启动timer as server流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
@@ -40,7 +40,7 @@ multiplayerTimerComponent.StartTimerAsServer(0);
 ### StartTimerAsClient
 `public void StartTimerAsClient(float startTime, float duration)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动timer as client流程或状态机。
+**用途 / Purpose:** 启动timer as client流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
@@ -51,7 +51,7 @@ multiplayerTimerComponent.StartTimerAsClient(0, 0);
 ### GetRemainingTime
 `public float GetRemainingTime(bool isSynched)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 remaining time 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 remaining time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
@@ -62,7 +62,7 @@ var result = multiplayerTimerComponent.GetRemainingTime(false);
 ### CheckIfTimerPassed
 `public bool CheckIfTimerPassed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查if timer passed在当前对象中是否成立。
+**用途 / Purpose:** 检查if timer passed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
@@ -73,7 +73,7 @@ var result = multiplayerTimerComponent.CheckIfTimerPassed();
 ### GetCurrentTimerStartTime
 `public MissionTime GetCurrentTimerStartTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current timer start time 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current timer start time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTimerComponent 实例

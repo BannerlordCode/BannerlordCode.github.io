@@ -54,7 +54,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomArmyVM from the subsystem API first
@@ -65,7 +65,7 @@ kingdomArmyVM.RefreshValues();
 ### RefreshArmyList
 `public void RefreshArmyList()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of army list in sync with the underlying state.
+**Purpose:** Keeps the display or cache of army list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomArmyVM from the subsystem API first
@@ -76,7 +76,7 @@ kingdomArmyVM.RefreshArmyList();
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**Purpose:** **Purpose:** Executes the SelectArmy logic.
+**Purpose:** Executes the SelectArmy logic.
 
 ```csharp
 // Obtain an instance of KingdomArmyVM from the subsystem API first

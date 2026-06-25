@@ -31,7 +31,7 @@ description: "SettlementNameplateEventsVM 的自动生成类参考。"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplateEventsVM 实例
@@ -42,7 +42,7 @@ settlementNameplateEventsVM.Tick();
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplateEventsVM 实例
@@ -53,7 +53,7 @@ settlementNameplateEventsVM.RegisterEvents();
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnloadEvents 对应的操作。
+**用途 / Purpose:** 调用 UnloadEvents 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplateEventsVM 实例

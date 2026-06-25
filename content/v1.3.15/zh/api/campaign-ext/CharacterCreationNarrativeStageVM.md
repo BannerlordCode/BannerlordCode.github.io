@@ -33,7 +33,7 @@ description: "CharacterCreationNarrativeStageVM 的自动生成类参考。"
 ### RefreshMenu
 `public void RefreshMenu()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 menu 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 menu 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -44,7 +44,7 @@ characterCreationNarrativeStageVM.RefreshMenu();
 ### OnOptionSelected
 `public void OnOptionSelected(CharacterCreationOptionVM option)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 option selected 事件触发时调用此回调。
+**用途 / Purpose:** 在 option selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -55,7 +55,7 @@ characterCreationNarrativeStageVM.OnOptionSelected(option);
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 next stage 事件触发时调用此回调。
+**用途 / Purpose:** 在 next stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -66,7 +66,7 @@ characterCreationNarrativeStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
+**用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -77,7 +77,7 @@ characterCreationNarrativeStageVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -88,7 +88,7 @@ var result = characterCreationNarrativeStageVM.CanAdvanceToNextStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -99,7 +99,7 @@ characterCreationNarrativeStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
@@ -110,7 +110,7 @@ characterCreationNarrativeStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例

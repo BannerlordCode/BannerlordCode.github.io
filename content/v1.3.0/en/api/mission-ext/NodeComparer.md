@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### Compare
 `public int Compare(ThumbnailCacheNode x, ThumbnailCacheNode y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of NodeComparer from the subsystem API first

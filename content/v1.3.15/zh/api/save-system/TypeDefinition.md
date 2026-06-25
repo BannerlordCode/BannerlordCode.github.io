@@ -37,7 +37,7 @@ description: "TypeDefinition 的自动生成类参考。"
 ### CheckIfRequiresAdvancedResolving
 `public bool CheckIfRequiresAdvancedResolving(object originalObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查if requires advanced resolving在当前对象中是否成立。
+**用途 / Purpose:** 检查if requires advanced resolving在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -48,7 +48,7 @@ var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResolveObject 对应的操作。
+**用途 / Purpose:** 调用 ResolveObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -59,7 +59,7 @@ var result = typeDefinition.ResolveObject(originalObject);
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AdvancedResolveObject 对应的操作。
+**用途 / Purpose:** 调用 AdvancedResolveObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -70,7 +70,7 @@ var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, obje
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectInitializationCallbacks 对应的操作。
+**用途 / Purpose:** 调用 CollectInitializationCallbacks 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -81,7 +81,7 @@ typeDefinition.CollectInitializationCallbacks();
 ### CollectProperties
 `public void CollectProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectProperties 对应的操作。
+**用途 / Purpose:** 调用 CollectProperties 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -92,7 +92,7 @@ typeDefinition.CollectProperties();
 ### CollectFields
 `public void CollectFields()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectFields 对应的操作。
+**用途 / Purpose:** 调用 CollectFields 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -103,7 +103,7 @@ typeDefinition.CollectFields();
 ### AddCustomField
 `public void AddCustomField(string fieldName, short saveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 custom field 添加到当前容器或状态中。
+**用途 / Purpose:** 将 custom field 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -114,7 +114,7 @@ typeDefinition.AddCustomField("example", 0);
 ### GetPropertyDefinitionWithId
 `public PropertyDefinition GetPropertyDefinitionWithId(MemberTypeId id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property definition with id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 property definition with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -125,7 +125,7 @@ var result = typeDefinition.GetPropertyDefinitionWithId(id);
 ### GetFieldDefinitionWithId
 `public FieldDefinition GetFieldDefinitionWithId(MemberTypeId id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 field definition with id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 field definition with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -136,7 +136,7 @@ var result = typeDefinition.GetFieldDefinitionWithId(id);
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例

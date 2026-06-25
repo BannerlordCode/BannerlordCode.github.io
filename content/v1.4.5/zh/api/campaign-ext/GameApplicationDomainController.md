@@ -23,7 +23,7 @@ description: "GameApplicationDomainController 的自动生成类参考。"
 ### LoadAsHostedByNative
 `public void LoadAsHostedByNative(IntPtr passManagedInitializeMethodPointer, IntPtr passManagedCallbackMethodPointer, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 as hosted by native。
+**用途 / Purpose:** 从持久化存储或流中读取 as hosted by native。
 
 ```csharp
 // 先通过子系统 API 拿到 GameApplicationDomainController 实例
@@ -34,7 +34,7 @@ gameApplicationDomainController.LoadAsHostedByNative(passManagedInitializeMethod
 ### Load
 `public void Load(Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 先通过子系统 API 拿到 GameApplicationDomainController 实例

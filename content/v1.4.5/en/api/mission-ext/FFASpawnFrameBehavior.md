@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn frame value held by the this instance.
+**Purpose:** Reads and returns the spawn frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of FFASpawnFrameBehavior from the subsystem API first

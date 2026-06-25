@@ -32,7 +32,7 @@ Treat `InstrumentData` as a Data-style extension point: first identify who creat
 ### InitializeInstrumentData
 `public void InitializeInstrumentData(string sittingAction, string standingAction, bool isDataWithoutInstrument)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by instrument data.
+**Purpose:** Prepares the resources, state, or bindings required by instrument data.
 
 ```csharp
 // Obtain an instance of InstrumentData from the subsystem API first
@@ -43,7 +43,7 @@ instrumentData.InitializeInstrumentData("example", "example", false);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of InstrumentData from the subsystem API first

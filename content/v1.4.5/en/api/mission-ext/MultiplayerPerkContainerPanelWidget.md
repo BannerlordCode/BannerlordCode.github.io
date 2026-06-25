@@ -32,7 +32,7 @@ Treat `MultiplayerPerkContainerPanelWidget` as a Widget-style extension point: f
 ### PerkSelected
 `public void PerkSelected(MultiplayerPerkItemToggleWidget selectedItem)`
 
-**Purpose:** **Purpose:** Executes the PerkSelected logic.
+**Purpose:** Executes the PerkSelected logic.
 
 ```csharp
 // Obtain an instance of MultiplayerPerkContainerPanelWidget from the subsystem API first

@@ -23,7 +23,7 @@ description: "SandBoxViewSubModule 的自动生成类参考。"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -34,7 +34,7 @@ sandBoxViewSubModule.OnCampaignStart(game, starterObject);
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -45,7 +45,7 @@ sandBoxViewSubModule.OnGameLoaded(game, initializerObject);
 ### OnAfterGameInitializationFinished
 `public override void OnAfterGameInitializationFinished(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -56,7 +56,7 @@ sandBoxViewSubModule.OnAfterGameInitializationFinished(game, starterObject);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginGameStart 对应的操作。
+**用途 / Purpose:** 调用 BeginGameStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -67,7 +67,7 @@ sandBoxViewSubModule.BeginGameStart(game);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
+**用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -78,7 +78,7 @@ sandBoxViewSubModule.OnGameEnd(game);
 ### OnInitialState
 `public override void OnInitialState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initial state 事件触发时调用此回调。
+**用途 / Purpose:** 在 initial state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewSubModule 实例
@@ -89,7 +89,7 @@ sandBoxViewSubModule.OnInitialState();
 ### SetMapConversationDataProvider
 `public static void SetMapConversationDataProvider(IMapConversationDataProvider mapConversationDataProvider)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 map conversation data provider 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 map conversation data provider 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

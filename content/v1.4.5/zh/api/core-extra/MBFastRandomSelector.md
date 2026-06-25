@@ -29,7 +29,7 @@ description: "MBFastRandomSelector 的自动生成类参考。"
 ### IndexEntry
 `public struct IndexEntry(ushort index, ushort version)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 IndexEntry 对应的操作。
+**用途 / Purpose:** 调用 IndexEntry 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例
@@ -40,7 +40,7 @@ var result = mBFastRandomSelector.IndexEntry(0, 0);
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例
@@ -51,7 +51,7 @@ mBFastRandomSelector.Initialize(list);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例
@@ -62,7 +62,7 @@ mBFastRandomSelector.Reset();
 ### Pack
 `public void Pack()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Pack 对应的操作。
+**用途 / Purpose:** 调用 Pack 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例
@@ -73,7 +73,7 @@ mBFastRandomSelector.Pack();
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectRandom 对应的操作。
+**用途 / Purpose:** 调用 SelectRandom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例

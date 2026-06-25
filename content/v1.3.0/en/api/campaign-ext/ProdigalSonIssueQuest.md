@@ -30,7 +30,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
+**Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueQuest from the subsystem API first
@@ -41,7 +41,7 @@ prodigalSonIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public override void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** **Purpose:** Invoked when the hero can move to settlement info is requested event is raised.
+**Purpose:** Invoked when the hero can move to settlement info is requested event is raised.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueQuest from the subsystem API first

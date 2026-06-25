@@ -23,7 +23,7 @@ Treat `BannerlordTableauManager` as a Manager-style extension point: first ident
 ### RequestCharacterTableauSetupDelegate
 `public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
 
-**Purpose:** **Purpose:** Executes the RequestCharacterTableauSetupDelegate logic.
+**Purpose:** Executes the RequestCharacterTableauSetupDelegate logic.
 
 ```csharp
 // Obtain an instance of BannerlordTableauManager from the subsystem API first
@@ -34,7 +34,7 @@ bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEnti
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
 
-**Purpose:** **Purpose:** Executes the RequestCharacterTableauRender logic.
+**Purpose:** Executes the RequestCharacterTableauRender logic.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ BannerlordTableauManager.RequestCharacterTableauRender(0, "example", poseEntity,
 ### ClearManager
 `public static void ClearManager()`
 
-**Purpose:** **Purpose:** Removes all manager from the this instance.
+**Purpose:** Removes all manager from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ BannerlordTableauManager.ClearManager();
 ### InitializeCharacterTableauRenderSystem
 `public static void InitializeCharacterTableauRenderSystem()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by character tableau render system.
+**Purpose:** Prepares the resources, state, or bindings required by character tableau render system.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ BannerlordTableauManager.InitializeCharacterTableauRenderSystem();
 ### GetNumberOfPendingTableauRequests
 `public static int GetNumberOfPendingTableauRequests()`
 
-**Purpose:** **Purpose:** Reads and returns the number of pending tableau requests value held by the this instance.
+**Purpose:** Reads and returns the number of pending tableau requests value held by the this instance.
 
 ```csharp
 // Static call; no instance required

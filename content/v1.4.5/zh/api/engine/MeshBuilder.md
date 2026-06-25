@@ -23,7 +23,7 @@ description: "MeshBuilder 的自动生成类参考。"
 ### AddFaceCorner
 `public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MeshBuilder 实例
@@ -34,7 +34,7 @@ var result = meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 face 添加到当前容器或状态中。
+**用途 / Purpose:** 将 face 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MeshBuilder 实例
@@ -45,7 +45,7 @@ var result = meshBuilder.AddFace(0, 0, 0);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MeshBuilder 实例
@@ -56,7 +56,7 @@ meshBuilder.Clear();
 ### Finalize
 `public Mesh Finalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
+**用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
 
 ```csharp
 // 先通过子系统 API 拿到 MeshBuilder 实例
@@ -67,7 +67,7 @@ var result = meshBuilder.Finalize();
 ### CreateUnitMesh
 `public static Mesh CreateUnitMesh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 unit mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 unit mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ MeshBuilder.CreateUnitMesh();
 ### CreateTilingWindowMesh
 `public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tiling window mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 tiling window mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ MeshBuilder.CreateTilingWindowMesh("example", meshSizeMin, meshSizeMax, borderTh
 ### CreateTilingButtonMesh
 `public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tiling button mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 tiling button mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

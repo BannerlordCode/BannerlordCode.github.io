@@ -29,7 +29,7 @@ Treat `MissionAlleyHandler` as a Handler-style extension point: first identify w
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionAlleyHandler from the subsystem API first
@@ -40,7 +40,7 @@ missionAlleyHandler.OnMissionTick(0);
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionAlleyHandler from the subsystem API first
@@ -51,7 +51,7 @@ missionAlleyHandler.AfterStart();
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of MissionAlleyHandler from the subsystem API first
@@ -62,7 +62,7 @@ missionAlleyHandler.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blo
 ### StartCommonAreaBattle
 `public void StartCommonAreaBattle(Alley alley)`
 
-**Purpose:** **Purpose:** Starts the common area battle flow or state machine.
+**Purpose:** Starts the common area battle flow or state machine.
 
 ```csharp
 // Obtain an instance of MissionAlleyHandler from the subsystem API first

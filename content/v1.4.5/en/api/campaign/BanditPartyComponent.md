@@ -32,7 +32,7 @@ Treat `BanditPartyComponent` as a Component-style extension point: first identif
 ### InitializeBanditOnCreation
 `public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by bandit on creation.
+**Purpose:** Prepares the resources, state, or bindings required by bandit on creation.
 
 ```csharp
 // Obtain an instance of BanditPartyComponent from the subsystem API first
@@ -43,7 +43,7 @@ banditPartyComponent.InitializeBanditOnCreation(mobileParty);
 ### CreateBanditParty
 `public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**Purpose:** **Purpose:** Constructs a new bandit party entity and returns it to the caller.
+**Purpose:** Constructs a new bandit party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BanditPartyComponent.CreateBanditParty("example", clan, hideout, false, pt, init
 ### ConvertPartyToBanditParty
 `public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)`
 
-**Purpose:** **Purpose:** Converts party to bandit party into another representation or type.
+**Purpose:** Converts party to bandit party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ BanditPartyComponent.ConvertPartyToBanditParty(mobileParty, clan, hideout, false
 ### CreateLooterParty
 `public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**Purpose:** **Purpose:** Constructs a new looter party entity and returns it to the caller.
+**Purpose:** Constructs a new looter party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ BanditPartyComponent.CreateLooterParty("example", clan, relatedSettlement, false
 ### ConvertPartyToLooterParty
 `public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)`
 
-**Purpose:** **Purpose:** Converts party to looter party into another representation or type.
+**Purpose:** Converts party to looter party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ BanditPartyComponent.ConvertPartyToLooterParty(mobileParty, clan, relatedSettlem
 ### SetHomeHideout
 `public void SetHomeHideout(Hideout hideout)`
 
-**Purpose:** **Purpose:** Assigns a new value to home hideout and updates the object's internal state.
+**Purpose:** Assigns a new value to home hideout and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BanditPartyComponent from the subsystem API first
@@ -94,7 +94,7 @@ banditPartyComponent.SetHomeHideout(hideout);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** **Purpose:** Removes all cached name from the this instance.
+**Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of BanditPartyComponent from the subsystem API first

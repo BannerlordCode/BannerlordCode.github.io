@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### UpdateMousePosition
 `public bool UpdateMousePosition(float mousePositionX, float mousePositionY)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of mouse position.
+**Purpose:** Recalculates and stores the latest representation of mouse position.
 
 ```csharp
 // Obtain an instance of InputState from the subsystem API first
@@ -46,7 +46,7 @@ var result = inputState.UpdateMousePosition(0, 0);
 ### UpdateMouseScroll
 `public bool UpdateMouseScroll(float mouseScrollValue)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of mouse scroll.
+**Purpose:** Recalculates and stores the latest representation of mouse scroll.
 
 ```csharp
 // Obtain an instance of InputState from the subsystem API first

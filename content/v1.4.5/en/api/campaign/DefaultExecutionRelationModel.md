@@ -23,7 +23,7 @@ Treat `DefaultExecutionRelationModel` as a Model-style extension point: first id
 ### GetRelationChangeForExecutingHero
 `public override int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
 
-**Purpose:** **Purpose:** Reads and returns the relation change for executing hero value held by the this instance.
+**Purpose:** Reads and returns the relation change for executing hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultExecutionRelationModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### LoadingFinished
 `public bool LoadingFinished()`
 
-**Purpose:** **Purpose:** Reads ing finished from persistent storage or a stream.
+**Purpose:** Reads ing finished from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SimpleSceneTestWithMission from the subsystem API first

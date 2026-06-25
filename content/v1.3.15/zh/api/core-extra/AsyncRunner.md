@@ -23,7 +23,7 @@ description: "AsyncRunner 的自动生成类参考。"
 ### Run
 `public abstract void Run()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Run 对应的操作。
+**用途 / Purpose:** 调用 Run 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AsyncRunner 实例
@@ -34,7 +34,7 @@ asyncRunner.Run();
 ### SyncTick
 `public abstract void SyncTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将tick同步到相关上下文或系统中。
+**用途 / Purpose:** 将tick同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 AsyncRunner 实例
@@ -45,7 +45,7 @@ asyncRunner.SyncTick();
 ### OnRemove
 `public abstract void OnRemove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AsyncRunner 实例

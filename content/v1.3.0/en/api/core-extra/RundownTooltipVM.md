@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information.RundownToo
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RundownTooltipVM from the subsystem API first
@@ -45,7 +45,7 @@ rundownTooltipVM.RefreshValues();
 ### RefreshGenericRundownTooltip
 `public static void RefreshGenericRundownTooltip(RundownTooltipVM rundownTooltip, object args)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of generic rundown tooltip in sync with the underlying state.
+**Purpose:** Keeps the display or cache of generic rundown tooltip in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required

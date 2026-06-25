@@ -32,7 +32,7 @@ description: "Ray 的自动生成类参考。"
 ### Reset
 `public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Ray 实例

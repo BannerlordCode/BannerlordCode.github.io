@@ -33,7 +33,7 @@ description: "PlatformServices 的自动生成类参考。"
 ### Setup
 `public static void Setup(IPlatformServices platformServices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 up 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 up 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PlatformServices.Setup(platformServices);
 ### Initialize
 `public static bool Initialize(IFriendListService additionalFriendListServices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public static void Terminate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Terminate 对应的操作。
+**用途 / Purpose:** 调用 Terminate 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ PlatformServices.Terminate();
 ### ConnectionStateChanged
 `public static void ConnectionStateChanged(bool isAuthenticated)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ConnectionStateChanged 对应的操作。
+**用途 / Purpose:** 调用 ConnectionStateChanged 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ PlatformServices.ConnectionStateChanged(false);
 ### MultiplayerGameStateChanged
 `public static void MultiplayerGameStateChanged(bool isPlaying)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerGameStateChanged 对应的操作。
+**用途 / Purpose:** 调用 MultiplayerGameStateChanged 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ PlatformServices.MultiplayerGameStateChanged(false);
 ### LobbyClientStateChanged
 `public static void LobbyClientStateChanged(bool atLobby, bool isPartyLeaderOrSolo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LobbyClientStateChanged 对应的操作。
+**用途 / Purpose:** 调用 LobbyClientStateChanged 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ PlatformServices.LobbyClientStateChanged(false, false);
 ### FireOnSessionInvitationAccepted
 `public static void FireOnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FireOnSessionInvitationAccepted 对应的操作。
+**用途 / Purpose:** 调用 FireOnSessionInvitationAccepted 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ PlatformServices.FireOnSessionInvitationAccepted(sessionInvitationType);
 ### FireOnPlatformRequestedMultiplayer
 `public static void FireOnPlatformRequestedMultiplayer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FireOnPlatformRequestedMultiplayer 对应的操作。
+**用途 / Purpose:** 调用 FireOnPlatformRequestedMultiplayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ PlatformServices.FireOnPlatformRequestedMultiplayer();
 ### OnSessionInvitationHandled
 `public static void OnSessionInvitationHandled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session invitation handled 事件触发时调用此回调。
+**用途 / Purpose:** 在 session invitation handled 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ PlatformServices.OnSessionInvitationHandled();
 ### OnPlatformMultiplayerRequestHandled
 `public static void OnPlatformMultiplayerRequestHandled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 platform multiplayer request handled 事件触发时调用此回调。
+**用途 / Purpose:** 在 platform multiplayer request handled 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ PlatformServices.OnPlatformMultiplayerRequestHandled();
 ### SetIsPlatformRequestedContinueGame
 `public static void SetIsPlatformRequestedContinueGame(bool isRequested)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is platform requested continue game 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is platform requested continue game 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ PlatformServices.SetIsPlatformRequestedContinueGame(false);
 ### FilterString
 `public static async Task<string> FilterString(string content, string defaultContent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FilterString 对应的操作。
+**用途 / Purpose:** 调用 FilterString 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ PlatformServices.FilterString("example", "example");
 ### TriggerInvitation
 `public static string TriggerInvitation(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 触发invitation对应的逻辑或事件。
+**用途 / Purpose:** 触发invitation对应的逻辑或事件。
 
 ```csharp
 // 静态调用，不需要实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdateClusterData
 `public void UpdateClusterData()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of cluster data.
+**Purpose:** Recalculates and stores the latest representation of cluster data.
 
 ```csharp
 // Obtain an instance of TacticPerimeterDefense from the subsystem API first
@@ -41,7 +41,7 @@ tacticPerimeterDefense.UpdateClusterData();
 ### AddToCluster
 `public void AddToCluster(Formation formation)`
 
-**Purpose:** **Purpose:** Adds to cluster to the current collection or state.
+**Purpose:** Adds to cluster to the current collection or state.
 
 ```csharp
 // Obtain an instance of TacticPerimeterDefense from the subsystem API first
@@ -52,7 +52,7 @@ tacticPerimeterDefense.AddToCluster(formation);
 ### RemoveFromCluster
 `public void RemoveFromCluster(Formation formation)`
 
-**Purpose:** **Purpose:** Removes from cluster from the current collection or state.
+**Purpose:** Removes from cluster from the current collection or state.
 
 ```csharp
 // Obtain an instance of TacticPerimeterDefense from the subsystem API first
@@ -63,7 +63,7 @@ tacticPerimeterDefense.RemoveFromCluster(formation);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of TacticPerimeterDefense from the subsystem API first

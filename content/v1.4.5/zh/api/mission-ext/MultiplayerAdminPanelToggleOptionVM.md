@@ -30,7 +30,7 @@ description: "MultiplayerAdminPanelToggleOptionVM 的自动生成类参考。"
 ### UpdateValues
 `public override void UpdateValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 values 的最新表示。
+**用途 / Purpose:** 重新计算并更新 values 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelToggleOptionVM 实例
@@ -41,7 +41,7 @@ multiplayerAdminPanelToggleOptionVM.UpdateValues();
 ### ExecuteToggle
 `public void ExecuteToggle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelToggleOptionVM 实例

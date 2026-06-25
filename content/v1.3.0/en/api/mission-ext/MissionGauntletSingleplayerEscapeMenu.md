@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletSingleplayerEscapeMenu.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletSingleplayerEscapeMenu.OnMissionScreenFinalize();
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** **Purpose:** Invoked when the focus change on game window event is raised.
+**Purpose:** Invoked when the focus change on game window event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletSingleplayerEscapeMenu.OnFocusChangeOnGameWindow(false);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
+**Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first

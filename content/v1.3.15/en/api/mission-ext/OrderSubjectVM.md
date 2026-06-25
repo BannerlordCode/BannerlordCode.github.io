@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### AddActiveOrder
 `public void AddActiveOrder(OrderItemVM order)`
 
-**Purpose:** **Purpose:** Adds active order to the current collection or state.
+**Purpose:** Adds active order to the current collection or state.
 
 ```csharp
 // Obtain an instance of OrderSubjectVM from the subsystem API first
@@ -49,7 +49,7 @@ orderSubjectVM.AddActiveOrder(order);
 ### RemoveActiveOrder
 `public void RemoveActiveOrder(OrderItemVM order)`
 
-**Purpose:** **Purpose:** Removes active order from the current collection or state.
+**Purpose:** Removes active order from the current collection or state.
 
 ```csharp
 // Obtain an instance of OrderSubjectVM from the subsystem API first
@@ -60,7 +60,7 @@ orderSubjectVM.RemoveActiveOrder(order);
 ### ClearActiveOrders
 `public void ClearActiveOrders()`
 
-**Purpose:** **Purpose:** Removes all active orders from the this instance.
+**Purpose:** Removes all active orders from the this instance.
 
 ```csharp
 // Obtain an instance of OrderSubjectVM from the subsystem API first
@@ -71,7 +71,7 @@ orderSubjectVM.ClearActiveOrders();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderSubjectVM from the subsystem API first

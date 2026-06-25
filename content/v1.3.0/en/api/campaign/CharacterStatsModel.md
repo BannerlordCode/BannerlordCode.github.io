@@ -29,7 +29,7 @@ Treat `CharacterStatsModel` as a Model-style extension point: first identify who
 ### MaxHitpoints
 `public abstract ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Executes the MaxHitpoints logic.
+**Purpose:** Executes the MaxHitpoints logic.
 
 ```csharp
 // Obtain an instance of CharacterStatsModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = characterStatsModel.MaxHitpoints(character, false);
 ### GetTier
 `public abstract int GetTier(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the tier value held by the this instance.
+**Purpose:** Reads and returns the tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterStatsModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = characterStatsModel.GetTier(character);
 ### WoundedHitPointLimit
 `public abstract int WoundedHitPointLimit(Hero hero)`
 
-**Purpose:** **Purpose:** Executes the WoundedHitPointLimit logic.
+**Purpose:** Executes the WoundedHitPointLimit logic.
 
 ```csharp
 // Obtain an instance of CharacterStatsModel from the subsystem API first

@@ -30,7 +30,7 @@ description: "FirstPhase 的自动生成类参考。"
 ### CollectBannerPiece
 `public void CollectBannerPiece()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectBannerPiece 对应的操作。
+**用途 / Purpose:** 调用 CollectBannerPiece 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FirstPhase 实例
@@ -41,7 +41,7 @@ firstPhase.CollectBannerPiece();
 ### MergeDragonBanner
 `public void MergeDragonBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MergeDragonBanner 对应的操作。
+**用途 / Purpose:** 调用 MergeDragonBanner 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FirstPhase 实例

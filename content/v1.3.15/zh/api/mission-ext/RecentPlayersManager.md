@@ -31,7 +31,7 @@ description: "RecentPlayersManager 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ RecentPlayersManager.Initialize();
 ### GetRecentPlayerInfos
 `public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 recent player infos 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 recent player infos 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ RecentPlayersManager.GetRecentPlayerInfos();
 ### GetRecentPlayerIds
 `public static PlayerId GetRecentPlayerIds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 recent player ids 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 recent player ids 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ RecentPlayersManager.GetRecentPlayerIds();
 ### AddOrUpdatePlayerEntry
 `public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 or update player entry 添加到当前容器或状态中。
+**用途 / Purpose:** 将 or update player entry 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -71,7 +71,7 @@ RecentPlayersManager.AddOrUpdatePlayerEntry(playerId, "example", interactionType
 ### TrimPlayers
 `public static void TrimPlayers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TrimPlayers 对应的操作。
+**用途 / Purpose:** 调用 TrimPlayers 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -81,7 +81,7 @@ RecentPlayersManager.TrimPlayers();
 ### Serialize
 `public static void Serialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
 
 ```csharp
 // 静态调用，不需要实例
@@ -91,7 +91,7 @@ RecentPlayersManager.Serialize();
 ### GetPlayersOrdered
 `public static IEnumerable<PlayerId> GetPlayersOrdered()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 players ordered 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 players ordered 的结果。
 
 ```csharp
 // 静态调用，不需要实例

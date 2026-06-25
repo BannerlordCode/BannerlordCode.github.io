@@ -29,7 +29,7 @@ description: "BattleObserverMissionLogic 的自动生成类参考。"
 ### SetObserver
 `public void SetObserver(IBattleObserver observer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 observer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 observer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -40,7 +40,7 @@ battleObserverMissionLogic.SetObserver(observer);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -51,7 +51,7 @@ battleObserverMissionLogic.EarlyStart();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -62,7 +62,7 @@ battleObserverMissionLogic.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -73,7 +73,7 @@ battleObserverMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent team changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -84,7 +84,7 @@ battleObserverMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
@@ -95,7 +95,7 @@ battleObserverMissionLogic.OnMissionResultReady(missionResult);
 ### GetDeathToBuiltAgentRatioForSide
 `public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 death to built agent ratio for side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 death to built agent ratio for side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleObserverMissionLogic 实例

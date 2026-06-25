@@ -32,7 +32,7 @@ Treat `BrushWidget` as a Widget-style extension point: first identify who create
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of brushes.
+**Purpose:** Recalculates and stores the latest representation of brushes.
 
 ```csharp
 // Obtain an instance of BrushWidget from the subsystem API first
@@ -43,7 +43,7 @@ brushWidget.UpdateBrushes(0);
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
+**Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushWidget from the subsystem API first
@@ -54,7 +54,7 @@ brushWidget.SetState("example");
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of animation properties sub task.
+**Purpose:** Recalculates and stores the latest representation of animation properties sub task.
 
 ```csharp
 // Obtain an instance of BrushWidget from the subsystem API first
@@ -65,7 +65,7 @@ brushWidget.UpdateAnimationPropertiesSubTask(0);
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**Purpose:** **Purpose:** Invoked when the brush changed event is raised.
+**Purpose:** Invoked when the brush changed event is raised.
 
 ```csharp
 // Obtain an instance of BrushWidget from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnHeroCanDieInfoIsRequested
 `public override void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**Purpose:** **Purpose:** Invoked when the hero can die info is requested event is raised.
+**Purpose:** Invoked when the hero can die info is requested event is raised.
 
 ```csharp
 // Obtain an instance of RivalGangMovingInIssueQuest from the subsystem API first
@@ -41,7 +41,7 @@ rivalGangMovingInIssueQuest.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, resu
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
+**Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of RivalGangMovingInIssueQuest from the subsystem API first

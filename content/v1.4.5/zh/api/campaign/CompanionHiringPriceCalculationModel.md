@@ -23,7 +23,7 @@ description: "CompanionHiringPriceCalculationModel 的自动生成类参考。"
 ### GetCompanionHiringPrice
 `public abstract int GetCompanionHiringPrice(Hero companion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 companion hiring price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 companion hiring price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompanionHiringPriceCalculationModel 实例

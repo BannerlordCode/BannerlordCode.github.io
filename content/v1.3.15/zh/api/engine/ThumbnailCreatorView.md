@@ -23,7 +23,7 @@ description: "ThumbnailCreatorView 的自动生成类参考。"
 ### CreateThumbnailCreatorView
 `public static ThumbnailCreatorView CreateThumbnailCreatorView()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 thumbnail creator view 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 thumbnail creator view 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ThumbnailCreatorView.CreateThumbnailCreatorView();
 ### RegisterScene
 `public void RegisterScene(Scene scene, bool usePostFx = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将scene注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将scene注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -44,7 +44,7 @@ thumbnailCreatorView.RegisterScene(scene, false);
 ### RegisterCachedEntity
 `public void RegisterCachedEntity(Scene scene, GameEntity entity, string cacheId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将cached entity注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将cached entity注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -55,7 +55,7 @@ thumbnailCreatorView.RegisterCachedEntity(scene, entity, "example");
 ### UnregisterCachedEntity
 `public void UnregisterCachedEntity(string cacheId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销cached entity。
+**用途 / Purpose:** 从当前系统中注销cached entity。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -66,7 +66,7 @@ thumbnailCreatorView.UnregisterCachedEntity("example");
 ### RegisterRenderRequest
 `public void RegisterRenderRequest(ref ThumbnailRenderRequest request)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将render request注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将render request注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -77,7 +77,7 @@ thumbnailCreatorView.RegisterRenderRequest(request);
 ### ClearRequests
 `public void ClearRequests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的requests。
+**用途 / Purpose:** 清空当前对象中的requests。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -88,7 +88,7 @@ thumbnailCreatorView.ClearRequests();
 ### CancelRequest
 `public void CancelRequest(string renderID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel request 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 cel request 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -99,7 +99,7 @@ thumbnailCreatorView.CancelRequest("example");
 ### GetNumberOfPendingRequests
 `public int GetNumberOfPendingRequests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of pending requests 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of pending requests 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -110,7 +110,7 @@ var result = thumbnailCreatorView.GetNumberOfPendingRequests();
 ### IsMemoryCleared
 `public bool IsMemoryCleared()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 memory cleared 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 memory cleared 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例
@@ -121,7 +121,7 @@ var result = thumbnailCreatorView.IsMemoryCleared();
 ### OnThumbnailRenderCompleteDelegate
 `public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 thumbnail render complete delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 thumbnail render complete delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCreatorView 实例

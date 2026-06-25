@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHomeVM from the subsystem API first
@@ -42,7 +42,7 @@ encyclopediaHomeVM.Refresh();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHomeVM from the subsystem API first
@@ -53,7 +53,7 @@ encyclopediaHomeVM.RefreshValues();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
+**Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaHomeVM from the subsystem API first
@@ -64,7 +64,7 @@ var result = encyclopediaHomeVM.GetNavigationBarURL();
 ### GetName
 `public override string GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaHomeVM from the subsystem API first

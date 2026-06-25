@@ -23,7 +23,7 @@ description: "ArenaDuelQuestTask 的自动生成类参考。"
 ### AfterStart
 `public void AfterStart(IMission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
@@ -34,7 +34,7 @@ arenaDuelQuestTask.AfterStart(mission);
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
@@ -45,7 +45,7 @@ arenaDuelQuestTask.SetReferences();
 ### OnGameMenuOpened
 `public void OnGameMenuOpened(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game menu opened 事件触发时调用此回调。
+**用途 / Purpose:** 在 game menu opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
@@ -56,7 +56,7 @@ arenaDuelQuestTask.OnGameMenuOpened(args);
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionTick 对应的操作。
+**用途 / Purpose:** 调用 MissionTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例

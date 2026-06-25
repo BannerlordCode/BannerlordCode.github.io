@@ -32,7 +32,7 @@ description: "SelectorVM 的自动生成类参考。"
 ### Refresh
 `public void Refresh(IEnumerable<string> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -43,7 +43,7 @@ selectorVM.Refresh(list, 0, onChange);
 ### Refresh
 `public void Refresh(IEnumerable<TextObject> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -54,7 +54,7 @@ selectorVM.Refresh(list, 0, onChange);
 ### Refresh
 `public void Refresh(IEnumerable<T> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -65,7 +65,7 @@ selectorVM.Refresh(list, 0, onChange);
 ### SetOnChangeAction
 `public void SetOnChangeAction(Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on change action 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on change action 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -76,7 +76,7 @@ selectorVM.SetOnChangeAction(onChange);
 ### AddItem
 `public void AddItem(T item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 item 添加到当前容器或状态中。
+**用途 / Purpose:** 将 item 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -87,7 +87,7 @@ selectorVM.AddItem(item);
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 randomize 对应的操作或工作流。
+**用途 / Purpose:** 执行 randomize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -98,7 +98,7 @@ selectorVM.ExecuteRandomize();
 ### ExecuteSelectNextItem
 `public void ExecuteSelectNextItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select next item 对应的操作或工作流。
+**用途 / Purpose:** 执行 select next item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -109,7 +109,7 @@ selectorVM.ExecuteSelectNextItem();
 ### ExecuteSelectPreviousItem
 `public void ExecuteSelectPreviousItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select previous item 对应的操作或工作流。
+**用途 / Purpose:** 执行 select previous item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -120,7 +120,7 @@ selectorVM.ExecuteSelectPreviousItem();
 ### GetCurrentItem
 `public T GetCurrentItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例
@@ -131,7 +131,7 @@ var result = selectorVM.GetCurrentItem();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SelectorVM 实例

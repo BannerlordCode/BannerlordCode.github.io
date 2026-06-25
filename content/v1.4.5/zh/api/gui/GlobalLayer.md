@@ -29,7 +29,7 @@ description: "GlobalLayer 的自动生成类参考。"
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 GlobalLayer 实例
@@ -40,7 +40,7 @@ var result = globalLayer.CompareTo(obj);
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 layout 的最新表示。
+**用途 / Purpose:** 重新计算并更新 layout 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GlobalLayer 实例

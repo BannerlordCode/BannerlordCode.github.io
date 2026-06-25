@@ -34,7 +34,7 @@ description: "ClanHomeInfo 的自动生成类参考。"
 ### CreateInClanInfo
 `public static ClanHomeInfo CreateInClanInfo(ClanInfo clanInfo, ClanPlayerInfo clanPlayerInfos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 in clan info 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 in clan info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
 ### CreateCanCreateClanInfo
 `public static ClanHomeInfo CreateCanCreateClanInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 can create clan info 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 can create clan info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ ClanHomeInfo.CreateCanCreateClanInfo();
 ### CreateCantCreateClanInfo
 `public static ClanHomeInfo CreateCantCreateClanInfo(NotEnoughPlayersInfo notEnoughPlayersInfo, PlayerNotEligibleInfo playerNotEligibleInfos)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 cant create clan info 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 cant create clan info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ ClanHomeInfo.CreateCantCreateClanInfo(notEnoughPlayersInfo, playerNotEligibleInf
 ### CreateInvalidStateClanInfo
 `public static ClanHomeInfo CreateInvalidStateClanInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 invalid state clan info 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 invalid state clan info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

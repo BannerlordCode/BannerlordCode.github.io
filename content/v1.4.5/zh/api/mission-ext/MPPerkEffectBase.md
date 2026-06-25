@@ -29,7 +29,7 @@ description: "MPPerkEffectBase 的自动生成类参考。"
 ### OnUpdate
 `public virtual void OnUpdate(Agent agent, bool newState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 update 事件触发时调用此回调。
+**用途 / Purpose:** 在 update 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -40,7 +40,7 @@ mPPerkEffectBase.OnUpdate(agent, false);
 ### OnTick
 `public virtual void OnTick(MissionPeer peer, int tickCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -51,7 +51,7 @@ mPPerkEffectBase.OnTick(peer, 0);
 ### OnTick
 `public virtual void OnTick(Agent agent, int tickCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -62,7 +62,7 @@ mPPerkEffectBase.OnTick(agent, 0);
 ### GetDamage
 `public virtual float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -73,7 +73,7 @@ var result = mPPerkEffectBase.GetDamage(attackerWeapon, damageType, false);
 ### GetMountDamage
 `public virtual float GetMountDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -84,7 +84,7 @@ var result = mPPerkEffectBase.GetMountDamage(attackerWeapon, damageType, false);
 ### GetDamageTaken
 `public virtual float GetDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage taken 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 damage taken 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -95,7 +95,7 @@ var result = mPPerkEffectBase.GetDamageTaken(attackerWeapon, damageType);
 ### GetMountDamageTaken
 `public virtual float GetMountDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount damage taken 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount damage taken 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -106,7 +106,7 @@ var result = mPPerkEffectBase.GetMountDamageTaken(attackerWeapon, damageType);
 ### GetSpeedBonusEffectiveness
 `public virtual float GetSpeedBonusEffectiveness(Agent attacker, WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 speed bonus effectiveness 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 speed bonus effectiveness 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -117,7 +117,7 @@ var result = mPPerkEffectBase.GetSpeedBonusEffectiveness(attacker, attackerWeapo
 ### GetShieldDamage
 `public virtual float GetShieldDamage(bool isCorrectSideBlock)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shield damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shield damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -128,7 +128,7 @@ var result = mPPerkEffectBase.GetShieldDamage(false);
 ### GetShieldDamageTaken
 `public virtual float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shield damage taken 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shield damage taken 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -139,7 +139,7 @@ var result = mPPerkEffectBase.GetShieldDamageTaken(false);
 ### GetRangedAccuracy
 `public virtual float GetRangedAccuracy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ranged accuracy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ranged accuracy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -150,7 +150,7 @@ var result = mPPerkEffectBase.GetRangedAccuracy();
 ### GetThrowingWeaponSpeed
 `public virtual float GetThrowingWeaponSpeed(WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 throwing weapon speed 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 throwing weapon speed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -161,7 +161,7 @@ var result = mPPerkEffectBase.GetThrowingWeaponSpeed(attackerWeapon);
 ### GetDamageInterruptionThreshold
 `public virtual float GetDamageInterruptionThreshold()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage interruption threshold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 damage interruption threshold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -172,7 +172,7 @@ var result = mPPerkEffectBase.GetDamageInterruptionThreshold();
 ### GetMountManeuver
 `public virtual float GetMountManeuver()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount maneuver 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount maneuver 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -183,7 +183,7 @@ var result = mPPerkEffectBase.GetMountManeuver();
 ### GetMountSpeed
 `public virtual float GetMountSpeed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount speed 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount speed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -194,7 +194,7 @@ var result = mPPerkEffectBase.GetMountSpeed();
 ### GetRangedHeadShotDamage
 `public virtual float GetRangedHeadShotDamage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ranged head shot damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ranged head shot damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -205,7 +205,7 @@ var result = mPPerkEffectBase.GetRangedHeadShotDamage();
 ### GetGoldOnKill
 `public virtual int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold on kill 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 gold on kill 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -216,7 +216,7 @@ var result = mPPerkEffectBase.GetGoldOnKill(0, 0);
 ### GetGoldOnAssist
 `public virtual int GetGoldOnAssist()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold on assist 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 gold on assist 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -227,7 +227,7 @@ var result = mPPerkEffectBase.GetGoldOnAssist();
 ### GetRewardedGoldOnAssist
 `public virtual int GetRewardedGoldOnAssist()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 rewarded gold on assist 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 rewarded gold on assist 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -238,7 +238,7 @@ var result = mPPerkEffectBase.GetRewardedGoldOnAssist();
 ### GetIsTeamRewardedOnDeath
 `public virtual bool GetIsTeamRewardedOnDeath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is team rewarded on death 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is team rewarded on death 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -249,7 +249,7 @@ var result = mPPerkEffectBase.GetIsTeamRewardedOnDeath();
 ### CalculateRewardedGoldOnDeath
 `public virtual void CalculateRewardedGoldOnDeath(Agent agent, List<(MissionPeer, int)> teamMembers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算rewarded gold on death的当前值或结果。
+**用途 / Purpose:** 计算rewarded gold on death的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -260,7 +260,7 @@ mPPerkEffectBase.CalculateRewardedGoldOnDeath(agent, list<(MissionPeer, 0);
 ### GetDrivenPropertyBonus
 `public virtual float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 driven property bonus 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 driven property bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例
@@ -271,7 +271,7 @@ var result = mPPerkEffectBase.GetDrivenPropertyBonus(drivenProperty, 0);
 ### GetEncumbrance
 `public virtual float GetEncumbrance(bool isOnBody)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encumbrance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 encumbrance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkEffectBase 实例

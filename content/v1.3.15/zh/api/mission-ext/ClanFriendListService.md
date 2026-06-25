@@ -23,7 +23,7 @@ description: "ClanFriendListService 的自动生成类参考。"
 ### GetUserWithName
 `public Task<PlayerId> GetUserWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 user with name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFriendListService 实例
@@ -34,7 +34,7 @@ var result = clanFriendListService.GetUserWithName("example");
 ### GetPendingRequests
 `public IEnumerable<PlayerId> GetPendingRequests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pending requests 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pending requests 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFriendListService 实例
@@ -45,7 +45,7 @@ var result = clanFriendListService.GetPendingRequests();
 ### GetReceivedRequests
 `public IEnumerable<PlayerId> GetReceivedRequests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 received requests 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 received requests 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFriendListService 实例
@@ -56,7 +56,7 @@ var result = clanFriendListService.GetReceivedRequests();
 ### OnClanInfoChanged
 `public void OnClanInfoChanged(List<ClanPlayerInfo> playerInfosInClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFriendListService 实例

@@ -34,7 +34,7 @@ description: "GameNotificationVM 的自动生成类参考。"
 ### FadeOutCurrentNotification
 `public void FadeOutCurrentNotification(bool useExtraDisplayTime = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FadeOutCurrentNotification 对应的操作。
+**用途 / Purpose:** 调用 FadeOutCurrentNotification 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -45,7 +45,7 @@ gameNotificationVM.FadeOutCurrentNotification(false);
 ### SkipCurrentNotification
 `public void SkipCurrentNotification()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SkipCurrentNotification 对应的操作。
+**用途 / Purpose:** 调用 SkipCurrentNotification 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -56,7 +56,7 @@ gameNotificationVM.SkipCurrentNotification();
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的notifications。
+**用途 / Purpose:** 清空当前对象中的notifications。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -67,7 +67,7 @@ gameNotificationVM.ClearNotifications();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -78,7 +78,7 @@ gameNotificationVM.Tick(0);
 ### AddDialogNotification
 `public MBInformationManager.DialogNotificationHandle AddDialogNotification(TextObject text, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, MBInformationManager.NotificationPriority priority, string dialogSoundPath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog notification 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog notification 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -89,7 +89,7 @@ var result = gameNotificationVM.AddDialogNotification(text, 0, announcerCharacte
 ### GetStatusOfDialogNotification
 `public MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 status of dialog notification 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 status of dialog notification 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -100,7 +100,7 @@ var result = gameNotificationVM.GetStatusOfDialogNotification(handle);
 ### ClearDialogNotification
 `public void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的dialog notification。
+**用途 / Purpose:** 清空当前对象中的dialog notification。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -111,7 +111,7 @@ gameNotificationVM.ClearDialogNotification(handle, false);
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is any dialog notification active or queued 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is any dialog notification active or queued 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -122,7 +122,7 @@ var result = gameNotificationVM.GetIsAnyDialogNotificationActiveOrQueued();
 ### ClearAllDialogNotifications
 `public void ClearAllDialogNotifications(bool fadeOut)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all dialog notifications。
+**用途 / Purpose:** 清空当前对象中的all dialog notifications。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -133,7 +133,7 @@ gameNotificationVM.ClearAllDialogNotifications(false);
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 game notification 添加到当前容器或状态中。
+**用途 / Purpose:** 将 game notification 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例

@@ -49,7 +49,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSelectionGroupVM from the subsystem API first
@@ -60,7 +60,7 @@ mapSelectionGroupVM.RefreshValues();
 ### ExecuteSallyOutChange
 `public void ExecuteSallyOutChange()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sally out change.
+**Purpose:** Runs the operation or workflow associated with sally out change.
 
 ```csharp
 // Obtain an instance of MapSelectionGroupVM from the subsystem API first
@@ -71,7 +71,7 @@ mapSelectionGroupVM.ExecuteSallyOutChange();
 ### OnGameTypeChange
 `public void OnGameTypeChange(string gameTypeStringId)`
 
-**Purpose:** **Purpose:** Invoked when the game type change event is raised.
+**Purpose:** Invoked when the game type change event is raised.
 
 ```csharp
 // Obtain an instance of MapSelectionGroupVM from the subsystem API first
@@ -82,7 +82,7 @@ mapSelectionGroupVM.OnGameTypeChange("example");
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**Purpose:** **Purpose:** Executes the RandomizeAll logic.
+**Purpose:** Executes the RandomizeAll logic.
 
 ```csharp
 // Obtain an instance of MapSelectionGroupVM from the subsystem API first

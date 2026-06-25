@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
@@ -54,7 +54,7 @@ mPLobbyRankProgressInformationVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
@@ -65,7 +65,7 @@ mPLobbyRankProgressInformationVM.OnFinalize();
 ### OpenWith
 `public void OpenWith(MPLobbyPlayerBaseVM player)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
@@ -76,7 +76,7 @@ mPLobbyRankProgressInformationVM.OpenWith(player);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first

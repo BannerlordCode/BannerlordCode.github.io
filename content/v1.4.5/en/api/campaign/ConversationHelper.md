@@ -23,7 +23,7 @@ Treat `ConversationHelper` as a Helper-style extension point: first identify who
 ### HeroRefersToHero
 `public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)`
 
-**Purpose:** **Purpose:** Executes the HeroRefersToHero logic.
+**Purpose:** Executes the HeroRefersToHero logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ConversationHelper.HeroRefersToHero(talkTroop, referringTo, false);
 ### GetHeroRelationToHeroTextShort
 `public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)`
 
-**Purpose:** **Purpose:** Reads and returns the hero relation to hero text short value held by the this instance.
+**Purpose:** Reads and returns the hero relation to hero text short value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ConversationHelper.GetHeroRelationToHeroTextShort(queriedHero, baseHero, false);
 ### GetConversationCharacterPartyLeader
 `public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)`
 
-**Purpose:** **Purpose:** Reads and returns the conversation character party leader value held by the this instance.
+**Purpose:** Reads and returns the conversation character party leader value held by the this instance.
 
 ```csharp
 // Static call; no instance required

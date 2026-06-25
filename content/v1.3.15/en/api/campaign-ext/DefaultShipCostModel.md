@@ -23,7 +23,7 @@ Treat `DefaultShipCostModel` as a Model-style extension point: first identify wh
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**Purpose:** **Purpose:** Reads and returns the ship trade value value held by the this instance.
+**Purpose:** Reads and returns the ship trade value value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship, PartyBase owner)`
 
-**Purpose:** **Purpose:** Reads and returns the ship repair cost value held by the this instance.
+**Purpose:** Reads and returns the ship repair cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultShipCostModel.GetShipRepairCost(ship, owner);
 ### GetShipUpgradePieceCost
 `public override int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
 
-**Purpose:** **Purpose:** Reads and returns the ship upgrade piece cost value held by the this instance.
+**Purpose:** Reads and returns the ship upgrade piece cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultShipCostModel.GetShipUpgradePieceCost(ship, piece, owner);
 ### GetShipSellingPenalty
 `public override float GetShipSellingPenalty()`
 
-**Purpose:** **Purpose:** Reads and returns the ship selling penalty value held by the this instance.
+**Purpose:** Reads and returns the ship selling penalty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "TextObjectExtensions 的自动生成类参考。"
 ### SetCharacterProperties
 `public static void SetCharacterProperties(this TextObject to, string tag, CharacterObject character, bool includeDetails = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 character properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 character properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
 ### SetSettlementProperties
 `public static void SetSettlementProperties(this TextObject to, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 settlement properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 settlement properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

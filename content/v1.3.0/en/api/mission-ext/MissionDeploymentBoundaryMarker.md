@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` t
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first
@@ -34,7 +34,7 @@ missionDeploymentBoundaryMarker.AfterStart();
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**Purpose:** **Purpose:** Invoked when the deployment plan made event is raised.
+**Purpose:** Invoked when the deployment plan made event is raised.
 
 ```csharp
 // Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first
@@ -45,7 +45,7 @@ missionDeploymentBoundaryMarker.OnDeploymentPlanMade(team, false);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first

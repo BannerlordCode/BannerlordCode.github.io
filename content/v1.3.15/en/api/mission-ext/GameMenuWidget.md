@@ -47,7 +47,7 @@ Treat `GameMenuWidget` as a Widget-style extension point: first identify who cre
 ### UpdateOverlayState
 `public void UpdateOverlayState()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of overlay state.
+**Purpose:** Recalculates and stores the latest representation of overlay state.
 
 ```csharp
 // Obtain an instance of GameMenuWidget from the subsystem API first
@@ -58,7 +58,7 @@ gameMenuWidget.UpdateOverlayState();
 ### OnOptionStateChanged
 `public void OnOptionStateChanged()`
 
-**Purpose:** **Purpose:** Invoked when the option state changed event is raised.
+**Purpose:** Invoked when the option state changed event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuWidget from the subsystem API first

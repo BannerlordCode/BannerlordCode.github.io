@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### AddQuestCharacterBehaviors
 `public static void AddQuestCharacterBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds quest character behaviors to the current collection or state.
+**Purpose:** Adds quest character behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BehaviorSets.AddQuestCharacterBehaviors(agent);
 ### AddWandererBehaviors
 `public static void AddWandererBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds wanderer behaviors to the current collection or state.
+**Purpose:** Adds wanderer behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ BehaviorSets.AddWandererBehaviors(agent);
 ### AddOutdoorWandererBehaviors
 `public static void AddOutdoorWandererBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds outdoor wanderer behaviors to the current collection or state.
+**Purpose:** Adds outdoor wanderer behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BehaviorSets.AddOutdoorWandererBehaviors(agent);
 ### AddIndoorWandererBehaviors
 `public static void AddIndoorWandererBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds indoor wanderer behaviors to the current collection or state.
+**Purpose:** Adds indoor wanderer behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ BehaviorSets.AddIndoorWandererBehaviors(agent);
 ### AddFixedCharacterBehaviors
 `public static void AddFixedCharacterBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds fixed character behaviors to the current collection or state.
+**Purpose:** Adds fixed character behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ BehaviorSets.AddFixedCharacterBehaviors(agent);
 ### AddPatrollingThugBehaviors
 `public static void AddPatrollingThugBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds patrolling thug behaviors to the current collection or state.
+**Purpose:** Adds patrolling thug behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ BehaviorSets.AddPatrollingThugBehaviors(agent);
 ### AddStandGuardBehaviors
 `public static void AddStandGuardBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds stand guard behaviors to the current collection or state.
+**Purpose:** Adds stand guard behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ BehaviorSets.AddStandGuardBehaviors(agent);
 ### AddFixedGuardBehaviors
 `public static void AddFixedGuardBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds fixed guard behaviors to the current collection or state.
+**Purpose:** Adds fixed guard behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ BehaviorSets.AddFixedGuardBehaviors(agent);
 ### StealthAgentBehaviors
 `public static void StealthAgentBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Executes the StealthAgentBehaviors logic.
+**Purpose:** Executes the StealthAgentBehaviors logic.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ BehaviorSets.StealthAgentBehaviors(agent);
 ### AddPatrollingGuardBehaviors
 `public static void AddPatrollingGuardBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds patrolling guard behaviors to the current collection or state.
+**Purpose:** Adds patrolling guard behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ BehaviorSets.AddPatrollingGuardBehaviors(agent);
 ### AddCompanionBehaviors
 `public static void AddCompanionBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds companion behaviors to the current collection or state.
+**Purpose:** Adds companion behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ BehaviorSets.AddCompanionBehaviors(agent);
 ### AddBodyguardBehaviors
 `public static void AddBodyguardBehaviors(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds bodyguard behaviors to the current collection or state.
+**Purpose:** Adds bodyguard behaviors to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ BehaviorSets.AddBodyguardBehaviors(agent);
 ### AddFirstCompanionBehavior
 `public static void AddFirstCompanionBehavior(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds first companion behavior to the current collection or state.
+**Purpose:** Adds first companion behavior to the current collection or state.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### IsContextAllowed
 `public bool IsContextAllowed(SceneNotificationData.RelevantContextType relevantType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the context allowed state or condition.
+**Purpose:** Determines whether the this instance is in the context allowed state or condition.
 
 ```csharp
 // Obtain an instance of SandboxSceneNotificationContextProvider from the subsystem API first

@@ -37,7 +37,7 @@ description: "MultiplayerTeamSelectVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -48,7 +48,7 @@ multiplayerTeamSelectVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -59,7 +59,7 @@ multiplayerTeamSelectVM.Tick(0);
 ### RefreshDisabledTeams
 `public void RefreshDisabledTeams(List<Team> disabledTeams)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 disabled teams 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 disabled teams 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -70,7 +70,7 @@ multiplayerTeamSelectVM.RefreshDisabledTeams(disabledTeams);
 ### RefreshPlayerAndBotCount
 `public void RefreshPlayerAndBotCount(int playersCountOne, int playersCountTwo, int botsCountOne, int botsCountTwo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 player and bot count 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 player and bot count 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -81,7 +81,7 @@ multiplayerTeamSelectVM.RefreshPlayerAndBotCount(0, 0, 0, 0);
 ### RefreshFriendsPerTeam
 `public void RefreshFriendsPerTeam(IEnumerable<MissionPeer> friendsTeamOne, IEnumerable<MissionPeer> friendsTeamTwo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 friends per team 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 friends per team 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -92,7 +92,7 @@ multiplayerTeamSelectVM.RefreshFriendsPerTeam(friendsTeamOne, friendsTeamTwo);
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
@@ -103,7 +103,7 @@ multiplayerTeamSelectVM.ExecuteCancel();
 ### ExecuteAutoAssign
 `public void ExecuteAutoAssign()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 auto assign 对应的操作或工作流。
+**用途 / Purpose:** 执行 auto assign 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例

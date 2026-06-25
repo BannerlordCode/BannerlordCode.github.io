@@ -30,7 +30,7 @@ description: "TownMercenaryData 的自动生成类参考。"
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeMercenaryType 对应的操作。
+**用途 / Purpose:** 调用 ChangeMercenaryType 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TownMercenaryData 实例
@@ -41,7 +41,7 @@ townMercenaryData.ChangeMercenaryType(troopType, 0);
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeMercenaryCount 对应的操作。
+**用途 / Purpose:** 调用 ChangeMercenaryCount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TownMercenaryData 实例
@@ -52,7 +52,7 @@ townMercenaryData.ChangeMercenaryCount(0);
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 available mercenary。
+**用途 / Purpose:** 判断当前对象是否已经持有 available mercenary。
 
 ```csharp
 // 先通过子系统 API 拿到 TownMercenaryData 实例

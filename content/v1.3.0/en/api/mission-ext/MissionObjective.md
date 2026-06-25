@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### ForceComplete
 `public void ForceComplete()`
 
-**Purpose:** **Purpose:** Executes the ForceComplete logic.
+**Purpose:** Executes the ForceComplete logic.
 
 ```csharp
 // Obtain an instance of MissionObjective from the subsystem API first
@@ -45,7 +45,7 @@ missionObjective.ForceComplete();
 ### GetIsActivationRequirementsMet
 `public bool GetIsActivationRequirementsMet()`
 
-**Purpose:** **Purpose:** Reads and returns the is activation requirements met value held by the this instance.
+**Purpose:** Reads and returns the is activation requirements met value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjective from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionObjective.GetIsActivationRequirementsMet();
 ### GetIsCompletionRequirementsMet
 `public bool GetIsCompletionRequirementsMet()`
 
-**Purpose:** **Purpose:** Reads and returns the is completion requirements met value held by the this instance.
+**Purpose:** Reads and returns the is completion requirements met value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjective from the subsystem API first
@@ -67,7 +67,7 @@ var result = missionObjective.GetIsCompletionRequirementsMet();
 ### GetCurrentProgress
 `public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**Purpose:** **Purpose:** Reads and returns the current progress value held by the this instance.
+**Purpose:** Reads and returns the current progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjective from the subsystem API first
@@ -78,7 +78,7 @@ var result = missionObjective.GetCurrentProgress();
 ### GetTargets
 `public abstract IMissionObjectiveTarget GetTargets()`
 
-**Purpose:** **Purpose:** Reads and returns the targets value held by the this instance.
+**Purpose:** Reads and returns the targets value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjective from the subsystem API first

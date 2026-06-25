@@ -23,7 +23,7 @@ description: "CharacterDeveloperNavigationElement 的自动生成类参考。"
 ### OpenView
 `public override void OpenView()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开view对应的资源或界面。
+**用途 / Purpose:** 打开view对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperNavigationElement 实例
@@ -34,7 +34,7 @@ characterDeveloperNavigationElement.OpenView();
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开view对应的资源或界面。
+**用途 / Purpose:** 打开view对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperNavigationElement 实例
@@ -45,7 +45,7 @@ characterDeveloperNavigationElement.OpenView(parameters);
 ### GoToLink
 `public override void GoToLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GoToLink 对应的操作。
+**用途 / Purpose:** 调用 GoToLink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDeveloperNavigationElement 实例

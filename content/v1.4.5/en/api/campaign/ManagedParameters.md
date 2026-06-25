@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ManagedParameters from the subsystem API first
@@ -40,7 +40,7 @@ managedParameters.Initialize("example");
 ### GetManagedParameter
 `public bool GetManagedParameter(ManagedParametersEnum _managedParametersEnum)`
 
-**Purpose:** **Purpose:** Reads and returns the managed parameter value held by the this instance.
+**Purpose:** Reads and returns the managed parameter value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedParameters from the subsystem API first
@@ -51,7 +51,7 @@ var result = managedParameters.GetManagedParameter(_managedParametersEnum);
 ### SetManagedParameter
 `public bool SetManagedParameter(ManagedParametersEnum _managedParametersEnum, bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to managed parameter and updates the object's internal state.
+**Purpose:** Assigns a new value to managed parameter and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ManagedParameters from the subsystem API first

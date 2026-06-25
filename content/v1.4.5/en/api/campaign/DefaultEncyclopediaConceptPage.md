@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**Purpose:** **Purpose:** Reads and returns the view fully qualified name value held by the this instance.
+**Purpose:** Reads and returns the view fully qualified name value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultEncyclopediaConceptPage.GetName();
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultEncyclopediaConceptPage.GetDescriptionText();
 ### GetStringID
 `public override string GetStringID()`
 
-**Purpose:** **Purpose:** Reads and returns the string i d value held by the this instance.
+**Purpose:** Reads and returns the string i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultEncyclopediaConceptPage.GetStringID();
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid encyclopedia item state or condition.
+**Purpose:** Determines whether the this instance is in the valid encyclopedia item state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first

@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first
@@ -54,7 +54,7 @@ educationVM.RefreshValues();
 ### ExecuteNextStage
 `public void ExecuteNextStage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with next stage.
+**Purpose:** Runs the operation or workflow associated with next stage.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first
@@ -65,7 +65,7 @@ educationVM.ExecuteNextStage();
 ### ExecutePreviousStage
 `public void ExecutePreviousStage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with previous stage.
+**Purpose:** Runs the operation or workflow associated with previous stage.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first
@@ -76,7 +76,7 @@ educationVM.ExecutePreviousStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first
@@ -87,7 +87,7 @@ educationVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first
@@ -98,7 +98,7 @@ educationVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EducationVM from the subsystem API first

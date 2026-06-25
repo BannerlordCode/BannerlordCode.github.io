@@ -29,7 +29,7 @@ Treat `MissionGauntletMultiplayerOrderUIHandler` as a Handler-style extension po
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the ready state or condition.
+**Purpose:** Determines whether the this instance is in the ready state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -40,7 +40,7 @@ var result = missionGauntletMultiplayerOrderUIHandler.IsReady();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -51,7 +51,7 @@ missionGauntletMultiplayerOrderUIHandler.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -62,7 +62,7 @@ missionGauntletMultiplayerOrderUIHandler.OnMissionScreenTick(0);
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -73,7 +73,7 @@ missionGauntletMultiplayerOrderUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -84,7 +84,7 @@ missionGauntletMultiplayerOrderUIHandler.OnMissionScreenFinalize();
 ### InitializeInADisgustingManner
 `public void InitializeInADisgustingManner()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by in a disgusting manner.
+**Purpose:** Prepares the resources, state, or bindings required by in a disgusting manner.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
@@ -95,7 +95,7 @@ missionGauntletMultiplayerOrderUIHandler.InitializeInADisgustingManner();
 ### ValidateInADisgustingManner
 `public void ValidateInADisgustingManner()`
 
-**Purpose:** **Purpose:** Checks whether in a disgusting manner satisfies the required constraints, usually returning a boolean.
+**Purpose:** Checks whether in a disgusting manner satisfies the required constraints, usually returning a boolean.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetInfluenceAmount
 `public float GetInfluenceAmount(Vec3 worldPosition)`
 
-**Purpose:** **Purpose:** Reads and returns the influence amount value held by the this instance.
+**Purpose:** Reads and returns the influence amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapAtmosphereProbe from the subsystem API first

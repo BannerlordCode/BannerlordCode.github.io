@@ -23,7 +23,7 @@ description: "CombatLogManager 的自动生成类参考。"
 ### PrintDebugLogForInfo
 `public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PrintDebugLogForInfo 对应的操作。
+**用途 / Purpose:** 调用 PrintDebugLogForInfo 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0,
 ### GenerateCombatLog
 `public static void GenerateCombatLog(CombatLogData logData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成combat log的实例、数据或表示。
+**用途 / Purpose:** 生成combat log的实例、数据或表示。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "TradeAgreementModel 的自动生成类参考。"
 ### GetTradeAgreementDurationInYears
 `public abstract CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade agreement duration in years 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 trade agreement duration in years 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeAgreementModel 实例
@@ -34,7 +34,7 @@ var result = tradeAgreementModel.GetTradeAgreementDurationInYears(iniatatingKing
 ### GetMaximumTradeAgreementCount
 `public abstract int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum trade agreement count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum trade agreement count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeAgreementModel 实例
@@ -45,7 +45,7 @@ var result = tradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
 ### GetInfluenceCostOfProposingTradeAgreement
 `public abstract int GetInfluenceCostOfProposingTradeAgreement(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing trade agreement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing trade agreement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeAgreementModel 实例
@@ -56,7 +56,7 @@ var result = tradeAgreementModel.GetInfluenceCostOfProposingTradeAgreement(clan)
 ### GetScoreOfStartingTradeAgreement
 `public abstract float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of starting trade agreement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of starting trade agreement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeAgreementModel 实例
@@ -67,7 +67,7 @@ var result = tradeAgreementModel.GetScoreOfStartingTradeAgreement(kingdom, targe
 ### CanMakeTradeAgreement
 `public abstract bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 make trade agreement 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 make trade agreement 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeAgreementModel 实例

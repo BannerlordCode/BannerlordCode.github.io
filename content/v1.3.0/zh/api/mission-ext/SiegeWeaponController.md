@@ -29,7 +29,7 @@ description: "SiegeWeaponController 的自动生成类参考。"
 ### Select
 `public void Select(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Select 对应的操作。
+**用途 / Purpose:** 调用 Select 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -40,7 +40,7 @@ siegeWeaponController.Select(weapon);
 ### ClearSelectedWeapons
 `public void ClearSelectedWeapons()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的selected weapons。
+**用途 / Purpose:** 清空当前对象中的selected weapons。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -51,7 +51,7 @@ siegeWeaponController.ClearSelectedWeapons();
 ### Deselect
 `public void Deselect(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Deselect 对应的操作。
+**用途 / Purpose:** 调用 Deselect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -62,7 +62,7 @@ siegeWeaponController.Deselect(weapon);
 ### SelectAll
 `public void SelectAll()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectAll 对应的操作。
+**用途 / Purpose:** 调用 SelectAll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -73,7 +73,7 @@ siegeWeaponController.SelectAll();
 ### IsWeaponSelectable
 `public static bool IsWeaponSelectable(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 weapon selectable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 weapon selectable 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ SiegeWeaponController.IsWeaponSelectable(weapon);
 ### GetActiveOrderOf
 `public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active order of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active order of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ SiegeWeaponController.GetActiveOrderOf(weapon);
 ### GetActiveMovementOrderOf
 `public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active movement order of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active movement order of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ SiegeWeaponController.GetActiveMovementOrderOf(weapon);
 ### GetActiveFacingOrderOf
 `public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active facing order of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active facing order of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ SiegeWeaponController.GetActiveFacingOrderOf(weapon);
 ### GetActiveFiringOrderOf
 `public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active firing order of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active firing order of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ SiegeWeaponController.GetActiveFiringOrderOf(weapon);
 ### GetActiveAIControlOrderOf
 `public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active a i control order of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active a i control order of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ SiegeWeaponController.GetActiveAIControlOrderOf(weapon);
 ### SetOrder
 `public void SetOrder(SiegeWeaponOrderType order)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 order 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -144,7 +144,7 @@ siegeWeaponController.SetOrder(order);
 ### GetShortcutIndexOf
 `public int GetShortcutIndexOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shortcut index of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shortcut index of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例

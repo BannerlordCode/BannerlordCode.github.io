@@ -23,7 +23,7 @@ Treat `NotableSpawnModel` as a Model-style extension point: first identify who c
 ### GetTargetNotableCountForSettlement
 `public abstract int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**Purpose:** **Purpose:** Reads and returns the target notable count for settlement value held by the this instance.
+**Purpose:** Reads and returns the target notable count for settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of NotableSpawnModel from the subsystem API first

@@ -32,7 +32,7 @@ description: "Threat 的自动生成类参考。"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例
@@ -43,7 +43,7 @@ var result = threat.GetHashCode();
 ### GetGlobalVelocity
 `public Vec3 GetGlobalVelocity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global velocity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 global velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例
@@ -54,7 +54,7 @@ var result = threat.GetGlobalVelocity();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例
@@ -65,7 +65,7 @@ var result = threat.Equals(obj);
 ### DisplayDebugInfo
 `public void DisplayDebugInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisplayDebugInfo 对应的操作。
+**用途 / Purpose:** 调用 DisplayDebugInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例

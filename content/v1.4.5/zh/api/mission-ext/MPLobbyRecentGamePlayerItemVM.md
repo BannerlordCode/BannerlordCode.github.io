@@ -31,7 +31,7 @@ description: "MPLobbyRecentGamePlayerItemVM 的自动生成类参考。"
 ### MPLobbyRecentGamePlayerItemVM
 `public unsafe MPLobbyRecentGamePlayerItemVM(PlayerId playerId, MatchHistoryData matchOfThePlayer, Action<MPLobbyRecentGamePlayerItemVM> onActivatePlayerActions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MPLobbyRecentGamePlayerItemVM 对应的操作。
+**用途 / Purpose:** 调用 MPLobbyRecentGamePlayerItemVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamePlayerItemVM 实例
@@ -42,7 +42,7 @@ var result = mPLobbyRecentGamePlayerItemVM.MPLobbyRecentGamePlayerItemVM(playerI
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGamePlayerItemVM 实例

@@ -62,7 +62,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetPhysicsReference
 `public void SetPhysicsReference(ShipPhysicsReference physicsReference)`
 
-**Purpose:** **Purpose:** Assigns a new value to physics reference and updates the object's internal state.
+**Purpose:** Assigns a new value to physics reference and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionShipObject from the subsystem API first
@@ -73,7 +73,7 @@ missionShipObject.SetPhysicsReference(physicsReference);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MissionShipObject from the subsystem API first

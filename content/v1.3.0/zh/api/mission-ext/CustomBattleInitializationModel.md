@@ -23,7 +23,7 @@ description: "CustomBattleInitializationModel 的自动生成类参考。"
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all available troop types 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all available troop types 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleInitializationModel 实例

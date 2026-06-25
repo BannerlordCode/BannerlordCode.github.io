@@ -29,7 +29,7 @@ description: "CharacterCreationReviewStageView 的自动生成类参考。"
 ### SetGenericScene
 `public override void SetGenericScene(Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 generic scene 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 generic scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -40,7 +40,7 @@ characterCreationReviewStageView.SetGenericScene(scene);
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -51,7 +51,7 @@ characterCreationReviewStageView.Tick(0);
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NextStage 对应的操作。
+**用途 / Purpose:** 调用 NextStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -62,7 +62,7 @@ characterCreationReviewStageView.NextStage();
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 virtual stage count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 virtual stage count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -73,7 +73,7 @@ var result = characterCreationReviewStageView.GetVirtualStageCount();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreviousStage 对应的操作。
+**用途 / Purpose:** 调用 PreviousStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -84,7 +84,7 @@ characterCreationReviewStageView.PreviousStage();
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -95,7 +95,7 @@ var result = characterCreationReviewStageView.GetLayers();
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 escape menu movie。
+**用途 / Purpose:** 从持久化存储或流中读取 escape menu movie。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例
@@ -106,7 +106,7 @@ characterCreationReviewStageView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseEscapeMenuMovie 对应的操作。
+**用途 / Purpose:** 调用 ReleaseEscapeMenuMovie 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationReviewStageView 实例

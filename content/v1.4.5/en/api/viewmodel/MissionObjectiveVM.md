@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveVM from the subsystem API first
@@ -52,7 +52,7 @@ missionObjectiveVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionObjectiveVM from the subsystem API first
@@ -63,7 +63,7 @@ missionObjectiveVM.OnFinalize();
 ### UpdateObjective
 `public void UpdateObjective(MissionObjective objective)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of objective.
+**Purpose:** Recalculates and stores the latest representation of objective.
 
 ```csharp
 // Obtain an instance of MissionObjectiveVM from the subsystem API first
@@ -74,7 +74,7 @@ missionObjectiveVM.UpdateObjective(objective);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionObjectiveVM from the subsystem API first

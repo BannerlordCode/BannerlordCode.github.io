@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshWith
 `public void RefreshWith(int iconID)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbySigilItemVM from the subsystem API first
@@ -42,7 +42,7 @@ mPLobbySigilItemVM.RefreshWith(0);
 ### RefreshWith
 `public void RefreshWith(Banner banner)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbySigilItemVM from the subsystem API first
@@ -53,7 +53,7 @@ mPLobbySigilItemVM.RefreshWith(banner);
 ### RefreshWith
 `public void RefreshWith(string bannerCode)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbySigilItemVM from the subsystem API first

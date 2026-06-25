@@ -33,7 +33,7 @@ description: "VillageNeedsToolsIssue 的自动生成类参考。"
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -44,7 +44,7 @@ var result = villageNeedsToolsIssue.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建或发起stay alive conditions。
+**用途 / Purpose:** 创建或发起stay alive conditions。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -55,7 +55,7 @@ var result = villageNeedsToolsIssue.IssueStayAliveConditions();
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AlternativeSolutionStartConsequence 对应的操作。
+**用途 / Purpose:** 调用 AlternativeSolutionStartConsequence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -66,7 +66,7 @@ villageNeedsToolsIssue.AlternativeSolutionStartConsequence();
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoTroopsSatisfyAlternativeSolution 对应的操作。
+**用途 / Purpose:** 调用 DoTroopsSatisfyAlternativeSolution 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -77,7 +77,7 @@ var result = villageNeedsToolsIssue.DoTroopsSatisfyAlternativeSolution(troopRost
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 troop type needed by alternative solution 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 troop type needed by alternative solution 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -88,7 +88,7 @@ var result = villageNeedsToolsIssue.IsTroopTypeNeededByAlternativeSolution(chara
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AlternativeSolutionCondition 对应的操作。
+**用途 / Purpose:** 调用 AlternativeSolutionCondition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -99,7 +99,7 @@ var result = villageNeedsToolsIssue.AlternativeSolutionCondition(explanation);
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 failed 事件触发时调用此回调。
+**用途 / Purpose:** 在 failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -110,7 +110,7 @@ villageNeedsToolsIssue.OnFailed();
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GiveTradeOrExchangeRewardToMainParty 对应的操作。
+**用途 / Purpose:** 调用 GiveTradeOrExchangeRewardToMainParty 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -120,7 +120,7 @@ VillageNeedsToolsIssue.GiveTradeOrExchangeRewardToMainParty(questGiver, 0, excha
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例
@@ -131,7 +131,7 @@ villageNeedsToolsIssue.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssue 实例

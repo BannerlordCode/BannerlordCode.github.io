@@ -31,7 +31,7 @@ description: "SneakIntoTheVillaMissionController 的自动生成类参考。"
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -42,7 +42,7 @@ sneakIntoTheVillaMissionController.OnMissionTick(0);
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 created 事件触发时调用此回调。
+**用途 / Purpose:** 在 created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -53,7 +53,7 @@ sneakIntoTheVillaMissionController.OnCreated();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -64,7 +64,7 @@ sneakIntoTheVillaMissionController.AfterStart();
 ### IsStealthTutorialReadyForActivation
 `public static bool IsStealthTutorialReadyForActivation(SneakIntoTheVillaMissionController.MissionState missionState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 stealth tutorial ready for activation 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 stealth tutorial ready for activation 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ SneakIntoTheVillaMissionController.IsStealthTutorialReadyForActivation(missionSt
 ### IsStealthTutorialReadyForCompletion
 `public static bool IsStealthTutorialReadyForCompletion(SneakIntoTheVillaMissionController.MissionState missionState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 stealth tutorial ready for completion 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 stealth tutorial ready for completion 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -84,7 +84,7 @@ SneakIntoTheVillaMissionController.IsStealthTutorialReadyForCompletion(missionSt
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -95,7 +95,7 @@ sneakIntoTheVillaMissionController.OnRemoveBehavior();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -106,7 +106,7 @@ sneakIntoTheVillaMissionController.OnAgentRemoved(affectedAgent, affectorAgent, 
 ### OnAfterTalkingToPrisoner
 `public void OnAfterTalkingToPrisoner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after talking to prisoner 事件触发时调用此回调。
+**用途 / Purpose:** 在 after talking to prisoner 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -117,7 +117,7 @@ sneakIntoTheVillaMissionController.OnAfterTalkingToPrisoner();
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 object used 事件触发时调用此回调。
+**用途 / Purpose:** 在 object used 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -128,7 +128,7 @@ sneakIntoTheVillaMissionController.OnObjectUsed(userAgent, usedObject);
 ### IsTargetAgentDistracted
 `public bool IsTargetAgentDistracted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 target agent distracted 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 target agent distracted 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -139,7 +139,7 @@ var result = sneakIntoTheVillaMissionController.IsTargetAgentDistracted();
 ### IsTargetAgentKilled
 `public bool IsTargetAgentKilled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 target agent killed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 target agent killed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -150,7 +150,7 @@ var result = sneakIntoTheVillaMissionController.IsTargetAgentKilled();
 ### IsMainAgentDraggingTargetBody
 `public bool IsMainAgentDraggingTargetBody()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 main agent dragging target body 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 main agent dragging target body 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例
@@ -161,7 +161,7 @@ var result = sneakIntoTheVillaMissionController.IsMainAgentDraggingTargetBody();
 ### OnMeleeHit
 `public override void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 melee hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 melee hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SneakIntoTheVillaMissionController 实例

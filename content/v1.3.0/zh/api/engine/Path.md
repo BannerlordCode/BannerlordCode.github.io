@@ -30,7 +30,7 @@ description: "Path 的自动生成类参考。"
 ### GetHermiteFrameForDt
 `public MatrixFrame GetHermiteFrameForDt(float phase, int first_point)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hermite frame for dt 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hermite frame for dt 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -41,7 +41,7 @@ var result = path.GetHermiteFrameForDt(0, 0);
 ### GetFrameForDistance
 `public MatrixFrame GetFrameForDistance(float distance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frame for distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 frame for distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -52,7 +52,7 @@ var result = path.GetFrameForDistance(0);
 ### GetNearestFrameWithValidAlphaForDistance
 `public MatrixFrame GetNearestFrameWithValidAlphaForDistance(float distance, bool searchForward = true, float alphaThreshold = 0.5f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nearest frame with valid alpha for distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 nearest frame with valid alpha for distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -63,7 +63,7 @@ var result = path.GetNearestFrameWithValidAlphaForDistance(0, false, 0);
 ### GetFrameAndColorForDistance
 `public void GetFrameAndColorForDistance(float distance, out MatrixFrame frame, out Vec3 color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frame and color for distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 frame and color for distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -74,7 +74,7 @@ path.GetFrameAndColorForDistance(0, frame, color);
 ### GetArcLength
 `public float GetArcLength(int first_point)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 arc length 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 arc length 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -85,7 +85,7 @@ var result = path.GetArcLength(0);
 ### GetPoints
 `public void GetPoints(MatrixFrame points)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 points 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 points 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -96,7 +96,7 @@ path.GetPoints(points);
 ### GetTotalLength
 `public float GetTotalLength()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total length 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total length 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -107,7 +107,7 @@ var result = path.GetTotalLength();
 ### GetVersion
 `public int GetVersion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 version 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 version 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -118,7 +118,7 @@ var result = path.GetVersion();
 ### SetFrameOfPoint
 `public void SetFrameOfPoint(int pointIndex, ref MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 frame of point 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 frame of point 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -129,7 +129,7 @@ path.SetFrameOfPoint(0, frame);
 ### SetTangentPositionOfPoint
 `public void SetTangentPositionOfPoint(int pointIndex, int tangentIndex, ref Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 tangent position of point 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 tangent position of point 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -140,7 +140,7 @@ path.SetTangentPositionOfPoint(0, 0, position);
 ### AddPathPoint
 `public int AddPathPoint(int newNodeIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 path point 添加到当前容器或状态中。
+**用途 / Purpose:** 将 path point 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -151,7 +151,7 @@ var result = path.AddPathPoint(0);
 ### DeletePathPoint
 `public void DeletePathPoint(int nodeIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeletePathPoint 对应的操作。
+**用途 / Purpose:** 调用 DeletePathPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -162,7 +162,7 @@ path.DeletePathPoint(0);
 ### HasValidAlphaAtPathPoint
 `public bool HasValidAlphaAtPathPoint(int nodeIndex, float alphaThreshold = 0.5f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 valid alpha at path point。
+**用途 / Purpose:** 判断当前对象是否已经持有 valid alpha at path point。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例
@@ -173,7 +173,7 @@ var result = path.HasValidAlphaAtPathPoint(0, 0);
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Path 实例

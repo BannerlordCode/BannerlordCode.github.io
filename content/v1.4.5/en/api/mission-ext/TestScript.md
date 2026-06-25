@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetIntegerFromStringEnd
 `public static int GetIntegerFromStringEnd(string str)`
 
-**Purpose:** **Purpose:** Reads and returns the integer from string end value held by the this instance.
+**Purpose:** Reads and returns the integer from string end value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TestScript.GetIntegerFromStringEnd("example");
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TestScript from the subsystem API first

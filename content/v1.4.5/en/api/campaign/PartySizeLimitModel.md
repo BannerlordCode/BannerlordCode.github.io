@@ -29,7 +29,7 @@ Treat `PartySizeLimitModel` as a Model-style extension point: first identify who
 ### GetPartyMemberSizeLimit
 `public abstract ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Reads and returns the party member size limit value held by the this instance.
+**Purpose:** Reads and returns the party member size limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = partySizeLimitModel.GetPartyMemberSizeLimit(party, false);
 ### GetPartyPrisonerSizeLimit
 `public abstract ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Reads and returns the party prisoner size limit value held by the this instance.
+**Purpose:** Reads and returns the party prisoner size limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = partySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
 ### CalculateGarrisonPartySizeLimit
 `public abstract ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of garrison party size limit.
+**Purpose:** Calculates the current value or result of garrison party size limit.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = partySizeLimitModel.CalculateGarrisonPartySizeLimit(settlement, fal
 ### GetClanTierPartySizeEffectForHero
 `public abstract int GetClanTierPartySizeEffectForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the clan tier party size effect for hero value held by the this instance.
+**Purpose:** Reads and returns the clan tier party size effect for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = partySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
 ### GetNextClanTierPartySizeEffectChangeForHero
 `public abstract int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the next clan tier party size effect change for hero value held by the this instance.
+**Purpose:** Reads and returns the next clan tier party size effect change for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = partySizeLimitModel.GetNextClanTierPartySizeEffectChangeForHero(her
 ### GetAssumedPartySizeForLordParty
 `public abstract int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
 
-**Purpose:** **Purpose:** Reads and returns the assumed party size for lord party value held by the this instance.
+**Purpose:** Reads and returns the assumed party size for lord party value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -95,7 +95,7 @@ var result = partySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHero, par
 ### GetIdealVillagerPartySize
 `public abstract int GetIdealVillagerPartySize(Village village)`
 
-**Purpose:** **Purpose:** Reads and returns the ideal villager party size value held by the this instance.
+**Purpose:** Reads and returns the ideal villager party size value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -106,7 +106,7 @@ var result = partySizeLimitModel.GetIdealVillagerPartySize(village);
 ### FindAppropriateInitialRosterForMobileParty
 `public abstract TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** **Purpose:** Looks up the matching appropriate initial roster for mobile party in the current collection or scope.
+**Purpose:** Looks up the matching appropriate initial roster for mobile party in the current collection or scope.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first
@@ -117,7 +117,7 @@ var result = partySizeLimitModel.FindAppropriateInitialRosterForMobileParty(part
 ### FindAppropriateInitialShipsForMobileParty
 `public abstract List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** **Purpose:** Looks up the matching appropriate initial ships for mobile party in the current collection or scope.
+**Purpose:** Looks up the matching appropriate initial ships for mobile party in the current collection or scope.
 
 ```csharp
 // Obtain an instance of PartySizeLimitModel from the subsystem API first

@@ -31,7 +31,7 @@ description: "MatchmakingQueueGameTypeStats 的自动生成类参考。"
 ### HasGameType
 `public bool HasGameType(string gameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 game type。
+**用途 / Purpose:** 判断当前对象是否已经持有 game type。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueGameTypeStats 实例
@@ -42,7 +42,7 @@ var result = matchmakingQueueGameTypeStats.HasGameType("example");
 ### EqualWith
 `public bool EqualWith(string gameTypes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EqualWith 对应的操作。
+**用途 / Purpose:** 调用 EqualWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueGameTypeStats 实例

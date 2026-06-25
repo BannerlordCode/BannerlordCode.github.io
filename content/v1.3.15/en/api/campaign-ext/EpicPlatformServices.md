@@ -52,7 +52,7 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ### Initialize
 `public bool Initialize(IFriendListService additionalFriendListServices)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of EpicPlatformServices from the subsystem API first
@@ -63,7 +63,7 @@ var result = epicPlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public void Terminate()`
 
-**Purpose:** **Purpose:** Executes the Terminate logic.
+**Purpose:** Executes the Terminate logic.
 
 ```csharp
 // Obtain an instance of EpicPlatformServices from the subsystem API first
@@ -74,7 +74,7 @@ epicPlatformServices.Terminate();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of EpicPlatformServices from the subsystem API first
@@ -85,7 +85,7 @@ epicPlatformServices.Tick(0);
 ### QueryDefinitions
 `public void QueryDefinitions()`
 
-**Purpose:** **Purpose:** Executes the QueryDefinitions logic.
+**Purpose:** Executes the QueryDefinitions logic.
 
 ```csharp
 // Obtain an instance of EpicPlatformServices from the subsystem API first
@@ -96,7 +96,7 @@ epicPlatformServices.QueryDefinitions();
 ### ShowGamepadTextInput
 `public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with gamepad text input.
+**Purpose:** Displays the UI or element associated with gamepad text input.
 
 ```csharp
 // Obtain an instance of EpicPlatformServices from the subsystem API first

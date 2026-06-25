@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.I
 ### ExecuteVote
 `public void ExecuteVote()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with vote.
+**Purpose:** Runs the operation or workflow associated with vote.
 
 ```csharp
 // Obtain an instance of MPIntermissionCultureItemVM from the subsystem API first

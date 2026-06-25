@@ -37,7 +37,7 @@ description: "EncyclopediaShipPageVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
@@ -48,7 +48,7 @@ encyclopediaShipPageVM.RefreshValues();
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
@@ -59,7 +59,7 @@ var result = encyclopediaShipPageVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
@@ -70,7 +70,7 @@ var result = encyclopediaShipPageVM.GetNavigationBarURL();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
+**用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
@@ -81,7 +81,7 @@ encyclopediaShipPageVM.ExecuteLink("example");
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例

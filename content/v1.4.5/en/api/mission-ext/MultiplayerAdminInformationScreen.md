@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the initialize event is raised.
+**Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MultiplayerAdminInformationScreen.OnInitialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminInformationScreen from the subsystem API first
@@ -50,7 +50,7 @@ multiplayerAdminInformationScreen.OnFinalize();
 ### OnRemove
 `public static void OnRemove()`
 
-**Purpose:** **Purpose:** Invoked when the remove event is raised.
+**Purpose:** Invoked when the remove event is raised.
 
 ```csharp
 // Static call; no instance required

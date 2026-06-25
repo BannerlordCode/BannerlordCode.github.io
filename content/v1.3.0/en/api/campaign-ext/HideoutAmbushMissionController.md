@@ -29,7 +29,7 @@ Treat `HideoutAmbushMissionController` as a Controller-style extension point: fi
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** **Purpose:** Invoked when the created event is raised.
+**Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -40,7 +40,7 @@ hideoutAmbushMissionController.OnCreated();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -51,7 +51,7 @@ hideoutAmbushMissionController.AfterStart();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -62,7 +62,7 @@ hideoutAmbushMissionController.OnBehaviorInitialize();
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** **Purpose:** Invoked when the object used event is raised.
+**Purpose:** Invoked when the object used event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -73,7 +73,7 @@ hideoutAmbushMissionController.OnObjectUsed(userAgent, usedObject);
 ### SetOverriddenHideoutBossCharacterObject
 `public void SetOverriddenHideoutBossCharacterObject(CharacterObject characterObject)`
 
-**Purpose:** **Purpose:** Assigns a new value to overridden hideout boss character object and updates the object's internal state.
+**Purpose:** Assigns a new value to overridden hideout boss character object and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -84,7 +84,7 @@ hideoutAmbushMissionController.SetOverriddenHideoutBossCharacterObject(character
 ### SpawnRemainingTroopsForBossFight
 `public void SpawnRemainingTroopsForBossFight(List<MatrixFrame> spawnFrames)`
 
-**Purpose:** **Purpose:** Executes the SpawnRemainingTroopsForBossFight logic.
+**Purpose:** Executes the SpawnRemainingTroopsForBossFight logic.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -95,7 +95,7 @@ hideoutAmbushMissionController.SpawnRemainingTroopsForBossFight(spawnFrames);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -106,7 +106,7 @@ hideoutAmbushMissionController.OnMissionTick(0);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -117,7 +117,7 @@ hideoutAmbushMissionController.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -128,7 +128,7 @@ hideoutAmbushMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agen
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**Purpose:** **Purpose:** Invoked when the stealth mission counter failed event is raised.
+**Purpose:** Invoked when the stealth mission counter failed event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -139,7 +139,7 @@ hideoutAmbushMissionController.OnStealthMissionCounterFailed(obj);
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side depleted state or condition.
+**Purpose:** Determines whether the this instance is in the side depleted state or condition.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -150,7 +150,7 @@ var result = hideoutAmbushMissionController.IsSideDepleted(side);
 ### OnAgentsShouldBeEnabled
 `public void OnAgentsShouldBeEnabled()`
 
-**Purpose:** **Purpose:** Invoked when the agents should be enabled event is raised.
+**Purpose:** Invoked when the agents should be enabled event is raised.
 
 ```csharp
 // Obtain an instance of HideoutAmbushMissionController from the subsystem API first
@@ -161,7 +161,7 @@ hideoutAmbushMissionController.OnAgentsShouldBeEnabled();
 ### StartBossFightDuelMode
 `public static void StartBossFightDuelMode()`
 
-**Purpose:** **Purpose:** Starts the boss fight duel mode flow or state machine.
+**Purpose:** Starts the boss fight duel mode flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -171,7 +171,7 @@ HideoutAmbushMissionController.StartBossFightDuelMode();
 ### StartBossFightBattleMode
 `public static void StartBossFightBattleMode()`
 
-**Purpose:** **Purpose:** Starts the boss fight battle mode flow or state machine.
+**Purpose:** Starts the boss fight battle mode flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -181,7 +181,7 @@ HideoutAmbushMissionController.StartBossFightBattleMode();
 ### KillAllSentries
 `public static string KillAllSentries(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the KillAllSentries logic.
+**Purpose:** Executes the KillAllSentries logic.
 
 ```csharp
 // Static call; no instance required

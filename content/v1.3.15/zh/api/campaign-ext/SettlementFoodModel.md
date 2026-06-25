@@ -32,7 +32,7 @@ description: "SettlementFoodModel 的自动生成类参考。"
 ### CalculateTownFoodStocksChange
 `public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算town food stocks change的当前值或结果。
+**用途 / Purpose:** 计算town food stocks change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementFoodModel 实例

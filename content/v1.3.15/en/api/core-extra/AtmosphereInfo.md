@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetInvalidAtmosphereInfo
 `public static AtmosphereInfo GetInvalidAtmosphereInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the invalid atmosphere info value held by the this instance.
+**Purpose:** Reads and returns the invalid atmosphere info value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ AtmosphereInfo.GetInvalidAtmosphereInfo();
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** **Purpose:** Restores from from serialized data.
+**Purpose:** Restores from from serialized data.
 
 ```csharp
 // Obtain an instance of AtmosphereInfo from the subsystem API first
@@ -50,7 +50,7 @@ atmosphereInfo.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** **Purpose:** Serializes to into a storable or transmittable format.
+**Purpose:** Serializes to into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of AtmosphereInfo from the subsystem API first

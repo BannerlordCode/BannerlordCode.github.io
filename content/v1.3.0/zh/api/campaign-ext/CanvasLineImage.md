@@ -29,7 +29,7 @@ description: "CanvasLineImage 的自动生成类参考。"
 ### LoadFrom
 `public void LoadFrom(XmlNode imageNode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
+**用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasLineImage 实例

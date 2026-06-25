@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### HasModifier
 `public bool HasModifier(Modifiers modifier)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds modifier.
+**Purpose:** Determines whether the this instance already holds modifier.
 
 ```csharp
 // Obtain an instance of HotKey from the subsystem API first
@@ -41,7 +41,7 @@ var result = hotKey.HasModifier(modifier);
 ### HasSameModifiers
 `public bool HasSameModifiers(HotKey other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds same modifiers.
+**Purpose:** Determines whether the this instance already holds same modifiers.
 
 ```csharp
 // Obtain an instance of HotKey from the subsystem API first
@@ -52,7 +52,7 @@ var result = hotKey.HasSameModifiers(other);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of HotKey from the subsystem API first
@@ -63,7 +63,7 @@ var result = hotKey.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of HotKey from the subsystem API first
@@ -74,7 +74,7 @@ var result = hotKey.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of HotKey from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionStealthAreaUsePointNameMarkerTargetVM 的自动生成类参
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionStealthAreaUsePointNameMarkerTargetVM 实例
@@ -34,7 +34,7 @@ var result = missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
+**用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionStealthAreaUsePointNameMarkerTargetVM 实例

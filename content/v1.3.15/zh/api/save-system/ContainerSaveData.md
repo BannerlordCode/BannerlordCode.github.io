@@ -32,7 +32,7 @@ description: "ContainerSaveData 的自动生成类参考。"
 ### CollectChildren
 `public void CollectChildren()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectChildren 对应的操作。
+**用途 / Purpose:** 调用 CollectChildren 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -43,7 +43,7 @@ containerSaveData.CollectChildren();
 ### SaveHeaderTo
 `public void SaveHeaderTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -54,7 +54,7 @@ containerSaveData.SaveHeaderTo(parentFolder, archiveContext);
 ### SaveHeaderDataTo
 `public void SaveHeaderDataTo(BinaryWriter headerWriter, int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header data to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header data to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -65,7 +65,7 @@ containerSaveData.SaveHeaderDataTo(headerWriter, 0);
 ### SaveHeaderFolderTo
 `public void SaveHeaderFolderTo(BinaryWriter headerWriter, int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 header folder to 写入持久化存储或流中。
+**用途 / Purpose:** 将 header folder to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -76,7 +76,7 @@ containerSaveData.SaveHeaderFolderTo(headerWriter, 0);
 ### GetHeaderSize
 `public int GetHeaderSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 header size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 header size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -87,7 +87,7 @@ var result = containerSaveData.GetHeaderSize();
 ### GetDataSize
 `public int GetDataSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 data size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -98,7 +98,7 @@ var result = containerSaveData.GetDataSize();
 ### GetEntryCount
 `public int GetEntryCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entry count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 entry count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -109,7 +109,7 @@ var result = containerSaveData.GetEntryCount();
 ### GetFolderCount
 `public int GetFolderCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 folder count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 folder count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -120,7 +120,7 @@ var result = containerSaveData.GetFolderCount();
 ### SaveDataFolder
 `public void SaveDataFolder(BinaryWriter writer, ref int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 data folder 写入持久化存储或流中。
+**用途 / Purpose:** 将 data folder 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -131,7 +131,7 @@ containerSaveData.SaveDataFolder(writer, folderId);
 ### SaveTo
 `public void SaveTo(BinaryWriter writer, ref int folderId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to 写入持久化存储或流中。
+**用途 / Purpose:** 将 to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -142,7 +142,7 @@ containerSaveData.SaveTo(writer, folderId);
 ### SaveTo
 `public void SaveTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to 写入持久化存储或流中。
+**用途 / Purpose:** 将 to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -153,7 +153,7 @@ containerSaveData.SaveTo(parentFolder, archiveContext);
 ### CollectStrings
 `public void CollectStrings()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStrings 对应的操作。
+**用途 / Purpose:** 调用 CollectStrings 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -164,7 +164,7 @@ containerSaveData.CollectStrings();
 ### CollectStringsInto
 `public void CollectStringsInto(List<string> collection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStringsInto 对应的操作。
+**用途 / Purpose:** 调用 CollectStringsInto 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -175,7 +175,7 @@ containerSaveData.CollectStringsInto(collection);
 ### CollectStructs
 `public void CollectStructs()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectStructs 对应的操作。
+**用途 / Purpose:** 调用 CollectStructs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -186,7 +186,7 @@ containerSaveData.CollectStructs();
 ### CollectMembers
 `public void CollectMembers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CollectMembers 对应的操作。
+**用途 / Purpose:** 调用 CollectMembers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -197,7 +197,7 @@ containerSaveData.CollectMembers();
 ### GetChildElementSaveDatas
 `public IEnumerable<ElementSaveData> GetChildElementSaveDatas()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child element save datas 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child element save datas 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -208,7 +208,7 @@ var result = containerSaveData.GetChildElementSaveDatas();
 ### GetChildElements
 `public IEnumerable<object> GetChildElements()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child elements 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child elements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -219,7 +219,7 @@ var result = containerSaveData.GetChildElements();
 ### GetChildElements
 `public static IEnumerable<object> GetChildElements(ContainerType containerType, object target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child elements 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child elements 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -229,7 +229,7 @@ ContainerSaveData.GetChildElements(containerType, target);
 ### GetChildObjects
 `public IEnumerable<object> GetChildObjects(ISaveContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -240,7 +240,7 @@ var result = containerSaveData.GetChildObjects(context);
 ### GetChildObjects
 `public static void GetChildObjects(ISaveContext context, ContainerDefinition containerDefinition, ContainerType containerType, object target, List<object> collectedObjects)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child objects 的结果。
 
 ```csharp
 // 静态调用，不需要实例

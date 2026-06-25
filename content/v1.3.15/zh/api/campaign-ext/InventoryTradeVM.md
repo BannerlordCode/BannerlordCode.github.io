@@ -46,7 +46,7 @@ description: "InventoryTradeVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -57,7 +57,7 @@ inventoryTradeVM.RefreshValues();
 ### UpdateItemData
 `public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 item data 的最新表示。
+**用途 / Purpose:** 重新计算并更新 item data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -68,7 +68,7 @@ inventoryTradeVM.UpdateItemData(itemRoster, side, false);
 ### GetAveragePrice
 `public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 average price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -79,7 +79,7 @@ var result = inventoryTradeVM.GetAveragePrice(0, 0, false);
 ### ExecuteIncreaseThisStock
 `public void ExecuteIncreaseThisStock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 increase this stock 对应的操作或工作流。
+**用途 / Purpose:** 执行 increase this stock 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -90,7 +90,7 @@ inventoryTradeVM.ExecuteIncreaseThisStock();
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 increase other stock 对应的操作或工作流。
+**用途 / Purpose:** 执行 increase other stock 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -101,7 +101,7 @@ inventoryTradeVM.ExecuteIncreaseOtherStock();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -112,7 +112,7 @@ inventoryTradeVM.ExecuteReset();
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 apply transaction 对应的操作或工作流。
+**用途 / Purpose:** 执行 apply transaction 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例
@@ -123,7 +123,7 @@ inventoryTradeVM.ExecuteApplyTransaction();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 remove zero counts 对应的操作或工作流。
+**用途 / Purpose:** 执行 remove zero counts 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTradeVM 实例

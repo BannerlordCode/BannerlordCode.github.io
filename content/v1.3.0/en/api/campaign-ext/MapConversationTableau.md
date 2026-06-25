@@ -29,7 +29,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first
@@ -40,7 +40,7 @@ mapConversationTableau.SetEnabled(false);
 ### SetData
 `public void SetData(object data)`
 
-**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
+**Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first
@@ -51,7 +51,7 @@ mapConversationTableau.SetData(data);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first
@@ -62,7 +62,7 @@ mapConversationTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize(bool clearNextFrame)`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first
@@ -73,7 +73,7 @@ mapConversationTableau.OnFinalize(false);
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first
@@ -84,7 +84,7 @@ mapConversationTableau.OnTick(0);
 ### OnConversationPlay
 `public void OnConversationPlay(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** **Purpose:** Invoked when the conversation play event is raised.
+**Purpose:** Invoked when the conversation play event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationTableau from the subsystem API first

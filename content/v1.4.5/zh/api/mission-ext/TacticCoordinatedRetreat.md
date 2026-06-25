@@ -23,7 +23,7 @@ description: "TacticCoordinatedRetreat 的自动生成类参考。"
 ### TacticCoordinatedRetreat
 `public class TacticCoordinatedRetreat(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TacticCoordinatedRetreat 对应的操作。
+**用途 / Purpose:** 调用 TacticCoordinatedRetreat 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticCoordinatedRetreat 实例
@@ -34,7 +34,7 @@ var result = tacticCoordinatedRetreat.TacticCoordinatedRetreat(team);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticCoordinatedRetreat 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public bool Check(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
+**Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of SallyOutReinforcementSpawnTimer from the subsystem API first
@@ -34,7 +34,7 @@ var result = sallyOutReinforcementSpawnTimer.Check(side);
 ### ResetTimer
 `public void ResetTimer(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Returns timer to its default or initial condition.
+**Purpose:** Returns timer to its default or initial condition.
 
 ```csharp
 // Obtain an instance of SallyOutReinforcementSpawnTimer from the subsystem API first

@@ -37,7 +37,7 @@ Treat `GauntletView` as a View-style extension point: first identify who creates
 ### AddChild
 `public void AddChild(GauntletView child)`
 
-**Purpose:** **Purpose:** Adds child to the current collection or state.
+**Purpose:** Adds child to the current collection or state.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -48,7 +48,7 @@ gauntletView.AddChild(child);
 ### RemoveChild
 `public void RemoveChild(GauntletView child)`
 
-**Purpose:** **Purpose:** Removes child from the current collection or state.
+**Purpose:** Removes child from the current collection or state.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -59,7 +59,7 @@ gauntletView.RemoveChild(child);
 ### SwapChildrenAtIndeces
 `public void SwapChildrenAtIndeces(GauntletView child1, GauntletView child2)`
 
-**Purpose:** **Purpose:** Executes the SwapChildrenAtIndeces logic.
+**Purpose:** Executes the SwapChildrenAtIndeces logic.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -70,7 +70,7 @@ gauntletView.SwapChildrenAtIndeces(child1, child2);
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of binding in sync with the underlying state.
+**Purpose:** Keeps the display or cache of binding in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -81,7 +81,7 @@ gauntletView.RefreshBinding();
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of binding with children in sync with the underlying state.
+**Purpose:** Keeps the display or cache of binding with children in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -92,7 +92,7 @@ gauntletView.RefreshBindingWithChildren();
 ### ReleaseBindingWithChildren
 `public void ReleaseBindingWithChildren()`
 
-**Purpose:** **Purpose:** Executes the ReleaseBindingWithChildren logic.
+**Purpose:** Executes the ReleaseBindingWithChildren logic.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -103,7 +103,7 @@ gauntletView.ReleaseBindingWithChildren();
 ### BindData
 `public void BindData(string property, BindingPath path)`
 
-**Purpose:** **Purpose:** Executes the BindData logic.
+**Purpose:** Executes the BindData logic.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first
@@ -114,7 +114,7 @@ gauntletView.BindData("example", path);
 ### ClearBinding
 `public void ClearBinding(string propertyName)`
 
-**Purpose:** **Purpose:** Removes all binding from the this instance.
+**Purpose:** Removes all binding from the this instance.
 
 ```csharp
 // Obtain an instance of GauntletView from the subsystem API first

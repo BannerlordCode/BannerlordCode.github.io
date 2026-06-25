@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapConve
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with continue.
+**Purpose:** Runs the operation or workflow associated with continue.
 
 ```csharp
 // Obtain an instance of MapConversationVM from the subsystem API first
@@ -42,7 +42,7 @@ mapConversationVM.ExecuteContinue();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationVM from the subsystem API first
@@ -53,7 +53,7 @@ mapConversationVM.OnFinalize();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapConversationVM from the subsystem API first

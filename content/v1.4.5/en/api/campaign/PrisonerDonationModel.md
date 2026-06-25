@@ -23,7 +23,7 @@ Treat `PrisonerDonationModel` as a Model-style extension point: first identify w
 ### CalculateRelationGainAfterHeroPrisonerDonate
 `public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of relation gain after hero prisoner donate.
+**Purpose:** Calculates the current value or result of relation gain after hero prisoner donate.
 
 ```csharp
 // Obtain an instance of PrisonerDonationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = prisonerDonationModel.CalculateRelationGainAfterHeroPrisonerDonate(
 ### CalculateInfluenceGainAfterPrisonerDonation
 `public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of influence gain after prisoner donation.
+**Purpose:** Calculates the current value or result of influence gain after prisoner donation.
 
 ```csharp
 // Obtain an instance of PrisonerDonationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = prisonerDonationModel.CalculateInfluenceGainAfterPrisonerDonation(d
 ### CalculateInfluenceGainAfterTroopDonation
 `public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of influence gain after troop donation.
+**Purpose:** Calculates the current value or result of influence gain after troop donation.
 
 ```csharp
 // Obtain an instance of PrisonerDonationModel from the subsystem API first

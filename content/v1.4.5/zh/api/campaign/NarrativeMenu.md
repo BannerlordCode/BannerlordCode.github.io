@@ -23,7 +23,7 @@ description: "NarrativeMenu 的自动生成类参考。"
 ### GetNarrativeMenuCharacterArgsDelegate
 `public delegate List<NarrativeMenuCharacterArgs> GetNarrativeMenuCharacterArgsDelegate(CultureObject culture, string occupationType, CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 narrative menu character args delegate 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 narrative menu character args delegate 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenu 实例
@@ -34,7 +34,7 @@ var result = narrativeMenu.GetNarrativeMenuCharacterArgsDelegate(culture, "examp
 ### AddNarrativeMenuOption
 `public void AddNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 narrative menu option 添加到当前容器或状态中。
+**用途 / Purpose:** 将 narrative menu option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenu 实例
@@ -45,7 +45,7 @@ narrativeMenu.AddNarrativeMenuOption(narrativeMenuOption);
 ### RemoveNarrativeMenuOption
 `public void RemoveNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 narrative menu option。
+**用途 / Purpose:** 从当前容器或状态中移除 narrative menu option。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenu 实例

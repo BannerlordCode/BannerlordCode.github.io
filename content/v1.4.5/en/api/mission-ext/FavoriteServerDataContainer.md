@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### TryGetServerData
 `public bool TryGetServerData(GameServerEntry serverEntry, out FavoriteServerData favoriteServerData)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get server data, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get server data, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of FavoriteServerDataContainer from the subsystem API first

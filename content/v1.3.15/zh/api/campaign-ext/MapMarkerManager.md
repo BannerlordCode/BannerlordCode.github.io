@@ -29,7 +29,7 @@ description: "MapMarkerManager 的自动生成类参考。"
 ### CreateMapMarker
 `public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 map marker 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 map marker 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarkerManager 实例
@@ -40,7 +40,7 @@ var result = mapMarkerManager.CreateMapMarker(banner, name, position, false, "ex
 ### RemoveMapMarker
 `public void RemoveMapMarker(MapMarker mapMarker)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 map marker。
+**用途 / Purpose:** 从当前容器或状态中移除 map marker。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarkerManager 实例
@@ -51,7 +51,7 @@ mapMarkerManager.RemoveMapMarker(mapMarker);
 ### RemoveAllMapMarkersByQuestId
 `public void RemoveAllMapMarkersByQuestId(string questId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 all map markers by quest id。
+**用途 / Purpose:** 从当前容器或状态中移除 all map markers by quest id。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarkerManager 实例
@@ -62,7 +62,7 @@ mapMarkerManager.RemoveAllMapMarkersByQuestId("example");
 ### GetMapMarkersByQuestId
 `public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map markers by quest id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 map markers by quest id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarkerManager 实例

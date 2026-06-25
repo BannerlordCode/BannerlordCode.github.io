@@ -61,7 +61,7 @@ description: "MapScreen 的自动生成类参考。"
 ### Create
 `public static DecalEntity Create(Scene scene, string material, string entityName = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -71,7 +71,7 @@ MapScreen.Create(scene, "example", "example");
 ### OnHoverMapEntity
 `public void OnHoverMapEntity(MapEntityVisual mapEntityVisual)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hover map entity 事件触发时调用此回调。
+**用途 / Purpose:** 在 hover map entity 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -82,7 +82,7 @@ mapScreen.OnHoverMapEntity(mapEntityVisual);
 ### RemoveMapTooltip
 `public void RemoveMapTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 map tooltip。
+**用途 / Purpose:** 从当前容器或状态中移除 map tooltip。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -93,7 +93,7 @@ mapScreen.RemoveMapTooltip();
 ### ClearGPUMemory
 `public void ClearGPUMemory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的g p u memory。
+**用途 / Purpose:** 清空当前对象中的g p u memory。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -104,7 +104,7 @@ mapScreen.ClearGPUMemory();
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus change on game window 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus change on game window 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -115,7 +115,7 @@ mapScreen.OnFocusChangeOnGameWindow(false);
 ### RemoveMapView
 `public void RemoveMapView(MapView mapView)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 map view。
+**用途 / Purpose:** 从当前容器或状态中移除 map view。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -126,7 +126,7 @@ mapScreen.RemoveMapView(mapView);
 ### AddEncounterOverlay
 `public void AddEncounterOverlay(MenuOverlayType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 encounter overlay 添加到当前容器或状态中。
+**用途 / Purpose:** 将 encounter overlay 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -137,7 +137,7 @@ mapScreen.AddEncounterOverlay(type);
 ### AddArmyOverlay
 `public void AddArmyOverlay(MapOverlayType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 army overlay 添加到当前容器或状态中。
+**用途 / Purpose:** 将 army overlay 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -148,7 +148,7 @@ mapScreen.AddArmyOverlay(type);
 ### RemoveEncounterOverlay
 `public void RemoveEncounterOverlay()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 encounter overlay。
+**用途 / Purpose:** 从当前容器或状态中移除 encounter overlay。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -159,7 +159,7 @@ mapScreen.RemoveEncounterOverlay();
 ### RemoveArmyOverlay
 `public void RemoveArmyOverlay()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 army overlay。
+**用途 / Purpose:** 从当前容器或状态中移除 army overlay。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -170,7 +170,7 @@ mapScreen.RemoveArmyOverlay();
 ### CloseMarriageOfferPopup
 `public void CloseMarriageOfferPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭marriage offer popup对应的资源或界面。
+**用途 / Purpose:** 关闭marriage offer popup对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -181,7 +181,7 @@ mapScreen.CloseMarriageOfferPopup();
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -192,7 +192,7 @@ mapScreen.OnHourlyTick();
 ### BeginParleyWith
 `public void BeginParleyWith(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginParleyWith 对应的操作。
+**用途 / Purpose:** 调用 BeginParleyWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -203,7 +203,7 @@ mapScreen.BeginParleyWith(party);
 ### OnExit
 `public void OnExit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 exit 事件触发时调用此回调。
+**用途 / Purpose:** 在 exit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -214,7 +214,7 @@ mapScreen.OnExit();
 ### GetCursorIntersectionPoint
 `public void GetCursorIntersectionPoint(ref Vec3 clippedMouseNear, ref Vec3 clippedMouseFar, out float closestDistanceSquared, out Vec3 intersectionPoint, ref PathFaceRecord currentFace, out bool isOnland, BodyFlags excludedBodyFlags = (BodyFlags)79617u)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cursor intersection point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cursor intersection point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -225,7 +225,7 @@ mapScreen.GetCursorIntersectionPoint(clippedMouseNear, clippedMouseFar, closestD
 ### FastMoveCameraToPosition
 `public void FastMoveCameraToPosition(CampaignVec2 target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FastMoveCameraToPosition 对应的操作。
+**用途 / Purpose:** 调用 FastMoveCameraToPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -236,7 +236,7 @@ mapScreen.FastMoveCameraToPosition(target);
 ### OnSiegeEngineFrameClick
 `public void OnSiegeEngineFrameClick(MatrixFrame siegeFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 siege engine frame click 事件触发时调用此回调。
+**用途 / Purpose:** 在 siege engine frame click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -247,7 +247,7 @@ mapScreen.OnSiegeEngineFrameClick(siegeFrame);
 ### SetIsMapCheatsActive
 `public void SetIsMapCheatsActive(bool isMapCheatsActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is map cheats active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is map cheats active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -258,7 +258,7 @@ mapScreen.SetIsMapCheatsActive(false);
 ### SetIsInTownManagement
 `public void SetIsInTownManagement(bool isInTownManagement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is in town management 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is in town management 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -269,7 +269,7 @@ mapScreen.SetIsInTownManagement(false);
 ### SetIsInHideoutTroopManage
 `public void SetIsInHideoutTroopManage(bool isInHideoutTroopManage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is in hideout troop manage 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is in hideout troop manage 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -280,7 +280,7 @@ mapScreen.SetIsInHideoutTroopManage(false);
 ### SetIsInArmyManagement
 `public void SetIsInArmyManagement(bool isInArmyManagement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is in army management 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is in army management 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -291,7 +291,7 @@ mapScreen.SetIsInArmyManagement(false);
 ### SetIsOverlayContextMenuActive
 `public void SetIsOverlayContextMenuActive(bool isOverlayContextMenuEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is overlay context menu active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is overlay context menu active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -302,7 +302,7 @@ mapScreen.SetIsOverlayContextMenuActive(false);
 ### SetIsInRecruitment
 `public void SetIsInRecruitment(bool isInRecruitment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is in recruitment 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is in recruitment 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -313,7 +313,7 @@ mapScreen.SetIsInRecruitment(false);
 ### SetIsBarExtended
 `public void SetIsBarExtended(bool isBarExtended)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is bar extended 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is bar extended 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -324,7 +324,7 @@ mapScreen.SetIsBarExtended(false);
 ### SetIsMarriageOfferPopupActive
 `public void SetIsMarriageOfferPopupActive(bool isMarriageOfferPopupActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is marriage offer popup active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is marriage offer popup active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -335,7 +335,7 @@ mapScreen.SetIsMarriageOfferPopupActive(false);
 ### SetIsInCampaignOptions
 `public void SetIsInCampaignOptions(bool isInCampaignOptions)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is in campaign options 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is in campaign options 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -346,7 +346,7 @@ mapScreen.SetIsInCampaignOptions(false);
 ### SetIsMapIncidentActive
 `public void SetIsMapIncidentActive(bool isMapIncidentActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is map incident active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is map incident active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -357,7 +357,7 @@ mapScreen.SetIsMapIncidentActive(false);
 ### SetMouseVisible
 `public void SetMouseVisible(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mouse visible 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mouse visible 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -368,7 +368,7 @@ mapScreen.SetMouseVisible(false);
 ### SetIsHeirSelectionPopupActive
 `public void SetIsHeirSelectionPopupActive(bool isHeirSelectionPopupActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is heir selection popup active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is heir selection popup active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -379,7 +379,7 @@ mapScreen.SetIsHeirSelectionPopupActive(false);
 ### GetMouseVisible
 `public bool GetMouseVisible()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mouse visible 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mouse visible 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -390,7 +390,7 @@ var result = mapScreen.GetMouseVisible();
 ### RestartAmbientSounds
 `public void RestartAmbientSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RestartAmbientSounds 对应的操作。
+**用途 / Purpose:** 调用 RestartAmbientSounds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -401,7 +401,7 @@ mapScreen.RestartAmbientSounds();
 ### PauseAmbientSounds
 `public void PauseAmbientSounds()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PauseAmbientSounds 对应的操作。
+**用途 / Purpose:** 调用 PauseAmbientSounds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -412,7 +412,7 @@ mapScreen.PauseAmbientSounds();
 ### CreatePeriodicUIEvent
 `public MBCampaignEvent CreatePeriodicUIEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 periodic u i event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 periodic u i event 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -423,7 +423,7 @@ var result = mapScreen.CreatePeriodicUIEvent(triggerPeriod, initialWait);
 ### DeletePeriodicUIEvent
 `public void DeletePeriodicUIEvent(MBCampaignEvent campaignEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeletePeriodicUIEvent 对应的操作。
+**用途 / Purpose:** 调用 DeletePeriodicUIEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -434,7 +434,7 @@ mapScreen.DeletePeriodicUIEvent(campaignEvent);
 ### OpenOptions
 `public void OpenOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开options对应的资源或界面。
+**用途 / Purpose:** 打开options对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -445,7 +445,7 @@ mapScreen.OpenOptions();
 ### OpenEncyclopedia
 `public void OpenEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开encyclopedia对应的资源或界面。
+**用途 / Purpose:** 打开encyclopedia对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -456,7 +456,7 @@ mapScreen.OpenEncyclopedia();
 ### OpenSaveLoad
 `public void OpenSaveLoad(bool isSaving)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开save load对应的资源或界面。
+**用途 / Purpose:** 打开save load对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -467,7 +467,7 @@ mapScreen.OpenSaveLoad(false);
 ### CloseEscapeMenu
 `public void CloseEscapeMenu()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭escape menu对应的资源或界面。
+**用途 / Purpose:** 关闭escape menu对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -478,7 +478,7 @@ mapScreen.CloseEscapeMenu();
 ### OpenEscapeMenu
 `public void OpenEscapeMenu()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开escape menu对应的资源或界面。
+**用途 / Purpose:** 打开escape menu对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -489,7 +489,7 @@ mapScreen.OpenEscapeMenu();
 ### CloseGameplayCheats
 `public void CloseGameplayCheats()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭gameplay cheats对应的资源或界面。
+**用途 / Purpose:** 关闭gameplay cheats对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -500,7 +500,7 @@ mapScreen.CloseGameplayCheats();
 ### CloseCampaignOptions
 `public void CloseCampaignOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭campaign options对应的资源或界面。
+**用途 / Purpose:** 关闭campaign options对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -511,7 +511,7 @@ mapScreen.CloseCampaignOptions();
 ### OpenInventory
 `public void OpenInventory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开inventory对应的资源或界面。
+**用途 / Purpose:** 打开inventory对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -522,7 +522,7 @@ mapScreen.OpenInventory();
 ### OpenFacegenScreenAux
 `public void OpenFacegenScreenAux()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开facegen screen aux对应的资源或界面。
+**用途 / Purpose:** 打开facegen screen aux对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -533,7 +533,7 @@ mapScreen.OpenFacegenScreenAux();
 ### IsCameraLockedToPlayerParty
 `public bool IsCameraLockedToPlayerParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 camera locked to player party 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 camera locked to player party 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -544,7 +544,7 @@ var result = mapScreen.IsCameraLockedToPlayerParty();
 ### FastMoveCameraToMainParty
 `public void FastMoveCameraToMainParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FastMoveCameraToMainParty 对应的操作。
+**用途 / Purpose:** 调用 FastMoveCameraToMainParty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -555,7 +555,7 @@ mapScreen.FastMoveCameraToMainParty();
 ### ResetCamera
 `public void ResetCamera(bool resetDistance, bool teleportToMainParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 camera 重置回默认或初始状态。
+**用途 / Purpose:** 将 camera 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -566,7 +566,7 @@ mapScreen.ResetCamera(false, false);
 ### TeleportCameraToMainParty
 `public void TeleportCameraToMainParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TeleportCameraToMainParty 对应的操作。
+**用途 / Purpose:** 调用 TeleportCameraToMainParty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例

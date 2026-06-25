@@ -32,7 +32,7 @@ description: "LauncherDLLData 的自动生成类参考。"
 ### SetIsDLLDangerous
 `public void SetIsDLLDangerous(bool isDangerous)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is d l l dangerous 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is d l l dangerous 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherDLLData 实例
@@ -43,7 +43,7 @@ launcherDLLData.SetIsDLLDangerous(false);
 ### SetDLLSize
 `public void SetDLLSize(uint size)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l l size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l l size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherDLLData 实例
@@ -54,7 +54,7 @@ launcherDLLData.SetDLLSize(0);
 ### SetDLLVerifyInformation
 `public void SetDLLVerifyInformation(string info)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l l verify information 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l l verify information 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherDLLData 实例

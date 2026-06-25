@@ -23,7 +23,7 @@ description: "SettlementMenuOverlayModel 的自动生成类参考。"
 ### GetOverlayHeroes
 `public abstract Dictionary<Hero, bool> GetOverlayHeroes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 overlay heroes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 overlay heroes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementMenuOverlayModel 实例

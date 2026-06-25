@@ -33,7 +33,7 @@ description: "ImageFit 的自动生成类参考。"
 ### GetFittedRectangle
 `public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 fitted rectangle 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 fitted rectangle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ImageFit 实例

@@ -23,7 +23,7 @@ description: "WeaponData 的自动生成类参考。"
 ### IsValid
 `public bool IsValid()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponData 实例
@@ -34,7 +34,7 @@ var result = weaponData.IsValid();
 ### GetItemObject
 `public ItemObject GetItemObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponData 实例
@@ -45,7 +45,7 @@ var result = weaponData.GetItemObject();
 ### DeinitializeManagedPointers
 `public void DeinitializeManagedPointers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeinitializeManagedPointers 对应的操作。
+**用途 / Purpose:** 调用 DeinitializeManagedPointers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponData 实例

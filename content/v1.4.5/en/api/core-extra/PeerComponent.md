@@ -30,7 +30,7 @@ Treat `PeerComponent` as a Component-style extension point: first identify who c
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PeerComponent from the subsystem API first
@@ -41,7 +41,7 @@ peerComponent.Initialize();
 ### OnInitialize
 `public virtual void OnInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the initialize event is raised.
+**Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of PeerComponent from the subsystem API first
@@ -52,7 +52,7 @@ peerComponent.OnInitialize();
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PeerComponent from the subsystem API first

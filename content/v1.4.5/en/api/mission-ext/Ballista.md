@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
+**Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -34,7 +34,7 @@ var result = ballista.GetSiegeEngineType();
 ### OnPilotAssignedDuringSpawn
 `public override void OnPilotAssignedDuringSpawn()`
 
-**Purpose:** **Purpose:** Invoked when the pilot assigned during spawn event is raised.
+**Purpose:** Invoked when the pilot assigned during spawn event is raised.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -45,7 +45,7 @@ ballista.OnPilotAssignedDuringSpawn();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -56,7 +56,7 @@ var result = ballista.CreateAIBehaviorObject();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -67,7 +67,7 @@ var result = ballista.GetTickRequirement();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -78,7 +78,7 @@ var result = ballista.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -89,7 +89,7 @@ var result = ballista.GetDescriptionText(gameEntity);
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** **Purpose:** Executes the ProcessTargetValue logic.
+**Purpose:** Executes the ProcessTargetValue logic.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -100,7 +100,7 @@ var result = ballista.ProcessTargetValue(0, flags);
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** **Purpose:** Reads and returns the target flags value held by the this instance.
+**Purpose:** Reads and returns the target flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -111,7 +111,7 @@ var result = ballista.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** **Purpose:** Reads and returns the target value value held by the this instance.
+**Purpose:** Reads and returns the target value value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -122,7 +122,7 @@ var result = ballista.GetTargetValue(weaponPos);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** **Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
+**Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first

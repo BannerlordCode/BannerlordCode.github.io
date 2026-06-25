@@ -23,7 +23,7 @@ description: "BoardGameAISeega 的自动生成类参考。"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算movement stage move的当前值或结果。
+**用途 / Purpose:** 计算movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAISeega 实例
@@ -34,7 +34,7 @@ var result = boardGameAISeega.CalculateMovementStageMove();
 ### WantsToForfeit
 `public override bool WantsToForfeit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WantsToForfeit 对应的操作。
+**用途 / Purpose:** 调用 WantsToForfeit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAISeega 实例
@@ -45,7 +45,7 @@ var result = boardGameAISeega.WantsToForfeit();
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算pre movement stage move的当前值或结果。
+**用途 / Purpose:** 计算pre movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAISeega 实例

@@ -23,7 +23,7 @@ description: "SaveStatistics 的自动生成类参考。"
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 statistics 写入持久化存储或流中。
+**用途 / Purpose:** 将 statistics 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -34,7 +34,7 @@ var result = saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dic
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -45,7 +45,7 @@ var result = saveStatistics.GetContainerSize("example");
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -56,7 +56,7 @@ var result = saveStatistics.GetTypeKeys();
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例

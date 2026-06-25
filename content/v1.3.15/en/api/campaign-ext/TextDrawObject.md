@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Create
 `public static TextDrawObject Create(float vertices, float uvs, uint indices, float text_MeshWidth, float text_MeshHeight, in Rectangle2D rectangle)`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
 ### ConvertToHashInPlace
 `public void ConvertToHashInPlace()`
 
-**Purpose:** **Purpose:** Converts to hash in place into another representation or type.
+**Purpose:** Converts to hash in place into another representation or type.
 
 ```csharp
 // Obtain an instance of TextDrawObject from the subsystem API first

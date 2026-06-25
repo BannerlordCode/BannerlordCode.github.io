@@ -23,7 +23,7 @@ Treat `MiscHelper` as a Helper-style extension point: first identify who creates
 ### LoadXmlFile
 `public static XmlDocument LoadXmlFile(string path)`
 
-**Purpose:** **Purpose:** Reads xml file from persistent storage or a stream.
+**Purpose:** Reads xml file from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MiscHelper.LoadXmlFile("example");
 ### GenerateCampaignId
 `public static string GenerateCampaignId(int length)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of campaign id.
+**Purpose:** Generates an instance, data, or representation of campaign id.
 
 ```csharp
 // Static call; no instance required

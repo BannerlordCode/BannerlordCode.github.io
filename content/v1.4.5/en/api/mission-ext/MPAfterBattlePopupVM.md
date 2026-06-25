@@ -54,7 +54,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPAfterBattlePopupVM from the subsystem API first
@@ -65,7 +65,7 @@ mPAfterBattlePopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(int oldExperience, int newExperience, List<string> badgesEarned, int lootGained, RankBarInfo oldRankBarInfo, RankBarInfo newRankBarInfo)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPAfterBattlePopupVM from the subsystem API first
@@ -76,7 +76,7 @@ mPAfterBattlePopupVM.OpenWith(0, 0, badgesEarned, 0, oldRankBarInfo, newRankBarI
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of MPAfterBattlePopupVM from the subsystem API first

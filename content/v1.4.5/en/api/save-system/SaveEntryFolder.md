@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetAllEntries
 `public List<SaveEntry> GetAllEntries()`
 
-**Purpose:** **Purpose:** Reads and returns the all entries value held by the this instance.
+**Purpose:** Reads and returns the all entries value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveEntryFolder from the subsystem API first
@@ -42,7 +42,7 @@ var result = saveEntryFolder.GetAllEntries();
 ### CreateRootFolder
 `public static SaveEntryFolder CreateRootFolder()`
 
-**Purpose:** **Purpose:** Constructs a new root folder entity and returns it to the caller.
+**Purpose:** Constructs a new root folder entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ SaveEntryFolder.CreateRootFolder();
 ### AddEntry
 `public void AddEntry(SaveEntry saveEntry)`
 
-**Purpose:** **Purpose:** Adds entry to the current collection or state.
+**Purpose:** Adds entry to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveEntryFolder from the subsystem API first
@@ -63,7 +63,7 @@ saveEntryFolder.AddEntry(saveEntry);
 ### GetEntry
 `public SaveEntry GetEntry(EntryId entryId)`
 
-**Purpose:** **Purpose:** Reads and returns the entry value held by the this instance.
+**Purpose:** Reads and returns the entry value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveEntryFolder from the subsystem API first
@@ -74,7 +74,7 @@ var result = saveEntryFolder.GetEntry(entryId);
 ### AddChildFolderEntry
 `public void AddChildFolderEntry(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** **Purpose:** Adds child folder entry to the current collection or state.
+**Purpose:** Adds child folder entry to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveEntryFolder from the subsystem API first
@@ -85,7 +85,7 @@ saveEntryFolder.AddChildFolderEntry(saveEntryFolder);
 ### CreateEntry
 `public SaveEntry CreateEntry(EntryId entryId)`
 
-**Purpose:** **Purpose:** Constructs a new entry entity and returns it to the caller.
+**Purpose:** Constructs a new entry entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of SaveEntryFolder from the subsystem API first

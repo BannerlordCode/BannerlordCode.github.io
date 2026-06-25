@@ -29,7 +29,7 @@ Treat `SaveHandler` as a Handler-style extension point: first identify who creat
 ### QuickSaveCurrentGame
 `public void QuickSaveCurrentGame()`
 
-**Purpose:** **Purpose:** Executes the QuickSaveCurrentGame logic.
+**Purpose:** Executes the QuickSaveCurrentGame logic.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first
@@ -40,7 +40,7 @@ saveHandler.QuickSaveCurrentGame();
 ### SaveAs
 `public void SaveAs(string saveName)`
 
-**Purpose:** **Purpose:** Writes as to persistent storage or a stream.
+**Purpose:** Writes as to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first
@@ -51,7 +51,7 @@ saveHandler.SaveAs("example");
 ### CampaignTick
 `public void CampaignTick()`
 
-**Purpose:** **Purpose:** Executes the CampaignTick logic.
+**Purpose:** Executes the CampaignTick logic.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first
@@ -62,7 +62,7 @@ saveHandler.CampaignTick();
 ### SignalAutoSave
 `public void SignalAutoSave()`
 
-**Purpose:** **Purpose:** Executes the SignalAutoSave logic.
+**Purpose:** Executes the SignalAutoSave logic.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first
@@ -73,7 +73,7 @@ saveHandler.SignalAutoSave();
 ### ForceAutoSave
 `public void ForceAutoSave()`
 
-**Purpose:** **Purpose:** Executes the ForceAutoSave logic.
+**Purpose:** Executes the ForceAutoSave logic.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first
@@ -84,7 +84,7 @@ saveHandler.ForceAutoSave();
 ### GetSaveMetaData
 `public CampaignSaveMetaDataArgs GetSaveMetaData()`
 
-**Purpose:** **Purpose:** Reads and returns the save meta data value held by the this instance.
+**Purpose:** Reads and returns the save meta data value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveHandler from the subsystem API first

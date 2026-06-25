@@ -23,7 +23,7 @@ description: "GameHandler 的自动生成类参考。"
 ### OnBeforeSave
 `public abstract void OnBeforeSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before save 事件触发时调用此回调。
+**用途 / Purpose:** 在 before save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameHandler 实例
@@ -34,7 +34,7 @@ gameHandler.OnBeforeSave();
 ### OnAfterSave
 `public abstract void OnAfterSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after save 事件触发时调用此回调。
+**用途 / Purpose:** 在 after save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameHandler 实例

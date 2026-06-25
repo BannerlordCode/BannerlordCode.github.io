@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** **Purpose:** Invoked when the settlement owner changed event is raised.
+**Purpose:** Invoked when the settlement owner changed event is raised.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerTask from the subsystem API first
@@ -34,7 +34,7 @@ changeSettlementOwnerTask.OnSettlementOwnerChanged(settlement, false, newOwner, 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerTask from the subsystem API first

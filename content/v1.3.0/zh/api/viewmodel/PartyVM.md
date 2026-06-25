@@ -125,7 +125,7 @@ description: "PartyVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -136,7 +136,7 @@ partyVM.RefreshValues();
 ### SetSelectedCharacter
 `public void SetSelectedCharacter(PartyCharacterVM troop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 selected character 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 selected character 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -147,7 +147,7 @@ partyVM.SetSelectedCharacter(troop);
 ### ExecuteSelectCharacterTuple
 `public void ExecuteSelectCharacterTuple(PartyCharacterVM troop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select character tuple 对应的操作或工作流。
+**用途 / Purpose:** 执行 select character tuple 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -158,7 +158,7 @@ partyVM.ExecuteSelectCharacterTuple(troop);
 ### ExecuteClearSelectedCharacterTuple
 `public void ExecuteClearSelectedCharacterTuple()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 clear selected character tuple 对应的操作或工作流。
+**用途 / Purpose:** 执行 clear selected character tuple 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -169,7 +169,7 @@ partyVM.ExecuteClearSelectedCharacterTuple();
 ### ExecuteTransferWithParameters
 `public void ExecuteTransferWithParameters(PartyCharacterVM party, int index, string targetTag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer with parameters 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer with parameters 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -180,7 +180,7 @@ partyVM.ExecuteTransferWithParameters(party, 0, "example");
 ### OnUpgradePopUpClosed
 `public void OnUpgradePopUpClosed(bool isCancelled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 upgrade pop up closed 事件触发时调用此回调。
+**用途 / Purpose:** 在 upgrade pop up closed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -191,7 +191,7 @@ partyVM.OnUpgradePopUpClosed(false);
 ### OnRecruitPopUpClosed
 `public void OnRecruitPopUpClosed(bool isCancelled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 recruit pop up closed 事件触发时调用此回调。
+**用途 / Purpose:** 在 recruit pop up closed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -202,7 +202,7 @@ partyVM.OnRecruitPopUpClosed(false);
 ### ExecuteTransferAllMainTroops
 `public void ExecuteTransferAllMainTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all main troops 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all main troops 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -213,7 +213,7 @@ partyVM.ExecuteTransferAllMainTroops();
 ### ExecuteTransferAllOtherTroops
 `public void ExecuteTransferAllOtherTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all other troops 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all other troops 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -224,7 +224,7 @@ partyVM.ExecuteTransferAllOtherTroops();
 ### ExecuteTransferAllMainPrisoners
 `public void ExecuteTransferAllMainPrisoners()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all main prisoners 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all main prisoners 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -235,7 +235,7 @@ partyVM.ExecuteTransferAllMainPrisoners();
 ### ExecuteTransferAllOtherPrisoners
 `public void ExecuteTransferAllOtherPrisoners()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all other prisoners 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all other prisoners 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -246,7 +246,7 @@ partyVM.ExecuteTransferAllOtherPrisoners();
 ### ExecuteOpenUpgradePopUp
 `public void ExecuteOpenUpgradePopUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open upgrade pop up 对应的操作或工作流。
+**用途 / Purpose:** 执行 open upgrade pop up 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -257,7 +257,7 @@ partyVM.ExecuteOpenUpgradePopUp();
 ### ExecuteOpenRecruitPopUp
 `public void ExecuteOpenRecruitPopUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open recruit pop up 对应的操作或工作流。
+**用途 / Purpose:** 执行 open recruit pop up 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -268,7 +268,7 @@ partyVM.ExecuteOpenRecruitPopUp();
 ### ExecuteUpgrade
 `public void ExecuteUpgrade(PartyCharacterVM troop, int upgradeTargetType, int maxUpgradeCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 upgrade 对应的操作或工作流。
+**用途 / Purpose:** 执行 upgrade 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -279,7 +279,7 @@ partyVM.ExecuteUpgrade(troop, 0, 0);
 ### ExecuteRecruit
 `public void ExecuteRecruit(PartyCharacterVM character, bool recruitAll = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 recruit 对应的操作或工作流。
+**用途 / Purpose:** 执行 recruit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -290,7 +290,7 @@ partyVM.ExecuteRecruit(character, false);
 ### ExecuteExecution
 `public void ExecuteExecution()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 execution 对应的操作或工作流。
+**用途 / Purpose:** 执行 execution 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -301,7 +301,7 @@ partyVM.ExecuteExecution();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 remove zero counts 对应的操作或工作流。
+**用途 / Purpose:** 执行 remove zero counts 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -312,7 +312,7 @@ partyVM.ExecuteRemoveZeroCounts();
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 talk 对应的操作或工作流。
+**用途 / Purpose:** 执行 talk 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -323,7 +323,7 @@ partyVM.ExecuteTalk();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -334,7 +334,7 @@ partyVM.ExecuteDone();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -345,7 +345,7 @@ partyVM.ExecuteReset();
 ### ExecuteResetAndCancel
 `public void ExecuteResetAndCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset and cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset and cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -356,7 +356,7 @@ partyVM.ExecuteResetAndCancel();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -367,7 +367,7 @@ partyVM.ExecuteCancel();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -378,7 +378,7 @@ partyVM.OnFinalize();
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -389,7 +389,7 @@ partyVM.SetResetInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -400,7 +400,7 @@ partyVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -411,7 +411,7 @@ partyVM.SetDoneInputKey(hotKey);
 ### SetTakeAllTroopsInputKey
 `public void SetTakeAllTroopsInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 take all troops input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 take all troops input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -422,7 +422,7 @@ partyVM.SetTakeAllTroopsInputKey(hotKey);
 ### SetDismissAllTroopsInputKey
 `public void SetDismissAllTroopsInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dismiss all troops input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dismiss all troops input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -433,7 +433,7 @@ partyVM.SetDismissAllTroopsInputKey(hotKey);
 ### SetTakeAllPrisonersInputKey
 `public void SetTakeAllPrisonersInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 take all prisoners input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 take all prisoners input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -444,7 +444,7 @@ partyVM.SetTakeAllPrisonersInputKey(hotKey);
 ### SetDismissAllPrisonersInputKey
 `public void SetDismissAllPrisonersInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dismiss all prisoners input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dismiss all prisoners input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -455,7 +455,7 @@ partyVM.SetDismissAllPrisonersInputKey(hotKey);
 ### SetOpenUpgradePanelInputKey
 `public void SetOpenUpgradePanelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 open upgrade panel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 open upgrade panel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -466,7 +466,7 @@ partyVM.SetOpenUpgradePanelInputKey(hotKey);
 ### SetOpenRecruitPanelInputKey
 `public void SetOpenRecruitPanelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 open recruit panel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 open recruit panel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -477,7 +477,7 @@ partyVM.SetOpenRecruitPanelInputKey(hotKey);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例
@@ -488,7 +488,7 @@ partyVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
 ### Compare
 `public int Compare(PartyCharacterVM x, PartyCharacterVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyVM 实例

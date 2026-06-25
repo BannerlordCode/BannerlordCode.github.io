@@ -23,7 +23,7 @@ Treat `DefaultCampaignShipDamageModel` as a Model-style extension point: first i
 ### GetHourlyShipDamage
 `public override int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**Purpose:** **Purpose:** Reads and returns the hourly ship damage value held by the this instance.
+**Purpose:** Reads and returns the hourly ship damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultCampaignShipDamageModel.GetHourlyShipDamage(owner, ship);
 ### GetEstimatedSafeSailDuration
 `public override float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the estimated safe sail duration value held by the this instance.
+**Purpose:** Reads and returns the estimated safe sail duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultCampaignShipDamageModel.GetEstimatedSafeSailDuration(mobileP
 ### GetShipDamage
 `public override float GetShipDamage(Ship ship, float rawDamage)`
 
-**Purpose:** **Purpose:** Reads and returns the ship damage value held by the this instance.
+**Purpose:** Reads and returns the ship damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first

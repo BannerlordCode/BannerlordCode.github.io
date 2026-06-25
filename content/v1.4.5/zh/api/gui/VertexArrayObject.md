@@ -23,7 +23,7 @@ description: "VertexArrayObject 的自动生成类参考。"
 ### LoadVertexData
 `public void LoadVertexData(float vertices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 vertex data。
+**用途 / Purpose:** 从持久化存储或流中读取 vertex data。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexArrayObject 实例
@@ -34,7 +34,7 @@ vertexArrayObject.LoadVertexData(0);
 ### LoadUVData
 `public void LoadUVData(float uvs)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 u v data。
+**用途 / Purpose:** 从持久化存储或流中读取 u v data。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexArrayObject 实例
@@ -45,7 +45,7 @@ vertexArrayObject.LoadUVData(0);
 ### LoadIndexData
 `public void LoadIndexData(uint indices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 index data。
+**用途 / Purpose:** 从持久化存储或流中读取 index data。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexArrayObject 实例
@@ -56,7 +56,7 @@ vertexArrayObject.LoadIndexData(0);
 ### Bind
 `public void Bind()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Bind 对应的操作。
+**用途 / Purpose:** 调用 Bind 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexArrayObject 实例
@@ -67,7 +67,7 @@ vertexArrayObject.Bind();
 ### UnBind
 `public static void UnBind()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnBind 对应的操作。
+**用途 / Purpose:** 调用 UnBind 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ VertexArrayObject.UnBind();
 ### Create
 `public static VertexArrayObject Create()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ VertexArrayObject.Create();
 ### CreateWithUVBuffer
 `public static VertexArrayObject CreateWithUVBuffer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 with u v buffer 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 with u v buffer 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

@@ -33,7 +33,7 @@ description: "WaitMenuOption 的自动生成类参考。"
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MapState mapState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conditions hold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conditions hold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WaitMenuOption 实例
@@ -44,7 +44,7 @@ var result = waitMenuOption.GetConditionsHold(game, mapState);
 ### RunConsequence
 `public void RunConsequence(Game game, MapState mapState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RunConsequence 对应的操作。
+**用途 / Purpose:** 调用 RunConsequence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WaitMenuOption 实例
@@ -55,7 +55,7 @@ waitMenuOption.RunConsequence(game, mapState);
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfWaitMenusCallbacks)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 WaitMenuOption 实例
@@ -66,7 +66,7 @@ waitMenuOption.Deserialize(node, typeOfWaitMenusCallbacks);
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 condition delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 condition delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WaitMenuOption 实例
@@ -77,7 +77,7 @@ var result = waitMenuOption.OnConditionDelegate(args);
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 consequence delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 consequence delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WaitMenuOption 实例

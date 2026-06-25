@@ -23,7 +23,7 @@ Treat `MissionGauntletCameraFadeView` as a View-style extension point: first ide
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCameraFadeView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletCameraFadeView.OnMissionScreenInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletCameraFadeView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletCameraFadeView.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCameraFadeView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletCameraFadeView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCameraFadeView from the subsystem API first

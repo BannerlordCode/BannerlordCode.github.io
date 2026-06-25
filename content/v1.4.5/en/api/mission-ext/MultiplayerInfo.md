@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the multiplayer team available state or condition.
+**Purpose:** Determines whether the this instance is in the multiplayer team available state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerInfo from the subsystem API first

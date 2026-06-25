@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### OnExit
 `public void OnExit()`
 
-**Purpose:** **Purpose:** Invoked when the exit event is raised.
+**Purpose:** Invoked when the exit event is raised.
 
 ```csharp
 // Obtain an instance of GauntletBarberScreen from the subsystem API first

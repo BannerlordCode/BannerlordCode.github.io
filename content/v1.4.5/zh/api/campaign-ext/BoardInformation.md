@@ -23,7 +23,7 @@ description: "BoardInformation 的自动生成类参考。"
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BoardInformation 对应的操作。
+**用途 / Purpose:** 调用 BoardInformation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardInformation 实例

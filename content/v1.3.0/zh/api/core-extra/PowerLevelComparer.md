@@ -42,7 +42,7 @@ description: "PowerLevelComparer 的自动生成类参考。"
 ### SetColors
 `public void SetColors(string defenderColor, string attackerColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 colors 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 colors 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PowerLevelComparer 实例
@@ -53,7 +53,7 @@ powerLevelComparer.SetColors("example", "example");
 ### Update
 `public void Update(double defenderPower, double attackerPower)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PowerLevelComparer 实例
@@ -64,7 +64,7 @@ powerLevelComparer.Update(0, 0);
 ### Update
 `public void Update(double defenderPower, double attackerPower, double initialDefenderPower, double initialAttackerPower)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PowerLevelComparer 实例

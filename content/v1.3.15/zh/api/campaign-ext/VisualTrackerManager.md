@@ -29,7 +29,7 @@ description: "VisualTrackerManager 的自动生成类参考。"
 ### RegisterObject
 `public void RegisterObject(ITrackableCampaignObject trackableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将object注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将object注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerManager 实例
@@ -40,7 +40,7 @@ visualTrackerManager.RegisterObject(trackableObject);
 ### CheckTracked
 `public bool CheckTracked(ITrackableBase trackableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查tracked在当前对象中是否成立。
+**用途 / Purpose:** 检查tracked在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerManager 实例
@@ -51,7 +51,7 @@ var result = visualTrackerManager.CheckTracked(trackableObject);
 ### RemoveTrackedObject
 `public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tracked object。
+**用途 / Purpose:** 从当前容器或状态中移除 tracked object。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerManager 实例
@@ -62,7 +62,7 @@ visualTrackerManager.RemoveTrackedObject(trackableObject, false);
 ### SetDirty
 `public void SetDirty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 dirty 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerManager 实例

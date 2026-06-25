@@ -23,7 +23,7 @@ description: "ParameterLoader 的自动生成类参考。"
 ### LoadParametersFromClientProfile
 `public static ParameterContainer LoadParametersFromClientProfile(string configurationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 parameters from client profile。
+**用途 / Purpose:** 从持久化存储或流中读取 parameters from client profile。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ParameterLoader.LoadParametersFromClientProfile("example");
 ### LoadParametersInto
 `public static void LoadParametersInto(string fileFullName, ParameterContainer parameters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 parameters into。
+**用途 / Purpose:** 从持久化存储或流中读取 parameters into。
 
 ```csharp
 // 静态调用，不需要实例

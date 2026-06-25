@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -53,7 +53,7 @@ missionScoreboardSideVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -64,7 +64,7 @@ missionScoreboardSideVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -75,7 +75,7 @@ missionScoreboardSideVM.OnFinalize();
 ### UpdateRoundAttributes
 `public void UpdateRoundAttributes()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of round attributes.
+**Purpose:** Recalculates and stores the latest representation of round attributes.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -86,7 +86,7 @@ missionScoreboardSideVM.UpdateRoundAttributes();
 ### UpdateBotAttributes
 `public void UpdateBotAttributes()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of bot attributes.
+**Purpose:** Recalculates and stores the latest representation of bot attributes.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -97,7 +97,7 @@ missionScoreboardSideVM.UpdateBotAttributes();
 ### UpdatePlayerAttributes
 `public void UpdatePlayerAttributes(MissionPeer player)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of player attributes.
+**Purpose:** Recalculates and stores the latest representation of player attributes.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -108,7 +108,7 @@ missionScoreboardSideVM.UpdatePlayerAttributes(player);
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Removes player from the current collection or state.
+**Purpose:** Removes player from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first
@@ -119,7 +119,7 @@ missionScoreboardSideVM.RemovePlayer(peer);
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Adds player to the current collection or state.
+**Purpose:** Adds player to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSideVM from the subsystem API first

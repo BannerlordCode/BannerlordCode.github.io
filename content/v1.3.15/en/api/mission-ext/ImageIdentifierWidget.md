@@ -32,7 +32,7 @@ Treat `ImageIdentifierWidget` as a Widget-style extension point: first identify 
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** **Purpose:** Invoked when the clear texture provider event is raised.
+**Purpose:** Invoked when the clear texture provider event is raised.
 
 ```csharp
 // Obtain an instance of ImageIdentifierWidget from the subsystem API first

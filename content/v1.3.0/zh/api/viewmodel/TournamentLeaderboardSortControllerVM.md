@@ -36,7 +36,7 @@ description: "TournamentLeaderboardSortControllerVM 的自动生成类参考。"
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -47,7 +47,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByPrize
 `public void ExecuteSortByPrize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by prize 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by prize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -58,7 +58,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByPrize();
 ### ExecuteSortByPlacement
 `public void ExecuteSortByPlacement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by placement 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by placement 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -69,7 +69,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByPlacement();
 ### ExecuteSortByVictories
 `public void ExecuteSortByVictories()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by victories 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by victories 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -80,7 +80,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByVictories();
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -91,7 +91,7 @@ tournamentLeaderboardSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -102,7 +102,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -113,7 +113,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -124,7 +124,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例
@@ -135,7 +135,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentLeaderboardSortControllerVM 实例

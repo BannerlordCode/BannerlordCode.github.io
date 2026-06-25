@@ -34,7 +34,7 @@ description: "LanguageData 的自动生成类参考。"
 ### InitializeDefault
 `public void InitializeDefault(string title, string supportedIsoCodes, string subtitleExtension, string textProcessor, bool isUnderDevelopment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 default 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 LanguageData 实例
@@ -45,7 +45,7 @@ languageData.InitializeDefault("example", "example", "example", "example", false
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 静态调用，不需要实例
@@ -55,7 +55,7 @@ LanguageData.Clear();
 ### GetLanguageData
 `public static LanguageData GetLanguageData(string stringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 language data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 language data 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ LanguageData.GetLanguageData("example");
 ### GetLanguageDataIndex
 `public static int GetLanguageDataIndex(string stringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 language data index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 language data index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -75,7 +75,7 @@ LanguageData.GetLanguageDataIndex("example");
 ### LoadFromXml
 `public static void LoadFromXml(XmlDocument doc, string modulePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from xml。
+**用途 / Purpose:** 从持久化存储或流中读取 from xml。
 
 ```csharp
 // 静态调用，不需要实例
@@ -85,7 +85,7 @@ LanguageData.LoadFromXml(doc, "example");
 ### LoadTestData
 `public static void LoadTestData(LanguageData data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 test data。
+**用途 / Purpose:** 从持久化存储或流中读取 test data。
 
 ```csharp
 // 静态调用，不需要实例

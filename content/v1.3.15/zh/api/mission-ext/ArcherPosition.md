@@ -31,7 +31,7 @@ description: "ArcherPosition 的自动生成类参考。"
 ### GetLastAssignedFormation
 `public Formation GetLastAssignedFormation(int teamIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last assigned formation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 last assigned formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcherPosition 实例
@@ -42,7 +42,7 @@ var result = archerPosition.GetLastAssignedFormation(0);
 ### IsArcherPositionRelatedToSide
 `public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 archer position related to side 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 archer position related to side 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcherPosition 实例
@@ -53,7 +53,7 @@ var result = archerPosition.IsArcherPositionRelatedToSide(side);
 ### GetArcherPositionClosestSide
 `public FormationAI.BehaviorSide GetArcherPositionClosestSide()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 archer position closest side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 archer position closest side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcherPosition 实例
@@ -64,7 +64,7 @@ var result = archerPosition.GetArcherPositionClosestSide();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcherPosition 实例
@@ -75,7 +75,7 @@ archerPosition.OnDeploymentFinished(siegeQuerySystem, battleSide);
 ### SetLastAssignedFormation
 `public void SetLastAssignedFormation(int teamIndex, Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 last assigned formation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 last assigned formation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ArcherPosition 实例

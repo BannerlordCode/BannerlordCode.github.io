@@ -29,7 +29,7 @@ Treat `CombatLogData` as a Data-style extension point: first identify who create
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`
 
-**Purpose:** **Purpose:** Assigns a new value to victim agent and updates the object's internal state.
+**Purpose:** Assigns a new value to victim agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CombatLogData from the subsystem API first

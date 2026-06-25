@@ -39,7 +39,7 @@ description: "SiegeWeaponMovementComponent 的自动生成类参考。"
 ### HighlightPath
 `public void HighlightPath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HighlightPath 对应的操作。
+**用途 / Purpose:** 调用 HighlightPath 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -50,7 +50,7 @@ siegeWeaponMovementComponent.HighlightPath();
 ### SetupGhostEntity
 `public void SetupGhostEntity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 up ghost entity 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 up ghost entity 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -61,7 +61,7 @@ siegeWeaponMovementComponent.SetupGhostEntity();
 ### SetGhostVisibility
 `public void SetGhostVisibility(bool isVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ghost visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ghost visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -72,7 +72,7 @@ siegeWeaponMovementComponent.SetGhostVisibility(false);
 ### OnEditorInit
 `public void OnEditorInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 editor init 事件触发时调用此回调。
+**用途 / Purpose:** 在 editor init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -83,7 +83,7 @@ siegeWeaponMovementComponent.OnEditorInit();
 ### SetDistanceTraveledAsClient
 `public void SetDistanceTraveledAsClient(float distance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 distance traveled as client 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 distance traveled as client 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -94,7 +94,7 @@ siegeWeaponMovementComponent.SetDistanceTraveledAsClient(0);
 ### IsOnTickRequired
 `public override bool IsOnTickRequired()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 on tick required 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 on tick required 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -105,7 +105,7 @@ var result = siegeWeaponMovementComponent.IsOnTickRequired();
 ### TickParallelManually
 `public void TickParallelManually(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进parallel manually的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进parallel manually的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -116,7 +116,7 @@ siegeWeaponMovementComponent.TickParallelManually(0);
 ### GetInitialFrame
 `public MatrixFrame GetInitialFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 initial frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -127,7 +127,7 @@ var result = siegeWeaponMovementComponent.GetInitialFrame();
 ### GetTargetFrame
 `public MatrixFrame GetTargetFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -138,7 +138,7 @@ var result = siegeWeaponMovementComponent.GetTargetFrame();
 ### SetDestinationNavMeshIdState
 `public void SetDestinationNavMeshIdState(bool enabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 destination nav mesh id state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 destination nav mesh id state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -149,7 +149,7 @@ siegeWeaponMovementComponent.SetDestinationNavMeshIdState(false);
 ### MoveToTargetAsClient
 `public void MoveToTargetAsClient()`
 
-**用途 / Purpose:** **用途 / Purpose:** 移动to target as client到新的位置或状态。
+**用途 / Purpose:** 移动to target as client到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -160,7 +160,7 @@ siegeWeaponMovementComponent.MoveToTargetAsClient();
 ### GetTotalDistanceTraveledForPathTracker
 `public float GetTotalDistanceTraveledForPathTracker()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total distance traveled for path tracker 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total distance traveled for path tracker 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -171,7 +171,7 @@ var result = siegeWeaponMovementComponent.GetTotalDistanceTraveledForPathTracker
 ### SetTotalDistanceTraveledForPathTracker
 `public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 total distance traveled for path tracker 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 total distance traveled for path tracker 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -182,7 +182,7 @@ siegeWeaponMovementComponent.SetTotalDistanceTraveledForPathTracker(0);
 ### SetTargetFrameForPathTracker
 `public void SetTargetFrameForPathTracker()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target frame for path tracker 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target frame for path tracker 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponMovementComponent 实例
@@ -193,7 +193,7 @@ siegeWeaponMovementComponent.SetTargetFrameForPathTracker();
 ### FindGroundFrameForWheelsStatic
 `public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的ground frame for wheels static。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的ground frame for wheels static。
 
 ```csharp
 // 静态调用，不需要实例

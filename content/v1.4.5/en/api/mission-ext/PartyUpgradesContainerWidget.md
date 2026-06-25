@@ -29,7 +29,7 @@ Treat `PartyUpgradesContainerWidget` as a Widget-style extension point: first id
 ### PartyUpgradesContainerWidget
 `public class PartyUpgradesContainerWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the PartyUpgradesContainerWidget logic.
+**Purpose:** Executes the PartyUpgradesContainerWidget logic.
 
 ```csharp
 // Obtain an instance of PartyUpgradesContainerWidget from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
+**Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightBehavior from the subsystem API first
@@ -34,7 +34,7 @@ var result = fightBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
+**Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of FightBehavior from the subsystem API first

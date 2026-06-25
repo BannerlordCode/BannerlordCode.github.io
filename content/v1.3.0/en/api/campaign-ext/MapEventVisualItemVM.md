@@ -32,7 +32,7 @@ Start from namespace `SandBox.ViewModelCollection.Map` to place it in the stack,
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
+**Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of MapEventVisualItemVM from the subsystem API first
@@ -43,7 +43,7 @@ mapEventVisualItemVM.UpdateProperties();
 ### ParallelUpdatePosition
 `public void ParallelUpdatePosition()`
 
-**Purpose:** **Purpose:** Executes the ParallelUpdatePosition logic.
+**Purpose:** Executes the ParallelUpdatePosition logic.
 
 ```csharp
 // Obtain an instance of MapEventVisualItemVM from the subsystem API first
@@ -54,7 +54,7 @@ mapEventVisualItemVM.ParallelUpdatePosition();
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**Purpose:** **Purpose:** Determines the result of is visible on map based on the current state.
+**Purpose:** Determines the result of is visible on map based on the current state.
 
 ```csharp
 // Obtain an instance of MapEventVisualItemVM from the subsystem API first
@@ -65,7 +65,7 @@ mapEventVisualItemVM.DetermineIsVisibleOnMap();
 ### UpdateBindingProperties
 `public void UpdateBindingProperties()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of binding properties.
+**Purpose:** Recalculates and stores the latest representation of binding properties.
 
 ```csharp
 // Obtain an instance of MapEventVisualItemVM from the subsystem API first

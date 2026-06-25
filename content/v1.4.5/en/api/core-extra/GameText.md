@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AddVariationWithId
 `public void AddVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**Purpose:** **Purpose:** Adds variation with id to the current collection or state.
+**Purpose:** Adds variation with id to the current collection or state.
 
 ```csharp
 // Obtain an instance of GameText from the subsystem API first
@@ -41,7 +41,7 @@ gameText.AddVariationWithId("example", text, choiceTags);
 ### SetVariationWithId
 `public void SetVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**Purpose:** **Purpose:** Assigns a new value to variation with id and updates the object's internal state.
+**Purpose:** Assigns a new value to variation with id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameText from the subsystem API first
@@ -52,7 +52,7 @@ gameText.SetVariationWithId("example", text, choiceTags);
 ### AddVariation
 `public void AddVariation(string text, params object propertiesAndWeights)`
 
-**Purpose:** **Purpose:** Adds variation to the current collection or state.
+**Purpose:** Adds variation to the current collection or state.
 
 ```csharp
 // Obtain an instance of GameText from the subsystem API first

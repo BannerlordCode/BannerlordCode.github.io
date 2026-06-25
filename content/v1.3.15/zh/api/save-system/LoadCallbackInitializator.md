@@ -23,7 +23,7 @@ description: "LoadCallbackInitializator 的自动生成类参考。"
 ### InitializeObjects
 `public void InitializeObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 objects 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 objects 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadCallbackInitializator 实例
@@ -34,7 +34,7 @@ loadCallbackInitializator.InitializeObjects();
 ### AfterInitializeObjects
 `public void AfterInitializeObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterInitializeObjects 对应的操作。
+**用途 / Purpose:** 调用 AfterInitializeObjects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadCallbackInitializator 实例

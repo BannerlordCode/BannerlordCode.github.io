@@ -29,7 +29,7 @@ Treat `MultiSelectionElementsWidget` as a Widget-style extension point: first id
 ### MultiSelectionElementsWidget
 `public class MultiSelectionElementsWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the MultiSelectionElementsWidget logic.
+**Purpose:** Executes the MultiSelectionElementsWidget logic.
 
 ```csharp
 // Obtain an instance of MultiSelectionElementsWidget from the subsystem API first

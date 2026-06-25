@@ -33,7 +33,7 @@ description: "Hideout 的自动生成类参考。"
 ### UpdateNextPossibleAttackTime
 `public void UpdateNextPossibleAttackTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 next possible attack time 的最新表示。
+**用途 / Purpose:** 重新计算并更新 next possible attack time 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -44,7 +44,7 @@ hideout.UpdateNextPossibleAttackTime();
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defender parties 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 defender parties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -55,7 +55,7 @@ var result = hideout.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next defender party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 next defender party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -66,7 +66,7 @@ var result = hideout.GetNextDefenderParty(partyIndex, battleType);
 ### OnPartyEntered
 `public override void OnPartyEntered(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party entered 事件触发时调用此回调。
+**用途 / Purpose:** 在 party entered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -77,7 +77,7 @@ hideout.OnPartyEntered(mobileParty);
 ### OnPartyLeft
 `public override void OnPartyLeft(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party left 事件触发时调用此回调。
+**用途 / Purpose:** 在 party left 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -88,7 +88,7 @@ hideout.OnPartyLeft(mobileParty);
 ### OnRelatedPartyRemoved
 `public override void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 related party removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 related party removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -99,7 +99,7 @@ hideout.OnRelatedPartyRemoved(mobileParty);
 ### OnInit
 `public override void OnInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 init 事件触发时调用此回调。
+**用途 / Purpose:** 在 init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例
@@ -110,7 +110,7 @@ hideout.OnInit();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Hideout 实例

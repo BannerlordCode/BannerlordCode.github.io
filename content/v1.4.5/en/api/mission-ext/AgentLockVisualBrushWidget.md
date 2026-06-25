@@ -30,7 +30,7 @@ Treat `AgentLockVisualBrushWidget` as a Widget-style extension point: first iden
 ### AgentLockVisualBrushWidget
 `public class AgentLockVisualBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the AgentLockVisualBrushWidget logic.
+**Purpose:** Executes the AgentLockVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of AgentLockVisualBrushWidget from the subsystem API first

@@ -32,7 +32,7 @@ description: "DefaultBuildingConstructionModel 的自动生成类参考。"
 ### CalculateDailyConstructionPower
 `public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算daily construction power的当前值或结果。
+**用途 / Purpose:** 计算daily construction power的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingConstructionModel 实例
@@ -43,7 +43,7 @@ var result = defaultBuildingConstructionModel.CalculateDailyConstructionPower(to
 ### CalculateDailyConstructionPowerWithoutBoost
 `public override int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算daily construction power without boost的当前值或结果。
+**用途 / Purpose:** 计算daily construction power without boost的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingConstructionModel 实例
@@ -54,7 +54,7 @@ var result = defaultBuildingConstructionModel.CalculateDailyConstructionPowerWit
 ### GetBoostAmount
 `public override int GetBoostAmount(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 boost amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 boost amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingConstructionModel 实例
@@ -65,7 +65,7 @@ var result = defaultBuildingConstructionModel.GetBoostAmount(town);
 ### GetBoostCost
 `public override int GetBoostCost(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 boost cost 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 boost cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingConstructionModel 实例

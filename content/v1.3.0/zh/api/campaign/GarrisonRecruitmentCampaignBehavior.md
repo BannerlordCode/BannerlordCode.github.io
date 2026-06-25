@@ -23,7 +23,7 @@ description: "GarrisonRecruitmentCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
@@ -34,7 +34,7 @@ garrisonRecruitmentCampaignBehavior.RegisterEvents();
 ### GetGarrisonChangeExplainedNumber
 `public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 garrison change explained number 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 garrison change explained number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
@@ -45,7 +45,7 @@ var result = garrisonRecruitmentCampaignBehavior.GetGarrisonChangeExplainedNumbe
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
@@ -56,7 +56,7 @@ garrisonRecruitmentCampaignBehavior.SyncData(dataStore);
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例

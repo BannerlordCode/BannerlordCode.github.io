@@ -29,7 +29,7 @@ Treat `MultiplayerClassLoadoutTroopInfoBrushWidget` as a Widget-style extension 
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** **Purpose:** Invoked when the brush changed event is raised.
+**Purpose:** Invoked when the brush changed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutTroopInfoBrushWidget from the subsystem API first

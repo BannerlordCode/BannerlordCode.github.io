@@ -23,7 +23,7 @@ description: "HeroAgentLocationModel 的自动生成类参考。"
 ### WillBeListedInOverlay
 `public abstract bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WillBeListedInOverlay 对应的操作。
+**用途 / Purpose:** 调用 WillBeListedInOverlay 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroAgentLocationModel 实例
@@ -34,7 +34,7 @@ var result = heroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
 ### GetLocationForHero
 `public abstract Location GetLocationForHero(Hero hero, Settlement settlement, out HeroAgentLocationModel.HeroLocationDetail heroSpawnDetail)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 location for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 location for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroAgentLocationModel 实例

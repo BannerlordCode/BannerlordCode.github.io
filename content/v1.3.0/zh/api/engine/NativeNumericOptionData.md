@@ -23,7 +23,7 @@ description: "NativeNumericOptionData 的自动生成类参考。"
 ### GetMinValue
 `public float GetMinValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 min value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 min value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeNumericOptionData 实例
@@ -34,7 +34,7 @@ var result = nativeNumericOptionData.GetMinValue();
 ### GetMaxValue
 `public float GetMaxValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeNumericOptionData 实例
@@ -45,7 +45,7 @@ var result = nativeNumericOptionData.GetMaxValue();
 ### GetIsDiscrete
 `public bool GetIsDiscrete()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is discrete 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is discrete 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeNumericOptionData 实例
@@ -56,7 +56,7 @@ var result = nativeNumericOptionData.GetIsDiscrete();
 ### GetDiscreteIncrementInterval
 `public int GetDiscreteIncrementInterval()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 discrete increment interval 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 discrete increment interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeNumericOptionData 实例
@@ -67,7 +67,7 @@ var result = nativeNumericOptionData.GetDiscreteIncrementInterval();
 ### GetShouldUpdateContinuously
 `public bool GetShouldUpdateContinuously()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 should update continuously 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 should update continuously 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeNumericOptionData 实例

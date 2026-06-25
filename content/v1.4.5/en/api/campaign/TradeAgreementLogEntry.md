@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = tradeAgreementLogEntry.ToString();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementLogEntry from the subsystem API first

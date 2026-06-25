@@ -30,7 +30,7 @@ Treat `MissionGauntletBoardGameView` as a View-style extension point: first iden
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -41,7 +41,7 @@ missionGauntletBoardGameView.OnMissionScreenInitialize();
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen activate event is raised.
+**Purpose:** Invoked when the mission screen activate event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -52,7 +52,7 @@ missionGauntletBoardGameView.OnMissionScreenActivate();
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -63,7 +63,7 @@ var result = missionGauntletBoardGameView.OnEscape();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -74,7 +74,7 @@ missionGauntletBoardGameView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -85,7 +85,7 @@ missionGauntletBoardGameView.OnMissionScreenFinalize();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
@@ -96,7 +96,7 @@ missionGauntletBoardGameView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoardGameView from the subsystem API first

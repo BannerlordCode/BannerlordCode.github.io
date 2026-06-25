@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FillAsMeleeBlow
 `public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-**Purpose:** **Purpose:** Executes the FillAsMeleeBlow logic.
+**Purpose:** Executes the FillAsMeleeBlow logic.
 
 ```csharp
 // Obtain an instance of BlowWeaponRecord from the subsystem API first
@@ -41,7 +41,7 @@ blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ### FillAsMissileBlow
 `public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-**Purpose:** **Purpose:** Executes the FillAsMissileBlow logic.
+**Purpose:** Executes the FillAsMissileBlow logic.
 
 ```csharp
 // Obtain an instance of BlowWeaponRecord from the subsystem API first
@@ -52,7 +52,7 @@ blowWeaponRecord.FillAsMissileBlow(item, weaponComponentData, 0, 0, startingPosi
 ### HasWeapon
 `public bool HasWeapon()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds weapon.
+**Purpose:** Determines whether the this instance already holds weapon.
 
 ```csharp
 // Obtain an instance of BlowWeaponRecord from the subsystem API first
@@ -63,7 +63,7 @@ var result = blowWeaponRecord.HasWeapon();
 ### GetHitSound
 `public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)`
 
-**Purpose:** **Purpose:** Reads and returns the hit sound value held by the this instance.
+**Purpose:** Reads and returns the hit sound value held by the this instance.
 
 ```csharp
 // Obtain an instance of BlowWeaponRecord from the subsystem API first

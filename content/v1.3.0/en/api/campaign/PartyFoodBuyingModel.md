@@ -31,7 +31,7 @@ Treat `PartyFoodBuyingModel` as a Model-style extension point: first identify wh
 ### FindItemToBuy
 `public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)`
 
-**Purpose:** **Purpose:** Looks up the matching item to buy in the current collection or scope.
+**Purpose:** Looks up the matching item to buy in the current collection or scope.
 
 ```csharp
 // Obtain an instance of PartyFoodBuyingModel from the subsystem API first

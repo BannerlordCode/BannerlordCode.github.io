@@ -23,7 +23,7 @@ description: "ReplayMissionView 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -34,7 +34,7 @@ replayMissionView.OnBehaviorInitialize();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -45,7 +45,7 @@ replayMissionView.OnPreMissionTick(0);
 ### OverrideInput
 `public void OverrideInput(bool isOverridden)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideInput 对应的操作。
+**用途 / Purpose:** 调用 OverrideInput 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -56,7 +56,7 @@ replayMissionView.OverrideInput(false);
 ### ResetReplay
 `public void ResetReplay()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 replay 重置回默认或初始状态。
+**用途 / Purpose:** 将 replay 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -67,7 +67,7 @@ replayMissionView.ResetReplay();
 ### Rewind
 `public void Rewind(float time)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Rewind 对应的操作。
+**用途 / Purpose:** 调用 Rewind 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -78,7 +78,7 @@ replayMissionView.Rewind(0);
 ### FastForward
 `public void FastForward(float time)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FastForward 对应的操作。
+**用途 / Purpose:** 调用 FastForward 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -89,7 +89,7 @@ replayMissionView.FastForward(0);
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Pause 对应的操作。
+**用途 / Purpose:** 调用 Pause 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -100,7 +100,7 @@ replayMissionView.Pause();
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Resume 对应的操作。
+**用途 / Purpose:** 调用 Resume 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例

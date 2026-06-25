@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnConnectionStateChange
 `public override void OnConnectionStateChange(GogServicesConnectionState connected)`
 
-**Purpose:** **Purpose:** Invoked when the connection state change event is raised.
+**Purpose:** Invoked when the connection state change event is raised.
 
 ```csharp
 // Obtain an instance of GogServicesConnectionStateListener from the subsystem API first

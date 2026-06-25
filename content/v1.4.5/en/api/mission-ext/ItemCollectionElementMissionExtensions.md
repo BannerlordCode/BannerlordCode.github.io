@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetItemHolsterIndices
 `public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the item holster indices value held by the this instance.
+**Purpose:** Reads and returns the item holster indices value held by the this instance.
 
 ```csharp
 // Static call; no instance required

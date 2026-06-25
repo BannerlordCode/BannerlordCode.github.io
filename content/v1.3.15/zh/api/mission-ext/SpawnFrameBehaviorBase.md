@@ -23,7 +23,7 @@ description: "SpawnFrameBehaviorBase 的自动生成类参考。"
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
@@ -34,7 +34,7 @@ spawnFrameBehaviorBase.Initialize();
 ### GetSpawnFrame
 `public abstract MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
@@ -45,7 +45,7 @@ var result = spawnFrameBehaviorBase.GetSpawnFrame(team, false, false);
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
@@ -56,7 +56,7 @@ spawnFrameBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, 
 ### CreateDecreasingCache
 `public static SpawnFrameBehaviorBase.WeightCache CreateDecreasingCache()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 decreasing cache 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 decreasing cache 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ SpawnFrameBehaviorBase.CreateDecreasingCache();
 ### CheckAndInsertNewValueIfLower
 `public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查and insert new value if lower在当前对象中是否成立。
+**用途 / Purpose:** 检查and insert new value if lower在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例

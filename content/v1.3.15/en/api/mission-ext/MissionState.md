@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OpenNew
 `public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with new.
+**Purpose:** Opens the resource or UI associated with new.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ MissionState.OpenNew("example", rec, handler, false, false);
 ### BeginDelayedDisconnectFromMission
 `public void BeginDelayedDisconnectFromMission()`
 
-**Purpose:** **Purpose:** Executes the BeginDelayedDisconnectFromMission logic.
+**Purpose:** Executes the BeginDelayedDisconnectFromMission logic.
 
 ```csharp
 // Obtain an instance of MissionState from the subsystem API first

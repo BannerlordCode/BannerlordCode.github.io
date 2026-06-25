@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RegisterTrackedInstance
 `public static void RegisterTrackedInstance(string name, WeakReference instance)`
 
-**Purpose:** **Purpose:** Registers tracked instance with the current system so it can later be observed or dispatched.
+**Purpose:** Registers tracked instance with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
 ### CheckBlacklistedTypeCounts
 `public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)`
 
-**Purpose:** **Purpose:** Verifies whether blacklisted type counts holds true for the this instance.
+**Purpose:** Verifies whether blacklisted type counts holds true for the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -31,7 +31,7 @@ description: "ContainerDefinition 的自动生成类参考。"
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerDefinition 实例

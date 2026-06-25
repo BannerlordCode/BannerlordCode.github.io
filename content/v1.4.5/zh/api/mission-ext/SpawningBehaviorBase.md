@@ -23,7 +23,7 @@ description: "SpawningBehaviorBase 的自动生成类参考。"
 ### OnSpawningEndedEventDelegate
 `public delegate void OnSpawningEndedEventDelegate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 spawning ended event delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 spawning ended event delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -34,7 +34,7 @@ spawningBehaviorBase.OnSpawningEndedEventDelegate();
 ### Initialize
 `public virtual void Initialize(SpawnComponent spawnComponent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -45,7 +45,7 @@ spawningBehaviorBase.Initialize(spawnComponent);
 ### Clear
 `public virtual void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -56,7 +56,7 @@ spawningBehaviorBase.Clear();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -67,7 +67,7 @@ spawningBehaviorBase.OnTick(0);
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AreAgentsSpawning 对应的操作。
+**用途 / Purpose:** 调用 AreAgentsSpawning 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -78,7 +78,7 @@ var result = spawningBehaviorBase.AreAgentsSpawning();
 ### RequestStartSpawnSession
 `public virtual void RequestStartSpawnSession()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestStartSpawnSession 对应的操作。
+**用途 / Purpose:** 调用 RequestStartSpawnSession 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -89,7 +89,7 @@ spawningBehaviorBase.RequestStartSpawnSession();
 ### RequestStopSpawnSession
 `public void RequestStopSpawnSession()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestStopSpawnSession 对应的操作。
+**用途 / Purpose:** 调用 RequestStopSpawnSession 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -100,7 +100,7 @@ spawningBehaviorBase.RequestStopSpawnSession();
 ### SetRemainingAgentsInvulnerable
 `public void SetRemainingAgentsInvulnerable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 remaining agents invulnerable 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 remaining agents invulnerable 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -111,7 +111,7 @@ spawningBehaviorBase.SetRemainingAgentsInvulnerable();
 ### CanUpdateSpawnEquipment
 `public virtual bool CanUpdateSpawnEquipment(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 update spawn equipment 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 update spawn equipment 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -122,7 +122,7 @@ var result = spawningBehaviorBase.CanUpdateSpawnEquipment(missionPeer);
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleUpdatingSpawnEquipment 对应的操作。
+**用途 / Purpose:** 调用 ToggleUpdatingSpawnEquipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -133,7 +133,7 @@ spawningBehaviorBase.ToggleUpdatingSpawnEquipment(false);
 ### AllowEarlyAgentVisualsDespawning
 `public abstract bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
+**用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -144,7 +144,7 @@ var result = spawningBehaviorBase.AllowEarlyAgentVisualsDespawning(missionPeer);
 ### GetMaximumReSpawnPeriodForPeer
 `public virtual int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum re spawn period for peer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum re spawn period for peer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -155,7 +155,7 @@ var result = spawningBehaviorBase.GetMaximumReSpawnPeriodForPeer(peer);
 ### OnClearScene
 `public virtual void OnClearScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
+**用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -166,7 +166,7 @@ spawningBehaviorBase.OnClearScene();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例

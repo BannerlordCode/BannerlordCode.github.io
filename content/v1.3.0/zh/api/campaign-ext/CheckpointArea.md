@@ -29,7 +29,7 @@ description: "CheckpointArea 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointArea 实例
@@ -40,7 +40,7 @@ checkpointArea.AfterMissionStart();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointArea 实例

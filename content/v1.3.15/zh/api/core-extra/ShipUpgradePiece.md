@@ -61,7 +61,7 @@ description: "ShipUpgradePiece 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipUpgradePiece 实例
@@ -72,7 +72,7 @@ shipUpgradePiece.Deserialize(objectManager, node);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipUpgradePiece 实例
@@ -83,7 +83,7 @@ var result = shipUpgradePiece.ToString();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipUpgradePiece 实例
@@ -94,7 +94,7 @@ var result = shipUpgradePiece.GetName();
 ### DoesPieceMatchSlot
 `public bool DoesPieceMatchSlot(ShipSlot slot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回piece match slot对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断piece match slot这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipUpgradePiece 实例

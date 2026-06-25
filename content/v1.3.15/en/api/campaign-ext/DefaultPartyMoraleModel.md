@@ -29,7 +29,7 @@ Treat `DefaultPartyMoraleModel` as a Model-style extension point: first identify
 ### GetDailyStarvationMoralePenalty
 `public override int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**Purpose:** **Purpose:** Reads and returns the daily starvation morale penalty value held by the this instance.
+**Purpose:** Reads and returns the daily starvation morale penalty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultPartyMoraleModel.GetDailyStarvationMoralePenalty(party);
 ### GetDailyNoWageMoralePenalty
 `public override int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the daily no wage morale penalty value held by the this instance.
+**Purpose:** Reads and returns the daily no wage morale penalty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultPartyMoraleModel.GetDailyNoWageMoralePenalty(party);
 ### GetStandardBaseMorale
 `public override float GetStandardBaseMorale(PartyBase party)`
 
-**Purpose:** **Purpose:** Reads and returns the standard base morale value held by the this instance.
+**Purpose:** Reads and returns the standard base morale value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = defaultPartyMoraleModel.GetStandardBaseMorale(party);
 ### GetVictoryMoraleChange
 `public override float GetVictoryMoraleChange(PartyBase party)`
 
-**Purpose:** **Purpose:** Reads and returns the victory morale change value held by the this instance.
+**Purpose:** Reads and returns the victory morale change value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = defaultPartyMoraleModel.GetVictoryMoraleChange(party);
 ### GetDefeatMoraleChange
 `public override float GetDefeatMoraleChange(PartyBase party)`
 
-**Purpose:** **Purpose:** Reads and returns the defeat morale change value held by the this instance.
+**Purpose:** Reads and returns the defeat morale change value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = defaultPartyMoraleModel.GetDefeatMoraleChange(party);
 ### GetEffectivePartyMorale
 `public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)`
 
-**Purpose:** **Purpose:** Reads and returns the effective party morale value held by the this instance.
+**Purpose:** Reads and returns the effective party morale value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyMoraleModel from the subsystem API first

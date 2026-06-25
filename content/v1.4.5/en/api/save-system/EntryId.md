@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EntryId from the subsystem API first
@@ -41,7 +41,7 @@ var result = entryId.Equals(obj);
 ### Equals
 `public bool Equals(EntryId other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EntryId from the subsystem API first
@@ -52,7 +52,7 @@ var result = entryId.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of EntryId from the subsystem API first

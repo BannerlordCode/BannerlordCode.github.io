@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### CacheAiBehaviorPartyBase
 `public void CacheAiBehaviorPartyBase()`
 
-**Purpose:** **Purpose:** Executes the CacheAiBehaviorPartyBase logic.
+**Purpose:** Executes the CacheAiBehaviorPartyBase logic.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -48,7 +48,7 @@ mobilePartyAi.CacheAiBehaviorPartyBase();
 ### CheckPartyNeedsUpdate
 `public void CheckPartyNeedsUpdate()`
 
-**Purpose:** **Purpose:** Verifies whether party needs update holds true for the this instance.
+**Purpose:** Verifies whether party needs update holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -59,7 +59,7 @@ mobilePartyAi.CheckPartyNeedsUpdate();
 ### CalculateFleePosition
 `public void CalculateFleePosition(out CampaignVec2 fleeTargetPoint, MobileParty partyToFleeFrom, Vec2 averageEnemyVec)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of flee position.
+**Purpose:** Calculates the current value or result of flee position.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -70,7 +70,7 @@ mobilePartyAi.CalculateFleePosition(fleeTargetPoint, partyToFleeFrom, averageEne
 ### GetNearbyPartyDataWhileDefendingSettlement
 `public bool GetNearbyPartyDataWhileDefendingSettlement(Settlement targetSettlement, out bool shouldConsiderJoiningNearbyAllyParties, out bool shouldJoinLandSide, out bool shouldEngage, out MobileParty mostPowerfulLandAlly, out MobileParty mostPowerfulNavalAlly)`
 
-**Purpose:** **Purpose:** Reads and returns the nearby party data while defending settlement value held by the this instance.
+**Purpose:** Reads and returns the nearby party data while defending settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -81,7 +81,7 @@ var result = mobilePartyAi.GetNearbyPartyDataWhileDefendingSettlement(targetSett
 ### DisableForHours
 `public void DisableForHours(int hours)`
 
-**Purpose:** **Purpose:** Executes the DisableForHours logic.
+**Purpose:** Executes the DisableForHours logic.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -92,7 +92,7 @@ mobilePartyAi.DisableForHours(0);
 ### DisableAi
 `public void DisableAi()`
 
-**Purpose:** **Purpose:** Executes the DisableAi logic.
+**Purpose:** Executes the DisableAi logic.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -103,7 +103,7 @@ mobilePartyAi.DisableAi();
 ### EnableAi
 `public void EnableAi()`
 
-**Purpose:** **Purpose:** Executes the EnableAi logic.
+**Purpose:** Executes the EnableAi logic.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -114,7 +114,7 @@ mobilePartyAi.EnableAi();
 ### EnableAgainAtHourIsPast
 `public bool EnableAgainAtHourIsPast()`
 
-**Purpose:** **Purpose:** Executes the EnableAgainAtHourIsPast logic.
+**Purpose:** Executes the EnableAgainAtHourIsPast logic.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -125,7 +125,7 @@ var result = mobilePartyAi.EnableAgainAtHourIsPast();
 ### SetDoNotAttackMainParty
 `public void SetDoNotAttackMainParty(int hours)`
 
-**Purpose:** **Purpose:** Assigns a new value to do not attack main party and updates the object's internal state.
+**Purpose:** Assigns a new value to do not attack main party and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -136,7 +136,7 @@ mobilePartyAi.SetDoNotAttackMainParty(0);
 ### SetInitiative
 `public void SetInitiative(float attackInitiative, float avoidInitiative, float hoursUntilReset)`
 
-**Purpose:** **Purpose:** Assigns a new value to initiative and updates the object's internal state.
+**Purpose:** Assigns a new value to initiative and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -147,7 +147,7 @@ mobilePartyAi.SetInitiative(0, 0, 0);
 ### SetDoNotMakeNewDecisions
 `public void SetDoNotMakeNewDecisions(bool doNotMakeNewDecisions)`
 
-**Purpose:** **Purpose:** Assigns a new value to do not make new decisions and updates the object's internal state.
+**Purpose:** Assigns a new value to do not make new decisions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first
@@ -158,7 +158,7 @@ mobilePartyAi.SetDoNotMakeNewDecisions(false);
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyAi from the subsystem API first

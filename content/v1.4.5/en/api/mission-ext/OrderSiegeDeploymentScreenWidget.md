@@ -31,7 +31,7 @@ Treat `OrderSiegeDeploymentScreenWidget` as a Widget-style extension point: firs
 ### SetSelectedDeploymentItem
 `public void SetSelectedDeploymentItem(OrderSiegeDeploymentItemButtonWidget deploymentItem)`
 
-**Purpose:** **Purpose:** Assigns a new value to selected deployment item and updates the object's internal state.
+**Purpose:** Assigns a new value to selected deployment item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderSiegeDeploymentScreenWidget from the subsystem API first

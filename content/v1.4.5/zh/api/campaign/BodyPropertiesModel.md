@@ -23,7 +23,7 @@ description: "BodyPropertiesModel 的自动生成类参考。"
 ### GetHairIndicesForCulture
 `public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hair indices for culture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hair indices for culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyPropertiesModel 实例
@@ -34,7 +34,7 @@ var result = bodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
 ### GetBeardIndicesForCulture
 `public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 beard indices for culture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 beard indices for culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyPropertiesModel 实例
@@ -45,7 +45,7 @@ var result = bodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
 ### GetTattooIndicesForCulture
 `public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tattoo indices for culture 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tattoo indices for culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyPropertiesModel 实例

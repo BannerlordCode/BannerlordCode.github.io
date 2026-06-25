@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -50,7 +50,7 @@ mPAuthenticationVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -61,7 +61,7 @@ mPAuthenticationVM.OnFinalize();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -72,7 +72,7 @@ mPAuthenticationVM.OnTick(0);
 ### ExecuteExit
 `public void ExecuteExit()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with exit.
+**Purpose:** Runs the operation or workflow associated with exit.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -83,7 +83,7 @@ mPAuthenticationVM.ExecuteExit();
 ### ExecuteLogin
 `public async void ExecuteLogin()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with login.
+**Purpose:** Runs the operation or workflow associated with login.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -94,7 +94,7 @@ mPAuthenticationVM.ExecuteLogin();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first
@@ -105,7 +105,7 @@ mPAuthenticationVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPAuthenticationVM from the subsystem API first

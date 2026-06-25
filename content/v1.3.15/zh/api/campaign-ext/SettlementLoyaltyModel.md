@@ -51,7 +51,7 @@ description: "SettlementLoyaltyModel 的自动生成类参考。"
 ### CalculateLoyaltyChange
 `public abstract ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算loyalty change的当前值或结果。
+**用途 / Purpose:** 计算loyalty change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementLoyaltyModel 实例
@@ -62,7 +62,7 @@ var result = settlementLoyaltyModel.CalculateLoyaltyChange(town, false);
 ### CalculateGoldGainDueToHighLoyalty
 `public abstract void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算gold gain due to high loyalty的当前值或结果。
+**用途 / Purpose:** 计算gold gain due to high loyalty的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementLoyaltyModel 实例
@@ -73,7 +73,7 @@ settlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
 ### CalculateGoldCutDueToLowLoyalty
 `public abstract void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算gold cut due to low loyalty的当前值或结果。
+**用途 / Purpose:** 计算gold cut due to low loyalty的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementLoyaltyModel 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**Purpose:** **Purpose:** Executes the DelegateDefinition logic.
+**Purpose:** Executes the DelegateDefinition logic.
 
 ```csharp
 // Obtain an instance of SerialTask from the subsystem API first

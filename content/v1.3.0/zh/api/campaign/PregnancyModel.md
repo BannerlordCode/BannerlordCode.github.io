@@ -33,7 +33,7 @@ description: "PregnancyModel 的自动生成类参考。"
 ### GetDailyChanceOfPregnancyForHero
 `public abstract float GetDailyChanceOfPregnancyForHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily chance of pregnancy for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily chance of pregnancy for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PregnancyModel 实例

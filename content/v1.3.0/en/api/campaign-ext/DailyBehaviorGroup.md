@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of DailyBehaviorGroup from the subsystem API first
@@ -34,7 +34,7 @@ dailyBehaviorGroup.Tick(0, false);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** **Purpose:** Executes the ConversationTick logic.
+**Purpose:** Executes the ConversationTick logic.
 
 ```csharp
 // Obtain an instance of DailyBehaviorGroup from the subsystem API first
@@ -45,7 +45,7 @@ dailyBehaviorGroup.ConversationTick();
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
+**Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of DailyBehaviorGroup from the subsystem API first
@@ -56,7 +56,7 @@ var result = dailyBehaviorGroup.GetScore(false);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of DailyBehaviorGroup from the subsystem API first
@@ -67,7 +67,7 @@ dailyBehaviorGroup.OnAgentRemoved(agent);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** **Purpose:** Executes the ForceThink logic.
+**Purpose:** Executes the ForceThink logic.
 
 ```csharp
 // Obtain an instance of DailyBehaviorGroup from the subsystem API first

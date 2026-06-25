@@ -30,7 +30,7 @@ description: "CampaignGameStarter 的自动生成类参考。"
 ### UnregisterNonReadyObjects
 `public void UnregisterNonReadyObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销non ready objects。
+**用途 / Purpose:** 从当前系统中注销non ready objects。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -41,7 +41,7 @@ campaignGameStarter.UnregisterNonReadyObjects();
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 behavior 添加到当前容器或状态中。
+**用途 / Purpose:** 将 behavior 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -52,7 +52,7 @@ campaignGameStarter.AddBehavior(campaignBehavior);
 ### AddModel
 `public void AddModel(GameModel gameModel)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 model 添加到当前容器或状态中。
+**用途 / Purpose:** 将 model 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -63,7 +63,7 @@ campaignGameStarter.AddModel(gameModel);
 ### AddGameMenu
 `public void AddGameMenu(string menuId, string menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 game menu 添加到当前容器或状态中。
+**用途 / Purpose:** 将 game menu 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -74,7 +74,7 @@ campaignGameStarter.AddGameMenu("example", "example", initDelegate, gameMenu.Men
 ### AddWaitGameMenu
 `public void AddWaitGameMenu(string idString, string text, OnInitDelegate initDelegate, OnConditionDelegate condition, OnConsequenceDelegate consequence, OnTickDelegate tick, GameMenu.MenuAndOptionType type, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, float targetWaitHours = 0f, GameMenu.MenuFlags flags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 wait game menu 添加到当前容器或状态中。
+**用途 / Purpose:** 将 wait game menu 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -85,7 +85,7 @@ campaignGameStarter.AddWaitGameMenu("example", "example", initDelegate, conditio
 ### AddGameMenuOption
 `public void AddGameMenuOption(string menuId, string optionId, string optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool isLeave = false, int index = -1, bool isRepeatable = false, object relatedObject = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 game menu option 添加到当前容器或状态中。
+**用途 / Purpose:** 将 game menu option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -96,7 +96,7 @@ campaignGameStarter.AddGameMenuOption("example", "example", "example", condition
 ### GetPresumedGameMenu
 `public GameMenu GetPresumedGameMenu(string stringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 presumed game menu 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 presumed game menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -107,7 +107,7 @@ var result = campaignGameStarter.GetPresumedGameMenu("example");
 ### AddDialogFlow
 `public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog flow 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog flow 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -118,7 +118,7 @@ campaignGameStarter.AddDialogFlow(dialogFlow, null);
 ### AddPlayerLine
 `public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 player line 添加到当前容器或状态中。
+**用途 / Purpose:** 将 player line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -129,7 +129,7 @@ var result = campaignGameStarter.AddPlayerLine("example", "example", "example", 
 ### AddRepeatablePlayerLine
 `public ConversationSentence AddRepeatablePlayerLine(string id, string inputToken, string outputToken, string text, string continueListingRepeatedObjectsText, string continueListingOptionOutputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 repeatable player line 添加到当前容器或状态中。
+**用途 / Purpose:** 将 repeatable player line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -140,7 +140,7 @@ var result = campaignGameStarter.AddRepeatablePlayerLine("example", "example", "
 ### AddDialogLineWithVariation
 `public ConversationSentence AddDialogLineWithVariation(string id, string inputToken, string outputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, string idleActionId = "", string idleFaceAnimId = "", string reactionId = "", string reactionFaceAnimId = "", ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog line with variation 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog line with variation 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -151,7 +151,7 @@ var result = campaignGameStarter.AddDialogLineWithVariation("example", "example"
 ### AddDialogLine
 `public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog line 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例
@@ -162,7 +162,7 @@ var result = campaignGameStarter.AddDialogLine("example", "example", "example", 
 ### AddDialogLineMultiAgent
 `public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 dialog line multi agent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 dialog line multi agent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignGameStarter 实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -41,7 +41,7 @@ var result = squareFormation.Clone(formation);
 ### DeepCopyFrom
 `public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**Purpose:** **Purpose:** Executes the DeepCopyFrom logic.
+**Purpose:** Executes the DeepCopyFrom logic.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -52,7 +52,7 @@ squareFormation.DeepCopyFrom(arrangement);
 ### FormFromBorderSideWidth
 `public void FormFromBorderSideWidth(float borderSideWidth)`
 
-**Purpose:** **Purpose:** Executes the FormFromBorderSideWidth logic.
+**Purpose:** Executes the FormFromBorderSideWidth logic.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -63,7 +63,7 @@ squareFormation.FormFromBorderSideWidth(0);
 ### FormFromBorderUnitCountPerSide
 `public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-**Purpose:** **Purpose:** Executes the FormFromBorderUnitCountPerSide logic.
+**Purpose:** Executes the FormFromBorderUnitCountPerSide logic.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -74,7 +74,7 @@ squareFormation.FormFromBorderUnitCountPerSide(0);
 ### GetUnitsPerSideFromRankCount
 `public int GetUnitsPerSideFromRankCount(int rankCount)`
 
-**Purpose:** **Purpose:** Reads and returns the units per side from rank count value held by the this instance.
+**Purpose:** Reads and returns the units per side from rank count value held by the this instance.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -85,7 +85,7 @@ var result = squareFormation.GetUnitsPerSideFromRankCount(0);
 ### FormFromRankCount
 `public void FormFromRankCount(int rankCount)`
 
-**Purpose:** **Purpose:** Executes the FormFromRankCount logic.
+**Purpose:** Executes the FormFromRankCount logic.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -96,7 +96,7 @@ squareFormation.FormFromRankCount(0);
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** **Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
+**Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first
@@ -107,7 +107,7 @@ var result = squareFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### TurnBackwards
 `public override void TurnBackwards()`
 
-**Purpose:** **Purpose:** Executes the TurnBackwards logic.
+**Purpose:** Executes the TurnBackwards logic.
 
 ```csharp
 // Obtain an instance of SquareFormation from the subsystem API first

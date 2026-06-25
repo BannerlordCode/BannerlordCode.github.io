@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of SubtitleItem from the subsystem API first

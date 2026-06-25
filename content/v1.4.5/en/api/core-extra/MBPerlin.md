@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Noise
 `public static float Noise(float x, float y, float z)`
 
-**Purpose:** **Purpose:** Executes the Noise logic.
+**Purpose:** Executes the Noise logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBPerlin.Noise(0, 0, 0);
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float t)`
 
-**Purpose:** **Purpose:** Executes the NoiseVec3 logic.
+**Purpose:** Executes the NoiseVec3 logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBPerlin.NoiseVec3(0);
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float x, float y, float z)`
 
-**Purpose:** **Purpose:** Executes the NoiseVec3 logic.
+**Purpose:** Executes the NoiseVec3 logic.
 
 ```csharp
 // Static call; no instance required

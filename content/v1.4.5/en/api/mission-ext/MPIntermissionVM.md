@@ -57,7 +57,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.I
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPIntermissionVM from the subsystem API first
@@ -68,7 +68,7 @@ mPIntermissionVM.RefreshValues();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MPIntermissionVM from the subsystem API first
@@ -79,7 +79,7 @@ mPIntermissionVM.Tick();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPIntermissionVM from the subsystem API first
@@ -90,7 +90,7 @@ mPIntermissionVM.OnFinalize();
 ### ExecuteQuitServer
 `public void ExecuteQuitServer()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with quit server.
+**Purpose:** Runs the operation or workflow associated with quit server.
 
 ```csharp
 // Obtain an instance of MPIntermissionVM from the subsystem API first

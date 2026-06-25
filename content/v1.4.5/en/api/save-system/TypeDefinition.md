@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### CheckIfRequiresAdvancedResolving
 `public bool CheckIfRequiresAdvancedResolving(object originalObject)`
 
-**Purpose:** **Purpose:** Verifies whether if requires advanced resolving holds true for the this instance.
+**Purpose:** Verifies whether if requires advanced resolving holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -42,7 +42,7 @@ var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**Purpose:** **Purpose:** Executes the ResolveObject logic.
+**Purpose:** Executes the ResolveObject logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -53,7 +53,7 @@ var result = typeDefinition.ResolveObject(originalObject);
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**Purpose:** **Purpose:** Executes the AdvancedResolveObject logic.
+**Purpose:** Executes the AdvancedResolveObject logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -64,7 +64,7 @@ var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, obje
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**Purpose:** **Purpose:** Executes the CollectInitializationCallbacks logic.
+**Purpose:** Executes the CollectInitializationCallbacks logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -75,7 +75,7 @@ typeDefinition.CollectInitializationCallbacks();
 ### CollectProperties
 `public void CollectProperties()`
 
-**Purpose:** **Purpose:** Executes the CollectProperties logic.
+**Purpose:** Executes the CollectProperties logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -86,7 +86,7 @@ typeDefinition.CollectProperties();
 ### CollectFields
 `public void CollectFields()`
 
-**Purpose:** **Purpose:** Executes the CollectFields logic.
+**Purpose:** Executes the CollectFields logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -97,7 +97,7 @@ typeDefinition.CollectFields();
 ### AddCustomField
 `public void AddCustomField(string fieldName, short saveId)`
 
-**Purpose:** **Purpose:** Adds custom field to the current collection or state.
+**Purpose:** Adds custom field to the current collection or state.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -108,7 +108,7 @@ typeDefinition.AddCustomField("example", 0);
 ### GetPropertyDefinitionWithId
 `public PropertyDefinition GetPropertyDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** **Purpose:** Reads and returns the property definition with id value held by the this instance.
+**Purpose:** Reads and returns the property definition with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -119,7 +119,7 @@ var result = typeDefinition.GetPropertyDefinitionWithId(id);
 ### GetFieldDefinitionWithId
 `public FieldDefinition GetFieldDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** **Purpose:** Reads and returns the field definition with id value held by the this instance.
+**Purpose:** Reads and returns the field definition with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -130,7 +130,7 @@ var result = typeDefinition.GetFieldDefinitionWithId(id);
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for auto generation.
+**Purpose:** Prepares the resources, state, or bindings required by for auto generation.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first

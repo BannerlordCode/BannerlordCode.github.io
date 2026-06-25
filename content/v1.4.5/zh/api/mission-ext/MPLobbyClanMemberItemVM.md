@@ -36,7 +36,7 @@ description: "MPLobbyClanMemberItemVM 的自动生成类参考。"
 ### MPLobbyClanMemberItemVM
 `public unsafe MPLobbyClanMemberItemVM(ClanPlayer member, bool isOnline, string selectedBadgeID, AnotherPlayerState state, Action<MPLobbyClanMemberItemVM> executeActivate = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MPLobbyClanMemberItemVM 对应的操作。
+**用途 / Purpose:** 调用 MPLobbyClanMemberItemVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanMemberItemVM 实例
@@ -47,7 +47,7 @@ var result = mPLobbyClanMemberItemVM.MPLobbyClanMemberItemVM(member, false, "exa
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanMemberItemVM 实例
@@ -58,7 +58,7 @@ mPLobbyClanMemberItemVM.RefreshValues();
 ### SetNotEligibleInfo
 `public void SetNotEligibleInfo(PlayerNotEligibleError notEligibleError)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 not eligible info 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 not eligible info 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanMemberItemVM 实例

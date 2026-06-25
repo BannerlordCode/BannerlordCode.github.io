@@ -23,7 +23,7 @@ description: "ShipHelper 的自动生成类参考。"
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ShipHelper.GetShipBanner(shipOrigin, null);
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ShipHelper.GetShipBanner(null);
 ### GetOrderedNavalRaidShipsOfPlayerParty
 `public static List<Ship> GetOrderedNavalRaidShipsOfPlayerParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ordered naval raid ships of player party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ordered naval raid ships of player party 的结果。
 
 ```csharp
 // 静态调用，不需要实例

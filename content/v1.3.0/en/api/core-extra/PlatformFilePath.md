@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileNameWithoutExtension
 `public string GetFileNameWithoutExtension()`
 
-**Purpose:** **Purpose:** Reads and returns the file name without extension value held by the this instance.
+**Purpose:** Reads and returns the file name without extension value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFilePath from the subsystem API first
@@ -40,7 +40,7 @@ var result = platformFilePath.GetFileNameWithoutExtension();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFilePath from the subsystem API first

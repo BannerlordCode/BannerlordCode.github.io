@@ -47,7 +47,7 @@ description: "CommanderInfoVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommanderInfoVM 实例
@@ -58,7 +58,7 @@ commanderInfoVM.OnFinalize();
 ### UpdateWarmupDependentFlags
 `public void UpdateWarmupDependentFlags(bool isInWarmup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 warmup dependent flags 的最新表示。
+**用途 / Purpose:** 重新计算并更新 warmup dependent flags 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CommanderInfoVM 实例
@@ -69,7 +69,7 @@ commanderInfoVM.UpdateWarmupDependentFlags(false);
 ### OnUpdateMorale
 `public void OnUpdateMorale(BattleSideEnum side, float morale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 update morale 事件触发时调用此回调。
+**用途 / Purpose:** 在 update morale 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommanderInfoVM 实例
@@ -80,7 +80,7 @@ commanderInfoVM.OnUpdateMorale(side, 0);
 ### OnTeamChanged
 `public void OnTeamChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 team changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 team changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CommanderInfoVM 实例
@@ -91,7 +91,7 @@ commanderInfoVM.OnTeamChanged();
 ### RefreshColors
 `public void RefreshColors(string allyTeamColor, string allyTeamColorSecondary, string enemyTeamColor, string enemyTeamColorSecondary)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 colors 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 colors 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CommanderInfoVM 实例

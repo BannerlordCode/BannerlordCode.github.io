@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### AddStateSound
 `public void AddStateSound(string state, AudioProperty audioProperty)`
 
-**Purpose:** **Purpose:** Adds state sound to the current collection or state.
+**Purpose:** Adds state sound to the current collection or state.
 
 ```csharp
 // Obtain an instance of SoundProperties from the subsystem API first
@@ -41,7 +41,7 @@ soundProperties.AddStateSound("example", audioProperty);
 ### AddEventSound
 `public void AddEventSound(string state, AudioProperty audioProperty)`
 
-**Purpose:** **Purpose:** Adds event sound to the current collection or state.
+**Purpose:** Adds event sound to the current collection or state.
 
 ```csharp
 // Obtain an instance of SoundProperties from the subsystem API first
@@ -52,7 +52,7 @@ soundProperties.AddEventSound("example", audioProperty);
 ### FillFrom
 `public void FillFrom(SoundProperties soundProperties)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of SoundProperties from the subsystem API first
@@ -63,7 +63,7 @@ soundProperties.FillFrom(soundProperties);
 ### GetEventAudioProperty
 `public AudioProperty GetEventAudioProperty(string eventName)`
 
-**Purpose:** **Purpose:** Reads and returns the event audio property value held by the this instance.
+**Purpose:** Reads and returns the event audio property value held by the this instance.
 
 ```csharp
 // Obtain an instance of SoundProperties from the subsystem API first
@@ -74,7 +74,7 @@ var result = soundProperties.GetEventAudioProperty("example");
 ### GetStateAudioProperty
 `public AudioProperty GetStateAudioProperty(string stateName)`
 
-**Purpose:** **Purpose:** Reads and returns the state audio property value held by the this instance.
+**Purpose:** Reads and returns the state audio property value held by the this instance.
 
 ```csharp
 // Obtain an instance of SoundProperties from the subsystem API first

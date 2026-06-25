@@ -38,7 +38,7 @@ description: "DeploymentSiegeMachineVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -49,7 +49,7 @@ deploymentSiegeMachineVM.RefreshValues();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -60,7 +60,7 @@ deploymentSiegeMachineVM.Update();
 ### CalculatePosition
 `public void CalculatePosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算position的当前值或结果。
+**用途 / Purpose:** 计算position的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -71,7 +71,7 @@ deploymentSiegeMachineVM.CalculatePosition();
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -82,7 +82,7 @@ deploymentSiegeMachineVM.RefreshPosition();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
+**用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -93,7 +93,7 @@ deploymentSiegeMachineVM.ExecuteAction();
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 focus begin 对应的操作或工作流。
+**用途 / Purpose:** 执行 focus begin 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -104,7 +104,7 @@ deploymentSiegeMachineVM.ExecuteFocusBegin();
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 focus end 对应的操作或工作流。
+**用途 / Purpose:** 执行 focus end 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
@@ -115,7 +115,7 @@ deploymentSiegeMachineVM.ExecuteFocusEnd();
 ### RefreshWithDeployedWeapon
 `public void RefreshWithDeployedWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 with deployed weapon 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 with deployed weapon 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例

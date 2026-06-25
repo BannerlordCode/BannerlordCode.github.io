@@ -30,7 +30,7 @@ description: "ScoreboardSideMoraleListPanel 的自动生成类参考。"
 ### ScoreboardSideMoraleListPanel
 `public class ScoreboardSideMoraleListPanel(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScoreboardSideMoraleListPanel 对应的操作。
+**用途 / Purpose:** 调用 ScoreboardSideMoraleListPanel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardSideMoraleListPanel 实例

@@ -23,7 +23,7 @@ description: "DefaultShipStatModel 的自动生成类参考。"
 ### GetShipTierf
 `public override float GetShipTierf(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship tierf 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship tierf 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipStatModel 实例
@@ -34,7 +34,7 @@ var result = defaultShipStatModel.GetShipTierf(ship);
 ### GetShipFlagshipScore
 `public override float GetShipFlagshipScore(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship flagship score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship flagship score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipStatModel 实例

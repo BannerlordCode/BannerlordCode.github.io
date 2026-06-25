@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -41,7 +41,7 @@ partyUpgradeTroopVM.RefreshValues();
 ### OnRanOutTroop
 `public void OnRanOutTroop(PartyCharacterVM troop)`
 
-**Purpose:** **Purpose:** Invoked when the ran out troop event is raised.
+**Purpose:** Invoked when the ran out troop event is raised.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -52,7 +52,7 @@ partyUpgradeTroopVM.OnRanOutTroop(troop);
 ### OnTroopUpgraded
 `public void OnTroopUpgraded()`
 
-**Purpose:** **Purpose:** Invoked when the troop upgraded event is raised.
+**Purpose:** Invoked when the troop upgraded event is raised.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -63,7 +63,7 @@ partyUpgradeTroopVM.OnTroopUpgraded();
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with pop up.
+**Purpose:** Opens the resource or UI associated with pop up.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -74,7 +74,7 @@ partyUpgradeTroopVM.OpenPopUp();
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -85,7 +85,7 @@ partyUpgradeTroopVM.ExecuteDone();
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -96,7 +96,7 @@ partyUpgradeTroopVM.ExecuteCancel();
 ### ExecuteItemPrimaryAction
 `public override void ExecuteItemPrimaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item primary action.
+**Purpose:** Runs the operation or workflow associated with item primary action.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -107,7 +107,7 @@ partyUpgradeTroopVM.ExecuteItemPrimaryAction();
 ### ExecuteItemSecondaryAction
 `public override void ExecuteItemSecondaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item secondary action.
+**Purpose:** Runs the operation or workflow associated with item secondary action.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
@@ -118,7 +118,7 @@ partyUpgradeTroopVM.ExecuteItemSecondaryAction();
 ### ExecuteItemTertiaryAction
 `public override void ExecuteItemTertiaryAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with item tertiary action.
+**Purpose:** Runs the operation or workflow associated with item tertiary action.
 
 ```csharp
 // Obtain an instance of PartyUpgradeTroopVM from the subsystem API first

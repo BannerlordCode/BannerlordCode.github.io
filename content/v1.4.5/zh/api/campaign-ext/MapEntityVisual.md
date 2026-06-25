@@ -32,7 +32,7 @@ description: "MapEntityVisual 的自动生成类参考。"
 ### OnMapClick
 `public abstract bool OnMapClick(bool followModifierUsed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map click 事件触发时调用此回调。
+**用途 / Purpose:** 在 map click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -43,7 +43,7 @@ var result = mapEntityVisual.OnMapClick(false);
 ### OnHover
 `public abstract void OnHover()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hover 事件触发时调用此回调。
+**用途 / Purpose:** 在 hover 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -54,7 +54,7 @@ mapEntityVisual.OnHover();
 ### OnOpenEncyclopedia
 `public abstract void OnOpenEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 open encyclopedia 事件触发时调用此回调。
+**用途 / Purpose:** 在 open encyclopedia 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -65,7 +65,7 @@ mapEntityVisual.OnOpenEncyclopedia();
 ### IsVisibleOrFadingOut
 `public abstract bool IsVisibleOrFadingOut()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 visible or fading out 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 visible or fading out 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -76,7 +76,7 @@ var result = mapEntityVisual.IsVisibleOrFadingOut();
 ### GetVisualPosition
 `public abstract Vec3 GetVisualPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visual position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -87,7 +87,7 @@ var result = mapEntityVisual.GetVisualPosition();
 ### ReleaseResources
 `public virtual void ReleaseResources()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseResources 对应的操作。
+**用途 / Purpose:** 调用 ReleaseResources 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -98,7 +98,7 @@ mapEntityVisual.ReleaseResources();
 ### OnHoverEnd
 `public virtual void OnHoverEnd()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hover end 事件触发时调用此回调。
+**用途 / Purpose:** 在 hover end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -109,7 +109,7 @@ mapEntityVisual.OnHoverEnd();
 ### OnTrackAction
 `public virtual void OnTrackAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 track action 事件触发时调用此回调。
+**用途 / Purpose:** 在 track action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -120,7 +120,7 @@ mapEntityVisual.OnTrackAction();
 ### IsEnemyOf
 `public virtual bool IsEnemyOf(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -131,7 +131,7 @@ var result = mapEntityVisual.IsEnemyOf(faction);
 ### IsAllyOf
 `public virtual bool IsAllyOf(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 ally of 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 ally of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例
@@ -142,7 +142,7 @@ var result = mapEntityVisual.IsAllyOf(faction);
 ### IsInSameFaction
 `public virtual bool IsInSameFaction(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 in same faction 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 in same faction 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEntityVisual 实例

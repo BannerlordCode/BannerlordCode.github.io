@@ -23,7 +23,7 @@ description: "CombatSimulationModel 的自动生成类参考。"
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateHit 对应的操作。
+**用途 / Purpose:** 调用 SimulateHit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -34,7 +34,7 @@ var result = combatSimulationModel.SimulateHit(strikerTroop, struckTroop, strike
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateHit 对应的操作。
+**用途 / Purpose:** 调用 SimulateHit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -45,7 +45,7 @@ var result = combatSimulationModel.SimulateHit(strikerShip, struckShip, strikerP
 ### GetNumberOfEquipmentsBuilt
 `public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of equipments built 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of equipments built 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -56,7 +56,7 @@ var result = combatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
 ### GetMaximumSiegeEquipmentProgress
 `public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum siege equipment progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum siege equipment progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -67,7 +67,7 @@ var result = combatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
 ### GetSettlementAdvantage
 `public abstract float GetSettlementAdvantage(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement advantage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 settlement advantage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -78,7 +78,7 @@ var result = combatSimulationModel.GetSettlementAdvantage(settlement);
 ### GetBattleAdvantage
 `public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle advantage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 battle advantage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -89,7 +89,7 @@ combatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAd
 ### GetShipSiegeEngineHitChance
 `public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -100,7 +100,7 @@ var result = combatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngine
 ### GetPursuitRoundCount
 `public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 pursuit round count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 pursuit round count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -111,7 +111,7 @@ var result = combatSimulationModel.GetPursuitRoundCount(mapEvent);
 ### GetBluntDamageChance
 `public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 blunt damage chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 blunt damage chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -122,7 +122,7 @@ var result = combatSimulationModel.GetBluntDamageChance(strikerTroop, strikedTro
 ### GetSimulationTickInterval
 `public abstract CampaignTime GetSimulationTickInterval(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 simulation tick interval 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 simulation tick interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例
@@ -133,7 +133,7 @@ var result = combatSimulationModel.GetSimulationTickInterval(mapEvent);
 ### GetParticipatingTroopCount
 `public abstract int GetParticipatingTroopCount(MapEventSide side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participating troop count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 participating troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatSimulationModel 实例

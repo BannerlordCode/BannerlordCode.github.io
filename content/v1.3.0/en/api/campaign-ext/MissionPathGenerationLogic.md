@@ -29,7 +29,7 @@ Treat `MissionPathGenerationLogic` as a Logic-style extension point: first ident
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** **Purpose:** Invoked when the object used event is raised.
+**Purpose:** Invoked when the object used event is raised.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -40,7 +40,7 @@ missionPathGenerationLogic.OnObjectUsed(userAgent, usedObject);
 ### InitializeBehavior
 `public void InitializeBehavior()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by behavior.
+**Purpose:** Prepares the resources, state, or bindings required by behavior.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -51,7 +51,7 @@ missionPathGenerationLogic.InitializeBehavior();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -62,7 +62,7 @@ missionPathGenerationLogic.OnMissionTick(0);
 ### GetAllPossiblePaths
 `public List<MissionPathGenerationLogic.PointOfInterestScorePair> GetAllPossiblePaths()`
 
-**Purpose:** **Purpose:** Reads and returns the all possible paths value held by the this instance.
+**Purpose:** Reads and returns the all possible paths value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -73,7 +73,7 @@ var result = missionPathGenerationLogic.GetAllPossiblePaths();
 ### IsOnLeftSide
 `public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the on left side state or condition.
+**Purpose:** Determines whether the this instance is in the on left side state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -84,7 +84,7 @@ var result = missionPathGenerationLogic.IsOnLeftSide(lineA, lineB, point);
 ### ReverseClone
 `public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
 
-**Purpose:** **Purpose:** Executes the ReverseClone logic.
+**Purpose:** Executes the ReverseClone logic.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -95,7 +95,7 @@ var result = missionPathGenerationLogic.ReverseClone();
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by usable points.
+**Purpose:** Prepares the resources, state, or bindings required by usable points.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -106,7 +106,7 @@ missionPathGenerationLogic.InitializeUsablePoints(allUsableMachines);
 ### GetPointOfInterestType
 `public abstract MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -117,7 +117,7 @@ var result = missionPathGenerationLogic.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public abstract List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -128,7 +128,7 @@ var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public abstract bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -139,7 +139,7 @@ var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public abstract float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -150,7 +150,7 @@ var result = missionPathGenerationLogic.GetLocationRatio();
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -161,7 +161,7 @@ var result = missionPathGenerationLogic.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -172,7 +172,7 @@ var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -183,7 +183,7 @@ var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -194,7 +194,7 @@ var result = missionPathGenerationLogic.GetLocationRatio();
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -205,7 +205,7 @@ var result = missionPathGenerationLogic.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -216,7 +216,7 @@ var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -227,7 +227,7 @@ var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -238,7 +238,7 @@ var result = missionPathGenerationLogic.GetLocationRatio();
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -249,7 +249,7 @@ var result = missionPathGenerationLogic.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -260,7 +260,7 @@ var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -271,7 +271,7 @@ var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -282,7 +282,7 @@ var result = missionPathGenerationLogic.GetLocationRatio();
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
+**Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -293,7 +293,7 @@ var result = missionPathGenerationLogic.GetPointOfInterestType();
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**Purpose:** **Purpose:** Reads and returns the position and radius pairs value held by the this instance.
+**Purpose:** Reads and returns the position and radius pairs value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -304,7 +304,7 @@ var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
+**Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -315,7 +315,7 @@ var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
+**Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -326,7 +326,7 @@ var result = missionPathGenerationLogic.GetLocationRatio();
 ### Clone
 `public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -337,7 +337,7 @@ var result = missionPathGenerationLogic.Clone();
 ### AddToData
 `public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-**Purpose:** **Purpose:** Adds to data to the current collection or state.
+**Purpose:** Adds to data to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -348,7 +348,7 @@ missionPathGenerationLogic.AddToData(pointOfInterestToAdd);
 ### IsDataEqualTo
 `public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the data equal to state or condition.
+**Purpose:** Determines whether the this instance is in the data equal to state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -359,7 +359,7 @@ var result = missionPathGenerationLogic.IsDataEqualTo(other, newDataToAdd);
 ### IsBetterThan
 `public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the better than state or condition.
+**Purpose:** Determines whether the this instance is in the better than state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -370,7 +370,7 @@ var result = missionPathGenerationLogic.IsBetterThan(other);
 ### IsSufficient
 `public bool IsSufficient()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the sufficient state or condition.
+**Purpose:** Determines whether the this instance is in the sufficient state or condition.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first
@@ -381,7 +381,7 @@ var result = missionPathGenerationLogic.IsSufficient();
 ### ReOrderDataAccordingToPathRatios
 `public void ReOrderDataAccordingToPathRatios()`
 
-**Purpose:** **Purpose:** Executes the ReOrderDataAccordingToPathRatios logic.
+**Purpose:** Executes the ReOrderDataAccordingToPathRatios logic.
 
 ```csharp
 // Obtain an instance of MissionPathGenerationLogic from the subsystem API first

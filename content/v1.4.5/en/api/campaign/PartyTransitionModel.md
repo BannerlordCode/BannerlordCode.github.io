@@ -23,7 +23,7 @@ Treat `PartyTransitionModel` as a Model-style extension point: first identify wh
 ### GetTransitionTimeForEmbarking
 `public abstract CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the transition time for embarking value held by the this instance.
+**Purpose:** Reads and returns the transition time for embarking value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTransitionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
 ### GetTransitionTimeDisembarking
 `public abstract CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the transition time disembarking value held by the this instance.
+**Purpose:** Reads and returns the transition time disembarking value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTransitionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
 ### GetFleetTravelTimeToSettlement
 `public abstract CampaignTime GetFleetTravelTimeToSettlement(MobileParty mobileParty, Settlement targetSettlement)`
 
-**Purpose:** **Purpose:** Reads and returns the fleet travel time to settlement value held by the this instance.
+**Purpose:** Reads and returns the fleet travel time to settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTransitionModel from the subsystem API first

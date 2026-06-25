@@ -23,7 +23,7 @@ description: "DamageInterruptionThresholdEffect 的自动生成类参考。"
 ### GetDamageInterruptionThreshold
 `public override float GetDamageInterruptionThreshold()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage interruption threshold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 damage interruption threshold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DamageInterruptionThresholdEffect 实例

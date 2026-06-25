@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetCustomGamesByPermission
 `public AvailableCustomGames GetCustomGamesByPermission(int playerPermission)`
 
-**Purpose:** **Purpose:** Reads and returns the custom games by permission value held by the this instance.
+**Purpose:** Reads and returns the custom games by permission value held by the this instance.
 
 ```csharp
 // Obtain an instance of AvailableCustomGames from the subsystem API first

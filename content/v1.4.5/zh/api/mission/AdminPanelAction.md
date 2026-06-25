@@ -23,7 +23,7 @@ description: "AdminPanelAction 的自动生成类参考。"
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例
@@ -34,7 +34,7 @@ adminPanelAction.OnFinalize();
 ### GetIsAvailable
 `public virtual bool GetIsAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is available 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is available 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例
@@ -45,7 +45,7 @@ var result = adminPanelAction.GetIsAvailable();
 ### GetIsDisabled
 `public virtual bool GetIsDisabled(out string reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is disabled 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is disabled 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例
@@ -56,7 +56,7 @@ var result = adminPanelAction.GetIsDisabled(reason);
 ### BuildName
 `public AdminPanelAction BuildName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回name的构建结果。
+**用途 / Purpose:** 组装并返回name的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例
@@ -67,7 +67,7 @@ var result = adminPanelAction.BuildName(name);
 ### BuildDescription
 `public AdminPanelAction BuildDescription(TextObject description)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回description的构建结果。
+**用途 / Purpose:** 组装并返回description的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例
@@ -78,7 +78,7 @@ var result = adminPanelAction.BuildDescription(description);
 ### BuildOnActionExecutedCallback
 `public AdminPanelAction BuildOnActionExecutedCallback(Action onActionExecuted)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回on action executed callback的构建结果。
+**用途 / Purpose:** 组装并返回on action executed callback的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelAction 实例

@@ -30,7 +30,7 @@ description: "TWSharedMutex 的自动生成类参考。"
 ### EnterReadLock
 `public void EnterReadLock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnterReadLock 对应的操作。
+**用途 / Purpose:** 调用 EnterReadLock 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWSharedMutex 实例
@@ -41,7 +41,7 @@ tWSharedMutex.EnterReadLock();
 ### EnterWriteLock
 `public void EnterWriteLock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnterWriteLock 对应的操作。
+**用途 / Purpose:** 调用 EnterWriteLock 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWSharedMutex 实例
@@ -52,7 +52,7 @@ tWSharedMutex.EnterWriteLock();
 ### ExitReadLock
 `public void ExitReadLock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ExitReadLock 对应的操作。
+**用途 / Purpose:** 调用 ExitReadLock 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWSharedMutex 实例
@@ -63,7 +63,7 @@ tWSharedMutex.ExitReadLock();
 ### ExitWriteLock
 `public void ExitWriteLock()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ExitWriteLock 对应的操作。
+**用途 / Purpose:** 调用 ExitWriteLock 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TWSharedMutex 实例

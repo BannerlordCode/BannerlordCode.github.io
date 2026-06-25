@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### SetData
 `public void SetData(MultiSelectionInquiryData data)`
 
-**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
+**Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
@@ -45,7 +45,7 @@ multiSelectionQueryPopUpVM.SetData(data);
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with affirmative action.
+**Purpose:** Runs the operation or workflow associated with affirmative action.
 
 ```csharp
 // Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
@@ -56,7 +56,7 @@ multiSelectionQueryPopUpVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with negative action.
+**Purpose:** Runs the operation or workflow associated with negative action.
 
 ```csharp
 // Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
@@ -67,7 +67,7 @@ multiSelectionQueryPopUpVM.ExecuteNegativeAction();
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** **Purpose:** Invoked when the clear data event is raised.
+**Purpose:** Invoked when the clear data event is raised.
 
 ```csharp
 // Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "AudioPlaybackLayerChannelStandalone 的自动生成类参考。"
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -34,7 +34,7 @@ audioPlaybackLayerChannelStandalone.Release();
 ### LoadSegment
 `public PsaiResult LoadSegment(Segment segment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 segment。
+**用途 / Purpose:** 从持久化存储或流中读取 segment。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -45,7 +45,7 @@ var result = audioPlaybackLayerChannelStandalone.LoadSegment(segment);
 ### ReleaseSegment
 `public PsaiResult ReleaseSegment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseSegment 对应的操作。
+**用途 / Purpose:** 调用 ReleaseSegment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -56,7 +56,7 @@ var result = audioPlaybackLayerChannelStandalone.ReleaseSegment();
 ### ScheduleSegmentPlayback
 `public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ScheduleSegmentPlayback 对应的操作。
+**用途 / Purpose:** 调用 ScheduleSegmentPlayback 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -67,7 +67,7 @@ var result = audioPlaybackLayerChannelStandalone.ScheduleSegmentPlayback(snippet
 ### StopChannel
 `public PsaiResult StopChannel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止channel流程或状态机。
+**用途 / Purpose:** 停止channel流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -78,7 +78,7 @@ var result = audioPlaybackLayerChannelStandalone.StopChannel();
 ### SetVolume
 `public PsaiResult SetVolume(float volume)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 volume 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 volume 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
@@ -89,7 +89,7 @@ var result = audioPlaybackLayerChannelStandalone.SetVolume(0);
 ### SetPaused
 `public PsaiResult SetPaused(bool paused)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 paused 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 paused 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例

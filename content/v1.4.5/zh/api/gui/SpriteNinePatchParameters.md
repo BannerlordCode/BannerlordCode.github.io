@@ -23,7 +23,7 @@ description: "SpriteNinePatchParameters 的自动生成类参考。"
 ### SpriteNinePatchParameters
 `public struct SpriteNinePatchParameters(int leftWidth, int rightWidth, int topHeight, int bottomHeight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpriteNinePatchParameters 对应的操作。
+**用途 / Purpose:** 调用 SpriteNinePatchParameters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteNinePatchParameters 实例

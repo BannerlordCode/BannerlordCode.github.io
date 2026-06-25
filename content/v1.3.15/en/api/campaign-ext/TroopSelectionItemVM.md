@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tro
 ### ExecuteAdd
 `public void ExecuteAdd()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add.
+**Purpose:** Runs the operation or workflow associated with add.
 
 ```csharp
 // Obtain an instance of TroopSelectionItemVM from the subsystem API first
@@ -52,7 +52,7 @@ troopSelectionItemVM.ExecuteAdd();
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
+**Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of TroopSelectionItemVM from the subsystem API first
@@ -63,7 +63,7 @@ troopSelectionItemVM.ExecuteRemove();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
+**Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of TroopSelectionItemVM from the subsystem API first

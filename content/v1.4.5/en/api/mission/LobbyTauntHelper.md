@@ -23,7 +23,7 @@ Treat `LobbyTauntHelper` as a Helper-style extension point: first identify who c
 ### PrepareForTaunt
 `public static Equipment PrepareForTaunt(Equipment originalEquipment, TauntCosmeticElement taunt, bool doNotAddComplimentaryWeapons = false)`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming for taunt operation.
+**Purpose:** Finishes prerequisite setup for the upcoming for taunt operation.
 
 ```csharp
 // Static call; no instance required

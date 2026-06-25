@@ -50,7 +50,7 @@ description: "MultiplayerClassLoadoutVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -61,7 +61,7 @@ multiplayerClassLoadoutVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -72,7 +72,7 @@ multiplayerClassLoadoutVM.OnFinalize();
 ### RefreshPeerDivision
 `public void RefreshPeerDivision(MissionPeer peer, int divisionType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 peer division 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 peer division 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -83,7 +83,7 @@ multiplayerClassLoadoutVM.RefreshPeerDivision(peer, 0);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -94,7 +94,7 @@ multiplayerClassLoadoutVM.Tick(0);
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 peer equipment refreshed 事件触发时调用此回调。
+**用途 / Purpose:** 在 peer equipment refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -105,7 +105,7 @@ multiplayerClassLoadoutVM.OnPeerEquipmentRefreshed(peer);
 ### OnGoldUpdated
 `public void OnGoldUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 gold updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 gold updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例
@@ -116,7 +116,7 @@ multiplayerClassLoadoutVM.OnGoldUpdated();
 ### RefreshRemainingTime
 `public void RefreshRemainingTime()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 remaining time 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 remaining time 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerClassLoadoutVM 实例

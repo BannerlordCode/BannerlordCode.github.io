@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### AddVisualState
 `public void AddVisualState(VisualStateTemplate visualState)`
 
-**Purpose:** **Purpose:** Adds visual state to the current collection or state.
+**Purpose:** Adds visual state to the current collection or state.
 
 ```csharp
 // Obtain an instance of VisualDefinitionTemplate from the subsystem API first
@@ -45,7 +45,7 @@ visualDefinitionTemplate.AddVisualState(visualState);
 ### CreateVisualDefinition
 `public VisualDefinition CreateVisualDefinition(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** **Purpose:** Constructs a new visual definition entity and returns it to the caller.
+**Purpose:** Constructs a new visual definition entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of VisualDefinitionTemplate from the subsystem API first

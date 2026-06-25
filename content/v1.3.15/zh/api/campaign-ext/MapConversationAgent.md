@@ -33,7 +33,7 @@ description: "MapConversationAgent 的自动生成类参考。"
 ### IsEnemyOf
 `public bool IsEnemyOf(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationAgent 实例
@@ -44,7 +44,7 @@ var result = mapConversationAgent.IsEnemyOf(agent);
 ### IsFriendOf
 `public bool IsFriendOf(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 friend of 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 friend of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationAgent 实例
@@ -55,7 +55,7 @@ var result = mapConversationAgent.IsFriendOf(agent);
 ### IsActive
 `public bool IsActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationAgent 实例
@@ -66,7 +66,7 @@ var result = mapConversationAgent.IsActive();
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as conversation agent 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 as conversation agent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationAgent 实例

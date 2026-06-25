@@ -54,7 +54,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DecisionOptionVM from the subsystem API first
@@ -65,7 +65,7 @@ decisionOptionVM.RefreshValues();
 ### AfterKingChooseOutcome
 `public void AfterKingChooseOutcome()`
 
-**Purpose:** **Purpose:** Executes the AfterKingChooseOutcome logic.
+**Purpose:** Executes the AfterKingChooseOutcome logic.
 
 ```csharp
 // Obtain an instance of DecisionOptionVM from the subsystem API first

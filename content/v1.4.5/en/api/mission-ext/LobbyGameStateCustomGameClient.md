@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyClient gameClient, string address, int port, int peerIndex, int sessionKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
+**Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LobbyGameStateCustomGameClient from the subsystem API first

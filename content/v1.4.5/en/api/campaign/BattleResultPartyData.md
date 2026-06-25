@@ -23,7 +23,7 @@ Treat `BattleResultPartyData` as a Data-style extension point: first identify wh
 ### BattleResultPartyData
 `public struct BattleResultPartyData(PartyBase party)`
 
-**Purpose:** **Purpose:** Executes the BattleResultPartyData logic.
+**Purpose:** Executes the BattleResultPartyData logic.
 
 ```csharp
 // Obtain an instance of BattleResultPartyData from the subsystem API first

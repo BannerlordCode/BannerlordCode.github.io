@@ -32,7 +32,7 @@ description: "BrushWidget 的自动生成类参考。"
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 brushes 的最新表示。
+**用途 / Purpose:** 重新计算并更新 brushes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushWidget 实例
@@ -43,7 +43,7 @@ brushWidget.UpdateBrushes(0);
 ### SetState
 `public override void SetState(string stateName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushWidget 实例
@@ -54,7 +54,7 @@ brushWidget.SetState("example");
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 animation properties sub task 的最新表示。
+**用途 / Purpose:** 重新计算并更新 animation properties sub task 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushWidget 实例
@@ -65,7 +65,7 @@ brushWidget.UpdateAnimationPropertiesSubTask(0);
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 brush changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 brush changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushWidget 实例

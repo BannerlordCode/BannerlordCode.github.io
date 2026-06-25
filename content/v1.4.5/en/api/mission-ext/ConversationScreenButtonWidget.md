@@ -31,7 +31,7 @@ Treat `ConversationScreenButtonWidget` as a Widget-style extension point: first 
 ### ConversationScreenButtonWidget
 `public class ConversationScreenButtonWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ConversationScreenButtonWidget logic.
+**Purpose:** Executes the ConversationScreenButtonWidget logic.
 
 ```csharp
 // Obtain an instance of ConversationScreenButtonWidget from the subsystem API first

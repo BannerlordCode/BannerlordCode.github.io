@@ -23,7 +23,7 @@ description: "Blow 的自动生成类参考。"
 ### IsBlowCrit
 `public bool IsBlowCrit(int maxHitPointsOfVictim)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 blow crit 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 blow crit 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Blow 实例
@@ -34,7 +34,7 @@ var result = blow.IsBlowCrit(0);
 ### IsBlowLow
 `public bool IsBlowLow(int maxHitPointsOfVictim)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 blow low 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 blow low 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Blow 实例
@@ -45,7 +45,7 @@ var result = blow.IsBlowLow(0);
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 head shot 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 head shot 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Blow 实例

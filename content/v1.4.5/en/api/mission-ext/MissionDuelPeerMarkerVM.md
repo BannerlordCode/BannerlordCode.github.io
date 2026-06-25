@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -57,7 +57,7 @@ missionDuelPeerMarkerVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -68,7 +68,7 @@ missionDuelPeerMarkerVM.OnTick(0);
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of screen position.
+**Purpose:** Recalculates and stores the latest representation of screen position.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -79,7 +79,7 @@ missionDuelPeerMarkerVM.UpdateScreenPosition(missionCamera);
 ### UpdateBounty
 `public void UpdateBounty()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of bounty.
+**Purpose:** Recalculates and stores the latest representation of bounty.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -90,7 +90,7 @@ missionDuelPeerMarkerVM.UpdateBounty();
 ### OnDuelStarted
 `public void OnDuelStarted()`
 
-**Purpose:** **Purpose:** Invoked when the duel started event is raised.
+**Purpose:** Invoked when the duel started event is raised.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -101,7 +101,7 @@ missionDuelPeerMarkerVM.OnDuelStarted();
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**Purpose:** **Purpose:** Invoked when the duel ended event is raised.
+**Purpose:** Invoked when the duel ended event is raised.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -112,7 +112,7 @@ missionDuelPeerMarkerVM.OnDuelEnded();
 ### UpdateCurentDuelStatus
 `public void UpdateCurentDuelStatus(bool isInDuel)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of curent duel status.
+**Purpose:** Recalculates and stores the latest representation of curent duel status.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first
@@ -123,7 +123,7 @@ missionDuelPeerMarkerVM.UpdateCurentDuelStatus(false);
 ### RefreshPerkSelection
 `public void RefreshPerkSelection()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of perk selection in sync with the underlying state.
+**Purpose:** Keeps the display or cache of perk selection in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionDuelPeerMarkerVM from the subsystem API first

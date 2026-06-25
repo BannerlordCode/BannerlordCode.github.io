@@ -29,7 +29,7 @@ description: "MultiStatement 的自动生成类参考。"
 ### AddStatement
 `public void AddStatement(TextExpression s2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 statement 添加到当前容器或状态中。
+**用途 / Purpose:** 将 statement 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiStatement 实例

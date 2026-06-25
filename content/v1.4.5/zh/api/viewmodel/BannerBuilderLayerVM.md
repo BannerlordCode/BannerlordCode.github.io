@@ -51,7 +51,7 @@ description: "BannerBuilderLayerVM 的自动生成类参考。"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -62,7 +62,7 @@ bannerBuilderLayerVM.Refresh();
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 delete 对应的操作或工作流。
+**用途 / Purpose:** 执行 delete 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -73,7 +73,7 @@ bannerBuilderLayerVM.ExecuteDelete();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -84,7 +84,7 @@ bannerBuilderLayerVM.ExecuteSelection();
 ### SetLayerIndex
 `public void SetLayerIndex(int newIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 layer index 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 layer index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -95,7 +95,7 @@ bannerBuilderLayerVM.SetLayerIndex(0);
 ### ExecuteSelectColor1
 `public void ExecuteSelectColor1()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select color1 对应的操作或工作流。
+**用途 / Purpose:** 执行 select color1 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -106,7 +106,7 @@ bannerBuilderLayerVM.ExecuteSelectColor1();
 ### ExecuteSelectColor2
 `public void ExecuteSelectColor2()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select color2 对应的操作或工作流。
+**用途 / Purpose:** 执行 select color2 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -117,7 +117,7 @@ bannerBuilderLayerVM.ExecuteSelectColor2();
 ### ExecuteSwapColors
 `public void ExecuteSwapColors()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 swap colors 对应的操作或工作流。
+**用途 / Purpose:** 执行 swap colors 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -128,7 +128,7 @@ bannerBuilderLayerVM.ExecuteSwapColors();
 ### ExecuteCenterSigil
 `public void ExecuteCenterSigil()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 center sigil 对应的操作或工作流。
+**用途 / Purpose:** 执行 center sigil 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -139,7 +139,7 @@ bannerBuilderLayerVM.ExecuteCenterSigil();
 ### ExecuteResetSize
 `public void ExecuteResetSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset size 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset size 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -150,7 +150,7 @@ bannerBuilderLayerVM.ExecuteResetSize();
 ### ExecuteUpdateBanner
 `public void ExecuteUpdateBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 update banner 对应的操作或工作流。
+**用途 / Purpose:** 执行 update banner 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
@@ -161,7 +161,7 @@ bannerBuilderLayerVM.ExecuteUpdateBanner();
 ### SetLayerActions
 `public static void SetLayerActions(Action refresh, Action<BannerBuilderLayerVM> onSelection, Action<BannerBuilderLayerVM> onDeletion, Action<int, Action<BannerBuilderColorItemVM>> onColorSelection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 layer actions 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 layer actions 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -171,7 +171,7 @@ BannerBuilderLayerVM.SetLayerActions(refresh, onSelection, onDeletion, action<in
 ### ResetLayerActions
 `public static void ResetLayerActions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 layer actions 重置回默认或初始状态。
+**用途 / Purpose:** 将 layer actions 重置回默认或初始状态。
 
 ```csharp
 // 静态调用，不需要实例

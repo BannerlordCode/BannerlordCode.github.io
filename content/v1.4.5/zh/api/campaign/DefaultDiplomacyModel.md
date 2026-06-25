@@ -23,7 +23,7 @@ description: "DefaultDiplomacyModel 的自动生成类参考。"
 ### GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom
 `public override float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 strength threshold for non mutual wars to be ignored to join kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 strength threshold for non mutual wars to be ignored to join kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -34,7 +34,7 @@ var result = defaultDiplomacyModel.GetStrengthThresholdForNonMutualWarsToBeIgnor
 ### GetClanStrength
 `public override float GetClanStrength(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan strength 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 clan strength 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -45,7 +45,7 @@ var result = defaultDiplomacyModel.GetClanStrength(clan);
 ### GetHeroCommandingStrengthForClan
 `public override float GetHeroCommandingStrengthForClan(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero commanding strength for clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hero commanding strength for clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -56,7 +56,7 @@ var result = defaultDiplomacyModel.GetHeroCommandingStrengthForClan(hero);
 ### GetHeroGoverningStrengthForClan
 `public override float GetHeroGoverningStrengthForClan(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero governing strength for clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hero governing strength for clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -67,7 +67,7 @@ var result = defaultDiplomacyModel.GetHeroGoverningStrengthForClan(hero);
 ### GetRelationIncreaseFactor
 `public override float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation increase factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation increase factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -78,7 +78,7 @@ var result = defaultDiplomacyModel.GetRelationIncreaseFactor(hero1, hero2, 0);
 ### GetInfluenceAwardForSettlementCapturer
 `public override int GetInfluenceAwardForSettlementCapturer(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence award for settlement capturer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence award for settlement capturer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -89,7 +89,7 @@ var result = defaultDiplomacyModel.GetInfluenceAwardForSettlementCapturer(settle
 ### GetHourlyInfluenceAwardForBeingArmyMember
 `public override float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hourly influence award for being army member 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hourly influence award for being army member 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -100,7 +100,7 @@ var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForBeingArmyMember(mob
 ### GetHourlyInfluenceAwardForRaidingEnemyVillage
 `public override float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hourly influence award for raiding enemy village 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hourly influence award for raiding enemy village 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -111,7 +111,7 @@ var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForRaidingEnemyVillage
 ### GetHourlyInfluenceAwardForBesiegingEnemyFortification
 `public override float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hourly influence award for besieging enemy fortification 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hourly influence award for besieging enemy fortification 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -122,7 +122,7 @@ var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForBesiegingEnemyForti
 ### GetScoreOfClanToJoinKingdom
 `public override float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of clan to join kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of clan to join kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -133,7 +133,7 @@ var result = defaultDiplomacyModel.GetScoreOfClanToJoinKingdom(clan, kingdom);
 ### GetScoreOfClanToLeaveKingdom
 `public override float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of clan to leave kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of clan to leave kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -144,7 +144,7 @@ var result = defaultDiplomacyModel.GetScoreOfClanToLeaveKingdom(clan, kingdom);
 ### GetScoreOfKingdomToGetClan
 `public override float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of kingdom to get clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of kingdom to get clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -155,7 +155,7 @@ var result = defaultDiplomacyModel.GetScoreOfKingdomToGetClan(kingdom, clan);
 ### GetScoreOfKingdomToSackClan
 `public override float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of kingdom to sack clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of kingdom to sack clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -166,7 +166,7 @@ var result = defaultDiplomacyModel.GetScoreOfKingdomToSackClan(kingdom, clan);
 ### GetScoreOfMercenaryToJoinKingdom
 `public override float GetScoreOfMercenaryToJoinKingdom(Clan mercenaryClan, Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of mercenary to join kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of mercenary to join kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -177,7 +177,7 @@ var result = defaultDiplomacyModel.GetScoreOfMercenaryToJoinKingdom(mercenaryCla
 ### GetScoreOfMercenaryToLeaveKingdom
 `public override float GetScoreOfMercenaryToLeaveKingdom(Clan mercenaryClan, Kingdom kingdom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of mercenary to leave kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of mercenary to leave kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -188,7 +188,7 @@ var result = defaultDiplomacyModel.GetScoreOfMercenaryToLeaveKingdom(mercenaryCl
 ### GetScoreOfKingdomToHireMercenary
 `public override float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of kingdom to hire mercenary 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of kingdom to hire mercenary 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -199,7 +199,7 @@ var result = defaultDiplomacyModel.GetScoreOfKingdomToHireMercenary(kingdom, mer
 ### GetScoreOfKingdomToSackMercenary
 `public override float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of kingdom to sack mercenary 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of kingdom to sack mercenary 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -210,7 +210,7 @@ var result = defaultDiplomacyModel.GetScoreOfKingdomToSackMercenary(kingdom, mer
 ### GetScoreOfDeclaringPeaceForClan
 `public override float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of declaring peace for clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of declaring peace for clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -221,7 +221,7 @@ var result = defaultDiplomacyModel.GetScoreOfDeclaringPeaceForClan(factionDeclar
 ### GetScoreOfDeclaringPeace
 `public override float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of declaring peace 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of declaring peace 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -232,7 +232,7 @@ var result = defaultDiplomacyModel.GetScoreOfDeclaringPeace(factionDeclaresPeace
 ### GetWarProgressScore
 `public override ExplainedNumber GetWarProgressScore(IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 war progress score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 war progress score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -243,7 +243,7 @@ var result = defaultDiplomacyModel.GetWarProgressScore(factionDeclaresWar, facti
 ### GetScoreOfDeclaringWar
 `public override float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of declaring war 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of declaring war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -254,7 +254,7 @@ var result = defaultDiplomacyModel.GetScoreOfDeclaringWar(factionDeclaresWar, fa
 ### GetScoreOfLettingPartyGo
 `public override float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of letting party go 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score of letting party go 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -265,7 +265,7 @@ var result = defaultDiplomacyModel.GetScoreOfLettingPartyGo(party, partyToLetGo)
 ### GetValueOfHeroForFaction
 `public override float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of hero for faction 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value of hero for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -276,7 +276,7 @@ var result = defaultDiplomacyModel.GetValueOfHeroForFaction(examinedHero, target
 ### GetRelationCostOfExpellingClanFromKingdom
 `public override int GetRelationCostOfExpellingClanFromKingdom()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation cost of expelling clan from kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation cost of expelling clan from kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -287,7 +287,7 @@ var result = defaultDiplomacyModel.GetRelationCostOfExpellingClanFromKingdom();
 ### GetInfluenceCostOfSupportingClan
 `public override int GetInfluenceCostOfSupportingClan()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of supporting clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of supporting clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -298,7 +298,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfSupportingClan();
 ### GetInfluenceCostOfExpellingClan
 `public override int GetInfluenceCostOfExpellingClan(Clan proposingClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of expelling clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of expelling clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -309,7 +309,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfExpellingClan(proposingClan
 ### GetInfluenceCostOfProposingPeace
 `public override int GetInfluenceCostOfProposingPeace(Clan proposingClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing peace 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing peace 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -320,7 +320,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfProposingPeace(proposingCla
 ### GetInfluenceCostOfProposingWar
 `public override int GetInfluenceCostOfProposingWar(Clan proposingClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing war 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -331,7 +331,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfProposingWar(proposingClan)
 ### GetInfluenceValueOfSupportingClan
 `public override int GetInfluenceValueOfSupportingClan()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence value of supporting clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence value of supporting clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -342,7 +342,7 @@ var result = defaultDiplomacyModel.GetInfluenceValueOfSupportingClan();
 ### GetRelationValueOfSupportingClan
 `public override int GetRelationValueOfSupportingClan()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation value of supporting clan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation value of supporting clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -353,7 +353,7 @@ var result = defaultDiplomacyModel.GetRelationValueOfSupportingClan();
 ### GetInfluenceCostOfAnnexation
 `public override int GetInfluenceCostOfAnnexation(Clan proposingClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of annexation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of annexation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -364,7 +364,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfAnnexation(proposingClan);
 ### GetInfluenceCostOfChangingLeaderOfArmy
 `public override int GetInfluenceCostOfChangingLeaderOfArmy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of changing leader of army 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of changing leader of army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -375,7 +375,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfChangingLeaderOfArmy();
 ### GetInfluenceCostOfDisbandingArmy
 `public override int GetInfluenceCostOfDisbandingArmy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of disbanding army 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of disbanding army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -386,7 +386,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfDisbandingArmy();
 ### GetRelationCostOfDisbandingArmy
 `public override int GetRelationCostOfDisbandingArmy(bool isLeaderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation cost of disbanding army 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation cost of disbanding army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -397,7 +397,7 @@ var result = defaultDiplomacyModel.GetRelationCostOfDisbandingArmy(false);
 ### GetInfluenceCostOfPolicyProposalAndDisavowal
 `public override int GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposerClan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of policy proposal and disavowal 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of policy proposal and disavowal 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -408,7 +408,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfPolicyProposalAndDisavowal(
 ### GetInfluenceCostOfAbandoningArmy
 `public override int GetInfluenceCostOfAbandoningArmy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of abandoning army 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 influence cost of abandoning army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -419,7 +419,7 @@ var result = defaultDiplomacyModel.GetInfluenceCostOfAbandoningArmy();
 ### GetBaseRelation
 `public override int GetBaseRelation(Hero hero1, Hero hero2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base relation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 base relation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -430,7 +430,7 @@ var result = defaultDiplomacyModel.GetBaseRelation(hero1, hero2);
 ### GetEffectiveRelation
 `public override int GetEffectiveRelation(Hero hero1, Hero hero2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective relation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effective relation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -441,7 +441,7 @@ var result = defaultDiplomacyModel.GetEffectiveRelation(hero1, hero2);
 ### GetHeroesForEffectiveRelation
 `public override void GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 heroes for effective relation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 heroes for effective relation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -452,7 +452,7 @@ defaultDiplomacyModel.GetHeroesForEffectiveRelation(hero1, hero2, effectiveHero1
 ### GetRelationChangeAfterClanLeaderIsDead
 `public override int GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation change after clan leader is dead 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation change after clan leader is dead 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -463,7 +463,7 @@ var result = defaultDiplomacyModel.GetRelationChangeAfterClanLeaderIsDead(deadLe
 ### GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision
 `public override int GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation change after voting in settlement owner preliminary decision 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation change after voting in settlement owner preliminary decision 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -474,7 +474,7 @@ var result = defaultDiplomacyModel.GetRelationChangeAfterVotingInSettlementOwner
 ### GetCharmExperienceFromRelationGain
 `public override int GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 charm experience from relation gain 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 charm experience from relation gain 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -485,7 +485,7 @@ var result = defaultDiplomacyModel.GetCharmExperienceFromRelationGain(hero, 0, d
 ### GetNotificationColor
 `public override uint GetNotificationColor(ChatNotificationType notificationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 notification color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 notification color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -496,7 +496,7 @@ var result = defaultDiplomacyModel.GetNotificationColor(notificationType);
 ### DenarsToInfluence
 `public override float DenarsToInfluence()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DenarsToInfluence 对应的操作。
+**用途 / Purpose:** 调用 DenarsToInfluence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -507,7 +507,7 @@ var result = defaultDiplomacyModel.DenarsToInfluence();
 ### GetDecisionMakingThreshold
 `public override float GetDecisionMakingThreshold(IFaction consideringFaction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision making threshold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 decision making threshold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -518,7 +518,7 @@ var result = defaultDiplomacyModel.GetDecisionMakingThreshold(consideringFaction
 ### CanSettlementBeGifted
 `public override bool CanSettlementBeGifted(Settlement settlementToGift)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 settlement be gifted 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 settlement be gifted 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -529,7 +529,7 @@ var result = defaultDiplomacyModel.CanSettlementBeGifted(settlementToGift);
 ### GetValueOfSettlementsForFaction
 `public override float GetValueOfSettlementsForFaction(IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of settlements for faction 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value of settlements for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -540,7 +540,7 @@ var result = defaultDiplomacyModel.GetValueOfSettlementsForFaction(faction);
 ### GetBarterGroups
 `public override IEnumerable<BarterGroup> GetBarterGroups()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 barter groups 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 barter groups 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -551,7 +551,7 @@ var result = defaultDiplomacyModel.GetBarterGroups();
 ### IsPeaceSuitable
 `public override bool IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 peace suitable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 peace suitable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -562,7 +562,7 @@ var result = defaultDiplomacyModel.IsPeaceSuitable(factionDeclaresPeace, faction
 ### GetDailyTributeToPay
 `public override int GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive, out int tributeDurationInDays)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily tribute to pay 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily tribute to pay 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -573,7 +573,7 @@ var result = defaultDiplomacyModel.GetDailyTributeToPay(factionToPay, factionToR
 ### IsClanEligibleToBecomeRuler
 `public override bool IsClanEligibleToBecomeRuler(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 clan eligible to become ruler 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 clan eligible to become ruler 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -584,7 +584,7 @@ var result = defaultDiplomacyModel.IsClanEligibleToBecomeRuler(clan);
 ### GetShallowDiplomaticStance
 `public override DiplomacyStance? GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 shallow diplomatic stance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 shallow diplomatic stance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -595,7 +595,7 @@ var result = defaultDiplomacyModel.GetShallowDiplomaticStance(faction1, faction2
 ### GetDefaultDiplomaticStance
 `public override DiplomacyStance GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default diplomatic stance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default diplomatic stance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例
@@ -606,7 +606,7 @@ var result = defaultDiplomacyModel.GetDefaultDiplomaticStance(faction1, faction2
 ### IsAtConstantWar
 `public override bool IsAtConstantWar(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 at constant war 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 at constant war 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDiplomacyModel 实例

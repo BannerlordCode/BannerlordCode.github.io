@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectInformation
 `public static string CollectInformation()`
 
-**Purpose:** **Purpose:** Executes the CollectInformation logic.
+**Purpose:** Executes the CollectInformation logic.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ description: "MissionCombatantsLogic 的自动生成类参考。"
 ### GetBannerForSide
 `public Banner GetBannerForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner for side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner for side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -40,7 +40,7 @@ var result = missionCombatantsLogic.GetBannerForSide(side);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -51,7 +51,7 @@ missionCombatantsLogic.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -62,7 +62,7 @@ missionCombatantsLogic.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -73,7 +73,7 @@ missionCombatantsLogic.AfterStart();
 ### GetAllCombatants
 `public IEnumerable<IBattleCombatant> GetAllCombatants()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all combatants 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all combatants 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -84,7 +84,7 @@ var result = missionCombatantsLogic.GetAllCombatants();
 ### SupportsAllyTeamOnPlayerSide
 `public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, out IBattleCombatant allyCombatant)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SupportsAllyTeamOnPlayerSide 对应的操作。
+**用途 / Purpose:** 调用 SupportsAllyTeamOnPlayerSide 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

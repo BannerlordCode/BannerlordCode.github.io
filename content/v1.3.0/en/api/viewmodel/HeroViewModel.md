@@ -29,7 +29,7 @@ Treat `HeroViewModel` as a ViewModel-style extension point: first identify who c
 ### SetEquipment
 `public override void SetEquipment(Equipment equipment)`
 
-**Purpose:** **Purpose:** Assigns a new value to equipment and updates the object's internal state.
+**Purpose:** Assigns a new value to equipment and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HeroViewModel from the subsystem API first
@@ -40,7 +40,7 @@ heroViewModel.SetEquipment(equipment);
 ### FillFrom
 `public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of HeroViewModel from the subsystem API first
@@ -51,7 +51,7 @@ heroViewModel.FillFrom(hero, 0, false, false);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of HeroViewModel from the subsystem API first

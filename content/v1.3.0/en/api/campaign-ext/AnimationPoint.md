@@ -32,7 +32,7 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### RequestResync
 `public void RequestResync()`
 
-**Purpose:** **Purpose:** Executes the RequestResync logic.
+**Purpose:** Executes the RequestResync logic.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -43,7 +43,7 @@ animationPoint.RequestResync();
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
+**Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -54,7 +54,7 @@ animationPoint.AfterMissionStart();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
+**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -65,7 +65,7 @@ var result = animationPoint.IsDisabledForAgent(agent);
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -76,7 +76,7 @@ var result = animationPoint.GetTickRequirement();
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the user frame for agent value held by the this instance.
+**Purpose:** Reads and returns the user frame for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -87,7 +87,7 @@ var result = animationPoint.GetUserFrameForAgent(agent);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the usable by agent state or condition.
+**Purpose:** Determines whether the this instance is in the usable by agent state or condition.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -98,7 +98,7 @@ var result = animationPoint.IsUsableByAgent(userAgent);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use event is raised.
+**Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -109,7 +109,7 @@ animationPoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
+**Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -120,7 +120,7 @@ animationPoint.OnUseStopped(userAgent, false, 0);
 ### SimulateTick
 `public override void SimulateTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the SimulateTick logic.
+**Purpose:** Executes the SimulateTick logic.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -131,7 +131,7 @@ animationPoint.SimulateTick(0);
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds alternative.
+**Purpose:** Determines whether the this instance already holds alternative.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -142,7 +142,7 @@ var result = animationPoint.HasAlternative();
 ### GetRandomWaitInSeconds
 `public float GetRandomWaitInSeconds()`
 
-**Purpose:** **Purpose:** Reads and returns the random wait in seconds value held by the this instance.
+**Purpose:** Reads and returns the random wait in seconds value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -153,7 +153,7 @@ var result = animationPoint.GetRandomWaitInSeconds();
 ### GetAlternatives
 `public List<AnimationPoint> GetAlternatives()`
 
-**Purpose:** **Purpose:** Reads and returns the alternatives value held by the this instance.
+**Purpose:** Reads and returns the alternatives value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -164,7 +164,7 @@ var result = animationPoint.GetAlternatives();
 ### IsRotationCorrectDuringUsage
 `public bool IsRotationCorrectDuringUsage()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the rotation correct during usage state or condition.
+**Purpose:** Determines whether the this instance is in the rotation correct during usage state or condition.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -175,7 +175,7 @@ var result = animationPoint.IsRotationCorrectDuringUsage();
 ### OnUserConversationStart
 `public override void OnUserConversationStart()`
 
-**Purpose:** **Purpose:** Invoked when the user conversation start event is raised.
+**Purpose:** Invoked when the user conversation start event is raised.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -186,7 +186,7 @@ animationPoint.OnUserConversationStart();
 ### OnUserConversationEnd
 `public override void OnUserConversationEnd()`
 
-**Purpose:** **Purpose:** Invoked when the user conversation end event is raised.
+**Purpose:** Invoked when the user conversation end event is raised.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first
@@ -197,7 +197,7 @@ animationPoint.OnUserConversationEnd();
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to agent items visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to agent items visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnimationPoint from the subsystem API first

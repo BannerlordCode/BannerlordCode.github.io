@@ -23,7 +23,7 @@ Treat `NavigationHelper` as a Helper-style extension point: first identify who c
 ### IsPositionValidForNavigationType
 `public static bool IsPositionValidForNavigationType(CampaignVec2 vec2, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the position valid for navigation type state or condition.
+**Purpose:** Determines whether the this instance is in the position valid for navigation type state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ NavigationHelper.IsPositionValidForNavigationType(vec2, navigationType);
 ### IsPositionValidForNavigationType
 `public static bool IsPositionValidForNavigationType(PathFaceRecord face, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the position valid for navigation type state or condition.
+**Purpose:** Determines whether the this instance is in the position valid for navigation type state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ NavigationHelper.IsPositionValidForNavigationType(face, navigationType);
 ### CanPlayerNavigateToPosition
 `public static bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player navigate to position.
+**Purpose:** Checks whether the this instance meets the preconditions for player navigate to position.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ NavigationHelper.CanPlayerNavigateToPosition(vec2, navigationType);
 ### GetClosestNavMeshFaceCenterPositionForPosition
 `public static CampaignVec2 GetClosestNavMeshFaceCenterPositionForPosition(CampaignVec2 vec2, int excludedFaceIds)`
 
-**Purpose:** **Purpose:** Reads and returns the closest nav mesh face center position for position value held by the this instance.
+**Purpose:** Reads and returns the closest nav mesh face center position for position value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ NavigationHelper.GetClosestNavMeshFaceCenterPositionForPosition(vec2, 0);
 ### GetEmbarkDisembarkDataForTick
 `public static EmbarkDisembarkData GetEmbarkDisembarkDataForTick(CampaignVec2 position, Vec2 direction)`
 
-**Purpose:** **Purpose:** Reads and returns the embark disembark data for tick value held by the this instance.
+**Purpose:** Reads and returns the embark disembark data for tick value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ NavigationHelper.GetEmbarkDisembarkDataForTick(position, direction);
 ### GetEmbarkAndDisembarkDataForPlayer
 `public static EmbarkDisembarkData GetEmbarkAndDisembarkDataForPlayer(CampaignVec2 position, Vec2 direction, CampaignVec2 moveTargetPointOfTheParty, bool isMoveTargetOnLand)`
 
-**Purpose:** **Purpose:** Reads and returns the embark and disembark data for player value held by the this instance.
+**Purpose:** Reads and returns the embark and disembark data for player value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ NavigationHelper.GetEmbarkAndDisembarkDataForPlayer(position, direction, moveTar
 ### FindPointAroundPosition
 `public static CampaignVec2 FindPointAroundPosition(CampaignVec2 centerPosition, MobileParty.NavigationType navigationCapability, float maxDistance, float minDistance = 0f, bool requirePath = true, bool useUniformDistribution = false)`
 
-**Purpose:** **Purpose:** Looks up the matching point around position in the current collection or scope.
+**Purpose:** Looks up the matching point around position in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ NavigationHelper.FindPointAroundPosition(centerPosition, navigationCapability, 0
 ### FindReachablePointAroundPosition
 `public static CampaignVec2 FindReachablePointAroundPosition(CampaignVec2 center, int excludedFaceIds, float maxDistance, float minDistance = 0f, bool useUniformDistribution = false)`
 
-**Purpose:** **Purpose:** Looks up the matching reachable point around position in the current collection or scope.
+**Purpose:** Looks up the matching reachable point around position in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ NavigationHelper.FindReachablePointAroundPosition(center, 0, 0, 0, false);
 ### FindReachablePointAroundPosition
 `public static CampaignVec2 FindReachablePointAroundPosition(CampaignVec2 center, MobileParty.NavigationType navigationCapability, float maxDistance, float minDistance = 0f, bool useUniformDistribution = false)`
 
-**Purpose:** **Purpose:** Looks up the matching reachable point around position in the current collection or scope.
+**Purpose:** Looks up the matching reachable point around position in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ NavigationHelper.FindReachablePointAroundPosition(center, navigationCapability, 
 ### FindPointInsideArea
 `public static CampaignVec2 FindPointInsideArea(Vec2 minBorder, Vec2 maxBorder, MobileParty.NavigationType navigationCapability)`
 
-**Purpose:** **Purpose:** Looks up the matching point inside area in the current collection or scope.
+**Purpose:** Looks up the matching point inside area in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ NavigationHelper.FindPointInsideArea(minBorder, maxBorder, navigationCapability)
 ### IsPointInsideBorders
 `public static bool IsPointInsideBorders(Vec2 point, Vec2 minBorders, Vec2 maxBorders)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the point inside borders state or condition.
+**Purpose:** Determines whether the this instance is in the point inside borders state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ NavigationHelper.IsPointInsideBorders(point, minBorders, maxBorders);
 ### FindPointInsideArea
 `public static CampaignVec2 FindPointInsideArea(Vec2 minBorders, Vec2 maxBorders, CampaignVec2 center, MobileParty.NavigationType navigationCapability, float maxDistance, float minDistance = 0f, bool requirePathFromCenter = false)`
 
-**Purpose:** **Purpose:** Looks up the matching point inside area in the current collection or scope.
+**Purpose:** Looks up the matching point inside area in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ NavigationHelper.FindPointInsideArea(minBorders, maxBorders, center, navigationC
 ### GetInteractionDataForMainParty
 `public static void GetInteractionDataForMainParty(Settlement settlement, out bool canNavigate, out MobileParty.NavigationType bestNavigationType, out bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Reads and returns the interaction data for main party value held by the this instance.
+**Purpose:** Reads and returns the interaction data for main party value held by the this instance.
 
 ```csharp
 // Static call; no instance required

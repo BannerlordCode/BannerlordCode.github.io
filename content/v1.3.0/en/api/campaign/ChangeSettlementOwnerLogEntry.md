@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the importance for clan value held by the this instance.
+**Purpose:** Reads and returns the importance for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = changeSettlementOwnerLogEntry.GetImportanceForClan(clan);
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the related to war state or condition.
+**Purpose:** Determines whether the this instance is in the related to war state or condition.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first
@@ -45,7 +45,7 @@ var result = changeSettlementOwnerLogEntry.IsRelatedToWar(stance, effector, effe
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** **Purpose:** Reads and returns the conversation score and comment value held by the this instance.
+**Purpose:** Reads and returns the conversation score and comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first
@@ -56,7 +56,7 @@ changeSettlementOwnerLogEntry.GetConversationScoreAndComment(talkTroop, false, c
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**Purpose:** **Purpose:** Reads and returns the as rumor value held by the this instance.
+**Purpose:** Reads and returns the as rumor value held by the this instance.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first
@@ -67,7 +67,7 @@ var result = changeSettlementOwnerLogEntry.GetAsRumor(talkSettlement, comment);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first
@@ -78,7 +78,7 @@ var result = changeSettlementOwnerLogEntry.ToString();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of ChangeSettlementOwnerLogEntry from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MissionGauntletKillNotificationSingleplayerUIHandler` as a Handler-style 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenInitialize()
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenFinalize();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletKillNotificationSingleplayerUIHandler.OnAgentRemoved(affectedAgen
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletKillNotificationSingleplayerUIHandler.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first

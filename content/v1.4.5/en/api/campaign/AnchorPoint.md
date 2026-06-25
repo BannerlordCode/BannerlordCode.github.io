@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### CallFleet
 `public void CallFleet(Settlement settlement)`
 
-**Purpose:** **Purpose:** Executes the CallFleet logic.
+**Purpose:** Executes the CallFleet logic.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -46,7 +46,7 @@ anchorPoint.CallFleet(settlement);
 ### SetPosition
 `public void SetPosition(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Assigns a new value to position and updates the object's internal state.
+**Purpose:** Assigns a new value to position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -57,7 +57,7 @@ anchorPoint.SetPosition(position);
 ### SetSettlement
 `public void SetSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Assigns a new value to settlement and updates the object's internal state.
+**Purpose:** Assigns a new value to settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -68,7 +68,7 @@ anchorPoint.SetSettlement(settlement);
 ### InitializeOnLoad
 `public void InitializeOnLoad(MobileParty owner)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by on load.
+**Purpose:** Prepares the resources, state, or bindings required by on load.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -79,7 +79,7 @@ anchorPoint.InitializeOnLoad(owner);
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party interact.
+**Purpose:** Checks whether the this instance meets the preconditions for party interact.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -90,7 +90,7 @@ var result = anchorPoint.CanPartyInteract(mobileParty, 0);
 ### SetLastUsedDisembarkPosition
 `public void SetLastUsedDisembarkPosition(CampaignVec2 pos)`
 
-**Purpose:** **Purpose:** Assigns a new value to last used disembark position and updates the object's internal state.
+**Purpose:** Assigns a new value to last used disembark position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -101,7 +101,7 @@ anchorPoint.SetLastUsedDisembarkPosition(pos);
 ### GetLastUsedDisembarkPosition
 `public CampaignVec2 GetLastUsedDisembarkPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the last used disembark position value held by the this instance.
+**Purpose:** Reads and returns the last used disembark position value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -112,7 +112,7 @@ var result = anchorPoint.GetLastUsedDisembarkPosition();
 ### GetInteractionPosition
 `public CampaignVec2 GetInteractionPosition(MobileParty interactingParty)`
 
-**Purpose:** **Purpose:** Reads and returns the interaction position value held by the this instance.
+**Purpose:** Reads and returns the interaction position value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -123,7 +123,7 @@ var result = anchorPoint.GetInteractionPosition(interactingParty);
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Invoked when the party interaction event is raised.
+**Purpose:** Invoked when the party interaction event is raised.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -134,7 +134,7 @@ anchorPoint.OnPartyInteraction(mobileParty);
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
+**Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -145,7 +145,7 @@ var result = anchorPoint.GetPosition();
 ### IsAtSettlement
 `public bool IsAtSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the at settlement state or condition.
+**Purpose:** Determines whether the this instance is in the at settlement state or condition.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -156,7 +156,7 @@ var result = anchorPoint.IsAtSettlement(settlement);
 ### IsTargetingSettlement
 `public bool IsTargetingSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the targeting settlement state or condition.
+**Purpose:** Determines whether the this instance is in the targeting settlement state or condition.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -167,7 +167,7 @@ var result = anchorPoint.IsTargetingSettlement(settlement);
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** **Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
+**Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -178,7 +178,7 @@ anchorPoint.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### ResetPosition
 `public void ResetPosition()`
 
-**Purpose:** **Purpose:** Returns position to its default or initial condition.
+**Purpose:** Returns position to its default or initial condition.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first
@@ -189,7 +189,7 @@ anchorPoint.ResetPosition();
 ### ResetMoveTarget
 `public void ResetMoveTarget()`
 
-**Purpose:** **Purpose:** Returns move target to its default or initial condition.
+**Purpose:** Returns move target to its default or initial condition.
 
 ```csharp
 // Obtain an instance of AnchorPoint from the subsystem API first

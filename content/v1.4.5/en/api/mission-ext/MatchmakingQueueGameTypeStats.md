@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### HasGameType
 `public bool HasGameType(string gameType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds game type.
+**Purpose:** Determines whether the this instance already holds game type.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueGameTypeStats from the subsystem API first
@@ -42,7 +42,7 @@ var result = matchmakingQueueGameTypeStats.HasGameType("example");
 ### EqualWith
 `public bool EqualWith(string gameTypes)`
 
-**Purpose:** **Purpose:** Executes the EqualWith logic.
+**Purpose:** Executes the EqualWith logic.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueGameTypeStats from the subsystem API first

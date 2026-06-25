@@ -35,7 +35,7 @@ description: "TextOutput 的自动生成类参考。"
 ### AddNewLine
 `public TextLineOutput AddNewLine(bool currentLineEnded, float newLineBaseHeight = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 new line 添加到当前容器或状态中。
+**用途 / Purpose:** 将 new line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TextOutput 实例
@@ -46,7 +46,7 @@ var result = textOutput.AddNewLine(false, 0);
 ### AddToken
 `public void AddToken(TextToken textToken, float tokenWidth, float scaleValue, string style = "Default", float tokenHeight = -1f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 token 添加到当前容器或状态中。
+**用途 / Purpose:** 将 token 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TextOutput 实例
@@ -57,7 +57,7 @@ textOutput.AddToken(textToken, 0, 0, "example", 0);
 ### RemoveTokensFromEnd
 `public List<TextTokenOutput> RemoveTokensFromEnd(int numberOfTokensToRemove)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tokens from end。
+**用途 / Purpose:** 从当前容器或状态中移除 tokens from end。
 
 ```csharp
 // 先通过子系统 API 拿到 TextOutput 实例
@@ -68,7 +68,7 @@ var result = textOutput.RemoveTokensFromEnd(0);
 ### GetLine
 `public TextLineOutput GetLine(int i)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 line 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 line 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextOutput 实例
@@ -79,7 +79,7 @@ var result = textOutput.GetLine(0);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TextOutput 实例

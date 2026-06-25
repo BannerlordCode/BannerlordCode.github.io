@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddValidAgent
 `public void AddValidAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Adds valid agent to the current collection or state.
+**Purpose:** Adds valid agent to the current collection or state.
 
 ```csharp
 // Obtain an instance of StandingPointWithAgentLimit from the subsystem API first
@@ -34,7 +34,7 @@ standingPointWithAgentLimit.AddValidAgent(agent);
 ### ClearValidAgents
 `public void ClearValidAgents()`
 
-**Purpose:** **Purpose:** Removes all valid agents from the this instance.
+**Purpose:** Removes all valid agents from the this instance.
 
 ```csharp
 // Obtain an instance of StandingPointWithAgentLimit from the subsystem API first
@@ -45,7 +45,7 @@ standingPointWithAgentLimit.ClearValidAgents();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
+**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of StandingPointWithAgentLimit from the subsystem API first

@@ -29,7 +29,7 @@ Treat `DefaultMobilePartyFoodConsumptionModel` as a Model-style extension point:
 ### CalculateDailyBaseFoodConsumptionf
 `public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of daily base food consumptionf.
+**Purpose:** Calculates the current value or result of daily base food consumptionf.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsum
 ### CalculateDailyFoodConsumptionf
 `public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of daily food consumptionf.
+**Purpose:** Calculates the current value or result of daily food consumptionf.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptio
 ### DoesPartyConsumeFood
 `public override bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether party consume food is true for the this instance.
+**Purpose:** Returns a boolean answer to whether party consume food is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first

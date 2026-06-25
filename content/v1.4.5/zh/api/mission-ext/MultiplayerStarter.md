@@ -23,7 +23,7 @@ description: "MultiplayerStarter 的自动生成类参考。"
 ### LoadXMLFromFile
 `public void LoadXMLFromFile(string xmlPath, string xsdPath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 x m l from file。
+**用途 / Purpose:** 从持久化存储或流中读取 x m l from file。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStarter 实例
@@ -34,7 +34,7 @@ multiplayerStarter.LoadXMLFromFile("example", "example");
 ### ClearEmptyObjects
 `public void ClearEmptyObjects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的empty objects。
+**用途 / Purpose:** 清空当前对象中的empty objects。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStarter 实例

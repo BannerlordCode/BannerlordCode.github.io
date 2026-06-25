@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### Initialize
 `public void Initialize(INavigationHandler navigationHandler, IMapStateHandler mapStateHandler, Func<MapBarShortcuts> getMapBarShortcuts, Action openArmyManagement)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first
@@ -50,7 +50,7 @@ mapBarVM.Initialize(navigationHandler, mapStateHandler, getMapBarShortcuts, open
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first
@@ -61,7 +61,7 @@ mapBarVM.RefreshValues();
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** **Purpose:** Invoked when the refresh event is raised.
+**Purpose:** Invoked when the refresh event is raised.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first
@@ -72,7 +72,7 @@ mapBarVM.OnRefresh();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first
@@ -83,7 +83,7 @@ mapBarVM.Tick(0);
 ### ExecuteArmyManagement
 `public void ExecuteArmyManagement()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with army management.
+**Purpose:** Runs the operation or workflow associated with army management.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first
@@ -94,7 +94,7 @@ mapBarVM.ExecuteArmyManagement();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapBarVM from the subsystem API first

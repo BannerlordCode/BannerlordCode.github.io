@@ -23,7 +23,7 @@ description: "ItemCollectionElementViewExtensions 的自动生成类参考。"
 ### GetMaterialCacheID
 `public static string GetMaterialCacheID(object o)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 material cache i d 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 material cache i d 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ItemCollectionElementViewExtensions.GetMaterialCacheID(o);
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this ItemObject item, bool isFemale, bool useSlimVersion, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ItemCollectionElementViewExtensions.GetMultiMesh(item, false, false, false);
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this EquipmentElement equipmentElement, bool isFemale, bool useSlimVersion, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ItemCollectionElementViewExtensions.GetMultiMesh(equipmentElement, false, false,
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this MissionWeapon weapon, bool isFemale, bool useSlimVersion, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ItemCollectionElementViewExtensions.GetMultiMesh(weapon, false, false, false);
 ### GetItemMeshForInventory
 `public static MetaMesh GetItemMeshForInventory(this ItemRosterElement rosterElement, bool isFemale = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item mesh for inventory 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item mesh for inventory 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ ItemCollectionElementViewExtensions.GetItemMeshForInventory(rosterElement, false
 ### GetHolsterMeshCopy
 `public static MetaMesh GetHolsterMeshCopy(this ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 holster mesh copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 holster mesh copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ ItemCollectionElementViewExtensions.GetHolsterMeshCopy(item);
 ### GetHolsterMeshIfExists
 `public static MetaMesh GetHolsterMeshIfExists(this ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 holster mesh if exists 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 holster mesh if exists 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ ItemCollectionElementViewExtensions.GetHolsterMeshIfExists(item);
 ### GetHolsterWithWeaponMeshCopy
 `public static MetaMesh GetHolsterWithWeaponMeshCopy(this ItemObject item, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 holster with weapon mesh copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 holster with weapon mesh copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ ItemCollectionElementViewExtensions.GetHolsterWithWeaponMeshCopy(item, false);
 ### GetHolsterWithWeaponMeshIfExists
 `public static MetaMesh GetHolsterWithWeaponMeshIfExists(this ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 holster with weapon mesh if exists 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 holster with weapon mesh if exists 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ ItemCollectionElementViewExtensions.GetHolsterWithWeaponMeshIfExists(item);
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this ItemObject item, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flying mesh copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 flying mesh copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ ItemCollectionElementViewExtensions.GetFlyingMeshCopy(item, false);
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flying mesh if exists 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 flying mesh if exists 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ ItemCollectionElementViewExtensions.GetFlyingMeshIfExists(item);
 ### GetCameraFrameForInventory
 `public static MatrixFrame GetCameraFrameForInventory(this ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 camera frame for inventory 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 camera frame for inventory 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ ItemCollectionElementViewExtensions.GetCameraFrameForInventory(itemRosterElement
 ### GetItemFrameForInventory
 `public static MatrixFrame GetItemFrameForInventory(this ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item frame for inventory 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item frame for inventory 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ ItemCollectionElementViewExtensions.GetItemFrameForInventory(itemRosterElement);
 ### GetItemFrameForItemTooltip
 `public static MatrixFrame GetItemFrameForItemTooltip(this ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item frame for item tooltip 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item frame for item tooltip 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ ItemCollectionElementViewExtensions.GetItemFrameForItemTooltip(itemRosterElement
 ### OnGetWeaponData
 `public static void OnGetWeaponData(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 get weapon data 事件触发时调用此回调。
+**用途 / Purpose:** 在 get weapon data 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Incidents` to place it in the st
 ### Condition
 `public bool Condition()`
 
-**Purpose:** **Purpose:** Executes the Condition logic.
+**Purpose:** Executes the Condition logic.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -34,7 +34,7 @@ var result = incidentEffect.Condition();
 ### Consequence
 `public List<TextObject> Consequence()`
 
-**Purpose:** **Purpose:** Executes the Consequence logic.
+**Purpose:** Executes the Consequence logic.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -45,7 +45,7 @@ var result = incidentEffect.Consequence();
 ### GetHint
 `public List<TextObject> GetHint()`
 
-**Purpose:** **Purpose:** Reads and returns the hint value held by the this instance.
+**Purpose:** Reads and returns the hint value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -56,7 +56,7 @@ var result = incidentEffect.GetHint();
 ### WithChance
 `public IncidentEffect WithChance(float chance)`
 
-**Purpose:** **Purpose:** Executes the WithChance logic.
+**Purpose:** Executes the WithChance logic.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -67,7 +67,7 @@ var result = incidentEffect.WithChance(0);
 ### WithCustomInformation
 `public IncidentEffect WithCustomInformation(Func<List<TextObject>> customInformation)`
 
-**Purpose:** **Purpose:** Executes the WithCustomInformation logic.
+**Purpose:** Executes the WithCustomInformation logic.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -78,7 +78,7 @@ var result = incidentEffect.WithCustomInformation(customInformation);
 ### WithHint
 `public IncidentEffect WithHint(Func<IncidentEffect, List<TextObject>> hint)`
 
-**Purpose:** **Purpose:** Executes the WithHint logic.
+**Purpose:** Executes the WithHint logic.
 
 ```csharp
 // Obtain an instance of IncidentEffect from the subsystem API first
@@ -89,7 +89,7 @@ var result = incidentEffect.WithHint(func<IncidentEffect, hint);
 ### GoldChange
 `public static IncidentEffect GoldChange(Func<int> amountGetter)`
 
-**Purpose:** **Purpose:** Executes the GoldChange logic.
+**Purpose:** Executes the GoldChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ IncidentEffect.GoldChange(amountGetter);
 ### TraitChange
 `public static IncidentEffect TraitChange(TraitObject trait, int amount)`
 
-**Purpose:** **Purpose:** Executes the TraitChange logic.
+**Purpose:** Executes the TraitChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ IncidentEffect.TraitChange(trait, 0);
 ### SiegeProgressChange
 `public static IncidentEffect SiegeProgressChange(Func<float> amountGetter)`
 
-**Purpose:** **Purpose:** Executes the SiegeProgressChange logic.
+**Purpose:** Executes the SiegeProgressChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ IncidentEffect.SiegeProgressChange(amountGetter);
 ### WorkshopProfitabilityChange
 `public static IncidentEffect WorkshopProfitabilityChange(Func<Workshop> workshopGetter, float percentage)`
 
-**Purpose:** **Purpose:** Executes the WorkshopProfitabilityChange logic.
+**Purpose:** Executes the WorkshopProfitabilityChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -129,7 +129,7 @@ IncidentEffect.WorkshopProfitabilityChange(workshopGetter, 0);
 ### SkillChange
 `public static IncidentEffect SkillChange(SkillObject skill, float amount)`
 
-**Purpose:** **Purpose:** Executes the SkillChange logic.
+**Purpose:** Executes the SkillChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -139,7 +139,7 @@ IncidentEffect.SkillChange(skill, 0);
 ### MoraleChange
 `public static IncidentEffect MoraleChange(float amount)`
 
-**Purpose:** **Purpose:** Executes the MoraleChange logic.
+**Purpose:** Executes the MoraleChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ IncidentEffect.MoraleChange(0);
 ### HealthChance
 `public static IncidentEffect HealthChance(int amount)`
 
-**Purpose:** **Purpose:** Executes the HealthChance logic.
+**Purpose:** Executes the HealthChance logic.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ IncidentEffect.HealthChance(0);
 ### RenownChange
 `public static IncidentEffect RenownChange(float amount)`
 
-**Purpose:** **Purpose:** Executes the RenownChange logic.
+**Purpose:** Executes the RenownChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -169,7 +169,7 @@ IncidentEffect.RenownChange(0);
 ### CrimeRatingChange
 `public static IncidentEffect CrimeRatingChange(Func<IFaction> factionGetter, float amount)`
 
-**Purpose:** **Purpose:** Executes the CrimeRatingChange logic.
+**Purpose:** Executes the CrimeRatingChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -179,7 +179,7 @@ IncidentEffect.CrimeRatingChange(factionGetter, 0);
 ### InfluenceChange
 `public static IncidentEffect InfluenceChange(float amount)`
 
-**Purpose:** **Purpose:** Executes the InfluenceChange logic.
+**Purpose:** Executes the InfluenceChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -189,7 +189,7 @@ IncidentEffect.InfluenceChange(0);
 ### SettlementRelationChange
 `public static IncidentEffect SettlementRelationChange(Func<Settlement> settlementGetter, int amount)`
 
-**Purpose:** **Purpose:** Assigns a new value to tlement relation change and updates the object's internal state.
+**Purpose:** Assigns a new value to tlement relation change and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -199,7 +199,7 @@ IncidentEffect.SettlementRelationChange(settlementGetter, 0);
 ### TownBoundVillageRelationChange
 `public static IncidentEffect TownBoundVillageRelationChange(Func<Town> townGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the TownBoundVillageRelationChange logic.
+**Purpose:** Executes the TownBoundVillageRelationChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -209,7 +209,7 @@ IncidentEffect.TownBoundVillageRelationChange(townGetter, 0);
 ### TownBoundVillageHearthChange
 `public static IncidentEffect TownBoundVillageHearthChange(Func<Town> townGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the TownBoundVillageHearthChange logic.
+**Purpose:** Executes the TownBoundVillageHearthChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -219,7 +219,7 @@ IncidentEffect.TownBoundVillageHearthChange(townGetter, 0);
 ### VillageHearthChange
 `public static IncidentEffect VillageHearthChange(Func<Village> villageGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the VillageHearthChange logic.
+**Purpose:** Executes the VillageHearthChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -229,7 +229,7 @@ IncidentEffect.VillageHearthChange(villageGetter, 0);
 ### TownSecurityChange
 `public static IncidentEffect TownSecurityChange(Func<Town> townGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the TownSecurityChange logic.
+**Purpose:** Executes the TownSecurityChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -239,7 +239,7 @@ IncidentEffect.TownSecurityChange(townGetter, 0);
 ### HeroRelationChange
 `public static IncidentEffect HeroRelationChange(Func<Hero> heroGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the HeroRelationChange logic.
+**Purpose:** Executes the HeroRelationChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -249,7 +249,7 @@ IncidentEffect.HeroRelationChange(heroGetter, 0);
 ### TownProsperityChange
 `public static IncidentEffect TownProsperityChange(Func<Town> townGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the TownProsperityChange logic.
+**Purpose:** Executes the TownProsperityChange logic.
 
 ```csharp
 // Static call; no instance required
@@ -259,7 +259,7 @@ IncidentEffect.TownProsperityChange(townGetter, 0);
 ### SettlementMilitiaChange
 `public static IncidentEffect SettlementMilitiaChange(Func<Settlement> settlementGetter, int amount)`
 
-**Purpose:** **Purpose:** Assigns a new value to tlement militia change and updates the object's internal state.
+**Purpose:** Assigns a new value to tlement militia change and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -269,7 +269,7 @@ IncidentEffect.SettlementMilitiaChange(settlementGetter, 0);
 ### InfestNearbyHideout
 `public static IncidentEffect InfestNearbyHideout(Func<Settlement> settlementGetter)`
 
-**Purpose:** **Purpose:** Executes the InfestNearbyHideout logic.
+**Purpose:** Executes the InfestNearbyHideout logic.
 
 ```csharp
 // Static call; no instance required
@@ -279,7 +279,7 @@ IncidentEffect.InfestNearbyHideout(settlementGetter);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(float percentage)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomly logic.
+**Purpose:** Executes the WoundTroopsRandomly logic.
 
 ```csharp
 // Static call; no instance required
@@ -289,7 +289,7 @@ IncidentEffect.WoundTroopsRandomly(0);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter, bool specifyUnitTypeOnHint = true)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomly logic.
+**Purpose:** Executes the WoundTroopsRandomly logic.
 
 ```csharp
 // Static call; no instance required
@@ -299,7 +299,7 @@ IncidentEffect.WoundTroopsRandomly(func<TroopRosterElement, false, amountGetter,
 ### WoundTroopsRandomlyWithChanceOfDeath
 `public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(float percentage, float chanceOfDeathPerUnit)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomlyWithChanceOfDeath logic.
+**Purpose:** Executes the WoundTroopsRandomlyWithChanceOfDeath logic.
 
 ```csharp
 // Static call; no instance required
@@ -309,7 +309,7 @@ IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
 ### BreachSiegeWall
 `public static IncidentEffect BreachSiegeWall(int amount)`
 
-**Purpose:** **Purpose:** Executes the BreachSiegeWall logic.
+**Purpose:** Executes the BreachSiegeWall logic.
 
 ```csharp
 // Static call; no instance required
@@ -319,7 +319,7 @@ IncidentEffect.BreachSiegeWall(0);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(int amount)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomly logic.
+**Purpose:** Executes the WoundTroopsRandomly logic.
 
 ```csharp
 // Static call; no instance required
@@ -329,7 +329,7 @@ IncidentEffect.WoundTroopsRandomly(0);
 ### WoundTroopsRandomlyWithChanceOfDeath
 `public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(int amount, float chanceOfDeathPerUnit)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomlyWithChanceOfDeath logic.
+**Purpose:** Executes the WoundTroopsRandomlyWithChanceOfDeath logic.
 
 ```csharp
 // Static call; no instance required
@@ -339,7 +339,7 @@ IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
 ### WoundTroop
 `public static IncidentEffect WoundTroop(Func<CharacterObject> characterGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the WoundTroop logic.
+**Purpose:** Executes the WoundTroop logic.
 
 ```csharp
 // Static call; no instance required
@@ -349,7 +349,7 @@ IncidentEffect.WoundTroop(characterGetter, 0);
 ### WoundTroopsRandomlyByChance
 `public static IncidentEffect WoundTroopsRandomlyByChance(float chancePerUnit)`
 
-**Purpose:** **Purpose:** Executes the WoundTroopsRandomlyByChance logic.
+**Purpose:** Executes the WoundTroopsRandomlyByChance logic.
 
 ```csharp
 // Static call; no instance required
@@ -359,7 +359,7 @@ IncidentEffect.WoundTroopsRandomlyByChance(0);
 ### KillTroopsRandomlyOrderedByTier
 `public static IncidentEffect KillTroopsRandomlyOrderedByTier(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter)`
 
-**Purpose:** **Purpose:** Executes the KillTroopsRandomlyOrderedByTier logic.
+**Purpose:** Executes the KillTroopsRandomlyOrderedByTier logic.
 
 ```csharp
 // Static call; no instance required
@@ -369,7 +369,7 @@ IncidentEffect.KillTroopsRandomlyOrderedByTier(func<TroopRosterElement, false, a
 ### KillTroopsRandomly
 `public static IncidentEffect KillTroopsRandomly(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter)`
 
-**Purpose:** **Purpose:** Executes the KillTroopsRandomly logic.
+**Purpose:** Executes the KillTroopsRandomly logic.
 
 ```csharp
 // Static call; no instance required
@@ -379,7 +379,7 @@ IncidentEffect.KillTroopsRandomly(func<TroopRosterElement, false, amountGetter);
 ### KillTroopsRandomlyByChance
 `public static IncidentEffect KillTroopsRandomlyByChance(float chancePerUnit)`
 
-**Purpose:** **Purpose:** Executes the KillTroopsRandomlyByChance logic.
+**Purpose:** Executes the KillTroopsRandomlyByChance logic.
 
 ```csharp
 // Static call; no instance required
@@ -389,7 +389,7 @@ IncidentEffect.KillTroopsRandomlyByChance(0);
 ### KillTroop
 `public static IncidentEffect KillTroop(Func<CharacterObject> characterGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the KillTroop logic.
+**Purpose:** Executes the KillTroop logic.
 
 ```csharp
 // Static call; no instance required
@@ -399,7 +399,7 @@ IncidentEffect.KillTroop(characterGetter, 0);
 ### ChangeTroopAmount
 `public static IncidentEffect ChangeTroopAmount(Func<CharacterObject> characterGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the ChangeTroopAmount logic.
+**Purpose:** Executes the ChangeTroopAmount logic.
 
 ```csharp
 // Static call; no instance required
@@ -409,7 +409,7 @@ IncidentEffect.ChangeTroopAmount(characterGetter, 0);
 ### UpgradeTroop
 `public static IncidentEffect UpgradeTroop(Func<CharacterObject> characterGetter, Func<CharacterObject, bool> upgradePredicate, int amount, Func<long> incidentSeedGetter)`
 
-**Purpose:** **Purpose:** Executes the UpgradeTroop logic.
+**Purpose:** Executes the UpgradeTroop logic.
 
 ```csharp
 // Static call; no instance required
@@ -419,7 +419,7 @@ IncidentEffect.UpgradeTroop(characterGetter, func<CharacterObject, false, 0, inc
 ### UpgradeTroop
 `public static IncidentEffect UpgradeTroop(Func<CharacterObject> characterGetter, Func<CharacterObject> upgradedCharacterGetter, int amount, Func<long> incidentSeedGetter)`
 
-**Purpose:** **Purpose:** Executes the UpgradeTroop logic.
+**Purpose:** Executes the UpgradeTroop logic.
 
 ```csharp
 // Static call; no instance required
@@ -429,7 +429,7 @@ IncidentEffect.UpgradeTroop(characterGetter, upgradedCharacterGetter, 0, inciden
 ### RemovePrisonersRandomlyWithPredicate
 `public static IncidentEffect RemovePrisonersRandomlyWithPredicate(Func<TroopRosterElement, bool> predicate, int amount)`
 
-**Purpose:** **Purpose:** Removes prisoners randomly with predicate from the current collection or state.
+**Purpose:** Removes prisoners randomly with predicate from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -439,7 +439,7 @@ IncidentEffect.RemovePrisonersRandomlyWithPredicate(func<TroopRosterElement, fal
 ### ChangeItemsAmount
 `public static IncidentEffect ChangeItemsAmount(Func<List<ItemObject>> itemsGetter, int amount)`
 
-**Purpose:** **Purpose:** Executes the ChangeItemsAmount logic.
+**Purpose:** Executes the ChangeItemsAmount logic.
 
 ```csharp
 // Static call; no instance required
@@ -449,7 +449,7 @@ IncidentEffect.ChangeItemsAmount(itemsGetter, 0);
 ### ChangeItemAmount
 `public static IncidentEffect ChangeItemAmount(Func<ItemObject> itemGetter, Func<int> amountGetter)`
 
-**Purpose:** **Purpose:** Executes the ChangeItemAmount logic.
+**Purpose:** Executes the ChangeItemAmount logic.
 
 ```csharp
 // Static call; no instance required
@@ -459,7 +459,7 @@ IncidentEffect.ChangeItemAmount(itemGetter, amountGetter);
 ### PartyExperienceChance
 `public static IncidentEffect PartyExperienceChance(int amount)`
 
-**Purpose:** **Purpose:** Executes the PartyExperienceChance logic.
+**Purpose:** Executes the PartyExperienceChance logic.
 
 ```csharp
 // Static call; no instance required
@@ -469,7 +469,7 @@ IncidentEffect.PartyExperienceChance(0);
 ### DisorganizeParty
 `public static IncidentEffect DisorganizeParty()`
 
-**Purpose:** **Purpose:** Executes the DisorganizeParty logic.
+**Purpose:** Executes the DisorganizeParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -479,7 +479,7 @@ IncidentEffect.DisorganizeParty();
 ### HealTroopsRandomly
 `public static IncidentEffect HealTroopsRandomly(int amount)`
 
-**Purpose:** **Purpose:** Executes the HealTroopsRandomly logic.
+**Purpose:** Executes the HealTroopsRandomly logic.
 
 ```csharp
 // Static call; no instance required
@@ -489,7 +489,7 @@ IncidentEffect.HealTroopsRandomly(0);
 ### DemoteTroopsRandomlyWithPredicate
 `public static IncidentEffect DemoteTroopsRandomlyWithPredicate(Func<TroopRosterElement, bool> predicate, Func<CharacterObject, bool> demotionPredicate, int amount, bool specifyUnitTypeOnHint = true)`
 
-**Purpose:** **Purpose:** Executes the DemoteTroopsRandomlyWithPredicate logic.
+**Purpose:** Executes the DemoteTroopsRandomlyWithPredicate logic.
 
 ```csharp
 // Static call; no instance required
@@ -499,7 +499,7 @@ IncidentEffect.DemoteTroopsRandomlyWithPredicate(func<TroopRosterElement, false,
 ### Group
 `public static IncidentEffect Group(params IncidentEffect effects)`
 
-**Purpose:** **Purpose:** Executes the Group logic.
+**Purpose:** Executes the Group logic.
 
 ```csharp
 // Static call; no instance required
@@ -509,7 +509,7 @@ IncidentEffect.Group(effects);
 ### Select
 `public static IncidentEffect Select(IncidentEffect effectOne, IncidentEffect effectTwo, float chanceOfFirstOne)`
 
-**Purpose:** **Purpose:** Executes the Select logic.
+**Purpose:** Executes the Select logic.
 
 ```csharp
 // Static call; no instance required
@@ -519,7 +519,7 @@ IncidentEffect.Select(effectOne, effectTwo, 0);
 ### Custom
 `public static IncidentEffect Custom(Func<bool> condition, Func<List<TextObject>> consequence, Func<IncidentEffect, List<TextObject>> hint)`
 
-**Purpose:** **Purpose:** Executes the Custom logic.
+**Purpose:** Executes the Custom logic.
 
 ```csharp
 // Static call; no instance required

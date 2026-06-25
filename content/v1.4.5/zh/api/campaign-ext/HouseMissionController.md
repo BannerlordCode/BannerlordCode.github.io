@@ -23,7 +23,7 @@ description: "HouseMissionController 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HouseMissionController 实例
@@ -34,7 +34,7 @@ houseMissionController.OnBehaviorInitialize();
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 created 事件触发时调用此回调。
+**用途 / Purpose:** 在 created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HouseMissionController 实例
@@ -45,7 +45,7 @@ houseMissionController.OnCreated();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HouseMissionController 实例
@@ -56,7 +56,7 @@ houseMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HouseMissionController 实例

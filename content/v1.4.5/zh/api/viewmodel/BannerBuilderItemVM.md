@@ -33,7 +33,7 @@ description: "BannerBuilderItemVM 的自动生成类参考。"
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderItemVM 实例

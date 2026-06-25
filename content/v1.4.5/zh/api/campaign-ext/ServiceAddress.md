@@ -30,7 +30,7 @@ description: "ServiceAddress 的自动生成类参考。"
 ### IsServiceAddress
 `public static bool IsServiceAddress(string address)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 service address 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 service address 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ ServiceAddress.IsServiceAddress("example");
 ### TryGetAddressName
 `public static bool TryGetAddressName(string serviceAddress, out string addressName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get address name 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 get address name 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 静态调用，不需要实例

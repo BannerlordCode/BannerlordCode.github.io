@@ -23,7 +23,7 @@ description: "ModuleInfoModelExtensions 的自动生成类参考。"
 ### IsCompatibleWith
 `public static bool IsCompatibleWith(this IEnumerable<ModuleInfoModel> a, IEnumerable<ModuleInfoModel> b, bool allowOptionalModules)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 compatible with 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 compatible with 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

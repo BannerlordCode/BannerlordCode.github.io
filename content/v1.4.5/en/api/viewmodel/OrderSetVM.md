@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### OnOrderSetSelectionStateChangedDelegate
 `public delegate void OnOrderSetSelectionStateChangedDelegate(OrderSetVM orderSet, bool isSelected)`
 
-**Purpose:** **Purpose:** Invoked when the order set selection state changed delegate event is raised.
+**Purpose:** Invoked when the order set selection state changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -43,7 +43,7 @@ orderSetVM.OnOrderSetSelectionStateChangedDelegate(orderSet, false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -54,7 +54,7 @@ orderSetVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -65,7 +65,7 @@ orderSetVM.OnFinalize();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -76,7 +76,7 @@ orderSetVM.ExecuteSelect();
 ### ExecuteDeSelect
 `public void ExecuteDeSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with de select.
+**Purpose:** Runs the operation or workflow associated with de select.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -87,7 +87,7 @@ orderSetVM.ExecuteDeSelect();
 ### OnOrderExecuted
 `public void OnOrderExecuted(OrderItemVM order)`
 
-**Purpose:** **Purpose:** Invoked when the order executed event is raised.
+**Purpose:** Invoked when the order executed event is raised.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -98,7 +98,7 @@ orderSetVM.OnOrderExecuted(order);
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of orders in sync with the underlying state.
+**Purpose:** Keeps the display or cache of orders in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -109,7 +109,7 @@ orderSetVM.RefreshOrders();
 ### RefreshOrderStates
 `public void RefreshOrderStates()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of order states in sync with the underlying state.
+**Purpose:** Keeps the display or cache of order states in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first
@@ -120,7 +120,7 @@ orderSetVM.RefreshOrderStates();
 ### UpdateCanUseShortcuts
 `public void UpdateCanUseShortcuts(bool value)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of can use shortcuts.
+**Purpose:** Recalculates and stores the latest representation of can use shortcuts.
 
 ```csharp
 // Obtain an instance of OrderSetVM from the subsystem API first

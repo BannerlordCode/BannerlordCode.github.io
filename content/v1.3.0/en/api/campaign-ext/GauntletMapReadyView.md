@@ -23,7 +23,7 @@ Treat `GauntletMapReadyView` as a View-style extension point: first identify who
 ### SetIsMapSceneReady
 `public override void SetIsMapSceneReady(bool isReady)`
 
-**Purpose:** **Purpose:** Assigns a new value to is map scene ready and updates the object's internal state.
+**Purpose:** Assigns a new value to is map scene ready and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletMapReadyView from the subsystem API first

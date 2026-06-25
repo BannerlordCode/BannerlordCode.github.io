@@ -30,7 +30,7 @@ description: "CommonAreaMarker 的自动生成类参考。"
 ### GetUsableMachinesInRange
 `public override List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usable machines in range 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 usable machines in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAreaMarker 实例
@@ -41,7 +41,7 @@ var result = commonAreaMarker.GetUsableMachinesInRange("example");
 ### GetAlley
 `public Alley GetAlley()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 alley 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 alley 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAreaMarker 实例
@@ -52,7 +52,7 @@ var result = commonAreaMarker.GetAlley();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAreaMarker 实例

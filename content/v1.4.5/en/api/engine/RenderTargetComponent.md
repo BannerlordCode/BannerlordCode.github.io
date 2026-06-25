@@ -29,7 +29,7 @@ Treat `RenderTargetComponent` as a Component-style extension point: first identi
 ### TextureUpdateEventHandler
 `public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)`
 
-**Purpose:** **Purpose:** Executes the TextureUpdateEventHandler logic.
+**Purpose:** Executes the TextureUpdateEventHandler logic.
 
 ```csharp
 // Obtain an instance of RenderTargetComponent from the subsystem API first

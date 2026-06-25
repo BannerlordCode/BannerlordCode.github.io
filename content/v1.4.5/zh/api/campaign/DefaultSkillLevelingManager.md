@@ -23,7 +23,7 @@ description: "DefaultSkillLevelingManager 的自动生成类参考。"
 ### OnCombatHit
 `public void OnCombatHit(CharacterObject affectorCharacter, CharacterObject affectedCharacter, CharacterObject captain, Hero commander, float speedBonusFromMovement, float shotDifficulty, WeaponComponentData affectorWeapon, float hitPointRatio, CombatXpModel.MissionTypeEnum missionType, bool isAffectorMounted, bool isTeamKill, bool isAffectorUnderCommand, float damageAmount, bool isFatal, bool isSiegeEngineHit, bool isHorseCharge, bool isSneakAttack)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 combat hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 combat hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -34,7 +34,7 @@ defaultSkillLevelingManager.OnCombatHit(affectorCharacter, affectedCharacter, ca
 ### OnSiegeEngineDestroyed
 `public void OnSiegeEngineDestroyed(MobileParty party, SiegeEngineType destroyedSiegeEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 siege engine destroyed 事件触发时调用此回调。
+**用途 / Purpose:** 在 siege engine destroyed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -45,7 +45,7 @@ defaultSkillLevelingManager.OnSiegeEngineDestroyed(party, destroyedSiegeEngine);
 ### OnSimulationCombatKill
 `public void OnSimulationCombatKill(CharacterObject affectorCharacter, CharacterObject affectedCharacter, PartyBase affectorParty, PartyBase commanderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 simulation combat kill 事件触发时调用此回调。
+**用途 / Purpose:** 在 simulation combat kill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -56,7 +56,7 @@ defaultSkillLevelingManager.OnSimulationCombatKill(affectorCharacter, affectedCh
 ### OnTradeProfitMade
 `public void OnTradeProfitMade(PartyBase party, int tradeProfit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 trade profit made 事件触发时调用此回调。
+**用途 / Purpose:** 在 trade profit made 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -67,7 +67,7 @@ defaultSkillLevelingManager.OnTradeProfitMade(party, 0);
 ### OnTradeProfitMade
 `public void OnTradeProfitMade(Hero hero, int tradeProfit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 trade profit made 事件触发时调用此回调。
+**用途 / Purpose:** 在 trade profit made 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -78,7 +78,7 @@ defaultSkillLevelingManager.OnTradeProfitMade(hero, 0);
 ### OnSettlementProjectFinished
 `public void OnSettlementProjectFinished(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 settlement project finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 settlement project finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -89,7 +89,7 @@ defaultSkillLevelingManager.OnSettlementProjectFinished(settlement);
 ### OnSettlementGoverned
 `public void OnSettlementGoverned(Hero governor, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 settlement governed 事件触发时调用此回调。
+**用途 / Purpose:** 在 settlement governed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -100,7 +100,7 @@ defaultSkillLevelingManager.OnSettlementGoverned(governor, settlement);
 ### OnInfluenceSpent
 `public void OnInfluenceSpent(Hero hero, float amountSpent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 influence spent 事件触发时调用此回调。
+**用途 / Purpose:** 在 influence spent 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -111,7 +111,7 @@ defaultSkillLevelingManager.OnInfluenceSpent(hero, 0);
 ### OnGainRelation
 `public void OnGainRelation(Hero hero, Hero gainedRelationWith, float relationChange, ChangeRelationAction.ChangeRelationDetail detail = ChangeRelationAction.ChangeRelationDetail.Default)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 gain relation 事件触发时调用此回调。
+**用途 / Purpose:** 在 gain relation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -122,7 +122,7 @@ defaultSkillLevelingManager.OnGainRelation(hero, gainedRelationWith, 0, changeRe
 ### OnTroopRecruited
 `public void OnTroopRecruited(Hero hero, int amount, int tier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 troop recruited 事件触发时调用此回调。
+**用途 / Purpose:** 在 troop recruited 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -133,7 +133,7 @@ defaultSkillLevelingManager.OnTroopRecruited(hero, 0, 0);
 ### OnBribeGiven
 `public void OnBribeGiven(int amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 bribe given 事件触发时调用此回调。
+**用途 / Purpose:** 在 bribe given 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -144,7 +144,7 @@ defaultSkillLevelingManager.OnBribeGiven(0);
 ### OnBanditsRecruited
 `public void OnBanditsRecruited(MobileParty mobileParty, CharacterObject bandit, int count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 bandits recruited 事件触发时调用此回调。
+**用途 / Purpose:** 在 bandits recruited 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -155,7 +155,7 @@ defaultSkillLevelingManager.OnBanditsRecruited(mobileParty, bandit, 0);
 ### OnMainHeroReleasedFromCaptivity
 `public void OnMainHeroReleasedFromCaptivity(float captivityTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main hero released from captivity 事件触发时调用此回调。
+**用途 / Purpose:** 在 main hero released from captivity 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -166,7 +166,7 @@ defaultSkillLevelingManager.OnMainHeroReleasedFromCaptivity(0);
 ### OnMainHeroTortured
 `public void OnMainHeroTortured()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main hero tortured 事件触发时调用此回调。
+**用途 / Purpose:** 在 main hero tortured 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -177,7 +177,7 @@ defaultSkillLevelingManager.OnMainHeroTortured();
 ### OnMainHeroDisguised
 `public void OnMainHeroDisguised(bool isNotCaught)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 main hero disguised 事件触发时调用此回调。
+**用途 / Purpose:** 在 main hero disguised 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -188,7 +188,7 @@ defaultSkillLevelingManager.OnMainHeroDisguised(false);
 ### OnRaid
 `public void OnRaid(MobileParty attackerParty, ItemRoster lootedItems)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 raid 事件触发时调用此回调。
+**用途 / Purpose:** 在 raid 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -199,7 +199,7 @@ defaultSkillLevelingManager.OnRaid(attackerParty, lootedItems);
 ### OnLoot
 `public void OnLoot(MobileParty attackerParty, MobileParty forcedParty, ItemRoster lootedItems, bool attacked)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 loot 事件触发时调用此回调。
+**用途 / Purpose:** 在 loot 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -210,7 +210,7 @@ defaultSkillLevelingManager.OnLoot(attackerParty, forcedParty, lootedItems, fals
 ### OnPrisonerSell
 `public void OnPrisonerSell(MobileParty mobileParty, in TroopRoster prisonerRoster)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 prisoner sell 事件触发时调用此回调。
+**用途 / Purpose:** 在 prisoner sell 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -221,7 +221,7 @@ defaultSkillLevelingManager.OnPrisonerSell(mobileParty, prisonerRoster);
 ### OnSurgeryApplied
 `public void OnSurgeryApplied(MobileParty party, bool surgerySuccess, int troopTier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 surgery applied 事件触发时调用此回调。
+**用途 / Purpose:** 在 surgery applied 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -232,7 +232,7 @@ defaultSkillLevelingManager.OnSurgeryApplied(party, false, 0);
 ### OnTacticsUsed
 `public void OnTacticsUsed(MobileParty party, float xp)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tactics used 事件触发时调用此回调。
+**用途 / Purpose:** 在 tactics used 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -243,7 +243,7 @@ defaultSkillLevelingManager.OnTacticsUsed(party, 0);
 ### OnHideoutSpotted
 `public void OnHideoutSpotted(MobileParty party, PartyBase spottedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hideout spotted 事件触发时调用此回调。
+**用途 / Purpose:** 在 hideout spotted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -254,7 +254,7 @@ defaultSkillLevelingManager.OnHideoutSpotted(party, spottedParty);
 ### OnTrackDetected
 `public void OnTrackDetected(Track track)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 track detected 事件触发时调用此回调。
+**用途 / Purpose:** 在 track detected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -265,7 +265,7 @@ defaultSkillLevelingManager.OnTrackDetected(track);
 ### OnTravelOnFoot
 `public void OnTravelOnFoot(Hero hero, float speed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 travel on foot 事件触发时调用此回调。
+**用途 / Purpose:** 在 travel on foot 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -276,7 +276,7 @@ defaultSkillLevelingManager.OnTravelOnFoot(hero, 0);
 ### OnTravelOnHorse
 `public void OnTravelOnHorse(Hero hero, float speed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 travel on horse 事件触发时调用此回调。
+**用途 / Purpose:** 在 travel on horse 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -287,7 +287,7 @@ defaultSkillLevelingManager.OnTravelOnHorse(hero, 0);
 ### OnHeroHealedWhileWaiting
 `public void OnHeroHealedWhileWaiting(Hero hero, int healingAmount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hero healed while waiting 事件触发时调用此回调。
+**用途 / Purpose:** 在 hero healed while waiting 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -298,7 +298,7 @@ defaultSkillLevelingManager.OnHeroHealedWhileWaiting(hero, 0);
 ### OnRegularTroopHealedWhileWaiting
 `public void OnRegularTroopHealedWhileWaiting(MobileParty mobileParty, int healedTroopCount, float averageTier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 regular troop healed while waiting 事件触发时调用此回调。
+**用途 / Purpose:** 在 regular troop healed while waiting 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -309,7 +309,7 @@ defaultSkillLevelingManager.OnRegularTroopHealedWhileWaiting(mobileParty, 0, 0);
 ### OnLeadingArmy
 `public void OnLeadingArmy(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 leading army 事件触发时调用此回调。
+**用途 / Purpose:** 在 leading army 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -320,7 +320,7 @@ defaultSkillLevelingManager.OnLeadingArmy(mobileParty);
 ### OnSieging
 `public void OnSieging(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 sieging 事件触发时调用此回调。
+**用途 / Purpose:** 在 sieging 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -331,7 +331,7 @@ defaultSkillLevelingManager.OnSieging(mobileParty);
 ### OnSiegeEngineBuilt
 `public void OnSiegeEngineBuilt(MobileParty mobileParty, SiegeEngineType siegeEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 siege engine built 事件触发时调用此回调。
+**用途 / Purpose:** 在 siege engine built 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -342,7 +342,7 @@ defaultSkillLevelingManager.OnSiegeEngineBuilt(mobileParty, siegeEngine);
 ### OnUpgradeTroops
 `public void OnUpgradeTroops(PartyBase party, CharacterObject troop, CharacterObject upgrade, int numberOfTroops)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 upgrade troops 事件触发时调用此回调。
+**用途 / Purpose:** 在 upgrade troops 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -353,7 +353,7 @@ defaultSkillLevelingManager.OnUpgradeTroops(party, troop, upgrade, 0);
 ### OnPersuasionSucceeded
 `public void OnPersuasionSucceeded(Hero targetHero, SkillObject skill, PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 persuasion succeeded 事件触发时调用此回调。
+**用途 / Purpose:** 在 persuasion succeeded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -364,7 +364,7 @@ defaultSkillLevelingManager.OnPersuasionSucceeded(targetHero, skill, difficulty,
 ### OnPrisonBreakEnd
 `public void OnPrisonBreakEnd(Hero prisonerHero, bool isSucceeded)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 prison break end 事件触发时调用此回调。
+**用途 / Purpose:** 在 prison break end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -375,7 +375,7 @@ defaultSkillLevelingManager.OnPrisonBreakEnd(prisonerHero, false);
 ### OnWallBreached
 `public void OnWallBreached(MobileParty party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 wall breached 事件触发时调用此回调。
+**用途 / Purpose:** 在 wall breached 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -386,7 +386,7 @@ defaultSkillLevelingManager.OnWallBreached(party);
 ### OnForceVolunteers
 `public void OnForceVolunteers(MobileParty attackerParty, PartyBase forcedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 force volunteers 事件触发时调用此回调。
+**用途 / Purpose:** 在 force volunteers 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -397,7 +397,7 @@ defaultSkillLevelingManager.OnForceVolunteers(attackerParty, forcedParty);
 ### OnForceSupplies
 `public void OnForceSupplies(MobileParty attackerParty, ItemRoster lootedItems, bool attacked)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 force supplies 事件触发时调用此回调。
+**用途 / Purpose:** 在 force supplies 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -408,7 +408,7 @@ defaultSkillLevelingManager.OnForceSupplies(attackerParty, lootedItems, false);
 ### OnAIPartiesTravel
 `public void OnAIPartiesTravel(Hero hero, bool isCaravanParty, TerrainType currentTerrainType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 a i parties travel 事件触发时调用此回调。
+**用途 / Purpose:** 在 a i parties travel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -419,7 +419,7 @@ defaultSkillLevelingManager.OnAIPartiesTravel(hero, false, currentTerrainType);
 ### OnTraverseTerrain
 `public void OnTraverseTerrain(MobileParty mobileParty, TerrainType currentTerrainType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 traverse terrain 事件触发时调用此回调。
+**用途 / Purpose:** 在 traverse terrain 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -430,7 +430,7 @@ defaultSkillLevelingManager.OnTraverseTerrain(mobileParty, currentTerrainType);
 ### OnBattleEnded
 `public void OnBattleEnded(PartyBase party, CharacterObject troop, int excessXp)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 battle ended 事件触发时调用此回调。
+**用途 / Purpose:** 在 battle ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -441,7 +441,7 @@ defaultSkillLevelingManager.OnBattleEnded(party, troop, 0);
 ### OnFoodConsumed
 `public void OnFoodConsumed(MobileParty mobileParty, bool wasStarving)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 food consumed 事件触发时调用此回调。
+**用途 / Purpose:** 在 food consumed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -452,7 +452,7 @@ defaultSkillLevelingManager.OnFoodConsumed(mobileParty, false);
 ### OnAlleyCleared
 `public void OnAlleyCleared(Alley alley)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 alley cleared 事件触发时调用此回调。
+**用途 / Purpose:** 在 alley cleared 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -463,7 +463,7 @@ defaultSkillLevelingManager.OnAlleyCleared(alley);
 ### OnDailyAlleyTick
 `public void OnDailyAlleyTick(Alley alley, Hero alleyLeader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 daily alley tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 daily alley tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -474,7 +474,7 @@ defaultSkillLevelingManager.OnDailyAlleyTick(alley, alleyLeader);
 ### OnBoardGameWonAgainstLord
 `public void OnBoardGameWonAgainstLord(Hero lord, BoardGameHelper.AIDifficulty difficulty, bool extraXpGain)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 board game won against lord 事件触发时调用此回调。
+**用途 / Purpose:** 在 board game won against lord 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -485,7 +485,7 @@ defaultSkillLevelingManager.OnBoardGameWonAgainstLord(lord, difficulty, false);
 ### OnHideoutClearedAsGhost
 `public void OnHideoutClearedAsGhost()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hideout cleared as ghost 事件触发时调用此回调。
+**用途 / Purpose:** 在 hideout cleared as ghost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -496,7 +496,7 @@ defaultSkillLevelingManager.OnHideoutClearedAsGhost();
 ### OnHideoutMissionEnd
 `public void OnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hideout mission end 事件触发时调用此回调。
+**用途 / Purpose:** 在 hideout mission end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -507,7 +507,7 @@ defaultSkillLevelingManager.OnHideoutMissionEnd(false);
 ### OnWarehouseProduction
 `public void OnWarehouseProduction(EquipmentElement production)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 warehouse production 事件触发时调用此回调。
+**用途 / Purpose:** 在 warehouse production 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -518,7 +518,7 @@ defaultSkillLevelingManager.OnWarehouseProduction(production);
 ### OnAIPartyLootCasualties
 `public void OnAIPartyLootCasualties(int goldAmount, Hero winnerPartyLeader, PartyBase defeatedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 a i party loot casualties 事件触发时调用此回调。
+**用途 / Purpose:** 在 a i party loot casualties 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -529,7 +529,7 @@ defaultSkillLevelingManager.OnAIPartyLootCasualties(0, winnerPartyLeader, defeat
 ### OnShipDamaged
 `public void OnShipDamaged(Ship ship, float rawDamage, float finalDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -540,7 +540,7 @@ defaultSkillLevelingManager.OnShipDamaged(ship, 0, 0);
 ### OnShipRepaired
 `public void OnShipRepaired(Ship ship, float repairedHitPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship repaired 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship repaired 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例
@@ -551,7 +551,7 @@ defaultSkillLevelingManager.OnShipRepaired(ship, 0);
 ### OnTravelOnWater
 `public void OnTravelOnWater(MobileParty party, float speed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 travel on water 事件触发时调用此回调。
+**用途 / Purpose:** 在 travel on water 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSkillLevelingManager 实例

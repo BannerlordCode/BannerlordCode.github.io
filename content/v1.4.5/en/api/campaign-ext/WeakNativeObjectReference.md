@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**Purpose:** **Purpose:** Executes the ManualInvalidate logic.
+**Purpose:** Executes the ManualInvalidate logic.
 
 ```csharp
 // Obtain an instance of WeakNativeObjectReference from the subsystem API first
@@ -34,7 +34,7 @@ weakNativeObjectReference.ManualInvalidate();
 ### GetNativeObject
 `public NativeObject GetNativeObject()`
 
-**Purpose:** **Purpose:** Reads and returns the native object value held by the this instance.
+**Purpose:** Reads and returns the native object value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeakNativeObjectReference from the subsystem API first

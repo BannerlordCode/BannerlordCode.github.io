@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyInformationPopup from the subsystem API first
@@ -44,7 +44,7 @@ mPLobbyInformationPopup.RefreshValues();
 ### ShowInformation
 `public void ShowInformation(TextObject title, TextObject message)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with information.
+**Purpose:** Displays the UI or element associated with information.
 
 ```csharp
 // Obtain an instance of MPLobbyInformationPopup from the subsystem API first
@@ -55,7 +55,7 @@ mPLobbyInformationPopup.ShowInformation(title, message);
 ### ShowInformation
 `public void ShowInformation(string title, string message)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with information.
+**Purpose:** Displays the UI or element associated with information.
 
 ```csharp
 // Obtain an instance of MPLobbyInformationPopup from the subsystem API first
@@ -66,7 +66,7 @@ mPLobbyInformationPopup.ShowInformation("example", "example");
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of MPLobbyInformationPopup from the subsystem API first
@@ -77,7 +77,7 @@ mPLobbyInformationPopup.ExecuteClose();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyInformationPopup from the subsystem API first

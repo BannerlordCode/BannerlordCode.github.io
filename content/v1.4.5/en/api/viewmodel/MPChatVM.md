@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -62,7 +62,7 @@ mPChatVM.RefreshValues();
 ### ToggleIncludeCombatLog
 `public void ToggleIncludeCombatLog()`
 
-**Purpose:** **Purpose:** Executes the ToggleIncludeCombatLog logic.
+**Purpose:** Executes the ToggleIncludeCombatLog logic.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -73,7 +73,7 @@ mPChatVM.ToggleIncludeCombatLog();
 ### ExecuteToggleIncludeShouts
 `public void ExecuteToggleIncludeShouts()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle include shouts.
+**Purpose:** Runs the operation or workflow associated with toggle include shouts.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -84,7 +84,7 @@ mPChatVM.ExecuteToggleIncludeShouts();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -95,7 +95,7 @@ mPChatVM.Tick(0);
 ### Hide
 `public void Hide()`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with the this instance.
+**Purpose:** Hides the UI or element associated with the this instance.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -106,7 +106,7 @@ mPChatVM.Hide();
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -117,7 +117,7 @@ mPChatVM.Clear();
 ### UpdateObjects
 `public void UpdateObjects(Game game, Mission mission)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of objects.
+**Purpose:** Recalculates and stores the latest representation of objects.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -128,7 +128,7 @@ mPChatVM.UpdateObjects(game, mission);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -139,7 +139,7 @@ mPChatVM.OnFinalize();
 ### SendMessageToChannel
 `public void SendMessageToChannel(ChatChannelType channel, string message)`
 
-**Purpose:** **Purpose:** Executes the SendMessageToChannel logic.
+**Purpose:** Executes the SendMessageToChannel logic.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -150,7 +150,7 @@ mPChatVM.SendMessageToChannel(channel, "example");
 ### CheckChatFading
 `public void CheckChatFading(float dt)`
 
-**Purpose:** **Purpose:** Verifies whether chat fading holds true for the this instance.
+**Purpose:** Verifies whether chat fading holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -161,7 +161,7 @@ mPChatVM.CheckChatFading(0);
 ### SetChatDisabledStateChangedCallback
 `public void SetChatDisabledStateChangedCallback(Action<bool> onChatDisabledStateChanged)`
 
-**Purpose:** **Purpose:** Assigns a new value to chat disabled state changed callback and updates the object's internal state.
+**Purpose:** Assigns a new value to chat disabled state changed callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -172,7 +172,7 @@ mPChatVM.SetChatDisabledStateChangedCallback(onChatDisabledStateChanged);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<TextObject> getToggleChatKeyText)`
 
-**Purpose:** **Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
+**Purpose:** Assigns a new value to get key text from key i d func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -183,7 +183,7 @@ mPChatVM.SetGetKeyTextFromKeyIDFunc(getToggleChatKeyText);
 ### SetGetCycleChannelKeyTextFunc
 `public void SetGetCycleChannelKeyTextFunc(Func<TextObject> getCycleChannelsKeyText)`
 
-**Purpose:** **Purpose:** Assigns a new value to get cycle channel key text func and updates the object's internal state.
+**Purpose:** Assigns a new value to get cycle channel key text func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -194,7 +194,7 @@ mPChatVM.SetGetCycleChannelKeyTextFunc(getCycleChannelsKeyText);
 ### SetGetSendMessageKeyTextFunc
 `public void SetGetSendMessageKeyTextFunc(Func<TextObject> getSendMessageKeyText)`
 
-**Purpose:** **Purpose:** Assigns a new value to get send message key text func and updates the object's internal state.
+**Purpose:** Assigns a new value to get send message key text func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -205,7 +205,7 @@ mPChatVM.SetGetSendMessageKeyTextFunc(getSendMessageKeyText);
 ### SetGetCancelSendingKeyTextFunc
 `public void SetGetCancelSendingKeyTextFunc(Func<TextObject> getCancelSendingKeyText)`
 
-**Purpose:** **Purpose:** Assigns a new value to get cancel sending key text func and updates the object's internal state.
+**Purpose:** Assigns a new value to get cancel sending key text func and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -216,7 +216,7 @@ mPChatVM.SetGetCancelSendingKeyTextFunc(getCancelSendingKeyText);
 ### IsChatAllowedByOptions
 `public bool IsChatAllowedByOptions()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the chat allowed by options state or condition.
+**Purpose:** Determines whether the this instance is in the chat allowed by options state or condition.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -227,7 +227,7 @@ var result = mPChatVM.IsChatAllowedByOptions();
 ### TypeToChannelAll
 `public void TypeToChannelAll(bool startTyping = false)`
 
-**Purpose:** **Purpose:** Executes the TypeToChannelAll logic.
+**Purpose:** Executes the TypeToChannelAll logic.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -238,7 +238,7 @@ mPChatVM.TypeToChannelAll(false);
 ### TypeToChannelTeam
 `public void TypeToChannelTeam(bool startTyping = false)`
 
-**Purpose:** **Purpose:** Executes the TypeToChannelTeam logic.
+**Purpose:** Executes the TypeToChannelTeam logic.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -249,7 +249,7 @@ mPChatVM.TypeToChannelTeam(false);
 ### StartInspectingMessages
 `public void StartInspectingMessages()`
 
-**Purpose:** **Purpose:** Starts the inspecting messages flow or state machine.
+**Purpose:** Starts the inspecting messages flow or state machine.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -260,7 +260,7 @@ mPChatVM.StartInspectingMessages();
 ### StopInspectingMessages
 `public void StopInspectingMessages()`
 
-**Purpose:** **Purpose:** Stops the inspecting messages flow or state machine.
+**Purpose:** Stops the inspecting messages flow or state machine.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -271,7 +271,7 @@ mPChatVM.StopInspectingMessages();
 ### StartTyping
 `public void StartTyping()`
 
-**Purpose:** **Purpose:** Starts the typing flow or state machine.
+**Purpose:** Starts the typing flow or state machine.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -282,7 +282,7 @@ mPChatVM.StartTyping();
 ### StopTyping
 `public void StopTyping(bool resetWrittenText = false)`
 
-**Purpose:** **Purpose:** Stops the typing flow or state machine.
+**Purpose:** Stops the typing flow or state machine.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -293,7 +293,7 @@ mPChatVM.StopTyping(false);
 ### SendCurrentlyTypedMessage
 `public void SendCurrentlyTypedMessage()`
 
-**Purpose:** **Purpose:** Executes the SendCurrentlyTypedMessage logic.
+**Purpose:** Executes the SendCurrentlyTypedMessage logic.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -304,7 +304,7 @@ mPChatVM.SendCurrentlyTypedMessage();
 ### ExecuteSaveSizes
 `public void ExecuteSaveSizes()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with save sizes.
+**Purpose:** Runs the operation or workflow associated with save sizes.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first
@@ -315,7 +315,7 @@ mPChatVM.ExecuteSaveSizes();
 ### SetMessageHistoryCapacity
 `public void SetMessageHistoryCapacity(int capacity)`
 
-**Purpose:** **Purpose:** Assigns a new value to message history capacity and updates the object's internal state.
+**Purpose:** Assigns a new value to message history capacity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPChatVM from the subsystem API first

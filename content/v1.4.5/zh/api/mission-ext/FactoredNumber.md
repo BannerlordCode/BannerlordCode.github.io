@@ -29,7 +29,7 @@ description: "FactoredNumber 的自动生成类参考。"
 ### Add
 `public void Add(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -40,7 +40,7 @@ factoredNumber.Add(0);
 ### AddFactor
 `public void AddFactor(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 factor 添加到当前容器或状态中。
+**用途 / Purpose:** 将 factor 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -51,7 +51,7 @@ factoredNumber.AddFactor(0);
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LimitMin 对应的操作。
+**用途 / Purpose:** 调用 LimitMin 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -62,7 +62,7 @@ factoredNumber.LimitMin(0);
 ### LimitMax
 `public void LimitMax(float maxValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LimitMax 对应的操作。
+**用途 / Purpose:** 调用 LimitMax 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -73,7 +73,7 @@ factoredNumber.LimitMax(0);
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Clamp 对应的操作。
+**用途 / Purpose:** 调用 Clamp 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例

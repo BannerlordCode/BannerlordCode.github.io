@@ -23,7 +23,7 @@ description: "ActionSetCode 的自动生成类参考。"
 ### GenerateActionSetNameWithSuffix
 `public static string GenerateActionSetNameWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成action set name with suffix的实例、数据或表示。
+**用途 / Purpose:** 生成action set name with suffix的实例、数据或表示。
 
 ```csharp
 // 静态调用，不需要实例

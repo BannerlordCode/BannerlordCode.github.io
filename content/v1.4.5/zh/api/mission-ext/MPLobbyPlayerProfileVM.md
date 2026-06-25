@@ -33,7 +33,7 @@ description: "MPLobbyPlayerProfileVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -44,7 +44,7 @@ mPLobbyPlayerProfileVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -55,7 +55,7 @@ mPLobbyPlayerProfileVM.OnFinalize();
 ### SetPlayerID
 `public async void SetPlayerID(PlayerId playerID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 player i d 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 player i d 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -66,7 +66,7 @@ mPLobbyPlayerProfileVM.SetPlayerID(playerID);
 ### OpenWith
 `public void OpenWith(PlayerId playerID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
+**用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -77,7 +77,7 @@ mPLobbyPlayerProfileVM.OpenWith(playerID);
 ### UpdatePlayerData
 `public void UpdatePlayerData(PlayerData playerData, bool updateStatistics = false, bool updateRating = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 player data 的最新表示。
+**用途 / Purpose:** 重新计算并更新 player data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -88,7 +88,7 @@ mPLobbyPlayerProfileVM.UpdatePlayerData(playerData, false, false);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -99,7 +99,7 @@ mPLobbyPlayerProfileVM.ExecuteClosePopup();
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例
@@ -110,7 +110,7 @@ mPLobbyPlayerProfileVM.OnClanInfoChanged();
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPlayerProfileVM 实例

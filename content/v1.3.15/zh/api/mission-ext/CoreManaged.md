@@ -29,7 +29,7 @@ description: "CoreManaged 的自动生成类参考。"
 ### Start
 `public static void Start()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例

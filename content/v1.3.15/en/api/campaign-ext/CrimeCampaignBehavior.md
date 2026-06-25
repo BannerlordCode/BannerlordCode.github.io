@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CrimeCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ crimeCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of CrimeCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ crimeCampaignBehavior.SyncData(dataStore);
 ### game_menu_town_criminal_on_init
 `public static void game_menu_town_criminal_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the game_menu_town_criminal_on_init logic.
+**Purpose:** Executes the game_menu_town_criminal_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ CrimeCampaignBehavior.game_menu_town_criminal_on_init(args);
 ### town_inside_criminal_on_init
 `public static void town_inside_criminal_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the town_inside_criminal_on_init logic.
+**Purpose:** Executes the town_inside_criminal_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ CrimeCampaignBehavior.town_inside_criminal_on_init(args);
 ### town_discuss_criminal_surrender_on_init
 `public static void town_discuss_criminal_surrender_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the town_discuss_criminal_surrender_on_init logic.
+**Purpose:** Executes the town_discuss_criminal_surrender_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ CrimeCampaignBehavior.town_discuss_criminal_surrender_on_init(args);
 ### criminal_inside_menu_pay_by_punishment_on_condition
 `public static bool criminal_inside_menu_pay_by_punishment_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_pay_by_punishment_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_pay_by_punishment_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ CrimeCampaignBehavior.criminal_inside_menu_pay_by_punishment_on_condition(args);
 ### criminal_inside_menu_pay_by_punishment_on_consequence
 `public static void criminal_inside_menu_pay_by_punishment_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_pay_by_punishment_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_pay_by_punishment_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ CrimeCampaignBehavior.criminal_inside_menu_pay_by_punishment_on_consequence(args
 ### criminal_inside_menu_give_money_on_condition
 `public static bool criminal_inside_menu_give_money_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_money_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_give_money_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_money_on_condition(args);
 ### criminal_inside_menu_give_money_on_consequence
 `public static void criminal_inside_menu_give_money_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_money_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_give_money_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -115,7 +115,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_money_on_consequence(args);
 ### criminal_inside_menu_give_influence_on_condition
 `public static bool criminal_inside_menu_give_influence_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_influence_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_give_influence_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -125,7 +125,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_influence_on_condition(args);
 ### criminal_inside_menu_give_influence_on_consequence
 `public static void criminal_inside_menu_give_influence_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_influence_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_give_influence_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -135,7 +135,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_influence_on_consequence(args);
 ### criminal_inside_menu_give_punishment_and_money_on_condition
 `public static bool criminal_inside_menu_give_punishment_and_money_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_punishment_and_money_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_give_punishment_and_money_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -145,7 +145,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_punishment_and_money_on_conditio
 ### criminal_inside_menu_give_punishment_and_money_on_consequence
 `public static void criminal_inside_menu_give_punishment_and_money_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_punishment_and_money_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_give_punishment_and_money_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -155,7 +155,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_punishment_and_money_on_conseque
 ### criminal_inside_menu_give_your_life_on_condition
 `public static bool criminal_inside_menu_give_your_life_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_your_life_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_give_your_life_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -165,7 +165,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_your_life_on_condition(args);
 ### criminal_inside_menu_give_your_life_on_consequence
 `public static void criminal_inside_menu_give_your_life_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_give_your_life_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_give_your_life_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -175,7 +175,7 @@ CrimeCampaignBehavior.criminal_inside_menu_give_your_life_on_consequence(args);
 ### criminal_inside_menu_ignore_charges_on_condition
 `public static bool criminal_inside_menu_ignore_charges_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_ignore_charges_on_condition logic.
+**Purpose:** Executes the criminal_inside_menu_ignore_charges_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -185,7 +185,7 @@ CrimeCampaignBehavior.criminal_inside_menu_ignore_charges_on_condition(args);
 ### criminal_inside_menu_ignore_charges_on_consequence
 `public static void criminal_inside_menu_ignore_charges_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the criminal_inside_menu_ignore_charges_on_consequence logic.
+**Purpose:** Executes the criminal_inside_menu_ignore_charges_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -195,7 +195,7 @@ CrimeCampaignBehavior.criminal_inside_menu_ignore_charges_on_consequence(args);
 ### town_discuss_criminal_surrender_back_on_consequence
 `public static void town_discuss_criminal_surrender_back_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the town_discuss_criminal_surrender_back_on_consequence logic.
+**Purpose:** Executes the town_discuss_criminal_surrender_back_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -205,7 +205,7 @@ CrimeCampaignBehavior.town_discuss_criminal_surrender_back_on_consequence(args);
 ### town_discuss_criminal_surrender_on_condition
 `public static bool town_discuss_criminal_surrender_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the town_discuss_criminal_surrender_on_condition logic.
+**Purpose:** Executes the town_discuss_criminal_surrender_on_condition logic.
 
 ```csharp
 // Static call; no instance required

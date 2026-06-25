@@ -61,7 +61,7 @@ description: "Brush 的自动生成类参考。"
 ### GetStyle
 `public Style GetStyle(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 style 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 style 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -72,7 +72,7 @@ var result = brush.GetStyle("example");
 ### GetStyleOrDefault
 `public Style GetStyleOrDefault(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 style or default 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 style or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -83,7 +83,7 @@ var result = brush.GetStyleOrDefault("example");
 ### AddStyle
 `public void AddStyle(Style style)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 style 添加到当前容器或状态中。
+**用途 / Purpose:** 将 style 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -94,7 +94,7 @@ brush.AddStyle(style);
 ### RemoveStyle
 `public void RemoveStyle(string styleName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 style。
+**用途 / Purpose:** 从当前容器或状态中移除 style。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -105,7 +105,7 @@ brush.RemoveStyle("example");
 ### AddLayer
 `public void AddLayer(BrushLayer layer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 layer 添加到当前容器或状态中。
+**用途 / Purpose:** 将 layer 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -116,7 +116,7 @@ brush.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 layer。
+**用途 / Purpose:** 从当前容器或状态中移除 layer。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -127,7 +127,7 @@ brush.RemoveLayer("example");
 ### GetLayer
 `public BrushLayer GetLayer(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 layer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -138,7 +138,7 @@ var result = brush.GetLayer("example");
 ### FillFrom
 `public void FillFrom(Brush brush)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -149,7 +149,7 @@ brush.FillFrom(brush);
 ### Clone
 `public Brush Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -160,7 +160,7 @@ var result = brush.Clone();
 ### AddAnimation
 `public void AddAnimation(BrushAnimation animation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 animation 添加到当前容器或状态中。
+**用途 / Purpose:** 将 animation 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -171,7 +171,7 @@ brush.AddAnimation(animation);
 ### GetAnimation
 `public BrushAnimation GetAnimation(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -182,7 +182,7 @@ var result = brush.GetAnimation("example");
 ### GetAnimations
 `public IEnumerable<BrushAnimation> GetAnimations()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animations 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animations 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -193,7 +193,7 @@ var result = brush.GetAnimations();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例
@@ -204,7 +204,7 @@ var result = brush.ToString();
 ### IsCloneRelated
 `public bool IsCloneRelated(Brush brush)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 clone related 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 clone related 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Brush 实例

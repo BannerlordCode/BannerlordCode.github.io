@@ -45,7 +45,7 @@ description: "MPArmoryCosmeticItemBaseVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -56,7 +56,7 @@ mPArmoryCosmeticItemBaseVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -67,7 +67,7 @@ mPArmoryCosmeticItemBaseVM.OnFinalize();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
+**用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -78,7 +78,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteAction();
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 preview 对应的操作或工作流。
+**用途 / Purpose:** 执行 preview 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -89,7 +89,7 @@ mPArmoryCosmeticItemBaseVM.ExecutePreview();
 ### ExecuteEnableActions
 `public void ExecuteEnableActions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 enable actions 对应的操作或工作流。
+**用途 / Purpose:** 执行 enable actions 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -100,7 +100,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteEnableActions();
 ### ExecuteDisableActions
 `public void ExecuteDisableActions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 disable actions 对应的操作或工作流。
+**用途 / Purpose:** 执行 disable actions 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
@@ -111,7 +111,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteDisableActions();
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 key bindings 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 key bindings 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例

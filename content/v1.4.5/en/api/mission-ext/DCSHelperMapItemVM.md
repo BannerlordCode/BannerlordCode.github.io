@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle selection.
+**Purpose:** Runs the operation or workflow associated with toggle selection.
 
 ```csharp
 // Obtain an instance of DCSHelperMapItemVM from the subsystem API first
@@ -47,7 +47,7 @@ dCSHelperMapItemVM.ExecuteToggleSelection();
 ### RefreshLocalMapData
 `public void RefreshLocalMapData()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of local map data in sync with the underlying state.
+**Purpose:** Keeps the display or cache of local map data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DCSHelperMapItemVM from the subsystem API first

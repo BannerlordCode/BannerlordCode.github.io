@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ComputeTransformedMinMax
 `public ValueTuple<Vec3, Vec3> ComputeTransformedMinMax()`
 
-**Purpose:** **Purpose:** Executes the ComputeTransformedMinMax logic.
+**Purpose:** Executes the ComputeTransformedMinMax logic.
 
 ```csharp
 // Obtain an instance of TransformedBoundingBoxPointsContainer from the subsystem API first

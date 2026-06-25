@@ -37,7 +37,7 @@ description: "MapTrackerItemVM 的自动生成类参考。"
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 properties 的最新表示。
+**用途 / Purpose:** 重新计算并更新 properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -48,7 +48,7 @@ mapTrackerItemVM.UpdateProperties();
 ### UpdatePosition
 `public void UpdatePosition(float screenX, float screenY, float screenW)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
+**用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -59,7 +59,7 @@ mapTrackerItemVM.UpdatePosition(0, 0, 0);
 ### ExecuteToggleTrack
 `public void ExecuteToggleTrack()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle track 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle track 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -70,7 +70,7 @@ mapTrackerItemVM.ExecuteToggleTrack();
 ### ExecuteGoToPosition
 `public void ExecuteGoToPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 go to position 对应的操作或工作流。
+**用途 / Purpose:** 执行 go to position 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -81,7 +81,7 @@ mapTrackerItemVM.ExecuteGoToPosition();
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 show tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 show tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -92,7 +92,7 @@ mapTrackerItemVM.ExecuteShowTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
+**用途 / Purpose:** 执行 hide tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例
@@ -103,7 +103,7 @@ mapTrackerItemVM.ExecuteHideTooltip();
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackerItemVM 实例

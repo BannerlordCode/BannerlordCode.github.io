@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**Purpose:** **Purpose:** Reads and returns the file content value held by the this instance.
+**Purpose:** Reads and returns the file content value held by the this instance.
 
 ```csharp
 // Static call; no instance required

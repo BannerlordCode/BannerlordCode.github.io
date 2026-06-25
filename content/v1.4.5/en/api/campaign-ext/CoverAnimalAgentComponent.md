@@ -23,7 +23,7 @@ Treat `CoverAnimalAgentComponent` as a Component-style extension point: first id
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**Purpose:** **Purpose:** Assigns a new value to dynamic patrol area and updates the object's internal state.
+**Purpose:** Assigns a new value to dynamic patrol area and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -34,7 +34,7 @@ coverAnimalAgentComponent.SetDynamicPatrolArea(parentPatrolPoint);
 ### StartMovement
 `public void StartMovement()`
 
-**Purpose:** **Purpose:** Starts the movement flow or state machine.
+**Purpose:** Starts the movement flow or state machine.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -45,7 +45,7 @@ coverAnimalAgentComponent.StartMovement();
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -56,7 +56,7 @@ coverAnimalAgentComponent.OnTick(0);
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the target reached state or condition.
+**Purpose:** Determines whether the this instance is in the target reached state or condition.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -67,7 +67,7 @@ var result = coverAnimalAgentComponent.IsTargetReached();
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, AIScriptedFrameFlags flags = (AIScriptedFrameFlags)0)`
 
-**Purpose:** **Purpose:** Assigns a new value to target frame and updates the object's internal state.
+**Purpose:** Assigns a new value to target frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -78,7 +78,7 @@ coverAnimalAgentComponent.SetTargetFrame(position, 0, 0, (AIScriptedFrameFlags)0
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
+**Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -89,7 +89,7 @@ coverAnimalAgentComponent.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
+**Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -100,7 +100,7 @@ coverAnimalAgentComponent.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** **Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
+**Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first
@@ -111,7 +111,7 @@ var result = coverAnimalAgentComponent.GetInfoTextForBeingNotInteractable(userAg
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CoverAnimalAgentComponent from the subsystem API first

@@ -140,7 +140,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
 `public float GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Reads and returns the average distance between closest two towns with navigation type value held by the this instance.
+**Purpose:** Reads and returns the average distance between closest two towns with navigation type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -151,7 +151,7 @@ var result = campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
 ### InitializeMainParty
 `public void InitializeMainParty()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by main party.
+**Purpose:** Prepares the resources, state, or bindings required by main party.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -162,7 +162,7 @@ campaign.InitializeMainParty();
 ### WaitAsyncTasks
 `public void WaitAsyncTasks()`
 
-**Purpose:** **Purpose:** Pauses the current flow until the async tasks condition is met.
+**Purpose:** Pauses the current flow until the async tasks condition is met.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -173,7 +173,7 @@ campaign.WaitAsyncTasks();
 ### GetSimplifiedTimeControlMode
 `public CampaignTimeControlMode GetSimplifiedTimeControlMode()`
 
-**Purpose:** **Purpose:** Reads and returns the simplified time control mode value held by the this instance.
+**Purpose:** Reads and returns the simplified time control mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -184,7 +184,7 @@ var result = campaign.GetSimplifiedTimeControlMode();
 ### OnGameOver
 `public void OnGameOver()`
 
-**Purpose:** **Purpose:** Invoked when the game over event is raised.
+**Purpose:** Invoked when the game over event is raised.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -195,7 +195,7 @@ campaign.OnGameOver();
 ### SetTimeSpeed
 `public void SetTimeSpeed(int speed)`
 
-**Purpose:** **Purpose:** Assigns a new value to time speed and updates the object's internal state.
+**Purpose:** Assigns a new value to time speed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -206,7 +206,7 @@ campaign.SetTimeSpeed(0);
 ### LateAITick
 `public static void LateAITick()`
 
-**Purpose:** **Purpose:** Executes the LateAITick logic.
+**Purpose:** Executes the LateAITick logic.
 
 ```csharp
 // Static call; no instance required
@@ -216,7 +216,7 @@ Campaign.LateAITick();
 ### AddCampaignBehaviorManager
 `public void AddCampaignBehaviorManager(ICampaignBehaviorManager manager)`
 
-**Purpose:** **Purpose:** Adds campaign behavior manager to the current collection or state.
+**Purpose:** Adds campaign behavior manager to the current collection or state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -227,7 +227,7 @@ campaign.AddCampaignBehaviorManager(manager);
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** **Purpose:** Invoked when the destroy event is raised.
+**Purpose:** Invoked when the destroy event is raised.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -238,7 +238,7 @@ campaign.OnDestroy();
 ### InitializeSinglePlayerReferences
 `public void InitializeSinglePlayerReferences()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by single player references.
+**Purpose:** Prepares the resources, state, or bindings required by single player references.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -249,7 +249,7 @@ campaign.InitializeSinglePlayerReferences();
 ### InitializeGamePlayReferences
 `public void InitializeGamePlayReferences()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by game play references.
+**Purpose:** Prepares the resources, state, or bindings required by game play references.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -260,7 +260,7 @@ campaign.InitializeGamePlayReferences();
 ### SetLoadingParameters
 `public void SetLoadingParameters(Campaign.GameLoadingType gameLoadingType)`
 
-**Purpose:** **Purpose:** Assigns a new value to loading parameters and updates the object's internal state.
+**Purpose:** Assigns a new value to loading parameters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -271,7 +271,7 @@ campaign.SetLoadingParameters(gameLoadingType);
 ### AddCampaignEventReceiver
 `public void AddCampaignEventReceiver(CampaignEventReceiver receiver)`
 
-**Purpose:** **Purpose:** Adds campaign event receiver to the current collection or state.
+**Purpose:** Adds campaign event receiver to the current collection or state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -282,7 +282,7 @@ campaign.AddCampaignEventReceiver(receiver);
 ### OnMissionIsStarting
 `public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**Purpose:** **Purpose:** Invoked when the mission is starting event is raised.
+**Purpose:** Invoked when the mission is starting event is raised.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -293,7 +293,7 @@ campaign.OnMissionIsStarting("example", rec);
 ### InitializeParameters
 `public override void InitializeParameters()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by parameters.
+**Purpose:** Prepares the resources, state, or bindings required by parameters.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -304,7 +304,7 @@ campaign.InitializeParameters();
 ### SetTimeControlModeLock
 `public void SetTimeControlModeLock(bool isLocked)`
 
-**Purpose:** **Purpose:** Assigns a new value to time control mode lock and updates the object's internal state.
+**Purpose:** Assigns a new value to time control mode lock and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -315,7 +315,7 @@ campaign.SetTimeControlModeLock(false);
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(out bool isMainPartyChanged)`
 
-**Purpose:** **Purpose:** Invoked when the player character changed event is raised.
+**Purpose:** Invoked when the player character changed event is raised.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -326,7 +326,7 @@ campaign.OnPlayerCharacterChanged(isMainPartyChanged);
 ### SetPlayerFormationPreference
 `public void SetPlayerFormationPreference(CharacterObject character, FormationClass formation)`
 
-**Purpose:** **Purpose:** Assigns a new value to player formation preference and updates the object's internal state.
+**Purpose:** Assigns a new value to player formation preference and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -337,7 +337,7 @@ campaign.SetPlayerFormationPreference(character, formation);
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** **Purpose:** Invoked when the state changed event is raised.
+**Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first
@@ -348,7 +348,7 @@ campaign.OnStateChanged(oldState);
 ### UnlockFigurehead
 `public void UnlockFigurehead(Figurehead figurehead)`
 
-**Purpose:** **Purpose:** Executes the UnlockFigurehead logic.
+**Purpose:** Executes the UnlockFigurehead logic.
 
 ```csharp
 // Obtain an instance of Campaign from the subsystem API first

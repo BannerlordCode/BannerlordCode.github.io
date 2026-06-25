@@ -33,7 +33,7 @@ description: "InputKeyItemVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 InputKeyItemVM 实例
@@ -44,7 +44,7 @@ inputKeyItemVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InputKeyItemVM 实例
@@ -55,7 +55,7 @@ inputKeyItemVM.RefreshValues();
 ### SetForcedVisibility
 `public void SetForcedVisibility(bool? isVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InputKeyItemVM 实例
@@ -66,7 +66,7 @@ inputKeyItemVM.SetForcedVisibility(false);
 ### CreateFromGameKey
 `public static InputKeyItemVM CreateFromGameKey(GameKey gameKey, bool isConsoleOnly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from game key 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from game key 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ InputKeyItemVM.CreateFromGameKey(gameKey, false);
 ### CreateFromHotKey
 `public static InputKeyItemVM CreateFromHotKey(HotKey hotKey, bool isConsoleOnly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from hot key 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from hot key 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -86,7 +86,7 @@ InputKeyItemVM.CreateFromHotKey(hotKey, false);
 ### CreateFromHotKeyWithForcedName
 `public static InputKeyItemVM CreateFromHotKeyWithForcedName(HotKey hotKey, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from hot key with forced name 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from hot key with forced name 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -96,7 +96,7 @@ InputKeyItemVM.CreateFromHotKeyWithForcedName(hotKey, forcedName, false);
 ### CreateFromGameKeyWithForcedName
 `public static InputKeyItemVM CreateFromGameKeyWithForcedName(GameKey gameKey, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from game key with forced name 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from game key with forced name 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ InputKeyItemVM.CreateFromGameKeyWithForcedName(gameKey, forcedName, false);
 ### CreateFromForcedID
 `public static InputKeyItemVM CreateFromForcedID(string forcedID, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from forced i d 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from forced i d 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

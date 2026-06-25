@@ -23,7 +23,7 @@ description: "VolumeBox 的自动生成类参考。"
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to check list 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to check list 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例
@@ -34,7 +34,7 @@ volumeBox.AddToCheckList(agent);
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 from check list。
+**用途 / Purpose:** 从当前容器或状态中移除 from check list。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例
@@ -45,7 +45,7 @@ volumeBox.RemoveFromCheckList(agent);
 ### SetIsOccupiedDelegate
 `public void SetIsOccupiedDelegate(VolumeBox.VolumeBoxDelegate volumeBoxDelegate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is occupied delegate 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is occupied delegate 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例
@@ -56,7 +56,7 @@ volumeBox.SetIsOccupiedDelegate(volumeBoxDelegate);
 ### HasAgentsInAttackerSide
 `public bool HasAgentsInAttackerSide()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 agents in attacker side。
+**用途 / Purpose:** 判断当前对象是否已经持有 agents in attacker side。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例
@@ -67,7 +67,7 @@ var result = volumeBox.HasAgentsInAttackerSide();
 ### IsPointIn
 `public bool IsPointIn(Vec3 point)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 point in 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 point in 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例
@@ -78,7 +78,7 @@ var result = volumeBox.IsPointIn(point);
 ### VolumeBoxDelegate
 `public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 VolumeBoxDelegate 对应的操作。
+**用途 / Purpose:** 调用 VolumeBoxDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VolumeBox 实例

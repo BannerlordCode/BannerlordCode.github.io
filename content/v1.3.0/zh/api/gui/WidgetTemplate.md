@@ -38,7 +38,7 @@ description: "WidgetTemplate 的自动生成类参考。"
 ### AddExtensionData
 `public void AddExtensionData(string name, object data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -49,7 +49,7 @@ widgetTemplate.AddExtensionData("example", data);
 ### RemoveExtensionData
 `public void RemoveExtensionData(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 extension data。
+**用途 / Purpose:** 从当前容器或状态中移除 extension data。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -60,7 +60,7 @@ widgetTemplate.RemoveExtensionData("example");
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -71,7 +71,7 @@ widgetTemplate.AddExtensionData(data);
 ### SetAttribute
 `public void SetAttribute(WidgetAttributeTemplate attribute)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 attribute 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 attribute 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -82,7 +82,7 @@ widgetTemplate.SetAttribute(attribute);
 ### GetChildAt
 `public WidgetTemplate GetChildAt(int i)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child at 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 child at 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -93,7 +93,7 @@ var result = widgetTemplate.GetChildAt(0);
 ### AddChild
 `public void AddChild(WidgetTemplate child)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 child 添加到当前容器或状态中。
+**用途 / Purpose:** 将 child 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -104,7 +104,7 @@ widgetTemplate.AddChild(child);
 ### RemoveChild
 `public void RemoveChild(WidgetTemplate child)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 child。
+**用途 / Purpose:** 从当前容器或状态中移除 child。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -115,7 +115,7 @@ widgetTemplate.RemoveChild(child);
 ### SwapChildren
 `public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwapChildren 对应的操作。
+**用途 / Purpose:** 调用 SwapChildren 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -126,7 +126,7 @@ widgetTemplate.SwapChildren(child1, child2);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Instantiate 对应的操作。
+**用途 / Purpose:** 调用 Instantiate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -137,7 +137,7 @@ var result = widgetTemplate.Instantiate(widgetCreationData, dictionary<string, p
 ### OnRelease
 `public void OnRelease()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 release 事件触发时调用此回调。
+**用途 / Purpose:** 在 release 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -148,7 +148,7 @@ widgetTemplate.OnRelease();
 ### LoadFrom
 `public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
+**用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 静态调用，不需要实例
@@ -158,7 +158,7 @@ WidgetTemplate.LoadFrom(prefabExtensionContext, widgetAttributeContext, node);
 ### SetRootTemplate
 `public void SetRootTemplate(WidgetPrefab prefab)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 root template 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 root template 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -169,7 +169,7 @@ widgetTemplate.SetRootTemplate(prefab);
 ### AddAttributeTo
 `public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 attribute to 添加到当前容器或状态中。
+**用途 / Purpose:** 将 attribute to 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -180,7 +180,7 @@ widgetTemplate.AddAttributeTo(widgetAttributeContext, "example", "example");
 ### RemoveAttributeFrom
 `public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 attribute from。
+**用途 / Purpose:** 从当前容器或状态中移除 attribute from。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -191,7 +191,7 @@ widgetTemplate.RemoveAttributeFrom(widgetAttributeContext, "example");
 ### RemoveAttributeFrom
 `public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 attribute from。
+**用途 / Purpose:** 从当前容器或状态中移除 attribute from。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -202,7 +202,7 @@ widgetTemplate.RemoveAttributeFrom(keyType, "example");
 ### Save
 `public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例

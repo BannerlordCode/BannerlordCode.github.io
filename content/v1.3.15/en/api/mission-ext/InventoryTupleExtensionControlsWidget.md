@@ -33,7 +33,7 @@ Treat `InventoryTupleExtensionControlsWidget` as a Widget-style extension point:
 ### BuildNavigationData
 `public void BuildNavigationData()`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for navigation data.
+**Purpose:** Assembles and returns the built result for navigation data.
 
 ```csharp
 // Obtain an instance of InventoryTupleExtensionControlsWidget from the subsystem API first

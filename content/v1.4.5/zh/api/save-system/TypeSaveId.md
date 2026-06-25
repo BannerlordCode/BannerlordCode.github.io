@@ -29,7 +29,7 @@ description: "TypeSaveId 的自动生成类参考。"
 ### GetStringId
 `public override string GetStringId()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 string id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeSaveId 实例
@@ -40,7 +40,7 @@ var result = typeSaveId.GetStringId();
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to写入目标位置。
+**用途 / Purpose:** 将to写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeSaveId 实例
@@ -51,7 +51,7 @@ typeSaveId.WriteTo(writer);
 ### ReadFrom
 `public static TypeSaveId ReadFrom(IReader reader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from的数据或状态。
+**用途 / Purpose:** 从当前实例读取from相关数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ TypeSaveId.ReadFrom(reader);
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 size in bytes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 size in bytes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeSaveId 实例

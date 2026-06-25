@@ -23,7 +23,7 @@ description: "DictionaryByType 的自动生成类参考。"
 ### GetClone
 `public IDictionary<Type, object> GetClone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clone 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 clone 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DictionaryByType 实例
@@ -34,7 +34,7 @@ var result = dictionaryByType.GetClone();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 DictionaryByType 实例

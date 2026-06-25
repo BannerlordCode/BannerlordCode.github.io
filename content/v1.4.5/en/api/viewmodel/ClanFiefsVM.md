@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanFiefsVM from the subsystem API first
@@ -56,7 +56,7 @@ clanFiefsVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanFiefsVM from the subsystem API first
@@ -67,7 +67,7 @@ clanFiefsVM.OnFinalize();
 ### RefreshAllLists
 `public void RefreshAllLists()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of all lists in sync with the underlying state.
+**Purpose:** Keeps the display or cache of all lists in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanFiefsVM from the subsystem API first
@@ -78,7 +78,7 @@ clanFiefsVM.RefreshAllLists();
 ### SelectFief
 `public void SelectFief(Settlement settlement)`
 
-**Purpose:** **Purpose:** Executes the SelectFief logic.
+**Purpose:** Executes the SelectFief logic.
 
 ```csharp
 // Obtain an instance of ClanFiefsVM from the subsystem API first
@@ -89,7 +89,7 @@ clanFiefsVM.SelectFief(settlement);
 ### ExecuteAssignGovernor
 `public void ExecuteAssignGovernor()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with assign governor.
+**Purpose:** Runs the operation or workflow associated with assign governor.
 
 ```csharp
 // Obtain an instance of ClanFiefsVM from the subsystem API first

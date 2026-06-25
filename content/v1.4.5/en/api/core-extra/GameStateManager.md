@@ -32,7 +32,7 @@ Treat `GameStateManager` as a Manager-style extension point: first identify who 
 ### RegisterListener
 `public bool RegisterListener(IGameStateManagerListener listener)`
 
-**Purpose:** **Purpose:** Registers listener with the current system so it can later be observed or dispatched.
+**Purpose:** Registers listener with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -43,7 +43,7 @@ var result = gameStateManager.RegisterListener(listener);
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateManagerListener listener)`
 
-**Purpose:** **Purpose:** Unregisters listener from the current system.
+**Purpose:** Unregisters listener from the current system.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -54,7 +54,7 @@ var result = gameStateManager.UnregisterListener(listener);
 ### RegisterActiveStateDisableRequest
 `public void RegisterActiveStateDisableRequest(object requestingInstance)`
 
-**Purpose:** **Purpose:** Registers active state disable request with the current system so it can later be observed or dispatched.
+**Purpose:** Registers active state disable request with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -65,7 +65,7 @@ gameStateManager.RegisterActiveStateDisableRequest(requestingInstance);
 ### UnregisterActiveStateDisableRequest
 `public void UnregisterActiveStateDisableRequest(object requestingInstance)`
 
-**Purpose:** **Purpose:** Unregisters active state disable request from the current system.
+**Purpose:** Unregisters active state disable request from the current system.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -76,7 +76,7 @@ gameStateManager.UnregisterActiveStateDisableRequest(requestingInstance);
 ### OnSavedGameLoadFinished
 `public void OnSavedGameLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the saved game load finished event is raised.
+**Purpose:** Invoked when the saved game load finished event is raised.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -87,7 +87,7 @@ gameStateManager.OnSavedGameLoadFinished();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -98,7 +98,7 @@ gameStateManager.OnTick(0);
 ### PushState
 `public void PushState(GameState gameState, int level = 0)`
 
-**Purpose:** **Purpose:** Executes the PushState logic.
+**Purpose:** Executes the PushState logic.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -109,7 +109,7 @@ gameStateManager.PushState(gameState, 0);
 ### PopState
 `public void PopState(int level = 0)`
 
-**Purpose:** **Purpose:** Executes the PopState logic.
+**Purpose:** Executes the PopState logic.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -120,7 +120,7 @@ gameStateManager.PopState(0);
 ### CleanAndPushState
 `public void CleanAndPushState(GameState gameState, int level = 0)`
 
-**Purpose:** **Purpose:** Executes the CleanAndPushState logic.
+**Purpose:** Executes the CleanAndPushState logic.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first
@@ -131,7 +131,7 @@ gameStateManager.CleanAndPushState(gameState, 0);
 ### CleanStates
 `public void CleanStates(int level = 0)`
 
-**Purpose:** **Purpose:** Executes the CleanStates logic.
+**Purpose:** Executes the CleanStates logic.
 
 ```csharp
 // Obtain an instance of GameStateManager from the subsystem API first

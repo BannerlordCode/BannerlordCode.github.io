@@ -23,7 +23,7 @@ description: "AwaitableAsyncRunner 的自动生成类参考。"
 ### RunAsync
 `public abstract Task RunAsync()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RunAsync 对应的操作。
+**用途 / Purpose:** 调用 RunAsync 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AwaitableAsyncRunner 实例
@@ -34,7 +34,7 @@ var result = awaitableAsyncRunner.RunAsync();
 ### OnTick
 `public abstract void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AwaitableAsyncRunner 实例

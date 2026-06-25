@@ -23,7 +23,7 @@ Treat `ArenaPreloadView` as a View-style extension point: first identify who cre
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPreloadView from the subsystem API first
@@ -34,7 +34,7 @@ arenaPreloadView.OnPreMissionTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
+**Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPreloadView from the subsystem API first
@@ -45,7 +45,7 @@ arenaPreloadView.OnSceneRenderingStarted();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the mission state deactivated event is raised.
+**Purpose:** Invoked when the mission state deactivated event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPreloadView from the subsystem API first

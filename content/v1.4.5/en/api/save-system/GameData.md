@@ -33,7 +33,7 @@ Treat `GameData` as a Data-style extension point: first identify who creates it,
 ### Inspect
 `public void Inspect()`
 
-**Purpose:** **Purpose:** Executes the Inspect logic.
+**Purpose:** Executes the Inspect logic.
 
 ```csharp
 // Obtain an instance of GameData from the subsystem API first
@@ -44,7 +44,7 @@ gameData.Inspect();
 ### CreateFrom
 `public static GameData CreateFrom(byte readBytes)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ GameData.CreateFrom(0);
 ### GetData
 `public byte GetData()`
 
-**Purpose:** **Purpose:** Reads and returns the data value held by the this instance.
+**Purpose:** Reads and returns the data value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameData from the subsystem API first
@@ -65,7 +65,7 @@ var result = gameData.GetData();
 ### Write
 `public static void Write(System.IO.BinaryWriter writer, GameData gameData)`
 
-**Purpose:** **Purpose:** Writes the this instance's data to the target location.
+**Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ GameData.Write(writer, gameData);
 ### Read
 `public static GameData Read(System.IO.BinaryReader reader)`
 
-**Purpose:** **Purpose:** Reads the data or state of the this instance.
+**Purpose:** Reads the data or state of the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ GameData.Read(reader);
 ### IsEqualTo
 `public bool IsEqualTo(GameData gameData)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the equal to state or condition.
+**Purpose:** Determines whether the this instance is in the equal to state or condition.
 
 ```csharp
 // Obtain an instance of GameData from the subsystem API first

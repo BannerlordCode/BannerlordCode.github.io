@@ -23,7 +23,7 @@ description: "MissionMessageUIHandler 的自动生成类参考。"
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示message对应的界面或元素。
+**用途 / Purpose:** 显示message对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMessageUIHandler 实例
@@ -34,7 +34,7 @@ missionMessageUIHandler.ShowMessage("example", 0, false);
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteMessage 对应的操作。
+**用途 / Purpose:** 调用 DeleteMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMessageUIHandler 实例
@@ -45,7 +45,7 @@ missionMessageUIHandler.DeleteMessage("example");
 ### DeleteCurrentMessage
 `public void DeleteCurrentMessage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteCurrentMessage 对应的操作。
+**用途 / Purpose:** 调用 DeleteCurrentMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMessageUIHandler 实例

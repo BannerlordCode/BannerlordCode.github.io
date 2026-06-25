@@ -23,7 +23,7 @@ Treat `BattleSpawnModel` as a Model-style extension point: first identify who cr
 ### OnMissionStart
 `public virtual void OnMissionStart()`
 
-**Purpose:** **Purpose:** Invoked when the mission start event is raised.
+**Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ battleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public virtual void OnMissionEnd()`
 
-**Purpose:** **Purpose:** Invoked when the mission end event is raised.
+**Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of BattleSpawnModel from the subsystem API first

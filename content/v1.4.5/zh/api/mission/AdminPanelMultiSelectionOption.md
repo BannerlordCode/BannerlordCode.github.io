@@ -23,7 +23,7 @@ description: "AdminPanelMultiSelectionOption 的自动生成类参考。"
 ### BuildAvailableOptions
 `public virtual AdminPanelMultiSelectionOption BuildAvailableOptions(MBReadOnlyList<IAdminPanelMultiSelectionItem> options)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回available options的构建结果。
+**用途 / Purpose:** 组装并返回available options的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionOption 实例
@@ -34,7 +34,7 @@ var result = adminPanelMultiSelectionOption.BuildAvailableOptions(options);
 ### BuildAvailableOptions
 `public virtual AdminPanelMultiSelectionOption BuildAvailableOptions(OptionType optionType, bool buildDefaultValue = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回available options的构建结果。
+**用途 / Purpose:** 组装并返回available options的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionOption 实例
@@ -45,7 +45,7 @@ var result = adminPanelMultiSelectionOption.BuildAvailableOptions(optionType, fa
 ### GetAvailableOptions
 `public MBReadOnlyList<IAdminPanelMultiSelectionItem> GetAvailableOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available options 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 available options 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionOption 实例

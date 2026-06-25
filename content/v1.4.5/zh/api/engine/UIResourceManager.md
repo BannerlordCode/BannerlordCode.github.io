@@ -34,7 +34,7 @@ description: "UIResourceManager 的自动生成类参考。"
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ UIResourceManager.Refresh();
 ### GetSpriteCategory
 `public static SpriteCategory GetSpriteCategory(string spriteCategoryName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sprite category 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sprite category 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ UIResourceManager.GetSpriteCategory("example");
 ### LoadSpriteCategory
 `public static SpriteCategory LoadSpriteCategory(string spriteCategoryName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 sprite category。
+**用途 / Purpose:** 从持久化存储或流中读取 sprite category。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ UIResourceManager.LoadSpriteCategory("example");
 ### Update
 `public static void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ UIResourceManager.Update();
 ### OnLanguageChange
 `public static void OnLanguageChange(string newLanguageCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 language change 事件触发时调用此回调。
+**用途 / Purpose:** 在 language change 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -84,7 +84,7 @@ UIResourceManager.OnLanguageChange("example");
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "ChangeRulingClanAction 的自动生成类参考。"
 ### Apply
 `public static void Apply(Kingdom kingdom, Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ```csharp
 // 静态调用，不需要实例

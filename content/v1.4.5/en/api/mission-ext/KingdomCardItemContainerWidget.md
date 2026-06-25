@@ -23,7 +23,7 @@ Treat `KingdomCardItemContainerWidget` as a Widget-style extension point: first 
 ### KingdomCardItemContainerWidget
 `public class KingdomCardItemContainerWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the KingdomCardItemContainerWidget logic.
+**Purpose:** Executes the KingdomCardItemContainerWidget logic.
 
 ```csharp
 // Obtain an instance of KingdomCardItemContainerWidget from the subsystem API first

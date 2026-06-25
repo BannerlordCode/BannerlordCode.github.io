@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -51,7 +51,7 @@ armyManagementSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -62,7 +62,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -73,7 +73,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -84,7 +84,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -95,7 +95,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -106,7 +106,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -117,7 +117,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -128,7 +128,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### ExecuteSortByDistance
 `public void ExecuteSortByDistance()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by distance.
+**Purpose:** Runs the operation or workflow associated with sort by distance.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -139,7 +139,7 @@ armyManagementSortControllerVM.ExecuteSortByDistance();
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by cost.
+**Purpose:** Runs the operation or workflow associated with sort by cost.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -150,7 +150,7 @@ armyManagementSortControllerVM.ExecuteSortByCost();
 ### ExecuteSortByStrength
 `public void ExecuteSortByStrength()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by strength.
+**Purpose:** Runs the operation or workflow associated with sort by strength.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -161,7 +161,7 @@ armyManagementSortControllerVM.ExecuteSortByStrength();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
+**Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -172,7 +172,7 @@ armyManagementSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByClan
 `public void ExecuteSortByClan()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by clan.
+**Purpose:** Runs the operation or workflow associated with sort by clan.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
@@ -183,7 +183,7 @@ armyManagementSortControllerVM.ExecuteSortByClan();
 ### ExecuteSortByShipCount
 `public void ExecuteSortByShipCount()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by ship count.
+**Purpose:** Runs the operation or workflow associated with sort by ship count.
 
 ```csharp
 // Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first

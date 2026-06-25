@@ -35,7 +35,7 @@ description: "ClanTierModel 的自动生成类参考。"
 ### CalculateInitialRenown
 `public abstract int CalculateInitialRenown(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算initial renown的当前值或结果。
+**用途 / Purpose:** 计算initial renown的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例
@@ -46,7 +46,7 @@ var result = clanTierModel.CalculateInitialRenown(clan);
 ### CalculateInitialInfluence
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算initial influence的当前值或结果。
+**用途 / Purpose:** 计算initial influence的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例
@@ -57,7 +57,7 @@ var result = clanTierModel.CalculateInitialInfluence(clan);
 ### CalculateTier
 `public abstract int CalculateTier(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算tier的当前值或结果。
+**用途 / Purpose:** 计算tier的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例
@@ -68,7 +68,7 @@ var result = clanTierModel.CalculateTier(clan);
 ### GetRequiredRenownForTier
 `public abstract int GetRequiredRenownForTier(int tier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 required renown for tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 required renown for tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例
@@ -79,7 +79,7 @@ var result = clanTierModel.GetRequiredRenownForTier(0);
 ### GetPartyLimitForTier
 `public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party limit for tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 party limit for tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例
@@ -90,7 +90,7 @@ var result = clanTierModel.GetPartyLimitForTier(clan, 0);
 ### GetCompanionLimit
 `public abstract int GetCompanionLimit(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 companion limit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 companion limit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanTierModel 实例

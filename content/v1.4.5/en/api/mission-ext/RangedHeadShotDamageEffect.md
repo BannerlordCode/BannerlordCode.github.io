@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetRangedHeadShotDamage
 `public override float GetRangedHeadShotDamage()`
 
-**Purpose:** **Purpose:** Reads and returns the ranged head shot damage value held by the this instance.
+**Purpose:** Reads and returns the ranged head shot damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedHeadShotDamageEffect from the subsystem API first

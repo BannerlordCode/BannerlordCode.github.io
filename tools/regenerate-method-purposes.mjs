@@ -76,7 +76,9 @@ function improveFile(filePath) {
       const purposeMatch = lines[k].match(PURPOSE_RE);
       if (!purposeMatch) continue;
       const regenerated = docFragments.methodPurpose(methodName, lang);
-      const newText = cleanupPurpose(regenerated, methodName);
+      const newText = cleanupPurpose(regenerated, methodName)
+        .replace(/^\*\*(?:用途\s*\/\s*)?Purpose:\*\*\s*/, '')
+        .trim();
       if (purposeMatch[2].trim() !== newText) {
         lines[k] = `${purposeMatch[1]} ${newText}`;
         changed++;

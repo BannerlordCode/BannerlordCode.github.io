@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### OpenConversation
 `public static void OpenConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with conversation.
+**Purpose:** Opens the resource or UI associated with conversation.
 
 ```csharp
 // Static call; no instance required

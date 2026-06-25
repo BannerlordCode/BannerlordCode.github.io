@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### GetObject
 `public object GetObject(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the object value held by the this instance.
+**Purpose:** Reads and returns the object value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiamondClientApplication from the subsystem API first
@@ -42,7 +42,7 @@ var result = diamondClientApplication.GetObject("example");
 ### AddObject
 `public void AddObject(string name, DiamondClientApplicationObject applicationObject)`
 
-**Purpose:** **Purpose:** Adds object to the current collection or state.
+**Purpose:** Adds object to the current collection or state.
 
 ```csharp
 // Obtain an instance of DiamondClientApplication from the subsystem API first
@@ -53,7 +53,7 @@ diamondClientApplication.AddObject("example", applicationObject);
 ### Initialize
 `public void Initialize(ClientApplicationConfiguration applicationConfiguration)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of DiamondClientApplication from the subsystem API first
@@ -64,7 +64,7 @@ diamondClientApplication.Initialize(applicationConfiguration);
 ### CreateClientSessionProvider
 `public object CreateClientSessionProvider(string clientName, Type clientType, SessionProviderType sessionProviderType, ParameterContainer parameters)`
 
-**Purpose:** **Purpose:** Constructs a new client session provider entity and returns it to the caller.
+**Purpose:** Constructs a new client session provider entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of DiamondClientApplication from the subsystem API first
@@ -75,7 +75,7 @@ var result = diamondClientApplication.CreateClientSessionProvider("example", cli
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of DiamondClientApplication from the subsystem API first

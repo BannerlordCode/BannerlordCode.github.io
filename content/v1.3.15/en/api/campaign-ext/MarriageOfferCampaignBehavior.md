@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ marriageOfferCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ marriageOfferCampaignBehavior.SyncData(dataStore);
 ### CreateMarriageOffer
 `public void CreateMarriageOffer(Hero currentOfferedPlayerClanHero, Hero currentOfferedOtherClanHero)`
 
-**Purpose:** **Purpose:** Constructs a new marriage offer entity and returns it to the caller.
+**Purpose:** Constructs a new marriage offer entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ marriageOfferCampaignBehavior.CreateMarriageOffer(currentOfferedPlayerClanHero, 
 ### GetMarriageAcceptedConsequences
 `public MBBindingList<TextObject> GetMarriageAcceptedConsequences()`
 
-**Purpose:** **Purpose:** Reads and returns the marriage accepted consequences value held by the this instance.
+**Purpose:** Reads and returns the marriage accepted consequences value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = marriageOfferCampaignBehavior.GetMarriageAcceptedConsequences();
 ### OnMarriageOfferAcceptedOnPopUp
 `public void OnMarriageOfferAcceptedOnPopUp()`
 
-**Purpose:** **Purpose:** Invoked when the marriage offer accepted on pop up event is raised.
+**Purpose:** Invoked when the marriage offer accepted on pop up event is raised.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferAcceptedOnPopUp();
 ### OnMarriageOfferedToPlayer
 `public void OnMarriageOfferedToPlayer(Hero suitor, Hero maiden)`
 
-**Purpose:** **Purpose:** Invoked when the marriage offered to player event is raised.
+**Purpose:** Invoked when the marriage offered to player event is raised.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferedToPlayer(suitor, maiden);
 ### OnMarriageOfferDeclinedOnPopUp
 `public void OnMarriageOfferDeclinedOnPopUp()`
 
-**Purpose:** **Purpose:** Invoked when the marriage offer declined on pop up event is raised.
+**Purpose:** Invoked when the marriage offer declined on pop up event is raised.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferDeclinedOnPopUp();
 ### OnMarriageOfferCanceled
 `public void OnMarriageOfferCanceled(Hero suitor, Hero maiden)`
 
-**Purpose:** **Purpose:** Invoked when the marriage offer canceled event is raised.
+**Purpose:** Invoked when the marriage offer canceled event is raised.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferCanceled(suitor, maiden);
 ### IsHeroEngaged
 `public bool IsHeroEngaged(Hero hero)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hero engaged state or condition.
+**Purpose:** Determines whether the this instance is in the hero engaged state or condition.
 
 ```csharp
 // Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first

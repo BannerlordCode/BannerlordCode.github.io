@@ -42,7 +42,7 @@ Treat `ConversationManager` as a Manager-style extension point: first identify w
 ### CreateConversationSentenceIndex
 `public int CreateConversationSentenceIndex()`
 
-**Purpose:** **Purpose:** Constructs a new conversation sentence index entity and returns it to the caller.
+**Purpose:** Constructs a new conversation sentence index entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -53,7 +53,7 @@ var result = conversationManager.CreateConversationSentenceIndex();
 ### StartNew
 `public void StartNew(int startingToken, bool setActionsInstantly)`
 
-**Purpose:** **Purpose:** Starts the new flow or state machine.
+**Purpose:** Starts the new flow or state machine.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -64,7 +64,7 @@ conversationManager.StartNew(0, false);
 ### ProcessSentence
 `public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
 
-**Purpose:** **Purpose:** Executes the ProcessSentence logic.
+**Purpose:** Executes the ProcessSentence logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -75,7 +75,7 @@ conversationManager.ProcessSentence(conversationSentenceOption);
 ### UpdateCurrentSentenceText
 `public void UpdateCurrentSentenceText()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of current sentence text.
+**Purpose:** Recalculates and stores the latest representation of current sentence text.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -86,7 +86,7 @@ conversationManager.UpdateCurrentSentenceText();
 ### IsConversationEnded
 `public bool IsConversationEnded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conversation ended state or condition.
+**Purpose:** Determines whether the this instance is in the conversation ended state or condition.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -97,7 +97,7 @@ var result = conversationManager.IsConversationEnded();
 ### ClearCurrentOptions
 `public void ClearCurrentOptions()`
 
-**Purpose:** **Purpose:** Removes all current options from the this instance.
+**Purpose:** Removes all current options from the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -108,7 +108,7 @@ conversationManager.ClearCurrentOptions();
 ### AddToCurrentOptions
 `public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)`
 
-**Purpose:** **Purpose:** Adds to current options to the current collection or state.
+**Purpose:** Adds to current options to the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -119,7 +119,7 @@ conversationManager.AddToCurrentOptions(text, "example", false, hintText);
 ### GetPlayerSentenceOptions
 `public void GetPlayerSentenceOptions()`
 
-**Purpose:** **Purpose:** Reads and returns the player sentence options value held by the this instance.
+**Purpose:** Reads and returns the player sentence options value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -130,7 +130,7 @@ conversationManager.GetPlayerSentenceOptions();
 ### GetStateIndex
 `public int GetStateIndex(string str)`
 
-**Purpose:** **Purpose:** Reads and returns the state index value held by the this instance.
+**Purpose:** Reads and returns the state index value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -141,7 +141,7 @@ var result = conversationManager.GetStateIndex("example");
 ### DisableSentenceSort
 `public void DisableSentenceSort()`
 
-**Purpose:** **Purpose:** Executes the DisableSentenceSort logic.
+**Purpose:** Executes the DisableSentenceSort logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -152,7 +152,7 @@ conversationManager.DisableSentenceSort();
 ### EnableSentenceSort
 `public void EnableSentenceSort()`
 
-**Purpose:** **Purpose:** Executes the EnableSentenceSort logic.
+**Purpose:** Executes the EnableSentenceSort logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -163,7 +163,7 @@ conversationManager.EnableSentenceSort();
 ### AddDialogFlow
 `public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
 
-**Purpose:** **Purpose:** Adds dialog flow to the current collection or state.
+**Purpose:** Adds dialog flow to the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -174,7 +174,7 @@ conversationManager.AddDialogFlow(dialogFlow, null);
 ### AddDialogLineMultiAgent
 `public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**Purpose:** **Purpose:** Adds dialog line multi agent to the current collection or state.
+**Purpose:** Adds dialog line multi agent to the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -185,7 +185,7 @@ var result = conversationManager.AddDialogLineMultiAgent("example", "example", "
 ### IsAgentInConversation
 `public bool IsAgentInConversation(IAgent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the agent in conversation state or condition.
+**Purpose:** Determines whether the this instance is in the agent in conversation state or condition.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -196,7 +196,7 @@ var result = conversationManager.IsAgentInConversation(agent);
 ### BeginConversation
 `public void BeginConversation()`
 
-**Purpose:** **Purpose:** Executes the BeginConversation logic.
+**Purpose:** Executes the BeginConversation logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -207,7 +207,7 @@ conversationManager.BeginConversation();
 ### EndConversation
 `public void EndConversation()`
 
-**Purpose:** **Purpose:** Executes the EndConversation logic.
+**Purpose:** Executes the EndConversation logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -218,7 +218,7 @@ conversationManager.EndConversation();
 ### DoOption
 `public void DoOption(int optionIndex)`
 
-**Purpose:** **Purpose:** Executes the DoOption logic.
+**Purpose:** Executes the DoOption logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -229,7 +229,7 @@ conversationManager.DoOption(0);
 ### DoOption
 `public void DoOption(string optionID)`
 
-**Purpose:** **Purpose:** Executes the DoOption logic.
+**Purpose:** Executes the DoOption logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -240,7 +240,7 @@ conversationManager.DoOption("example");
 ### DoConversationContinuedCallback
 `public void DoConversationContinuedCallback()`
 
-**Purpose:** **Purpose:** Executes the DoConversationContinuedCallback logic.
+**Purpose:** Executes the DoConversationContinuedCallback logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -251,7 +251,7 @@ conversationManager.DoConversationContinuedCallback();
 ### DoOptionContinue
 `public void DoOptionContinue()`
 
-**Purpose:** **Purpose:** Executes the DoOptionContinue logic.
+**Purpose:** Executes the DoOptionContinue logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -262,7 +262,7 @@ conversationManager.DoOptionContinue();
 ### ContinueConversation
 `public void ContinueConversation()`
 
-**Purpose:** **Purpose:** Executes the ContinueConversation logic.
+**Purpose:** Executes the ContinueConversation logic.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -273,7 +273,7 @@ conversationManager.ContinueConversation();
 ### SetupAndStartMissionConversation
 `public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)`
 
-**Purpose:** **Purpose:** Assigns a new value to up and start mission conversation and updates the object's internal state.
+**Purpose:** Assigns a new value to up and start mission conversation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -284,7 +284,7 @@ conversationManager.SetupAndStartMissionConversation(agent, mainAgent, false);
 ### SetupAndStartMissionConversationWithMultipleAgents
 `public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)`
 
-**Purpose:** **Purpose:** Assigns a new value to up and start mission conversation with multiple agents and updates the object's internal state.
+**Purpose:** Assigns a new value to up and start mission conversation with multiple agents and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -295,7 +295,7 @@ conversationManager.SetupAndStartMissionConversationWithMultipleAgents(agents, m
 ### SetupAndStartMapConversation
 `public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)`
 
-**Purpose:** **Purpose:** Assigns a new value to up and start map conversation and updates the object's internal state.
+**Purpose:** Assigns a new value to up and start map conversation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -306,7 +306,7 @@ conversationManager.SetupAndStartMapConversation(party, agent, mainAgent);
 ### AddConversationAgents
 `public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)`
 
-**Purpose:** **Purpose:** Adds conversation agents to the current collection or state.
+**Purpose:** Adds conversation agents to the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -317,7 +317,7 @@ conversationManager.AddConversationAgents(agents, false);
 ### RemoveConversationAgent
 `public void RemoveConversationAgent(IAgent agent)`
 
-**Purpose:** **Purpose:** Removes conversation agent from the current collection or state.
+**Purpose:** Removes conversation agent from the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -328,7 +328,7 @@ conversationManager.RemoveConversationAgent(agent);
 ### IsConversationAgent
 `public bool IsConversationAgent(IAgent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conversation agent state or condition.
+**Purpose:** Determines whether the this instance is in the conversation agent state or condition.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -339,7 +339,7 @@ var result = conversationManager.IsConversationAgent(agent);
 ### RemoveRelatedLines
 `public void RemoveRelatedLines(object o)`
 
-**Purpose:** **Purpose:** Removes related lines from the current collection or state.
+**Purpose:** Removes related lines from the current collection or state.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -350,7 +350,7 @@ conversationManager.RemoveRelatedLines(o);
 ### OnConversationDeactivate
 `public void OnConversationDeactivate()`
 
-**Purpose:** **Purpose:** Invoked when the conversation deactivate event is raised.
+**Purpose:** Invoked when the conversation deactivate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -361,7 +361,7 @@ conversationManager.OnConversationDeactivate();
 ### OnConversationActivate
 `public void OnConversationActivate()`
 
-**Purpose:** **Purpose:** Invoked when the conversation activate event is raised.
+**Purpose:** Invoked when the conversation activate event is raised.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -372,7 +372,7 @@ conversationManager.OnConversationActivate();
 ### FindMatchingTextOrNull
 `public TextObject FindMatchingTextOrNull(string id, CharacterObject character)`
 
-**Purpose:** **Purpose:** Looks up the matching matching text or null in the current collection or scope.
+**Purpose:** Looks up the matching matching text or null in the current collection or scope.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -383,7 +383,7 @@ var result = conversationManager.FindMatchingTextOrNull("example", character);
 ### GetApplicableTagNames
 `public IEnumerable<string> GetApplicableTagNames(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the applicable tag names value held by the this instance.
+**Purpose:** Reads and returns the applicable tag names value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -394,7 +394,7 @@ var result = conversationManager.GetApplicableTagNames(character);
 ### IsTagApplicable
 `public bool IsTagApplicable(string tagId, CharacterObject character)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the tag applicable state or condition.
+**Purpose:** Determines whether the this instance is in the tag applicable state or condition.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -405,7 +405,7 @@ var result = conversationManager.IsTagApplicable("example", character);
 ### OpenMapConversation
 `public void OpenMapConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with map conversation.
+**Purpose:** Opens the resource or UI associated with map conversation.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -416,7 +416,7 @@ conversationManager.OpenMapConversation(playerCharacterData, conversationPartner
 ### StartPersuasion
 `public static void StartPersuasion(float goalValue, float successValue, float failValue, float criticalSuccessValue, float criticalFailValue, float initialProgress = -1f, PersuasionDifficulty difficulty = PersuasionDifficulty.Medium)`
 
-**Purpose:** **Purpose:** Starts the persuasion flow or state machine.
+**Purpose:** Starts the persuasion flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -426,7 +426,7 @@ ConversationManager.StartPersuasion(0, 0, 0, 0, 0, 0, persuasionDifficulty.Mediu
 ### EndPersuasion
 `public static void EndPersuasion()`
 
-**Purpose:** **Purpose:** Executes the EndPersuasion logic.
+**Purpose:** Executes the EndPersuasion logic.
 
 ```csharp
 // Static call; no instance required
@@ -436,7 +436,7 @@ ConversationManager.EndPersuasion();
 ### PersuasionCommitProgress
 `public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**Purpose:** **Purpose:** Executes the PersuasionCommitProgress logic.
+**Purpose:** Executes the PersuasionCommitProgress logic.
 
 ```csharp
 // Static call; no instance required
@@ -446,7 +446,7 @@ ConversationManager.PersuasionCommitProgress(persuasionOptionArgs);
 ### Clear
 `public static void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -456,7 +456,7 @@ ConversationManager.Clear();
 ### GetPersuasionChanceValues
 `public void GetPersuasionChanceValues(out float successValue, out float critSuccessValue, out float critFailValue)`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion chance values value held by the this instance.
+**Purpose:** Reads and returns the persuasion chance values value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first
@@ -467,7 +467,7 @@ conversationManager.GetPersuasionChanceValues(successValue, critSuccessValue, cr
 ### GetPersuasionIsActive
 `public static bool GetPersuasionIsActive()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion is active value held by the this instance.
+**Purpose:** Reads and returns the persuasion is active value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -477,7 +477,7 @@ ConversationManager.GetPersuasionIsActive();
 ### GetPersuasionProgressSatisfied
 `public static bool GetPersuasionProgressSatisfied()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion progress satisfied value held by the this instance.
+**Purpose:** Reads and returns the persuasion progress satisfied value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -487,7 +487,7 @@ ConversationManager.GetPersuasionProgressSatisfied();
 ### GetPersuasionIsFailure
 `public static bool GetPersuasionIsFailure()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion is failure value held by the this instance.
+**Purpose:** Reads and returns the persuasion is failure value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -497,7 +497,7 @@ ConversationManager.GetPersuasionIsFailure();
 ### GetPersuasionProgress
 `public static float GetPersuasionProgress()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion progress value held by the this instance.
+**Purpose:** Reads and returns the persuasion progress value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -507,7 +507,7 @@ ConversationManager.GetPersuasionProgress();
 ### GetPersuasionGoalValue
 `public static float GetPersuasionGoalValue()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion goal value value held by the this instance.
+**Purpose:** Reads and returns the persuasion goal value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -517,7 +517,7 @@ ConversationManager.GetPersuasionGoalValue();
 ### GetPersuasionChosenOptions
 `public static IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetPersuasionChosenOptions()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion chosen options value held by the this instance.
+**Purpose:** Reads and returns the persuasion chosen options value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -527,7 +527,7 @@ ConversationManager.GetPersuasionChosenOptions();
 ### GetPersuasionChances
 `public void GetPersuasionChances(ConversationSentenceOption conversationSentenceOption, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance)`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion chances value held by the this instance.
+**Purpose:** Reads and returns the persuasion chances value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConversationManager from the subsystem API first

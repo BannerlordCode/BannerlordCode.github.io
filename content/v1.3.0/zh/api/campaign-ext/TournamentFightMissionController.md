@@ -23,7 +23,7 @@ description: "TournamentFightMissionController 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -34,7 +34,7 @@ tournamentFightMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -45,7 +45,7 @@ tournamentFightMissionController.AfterStart();
 ### PrepareForMatch
 `public void PrepareForMatch()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为即将执行的for match操作完成前置准备工作。
+**用途 / Purpose:** 为即将执行的for match操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -56,7 +56,7 @@ tournamentFightMissionController.PrepareForMatch();
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动match流程或状态机。
+**用途 / Purpose:** 启动match流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -67,7 +67,7 @@ tournamentFightMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SkipMatch 对应的操作。
+**用途 / Purpose:** 调用 SkipMatch 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -78,7 +78,7 @@ tournamentFightMissionController.SkipMatch(match);
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 match ended 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 match ended 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -89,7 +89,7 @@ var result = tournamentFightMissionController.IsMatchEnded();
 ### OnMatchResultsReady
 `public void OnMatchResultsReady()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 match results ready 事件触发时调用此回调。
+**用途 / Purpose:** 在 match results ready 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -100,7 +100,7 @@ tournamentFightMissionController.OnMatchResultsReady();
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 match ended 事件触发时调用此回调。
+**用途 / Purpose:** 在 match ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -111,7 +111,7 @@ tournamentFightMissionController.OnMatchEnded();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -122,7 +122,7 @@ tournamentFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent, ag
 ### CanAgentRout
 `public bool CanAgentRout(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent rout 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 agent rout 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -133,7 +133,7 @@ var result = tournamentFightMissionController.CanAgentRout(agent);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -144,7 +144,7 @@ tournamentFightMissionController.OnScoreHit(affectedAgent, affectorAgent, attack
 ### CheckIfIsThereAnyEnemies
 `public bool CheckIfIsThereAnyEnemies()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查if is there any enemies在当前对象中是否成立。
+**用途 / Purpose:** 检查if is there any enemies在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例
@@ -155,7 +155,7 @@ var result = tournamentFightMissionController.CheckIfIsThereAnyEnemies();
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
+**用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentFightMissionController 实例

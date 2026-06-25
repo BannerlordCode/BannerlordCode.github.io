@@ -45,7 +45,7 @@ Treat `CampaignObjectManager` as a Manager-style extension point: first identify
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**Purpose:** **Purpose:** Executes the PreAfterLoad logic.
+**Purpose:** Executes the PreAfterLoad logic.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -56,7 +56,7 @@ campaignObjectManager.PreAfterLoad();
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** **Purpose:** Executes the AfterLoad logic.
+**Purpose:** Executes the AfterLoad logic.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -67,7 +67,7 @@ campaignObjectManager.AfterLoad();
 ### GetMaxObjectSubId
 `public uint GetMaxObjectSubId()`
 
-**Purpose:** **Purpose:** Reads and returns the max object sub id value held by the this instance.
+**Purpose:** Reads and returns the max object sub id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -78,7 +78,7 @@ var result = campaignObjectManager.GetMaxObjectSubId();
 ### OnItemAdded
 `public void OnItemAdded(T item)`
 
-**Purpose:** **Purpose:** Invoked when the item added event is raised.
+**Purpose:** Invoked when the item added event is raised.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -89,7 +89,7 @@ campaignObjectManager.OnItemAdded(item);
 ### UnregisterItem
 `public void UnregisterItem(T item)`
 
-**Purpose:** **Purpose:** Unregisters item from the current system.
+**Purpose:** Unregisters item from the current system.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -100,7 +100,7 @@ campaignObjectManager.UnregisterItem(item);
 ### Find
 `public T Find(string id)`
 
-**Purpose:** **Purpose:** Finds the matching entry in the current collection or scope.
+**Purpose:** Finds the matching entry in the current collection or scope.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -111,7 +111,7 @@ var result = campaignObjectManager.Find("example");
 ### FindFirst
 `public T FindFirst(Predicate<T> predicate)`
 
-**Purpose:** **Purpose:** Looks up the matching first in the current collection or scope.
+**Purpose:** Looks up the matching first in the current collection or scope.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -122,7 +122,7 @@ var result = campaignObjectManager.FindFirst(predicate);
 ### FindAll
 `public MBReadOnlyList<T> FindAll(Predicate<T> predicate)`
 
-**Purpose:** **Purpose:** Looks up the matching all in the current collection or scope.
+**Purpose:** Looks up the matching all in the current collection or scope.
 
 ```csharp
 // Obtain an instance of CampaignObjectManager from the subsystem API first
@@ -133,7 +133,7 @@ var result = campaignObjectManager.FindAll(predicate);
 ### FindNextUniqueStringId
 `public static string FindNextUniqueStringId(List<CampaignObjectManager.CampaignObjectType<T>> lists, string id)`
 
-**Purpose:** **Purpose:** Looks up the matching next unique string id in the current collection or scope.
+**Purpose:** Looks up the matching next unique string id in the current collection or scope.
 
 ```csharp
 // Static call; no instance required

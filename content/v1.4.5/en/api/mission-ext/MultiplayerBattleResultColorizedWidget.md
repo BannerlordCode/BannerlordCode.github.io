@@ -32,7 +32,7 @@ Treat `MultiplayerBattleResultColorizedWidget` as a Widget-style extension point
 ### MultiplayerBattleResultColorizedWidget
 `public class MultiplayerBattleResultColorizedWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the MultiplayerBattleResultColorizedWidget logic.
+**Purpose:** Executes the MultiplayerBattleResultColorizedWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerBattleResultColorizedWidget from the subsystem API first

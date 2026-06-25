@@ -23,7 +23,7 @@ Treat `DeploymentMissionView` as a View-style extension point: first identify wh
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of DeploymentMissionView from the subsystem API first
@@ -34,7 +34,7 @@ deploymentMissionView.AfterStart();
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**Purpose:** **Purpose:** Invoked when the deployment plan made event is raised.
+**Purpose:** Invoked when the deployment plan made event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentMissionView from the subsystem API first
@@ -45,7 +45,7 @@ deploymentMissionView.OnDeploymentPlanMade(team, false);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentMissionView from the subsystem API first

@@ -33,7 +33,7 @@ description: "PartyTroopManagerItemVM 的自动生成类参考。"
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例
@@ -44,7 +44,7 @@ partyTroopManagerItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例
@@ -55,7 +55,7 @@ partyTroopManagerItemVM.ExecuteSetUnfocused();
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 open troop encyclopedia 对应的操作或工作流。
+**用途 / Purpose:** 执行 open troop encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例

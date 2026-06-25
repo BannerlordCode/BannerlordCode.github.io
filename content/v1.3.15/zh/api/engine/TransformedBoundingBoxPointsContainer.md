@@ -29,7 +29,7 @@ description: "TransformedBoundingBoxPointsContainer 的自动生成类参考。"
 ### ComputeTransformedMinMax
 `public ValueTuple<Vec3, Vec3> ComputeTransformedMinMax()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeTransformedMinMax 对应的操作。
+**用途 / Purpose:** 调用 ComputeTransformedMinMax 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TransformedBoundingBoxPointsContainer 实例

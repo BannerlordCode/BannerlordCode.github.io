@@ -23,7 +23,7 @@ description: "MBTeam 的自动生成类参考。"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MBTeam 实例
@@ -34,7 +34,7 @@ var result = mBTeam.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MBTeam 实例
@@ -45,7 +45,7 @@ var result = mBTeam.Equals(obj);
 ### IsEnemyOf
 `public bool IsEnemyOf(MBTeam otherTeam)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MBTeam 实例
@@ -56,7 +56,7 @@ var result = mBTeam.IsEnemyOf(otherTeam);
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(MBTeam otherTeam, bool isEnemyOf)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is enemy of 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is enemy of 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBTeam 实例
@@ -67,7 +67,7 @@ mBTeam.SetIsEnemyOf(otherTeam, false);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MBTeam 实例

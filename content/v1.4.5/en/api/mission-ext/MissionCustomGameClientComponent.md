@@ -23,7 +23,7 @@ Treat `MissionCustomGameClientComponent` as a Component-style extension point: f
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionCustomGameClientComponent from the subsystem API first
@@ -34,7 +34,7 @@ missionCustomGameClientComponent.OnBehaviorInitialize();
 ### SetServerEndingBeforeClientLoaded
 `public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
 
-**Purpose:** **Purpose:** Assigns a new value to server ending before client loaded and updates the object's internal state.
+**Purpose:** Assigns a new value to server ending before client loaded and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionCustomGameClientComponent from the subsystem API first
@@ -45,7 +45,7 @@ missionCustomGameClientComponent.SetServerEndingBeforeClientLoaded(false);
 ### QuitMission
 `public override void QuitMission()`
 
-**Purpose:** **Purpose:** Executes the QuitMission logic.
+**Purpose:** Executes the QuitMission logic.
 
 ```csharp
 // Obtain an instance of MissionCustomGameClientComponent from the subsystem API first

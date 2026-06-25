@@ -36,7 +36,7 @@ description: "GamepadNavigationForcedScopeCollection 的自动生成类参考。
 ### IsAvailable
 `public bool IsAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 available 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
@@ -47,7 +47,7 @@ var result = gamepadNavigationForcedScopeCollection.IsAvailable();
 ### AddScope
 `public void AddScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 scope 添加到当前容器或状态中。
+**用途 / Purpose:** 将 scope 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
@@ -58,7 +58,7 @@ gamepadNavigationForcedScopeCollection.AddScope(scope);
 ### RemoveScope
 `public void RemoveScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 scope。
+**用途 / Purpose:** 从当前容器或状态中移除 scope。
 
 ```csharp
 // 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
@@ -69,7 +69,7 @@ gamepadNavigationForcedScopeCollection.RemoveScope(scope);
 ### ClearScopes
 `public void ClearScopes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的scopes。
+**用途 / Purpose:** 清空当前对象中的scopes。
 
 ```csharp
 // 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
@@ -80,7 +80,7 @@ gamepadNavigationForcedScopeCollection.ClearScopes();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例

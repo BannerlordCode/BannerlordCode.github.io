@@ -23,7 +23,7 @@ Treat `MultiplayerLocalData` as a Data-style extension point: first identify who
 ### HasSameContentWith
 `public abstract bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
+**Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalData from the subsystem API first

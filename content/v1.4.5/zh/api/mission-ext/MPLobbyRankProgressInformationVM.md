@@ -43,7 +43,7 @@ description: "MPLobbyRankProgressInformationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
@@ -54,7 +54,7 @@ mPLobbyRankProgressInformationVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
@@ -65,7 +65,7 @@ mPLobbyRankProgressInformationVM.OnFinalize();
 ### OpenWith
 `public void OpenWith(MPLobbyPlayerBaseVM player)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
+**用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
@@ -76,7 +76,7 @@ mPLobbyRankProgressInformationVM.OpenWith(player);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例

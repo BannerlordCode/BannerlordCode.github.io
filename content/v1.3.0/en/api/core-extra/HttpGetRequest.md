@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ### Start
 `public void Start()`
 
-**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
+**Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of HttpGetRequest from the subsystem API first

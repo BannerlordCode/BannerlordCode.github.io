@@ -31,7 +31,7 @@ Treat `CreditsWidget` as a Widget-style extension point: first identify who crea
 ### CreditsWidget
 `public class CreditsWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the CreditsWidget logic.
+**Purpose:** Executes the CreditsWidget logic.
 
 ```csharp
 // Obtain an instance of CreditsWidget from the subsystem API first

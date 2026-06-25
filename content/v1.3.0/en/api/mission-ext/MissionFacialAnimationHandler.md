@@ -23,7 +23,7 @@ Treat `MissionFacialAnimationHandler` as a Handler-style extension point: first 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionFacialAnimationHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionFacialAnimationHandler.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionFacialAnimationHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionFacialAnimationHandler.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionFacialAnimationHandler from the subsystem API first

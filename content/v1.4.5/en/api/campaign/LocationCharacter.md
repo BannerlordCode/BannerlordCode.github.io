@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### AddBehaviorsDelegate
 `public delegate void AddBehaviorsDelegate(IAgent agent)`
 
-**Purpose:** **Purpose:** Adds behaviors delegate to the current collection or state.
+**Purpose:** Adds behaviors delegate to the current collection or state.
 
 ```csharp
 // Obtain an instance of LocationCharacter from the subsystem API first
@@ -50,7 +50,7 @@ locationCharacter.AddBehaviorsDelegate(agent);
 ### AfterAgentCreatedDelegate
 `public delegate void AfterAgentCreatedDelegate(IAgent agent)`
 
-**Purpose:** **Purpose:** Executes the AfterAgentCreatedDelegate logic.
+**Purpose:** Executes the AfterAgentCreatedDelegate logic.
 
 ```csharp
 // Obtain an instance of LocationCharacter from the subsystem API first
@@ -61,7 +61,7 @@ locationCharacter.AfterAgentCreatedDelegate(agent);
 ### SetAlleyOfCharacter
 `public void SetAlleyOfCharacter(Alley alley)`
 
-**Purpose:** **Purpose:** Assigns a new value to alley of character and updates the object's internal state.
+**Purpose:** Assigns a new value to alley of character and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LocationCharacter from the subsystem API first
@@ -72,7 +72,7 @@ locationCharacter.SetAlleyOfCharacter(alley);
 ### CreateBodyguardHero
 `public static LocationCharacter CreateBodyguardHero(Hero hero, MobileParty party, AddBehaviorsDelegate addBehaviorsDelegate)`
 
-**Purpose:** **Purpose:** Constructs a new bodyguard hero entity and returns it to the caller.
+**Purpose:** Constructs a new bodyguard hero entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

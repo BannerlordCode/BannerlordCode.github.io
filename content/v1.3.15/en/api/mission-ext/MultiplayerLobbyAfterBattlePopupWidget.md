@@ -35,7 +35,7 @@ Treat `MultiplayerLobbyAfterBattlePopupWidget` as a Widget-style extension point
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** **Purpose:** Starts the animation flow or state machine.
+**Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyAfterBattlePopupWidget from the subsystem API first

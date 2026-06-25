@@ -23,7 +23,7 @@ Start from namespace `StoryMode.View.MarkerProviders` to place it in the stack, 
 ### CreateMarkers
 `public override void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** **Purpose:** Constructs a new markers entity and returns it to the caller.
+**Purpose:** Constructs a new markers entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of StealthTutorialMarkerProvider from the subsystem API first

@@ -19,7 +19,7 @@ GiveItemAction 是一组静态方法，用于在战役中以特定原因触发"G
 public static void ApplyForHeroes(Hero giver, Hero receiver, in ItemRosterElement itemRosterElement)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for heroes 的效果应用到当前对象。
+**用途 / Purpose:** 将 for heroes 的效果应用到当前对象。
 
 ### ApplyForParties
 
@@ -27,7 +27,7 @@ public static void ApplyForHeroes(Hero giver, Hero receiver, in ItemRosterElemen
 public static void ApplyForParties(PartyBase giverParty, PartyBase receiverParty, in ItemRosterElement itemRosterElement)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 for parties 的效果应用到当前对象。
+**用途 / Purpose:** 将 for parties 的效果应用到当前对象。
 
 ## 使用示例
 

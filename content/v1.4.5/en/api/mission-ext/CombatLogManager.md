@@ -23,7 +23,7 @@ Treat `CombatLogManager` as a Manager-style extension point: first identify who 
 ### PrintDebugLogForInfo
 `public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
 
-**Purpose:** **Purpose:** Executes the PrintDebugLogForInfo logic.
+**Purpose:** Executes the PrintDebugLogForInfo logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0,
 ### GenerateCombatLog
 `public static void GenerateCombatLog(CombatLogData logData)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of combat log.
+**Purpose:** Generates an instance, data, or representation of combat log.
 
 ```csharp
 // Static call; no instance required

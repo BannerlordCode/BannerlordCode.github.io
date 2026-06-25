@@ -47,7 +47,7 @@ description: "GameMenuWidget 的自动生成类参考。"
 ### UpdateOverlayState
 `public void UpdateOverlayState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 overlay state 的最新表示。
+**用途 / Purpose:** 重新计算并更新 overlay state 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuWidget 实例
@@ -58,7 +58,7 @@ gameMenuWidget.UpdateOverlayState();
 ### OnOptionStateChanged
 `public void OnOptionStateChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 option state changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 option state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuWidget 实例

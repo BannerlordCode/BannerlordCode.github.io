@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetTacticalDefendPosition
 `public void SetTacticalDefendPosition(TacticalPosition tacticalPosition)`
 
-**Purpose:** **Purpose:** Assigns a new value to tactical defend position and updates the object's internal state.
+**Purpose:** Assigns a new value to tactical defend position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BehaviorShootFromCliff from the subsystem API first
@@ -34,7 +34,7 @@ behaviorShootFromCliff.SetTacticalDefendPosition(tacticalPosition);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorShootFromCliff from the subsystem API first
@@ -45,7 +45,7 @@ behaviorShootFromCliff.TickOccasionally();
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** **Purpose:** Returns behavior to its default or initial condition.
+**Purpose:** Returns behavior to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BehaviorShootFromCliff from the subsystem API first

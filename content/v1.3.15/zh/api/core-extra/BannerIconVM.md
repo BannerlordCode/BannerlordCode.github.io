@@ -31,7 +31,7 @@ description: "BannerIconVM 的自动生成类参考。"
 ### ExecuteSelectIcon
 `public void ExecuteSelectIcon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 select icon 对应的操作或工作流。
+**用途 / Purpose:** 执行 select icon 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerIconVM 实例

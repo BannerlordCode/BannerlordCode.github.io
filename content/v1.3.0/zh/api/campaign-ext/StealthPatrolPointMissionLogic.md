@@ -23,7 +23,7 @@ description: "StealthPatrolPointMissionLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -34,7 +34,7 @@ stealthPatrolPointMissionLogic.AfterStart();
 ### OnLocationCharacterAgentSpawned
 `public void OnLocationCharacterAgentSpawned(LocationCharacterAgentSpawnedMissionEvent locationCharacterAgentSpawnedEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 location character agent spawned 事件触发时调用此回调。
+**用途 / Purpose:** 在 location character agent spawned 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -45,7 +45,7 @@ stealthPatrolPointMissionLogic.OnLocationCharacterAgentSpawned(locationCharacter
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -56,7 +56,7 @@ stealthPatrolPointMissionLogic.OnAgentInteraction(userAgent, agent, 0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -67,7 +67,7 @@ stealthPatrolPointMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agen
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -78,7 +78,7 @@ var result = stealthPatrolPointMissionLogic.IsThereAgentAction(userAgent, otherA
 ### OnCheckpointLoadedEvent
 `public void OnCheckpointLoadedEvent(CheckpointLoadedMissionEvent checkpointLoadedMissionEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 checkpoint loaded event 事件触发时调用此回调。
+**用途 / Purpose:** 在 checkpoint loaded event 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -89,7 +89,7 @@ stealthPatrolPointMissionLogic.OnCheckpointLoadedEvent(checkpointLoadedMissionEv
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动spawner流程或状态机。
+**用途 / Purpose:** 启动spawner流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -100,7 +100,7 @@ stealthPatrolPointMissionLogic.StartSpawner(side);
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止spawner流程或状态机。
+**用途 / Purpose:** 停止spawner流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -111,7 +111,7 @@ stealthPatrolPointMissionLogic.StopSpawner(side);
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 side spawn enabled 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 side spawn enabled 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -122,7 +122,7 @@ var result = stealthPatrolPointMissionLogic.IsSideSpawnEnabled(side);
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 side depleted 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 side depleted 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -133,7 +133,7 @@ var result = stealthPatrolPointMissionLogic.IsSideDepleted(side);
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reinforcement interval 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 reinforcement interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -144,7 +144,7 @@ var result = stealthPatrolPointMissionLogic.GetReinforcementInterval();
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all troops for side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all troops for side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -155,7 +155,7 @@ var result = stealthPatrolPointMissionLogic.GetAllTroopsForSide(side);
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
@@ -166,7 +166,7 @@ var result = stealthPatrolPointMissionLogic.GetNumberOfPlayerControllableTroops(
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn horses 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn horses 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例

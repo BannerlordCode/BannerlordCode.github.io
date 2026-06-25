@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**Purpose:** **Purpose:** Reads and returns the scene xml crc values value held by the this instance.
+**Purpose:** Reads and returns the scene xml crc values value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementPositionScript from the subsystem API first

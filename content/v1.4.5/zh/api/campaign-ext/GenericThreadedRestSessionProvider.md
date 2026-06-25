@@ -23,7 +23,7 @@ description: "GenericThreadedRestSessionProvider 的自动生成类参考。"
 ### CreateSession
 `public IClientSession CreateSession(T client)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 session 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 session 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericThreadedRestSessionProvider 实例

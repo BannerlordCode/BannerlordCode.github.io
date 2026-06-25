@@ -29,7 +29,7 @@ Treat `InformationManager` as a Manager-style extension point: first identify wh
 ### IsAnyInquiryActive
 `public static bool IsAnyInquiryActive()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any inquiry active state or condition.
+**Purpose:** Determines whether the this instance is in the any inquiry active state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ InformationManager.IsAnyInquiryActive();
 ### DisplayMessage
 `public static void DisplayMessage(InformationMessage message)`
 
-**Purpose:** **Purpose:** Executes the DisplayMessage logic.
+**Purpose:** Executes the DisplayMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ InformationManager.DisplayMessage(message);
 ### HideAllMessages
 `public static void HideAllMessages()`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with all messages.
+**Purpose:** Hides the UI or element associated with all messages.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ InformationManager.HideAllMessages();
 ### ClearAllMessages
 `public static void ClearAllMessages()`
 
-**Purpose:** **Purpose:** Removes all all messages from the this instance.
+**Purpose:** Removes all all messages from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ InformationManager.ClearAllMessages();
 ### AddSystemNotification
 `public static void AddSystemNotification(string message)`
 
-**Purpose:** **Purpose:** Adds system notification to the current collection or state.
+**Purpose:** Adds system notification to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ InformationManager.AddSystemNotification("example");
 ### ShowTooltip
 `public static void ShowTooltip(Type type, params object args)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with tooltip.
+**Purpose:** Displays the UI or element associated with tooltip.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ InformationManager.ShowTooltip(type, args);
 ### HideTooltip
 `public static void HideTooltip()`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with tooltip.
+**Purpose:** Hides the UI or element associated with tooltip.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ InformationManager.HideTooltip();
 ### ShowInquiry
 `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with inquiry.
+**Purpose:** Displays the UI or element associated with inquiry.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ InformationManager.ShowInquiry(data, false, false);
 ### ShowTextInquiry
 `public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with text inquiry.
+**Purpose:** Displays the UI or element associated with text inquiry.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ InformationManager.ShowTextInquiry(textData, false, false);
 ### HideInquiry
 `public static void HideInquiry()`
 
-**Purpose:** **Purpose:** Hides the UI or element associated with inquiry.
+**Purpose:** Hides the UI or element associated with inquiry.
 
 ```csharp
 // Static call; no instance required
@@ -129,7 +129,7 @@ InformationManager.HideInquiry();
 ### GetIsAnyTooltipActive
 `public static bool GetIsAnyTooltipActive()`
 
-**Purpose:** **Purpose:** Reads and returns the is any tooltip active value held by the this instance.
+**Purpose:** Reads and returns the is any tooltip active value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -139,7 +139,7 @@ InformationManager.GetIsAnyTooltipActive();
 ### GetIsAnyTooltipActiveAndExtended
 `public static bool GetIsAnyTooltipActiveAndExtended()`
 
-**Purpose:** **Purpose:** Reads and returns the is any tooltip active and extended value held by the this instance.
+**Purpose:** Reads and returns the is any tooltip active and extended value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ InformationManager.GetIsAnyTooltipActiveAndExtended();
 ### Clear
 `public static void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ InformationManager.Clear();
 ### IsAnyTooltipActiveDelegate
 `public delegate void IsAnyTooltipActiveDelegate(out bool isAnyTooltipActive, out bool isAnyTooltipExtended)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any tooltip active delegate state or condition.
+**Purpose:** Determines whether the this instance is in the any tooltip active delegate state or condition.
 
 ```csharp
 // Obtain an instance of InformationManager from the subsystem API first

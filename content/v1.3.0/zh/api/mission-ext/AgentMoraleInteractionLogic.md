@@ -23,7 +23,7 @@ description: "AgentMoraleInteractionLogic 的自动生成类参考。"
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentMoraleInteractionLogic 实例
@@ -34,7 +34,7 @@ agentMoraleInteractionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentSt
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent fleeing 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentMoraleInteractionLogic 实例

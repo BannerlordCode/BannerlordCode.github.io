@@ -23,7 +23,7 @@ description: "StoryModeCheats 的自动生成类参考。"
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查cheat usage在当前对象中是否成立。
+**用途 / Purpose:** 检查cheat usage在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ StoryModeCheats.CheckCheatUsage(message);
 ### AddFamilyMembers
 `public static string AddFamilyMembers(List<string> strings)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 family members 添加到当前容器或状态中。
+**用途 / Purpose:** 将 family members 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

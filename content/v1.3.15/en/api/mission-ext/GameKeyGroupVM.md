@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameKeyGroupVM from the subsystem API first
@@ -41,7 +41,7 @@ gameKeyGroupVM.RefreshValues();
 ### OnDone
 `public void OnDone()`
 
-**Purpose:** **Purpose:** Invoked when the done event is raised.
+**Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of GameKeyGroupVM from the subsystem API first
@@ -52,7 +52,7 @@ gameKeyGroupVM.OnDone();
 ### OnGamepadActiveStateChanged
 `public void OnGamepadActiveStateChanged()`
 
-**Purpose:** **Purpose:** Invoked when the gamepad active state changed event is raised.
+**Purpose:** Invoked when the gamepad active state changed event is raised.
 
 ```csharp
 // Obtain an instance of GameKeyGroupVM from the subsystem API first
@@ -63,7 +63,7 @@ gameKeyGroupVM.OnGamepadActiveStateChanged();
 ### Cancel
 `public void Cancel()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel.
+**Purpose:** Checks whether the this instance meets the preconditions for cel.
 
 ```csharp
 // Obtain an instance of GameKeyGroupVM from the subsystem API first
@@ -74,7 +74,7 @@ gameKeyGroupVM.Cancel();
 ### ApplyValues
 `public void ApplyValues()`
 
-**Purpose:** **Purpose:** Applies the effect of values to the this instance.
+**Purpose:** Applies the effect of values to the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyGroupVM from the subsystem API first

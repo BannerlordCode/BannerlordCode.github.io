@@ -23,7 +23,7 @@ description: "CosmeticsManager 的自动生成类参考。"
 ### GetCosmeticElement
 `public static CosmeticElement GetCosmeticElement(string cosmeticId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cosmetic element 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cosmetic element 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CosmeticsManager.GetCosmeticElement("example");
 ### LoadFromXml
 `public static void LoadFromXml(string path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from xml。
+**用途 / Purpose:** 从持久化存储或流中读取 from xml。
 
 ```csharp
 // 静态调用，不需要实例

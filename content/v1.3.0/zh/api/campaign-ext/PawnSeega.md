@@ -32,7 +32,7 @@ description: "PawnSeega 的自动生成类参考。"
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnSeega 实例
@@ -43,7 +43,7 @@ pawnSeega.Reset();
 ### UpdateMoveBackAvailable
 `public void UpdateMoveBackAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 move back available 的最新表示。
+**用途 / Purpose:** 重新计算并更新 move back available 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnSeega 实例
@@ -54,7 +54,7 @@ pawnSeega.UpdateMoveBackAvailable();
 ### AISetMovedThisTurn
 `public void AISetMovedThisTurn(bool moved)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AISetMovedThisTurn 对应的操作。
+**用途 / Purpose:** 调用 AISetMovedThisTurn 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnSeega 实例

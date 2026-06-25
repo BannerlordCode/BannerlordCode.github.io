@@ -23,7 +23,7 @@ description: "DefaultClanTierModel 的自动生成类参考。"
 ### CalculateInitialRenown
 `public override int CalculateInitialRenown(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算initial renown的当前值或结果。
+**用途 / Purpose:** 计算initial renown的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例
@@ -34,7 +34,7 @@ var result = defaultClanTierModel.CalculateInitialRenown(clan);
 ### CalculateInitialInfluence
 `public override int CalculateInitialInfluence(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算initial influence的当前值或结果。
+**用途 / Purpose:** 计算initial influence的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例
@@ -45,7 +45,7 @@ var result = defaultClanTierModel.CalculateInitialInfluence(clan);
 ### CalculateTier
 `public override int CalculateTier(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算tier的当前值或结果。
+**用途 / Purpose:** 计算tier的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例
@@ -56,7 +56,7 @@ var result = defaultClanTierModel.CalculateTier(clan);
 ### GetRequiredRenownForTier
 `public override int GetRequiredRenownForTier(int tier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 required renown for tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 required renown for tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例
@@ -67,7 +67,7 @@ var result = defaultClanTierModel.GetRequiredRenownForTier(0);
 ### GetPartyLimitForTier
 `public override int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party limit for tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 party limit for tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例
@@ -78,7 +78,7 @@ var result = defaultClanTierModel.GetPartyLimitForTier(clan, 0);
 ### GetCompanionLimit
 `public override int GetCompanionLimit(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 companion limit 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 companion limit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanTierModel 实例

@@ -33,7 +33,7 @@ description: "TutorialObjective 的自动生成类参考。"
 ### SetTextVariableOfName
 `public void SetTextVariableOfName(string tag, int variable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 text variable of name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 text variable of name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -44,7 +44,7 @@ tutorialObjective.SetTextVariableOfName("example", 0);
 ### GetNameString
 `public string GetNameString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name string 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -55,7 +55,7 @@ var result = tutorialObjective.GetNameString();
 ### SetActive
 `public bool SetActive(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -66,7 +66,7 @@ var result = tutorialObjective.SetActive(false);
 ### FinishTask
 `public bool FinishTask()`
 
-**用途 / Purpose:** **用途 / Purpose:** 结束task流程并执行必要的收尾工作。
+**用途 / Purpose:** 结束task流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -77,7 +77,7 @@ var result = tutorialObjective.FinishTask();
 ### FinishSubTask
 `public void FinishSubTask(string subTaskName, float score)`
 
-**用途 / Purpose:** **用途 / Purpose:** 结束sub task流程并执行必要的收尾工作。
+**用途 / Purpose:** 结束sub task流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -88,7 +88,7 @@ tutorialObjective.FinishSubTask("example", 0);
 ### SetAllSubTasksInactive
 `public bool SetAllSubTasksInactive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 all sub tasks inactive 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 all sub tasks inactive 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -99,7 +99,7 @@ var result = tutorialObjective.SetAllSubTasksInactive();
 ### AddSubTask
 `public void AddSubTask(TrainingFieldMissionController.TutorialObjective newSubTask)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 sub task 添加到当前容器或状态中。
+**用途 / Purpose:** 将 sub task 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例
@@ -110,7 +110,7 @@ tutorialObjective.AddSubTask(newSubTask);
 ### RestoreScoreFromSave
 `public void RestoreScoreFromSave(float score)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RestoreScoreFromSave 对应的操作。
+**用途 / Purpose:** 调用 RestoreScoreFromSave 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialObjective 实例

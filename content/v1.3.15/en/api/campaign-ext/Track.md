@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party interact.
+**Purpose:** Checks whether the this instance meets the preconditions for party interact.
 
 ```csharp
 // Obtain an instance of Track from the subsystem API first
@@ -47,7 +47,7 @@ var result = track.CanPartyInteract(mobileParty, 0);
 ### GetPartyTypeEnum
 `public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)`
 
-**Purpose:** **Purpose:** Reads and returns the party type enum value held by the this instance.
+**Purpose:** Reads and returns the party type enum value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -57,7 +57,7 @@ Track.GetPartyTypeEnum(party);
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Track from the subsystem API first

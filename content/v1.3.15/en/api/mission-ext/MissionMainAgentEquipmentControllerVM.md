@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -47,7 +47,7 @@ missionMainAgentEquipmentControllerVM.RefreshValues();
 ### OnDropControllerToggle
 `public void OnDropControllerToggle(bool isActive)`
 
-**Purpose:** **Purpose:** Invoked when the drop controller toggle event is raised.
+**Purpose:** Invoked when the drop controller toggle event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -58,7 +58,7 @@ missionMainAgentEquipmentControllerVM.OnDropControllerToggle(false);
 ### SetCurrentFocusedWeaponEntity
 `public void SetCurrentFocusedWeaponEntity(SpawnedItemEntity weaponEntity)`
 
-**Purpose:** **Purpose:** Assigns a new value to current focused weapon entity and updates the object's internal state.
+**Purpose:** Assigns a new value to current focused weapon entity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -69,7 +69,7 @@ missionMainAgentEquipmentControllerVM.SetCurrentFocusedWeaponEntity(weaponEntity
 ### OnEquipControllerToggle
 `public void OnEquipControllerToggle(bool isActive)`
 
-**Purpose:** **Purpose:** Invoked when the equip controller toggle event is raised.
+**Purpose:** Invoked when the equip controller toggle event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -80,7 +80,7 @@ missionMainAgentEquipmentControllerVM.OnEquipControllerToggle(false);
 ### OnCancelEquipController
 `public void OnCancelEquipController()`
 
-**Purpose:** **Purpose:** Invoked when the cancel equip controller event is raised.
+**Purpose:** Invoked when the cancel equip controller event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -91,7 +91,7 @@ missionMainAgentEquipmentControllerVM.OnCancelEquipController();
 ### OnCancelDropController
 `public void OnCancelDropController()`
 
-**Purpose:** **Purpose:** Invoked when the cancel drop controller event is raised.
+**Purpose:** Invoked when the cancel drop controller event is raised.
 
 ```csharp
 // Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
@@ -102,7 +102,7 @@ missionMainAgentEquipmentControllerVM.OnCancelDropController();
 ### GetItemTypeAsString
 `public static string GetItemTypeAsString(ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the item type as string value held by the this instance.
+**Purpose:** Reads and returns the item type as string value held by the this instance.
 
 ```csharp
 // Static call; no instance required

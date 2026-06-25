@@ -23,7 +23,7 @@ description: "DefaultCaravanModel 的自动生成类参考。"
 ### GetEliteCaravanSpawnChance
 `public override float GetEliteCaravanSpawnChance(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 elite caravan spawn chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 elite caravan spawn chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例
@@ -34,7 +34,7 @@ var result = defaultCaravanModel.GetEliteCaravanSpawnChance(hero);
 ### GetPowerChangeAfterCaravanCreation
 `public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power change after caravan creation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 power change after caravan creation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例
@@ -45,7 +45,7 @@ var result = defaultCaravanModel.GetPowerChangeAfterCaravanCreation(hero, carava
 ### CanHeroCreateCaravan
 `public override bool CanHeroCreateCaravan(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero create caravan 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 hero create caravan 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例
@@ -56,7 +56,7 @@ var result = defaultCaravanModel.CanHeroCreateCaravan(hero);
 ### GetCaravanFormingCost
 `public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 caravan forming cost 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 caravan forming cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例
@@ -67,7 +67,7 @@ var result = defaultCaravanModel.GetCaravanFormingCost(false, false);
 ### GetInitialTradeGold
 `public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial trade gold 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 initial trade gold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例
@@ -78,7 +78,7 @@ var result = defaultCaravanModel.GetInitialTradeGold(owner, false, false);
 ### GetMaxGoldToSpendOnOneItemCategory
 `public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max gold to spend on one item category 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max gold to spend on one item category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCaravanModel 实例

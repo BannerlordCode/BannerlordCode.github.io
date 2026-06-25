@@ -41,7 +41,7 @@ Start from namespace `SandBox.ViewModelCollection.Tutorial` to place it in the s
 ### Init
 `public void Init(string tutorialTypeId, bool requiresMouse, Action onFinishTutorial)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TutorialItemVM from the subsystem API first
@@ -52,7 +52,7 @@ tutorialItemVM.Init("example", false, onFinishTutorial);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TutorialItemVM from the subsystem API first
@@ -63,7 +63,7 @@ tutorialItemVM.RefreshValues();
 ### CloseTutorialPanel
 `public void CloseTutorialPanel()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with tutorial panel.
+**Purpose:** Closes the resource or UI associated with tutorial panel.
 
 ```csharp
 // Obtain an instance of TutorialItemVM from the subsystem API first

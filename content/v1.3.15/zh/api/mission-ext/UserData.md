@@ -32,7 +32,7 @@ description: "UserData 的自动生成类参考。"
 ### GetUserModData
 `public UserModData GetUserModData(bool isMultiplayer, string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user mod data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 user mod data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -43,7 +43,7 @@ var result = userData.GetUserModData(false, "example");
 ### GetDLLLatestSizeInBytes
 `public uint? GetDLLLatestSizeInBytes(string dllName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 d l l latest size in bytes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 d l l latest size in bytes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -54,7 +54,7 @@ var result = userData.GetDLLLatestSizeInBytes("example");
 ### GetDLLLatestIsDangerous
 `public bool GetDLLLatestIsDangerous(string dllName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 d l l latest is dangerous 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 d l l latest is dangerous 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -65,7 +65,7 @@ var result = userData.GetDLLLatestIsDangerous("example");
 ### GetDLLLatestVerifyInformation
 `public string GetDLLLatestVerifyInformation(string dllName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 d l l latest verify information 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 d l l latest verify information 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -76,7 +76,7 @@ var result = userData.GetDLLLatestVerifyInformation("example");
 ### SetDLLLatestSizeInBytes
 `public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l l latest size in bytes 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l l latest size in bytes 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -87,7 +87,7 @@ userData.SetDLLLatestSizeInBytes("example", 0);
 ### SetDLLLatestVerifyInformation
 `public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l l latest verify information 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l l latest verify information 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例
@@ -98,7 +98,7 @@ userData.SetDLLLatestVerifyInformation("example", "example");
 ### SetDLLLatestIsDangerous
 `public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 d l l latest is dangerous 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 d l l latest is dangerous 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UserData 实例

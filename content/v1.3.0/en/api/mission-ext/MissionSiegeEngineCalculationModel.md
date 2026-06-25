@@ -23,7 +23,7 @@ Treat `MissionSiegeEngineCalculationModel` as a Model-style extension point: fir
 ### CalculateReloadSpeed
 `public abstract float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of reload speed.
+**Purpose:** Calculates the current value or result of reload speed.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionSiegeEngineCalculationModel.CalculateReloadSpeed(userAgent, 
 ### CalculateShipSiegeWeaponAmmoCount
 `public abstract int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of ship siege weapon ammo count.
+**Purpose:** Calculates the current value or result of ship siege weapon ammo count.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionSiegeEngineCalculationModel.CalculateShipSiegeWeaponAmmoCoun
 ### CalculateDamage
 `public abstract int CalculateDamage(Agent attackerAgent, float baseDamage)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of damage.
+**Purpose:** Calculates the current value or result of damage.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first

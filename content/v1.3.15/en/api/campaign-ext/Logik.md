@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### LoadSoundtrackByPsaiProject
 `public PsaiResult LoadSoundtrackByPsaiProject(PsaiProject psaiProject)`
 
-**Purpose:** **Purpose:** Reads soundtrack by psai project from persistent storage or a stream.
+**Purpose:** Reads soundtrack by psai project from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Logik from the subsystem API first
@@ -34,7 +34,7 @@ var result = logik.LoadSoundtrackByPsaiProject(psaiProject);
 ### SetLastBasicMood
 `public void SetLastBasicMood(int themeId)`
 
-**Purpose:** **Purpose:** Assigns a new value to last basic mood and updates the object's internal state.
+**Purpose:** Assigns a new value to last basic mood and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Logik from the subsystem API first
@@ -45,7 +45,7 @@ logik.SetLastBasicMood(0);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, int fadeOutMilliSeconds)`
 
-**Purpose:** **Purpose:** Executes the GoToRest logic.
+**Purpose:** Executes the GoToRest logic.
 
 ```csharp
 // Obtain an instance of Logik from the subsystem API first
@@ -56,7 +56,7 @@ var result = logik.GoToRest(false, 0);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, int fadeOutMilliSeconds, int restSecondsOverrideMin, int restSecondsOverrideMax)`
 
-**Purpose:** **Purpose:** Executes the GoToRest logic.
+**Purpose:** Executes the GoToRest logic.
 
 ```csharp
 // Obtain an instance of Logik from the subsystem API first

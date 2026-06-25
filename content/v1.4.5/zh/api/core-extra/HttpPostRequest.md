@@ -32,7 +32,7 @@ description: "HttpPostRequest 的自动生成类参考。"
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 HttpPostRequest 实例

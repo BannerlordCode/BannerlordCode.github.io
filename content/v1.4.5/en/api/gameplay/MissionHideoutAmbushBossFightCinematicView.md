@@ -23,7 +23,7 @@ Treat `MissionHideoutAmbushBossFightCinematicView` as a View-style extension poi
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionHideoutAmbushBossFightCinematicView from the subsystem API first

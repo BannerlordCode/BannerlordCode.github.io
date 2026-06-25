@@ -23,7 +23,7 @@ Treat `CombatMissionWithDialogueController` as a Controller-style extension poin
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** **Purpose:** Invoked when the created event is raised.
+**Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -34,7 +34,7 @@ combatMissionWithDialogueController.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -45,7 +45,7 @@ combatMissionWithDialogueController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -56,7 +56,7 @@ combatMissionWithDialogueController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -67,7 +67,7 @@ combatMissionWithDialogueController.OnMissionTick(0);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -78,7 +78,7 @@ combatMissionWithDialogueController.OnAgentHit(affectedAgent, affectorAgent, aff
 ### StartFight
 `public void StartFight(bool hasPlayerChangedSide)`
 
-**Purpose:** **Purpose:** Starts the fight flow or state machine.
+**Purpose:** Starts the fight flow or state machine.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -89,7 +89,7 @@ combatMissionWithDialogueController.StartFight(false);
 ### StartConversation
 `public void StartConversation(Agent agent, bool setActionsInstantly)`
 
-**Purpose:** **Purpose:** Starts the conversation flow or state machine.
+**Purpose:** Starts the conversation flow or state machine.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -100,7 +100,7 @@ combatMissionWithDialogueController.StartConversation(agent, false);
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Starts the spawner flow or state machine.
+**Purpose:** Starts the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -111,7 +111,7 @@ combatMissionWithDialogueController.StartSpawner(side);
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Stops the spawner flow or state machine.
+**Purpose:** Stops the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -122,7 +122,7 @@ combatMissionWithDialogueController.StopSpawner(side);
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
+**Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -133,7 +133,7 @@ var result = combatMissionWithDialogueController.IsSideSpawnEnabled(side);
 ### GetReinforcementInterval
 `public float GetReinforcementInterval(BattleSideEnum battleSide = (BattleSideEnum)(-1))`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement interval value held by the this instance.
+**Purpose:** Reads and returns the reinforcement interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -144,7 +144,7 @@ var result = combatMissionWithDialogueController.GetReinforcementInterval((Battl
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side depleted state or condition.
+**Purpose:** Determines whether the this instance is in the side depleted state or condition.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -155,7 +155,7 @@ var result = combatMissionWithDialogueController.IsSideDepleted(side);
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the all troops for side value held by the this instance.
+**Purpose:** Reads and returns the all troops for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -166,7 +166,7 @@ var result = combatMissionWithDialogueController.GetAllTroopsForSide(side);
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
+**Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first
@@ -177,7 +177,7 @@ var result = combatMissionWithDialogueController.GetNumberOfPlayerControllableTr
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn horses value held by the this instance.
+**Purpose:** Reads and returns the spawn horses value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatMissionWithDialogueController from the subsystem API first

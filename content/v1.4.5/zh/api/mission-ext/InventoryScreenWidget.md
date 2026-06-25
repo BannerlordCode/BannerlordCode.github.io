@@ -44,7 +44,7 @@ description: "InventoryScreenWidget 的自动生成类参考。"
 ### InventoryScreenWidget
 `public class InventoryScreenWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InventoryScreenWidget 对应的操作。
+**用途 / Purpose:** 调用 InventoryScreenWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryScreenWidget 实例
@@ -55,7 +55,7 @@ var result = inventoryScreenWidget.InventoryScreenWidget(context);
 ### ItemWidgetDragBegin
 `public void ItemWidgetDragBegin(InventoryItemButtonWidget itemWidget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ItemWidgetDragBegin 对应的操作。
+**用途 / Purpose:** 调用 ItemWidgetDragBegin 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryScreenWidget 实例
@@ -66,7 +66,7 @@ inventoryScreenWidget.ItemWidgetDragBegin(itemWidget);
 ### ItemWidgetDrop
 `public void ItemWidgetDrop(InventoryItemButtonWidget itemWidget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ItemWidgetDrop 对应的操作。
+**用途 / Purpose:** 调用 ItemWidgetDrop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryScreenWidget 实例

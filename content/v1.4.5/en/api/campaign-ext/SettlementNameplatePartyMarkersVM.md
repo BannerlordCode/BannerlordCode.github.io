@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first
@@ -40,7 +40,7 @@ var result = settlementNameplatePartyMarkersVM.Compare(x, y);
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first
@@ -51,7 +51,7 @@ settlementNameplatePartyMarkersVM.RegisterEvents();
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** **Purpose:** Executes the UnloadEvents logic.
+**Purpose:** Executes the UnloadEvents logic.
 
 ```csharp
 // Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first

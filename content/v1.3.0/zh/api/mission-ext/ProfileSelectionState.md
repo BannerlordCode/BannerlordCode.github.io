@@ -29,7 +29,7 @@ description: "ProfileSelectionState 的自动生成类参考。"
 ### OnProfileSelected
 `public void OnProfileSelected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 profile selected 事件触发时调用此回调。
+**用途 / Purpose:** 在 profile selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfileSelectionState 实例
@@ -40,7 +40,7 @@ profileSelectionState.OnProfileSelected();
 ### StartGame
 `public void StartGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动game流程或状态机。
+**用途 / Purpose:** 启动game流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfileSelectionState 实例
@@ -51,7 +51,7 @@ profileSelectionState.StartGame();
 ### OnProfileSelectionEvent
 `public delegate void OnProfileSelectionEvent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 profile selection event 事件触发时调用此回调。
+**用途 / Purpose:** 在 profile selection event 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfileSelectionState 实例

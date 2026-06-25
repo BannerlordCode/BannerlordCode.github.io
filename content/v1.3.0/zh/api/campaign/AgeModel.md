@@ -35,7 +35,7 @@ description: "AgeModel 的自动生成类参考。"
 ### GetAgeLimitForLocation
 `public abstract void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 age limit for location 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 age limit for location 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgeModel 实例

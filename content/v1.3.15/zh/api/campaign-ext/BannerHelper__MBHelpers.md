@@ -23,7 +23,7 @@ description: "BannerHelper 的自动生成类参考。"
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref FactoredNumber bonuses)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 banner bonus for banner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 banner bonus for banner 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

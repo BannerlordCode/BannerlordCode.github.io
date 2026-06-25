@@ -29,7 +29,7 @@ description: "SiegeEventManager 的自动生成类参考。"
 ### StartSiegeEvent
 `public SiegeEvent StartSiegeEvent(Settlement settlement, MobileParty besiegerParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动siege event流程或状态机。
+**用途 / Purpose:** 启动siege event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEventManager 实例
@@ -40,7 +40,7 @@ var result = siegeEventManager.StartSiegeEvent(settlement, besiegerParty);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEventManager 实例
@@ -51,7 +51,7 @@ siegeEventManager.Tick(0);
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after load 事件触发时调用此回调。
+**用途 / Purpose:** 在 after load 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEventManager 实例

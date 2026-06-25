@@ -88,7 +88,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -99,7 +99,7 @@ weaponDesignVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -110,7 +110,7 @@ weaponDesignVM.OnFinalize();
 ### SetPieceNewlyUnlocked
 `public void SetPieceNewlyUnlocked(CraftingPiece piece)`
 
-**Purpose:** **Purpose:** Assigns a new value to piece newly unlocked and updates the object's internal state.
+**Purpose:** Assigns a new value to piece newly unlocked and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -121,7 +121,7 @@ weaponDesignVM.SetPieceNewlyUnlocked(piece);
 ### SelectPrimaryWeaponClass
 `public void SelectPrimaryWeaponClass(CraftingTemplate template)`
 
-**Purpose:** **Purpose:** Executes the SelectPrimaryWeaponClass logic.
+**Purpose:** Executes the SelectPrimaryWeaponClass logic.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -132,7 +132,7 @@ weaponDesignVM.SelectPrimaryWeaponClass(template);
 ### ExecuteOpenOrderPopup
 `public void ExecuteOpenOrderPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open order popup.
+**Purpose:** Runs the operation or workflow associated with open order popup.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -143,7 +143,7 @@ weaponDesignVM.ExecuteOpenOrderPopup();
 ### ExecuteCloseOrderPopup
 `public void ExecuteCloseOrderPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close order popup.
+**Purpose:** Runs the operation or workflow associated with close order popup.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -154,7 +154,7 @@ weaponDesignVM.ExecuteCloseOrderPopup();
 ### ExecuteOpenOrdersTab
 `public void ExecuteOpenOrdersTab()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open orders tab.
+**Purpose:** Runs the operation or workflow associated with open orders tab.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -165,7 +165,7 @@ weaponDesignVM.ExecuteOpenOrdersTab();
 ### ExecuteOpenWeaponClassSelectionPopup
 `public void ExecuteOpenWeaponClassSelectionPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open weapon class selection popup.
+**Purpose:** Runs the operation or workflow associated with open weapon class selection popup.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -176,7 +176,7 @@ weaponDesignVM.ExecuteOpenWeaponClassSelectionPopup();
 ### ExecuteOpenFreeBuildTab
 `public void ExecuteOpenFreeBuildTab()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open free build tab.
+**Purpose:** Runs the operation or workflow associated with open free build tab.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -187,7 +187,7 @@ weaponDesignVM.ExecuteOpenFreeBuildTab();
 ### CreateCraftingResultPopup
 `public void CreateCraftingResultPopup()`
 
-**Purpose:** **Purpose:** Constructs a new crafting result popup entity and returns it to the caller.
+**Purpose:** Constructs a new crafting result popup entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -198,7 +198,7 @@ weaponDesignVM.CreateCraftingResultPopup();
 ### ExecuteToggleShowOnlyUnlockedPieces
 `public void ExecuteToggleShowOnlyUnlockedPieces()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle show only unlocked pieces.
+**Purpose:** Runs the operation or workflow associated with toggle show only unlocked pieces.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -209,7 +209,7 @@ weaponDesignVM.ExecuteToggleShowOnlyUnlockedPieces();
 ### ExecuteUndo
 `public void ExecuteUndo()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with undo.
+**Purpose:** Runs the operation or workflow associated with undo.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -220,7 +220,7 @@ weaponDesignVM.ExecuteUndo();
 ### ExecuteRedo
 `public void ExecuteRedo()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with redo.
+**Purpose:** Runs the operation or workflow associated with redo.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -231,7 +231,7 @@ weaponDesignVM.ExecuteRedo();
 ### ChangeModeIfHeroIsUnavailable
 `public void ChangeModeIfHeroIsUnavailable()`
 
-**Purpose:** **Purpose:** Executes the ChangeModeIfHeroIsUnavailable logic.
+**Purpose:** Executes the ChangeModeIfHeroIsUnavailable logic.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -242,7 +242,7 @@ weaponDesignVM.ChangeModeIfHeroIsUnavailable();
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hero hint.
+**Purpose:** Runs the operation or workflow associated with begin hero hint.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -253,7 +253,7 @@ weaponDesignVM.ExecuteBeginHeroHint();
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end hero hint.
+**Purpose:** Runs the operation or workflow associated with end hero hint.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -264,7 +264,7 @@ weaponDesignVM.ExecuteEndHeroHint();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
+**Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -275,7 +275,7 @@ weaponDesignVM.ExecuteRandomize();
 ### ExecuteChangeScabbardVisibility
 `public void ExecuteChangeScabbardVisibility()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with change scabbard visibility.
+**Purpose:** Runs the operation or workflow associated with change scabbard visibility.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -286,7 +286,7 @@ weaponDesignVM.ExecuteChangeScabbardVisibility();
 ### SelectWeapon
 `public void SelectWeapon(ItemObject itemObject)`
 
-**Purpose:** **Purpose:** Executes the SelectWeapon logic.
+**Purpose:** Executes the SelectWeapon logic.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -297,7 +297,7 @@ weaponDesignVM.SelectWeapon(itemObject);
 ### CanCompleteOrder
 `public bool CanCompleteOrder()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for complete order.
+**Purpose:** Checks whether the this instance meets the preconditions for complete order.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -308,7 +308,7 @@ var result = weaponDesignVM.CanCompleteOrder();
 ### ExecuteFinalizeCrafting
 `public void ExecuteFinalizeCrafting()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with finalize crafting.
+**Purpose:** Runs the operation or workflow associated with finalize crafting.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -319,7 +319,7 @@ weaponDesignVM.ExecuteFinalizeCrafting();
 ### RefreshItem
 `public void RefreshItem()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of item in sync with the underlying state.
+**Purpose:** Keeps the display or cache of item in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -330,7 +330,7 @@ weaponDesignVM.RefreshItem();
 ### HaveUnlockedAllSelectedPieces
 `public bool HaveUnlockedAllSelectedPieces()`
 
-**Purpose:** **Purpose:** Executes the HaveUnlockedAllSelectedPieces logic.
+**Purpose:** Executes the HaveUnlockedAllSelectedPieces logic.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -341,7 +341,7 @@ var result = weaponDesignVM.HaveUnlockedAllSelectedPieces();
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement usedPiece)`
 
-**Purpose:** **Purpose:** Executes the SwitchToPiece logic.
+**Purpose:** Executes the SwitchToPiece logic.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -352,7 +352,7 @@ weaponDesignVM.SwitchToPiece(usedPiece);
 ### Compare
 `public int Compare(CraftingPieceVM x, CraftingPieceVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -363,7 +363,7 @@ var result = weaponDesignVM.Compare(x, y);
 ### Compare
 `public int Compare(CraftingTemplate x, CraftingTemplate y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first
@@ -374,7 +374,7 @@ var result = weaponDesignVM.Compare(x, y);
 ### Compare
 `public int Compare(CraftingListPropertyItem x, CraftingListPropertyItem y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of WeaponDesignVM from the subsystem API first

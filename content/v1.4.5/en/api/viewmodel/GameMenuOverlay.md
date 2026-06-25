@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -45,7 +45,7 @@ gameMenuOverlay.RefreshValues();
 ### ExecuteOnOverlayClosed
 `public virtual void ExecuteOnOverlayClosed()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with on overlay closed.
+**Purpose:** Runs the operation or workflow associated with on overlay closed.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -56,7 +56,7 @@ gameMenuOverlay.ExecuteOnOverlayClosed();
 ### ExecuteOnOverlayOpened
 `public virtual void ExecuteOnOverlayOpened()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with on overlay opened.
+**Purpose:** Runs the operation or workflow associated with on overlay opened.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -67,7 +67,7 @@ gameMenuOverlay.ExecuteOnOverlayOpened();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -78,7 +78,7 @@ gameMenuOverlay.OnFinalize();
 ### Refresh
 `public virtual void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -89,7 +89,7 @@ gameMenuOverlay.Refresh();
 ### UpdateOverlayType
 `public virtual void UpdateOverlayType(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType newType)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of overlay type.
+**Purpose:** Recalculates and stores the latest representation of overlay type.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -100,7 +100,7 @@ gameMenuOverlay.UpdateOverlayType(newType);
 ### OnFrameTick
 `public virtual void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -111,7 +111,7 @@ gameMenuOverlay.OnFrameTick(0);
 ### HourlyTick
 `public void HourlyTick()`
 
-**Purpose:** **Purpose:** Executes the HourlyTick logic.
+**Purpose:** Executes the HourlyTick logic.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first
@@ -122,7 +122,7 @@ gameMenuOverlay.HourlyTick();
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to exit input key and updates the object's internal state.
+**Purpose:** Assigns a new value to exit input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuOverlay from the subsystem API first

@@ -30,7 +30,7 @@ description: "HideoutAmbushBossFightCinematicController 的自动生成类参考
 ### OnInitialFadeOutFinished
 `public delegate void OnInitialFadeOutFinished(ref Agent playerAgent, ref List<Agent> playerCompanions, ref Agent bossAgent, ref List<Agent> bossCompanions, ref float placementPerturbation, ref float placementAngle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initial fade out finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 initial fade out finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -41,7 +41,7 @@ hideoutAmbushBossFightCinematicController.OnInitialFadeOutFinished(playerAgent, 
 ### OnHideoutCinematicFinished
 `public delegate void OnHideoutCinematicFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hideout cinematic finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 hideout cinematic finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -52,7 +52,7 @@ hideoutAmbushBossFightCinematicController.OnHideoutCinematicFinished();
 ### HideoutCinematicAgentInfo
 `public readonly struct HideoutCinematicAgentInfo(Agent agent, HideoutAgentType type, in MatrixFrame initialFrame, in MatrixFrame targetFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏out cinematic agent info对应的界面或元素。
+**用途 / Purpose:** 隐藏out cinematic agent info对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -63,7 +63,7 @@ var result = hideoutAmbushBossFightCinematicController.HideoutCinematicAgentInfo
 ### HasReachedTarget
 `public bool HasReachedTarget(float proximityThreshold = 0.5f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 reached target。
+**用途 / Purpose:** 判断当前对象是否已经持有 reached target。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -74,7 +74,7 @@ var result = hideoutAmbushBossFightCinematicController.HasReachedTarget(0);
 ### StartCinematic
 `public void StartCinematic(OnInitialFadeOutFinished initialFadeOutFinished, Action cinematicFinishedCallback, float transitionDuration = 0.4f, float stateDuration = 0.2f, float cinematicDuration = 8f, bool forceDismountAgents = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动cinematic流程或状态机。
+**用途 / Purpose:** 启动cinematic流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -85,7 +85,7 @@ hideoutAmbushBossFightCinematicController.StartCinematic(initialFadeOutFinished,
 ### GetBossStandingEyePosition
 `public void GetBossStandingEyePosition(out Vec3 eyePosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 boss standing eye position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 boss standing eye position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -96,7 +96,7 @@ hideoutAmbushBossFightCinematicController.GetBossStandingEyePosition(eyePosition
 ### GetPlayerStandingEyePosition
 `public void GetPlayerStandingEyePosition(out Vec3 eyePosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player standing eye position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player standing eye position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -107,7 +107,7 @@ hideoutAmbushBossFightCinematicController.GetPlayerStandingEyePosition(eyePositi
 ### GetBanditsInitialFrame
 `public MatrixFrame GetBanditsInitialFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bandits initial frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bandits initial frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -118,7 +118,7 @@ var result = hideoutAmbushBossFightCinematicController.GetBanditsInitialFrame();
 ### GetScenePrefabParameters
 `public void GetScenePrefabParameters(out float innerRadius, out float outerRadius, out float walkDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene prefab parameters 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene prefab parameters 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -129,7 +129,7 @@ hideoutAmbushBossFightCinematicController.GetScenePrefabParameters(innerRadius, 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -140,7 +140,7 @@ hideoutAmbushBossFightCinematicController.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -151,7 +151,7 @@ hideoutAmbushBossFightCinematicController.OnMissionTick(0);
 ### GetAllyFrames
 `public void GetAllyFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, MatrixFrame initialPlayerFrame, MatrixFrame targetPlayerFrame, int agentCount, float agentOffsetAngle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ally frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ally frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -162,7 +162,7 @@ hideoutAmbushBossFightCinematicController.GetAllyFrames(initialFrames, targetFra
 ### GetSpineTroopCount
 `public int GetSpineTroopCount(int totalTroopCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spine troop count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spine troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例
@@ -173,7 +173,7 @@ var result = hideoutAmbushBossFightCinematicController.GetSpineTroopCount(0);
 ### GetBanditFrames
 `public void GetBanditFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, MatrixFrame initialBossFrame, MatrixFrame targetBossFrame, int agentCount, float agentOffsetAngle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bandit frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bandit frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushBossFightCinematicController 实例

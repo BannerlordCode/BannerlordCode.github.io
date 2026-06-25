@@ -23,7 +23,7 @@ description: "VolunteerTroop 的自动生成类参考。"
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 VolunteerTroop 实例

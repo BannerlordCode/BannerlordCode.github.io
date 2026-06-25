@@ -23,7 +23,7 @@ description: "BattleMoraleModel 的自动生成类参考。"
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
 `public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算max morale change due to agent incapacitated的当前值或结果。
+**用途 / Purpose:** 计算max morale change due to agent incapacitated的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -34,7 +34,7 @@ var result = battleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapacitated(a
 ### CalculateMaxMoraleChangeDueToAgentPanicked
 `public abstract ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算max morale change due to agent panicked的当前值或结果。
+**用途 / Purpose:** 计算max morale change due to agent panicked的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -45,7 +45,7 @@ var result = battleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked(agent)
 ### CalculateMoraleChangeToCharacter
 `public abstract float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算morale change to character的当前值或结果。
+**用途 / Purpose:** 计算morale change to character的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -56,7 +56,7 @@ var result = battleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
 ### GetEffectiveInitialMorale
 `public abstract float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective initial morale 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effective initial morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -67,7 +67,7 @@ var result = battleMoraleModel.GetEffectiveInitialMorale(agent, 0);
 ### CanPanicDueToMorale
 `public abstract bool CanPanicDueToMorale(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 panic due to morale 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 panic due to morale 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -78,7 +78,7 @@ var result = battleMoraleModel.CanPanicDueToMorale(agent);
 ### CalculateCasualtiesFactor
 `public abstract float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算casualties factor的当前值或结果。
+**用途 / Purpose:** 计算casualties factor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -89,7 +89,7 @@ var result = battleMoraleModel.CalculateCasualtiesFactor(battleSide);
 ### GetAverageMorale
 `public abstract float GetAverageMorale(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average morale 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 average morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -100,7 +100,7 @@ var result = battleMoraleModel.GetAverageMorale(formation);
 ### CalculateMoraleChangeOnShipSunk
 `public abstract float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算morale change on ship sunk的当前值或结果。
+**用途 / Purpose:** 计算morale change on ship sunk的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例
@@ -111,7 +111,7 @@ var result = battleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
 ### CalculateMoraleOnRamming
 `public abstract float CalculateMoraleOnRamming(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算morale on ramming的当前值或结果。
+**用途 / Purpose:** 计算morale on ramming的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleMoraleModel 实例

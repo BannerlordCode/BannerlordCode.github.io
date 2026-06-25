@@ -30,7 +30,7 @@ description: "PropertyBasedTooltipVM 的自动生成类参考。"
 ### AddKeyType
 `public static void AddKeyType(string keyID, Func<string> getKeyText)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 key type 添加到当前容器或状态中。
+**用途 / Purpose:** 将 key type 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ PropertyBasedTooltipVM.AddKeyType("example", getKeyText);
 ### GetKeyText
 `public string GetKeyText(string keyID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 key text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 key text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -51,7 +51,7 @@ var result = propertyBasedTooltipVM.GetKeyText("example");
 ### RefreshGenericPropertyBasedTooltip
 `public static void RefreshGenericPropertyBasedTooltip(PropertyBasedTooltipVM propertyBasedTooltip, object args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 generic property based tooltip 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 generic property based tooltip 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ PropertyBasedTooltipVM.RefreshGenericPropertyBasedTooltip(propertyBasedTooltip, 
 ### AddProperty
 `public void AddProperty(string definition, string value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -72,7 +72,7 @@ propertyBasedTooltipVM.AddProperty("example", "example", 0, tooltipProperty.Tool
 ### AddModifierProperty
 `public void AddModifierProperty(string definition, int modifierValue, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 modifier property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 modifier property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -83,7 +83,7 @@ propertyBasedTooltipVM.AddModifierProperty("example", 0, 0, tooltipProperty.Tool
 ### AddProperty
 `public void AddProperty(string definition, Func<string> value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -94,7 +94,7 @@ propertyBasedTooltipVM.AddProperty("example", value, 0, tooltipProperty.TooltipP
 ### AddProperty
 `public void AddProperty(Func<string> definition, Func<string> value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -105,7 +105,7 @@ propertyBasedTooltipVM.AddProperty(definition, value, 0, tooltipProperty.Tooltip
 ### AddColoredProperty
 `public void AddColoredProperty(string definition, string value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -116,7 +116,7 @@ propertyBasedTooltipVM.AddColoredProperty("example", "example", color, 0, toolti
 ### AddColoredProperty
 `public void AddColoredProperty(string definition, Func<string> value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例
@@ -127,7 +127,7 @@ propertyBasedTooltipVM.AddColoredProperty("example", value, color, 0, tooltipPro
 ### AddColoredProperty
 `public void AddColoredProperty(Func<string> definition, Func<string> value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
+**用途 / Purpose:** 将 colored property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyBasedTooltipVM 实例

@@ -41,7 +41,7 @@ description: "MultiplayerEndOfRoundVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerEndOfRoundVM 实例
@@ -52,7 +52,7 @@ multiplayerEndOfRoundVM.RefreshValues();
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerEndOfRoundVM 实例
@@ -63,7 +63,7 @@ multiplayerEndOfRoundVM.Refresh();
 ### OnMVPSelected
 `public void OnMVPSelected(MissionPeer mvpPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 m v p selected 事件触发时调用此回调。
+**用途 / Purpose:** 在 m v p selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerEndOfRoundVM 实例

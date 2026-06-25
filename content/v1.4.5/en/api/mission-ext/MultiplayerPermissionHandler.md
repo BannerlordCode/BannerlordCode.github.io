@@ -23,7 +23,7 @@ Treat `MultiplayerPermissionHandler` as a Handler-style extension point: first i
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**Purpose:** **Purpose:** Invoked when the udp network handler close event is raised.
+**Purpose:** Invoked when the udp network handler close event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPermissionHandler from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerPermissionHandler.OnUdpNetworkHandlerClose();
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Invoked when the player disconnected from server event is raised.
+**Purpose:** Invoked when the player disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPermissionHandler from the subsystem API first

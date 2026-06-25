@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### PushContext
 `public static MissionNameMarkerFactory.INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**Purpose:** **Purpose:** Executes the PushContext logic.
+**Purpose:** Executes the PushContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ MissionNameMarkerFactory.PushContext("example", false);
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**Purpose:** **Purpose:** Executes the PopContext logic.
+**Purpose:** Executes the PopContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ MissionNameMarkerFactory.PopContext("example");
 ### PopContext
 `public static void PopContext(MissionNameMarkerFactory.INameMarkerProviderContext context)`
 
-**Purpose:** **Purpose:** Executes the PopContext logic.
+**Purpose:** Executes the PopContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ MissionNameMarkerFactory.PopContext(context);
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**Purpose:** **Purpose:** Executes the CollectProviders logic.
+**Purpose:** Executes the CollectProviders logic.
 
 ```csharp
 // Static call; no instance required
@@ -71,7 +71,7 @@ MissionNameMarkerFactory.CollectProviders();
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of providers.
+**Purpose:** Recalculates and stores the latest representation of providers.
 
 ```csharp
 // Static call; no instance required
@@ -81,7 +81,7 @@ MissionNameMarkerFactory.UpdateProviders(existingProviders, addedProviders, remo
 ### AddProvider
 `public void AddProvider(Type tProvider)`
 
-**Purpose:** **Purpose:** Adds provider to the current collection or state.
+**Purpose:** Adds provider to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerFactory from the subsystem API first
@@ -92,7 +92,7 @@ missionNameMarkerFactory.AddProvider(tProvider);
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
-**Purpose:** **Purpose:** Removes provider from the current collection or state.
+**Purpose:** Removes provider from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerFactory from the subsystem API first

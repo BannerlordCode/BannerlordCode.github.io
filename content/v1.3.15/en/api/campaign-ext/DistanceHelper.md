@@ -23,7 +23,7 @@ Treat `DistanceHelper` as a Helper-style extension point: first identify who cre
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isFromPort, out bool isTargetingPort, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromSettlementToSettlement
 `public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromMobilePartyToSettlement
 `public static bool FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, t
 ### FindClosestDistanceFromSettlementToSettlement
 `public static bool FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toS
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static bool FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, float maxDistance, out float distance, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromMobilePartyToMobileParty
 `public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigat
 ### FindClosestDistanceFromSettlementToPoint
 `public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out bool isFromPort)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, n
 ### FindClosestDistanceFromMapPointToSettlement
 `public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlemen
 ### FindClosestDistanceFromSettlementToPoint
 `public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -163,7 +163,7 @@ DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, n
 ### FindClosestDistanceFromMobilePartyToPoint
 `public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -173,7 +173,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point,
 ### FindClosestDistanceFromMobilePartyToPoint
 `public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -183,7 +183,7 @@ DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point,
 ### FindClosestDistanceFromMapPointToSettlement
 `public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
 
-**Purpose:** **Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
+**Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -193,7 +193,7 @@ DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlemen
 ### GetDistanceBetweenMobilePartyToMobileParty
 `public static float GetDistanceBetweenMobilePartyToMobileParty(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance between mobile party to mobile party value held by the this instance.
+**Purpose:** Reads and returns the distance between mobile party to mobile party value held by the this instance.
 
 ```csharp
 // Static call; no instance required

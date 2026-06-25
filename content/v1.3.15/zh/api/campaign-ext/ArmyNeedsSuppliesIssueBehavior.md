@@ -38,7 +38,7 @@ description: "ArmyNeedsSuppliesIssueBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -49,7 +49,7 @@ armyNeedsSuppliesIssueBehavior.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
+**用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -60,7 +60,7 @@ armyNeedsSuppliesIssueBehavior.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -71,7 +71,7 @@ armyNeedsSuppliesIssueBehavior.SyncData(dataStore);
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -82,7 +82,7 @@ var result = armyNeedsSuppliesIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建或发起stay alive conditions。
+**用途 / Purpose:** 创建或发起stay alive conditions。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -93,7 +93,7 @@ var result = armyNeedsSuppliesIssueBehavior.IssueStayAliveConditions();
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 failed 事件触发时调用此回调。
+**用途 / Purpose:** 在 failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例
@@ -104,7 +104,7 @@ armyNeedsSuppliesIssueBehavior.OnFailed();
 ### OnCanceled
 `public override void OnCanceled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 canceled 事件触发时调用此回调。
+**用途 / Purpose:** 在 canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyNeedsSuppliesIssueBehavior 实例

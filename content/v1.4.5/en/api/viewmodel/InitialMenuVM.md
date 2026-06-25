@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -48,7 +48,7 @@ initialMenuVM.RefreshValues();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -59,7 +59,7 @@ initialMenuVM.Tick();
 ### RefreshMenuOptions
 `public void RefreshMenuOptions()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of menu options in sync with the underlying state.
+**Purpose:** Keeps the display or cache of menu options in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -70,7 +70,7 @@ initialMenuVM.RefreshMenuOptions();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first

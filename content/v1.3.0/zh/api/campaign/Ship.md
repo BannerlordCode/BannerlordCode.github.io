@@ -65,7 +65,7 @@ description: "Ship 的自动生成类参考。"
 ### ChangeFigurehead
 `public void ChangeFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeFigurehead 对应的操作。
+**用途 / Purpose:** 调用 ChangeFigurehead 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -76,7 +76,7 @@ ship.ChangeFigurehead(figurehead);
 ### GetPieceAtSlot
 `public ShipUpgradePiece GetPieceAtSlot(string slotTag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 piece at slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 piece at slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -87,7 +87,7 @@ var result = ship.GetPieceAtSlot("example");
 ### SetPieceAtSlot
 `public void SetPieceAtSlot(string slotTag, ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 piece at slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 piece at slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -98,7 +98,7 @@ ship.SetPieceAtSlot("example", upgradePiece);
 ### HasSlot
 `public bool HasSlot(string slotTag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 slot。
+**用途 / Purpose:** 判断当前对象是否已经持有 slot。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -109,7 +109,7 @@ var result = ship.HasSlot("example");
 ### SetName
 `public void SetName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -120,7 +120,7 @@ ship.SetName(name);
 ### GetCampaignSpeed
 `public float GetCampaignSpeed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 campaign speed 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 campaign speed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -131,7 +131,7 @@ var result = ship.GetCampaignSpeed();
 ### AddToAvailablePieces
 `public void AddToAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to available pieces 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to available pieces 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -142,7 +142,7 @@ ship.AddToAvailablePieces(upgradePiece);
 ### RemoveFromAvailablePieces
 `public void RemoveFromAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 from available pieces。
+**用途 / Purpose:** 从当前容器或状态中移除 from available pieces。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -153,7 +153,7 @@ ship.RemoveFromAvailablePieces(upgradePiece);
 ### GetSiegeEngines
 `public MBList<SiegeEngineType> GetSiegeEngines()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engines 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege engines 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -164,7 +164,7 @@ var result = ship.GetSiegeEngines();
 ### ResetReservedUpgradePieces
 `public void ResetReservedUpgradePieces()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 reserved upgrade pieces 重置回默认或初始状态。
+**用途 / Purpose:** 将 reserved upgrade pieces 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -175,7 +175,7 @@ ship.ResetReservedUpgradePieces();
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version no 的最新表示。
+**用途 / Purpose:** 重新计算并更新 version no 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -186,7 +186,7 @@ ship.UpdateVersionNo();
 ### GetCombatFactor
 `public float GetCombatFactor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combat factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 combat factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -197,7 +197,7 @@ var result = ship.GetCombatFactor();
 ### OnShipDamaged
 `public void OnShipDamaged(float rawDamage, out float modifiedDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
+**用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例
@@ -208,7 +208,7 @@ ship.OnShipDamaged(0, modifiedDamage);
 ### GetShipVisualSlotInfos
 `public List<ShipVisualSlotInfo> GetShipVisualSlotInfos()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship visual slot infos 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship visual slot infos 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Ship 实例

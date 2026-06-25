@@ -29,7 +29,7 @@ description: "JournalLog 的自动生成类参考。"
 ### UpdateCurrentProgress
 `public void UpdateCurrentProgress(int progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 current progress 的最新表示。
+**用途 / Purpose:** 重新计算并更新 current progress 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLog 实例
@@ -40,7 +40,7 @@ journalLog.UpdateCurrentProgress(0);
 ### HasBeenCompleted
 `public bool HasBeenCompleted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 been completed。
+**用途 / Purpose:** 判断当前对象是否已经持有 been completed。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLog 实例
@@ -51,7 +51,7 @@ var result = journalLog.HasBeenCompleted();
 ### GetTimeText
 `public TextObject GetTimeText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 time text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 time text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLog 实例

@@ -31,7 +31,7 @@ description: "CreditsWidget 的自动生成类参考。"
 ### CreditsWidget
 `public class CreditsWidget(UIContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CreditsWidget 对应的操作。
+**用途 / Purpose:** 调用 CreditsWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CreditsWidget 实例

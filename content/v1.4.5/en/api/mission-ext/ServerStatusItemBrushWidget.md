@@ -29,7 +29,7 @@ Treat `ServerStatusItemBrushWidget` as a Widget-style extension point: first ide
 ### ServerStatusItemBrushWidget
 `public class ServerStatusItemBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ServerStatusItemBrushWidget logic.
+**Purpose:** Executes the ServerStatusItemBrushWidget logic.
 
 ```csharp
 // Obtain an instance of ServerStatusItemBrushWidget from the subsystem API first

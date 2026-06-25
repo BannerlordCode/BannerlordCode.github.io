@@ -23,7 +23,7 @@ description: "EquipmentSelectionModel 的自动生成类参考。"
 ### GetEquipmentRostersForHeroComeOfAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero come of age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero come of age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -34,7 +34,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, f
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero reaches teen age 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for hero reaches teen age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -45,7 +45,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(he
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for initial children generation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for initial children generation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -56,7 +56,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForInitialChildrenGenera
 ### GetEquipmentRostersForDeliveredOffspring
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for delivered offspring 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for delivered offspring 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例
@@ -67,7 +67,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(he
 ### GetEquipmentRostersForCompanion
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment rosters for companion 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 equipment rosters for companion 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentSelectionModel 实例

@@ -32,7 +32,7 @@ Treat `MissionAgentDamageFeedItemWidget` as a Widget-style extension point: firs
 ### ShowFeed
 `public void ShowFeed()`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with feed.
+**Purpose:** Displays the UI or element associated with feed.
 
 ```csharp
 // Obtain an instance of MissionAgentDamageFeedItemWidget from the subsystem API first
@@ -43,7 +43,7 @@ missionAgentDamageFeedItemWidget.ShowFeed();
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**Purpose:** **Purpose:** Assigns a new value to speed modifier and updates the object's internal state.
+**Purpose:** Assigns a new value to speed modifier and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionAgentDamageFeedItemWidget from the subsystem API first

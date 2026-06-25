@@ -30,7 +30,7 @@ Treat `TownMercenaryData` as a Data-style extension point: first identify who cr
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**Purpose:** **Purpose:** Executes the ChangeMercenaryType logic.
+**Purpose:** Executes the ChangeMercenaryType logic.
 
 ```csharp
 // Obtain an instance of TownMercenaryData from the subsystem API first
@@ -41,7 +41,7 @@ townMercenaryData.ChangeMercenaryType(troopType, 0);
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**Purpose:** **Purpose:** Executes the ChangeMercenaryCount logic.
+**Purpose:** Executes the ChangeMercenaryCount logic.
 
 ```csharp
 // Obtain an instance of TownMercenaryData from the subsystem API first
@@ -52,7 +52,7 @@ townMercenaryData.ChangeMercenaryCount(0);
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds available mercenary.
+**Purpose:** Determines whether the this instance already holds available mercenary.
 
 ```csharp
 // Obtain an instance of TownMercenaryData from the subsystem API first

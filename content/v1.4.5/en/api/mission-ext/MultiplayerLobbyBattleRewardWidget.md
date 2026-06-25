@@ -31,7 +31,7 @@ Treat `MultiplayerLobbyBattleRewardWidget` as a Widget-style extension point: fi
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** **Purpose:** Starts the animation flow or state machine.
+**Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first
@@ -42,7 +42,7 @@ multiplayerLobbyBattleRewardWidget.StartAnimation();
 ### StartPreAnimation
 `public void StartPreAnimation()`
 
-**Purpose:** **Purpose:** Starts the pre animation flow or state machine.
+**Purpose:** Starts the pre animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first
@@ -53,7 +53,7 @@ multiplayerLobbyBattleRewardWidget.StartPreAnimation();
 ### EndAnimation
 `public void EndAnimation()`
 
-**Purpose:** **Purpose:** Executes the EndAnimation logic.
+**Purpose:** Executes the EndAnimation logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first

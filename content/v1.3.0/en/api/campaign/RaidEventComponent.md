@@ -35,7 +35,7 @@ Treat `RaidEventComponent` as a Component-style extension point: first identify 
 ### CreateRaidEvent
 `public static RaidEventComponent CreateRaidEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** **Purpose:** Constructs a new raid event entity and returns it to the caller.
+**Purpose:** Constructs a new raid event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -45,7 +45,7 @@ RaidEventComponent.CreateRaidEvent(attackerParty, defenderParty);
 ### CreateComponentForOldSaves
 `public static RaidEventComponent CreateComponentForOldSaves(MapEvent mapEvent, float nextSettlementDamage, int lootedItemCount, float raidDamage)`
 
-**Purpose:** **Purpose:** Constructs a new component for old saves entity and returns it to the caller.
+**Purpose:** Constructs a new component for old saves entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

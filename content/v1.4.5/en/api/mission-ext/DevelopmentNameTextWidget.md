@@ -32,7 +32,7 @@ Treat `DevelopmentNameTextWidget` as a Widget-style extension point: first ident
 ### DevelopmentNameTextWidget
 `public class DevelopmentNameTextWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the DevelopmentNameTextWidget logic.
+**Purpose:** Executes the DevelopmentNameTextWidget logic.
 
 ```csharp
 // Obtain an instance of DevelopmentNameTextWidget from the subsystem API first
@@ -43,7 +43,7 @@ var result = developmentNameTextWidget.DevelopmentNameTextWidget(context);
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`
 
-**Purpose:** **Purpose:** Starts the max text animation flow or state machine.
+**Purpose:** Starts the max text animation flow or state machine.
 
 ```csharp
 // Obtain an instance of DevelopmentNameTextWidget from the subsystem API first

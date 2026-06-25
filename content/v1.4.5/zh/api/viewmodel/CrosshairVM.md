@@ -42,7 +42,7 @@ description: "CrosshairVM 的自动生成类参考。"
 ### SetProperties
 `public void SetProperties(double accuracy, double scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CrosshairVM 实例
@@ -53,7 +53,7 @@ crosshairVM.SetProperties(0, 0);
 ### SetArrowProperties
 `public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 arrow properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 arrow properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CrosshairVM 实例
@@ -64,7 +64,7 @@ crosshairVM.SetArrowProperties(0, 0, 0, 0);
 ### SetReloadProperties
 `public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reload properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reload properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CrosshairVM 实例
@@ -75,7 +75,7 @@ crosshairVM.SetReloadProperties(reloadPhases, 0);
 ### ShowHitMarker
 `public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示hit marker对应的界面或元素。
+**用途 / Purpose:** 显示hit marker对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 CrosshairVM 实例

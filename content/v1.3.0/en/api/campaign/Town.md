@@ -67,7 +67,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**Purpose:** **Purpose:** Reads and returns the defender parties value held by the this instance.
+**Purpose:** Reads and returns the defender parties value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -78,7 +78,7 @@ var result = town.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**Purpose:** **Purpose:** Reads and returns the next defender party value held by the this instance.
+**Purpose:** Reads and returns the next defender party value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -89,7 +89,7 @@ var result = town.GetNextDefenderParty(partyIndex, battleType);
 ### FoodStocksUpperLimit
 `public int FoodStocksUpperLimit()`
 
-**Purpose:** **Purpose:** Executes the FoodStocksUpperLimit logic.
+**Purpose:** Executes the FoodStocksUpperLimit logic.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -100,7 +100,7 @@ var result = town.FoodStocksUpperLimit();
 ### OnInit
 `public override void OnInit()`
 
-**Purpose:** **Purpose:** Invoked when the init event is raised.
+**Purpose:** Invoked when the init event is raised.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -111,7 +111,7 @@ town.OnInit();
 ### OnSessionStart
 `public override void OnSessionStart()`
 
-**Purpose:** **Purpose:** Invoked when the session start event is raised.
+**Purpose:** Invoked when the session start event is raised.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -122,7 +122,7 @@ town.OnSessionStart();
 ### InitializeWorkshops
 `public void InitializeWorkshops(int count)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by workshops.
+**Purpose:** Prepares the resources, state, or bindings required by workshops.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -133,7 +133,7 @@ town.InitializeWorkshops(0);
 ### AddEffectOfBuildings
 `public void AddEffectOfBuildings(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
-**Purpose:** **Purpose:** Adds effect of buildings to the current collection or state.
+**Purpose:** Adds effect of buildings to the current collection or state.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -144,7 +144,7 @@ town.AddEffectOfBuildings(buildingEffect, result);
 ### GetWallLevel
 `public int GetWallLevel()`
 
-**Purpose:** **Purpose:** Reads and returns the wall level value held by the this instance.
+**Purpose:** Reads and returns the wall level value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -155,7 +155,7 @@ var result = town.GetWallLevel();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -166,7 +166,7 @@ var result = town.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -177,7 +177,7 @@ town.Deserialize(objectManager, node);
 ### SetSoldItems
 `public void SetSoldItems(IEnumerable<Town.SellLog> logList)`
 
-**Purpose:** **Purpose:** Assigns a new value to sold items and updates the object's internal state.
+**Purpose:** Assigns a new value to sold items and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -188,7 +188,7 @@ town.SetSoldItems(logList);
 ### GetItemPrice
 `public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
+**Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -199,7 +199,7 @@ var result = town.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
+**Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -210,7 +210,7 @@ var result = town.GetItemPrice(itemRosterElement, null, false);
 ### GetProsperityLevel
 `public override SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**Purpose:** **Purpose:** Reads and returns the prosperity level value held by the this instance.
+**Purpose:** Reads and returns the prosperity level value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -221,7 +221,7 @@ var result = town.GetProsperityLevel();
 ### GetItemCategoryPriceIndex
 `public float GetItemCategoryPriceIndex(ItemCategory itemCategory)`
 
-**Purpose:** **Purpose:** Reads and returns the item category price index value held by the this instance.
+**Purpose:** Reads and returns the item category price index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -232,7 +232,7 @@ var result = town.GetItemCategoryPriceIndex(itemCategory);
 ### GetNeighborFortifications
 `public MBReadOnlyList<Settlement> GetNeighborFortifications(MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Reads and returns the neighbor fortifications value held by the this instance.
+**Purpose:** Reads and returns the neighbor fortifications value held by the this instance.
 
 ```csharp
 // Obtain an instance of Town from the subsystem API first
@@ -243,7 +243,7 @@ var result = town.GetNeighborFortifications(navigationType);
 ### AutoGeneratedStaticCollectObjectsSellLog
 `public static void AutoGeneratedStaticCollectObjectsSellLog(object o, List<object> collectedObjects)`
 
-**Purpose:** **Purpose:** Executes the AutoGeneratedStaticCollectObjectsSellLog logic.
+**Purpose:** Executes the AutoGeneratedStaticCollectObjectsSellLog logic.
 
 ```csharp
 // Static call; no instance required

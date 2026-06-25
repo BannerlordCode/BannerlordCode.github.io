@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyGroupVM from the subsystem API first
@@ -41,7 +41,7 @@ auxiliaryKeyGroupVM.RefreshValues();
 ### OnDone
 `public void OnDone()`
 
-**Purpose:** **Purpose:** Invoked when the done event is raised.
+**Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyGroupVM from the subsystem API first
@@ -52,7 +52,7 @@ auxiliaryKeyGroupVM.OnDone();
 ### OnGamepadActiveStateChanged
 `public void OnGamepadActiveStateChanged()`
 
-**Purpose:** **Purpose:** Invoked when the gamepad active state changed event is raised.
+**Purpose:** Invoked when the gamepad active state changed event is raised.
 
 ```csharp
 // Obtain an instance of AuxiliaryKeyGroupVM from the subsystem API first

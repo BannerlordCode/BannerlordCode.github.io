@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormationIntegrityDataGroup
 `public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)`
 
-**Purpose:** **Purpose:** Formats ion integrity data group into a string suitable for display or storage.
+**Purpose:** Formats ion integrity data group into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of FormationIntegrityDataGroup from the subsystem API first

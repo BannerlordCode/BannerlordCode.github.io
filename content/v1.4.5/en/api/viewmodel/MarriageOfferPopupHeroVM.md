@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Marriage
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
@@ -51,7 +51,7 @@ marriageOfferPopupHeroVM.Update();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
@@ -62,7 +62,7 @@ marriageOfferPopupHeroVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
@@ -73,7 +73,7 @@ marriageOfferPopupHeroVM.OnFinalize();
 ### ExecuteHeroLink
 `public void ExecuteHeroLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with hero link.
+**Purpose:** Runs the operation or workflow associated with hero link.
 
 ```csharp
 // Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
@@ -84,7 +84,7 @@ marriageOfferPopupHeroVM.ExecuteHeroLink();
 ### ExecuteClanLink
 `public void ExecuteClanLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with clan link.
+**Purpose:** Runs the operation or workflow associated with clan link.
 
 ```csharp
 // Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first

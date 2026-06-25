@@ -29,7 +29,7 @@ description: "DefaultMobilePartyFoodConsumptionModel 的自动生成类参考。
 ### CalculateDailyBaseFoodConsumptionf
 `public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算daily base food consumptionf的当前值或结果。
+**用途 / Purpose:** 计算daily base food consumptionf的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例
@@ -40,7 +40,7 @@ var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsum
 ### CalculateDailyFoodConsumptionf
 `public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算daily food consumptionf的当前值或结果。
+**用途 / Purpose:** 计算daily food consumptionf的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例
@@ -51,7 +51,7 @@ var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptio
 ### DoesPartyConsumeFood
 `public override bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回party consume food对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断party consume food这一条件在当前对象上是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例

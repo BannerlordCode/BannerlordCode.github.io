@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### IsEnemyOf
 `public bool IsEnemyOf(IAgent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
+**Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -34,7 +34,7 @@ var result = mapConversationAgent.IsEnemyOf(agent);
 ### IsFriendOf
 `public bool IsFriendOf(IAgent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the friend of state or condition.
+**Purpose:** Determines whether the this instance is in the friend of state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapConversationAgent.IsFriendOf(agent);
 ### IsActive
 `public bool IsActive()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the active state or condition.
+**Purpose:** Determines whether the this instance is in the active state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapConversationAgent.IsActive();
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**Purpose:** **Purpose:** Assigns a new value to as conversation agent and updates the object's internal state.
+**Purpose:** Assigns a new value to as conversation agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -67,7 +67,7 @@ mapConversationAgent.SetAsConversationAgent(false);
 ### OnConversationStarted
 `public void OnConversationStarted()`
 
-**Purpose:** **Purpose:** Invoked when the conversation started event is raised.
+**Purpose:** Invoked when the conversation started event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateEase
 `public static CubicBezier CreateEase(double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**Purpose:** **Purpose:** Constructs a new ease entity and returns it to the caller.
+**Purpose:** Constructs a new ease entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CubicBezier.CreateEase(0, 0, 0, 0);
 ### CreateYBeginToYEndWithRelativeControlDirs
 `public static CubicBezier CreateYBeginToYEndWithRelativeControlDirs(double yBegin, double yEnd, double controlDir1X, double controlDir1Y, double controlDir2X, double controlDir2Y)`
 
-**Purpose:** **Purpose:** Constructs a new y begin to y end with relative control dirs entity and returns it to the caller.
+**Purpose:** Constructs a new y begin to y end with relative control dirs entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CubicBezier.CreateYBeginToYEndWithRelativeControlDirs(0, 0, 0, 0, 0, 0);
 ### CreateYBeginToYEnd
 `public static CubicBezier CreateYBeginToYEnd(double yBegin, double yEnd, double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**Purpose:** **Purpose:** Constructs a new y begin to y end entity and returns it to the caller.
+**Purpose:** Constructs a new y begin to y end entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CubicBezier.CreateYBeginToYEnd(0, 0, 0, 0, 0, 0);
 ### Sample
 `public double Sample(double x)`
 
-**Purpose:** **Purpose:** Executes the Sample logic.
+**Purpose:** Executes the Sample logic.
 
 ```csharp
 // Obtain an instance of CubicBezier from the subsystem API first

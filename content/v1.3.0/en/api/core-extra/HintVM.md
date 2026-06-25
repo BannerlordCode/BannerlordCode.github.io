@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshGenericHintTooltip
 `public static void RefreshGenericHintTooltip(HintVM hint, object args)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of generic hint tooltip in sync with the underlying state.
+**Purpose:** Keeps the display or cache of generic hint tooltip in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required

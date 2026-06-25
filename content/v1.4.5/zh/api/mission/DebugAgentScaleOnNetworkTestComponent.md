@@ -23,7 +23,7 @@ description: "DebugAgentScaleOnNetworkTestComponent 的自动生成类参考。"
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DebugAgentScaleOnNetworkTestComponent 实例
@@ -34,7 +34,7 @@ debugAgentScaleOnNetworkTestComponent.OnUdpNetworkHandlerTick(0);
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
+**用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DebugAgentScaleOnNetworkTestComponent 实例

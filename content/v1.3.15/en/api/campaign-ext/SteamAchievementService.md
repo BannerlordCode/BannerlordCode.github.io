@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SteamAchievementService from the subsystem API first
@@ -34,7 +34,7 @@ steamAchievementService.Tick(0);
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SteamAchievementService from the subsystem API first

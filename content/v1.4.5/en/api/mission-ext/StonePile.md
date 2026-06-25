@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** **Purpose:** Reads the data or state of from network.
+**Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -43,7 +43,7 @@ var result = stonePile.ReadFromNetwork(bufferReadValid);
 ### CanUseAttackEntity
 `public bool CanUseAttackEntity()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for use attack entity.
+**Purpose:** Checks whether the this instance meets the preconditions for use attack entity.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -54,7 +54,7 @@ var result = stonePile.CanUseAttackEntity();
 ### SetAmmo
 `public void SetAmmo(int ammoLeft)`
 
-**Purpose:** **Purpose:** Assigns a new value to ammo and updates the object's internal state.
+**Purpose:** Assigns a new value to ammo and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -65,7 +65,7 @@ stonePile.SetAmmo(0);
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
+**Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -76,7 +76,7 @@ stonePile.AfterMissionStart();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -87,7 +87,7 @@ var result = stonePile.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -98,7 +98,7 @@ var result = stonePile.GetDescriptionText(gameEntity);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -109,7 +109,7 @@ var result = stonePile.CreateAIBehaviorObject();
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the in range to check alternative points state or condition.
+**Purpose:** Determines whether the this instance is in the in range to check alternative points state or condition.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -120,7 +120,7 @@ var result = stonePile.IsInRangeToCheckAlternativePoints(agent);
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the best point alternative to value held by the this instance.
+**Purpose:** Reads and returns the best point alternative to value held by the this instance.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -131,7 +131,7 @@ var result = stonePile.GetBestPointAlternativeTo(standingPoint, agent);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first
@@ -142,7 +142,7 @@ var result = stonePile.GetTickRequirement();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** **Purpose:** Writes to network to the target location.
+**Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of StonePile from the subsystem API first

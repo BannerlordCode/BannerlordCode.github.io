@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPRandomOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

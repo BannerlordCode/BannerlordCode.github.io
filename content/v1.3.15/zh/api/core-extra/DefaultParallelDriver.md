@@ -23,7 +23,7 @@ description: "DefaultParallelDriver 的自动生成类参考。"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -34,7 +34,7 @@ defaultParallelDriver.For(0, 0, body, 0);
 ### ForWithoutRenderThread
 `public void ForWithoutRenderThread(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForWithoutRenderThread 对应的操作。
+**用途 / Purpose:** 调用 ForWithoutRenderThread 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -45,7 +45,7 @@ defaultParallelDriver.ForWithoutRenderThread(0, 0, body, 0);
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 For 对应的操作。
+**用途 / Purpose:** 调用 For 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -56,7 +56,7 @@ defaultParallelDriver.For(0, 0, 0, body, 0);
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 main thread id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 main thread id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -67,7 +67,7 @@ var result = defaultParallelDriver.GetMainThreadId();
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current thread id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current thread id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例

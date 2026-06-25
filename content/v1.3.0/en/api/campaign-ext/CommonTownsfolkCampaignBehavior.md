@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CommonTownsfolkCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ commonTownsfolkCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of CommonTownsfolkCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ commonTownsfolkCampaignBehavior.SyncData(dataStore);
 ### GetActionSetSuffixAndMonsterForItem
 `public static string GetActionSetSuffixAndMonsterForItem(string itemId, int race, bool isFemale, out Monster monster)`
 
-**Purpose:** **Purpose:** Reads and returns the action set suffix and monster for item value held by the this instance.
+**Purpose:** Reads and returns the action set suffix and monster for item value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ CommonTownsfolkCampaignBehavior.GetActionSetSuffixAndMonsterForItem("example", 0
 ### GetRandomTownsManActionSetAndMonster
 `public static Tuple<string, Monster> GetRandomTownsManActionSetAndMonster(int race)`
 
-**Purpose:** **Purpose:** Reads and returns the random towns man action set and monster value held by the this instance.
+**Purpose:** Reads and returns the random towns man action set and monster value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ CommonTownsfolkCampaignBehavior.GetRandomTownsManActionSetAndMonster(0);
 ### GetRandomTownsWomanActionSetAndMonster
 `public static Tuple<string, Monster> GetRandomTownsWomanActionSetAndMonster(int race)`
 
-**Purpose:** **Purpose:** Reads and returns the random towns woman action set and monster value held by the this instance.
+**Purpose:** Reads and returns the random towns woman action set and monster value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ CommonTownsfolkCampaignBehavior.GetRandomTownsWomanActionSetAndMonster(0);
 ### CreateBroomsWoman
 `public static LocationCharacter CreateBroomsWoman(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** **Purpose:** Constructs a new brooms woman entity and returns it to the caller.
+**Purpose:** Constructs a new brooms woman entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ CommonTownsfolkCampaignBehavior.CreateBroomsWoman(culture, relation);
 ### CreateMaleBeggar
 `public static LocationCharacter CreateMaleBeggar(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** **Purpose:** Constructs a new male beggar entity and returns it to the caller.
+**Purpose:** Constructs a new male beggar entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ CommonTownsfolkCampaignBehavior.CreateMaleBeggar(culture, relation);
 ### CreateFemaleBeggar
 `public static LocationCharacter CreateFemaleBeggar(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** **Purpose:** Constructs a new female beggar entity and returns it to the caller.
+**Purpose:** Constructs a new female beggar entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

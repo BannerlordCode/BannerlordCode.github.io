@@ -23,7 +23,7 @@ Treat `BuildingScoreCalculationModel` as a Model-style extension point: first id
 ### GetNextBuilding
 `public abstract Building GetNextBuilding(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the next building value held by the this instance.
+**Purpose:** Reads and returns the next building value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingScoreCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = buildingScoreCalculationModel.GetNextBuilding(town);
 ### GetNextDailyBuilding
 `public abstract Building GetNextDailyBuilding(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the next daily building value held by the this instance.
+**Purpose:** Reads and returns the next daily building value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingScoreCalculationModel from the subsystem API first

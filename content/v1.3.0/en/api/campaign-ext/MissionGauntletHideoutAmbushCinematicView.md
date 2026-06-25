@@ -23,7 +23,7 @@ Treat `MissionGauntletHideoutAmbushCinematicView` as a View-style extension poin
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletHideoutAmbushCinematicView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletHideoutAmbushCinematicView.OnMissionScreenFinalize();
 ### HitTest
 `public override bool HitTest()`
 
-**Purpose:** **Purpose:** Executes the HitTest logic.
+**Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first

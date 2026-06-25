@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Refresh
 `public unsafe static void Refresh(this Formation formation)`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ OrderOfBattleFormationExtensions.Refresh(formation);
 ### GetOrderOfBattleFormationClass
 `public static DeploymentFormationClass GetOrderOfBattleFormationClass(this FormationClass formationClass)`
 
-**Purpose:** **Purpose:** Reads and returns the order of battle formation class value held by the this instance.
+**Purpose:** Reads and returns the order of battle formation class value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ OrderOfBattleFormationExtensions.GetOrderOfBattleFormationClass(formationClass);
 ### GetFormationClasses
 `public static List<FormationClass> GetFormationClasses(this DeploymentFormationClass orderOfBattleFormationClass)`
 
-**Purpose:** **Purpose:** Reads and returns the formation classes value held by the this instance.
+**Purpose:** Reads and returns the formation classes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ OrderOfBattleFormationExtensions.GetFormationClasses(orderOfBattleFormationClass
 ### GetFilterName
 `public static TextObject GetFilterName(this FormationFilterType filterType)`
 
-**Purpose:** **Purpose:** Reads and returns the filter name value held by the this instance.
+**Purpose:** Reads and returns the filter name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ OrderOfBattleFormationExtensions.GetFilterName(filterType);
 ### GetFilterDescription
 `public static TextObject GetFilterDescription(this FormationFilterType filterType)`
 
-**Purpose:** **Purpose:** Reads and returns the filter description value held by the this instance.
+**Purpose:** Reads and returns the filter description value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ OrderOfBattleFormationExtensions.GetFilterDescription(filterType);
 ### GetClassName
 `public static TextObject GetClassName(this DeploymentFormationClass formationClass)`
 
-**Purpose:** **Purpose:** Reads and returns the class name value held by the this instance.
+**Purpose:** Reads and returns the class name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ OrderOfBattleFormationExtensions.GetClassName(formationClass);
 ### GetHeroAgents
 `public static List<Agent> GetHeroAgents(this Team team)`
 
-**Purpose:** **Purpose:** Reads and returns the hero agents value held by the this instance.
+**Purpose:** Reads and returns the hero agents value held by the this instance.
 
 ```csharp
 // Static call; no instance required

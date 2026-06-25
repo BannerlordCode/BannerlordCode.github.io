@@ -23,7 +23,7 @@ description: "DefaultBattleRewardModel 的自动生成类参考。"
 ### GetPlayerGainedRelationAmount
 `public override int GetPlayerGainedRelationAmount(MapEvent mapEvent, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player gained relation amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player gained relation amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -34,7 +34,7 @@ var result = defaultBattleRewardModel.GetPlayerGainedRelationAmount(mapEvent, he
 ### CalculateRenownGain
 `public override ExplainedNumber CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算renown gain的当前值或结果。
+**用途 / Purpose:** 计算renown gain的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -45,7 +45,7 @@ var result = defaultBattleRewardModel.CalculateRenownGain(party, 0, 0);
 ### CalculateInfluenceGain
 `public override ExplainedNumber CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算influence gain的当前值或结果。
+**用途 / Purpose:** 计算influence gain的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -56,7 +56,7 @@ var result = defaultBattleRewardModel.CalculateInfluenceGain(party, 0, 0);
 ### CalculateMoraleGainVictory
 `public override ExplainedNumber CalculateMoraleGainVictory(PartyBase party, float renownValueOfBattle, float contributionShare, MapEvent battle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算morale gain victory的当前值或结果。
+**用途 / Purpose:** 计算morale gain victory的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -67,7 +67,7 @@ var result = defaultBattleRewardModel.CalculateMoraleGainVictory(party, 0, 0, ba
 ### CalculateGoldLossAfterDefeat
 `public override int CalculateGoldLossAfterDefeat(Hero partyLeaderHero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算gold loss after defeat的当前值或结果。
+**用途 / Purpose:** 计算gold loss after defeat的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -78,7 +78,7 @@ var result = defaultBattleRewardModel.CalculateGoldLossAfterDefeat(partyLeaderHe
 ### GetLootedItemFromTroop
 `public override EquipmentElement GetLootedItemFromTroop(CharacterObject character, float targetValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 looted item from troop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 looted item from troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -89,7 +89,7 @@ var result = defaultBattleRewardModel.GetLootedItemFromTroop(character, 0);
 ### GetExpectedLootedItemValueFromCasualty
 `public override float GetExpectedLootedItemValueFromCasualty(Hero winnerPartyLeaderHero, CharacterObject casualtyCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 expected looted item value from casualty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 expected looted item value from casualty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -100,7 +100,7 @@ var result = defaultBattleRewardModel.GetExpectedLootedItemValueFromCasualty(win
 ### GetAITradePenalty
 `public override float GetAITradePenalty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 a i trade penalty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 a i trade penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -111,7 +111,7 @@ var result = defaultBattleRewardModel.GetAITradePenalty();
 ### GetMainPartyMemberScatterChance
 `public override float GetMainPartyMemberScatterChance()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 main party member scatter chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 main party member scatter chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -122,7 +122,7 @@ var result = defaultBattleRewardModel.GetMainPartyMemberScatterChance();
 ### CalculatePlunderedGoldAmountFromDefeatedParty
 `public override int CalculatePlunderedGoldAmountFromDefeatedParty(PartyBase defeatedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算plundered gold amount from defeated party的当前值或结果。
+**用途 / Purpose:** 计算plundered gold amount from defeated party的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -133,7 +133,7 @@ var result = defaultBattleRewardModel.CalculatePlunderedGoldAmountFromDefeatedPa
 ### GetLootGoldChances
 `public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootGoldChances(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loot gold chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loot gold chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -144,7 +144,7 @@ var result = defaultBattleRewardModel.GetLootGoldChances(winnerParties);
 ### GetLootMemberChancesForWinnerParties
 `public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootMemberChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loot member chances for winner parties 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loot member chances for winner parties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -155,7 +155,7 @@ var result = defaultBattleRewardModel.GetLootMemberChancesForWinnerParties(winne
 ### GetLootPrisonerChances
 `public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootPrisonerChances(MBReadOnlyList<MapEventParty> winnerParties, TroopRosterElement prisonerElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loot prisoner chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loot prisoner chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -166,7 +166,7 @@ var result = defaultBattleRewardModel.GetLootPrisonerChances(winnerParties, pris
 ### GetLootItemChancesForWinnerParties
 `public override MBList<KeyValuePair<MapEventParty, float>> GetLootItemChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loot item chances for winner parties 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loot item chances for winner parties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -177,7 +177,7 @@ var result = defaultBattleRewardModel.GetLootItemChancesForWinnerParties(winnerP
 ### GetLootCasualtyChances
 `public override MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootCasualtyChances(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 loot casualty chances 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 loot casualty chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -188,7 +188,7 @@ var result = defaultBattleRewardModel.GetLootCasualtyChances(winnerParties, defe
 ### CalculateShipDamageAfterDefeat
 `public override float CalculateShipDamageAfterDefeat(Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算ship damage after defeat的当前值或结果。
+**用途 / Purpose:** 计算ship damage after defeat的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -199,7 +199,7 @@ var result = defaultBattleRewardModel.CalculateShipDamageAfterDefeat(ship);
 ### DistributeDefeatedPartyShipsAmongWinners
 `public override MBReadOnlyList<KeyValuePair<Ship, MapEventParty>> DistributeDefeatedPartyShipsAmongWinners(MapEvent mapEvent, MBReadOnlyList<Ship> shipsToLoot, MBReadOnlyList<MapEventParty> winnerParties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DistributeDefeatedPartyShipsAmongWinners 对应的操作。
+**用途 / Purpose:** 调用 DistributeDefeatedPartyShipsAmongWinners 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -210,7 +210,7 @@ var result = defaultBattleRewardModel.DistributeDefeatedPartyShipsAmongWinners(m
 ### GetBannerLootChanceFromDefeatedHero
 `public override float GetBannerLootChanceFromDefeatedHero(Hero defeatedHero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner loot chance from defeated hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner loot chance from defeated hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -221,7 +221,7 @@ var result = defaultBattleRewardModel.GetBannerLootChanceFromDefeatedHero(defeat
 ### GetBannerRewardForWinningMapEvent
 `public override ItemObject GetBannerRewardForWinningMapEvent(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner reward for winning map event 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner reward for winning map event 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -232,7 +232,7 @@ var result = defaultBattleRewardModel.GetBannerRewardForWinningMapEvent(mapEvent
 ### GetSunkenShipMoraleEffect
 `public override float GetSunkenShipMoraleEffect(PartyBase shipOwner, Ship ship)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sunken ship morale effect 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 sunken ship morale effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -243,7 +243,7 @@ var result = defaultBattleRewardModel.GetSunkenShipMoraleEffect(shipOwner, ship)
 ### CalculateMoraleChangeOnRoundVictory
 `public override ExplainedNumber CalculateMoraleChangeOnRoundVictory(PartyBase party, MapEventSide partySide, BattleSideEnum roundWinner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算morale change on round victory的当前值或结果。
+**用途 / Purpose:** 计算morale change on round victory的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -254,7 +254,7 @@ var result = defaultBattleRewardModel.CalculateMoraleChangeOnRoundVictory(party,
 ### GetShipSiegeEngineHitMoraleEffect
 `public override float GetShipSiegeEngineHitMoraleEffect(Ship ship, SiegeEngineType siegeEngineType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit morale effect 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit morale effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -265,7 +265,7 @@ var result = defaultBattleRewardModel.GetShipSiegeEngineHitMoraleEffect(ship, si
 ### GetFigureheadLoot
 `public override Figurehead GetFigureheadLoot(MBReadOnlyList<MapEventParty> defeatedParties, PartyBase defeatedSideLeaderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 figurehead loot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 figurehead loot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例
@@ -276,7 +276,7 @@ var result = defaultBattleRewardModel.GetFigureheadLoot(defeatedParties, defeate
 ### GetWinnerPartiesThatCanPlunderGoldFromShips
 `public override MBReadOnlyList<MapEventParty> GetWinnerPartiesThatCanPlunderGoldFromShips(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 winner parties that can plunder gold from ships 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 winner parties that can plunder gold from ships 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleRewardModel 实例

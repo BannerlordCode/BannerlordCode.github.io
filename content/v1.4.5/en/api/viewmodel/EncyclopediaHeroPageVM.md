@@ -72,7 +72,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -83,7 +83,7 @@ encyclopediaHeroPageVM.RefreshValues();
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -94,7 +94,7 @@ encyclopediaHeroPageVM.Refresh();
 ### GetName
 `public override string GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -105,7 +105,7 @@ var result = encyclopediaHeroPageVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
+**Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -116,7 +116,7 @@ var result = encyclopediaHeroPageVM.GetNavigationBarURL();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
+**Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -127,7 +127,7 @@ encyclopediaHeroPageVM.ExecuteLink("example");
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch bookmarked state.
+**Purpose:** Runs the operation or workflow associated with switch bookmarked state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
@@ -138,7 +138,7 @@ encyclopediaHeroPageVM.ExecuteSwitchBookmarkedState();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first

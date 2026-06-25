@@ -33,7 +33,7 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### CollectBannerPiece
 `public void CollectBannerPiece()`
 
-**Purpose:** **Purpose:** Executes the CollectBannerPiece logic.
+**Purpose:** Executes the CollectBannerPiece logic.
 
 ```csharp
 // Obtain an instance of FirstPhase from the subsystem API first
@@ -44,7 +44,7 @@ firstPhase.CollectBannerPiece();
 ### MergeDragonBanner
 `public void MergeDragonBanner()`
 
-**Purpose:** **Purpose:** Executes the MergeDragonBanner logic.
+**Purpose:** Executes the MergeDragonBanner logic.
 
 ```csharp
 // Obtain an instance of FirstPhase from the subsystem API first

@@ -64,7 +64,7 @@ description: "BarterVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -75,7 +75,7 @@ barterVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -86,7 +86,7 @@ barterVM.OnFinalize();
 ### OnInitialized
 `public void OnInitialized()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 initialized 事件触发时调用此回调。
+**用途 / Purpose:** 在 initialized 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -97,7 +97,7 @@ barterVM.OnInitialized();
 ### ExecuteTransferAllLeftFief
 `public void ExecuteTransferAllLeftFief()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all left fief 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all left fief 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -108,7 +108,7 @@ barterVM.ExecuteTransferAllLeftFief();
 ### ExecuteAutoBalance
 `public void ExecuteAutoBalance()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 auto balance 对应的操作或工作流。
+**用途 / Purpose:** 执行 auto balance 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -119,7 +119,7 @@ barterVM.ExecuteAutoBalance();
 ### ExecuteTransferAllLeftItem
 `public void ExecuteTransferAllLeftItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all left item 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all left item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -130,7 +130,7 @@ barterVM.ExecuteTransferAllLeftItem();
 ### ExecuteTransferAllLeftPrisoner
 `public void ExecuteTransferAllLeftPrisoner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all left prisoner 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all left prisoner 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -141,7 +141,7 @@ barterVM.ExecuteTransferAllLeftPrisoner();
 ### ExecuteTransferAllLeftOther
 `public void ExecuteTransferAllLeftOther()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all left other 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all left other 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -152,7 +152,7 @@ barterVM.ExecuteTransferAllLeftOther();
 ### ExecuteTransferAllRightFief
 `public void ExecuteTransferAllRightFief()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all right fief 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all right fief 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -163,7 +163,7 @@ barterVM.ExecuteTransferAllRightFief();
 ### ExecuteTransferAllRightItem
 `public void ExecuteTransferAllRightItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all right item 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all right item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -174,7 +174,7 @@ barterVM.ExecuteTransferAllRightItem();
 ### ExecuteTransferAllRightPrisoner
 `public void ExecuteTransferAllRightPrisoner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all right prisoner 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all right prisoner 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -185,7 +185,7 @@ barterVM.ExecuteTransferAllRightPrisoner();
 ### ExecuteTransferAllRightOther
 `public void ExecuteTransferAllRightOther()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 transfer all right other 对应的操作或工作流。
+**用途 / Purpose:** 执行 transfer all right other 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -196,7 +196,7 @@ barterVM.ExecuteTransferAllRightOther();
 ### ExecuteOffer
 `public void ExecuteOffer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 offer 对应的操作或工作流。
+**用途 / Purpose:** 执行 offer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -207,7 +207,7 @@ barterVM.ExecuteOffer();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -218,7 +218,7 @@ barterVM.ExecuteCancel();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -229,7 +229,7 @@ barterVM.ExecuteReset();
 ### OnTransferItem
 `public void OnTransferItem(Barterable barter, bool isTransferrable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 transfer item 事件触发时调用此回调。
+**用途 / Purpose:** 在 transfer item 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -240,7 +240,7 @@ barterVM.OnTransferItem(barter, false);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -251,7 +251,7 @@ barterVM.SetResetInputKey(hotkey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -262,7 +262,7 @@ barterVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例
@@ -273,7 +273,7 @@ barterVM.SetCancelInputKey(hotkey);
 ### InitializeStaticContent
 `public void InitializeStaticContent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 static content 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 static content 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterVM 实例

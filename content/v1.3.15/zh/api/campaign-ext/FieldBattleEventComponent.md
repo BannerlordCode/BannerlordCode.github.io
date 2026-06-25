@@ -29,7 +29,7 @@ description: "FieldBattleEventComponent 的自动生成类参考。"
 ### CreateFieldBattleEvent
 `public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 field battle event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 field battle event 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ FieldBattleEventComponent.CreateFieldBattleEvent(attackerParty, defenderParty);
 ### CreateComponentForOldSaves
 `public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

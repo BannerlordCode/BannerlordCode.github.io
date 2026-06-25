@@ -30,7 +30,7 @@ Treat `TownHorseRaceMissionController` as a Controller-style extension point: fi
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the best target position value held by the this instance.
+**Purpose:** Reads and returns the best target position value held by the this instance.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -41,7 +41,7 @@ var result = townHorseRaceMissionController.GetBestTargetPosition();
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**Purpose:** **Purpose:** Adds to check list to the current collection or state.
+**Purpose:** Adds to check list to the current collection or state.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -52,7 +52,7 @@ townHorseRaceMissionController.AddToCheckList(agent);
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**Purpose:** **Purpose:** Removes from check list from the current collection or state.
+**Purpose:** Removes from check list from the current collection or state.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -63,7 +63,7 @@ townHorseRaceMissionController.RemoveFromCheckList(agent);
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -74,7 +74,7 @@ townHorseRaceMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -85,7 +85,7 @@ townHorseRaceMissionController.OnMissionTick(0);
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**Purpose:** **Purpose:** Starts the match flow or state machine.
+**Purpose:** Starts the match flow or state machine.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -96,7 +96,7 @@ townHorseRaceMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**Purpose:** **Purpose:** Executes the SkipMatch logic.
+**Purpose:** Executes the SkipMatch logic.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -107,7 +107,7 @@ townHorseRaceMissionController.SkipMatch(match);
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the match ended state or condition.
+**Purpose:** Determines whether the this instance is in the match ended state or condition.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first
@@ -118,7 +118,7 @@ var result = townHorseRaceMissionController.IsMatchEnded();
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** **Purpose:** Invoked when the match ended event is raised.
+**Purpose:** Invoked when the match ended event is raised.
 
 ```csharp
 // Obtain an instance of TownHorseRaceMissionController from the subsystem API first

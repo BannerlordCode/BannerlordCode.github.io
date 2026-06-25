@@ -41,7 +41,7 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TournamentRoundVM from the subsystem API first
@@ -52,7 +52,7 @@ tournamentRoundVM.RefreshValues();
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TournamentRoundVM from the subsystem API first
@@ -63,7 +63,7 @@ tournamentRoundVM.Initialize();
 ### Initialize
 `public void Initialize(TournamentRound round, TextObject name)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of TournamentRoundVM from the subsystem API first
@@ -74,7 +74,7 @@ tournamentRoundVM.Initialize(round, name);
 ### GetParticipants
 `public IEnumerable<TournamentParticipantVM> GetParticipants()`
 
-**Purpose:** **Purpose:** Reads and returns the participants value held by the this instance.
+**Purpose:** Reads and returns the participants value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentRoundVM from the subsystem API first

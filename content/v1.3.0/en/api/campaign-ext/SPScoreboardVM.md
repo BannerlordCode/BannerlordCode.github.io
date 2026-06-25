@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -40,7 +40,7 @@ sPScoreboardVM.RefreshValues();
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -51,7 +51,7 @@ sPScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSources, onTo
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -62,7 +62,7 @@ sPScoreboardVM.Tick(0);
 ### ExecutePlayAction
 `public override void ExecutePlayAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with play action.
+**Purpose:** Runs the operation or workflow associated with play action.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -73,7 +73,7 @@ sPScoreboardVM.ExecutePlayAction();
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with fast forward action.
+**Purpose:** Runs the operation or workflow associated with fast forward action.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -84,7 +84,7 @@ sPScoreboardVM.ExecuteFastForwardAction();
 ### ExecutePauseSimulationAction
 `public override void ExecutePauseSimulationAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with pause simulation action.
+**Purpose:** Runs the operation or workflow associated with pause simulation action.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -95,7 +95,7 @@ sPScoreboardVM.ExecutePauseSimulationAction();
 ### ExecuteEndSimulationAction
 `public override void ExecuteEndSimulationAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end simulation action.
+**Purpose:** Runs the operation or workflow associated with end simulation action.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -106,7 +106,7 @@ sPScoreboardVM.ExecuteEndSimulationAction();
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with quit action.
+**Purpose:** Runs the operation or workflow associated with quit action.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -117,7 +117,7 @@ sPScoreboardVM.ExecuteQuitAction();
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**Purpose:** **Purpose:** Invoked when the battle over event is raised.
+**Purpose:** Invoked when the battle over event is raised.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -128,7 +128,7 @@ sPScoreboardVM.OnBattleOver();
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**Purpose:** **Purpose:** Invoked when the exit battle event is raised.
+**Purpose:** Invoked when the exit battle event is raised.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -139,7 +139,7 @@ sPScoreboardVM.OnExitBattle();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**Purpose:** **Purpose:** Executes the TroopNumberChanged logic.
+**Purpose:** Executes the TroopNumberChanged logic.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -150,7 +150,7 @@ sPScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** **Purpose:** Executes the HeroSkillIncreased logic.
+**Purpose:** Executes the HeroSkillIncreased logic.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -161,7 +161,7 @@ sPScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter, upgraded
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**Purpose:** **Purpose:** Executes the BattleResultsReady logic.
+**Purpose:** Executes the BattleResultsReady logic.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first
@@ -172,7 +172,7 @@ sPScoreboardVM.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**Purpose:** **Purpose:** Executes the TroopSideChanged logic.
+**Purpose:** Executes the TroopSideChanged logic.
 
 ```csharp
 // Obtain an instance of SPScoreboardVM from the subsystem API first

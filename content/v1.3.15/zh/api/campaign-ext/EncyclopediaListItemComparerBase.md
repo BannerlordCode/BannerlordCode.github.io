@@ -29,7 +29,7 @@ description: "EncyclopediaListItemComparerBase 的自动生成类参考。"
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sort order 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sort order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
@@ -40,7 +40,7 @@ encyclopediaListItemComparerBase.SetSortOrder(false);
 ### SwitchSortOrder
 `public void SwitchSortOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchSortOrder 对应的操作。
+**用途 / Purpose:** 调用 SwitchSortOrder 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
@@ -51,7 +51,7 @@ encyclopediaListItemComparerBase.SwitchSortOrder();
 ### SetDefaultSortOrder
 `public void SetDefaultSortOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default sort order 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 default sort order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
@@ -62,7 +62,7 @@ encyclopediaListItemComparerBase.SetDefaultSortOrder();
 ### Compare
 `public abstract int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
@@ -73,7 +73,7 @@ var result = encyclopediaListItemComparerBase.Compare(x, y);
 ### GetComparedValueText
 `public abstract string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compared value text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 compared value text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例

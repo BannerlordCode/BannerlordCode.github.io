@@ -19,7 +19,7 @@ TeleportHeroAction is a set of static methods that trigger "TeleportHero" in the
 public static void ApplyImmediateTeleportToSettlement(Hero heroToBeMoved, Settlement targetSettlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of immediate teleport to settlement to the this instance.
+**Purpose:** Applies the effect of immediate teleport to settlement to the this instance.
 
 ### ApplyImmediateTeleportToParty
 
@@ -27,7 +27,7 @@ public static void ApplyImmediateTeleportToSettlement(Hero heroToBeMoved, Settle
 public static void ApplyImmediateTeleportToParty(Hero heroToBeMoved, MobileParty party)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of immediate teleport to party to the this instance.
+**Purpose:** Applies the effect of immediate teleport to party to the this instance.
 
 ### ApplyImmediateTeleportToPartyAsPartyLeader
 
@@ -35,7 +35,7 @@ public static void ApplyImmediateTeleportToParty(Hero heroToBeMoved, MobileParty
 public static void ApplyImmediateTeleportToPartyAsPartyLeader(Hero heroToBeMoved, MobileParty party)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of immediate teleport to party as party leader to the this instance.
+**Purpose:** Applies the effect of immediate teleport to party as party leader to the this instance.
 
 ### ApplyDelayedTeleportToSettlement
 
@@ -43,7 +43,7 @@ public static void ApplyImmediateTeleportToPartyAsPartyLeader(Hero heroToBeMoved
 public static void ApplyDelayedTeleportToSettlement(Hero heroToBeMoved, Settlement targetSettlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of delayed teleport to settlement to the this instance.
+**Purpose:** Applies the effect of delayed teleport to settlement to the this instance.
 
 ### ApplyDelayedTeleportToParty
 
@@ -51,7 +51,7 @@ public static void ApplyDelayedTeleportToSettlement(Hero heroToBeMoved, Settleme
 public static void ApplyDelayedTeleportToParty(Hero heroToBeMoved, MobileParty party)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of delayed teleport to party to the this instance.
+**Purpose:** Applies the effect of delayed teleport to party to the this instance.
 
 ### ApplyDelayedTeleportToSettlementAsGovernor
 
@@ -59,7 +59,7 @@ public static void ApplyDelayedTeleportToParty(Hero heroToBeMoved, MobileParty p
 public static void ApplyDelayedTeleportToSettlementAsGovernor(Hero heroToBeMoved, Settlement targetSettlement)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of delayed teleport to settlement as governor to the this instance.
+**Purpose:** Applies the effect of delayed teleport to settlement as governor to the this instance.
 
 ### ApplyDelayedTeleportToPartyAsPartyLeader
 
@@ -67,7 +67,7 @@ public static void ApplyDelayedTeleportToSettlementAsGovernor(Hero heroToBeMoved
 public static void ApplyDelayedTeleportToPartyAsPartyLeader(Hero heroToBeMoved, MobileParty party)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of delayed teleport to party as party leader to the this instance.
+**Purpose:** Applies the effect of delayed teleport to party as party leader to the this instance.
 
 ## Usage Example
 

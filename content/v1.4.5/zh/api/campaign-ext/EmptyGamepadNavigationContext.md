@@ -23,7 +23,7 @@ description: "EmptyGamepadNavigationContext 的自动生成类参考。"
 ### AddForcedScopeCollection
 `public void AddForcedScopeCollection(GamepadNavigationForcedScopeCollection collection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 forced scope collection 添加到当前容器或状态中。
+**用途 / Purpose:** 将 forced scope collection 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -34,7 +34,7 @@ emptyGamepadNavigationContext.AddForcedScopeCollection(collection);
 ### AddNavigationScope
 `public void AddNavigationScope(GamepadNavigationScope scope, bool initialize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 navigation scope 添加到当前容器或状态中。
+**用途 / Purpose:** 将 navigation scope 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -45,7 +45,7 @@ emptyGamepadNavigationContext.AddNavigationScope(scope, false);
 ### GainNavigationAfterFrames
 `public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GainNavigationAfterFrames 对应的操作。
+**用途 / Purpose:** 调用 GainNavigationAfterFrames 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -56,7 +56,7 @@ emptyGamepadNavigationContext.GainNavigationAfterFrames(0, predicate);
 ### GainNavigationAfterTime
 `public void GainNavigationAfterTime(float seconds, Func<bool> predicate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 GainNavigationAfterTime 对应的操作。
+**用途 / Purpose:** 调用 GainNavigationAfterTime 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -67,7 +67,7 @@ emptyGamepadNavigationContext.GainNavigationAfterTime(0, predicate);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -78,7 +78,7 @@ emptyGamepadNavigationContext.OnFinalize();
 ### GetIsBlockedAtPosition
 `public bool GetIsBlockedAtPosition(Vector2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is blocked at position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is blocked at position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -89,7 +89,7 @@ var result = emptyGamepadNavigationContext.GetIsBlockedAtPosition(position);
 ### GetLastScreenOrder
 `public int GetLastScreenOrder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last screen order 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 last screen order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -100,7 +100,7 @@ var result = emptyGamepadNavigationContext.GetLastScreenOrder();
 ### HasNavigationScope
 `public bool HasNavigationScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 navigation scope。
+**用途 / Purpose:** 判断当前对象是否已经持有 navigation scope。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -111,7 +111,7 @@ var result = emptyGamepadNavigationContext.HasNavigationScope(scope);
 ### HasNavigationScope
 `public bool HasNavigationScope(Func<GamepadNavigationScope, bool> predicate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 navigation scope。
+**用途 / Purpose:** 判断当前对象是否已经持有 navigation scope。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -122,7 +122,7 @@ var result = emptyGamepadNavigationContext.HasNavigationScope(func<GamepadNaviga
 ### IsAvailableForNavigation
 `public bool IsAvailableForNavigation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 available for navigation 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 available for navigation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -133,7 +133,7 @@ var result = emptyGamepadNavigationContext.IsAvailableForNavigation();
 ### OnGainNavigation
 `public void OnGainNavigation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 gain navigation 事件触发时调用此回调。
+**用途 / Purpose:** 在 gain navigation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -144,7 +144,7 @@ emptyGamepadNavigationContext.OnGainNavigation();
 ### OnMovieLoaded
 `public void OnMovieLoaded(string movieName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 movie loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 movie loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -155,7 +155,7 @@ emptyGamepadNavigationContext.OnMovieLoaded("example");
 ### OnMovieReleased
 `public void OnMovieReleased(string movieName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 movie released 事件触发时调用此回调。
+**用途 / Purpose:** 在 movie released 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -166,7 +166,7 @@ emptyGamepadNavigationContext.OnMovieReleased("example");
 ### OnWidgetNavigationIndexUpdated
 `public void OnWidgetNavigationIndexUpdated(Widget widget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 widget navigation index updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 widget navigation index updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -177,7 +177,7 @@ emptyGamepadNavigationContext.OnWidgetNavigationIndexUpdated(widget);
 ### OnWidgetNavigationStatusChanged
 `public void OnWidgetNavigationStatusChanged(Widget widget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 widget navigation status changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 widget navigation status changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -188,7 +188,7 @@ emptyGamepadNavigationContext.OnWidgetNavigationStatusChanged(widget);
 ### OnWidgetUsedNavigationMovementsUpdated
 `public void OnWidgetUsedNavigationMovementsUpdated(Widget widget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 widget used navigation movements updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 widget used navigation movements updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -199,7 +199,7 @@ emptyGamepadNavigationContext.OnWidgetUsedNavigationMovementsUpdated(widget);
 ### RemoveForcedScopeCollection
 `public void RemoveForcedScopeCollection(GamepadNavigationForcedScopeCollection collection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 forced scope collection。
+**用途 / Purpose:** 从当前容器或状态中移除 forced scope collection。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例
@@ -210,7 +210,7 @@ emptyGamepadNavigationContext.RemoveForcedScopeCollection(collection);
 ### RemoveNavigationScope
 `public void RemoveNavigationScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 navigation scope。
+**用途 / Purpose:** 从当前容器或状态中移除 navigation scope。
 
 ```csharp
 // 先通过子系统 API 拿到 EmptyGamepadNavigationContext 实例

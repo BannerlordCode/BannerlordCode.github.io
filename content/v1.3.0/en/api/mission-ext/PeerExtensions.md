@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SendExistingObjects
 `public static void SendExistingObjects(this NetworkCommunicator peer, Mission mission)`
 
-**Purpose:** **Purpose:** Executes the SendExistingObjects logic.
+**Purpose:** Executes the SendExistingObjects logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ PeerExtensions.SendExistingObjects(peer, mission);
 ### GetPeer
 `public static VirtualPlayer GetPeer(this PeerComponent peerComponent)`
 
-**Purpose:** **Purpose:** Reads and returns the peer value held by the this instance.
+**Purpose:** Reads and returns the peer value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ PeerExtensions.GetPeer(peerComponent);
 ### GetNetworkPeer
 `public static NetworkCommunicator GetNetworkPeer(this PeerComponent peerComponent)`
 
-**Purpose:** **Purpose:** Reads and returns the network peer value held by the this instance.
+**Purpose:** Reads and returns the network peer value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ PeerExtensions.GetNetworkPeer(peerComponent);
 ### RemoveComponent
 `public static void RemoveComponent(this NetworkCommunicator networkPeer, PeerComponent component)`
 
-**Purpose:** **Purpose:** Removes component from the current collection or state.
+**Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ PeerExtensions.RemoveComponent(networkPeer, component);
 ### GetComponent
 `public static PeerComponent GetComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**Purpose:** **Purpose:** Reads and returns the component value held by the this instance.
+**Purpose:** Reads and returns the component value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ PeerExtensions.GetComponent(networkPeer, 0);
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, Type peerComponentType)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ PeerExtensions.AddComponent(networkPeer, peerComponentType);
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Static call; no instance required

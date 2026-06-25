@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CustomBattleSideVM from the subsystem API first
@@ -49,7 +49,7 @@ customBattleSideVM.RefreshValues();
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**Purpose:** **Purpose:** Invoked when the player type change event is raised.
+**Purpose:** Invoked when the player type change event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleSideVM from the subsystem API first
@@ -60,7 +60,7 @@ customBattleSideVM.OnPlayerTypeChange(playerType);
 ### UpdateCharacterVisual
 `public void UpdateCharacterVisual()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of character visual.
+**Purpose:** Recalculates and stores the latest representation of character visual.
 
 ```csharp
 // Obtain an instance of CustomBattleSideVM from the subsystem API first
@@ -71,7 +71,7 @@ customBattleSideVM.UpdateCharacterVisual();
 ### Randomize
 `public void Randomize(CustomBattleSideVM oppositeSide = null)`
 
-**Purpose:** **Purpose:** Executes the Randomize logic.
+**Purpose:** Executes the Randomize logic.
 
 ```csharp
 // Obtain an instance of CustomBattleSideVM from the subsystem API first

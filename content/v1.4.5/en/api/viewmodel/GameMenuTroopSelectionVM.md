@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tro
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -52,7 +52,7 @@ gameMenuTroopSelectionVM.RefreshValues();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -63,7 +63,7 @@ gameMenuTroopSelectionVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -74,7 +74,7 @@ gameMenuTroopSelectionVM.ExecuteCancel();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
+**Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -85,7 +85,7 @@ gameMenuTroopSelectionVM.ExecuteReset();
 ### ExecuteClearSelection
 `public void ExecuteClearSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with clear selection.
+**Purpose:** Runs the operation or workflow associated with clear selection.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -96,7 +96,7 @@ gameMenuTroopSelectionVM.ExecuteClearSelection();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -107,7 +107,7 @@ gameMenuTroopSelectionVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -118,7 +118,7 @@ gameMenuTroopSelectionVM.SetCancelInputKey(hotkey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
@@ -129,7 +129,7 @@ gameMenuTroopSelectionVM.SetDoneInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
+**Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first

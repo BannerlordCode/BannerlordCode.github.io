@@ -29,7 +29,7 @@ description: "PartyTradeModel 的自动生成类参考。"
 ### GetTradePenaltyFactor
 `public abstract float GetTradePenaltyFactor(MobileParty party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade penalty factor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 trade penalty factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTradeModel 实例

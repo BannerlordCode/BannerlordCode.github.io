@@ -32,7 +32,7 @@ description: "WebSocketMessage 的自动生成类参考。"
 ### SetTextPayload
 `public void SetTextPayload(string payload)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 text payload 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 text payload 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WebSocketMessage 实例
@@ -43,7 +43,7 @@ webSocketMessage.SetTextPayload("example");
 ### WriteTo
 `public void WriteTo(bool fromServer, Stream stream)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to写入目标位置。
+**用途 / Purpose:** 将to写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 WebSocketMessage 实例
@@ -54,7 +54,7 @@ webSocketMessage.WriteTo(false, stream);
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, byte payload)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from的数据或状态。
+**用途 / Purpose:** 从当前实例读取from相关数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ WebSocketMessage.ReadFrom(false, 0);
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, Stream stream)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取from的数据或状态。
+**用途 / Purpose:** 从当前实例读取from相关数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ WebSocketMessage.ReadFrom(false, stream);
 ### CreateCursorMessage
 `public static WebSocketMessage CreateCursorMessage(int cursor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 cursor message 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 cursor message 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -84,7 +84,7 @@ WebSocketMessage.CreateCursorMessage(0);
 ### CreateCloseMessage
 `public static WebSocketMessage CreateCloseMessage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 close message 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 close message 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -94,7 +94,7 @@ WebSocketMessage.CreateCloseMessage();
 ### GetCursor
 `public int GetCursor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cursor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 cursor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WebSocketMessage 实例

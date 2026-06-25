@@ -23,7 +23,7 @@ Treat `DefaultRomanceModel` as a Model-style extension point: first identify who
 ### GetAttractionValuePercentage
 `public override int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**Purpose:** **Purpose:** Reads and returns the attraction value percentage value held by the this instance.
+**Purpose:** Reads and returns the attraction value percentage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultRomanceModel from the subsystem API first

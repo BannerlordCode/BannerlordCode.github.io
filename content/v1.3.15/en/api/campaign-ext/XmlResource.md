@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### ReadXsdFileAndExtractInformation
 `public static void ReadXsdFileAndExtractInformation(string xsdFilePath)`
 
-**Purpose:** **Purpose:** Reads the data or state of xsd file and extract information.
+**Purpose:** Reads the data or state of xsd file and extract information.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ XmlResource.ReadXsdFileAndExtractInformation("example");
 ### GetFullXPathOfElement
 `public static string GetFullXPathOfElement(XElement element, bool isXsd = true)`
 
-**Purpose:** **Purpose:** Reads and returns the full x path of element value held by the this instance.
+**Purpose:** Reads and returns the full x path of element value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ XmlResource.GetFullXPathOfElement(element, false);
 ### InitializeXmlInformationList
 `public static void InitializeXmlInformationList(List<MbObjectXmlInformation> xmlInformation)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by xml information list.
+**Purpose:** Prepares the resources, state, or bindings required by xml information list.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ XmlResource.InitializeXmlInformationList(xmlInformation);
 ### GetMbprojxmls
 `public static void GetMbprojxmls(string moduleName)`
 
-**Purpose:** **Purpose:** Reads and returns the mbprojxmls value held by the this instance.
+**Purpose:** Reads and returns the mbprojxmls value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ XmlResource.GetMbprojxmls("example");
 ### GetXmlListAndApply
 `public static void GetXmlListAndApply(string moduleName)`
 
-**Purpose:** **Purpose:** Reads and returns the xml list and apply value held by the this instance.
+**Purpose:** Reads and returns the xml list and apply value held by the this instance.
 
 ```csharp
 // Static call; no instance required

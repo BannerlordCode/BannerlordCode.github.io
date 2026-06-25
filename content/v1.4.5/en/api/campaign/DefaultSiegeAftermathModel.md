@@ -23,7 +23,7 @@ Treat `DefaultSiegeAftermathModel` as a Model-style extension point: first ident
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public override int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**Purpose:** **Purpose:** Reads and returns the siege aftermath trait xp change for player value held by the this instance.
+**Purpose:** Reads and returns the siege aftermath trait xp change for player value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSiegeAftermathModel from the subsystem API first

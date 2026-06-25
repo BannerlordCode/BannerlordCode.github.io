@@ -23,7 +23,7 @@ description: "CampaignPeriodicEventManager 的自动生成类参考。"
 ### CreatePeriodicEvent
 `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 periodic event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 periodic event 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CampaignPeriodicEventManager.CreatePeriodicEvent(triggerPeriod, initialWait);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignPeriodicEventManager 实例

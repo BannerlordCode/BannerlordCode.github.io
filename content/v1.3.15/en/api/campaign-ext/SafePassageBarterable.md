@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
+**Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of SafePassageBarterable from the subsystem API first
@@ -41,7 +41,7 @@ var result = safePassageBarterable.GetUnitValueForFaction(faction);
 ### GetPlayerStrengthRatioInEncounter
 `public float GetPlayerStrengthRatioInEncounter()`
 
-**Purpose:** **Purpose:** Reads and returns the player strength ratio in encounter value held by the this instance.
+**Purpose:** Reads and returns the player strength ratio in encounter value held by the this instance.
 
 ```csharp
 // Obtain an instance of SafePassageBarterable from the subsystem API first
@@ -52,7 +52,7 @@ var result = safePassageBarterable.GetPlayerStrengthRatioInEncounter();
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the compatible state or condition.
+**Purpose:** Determines whether the this instance is in the compatible state or condition.
 
 ```csharp
 // Obtain an instance of SafePassageBarterable from the subsystem API first
@@ -63,7 +63,7 @@ var result = safePassageBarterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
+**Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of SafePassageBarterable from the subsystem API first
@@ -74,7 +74,7 @@ var result = safePassageBarterable.GetVisualIdentifier();
 ### Apply
 `public override void Apply()`
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of SafePassageBarterable from the subsystem API first

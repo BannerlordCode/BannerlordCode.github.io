@@ -23,7 +23,7 @@ description: "DefaultPartyTransitionModel 的自动生成类参考。"
 ### GetFleetTravelTimeToPoint
 `public override CampaignTime GetFleetTravelTimeToPoint(MobileParty mobileParty, CampaignVec2 target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 fleet travel time to point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 fleet travel time to point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyTransitionModel.GetFleetTravelTimeToPoint(mobileParty, 
 ### GetTransitionTimeDisembarking
 `public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transition time disembarking 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 transition time disembarking 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyTransitionModel.GetTransitionTimeDisembarking(mobilePar
 ### GetTransitionTimeForEmbarking
 `public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transition time for embarking 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 transition time for embarking 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例

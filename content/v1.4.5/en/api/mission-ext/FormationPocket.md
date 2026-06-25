@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddTroop
 `public void AddTroop()`
 
-**Purpose:** **Purpose:** Adds troop to the current collection or state.
+**Purpose:** Adds troop to the current collection or state.
 
 ```csharp
 // Obtain an instance of FormationPocket from the subsystem API first
@@ -46,7 +46,7 @@ formationPocket.AddTroop();
 ### IsFormationPocketFilled
 `public bool IsFormationPocketFilled()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the formation pocket filled state or condition.
+**Purpose:** Determines whether the this instance is in the formation pocket filled state or condition.
 
 ```csharp
 // Obtain an instance of FormationPocket from the subsystem API first
@@ -57,7 +57,7 @@ var result = formationPocket.IsFormationPocketFilled();
 ### UpdateScoreToSeek
 `public void UpdateScoreToSeek()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of score to seek.
+**Purpose:** Recalculates and stores the latest representation of score to seek.
 
 ```csharp
 // Obtain an instance of FormationPocket from the subsystem API first
@@ -68,7 +68,7 @@ formationPocket.UpdateScoreToSeek();
 ### SetBestScoreSoFar
 `public void SetBestScoreSoFar(int bestScoreSoFar)`
 
-**Purpose:** **Purpose:** Assigns a new value to best score so far and updates the object's internal state.
+**Purpose:** Assigns a new value to best score so far and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FormationPocket from the subsystem API first

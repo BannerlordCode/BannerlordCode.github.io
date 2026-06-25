@@ -29,7 +29,7 @@ description: "VideoPlaybackVM 的自动生成类参考。"
 ### Tick
 `public void Tick(float totalElapsedTimeInVideoInSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackVM 实例
@@ -40,7 +40,7 @@ videoPlaybackVM.Tick(0);
 ### GetItemInTimeframe
 `public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item in timeframe 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 item in timeframe 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackVM 实例
@@ -51,7 +51,7 @@ var result = videoPlaybackVM.GetItemInTimeframe(0);
 ### SetSubtitles
 `public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 subtitles 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 subtitles 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackVM 实例

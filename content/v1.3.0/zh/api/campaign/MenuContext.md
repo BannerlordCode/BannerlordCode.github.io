@@ -33,7 +33,7 @@ description: "MenuContext 的自动生成类参考。"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -44,7 +44,7 @@ menuContext.Refresh();
 ### SwitchToMenu
 `public void SwitchToMenu(string menuId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchToMenu 对应的操作。
+**用途 / Purpose:** 调用 SwitchToMenu 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -55,7 +55,7 @@ menuContext.SwitchToMenu("example");
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
+**用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -66,7 +66,7 @@ menuContext.Destroy();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -77,7 +77,7 @@ menuContext.OnTick(0);
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 hourly tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -88,7 +88,7 @@ menuContext.OnHourlyTick();
 ### GetCurrentRepeatableObject
 `public object GetCurrentRepeatableObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current repeatable object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current repeatable object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -99,7 +99,7 @@ var result = menuContext.GetCurrentRepeatableObject();
 ### GetSelectedObject
 `public object GetSelectedObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 selected object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 selected object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -110,7 +110,7 @@ var result = menuContext.GetSelectedObject();
 ### GetSelectedRepeatableObject
 `public object GetSelectedRepeatableObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 selected repeatable object 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 selected repeatable object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -121,7 +121,7 @@ var result = menuContext.GetSelectedRepeatableObject();
 ### SetRepeatObjectList
 `public void SetRepeatObjectList(IEnumerable<object> list)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 repeat object list 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 repeat object list 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -132,7 +132,7 @@ menuContext.SetRepeatObjectList(list);
 ### OnConsequence
 `public void OnConsequence(GameMenuOption gameMenuOption)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 consequence 事件触发时调用此回调。
+**用途 / Purpose:** 在 consequence 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -143,7 +143,7 @@ menuContext.OnConsequence(gameMenuOption);
 ### InvokeConsequence
 `public void InvokeConsequence(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvokeConsequence 对应的操作。
+**用途 / Purpose:** 调用 InvokeConsequence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -154,7 +154,7 @@ menuContext.InvokeConsequence(0);
 ### SetBackgroundMeshName
 `public void SetBackgroundMeshName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 background mesh name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 background mesh name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -165,7 +165,7 @@ menuContext.SetBackgroundMeshName("example");
 ### SetPanelSound
 `public void SetPanelSound(string panelSoundID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 panel sound 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 panel sound 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -176,7 +176,7 @@ menuContext.SetPanelSound("example");
 ### SetAmbientSound
 `public void SetAmbientSound(string ambientSoundID)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ambient sound 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ambient sound 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -187,7 +187,7 @@ menuContext.SetAmbientSound("example");
 ### OpenTownManagement
 `public void OpenTownManagement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开town management对应的资源或界面。
+**用途 / Purpose:** 打开town management对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -198,7 +198,7 @@ menuContext.OpenTownManagement();
 ### OpenRecruitVolunteers
 `public void OpenRecruitVolunteers()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开recruit volunteers对应的资源或界面。
+**用途 / Purpose:** 打开recruit volunteers对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -209,7 +209,7 @@ menuContext.OpenRecruitVolunteers();
 ### OpenTournamentLeaderboards
 `public void OpenTournamentLeaderboards()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开tournament leaderboards对应的资源或界面。
+**用途 / Purpose:** 打开tournament leaderboards对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -220,7 +220,7 @@ menuContext.OpenTournamentLeaderboards();
 ### OpenTroopSelection
 `public void OpenTroopSelection(TroopRoster fullRoster, TroopRoster initialSelections, Func<CharacterObject, bool> canChangeStatusOfTroop, Action<TroopRoster> onDone, int maxSelectableTroopCount, int minSelectableTroopCount = 1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开troop selection对应的资源或界面。
+**用途 / Purpose:** 打开troop selection对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例

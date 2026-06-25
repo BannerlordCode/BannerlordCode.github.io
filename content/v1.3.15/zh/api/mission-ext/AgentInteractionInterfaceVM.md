@@ -39,7 +39,7 @@ description: "AgentInteractionInterfaceVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -50,7 +50,7 @@ agentInteractionInterfaceVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -61,7 +61,7 @@ agentInteractionInterfaceVM.OnFinalize();
 ### OnFocusedHealthChanged
 `public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focused health changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 focused health changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -72,7 +72,7 @@ agentInteractionInterfaceVM.OnFocusedHealthChanged(focusable, 0, false);
 ### OnActiveMissionHintChanged
 `public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 active mission hint changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 active mission hint changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -83,7 +83,7 @@ agentInteractionInterfaceVM.OnActiveMissionHintChanged(previousHint, newHint);
 ### AddSecondaryMessage
 `public void AddSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 secondary message 添加到当前容器或状态中。
+**用途 / Purpose:** 将 secondary message 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -94,7 +94,7 @@ agentInteractionInterfaceVM.AddSecondaryMessage(message);
 ### RemoveSecondaryMessage
 `public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 secondary message。
+**用途 / Purpose:** 从当前容器或状态中移除 secondary message。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -105,7 +105,7 @@ var result = agentInteractionInterfaceVM.RemoveSecondaryMessage(message);
 ### HasSecondaryInteractionMessage
 `public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 secondary interaction message。
+**用途 / Purpose:** 判断当前对象是否已经持有 secondary interaction message。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -116,7 +116,7 @@ var result = agentInteractionInterfaceVM.HasSecondaryInteractionMessage(message)
 ### ResetFocus
 `public void ResetFocus()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 focus 重置回默认或初始状态。
+**用途 / Purpose:** 将 focus 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -127,7 +127,7 @@ agentInteractionInterfaceVM.ResetFocus();
 ### SetForcedInteractionTexts
 `public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 forced interaction texts 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 forced interaction texts 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
@@ -138,7 +138,7 @@ agentInteractionInterfaceVM.SetForcedInteractionTexts(text1, false, text2, false
 ### ClearForcedInteractionTexts
 `public void ClearForcedInteractionTexts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的forced interaction texts。
+**用途 / Purpose:** 清空当前对象中的forced interaction texts。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例

@@ -23,7 +23,7 @@ Treat `CustomGameManager` as a Manager-style extension point: first identify who
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the after campaign start event is raised.
+**Purpose:** Invoked when the after campaign start event is raised.
 
 ```csharp
 // Obtain an instance of CustomGameManager from the subsystem API first
@@ -34,7 +34,7 @@ customGameManager.OnAfterCampaignStart(game);
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** **Purpose:** Invoked when the load finished event is raised.
+**Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of CustomGameManager from the subsystem API first

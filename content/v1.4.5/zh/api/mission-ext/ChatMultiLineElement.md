@@ -23,7 +23,7 @@ description: "ChatMultiLineElement 的自动生成类参考。"
 ### ChatMultiLineElement
 `public struct ChatMultiLineElement(string line, int identModifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChatMultiLineElement 对应的操作。
+**用途 / Purpose:** 调用 ChatMultiLineElement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatMultiLineElement 实例

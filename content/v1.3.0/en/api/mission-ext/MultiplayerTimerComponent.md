@@ -29,7 +29,7 @@ Treat `MultiplayerTimerComponent` as a Component-style extension point: first id
 ### StartTimerAsServer
 `public void StartTimerAsServer(float duration)`
 
-**Purpose:** **Purpose:** Starts the timer as server flow or state machine.
+**Purpose:** Starts the timer as server flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerTimerComponent from the subsystem API first
@@ -40,7 +40,7 @@ multiplayerTimerComponent.StartTimerAsServer(0);
 ### StartTimerAsClient
 `public void StartTimerAsClient(float startTime, float duration)`
 
-**Purpose:** **Purpose:** Starts the timer as client flow or state machine.
+**Purpose:** Starts the timer as client flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerTimerComponent from the subsystem API first
@@ -51,7 +51,7 @@ multiplayerTimerComponent.StartTimerAsClient(0, 0);
 ### GetRemainingTime
 `public float GetRemainingTime(bool isSynched)`
 
-**Purpose:** **Purpose:** Reads and returns the remaining time value held by the this instance.
+**Purpose:** Reads and returns the remaining time value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerTimerComponent from the subsystem API first
@@ -62,7 +62,7 @@ var result = multiplayerTimerComponent.GetRemainingTime(false);
 ### CheckIfTimerPassed
 `public bool CheckIfTimerPassed()`
 
-**Purpose:** **Purpose:** Verifies whether if timer passed holds true for the this instance.
+**Purpose:** Verifies whether if timer passed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerTimerComponent from the subsystem API first
@@ -73,7 +73,7 @@ var result = multiplayerTimerComponent.CheckIfTimerPassed();
 ### GetCurrentTimerStartTime
 `public MissionTime GetCurrentTimerStartTime()`
 
-**Purpose:** **Purpose:** Reads and returns the current timer start time value held by the this instance.
+**Purpose:** Reads and returns the current timer start time value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerTimerComponent from the subsystem API first

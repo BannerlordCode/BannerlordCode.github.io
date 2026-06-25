@@ -23,7 +23,7 @@ Treat `EquipmentSelectionModel` as a Model-style extension point: first identify
 ### GetEquipmentForHeroComeOfAge
 `public abstract Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment for hero come of age value held by the this instance.
+**Purpose:** Reads and returns the equipment for hero come of age value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = equipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmen
 ### GetEquipmentForHeroReachesTeenAge
 `public abstract Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment for hero reaches teen age value held by the this instance.
+**Purpose:** Reads and returns the equipment for hero reaches teen age value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = equipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
 ### GetEquipmentForInitialChildrenGeneration
 `public abstract Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment for initial children generation value held by the this instance.
+**Purpose:** Reads and returns the equipment for initial children generation value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = equipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(he
 ### GetEquipmentForDeliveredOffspring
 `public abstract Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment for delivered offspring value held by the this instance.
+**Purpose:** Reads and returns the equipment for delivered offspring value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = equipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
 ### GetEquipmentForCompanionWhenTurningToLord
 `public abstract Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** **Purpose:** Reads and returns the equipment for companion when turning to lord value held by the this instance.
+**Purpose:** Reads and returns the equipment for companion when turning to lord value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first

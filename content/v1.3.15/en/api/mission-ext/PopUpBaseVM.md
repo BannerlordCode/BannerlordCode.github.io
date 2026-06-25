@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### ExecuteAffirmativeAction
 `public abstract void ExecuteAffirmativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with affirmative action.
+**Purpose:** Runs the operation or workflow associated with affirmative action.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -51,7 +51,7 @@ popUpBaseVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public abstract void ExecuteNegativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with negative action.
+**Purpose:** Runs the operation or workflow associated with negative action.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -62,7 +62,7 @@ popUpBaseVM.ExecuteNegativeAction();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -73,7 +73,7 @@ popUpBaseVM.OnTick(0);
 ### OnClearData
 `public virtual void OnClearData()`
 
-**Purpose:** **Purpose:** Invoked when the clear data event is raised.
+**Purpose:** Invoked when the clear data event is raised.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -84,7 +84,7 @@ popUpBaseVM.OnClearData();
 ### ForceRefreshKeyVisuals
 `public void ForceRefreshKeyVisuals()`
 
-**Purpose:** **Purpose:** Executes the ForceRefreshKeyVisuals logic.
+**Purpose:** Executes the ForceRefreshKeyVisuals logic.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -95,7 +95,7 @@ popUpBaseVM.ForceRefreshKeyVisuals();
 ### CloseQuery
 `public void CloseQuery()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with query.
+**Purpose:** Closes the resource or UI associated with query.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -106,7 +106,7 @@ popUpBaseVM.CloseQuery();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -117,7 +117,7 @@ popUpBaseVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first
@@ -128,7 +128,7 @@ popUpBaseVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopUpBaseVM from the subsystem API first

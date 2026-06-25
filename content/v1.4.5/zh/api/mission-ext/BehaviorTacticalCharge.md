@@ -23,7 +23,7 @@ description: "BehaviorTacticalCharge 的自动生成类参考。"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorTacticalCharge 实例
@@ -34,7 +34,7 @@ behaviorTacticalCharge.TickOccasionally();
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorTacticalCharge 实例

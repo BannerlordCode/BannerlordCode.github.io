@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### AddNewTransaction
 `public void AddNewTransaction(int amount)`
 
-**Purpose:** **Purpose:** Adds new transaction to the current collection or state.
+**Purpose:** Adds new transaction to the current collection or state.
 
 ```csharp
 // Obtain an instance of ItemSoldNotificationItemVM from the subsystem API first

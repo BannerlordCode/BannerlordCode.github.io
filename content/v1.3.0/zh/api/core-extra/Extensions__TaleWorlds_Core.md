@@ -23,7 +23,7 @@ description: "Extensions 的自动生成类参考。"
 ### ToHexadecimalString
 `public static string ToHexadecimalString(this uint number)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToHexadecimalString 对应的操作。
+**用途 / Purpose:** 调用 ToHexadecimalString 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Extensions.ToHexadecimalString(number);
 ### Description
 `public static string Description(this Enum value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Description 对应的操作。
+**用途 / Purpose:** 调用 Description 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Extensions.Description(value);
 ### NextFloat
 `public static float NextFloat(this Random random)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NextFloat 对应的操作。
+**用途 / Purpose:** 调用 NextFloat 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Extensions.NextFloat(random);
 ### Add
 `public static string Add(this string str, string appendant, bool newLine = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Extensions.Add(str, "example", false);
 ### Split
 `public static IEnumerable<string> Split(this string str, int maxChunkSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将split拆分为多个部分或子项。
+**用途 / Purpose:** 将split拆分为多个部分或子项。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Extensions.Split(str, 0);
 ### GetOppositeSide
 `public static BattleSideEnum GetOppositeSide(this BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 opposite side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 opposite side 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -32,7 +32,7 @@ description: "DefaultSettlementTaxModel 的自动生成类参考。"
 ### GetTownTaxRatio
 `public override float GetTownTaxRatio(Town town)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 town tax ratio 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 town tax ratio 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
@@ -43,7 +43,7 @@ var result = defaultSettlementTaxModel.GetTownTaxRatio(town);
 ### GetVillageTaxRatio
 `public override float GetVillageTaxRatio(Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 village tax ratio 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 village tax ratio 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
@@ -54,7 +54,7 @@ var result = defaultSettlementTaxModel.GetVillageTaxRatio(village);
 ### GetTownCommissionChangeBasedOnSecurity
 `public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 town commission change based on security 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 town commission change based on security 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
@@ -65,7 +65,7 @@ var result = defaultSettlementTaxModel.GetTownCommissionChangeBasedOnSecurity(to
 ### CalculateTownTax
 `public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算town tax的当前值或结果。
+**用途 / Purpose:** 计算town tax的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
@@ -76,7 +76,7 @@ var result = defaultSettlementTaxModel.CalculateTownTax(town, false);
 ### CalculateVillageTaxFromIncome
 `public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算village tax from income的当前值或结果。
+**用途 / Purpose:** 计算village tax from income的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例

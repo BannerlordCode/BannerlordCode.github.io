@@ -23,7 +23,7 @@ description: "MissionScoreUIHandler 的自动生成类参考。"
 ### SetName
 `public void SetName(string name, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreUIHandler 实例
@@ -34,7 +34,7 @@ missionScoreUIHandler.SetName("example", 0);
 ### SaveScore
 `public void SaveScore(int score, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 score 写入持久化存储或流中。
+**用途 / Purpose:** 将 score 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreUIHandler 实例

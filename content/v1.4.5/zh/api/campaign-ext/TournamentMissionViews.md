@@ -23,7 +23,7 @@ description: "TournamentMissionViews 的自动生成类参考。"
 ### OpenTournamentArcheryMission
 `public static MissionView OpenTournamentArcheryMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开tournament archery mission对应的资源或界面。
+**用途 / Purpose:** 打开tournament archery mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TournamentMissionViews.OpenTournamentArcheryMission(mission);
 ### OpenTournamentFightMission
 `public static MissionView OpenTournamentFightMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开tournament fight mission对应的资源或界面。
+**用途 / Purpose:** 打开tournament fight mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TournamentMissionViews.OpenTournamentFightMission(mission);
 ### OpenTournamentHorseRaceMission
 `public static MissionView OpenTournamentHorseRaceMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开tournament horse race mission对应的资源或界面。
+**用途 / Purpose:** 打开tournament horse race mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TournamentMissionViews.OpenTournamentHorseRaceMission(mission);
 ### OpenTournamentJoustingMission
 `public static MissionView OpenTournamentJoustingMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开tournament jousting mission对应的资源或界面。
+**用途 / Purpose:** 打开tournament jousting mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `VillageMarketData` as a Data-style extension point: first identify who cr
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** **Purpose:** Reads and returns the price value held by the this instance.
+**Purpose:** Reads and returns the price value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageMarketData from the subsystem API first
@@ -34,7 +34,7 @@ var result = villageMarketData.GetPrice(item, tradingParty, false, merchantParty
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** **Purpose:** Reads and returns the price value held by the this instance.
+**Purpose:** Reads and returns the price value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageMarketData from the subsystem API first

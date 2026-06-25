@@ -30,7 +30,7 @@ description: "GarrisonPartyComponent 的自动生成类参考。"
 ### InitializeGarrisonPartyProperties
 `public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 garrison party properties 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 garrison party properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonPartyComponent 实例
@@ -41,7 +41,7 @@ garrisonPartyComponent.InitializeGarrisonPartyProperties(mobileParty, settlement
 ### CreateGarrisonParty
 `public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 garrison party 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 garrison party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ GarrisonPartyComponent.CreateGarrisonParty("example", settlement);
 ### ConvertPartyToGarrisonParty
 `public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把party to garrison party转换为另一种表示或类型。
+**用途 / Purpose:** 把party to garrison party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ GarrisonPartyComponent.ConvertPartyToGarrisonParty(mobileParty, settlement);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonPartyComponent 实例
@@ -72,7 +72,7 @@ var result = garrisonPartyComponent.GetDefaultComponentBanner();
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonPartyComponent 实例
@@ -83,7 +83,7 @@ garrisonPartyComponent.SetWagePaymentLimit(0);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
+**用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonPartyComponent 实例

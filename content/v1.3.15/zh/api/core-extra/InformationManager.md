@@ -29,7 +29,7 @@ description: "InformationManager 的自动生成类参考。"
 ### IsAnyInquiryActive
 `public static bool IsAnyInquiryActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any inquiry active 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 any inquiry active 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ InformationManager.IsAnyInquiryActive();
 ### DisplayMessage
 `public static void DisplayMessage(InformationMessage message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisplayMessage 对应的操作。
+**用途 / Purpose:** 调用 DisplayMessage 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ InformationManager.DisplayMessage(message);
 ### HideAllMessages
 `public static void HideAllMessages()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏all messages对应的界面或元素。
+**用途 / Purpose:** 隐藏all messages对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ InformationManager.HideAllMessages();
 ### ClearAllMessages
 `public static void ClearAllMessages()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all messages。
+**用途 / Purpose:** 清空当前对象中的all messages。
 
 ```csharp
 // 静态调用，不需要实例
@@ -69,7 +69,7 @@ InformationManager.ClearAllMessages();
 ### AddSystemNotification
 `public static void AddSystemNotification(string message)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 system notification 添加到当前容器或状态中。
+**用途 / Purpose:** 将 system notification 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ InformationManager.AddSystemNotification("example");
 ### ShowTooltip
 `public static void ShowTooltip(Type type, params object args)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示tooltip对应的界面或元素。
+**用途 / Purpose:** 显示tooltip对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -89,7 +89,7 @@ InformationManager.ShowTooltip(type, args);
 ### HideTooltip
 `public static void HideTooltip()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏tooltip对应的界面或元素。
+**用途 / Purpose:** 隐藏tooltip对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -99,7 +99,7 @@ InformationManager.HideTooltip();
 ### ShowInquiry
 `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示inquiry对应的界面或元素。
+**用途 / Purpose:** 显示inquiry对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -109,7 +109,7 @@ InformationManager.ShowInquiry(data, false, false);
 ### ShowTextInquiry
 `public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示text inquiry对应的界面或元素。
+**用途 / Purpose:** 显示text inquiry对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -119,7 +119,7 @@ InformationManager.ShowTextInquiry(textData, false, false);
 ### HideInquiry
 `public static void HideInquiry()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏inquiry对应的界面或元素。
+**用途 / Purpose:** 隐藏inquiry对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -129,7 +129,7 @@ InformationManager.HideInquiry();
 ### GetIsAnyTooltipActive
 `public static bool GetIsAnyTooltipActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is any tooltip active 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is any tooltip active 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -139,7 +139,7 @@ InformationManager.GetIsAnyTooltipActive();
 ### GetIsAnyTooltipActiveAndExtended
 `public static bool GetIsAnyTooltipActiveAndExtended()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is any tooltip active and extended 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is any tooltip active and extended 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -149,7 +149,7 @@ InformationManager.GetIsAnyTooltipActiveAndExtended();
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 静态调用，不需要实例
@@ -159,7 +159,7 @@ InformationManager.Clear();
 ### IsAnyTooltipActiveDelegate
 `public delegate void IsAnyTooltipActiveDelegate(out bool isAnyTooltipActive, out bool isAnyTooltipExtended)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any tooltip active delegate 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 any tooltip active delegate 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 InformationManager 实例

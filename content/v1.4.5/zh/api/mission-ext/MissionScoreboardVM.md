@@ -45,7 +45,7 @@ description: "MissionScoreboardVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -56,7 +56,7 @@ missionScoreboardVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -67,7 +67,7 @@ missionScoreboardVM.RefreshValues();
 ### SetMouseState
 `public void SetMouseState(bool isMouseVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mouse state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mouse state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -78,7 +78,7 @@ missionScoreboardVM.SetMouseState(false);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -89,7 +89,7 @@ missionScoreboardVM.Tick(0);
 ### OnPlayerSideChanged
 `public void OnPlayerSideChanged(Team curTeam, Team nextTeam, MissionPeer client)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player side changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 player side changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -100,7 +100,7 @@ missionScoreboardVM.OnPlayerSideChanged(curTeam, nextTeam, client);
 ### DecreaseSpectatorCount
 `public void DecreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DecreaseSpectatorCount 对应的操作。
+**用途 / Purpose:** 调用 DecreaseSpectatorCount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -111,7 +111,7 @@ missionScoreboardVM.DecreaseSpectatorCount(spectatedPeer);
 ### IncreaseSpectatorCount
 `public void IncreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 IncreaseSpectatorCount 对应的操作。
+**用途 / Purpose:** 调用 IncreaseSpectatorCount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例
@@ -122,7 +122,7 @@ missionScoreboardVM.IncreaseSpectatorCount(spectatedPeer);
 ### ExecuteToggleMute
 `public void ExecuteToggleMute()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle mute 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle mute 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardVM 实例

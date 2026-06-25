@@ -31,7 +31,7 @@ description: "ShipPhysicsReference 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipPhysicsReference 实例
@@ -42,7 +42,7 @@ shipPhysicsReference.Deserialize(objectManager, node);
 ### GetDefaultWaterDensity
 `public static float GetDefaultWaterDensity()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default water density 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default water density 的结果。
 
 ```csharp
 // 静态调用，不需要实例

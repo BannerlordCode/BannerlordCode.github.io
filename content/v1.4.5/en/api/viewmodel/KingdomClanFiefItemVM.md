@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomClanFiefItemVM from the subsystem API first
@@ -41,7 +41,7 @@ kingdomClanFiefItemVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
+**Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of KingdomClanFiefItemVM from the subsystem API first

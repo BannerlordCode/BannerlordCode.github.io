@@ -23,7 +23,7 @@ description: "DeploymentMissionView 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionView 实例
@@ -34,7 +34,7 @@ deploymentMissionView.AfterStart();
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment plan made 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment plan made 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionView 实例
@@ -45,7 +45,7 @@ deploymentMissionView.OnDeploymentPlanMade(team, false);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionView 实例

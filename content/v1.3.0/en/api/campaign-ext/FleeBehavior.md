@@ -31,7 +31,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -42,7 +42,7 @@ fleeBehavior.Tick(0, false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
+**Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -53,7 +53,7 @@ var result = fleeBehavior.GetDebugInfo();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
+**Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -64,7 +64,7 @@ var result = fleeBehavior.GetAvailability(false);
 ### TargetReached
 `public abstract void TargetReached()`
 
-**Purpose:** **Purpose:** Executes the TargetReached logic.
+**Purpose:** Executes the TargetReached logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -75,7 +75,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public abstract void GoToTarget()`
 
-**Purpose:** **Purpose:** Executes the GoToTarget logic.
+**Purpose:** Executes the GoToTarget logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -86,7 +86,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public abstract bool IsGoalAchievable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achievable state or condition.
+**Purpose:** Determines whether the this instance is in the goal achievable state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -97,7 +97,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public abstract bool IsGoalAchieved()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achieved state or condition.
+**Purpose:** Determines whether the this instance is in the goal achieved state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -108,7 +108,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**Purpose:** **Purpose:** Executes the GoToTarget logic.
+**Purpose:** Executes the GoToTarget logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -119,7 +119,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achievable state or condition.
+**Purpose:** Determines whether the this instance is in the goal achievable state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -130,7 +130,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achieved state or condition.
+**Purpose:** Determines whether the this instance is in the goal achieved state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -141,7 +141,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**Purpose:** **Purpose:** Executes the TargetReached logic.
+**Purpose:** Executes the TargetReached logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -152,7 +152,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**Purpose:** **Purpose:** Executes the GoToTarget logic.
+**Purpose:** Executes the GoToTarget logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -163,7 +163,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achievable state or condition.
+**Purpose:** Determines whether the this instance is in the goal achievable state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -174,7 +174,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achieved state or condition.
+**Purpose:** Determines whether the this instance is in the goal achieved state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -185,7 +185,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**Purpose:** **Purpose:** Executes the TargetReached logic.
+**Purpose:** Executes the TargetReached logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -196,7 +196,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**Purpose:** **Purpose:** Executes the GoToTarget logic.
+**Purpose:** Executes the GoToTarget logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -207,7 +207,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achievable state or condition.
+**Purpose:** Determines whether the this instance is in the goal achievable state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -218,7 +218,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achieved state or condition.
+**Purpose:** Determines whether the this instance is in the goal achieved state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -229,7 +229,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**Purpose:** **Purpose:** Executes the TargetReached logic.
+**Purpose:** Executes the TargetReached logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -240,7 +240,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**Purpose:** **Purpose:** Executes the GoToTarget logic.
+**Purpose:** Executes the GoToTarget logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -251,7 +251,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achievable state or condition.
+**Purpose:** Determines whether the this instance is in the goal achievable state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -262,7 +262,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the goal achieved state or condition.
+**Purpose:** Determines whether the this instance is in the goal achieved state or condition.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first
@@ -273,7 +273,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**Purpose:** **Purpose:** Executes the TargetReached logic.
+**Purpose:** Executes the TargetReached logic.
 
 ```csharp
 // Obtain an instance of FleeBehavior from the subsystem API first

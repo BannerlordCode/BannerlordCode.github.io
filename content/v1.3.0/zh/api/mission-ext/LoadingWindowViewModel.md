@@ -37,7 +37,7 @@ description: "LoadingWindowViewModel 的自动生成类参考。"
 ### SetTotalGenericImageCount
 `public void SetTotalGenericImageCount(int totalGenericImageCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 total generic image count 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 total generic image count 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowViewModel 实例
@@ -48,7 +48,7 @@ loadingWindowViewModel.SetTotalGenericImageCount(0);
 ### UnloadImageDelegate
 `public delegate void UnloadImageDelegate(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnloadImageDelegate 对应的操作。
+**用途 / Purpose:** 调用 UnloadImageDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowViewModel 实例
@@ -59,7 +59,7 @@ loadingWindowViewModel.UnloadImageDelegate(0);
 ### LoadImageDelegate
 `public delegate void LoadImageDelegate(int index, out string imageName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 image delegate。
+**用途 / Purpose:** 从持久化存储或流中读取 image delegate。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowViewModel 实例

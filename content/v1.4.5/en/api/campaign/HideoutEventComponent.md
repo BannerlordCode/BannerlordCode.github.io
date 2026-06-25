@@ -23,7 +23,7 @@ Treat `HideoutEventComponent` as a Component-style extension point: first identi
 ### CreateHideoutEvent
 `public static HideoutEventComponent CreateHideoutEvent(PartyBase attackerParty, PartyBase defenderParty, bool isSendTroops)`
 
-**Purpose:** **Purpose:** Constructs a new hideout event entity and returns it to the caller.
+**Purpose:** Constructs a new hideout event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ HideoutEventComponent.CreateHideoutEvent(attackerParty, defenderParty, false);
 ### CreateComponentForOldSaves
 `public static HideoutEventComponent CreateComponentForOldSaves(MapEvent mapEvent, bool isSendTroops)`
 
-**Purpose:** **Purpose:** Constructs a new component for old saves entity and returns it to the caller.
+**Purpose:** Constructs a new component for old saves entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

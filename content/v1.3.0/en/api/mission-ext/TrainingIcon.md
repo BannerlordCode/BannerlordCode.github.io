@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -40,7 +40,7 @@ var result = trainingIcon.GetTickRequirement();
 ### SetMarked
 `public void SetMarked(bool highlight)`
 
-**Purpose:** **Purpose:** Assigns a new value to marked and updates the object's internal state.
+**Purpose:** Assigns a new value to marked and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -51,7 +51,7 @@ trainingIcon.SetMarked(false);
 ### GetIsActivated
 `public bool GetIsActivated()`
 
-**Purpose:** **Purpose:** Reads and returns the is activated value held by the this instance.
+**Purpose:** Reads and returns the is activated value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -62,7 +62,7 @@ var result = trainingIcon.GetIsActivated();
 ### GetTrainingSubTypeTag
 `public string GetTrainingSubTypeTag()`
 
-**Purpose:** **Purpose:** Reads and returns the training sub type tag value held by the this instance.
+**Purpose:** Reads and returns the training sub type tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -73,7 +73,7 @@ var result = trainingIcon.GetTrainingSubTypeTag();
 ### DisableIcon
 `public void DisableIcon()`
 
-**Purpose:** **Purpose:** Executes the DisableIcon logic.
+**Purpose:** Executes the DisableIcon logic.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -84,7 +84,7 @@ trainingIcon.DisableIcon();
 ### EnableIcon
 `public void EnableIcon()`
 
-**Purpose:** **Purpose:** Executes the EnableIcon logic.
+**Purpose:** Executes the EnableIcon logic.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -95,7 +95,7 @@ trainingIcon.EnableIcon();
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -106,7 +106,7 @@ var result = trainingIcon.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject = null)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -117,7 +117,7 @@ var result = trainingIcon.GetActionTextForStandingPoint(null);
 ### OnFocusGain
 `public override void OnFocusGain(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
+**Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first
@@ -128,7 +128,7 @@ trainingIcon.OnFocusGain(userAgent);
 ### OnFocusLose
 `public override void OnFocusLose(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
+**Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of TrainingIcon from the subsystem API first

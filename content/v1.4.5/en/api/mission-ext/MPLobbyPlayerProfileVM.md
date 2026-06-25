@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -44,7 +44,7 @@ mPLobbyPlayerProfileVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -55,7 +55,7 @@ mPLobbyPlayerProfileVM.OnFinalize();
 ### SetPlayerID
 `public async void SetPlayerID(PlayerId playerID)`
 
-**Purpose:** **Purpose:** Assigns a new value to player i d and updates the object's internal state.
+**Purpose:** Assigns a new value to player i d and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -66,7 +66,7 @@ mPLobbyPlayerProfileVM.SetPlayerID(playerID);
 ### OpenWith
 `public void OpenWith(PlayerId playerID)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -77,7 +77,7 @@ mPLobbyPlayerProfileVM.OpenWith(playerID);
 ### UpdatePlayerData
 `public void UpdatePlayerData(PlayerData playerData, bool updateStatistics = false, bool updateRating = false)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of player data.
+**Purpose:** Recalculates and stores the latest representation of player data.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -88,7 +88,7 @@ mPLobbyPlayerProfileVM.UpdatePlayerData(playerData, false, false);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -99,7 +99,7 @@ mPLobbyPlayerProfileVM.ExecuteClosePopup();
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
+**Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first
@@ -110,7 +110,7 @@ mPLobbyPlayerProfileVM.OnClanInfoChanged();
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** **Purpose:** Invoked when the player name updated event is raised.
+**Purpose:** Invoked when the player name updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyPlayerProfileVM from the subsystem API first

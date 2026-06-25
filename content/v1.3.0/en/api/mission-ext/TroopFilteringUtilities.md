@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetFilter
 `public static TroopTraitsMask GetFilter(bool isMounted, bool isRanged, bool isMelee, bool hasHeavyArmor, bool hasThrown, bool hasSpear, bool hasShield)`
 
-**Purpose:** **Purpose:** Reads and returns the filter value held by the this instance.
+**Purpose:** Reads and returns the filter value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TroopFilteringUtilities.GetFilter(false, false, false, false, false, false, fals
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationClass formationClasses)`
 
-**Purpose:** **Purpose:** Reads and returns the filter value held by the this instance.
+**Purpose:** Reads and returns the filter value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ TroopFilteringUtilities.GetFilter(formationClasses);
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationFilterType filterTypes)`
 
-**Purpose:** **Purpose:** Reads and returns the filter value held by the this instance.
+**Purpose:** Reads and returns the filter value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ TroopFilteringUtilities.GetFilter(filterTypes);
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<Agent, int> priorityFunc)`
 
-**Purpose:** **Purpose:** Reads and returns the priority function value held by the this instance.
+**Purpose:** Reads and returns the priority function value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ TroopFilteringUtilities.GetPriorityFunction(filter, func<Agent, 0);
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<IAgentOriginBase, int> priorityFunc)`
 
-**Purpose:** **Purpose:** Reads and returns the priority function value held by the this instance.
+**Purpose:** Reads and returns the priority function value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ TroopFilteringUtilities.GetPriorityFunction(filter, func<IAgentOriginBase, 0);
 ### GetTroopPriority
 `public static int GetTroopPriority(TroopTraitsMask troopMask, int battleTier, TroopTraitsMask filter)`
 
-**Purpose:** **Purpose:** Reads and returns the troop priority value held by the this instance.
+**Purpose:** Reads and returns the troop priority value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ TroopFilteringUtilities.GetTroopPriority(troopMask, 0, filter);
 ### GetMaxPriority
 `public static int GetMaxPriority(TroopTraitsMask filter)`
 
-**Purpose:** **Purpose:** Reads and returns the max priority value held by the this instance.
+**Purpose:** Reads and returns the max priority value held by the this instance.
 
 ```csharp
 // Static call; no instance required

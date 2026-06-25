@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** **Purpose:** Removes all temporary data from the this instance.
+**Purpose:** Removes all temporary data from the this instance.
 
 ```csharp
 // Obtain an instance of RussianTextProcessor from the subsystem API first
@@ -40,7 +40,7 @@ russianTextProcessor.ClearTemporaryData();
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** **Purpose:** Executes the ProcessToken logic.
+**Purpose:** Executes the ProcessToken logic.
 
 ```csharp
 // Obtain an instance of RussianTextProcessor from the subsystem API first
@@ -51,7 +51,7 @@ russianTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ### PrepareNounCheckString
 `public string PrepareNounCheckString(string noun)`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming noun check string operation.
+**Purpose:** Finishes prerequisite setup for the upcoming noun check string operation.
 
 ```csharp
 // Obtain an instance of RussianTextProcessor from the subsystem API first
@@ -62,7 +62,7 @@ var result = russianTextProcessor.PrepareNounCheckString("example");
 ### PrepareAdjectiveCheckString
 `public string PrepareAdjectiveCheckString(string adj)`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming adjective check string operation.
+**Purpose:** Finishes prerequisite setup for the upcoming adjective check string operation.
 
 ```csharp
 // Obtain an instance of RussianTextProcessor from the subsystem API first
@@ -73,7 +73,7 @@ var result = russianTextProcessor.PrepareAdjectiveCheckString("example");
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**Purpose:** **Purpose:** Reads and returns the processed nouns value held by the this instance.
+**Purpose:** Reads and returns the processed nouns value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -56,7 +56,7 @@ mPArmoryCosmeticItemBaseVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -67,7 +67,7 @@ mPArmoryCosmeticItemBaseVM.OnFinalize();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -78,7 +78,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteAction();
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with preview.
+**Purpose:** Runs the operation or workflow associated with preview.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -89,7 +89,7 @@ mPArmoryCosmeticItemBaseVM.ExecutePreview();
 ### ExecuteEnableActions
 `public void ExecuteEnableActions()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with enable actions.
+**Purpose:** Runs the operation or workflow associated with enable actions.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -100,7 +100,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteEnableActions();
 ### ExecuteDisableActions
 `public void ExecuteDisableActions()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with disable actions.
+**Purpose:** Runs the operation or workflow associated with disable actions.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
@@ -111,7 +111,7 @@ mPArmoryCosmeticItemBaseVM.ExecuteDisableActions();
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of key bindings in sync with the underlying state.
+**Purpose:** Keeps the display or cache of key bindings in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first

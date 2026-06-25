@@ -23,7 +23,7 @@ Treat `MapSiegeConstructionControllerWidget` as a Widget-style extension point: 
 ### SetCurrentPOIWidget
 `public void SetCurrentPOIWidget(MapSiegePOIBrushWidget widget)`
 
-**Purpose:** **Purpose:** Assigns a new value to current p o i widget and updates the object's internal state.
+**Purpose:** Assigns a new value to current p o i widget and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapSiegeConstructionControllerWidget from the subsystem API first

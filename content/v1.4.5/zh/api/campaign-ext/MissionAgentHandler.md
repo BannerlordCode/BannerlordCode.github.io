@@ -30,7 +30,7 @@ description: "MissionAgentHandler 的自动生成类参考。"
 ### HasPassages
 `public bool HasPassages()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 passages。
+**用途 / Purpose:** 判断当前对象是否已经持有 passages。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -41,7 +41,7 @@ var result = missionAgentHandler.HasPassages();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -52,7 +52,7 @@ missionAgentHandler.EarlyStart();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 rendering started 事件触发时调用此回调。
+**用途 / Purpose:** 在 rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -63,7 +63,7 @@ missionAgentHandler.OnRenderingStarted();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -74,7 +74,7 @@ missionAgentHandler.OnMissionTick(0);
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -85,7 +85,7 @@ missionAgentHandler.OnMissionModeChange(oldMissionMode, false);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -96,7 +96,7 @@ missionAgentHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, kil
 ### DetectMissingEntities
 `public void DetectMissingEntities()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DetectMissingEntities 对应的操作。
+**用途 / Purpose:** 调用 DetectMissingEntities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -107,7 +107,7 @@ missionAgentHandler.DetectMissingEntities();
 ### FindUnusedUsablePointCount
 `public Dictionary<string, int> FindUnusedUsablePointCount()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的unused usable point count。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的unused usable point count。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -118,7 +118,7 @@ var result = missionAgentHandler.FindUnusedUsablePointCount();
 ### SpawnLocationCharacters
 `public void SpawnLocationCharacters(string overridenTagValue = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnLocationCharacters 对应的操作。
+**用途 / Purpose:** 调用 SpawnLocationCharacters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -129,7 +129,7 @@ missionAgentHandler.SpawnLocationCharacters("example");
 ### SpawnDefaultLocationCharacter
 `public Agent SpawnDefaultLocationCharacter(LocationCharacter locationCharacter, bool simulateAgentAfterSpawn = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnDefaultLocationCharacter 对应的操作。
+**用途 / Purpose:** 调用 SpawnDefaultLocationCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -140,7 +140,7 @@ var result = missionAgentHandler.SpawnDefaultLocationCharacter(locationCharacter
 ### SimulateAgent
 `public void SimulateAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateAgent 对应的操作。
+**用途 / Purpose:** 调用 SimulateAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -151,7 +151,7 @@ missionAgentHandler.SimulateAgent(agent);
 ### FadeoutExitingLocationCharacter
 `public void FadeoutExitingLocationCharacter(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FadeoutExitingLocationCharacter 对应的操作。
+**用途 / Purpose:** 调用 FadeoutExitingLocationCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -162,7 +162,7 @@ missionAgentHandler.FadeoutExitingLocationCharacter(locationCharacter);
 ### SpawnEnteringLocationCharacter
 `public void SpawnEnteringLocationCharacter(LocationCharacter locationCharacter, Location fromLocation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnEnteringLocationCharacter 对应的操作。
+**用途 / Purpose:** 调用 SpawnEnteringLocationCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -173,7 +173,7 @@ missionAgentHandler.SpawnEnteringLocationCharacter(locationCharacter, fromLocati
 ### HasUsablePointWithTag
 `public bool HasUsablePointWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 usable point with tag。
+**用途 / Purpose:** 判断当前对象是否已经持有 usable point with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -184,7 +184,7 @@ var result = missionAgentHandler.HasUsablePointWithTag("example");
 ### GetAllSpawnTags
 `public IEnumerable<string> GetAllSpawnTags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all spawn tags 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all spawn tags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -195,7 +195,7 @@ var result = missionAgentHandler.GetAllSpawnTags();
 ### GetAllUsablePointsWithTag
 `public List<UsableMachine> GetAllUsablePointsWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all usable points with tag 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all usable points with tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -206,7 +206,7 @@ var result = missionAgentHandler.GetAllUsablePointsWithTag("example");
 ### SpawnWanderingAgent
 `public Agent SpawnWanderingAgent(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnWanderingAgent 对应的操作。
+**用途 / Purpose:** 调用 SpawnWanderingAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -217,7 +217,7 @@ var result = missionAgentHandler.SpawnWanderingAgent(locationCharacter);
 ### SpawnWanderingAgentWithDelay
 `public void SpawnWanderingAgentWithDelay(LocationCharacter locationCharacter, MatrixFrame matrixFrame, GameEntity spawnEntity, bool noHorses = true, bool hasTorch = false, float delay = 3f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnWanderingAgentWithDelay 对应的操作。
+**用途 / Purpose:** 调用 SpawnWanderingAgentWithDelay 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -228,7 +228,7 @@ missionAgentHandler.SpawnWanderingAgentWithDelay(locationCharacter, matrixFrame,
 ### SpawnWanderingAgentWithInitialFrame
 `public Agent SpawnWanderingAgentWithInitialFrame(LocationCharacter locationCharacter, MatrixFrame spawnPointFrame, WeakGameEntity spawnEntity, bool noHorses = true, bool hasTorch = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnWanderingAgentWithInitialFrame 对应的操作。
+**用途 / Purpose:** 调用 SpawnWanderingAgentWithInitialFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -239,7 +239,7 @@ var result = missionAgentHandler.SpawnWanderingAgentWithInitialFrame(locationCha
 ### GetRandomTournamentTeamColor
 `public static uint GetRandomTournamentTeamColor(int teamIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random tournament team color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 random tournament team color 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -249,7 +249,7 @@ MissionAgentHandler.GetRandomTournamentTeamColor(0);
 ### FindUnusedPointWithTagForAgent
 `public UsableMachine FindUnusedPointWithTagForAgent(Agent agent, string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的unused point with tag for agent。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的unused point with tag for agent。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -260,7 +260,7 @@ var result = missionAgentHandler.FindUnusedPointWithTagForAgent(agent, "example"
 ### FindUnusedPoints
 `public List<UsableMachine> FindUnusedPoints(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的unused points。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的unused points。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -271,7 +271,7 @@ var result = missionAgentHandler.FindUnusedPoints("example");
 ### FindAllUnusedPoints
 `public List<UsableMachine> FindAllUnusedPoints(Agent agent, string primaryTag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的all unused points。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的all unused points。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -282,7 +282,7 @@ var result = missionAgentHandler.FindAllUnusedPoints(agent, "example");
 ### TeleportTargetAgentNearReferenceAgent
 `public void TeleportTargetAgentNearReferenceAgent(Agent referenceAgent, Agent teleportAgent, bool teleportFollowers, bool teleportOpposite)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TeleportTargetAgentNearReferenceAgent 对应的操作。
+**用途 / Purpose:** 调用 TeleportTargetAgentNearReferenceAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -293,7 +293,7 @@ missionAgentHandler.TeleportTargetAgentNearReferenceAgent(referenceAgent, telepo
 ### GetPointCountOfUsableMachine
 `public static int GetPointCountOfUsableMachine(UsableMachine usableMachine, bool checkForUnusedOnes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 point count of usable machine 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 point count of usable machine 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "MapNotificationView 的自动生成类参考。"
 ### ResetNotifications
 `public virtual void ResetNotifications()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 notifications 重置回默认或初始状态。
+**用途 / Purpose:** 将 notifications 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationView 实例
@@ -34,7 +34,7 @@ mapNotificationView.ResetNotifications();
 ### RegisterMapNotificationType
 `public virtual void RegisterMapNotificationType(Type data, Type item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将map notification type注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将map notification type注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationView 实例

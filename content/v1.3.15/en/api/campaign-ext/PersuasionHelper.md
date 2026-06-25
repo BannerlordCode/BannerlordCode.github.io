@@ -23,7 +23,7 @@ Treat `PersuasionHelper` as a Helper-style extension point: first identify who c
 ### ShowSuccess
 `public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with success.
+**Purpose:** Displays the UI or element associated with success.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ PersuasionHelper.ShowSuccess(optionArgs, false);
 ### GetDefaultPersuasionOptionReaction
 `public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)`
 
-**Purpose:** **Purpose:** Reads and returns the default persuasion option reaction value held by the this instance.
+**Purpose:** Reads and returns the default persuasion option reaction value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ Treat `CoroutineManager` as a Manager-style extension point: first identify who 
 ### AddCoroutine
 `public void AddCoroutine(CoroutineDelegate coroutineMethod)`
 
-**Purpose:** **Purpose:** Adds coroutine to the current collection or state.
+**Purpose:** Adds coroutine to the current collection or state.
 
 ```csharp
 // Obtain an instance of CoroutineManager from the subsystem API first
@@ -40,7 +40,7 @@ coroutineManager.AddCoroutine(coroutineMethod);
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of CoroutineManager from the subsystem API first

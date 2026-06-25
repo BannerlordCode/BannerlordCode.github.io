@@ -23,7 +23,7 @@ Treat `StoryModeTroopSupplierProbabilityModel` as a Model-style extension point:
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
 
-**Purpose:** **Purpose:** Executes the EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization logic.
+**Purpose:** Executes the EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization logic.
 
 ```csharp
 // Obtain an instance of StoryModeTroopSupplierProbabilityModel from the subsystem API first

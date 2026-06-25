@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### CreateShader
 `public static Shader CreateShader(GraphicsContext graphicsContext, string vertexShaderCode, string fragmentShaderCode)`
 
-**Purpose:** **Purpose:** Constructs a new shader entity and returns it to the caller.
+**Purpose:** Constructs a new shader entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Shader.CreateShader(graphicsContext, "example", "example");
 ### CompileShaders
 `public static int CompileShaders(string vertexShaderCode, string fragmentShaderCode)`
 
-**Purpose:** **Purpose:** Executes the CompileShaders logic.
+**Purpose:** Executes the CompileShaders logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Shader.CompileShaders("example", "example");
 ### SetTexture
 `public void SetTexture(string name, OpenGLTexture texture)`
 
-**Purpose:** **Purpose:** Assigns a new value to texture and updates the object's internal state.
+**Purpose:** Assigns a new value to texture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -54,7 +54,7 @@ shader.SetTexture("example", texture);
 ### SetColor
 `public void SetColor(string name, Color color)`
 
-**Purpose:** **Purpose:** Assigns a new value to color and updates the object's internal state.
+**Purpose:** Assigns a new value to color and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -65,7 +65,7 @@ shader.SetColor("example", color);
 ### Use
 `public void Use()`
 
-**Purpose:** **Purpose:** Executes the Use logic.
+**Purpose:** Executes the Use logic.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -76,7 +76,7 @@ shader.Use();
 ### StopUsing
 `public void StopUsing()`
 
-**Purpose:** **Purpose:** Stops the using flow or state machine.
+**Purpose:** Stops the using flow or state machine.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -87,7 +87,7 @@ shader.StopUsing();
 ### SetMatrix
 `public void SetMatrix(string name, in Matrix4x4 matrix)`
 
-**Purpose:** **Purpose:** Assigns a new value to matrix and updates the object's internal state.
+**Purpose:** Assigns a new value to matrix and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -98,7 +98,7 @@ shader.SetMatrix("example", matrix);
 ### SetBoolean
 `public void SetBoolean(string name, bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to boolean and updates the object's internal state.
+**Purpose:** Assigns a new value to boolean and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -109,7 +109,7 @@ shader.SetBoolean("example", false);
 ### SetFloat
 `public void SetFloat(string name, float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to float and updates the object's internal state.
+**Purpose:** Assigns a new value to float and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first
@@ -120,7 +120,7 @@ shader.SetFloat("example", 0);
 ### SetVector2
 `public void SetVector2(string name, Vector2 value)`
 
-**Purpose:** **Purpose:** Assigns a new value to vector2 and updates the object's internal state.
+**Purpose:** Assigns a new value to vector2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first

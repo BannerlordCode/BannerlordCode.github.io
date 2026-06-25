@@ -23,7 +23,7 @@ description: "CampaignMapConversation 的自动生成类参考。"
 ### OpenConversation
 `public static void OpenConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开conversation对应的资源或界面。
+**用途 / Purpose:** 打开conversation对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

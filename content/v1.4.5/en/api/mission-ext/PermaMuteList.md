@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetPermanentMuteAvailableCallback
 `public static void SetPermanentMuteAvailableCallback(Func<bool> getPermanentMuteAvailable)`
 
-**Purpose:** **Purpose:** Assigns a new value to permanent mute available callback and updates the object's internal state.
+**Purpose:** Assigns a new value to permanent mute available callback and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
 ### LoadMutedPlayers
 `public static async Task LoadMutedPlayers(PlayerId currentPlayerId)`
 
-**Purpose:** **Purpose:** Reads muted players from persistent storage or a stream.
+**Purpose:** Reads muted players from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ PermaMuteList.LoadMutedPlayers(currentPlayerId);
 ### SaveMutedPlayers
 `public static async void SaveMutedPlayers()`
 
-**Purpose:** **Purpose:** Writes muted players to persistent storage or a stream.
+**Purpose:** Writes muted players to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ PermaMuteList.SaveMutedPlayers();
 ### IsPlayerMuted
 `public static bool IsPlayerMuted(PlayerId player)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player muted state or condition.
+**Purpose:** Determines whether the this instance is in the player muted state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ PermaMuteList.IsPlayerMuted(player);
 ### MutePlayer
 `public static void MutePlayer(PlayerId player, string name)`
 
-**Purpose:** **Purpose:** Executes the MutePlayer logic.
+**Purpose:** Executes the MutePlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ PermaMuteList.MutePlayer(player, "example");
 ### RemoveMutedPlayer
 `public static void RemoveMutedPlayer(PlayerId player)`
 
-**Purpose:** **Purpose:** Removes muted player from the current collection or state.
+**Purpose:** Removes muted player from the current collection or state.
 
 ```csharp
 // Static call; no instance required

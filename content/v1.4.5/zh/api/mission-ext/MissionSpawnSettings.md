@@ -40,7 +40,7 @@ description: "MissionSpawnSettings 的自动生成类参考。"
 ### CreateDefaultSpawnSettings
 `public static MissionSpawnSettings CreateDefaultSpawnSettings()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 default spawn settings 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 default spawn settings 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

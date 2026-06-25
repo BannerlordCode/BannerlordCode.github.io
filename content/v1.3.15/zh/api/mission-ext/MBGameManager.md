@@ -36,7 +36,7 @@ description: "MBGameManager 的自动生成类参考。"
 ### StartNewGame
 `public static void StartNewGame(MBGameManager gameLoader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动new game流程或状态机。
+**用途 / Purpose:** 启动new game流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ MBGameManager.StartNewGame(gameLoader);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginGameStart 对应的操作。
+**用途 / Purpose:** 调用 BeginGameStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -57,7 +57,7 @@ mBGameManager.BeginGameStart(game);
 ### OnNewCampaignStart
 `public override void OnNewCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 new campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 new campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -68,7 +68,7 @@ mBGameManager.OnNewCampaignStart(game, starterObject);
 ### InitializeSubModuleGameObjects
 `public override void InitializeSubModuleGameObjects(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sub module game objects 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 sub module game objects 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -79,7 +79,7 @@ mBGameManager.InitializeSubModuleGameObjects(game);
 ### RegisterSubModuleObjects
 `public override void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将sub module objects注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将sub module objects注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -90,7 +90,7 @@ mBGameManager.RegisterSubModuleObjects(false);
 ### RegisterSubModuleTypes
 `public override void RegisterSubModuleTypes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将sub module types注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将sub module types注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -101,7 +101,7 @@ mBGameManager.RegisterSubModuleTypes();
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterRegisterSubModuleObjects 对应的操作。
+**用途 / Purpose:** 调用 AfterRegisterSubModuleObjects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -112,7 +112,7 @@ mBGameManager.AfterRegisterSubModuleObjects(false);
 ### InitializeGameStarter
 `public override void InitializeGameStarter(Game game, IGameStarter starterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 game starter 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 game starter 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -123,7 +123,7 @@ mBGameManager.InitializeGameStarter(game, starterObject);
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game initialization finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -134,7 +134,7 @@ mBGameManager.OnGameInitializationFinished(game);
 ### OnAfterGameInitializationFinished
 `public override void OnAfterGameInitializationFinished(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 after game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -145,7 +145,7 @@ mBGameManager.OnAfterGameInitializationFinished(game, initializerObject);
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -156,7 +156,7 @@ mBGameManager.OnGameLoaded(game, initializerObject);
 ### OnAfterGameLoaded
 `public override void OnAfterGameLoaded(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after game loaded 事件触发时调用此回调。
+**用途 / Purpose:** 在 after game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -167,7 +167,7 @@ mBGameManager.OnAfterGameLoaded(game);
 ### OnNewGameCreated
 `public override void OnNewGameCreated(Game game, object initializerObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 new game created 事件触发时调用此回调。
+**用途 / Purpose:** 在 new game created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -178,7 +178,7 @@ mBGameManager.OnNewGameCreated(game, initializerObject);
 ### OnGameStart
 `public override void OnGameStart(Game game, IGameStarter gameStarter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game start 事件触发时调用此回调。
+**用途 / Purpose:** 在 game start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -189,7 +189,7 @@ mBGameManager.OnGameStart(game, gameStarter);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
+**用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -200,7 +200,7 @@ mBGameManager.OnGameEnd(game);
 ### EndGame
 `public static void EndGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EndGame 对应的操作。
+**用途 / Purpose:** 调用 EndGame 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -210,7 +210,7 @@ MBGameManager.EndGame();
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 load finished 事件触发时调用此回调。
+**用途 / Purpose:** 在 load finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -221,7 +221,7 @@ mBGameManager.OnLoadFinished();
 ### CheckAndSetEnding
 `public bool CheckAndSetEnding()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查and set ending在当前对象中是否成立。
+**用途 / Purpose:** 检查and set ending在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -232,7 +232,7 @@ var result = mBGameManager.CheckAndSetEnding();
 ### OnSessionInvitationAccepted
 `public virtual void OnSessionInvitationAccepted(SessionInvitationType targetGameType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 session invitation accepted 事件触发时调用此回调。
+**用途 / Purpose:** 在 session invitation accepted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -243,7 +243,7 @@ mBGameManager.OnSessionInvitationAccepted(targetGameType);
 ### OnPlatformRequestedMultiplayer
 `public virtual void OnPlatformRequestedMultiplayer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 platform requested multiplayer 事件触发时调用此回调。
+**用途 / Purpose:** 在 platform requested multiplayer 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例

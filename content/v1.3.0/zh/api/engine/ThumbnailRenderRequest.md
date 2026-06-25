@@ -23,7 +23,7 @@ description: "ThumbnailRenderRequest 的自动生成类参考。"
 ### CreateWithTexture
 `public static ThumbnailRenderRequest CreateWithTexture(Scene scene, Camera camera, Texture texture, GameEntity entity, string renderId, int allocationGroupIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 with texture 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 with texture 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ThumbnailRenderRequest.CreateWithTexture(scene, camera, texture, entity, "exampl
 ### CreateWithoutTexture
 `public static ThumbnailRenderRequest CreateWithoutTexture(Scene scene, Camera camera, GameEntity entity, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 without texture 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 without texture 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ThumbnailRenderRequest.CreateWithoutTexture(scene, camera, entity, "example", 0,
 ### CreateForCachedEntity
 `public static ThumbnailRenderRequest CreateForCachedEntity(Scene scene, Camera camera, Texture texture, string cachedEntityId, string renderId, int allocationGroupIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for cached entity 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 for cached entity 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ThumbnailRenderRequest.CreateForCachedEntity(scene, camera, texture, "example", 
 ### CreateForCachedEntityWithoutTexture
 `public static ThumbnailRenderRequest CreateForCachedEntityWithoutTexture(Scene scene, Camera camera, string cachedEntityId, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for cached entity without texture 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 for cached entity without texture 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

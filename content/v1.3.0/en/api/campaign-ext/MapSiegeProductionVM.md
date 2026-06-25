@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionVM from the subsystem API first
@@ -42,7 +42,7 @@ mapSiegeProductionVM.RefreshValues();
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionVM from the subsystem API first
@@ -53,7 +53,7 @@ mapSiegeProductionVM.Update();
 ### OnMachineSelection
 `public void OnMachineSelection(MapSiegePOIVM poi)`
 
-**Purpose:** **Purpose:** Invoked when the machine selection event is raised.
+**Purpose:** Invoked when the machine selection event is raised.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionVM from the subsystem API first
@@ -64,7 +64,7 @@ mapSiegeProductionVM.OnMachineSelection(poi);
 ### ExecuteDisable
 `public void ExecuteDisable()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with disable.
+**Purpose:** Runs the operation or workflow associated with disable.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionVM from the subsystem API first

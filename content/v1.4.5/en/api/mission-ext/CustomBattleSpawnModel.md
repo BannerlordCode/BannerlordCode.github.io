@@ -23,7 +23,7 @@ Treat `CustomBattleSpawnModel` as a Model-style extension point: first identify 
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** **Purpose:** Invoked when the mission start event is raised.
+**Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ customBattleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** **Purpose:** Invoked when the mission end event is raised.
+**Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleSpawnModel from the subsystem API first

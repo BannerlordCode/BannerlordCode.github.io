@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the related to war state or condition.
+**Purpose:** Determines whether the this instance is in the related to war state or condition.
 
 ```csharp
 // Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = clanChangeKingdomLogEntry.IsRelatedToWar(stance, effector, effected
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
@@ -45,7 +45,7 @@ var result = clanChangeKingdomLogEntry.GetNotificationText();
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the importance for clan value held by the this instance.
+**Purpose:** Reads and returns the importance for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
@@ -56,7 +56,7 @@ var result = clanChangeKingdomLogEntry.GetImportanceForClan(clan);
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** **Purpose:** Reads and returns the conversation score and comment value held by the this instance.
+**Purpose:** Reads and returns the conversation score and comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
@@ -67,7 +67,7 @@ clanChangeKingdomLogEntry.GetConversationScoreAndComment(talkTroop, false, comme
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first

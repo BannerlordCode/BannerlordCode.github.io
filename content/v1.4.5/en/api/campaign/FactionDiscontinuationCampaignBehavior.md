@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ factionDiscontinuationCampaignBehavior.RegisterEvents();
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** **Purpose:** Invoked when the settlement owner changed event is raised.
+**Purpose:** Invoked when the settlement owner changed event is raised.
 
 ```csharp
 // Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ factionDiscontinuationCampaignBehavior.OnSettlementOwnerChanged(settlement, fals
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification = true)`
 
-**Purpose:** **Purpose:** Invoked when the clan changed kingdom event is raised.
+**Purpose:** Invoked when the clan changed kingdom event is raised.
 
 ```csharp
 // Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ factionDiscontinuationCampaignBehavior.OnClanChangedKingdom(clan, oldKingdom, ne
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first

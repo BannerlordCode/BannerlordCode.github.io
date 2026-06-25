@@ -23,7 +23,7 @@ description: "MissionAudienceHandler 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例
@@ -34,7 +34,7 @@ missionAudienceHandler.EarlyStart();
 ### OnInit
 `public void OnInit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 init 事件触发时调用此回调。
+**用途 / Purpose:** 在 init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例
@@ -45,7 +45,7 @@ missionAudienceHandler.OnInit();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例
@@ -56,7 +56,7 @@ missionAudienceHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例
@@ -67,7 +67,7 @@ missionAudienceHandler.OnMissionTick(0);
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例
@@ -78,7 +78,7 @@ missionAudienceHandler.OnMissionModeChange(oldMissionMode, false);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAudienceHandler 实例

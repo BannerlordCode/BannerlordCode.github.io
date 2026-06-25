@@ -31,7 +31,7 @@ description: "MBCampaignEvent 的自动生成类参考。"
 ### AddHandler
 `public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 handler 添加到当前容器或状态中。
+**用途 / Purpose:** 将 handler 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -42,7 +42,7 @@ mBCampaignEvent.AddHandler(gameEventDelegate);
 ### RunHandlers
 `public void RunHandlers(params object delegateParams)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RunHandlers 对应的操作。
+**用途 / Purpose:** 调用 RunHandlers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -53,7 +53,7 @@ mBCampaignEvent.RunHandlers(delegateParams);
 ### Unregister
 `public void Unregister(object instance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前系统注销当前对象。
+**用途 / Purpose:** 从当前系统注销当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -64,7 +64,7 @@ mBCampaignEvent.Unregister(instance);
 ### CheckUpdate
 `public void CheckUpdate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查update在当前对象中是否成立。
+**用途 / Purpose:** 检查update在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -75,7 +75,7 @@ mBCampaignEvent.CheckUpdate();
 ### DeletePeriodicEvent
 `public void DeletePeriodicEvent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeletePeriodicEvent 对应的操作。
+**用途 / Purpose:** 调用 DeletePeriodicEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -86,7 +86,7 @@ mBCampaignEvent.DeletePeriodicEvent();
 ### CampaignEventDelegate
 `public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CampaignEventDelegate 对应的操作。
+**用途 / Purpose:** 调用 CampaignEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例

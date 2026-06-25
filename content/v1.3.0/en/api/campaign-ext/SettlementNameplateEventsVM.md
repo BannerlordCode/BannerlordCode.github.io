@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SettlementNameplateEventsVM from the subsystem API first
@@ -42,7 +42,7 @@ settlementNameplateEventsVM.Tick();
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SettlementNameplateEventsVM from the subsystem API first
@@ -53,7 +53,7 @@ settlementNameplateEventsVM.RegisterEvents();
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** **Purpose:** Executes the UnloadEvents logic.
+**Purpose:** Executes the UnloadEvents logic.
 
 ```csharp
 // Obtain an instance of SettlementNameplateEventsVM from the subsystem API first

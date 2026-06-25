@@ -33,7 +33,7 @@ description: "MapMarker 的自动生成类参考。"
 ### GetBanner
 `public Banner GetBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarker 实例
@@ -44,7 +44,7 @@ var result = mapMarker.GetBanner();
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarker 实例
@@ -55,7 +55,7 @@ var result = mapMarker.GetName();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapMarker 实例

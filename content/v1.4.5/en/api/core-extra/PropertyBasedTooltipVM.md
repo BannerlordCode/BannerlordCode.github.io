@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### AddKeyType
 `public static void AddKeyType(string keyID, Func<string> getKeyText)`
 
-**Purpose:** **Purpose:** Adds key type to the current collection or state.
+**Purpose:** Adds key type to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ PropertyBasedTooltipVM.AddKeyType("example", getKeyText);
 ### GetKeyText
 `public string GetKeyText(string keyID)`
 
-**Purpose:** **Purpose:** Reads and returns the key text value held by the this instance.
+**Purpose:** Reads and returns the key text value held by the this instance.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -51,7 +51,7 @@ var result = propertyBasedTooltipVM.GetKeyText("example");
 ### RefreshGenericPropertyBasedTooltip
 `public static void RefreshGenericPropertyBasedTooltip(PropertyBasedTooltipVM propertyBasedTooltip, object args)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of generic property based tooltip in sync with the underlying state.
+**Purpose:** Keeps the display or cache of generic property based tooltip in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ PropertyBasedTooltipVM.RefreshGenericPropertyBasedTooltip(propertyBasedTooltip, 
 ### AddProperty
 `public void AddProperty(string definition, string value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds property to the current collection or state.
+**Purpose:** Adds property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -72,7 +72,7 @@ propertyBasedTooltipVM.AddProperty("example", "example", 0, tooltipProperty.Tool
 ### AddModifierProperty
 `public void AddModifierProperty(string definition, int modifierValue, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds modifier property to the current collection or state.
+**Purpose:** Adds modifier property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -83,7 +83,7 @@ propertyBasedTooltipVM.AddModifierProperty("example", 0, 0, tooltipProperty.Tool
 ### AddProperty
 `public void AddProperty(string definition, Func<string> value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds property to the current collection or state.
+**Purpose:** Adds property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -94,7 +94,7 @@ propertyBasedTooltipVM.AddProperty("example", value, 0, tooltipProperty.TooltipP
 ### AddProperty
 `public void AddProperty(Func<string> definition, Func<string> value, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds property to the current collection or state.
+**Purpose:** Adds property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -105,7 +105,7 @@ propertyBasedTooltipVM.AddProperty(definition, value, 0, tooltipProperty.Tooltip
 ### AddColoredProperty
 `public void AddColoredProperty(string definition, string value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds colored property to the current collection or state.
+**Purpose:** Adds colored property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -116,7 +116,7 @@ propertyBasedTooltipVM.AddColoredProperty("example", "example", color, 0, toolti
 ### AddColoredProperty
 `public void AddColoredProperty(string definition, Func<string> value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds colored property to the current collection or state.
+**Purpose:** Adds colored property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first
@@ -127,7 +127,7 @@ propertyBasedTooltipVM.AddColoredProperty("example", value, color, 0, tooltipPro
 ### AddColoredProperty
 `public void AddColoredProperty(Func<string> definition, Func<string> value, Color color, int textHeight = 0, TooltipProperty.TooltipPropertyFlags propertyFlags = TooltipProperty.TooltipPropertyFlags.None)`
 
-**Purpose:** **Purpose:** Adds colored property to the current collection or state.
+**Purpose:** Adds colored property to the current collection or state.
 
 ```csharp
 // Obtain an instance of PropertyBasedTooltipVM from the subsystem API first

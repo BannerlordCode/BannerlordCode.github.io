@@ -30,7 +30,7 @@ description: "UniqueSceneId 的自动生成类参考。"
 ### Serialize
 `public string Serialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 UniqueSceneId 实例
@@ -41,7 +41,7 @@ var result = uniqueSceneId.Serialize();
 ### TryParse
 `public static bool TryParse(string uniqueMapId, out UniqueSceneId identifiers)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 parse 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 parse 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 静态调用，不需要实例

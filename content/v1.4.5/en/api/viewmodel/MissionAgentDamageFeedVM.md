@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFee
 ### OnMainAgentHit
 `public void OnMainAgentHit(float damage)`
 
-**Purpose:** **Purpose:** Invoked when the main agent hit event is raised.
+**Purpose:** Invoked when the main agent hit event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentDamageFeedVM from the subsystem API first

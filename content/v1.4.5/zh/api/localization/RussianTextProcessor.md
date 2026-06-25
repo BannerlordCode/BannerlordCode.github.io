@@ -23,7 +23,7 @@ description: "RussianTextProcessor 的自动生成类参考。"
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的temporary data。
+**用途 / Purpose:** 清空当前对象中的temporary data。
 
 ```csharp
 // 先通过子系统 API 拿到 RussianTextProcessor 实例
@@ -34,7 +34,7 @@ russianTextProcessor.ClearTemporaryData();
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessToken 对应的操作。
+**用途 / Purpose:** 调用 ProcessToken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RussianTextProcessor 实例
@@ -45,7 +45,7 @@ russianTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ### PrepareNounCheckString
 `public string PrepareNounCheckString(string noun)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为即将执行的noun check string操作完成前置准备工作。
+**用途 / Purpose:** 为即将执行的noun check string操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 RussianTextProcessor 实例
@@ -56,7 +56,7 @@ var result = russianTextProcessor.PrepareNounCheckString("example");
 ### PrepareAdjectiveCheckString
 `public string PrepareAdjectiveCheckString(string adj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为即将执行的adjective check string操作完成前置准备工作。
+**用途 / Purpose:** 为即将执行的adjective check string操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 RussianTextProcessor 实例
@@ -67,7 +67,7 @@ var result = russianTextProcessor.PrepareAdjectiveCheckString("example");
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 processed nouns 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 processed nouns 的结果。
 
 ```csharp
 // 静态调用，不需要实例

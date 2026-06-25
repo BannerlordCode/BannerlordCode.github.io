@@ -29,7 +29,7 @@ description: "AdminPanelOption 的自动生成类参考。"
 ### AddValueChangedCallback
 `public void AddValueChangedCallback(Action callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 value changed callback 添加到当前容器或状态中。
+**用途 / Purpose:** 将 value changed callback 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -40,7 +40,7 @@ adminPanelOption.AddValueChangedCallback(callback);
 ### RemoveValueChangedCallback
 `public void RemoveValueChangedCallback(Action callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 value changed callback。
+**用途 / Purpose:** 从当前容器或状态中移除 value changed callback。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -51,7 +51,7 @@ adminPanelOption.RemoveValueChangedCallback(callback);
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -62,7 +62,7 @@ adminPanelOption.OnFinalize();
 ### BuildOptionType
 `public AdminPanelOption<T> BuildOptionType(OptionType optionType, MultiplayerOptionsAccessMode accessMode = (MultiplayerOptionsAccessMode)1, bool buildDefaultValue = true, bool buildInitialValue = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回option type的构建结果。
+**用途 / Purpose:** 组装并返回option type的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -73,7 +73,7 @@ var result = adminPanelOption.BuildOptionType(optionType, (MultiplayerOptionsAcc
 ### BuildIsRequired
 `public AdminPanelOption<T> BuildIsRequired(bool isRequired)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回is required的构建结果。
+**用途 / Purpose:** 组装并返回is required的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -84,7 +84,7 @@ var result = adminPanelOption.BuildIsRequired(false);
 ### BuildRequiresRestart
 `public AdminPanelOption<T> BuildRequiresRestart(bool requiresRestart)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回requires restart的构建结果。
+**用途 / Purpose:** 组装并返回requires restart的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -95,7 +95,7 @@ var result = adminPanelOption.BuildRequiresRestart(false);
 ### BuildName
 `public AdminPanelOption<T> BuildName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回name的构建结果。
+**用途 / Purpose:** 组装并返回name的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -106,7 +106,7 @@ var result = adminPanelOption.BuildName(name);
 ### BuildDescription
 `public AdminPanelOption<T> BuildDescription(TextObject description)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回description的构建结果。
+**用途 / Purpose:** 组装并返回description的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -117,7 +117,7 @@ var result = adminPanelOption.BuildDescription(description);
 ### BuildInitialValue
 `public AdminPanelOption<T> BuildInitialValue(T value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回initial value的构建结果。
+**用途 / Purpose:** 组装并返回initial value的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -128,7 +128,7 @@ var result = adminPanelOption.BuildInitialValue(value);
 ### BuildDefaultValue
 `public AdminPanelOption<T> BuildDefaultValue(T value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回default value的构建结果。
+**用途 / Purpose:** 组装并返回default value的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -139,7 +139,7 @@ var result = adminPanelOption.BuildDefaultValue(value);
 ### BuildOnAppliedCallback
 `public AdminPanelOption<T> BuildOnAppliedCallback(Action<T> onApplied)`
 
-**用途 / Purpose:** **用途 / Purpose:** 组装并返回on applied callback的构建结果。
+**用途 / Purpose:** 组装并返回on applied callback的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -150,7 +150,7 @@ var result = adminPanelOption.BuildOnAppliedCallback(onApplied);
 ### GetValue
 `public T GetValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -161,7 +161,7 @@ var result = adminPanelOption.GetValue();
 ### SetValue
 `public void SetValue(T value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -172,7 +172,7 @@ adminPanelOption.SetValue(value);
 ### GetIsAvailable
 `public virtual bool GetIsAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is available 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is available 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -183,7 +183,7 @@ var result = adminPanelOption.GetIsAvailable();
 ### OnApplyChanges
 `public void OnApplyChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 apply changes 事件触发时调用此回调。
+**用途 / Purpose:** 在 apply changes 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -194,7 +194,7 @@ adminPanelOption.OnApplyChanges();
 ### RevertChanges
 `public void RevertChanges()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RevertChanges 对应的操作。
+**用途 / Purpose:** 调用 RevertChanges 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -205,7 +205,7 @@ adminPanelOption.RevertChanges();
 ### RestoreDefaults
 `public void RestoreDefaults()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RestoreDefaults 对应的操作。
+**用途 / Purpose:** 调用 RestoreDefaults 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -216,7 +216,7 @@ adminPanelOption.RestoreDefaults();
 ### SetOnRefreshCallback
 `public void SetOnRefreshCallback(Action callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on refresh callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on refresh callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -227,7 +227,7 @@ adminPanelOption.SetOnRefreshCallback(callback);
 ### GetIsDisabled
 `public virtual bool GetIsDisabled(out string reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is disabled 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is disabled 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -238,7 +238,7 @@ var result = adminPanelOption.GetIsDisabled(reason);
 ### GetOptionType
 `public OptionType GetOptionType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例
@@ -249,7 +249,7 @@ var result = adminPanelOption.GetOptionType();
 ### GetOptionAccessMode
 `public MultiplayerOptionsAccessMode GetOptionAccessMode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option access mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 option access mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOption 实例

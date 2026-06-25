@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### ToByteArray
 `public byte ToByteArray()`
 
-**Purpose:** **Purpose:** Executes the ToByteArray logic.
+**Purpose:** Executes the ToByteArray logic.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -48,7 +48,7 @@ var result = playerId.ToByteArray();
 ### Serialize
 `public void Serialize(IWriter writer)`
 
-**Purpose:** **Purpose:** Serializes the this instance into a storable or transmittable format.
+**Purpose:** Serializes the this instance into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -59,7 +59,7 @@ playerId.Serialize(writer);
 ### Deserialize
 `public void Deserialize(IReader reader)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -70,7 +70,7 @@ playerId.Deserialize(reader);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -81,7 +81,7 @@ var result = playerId.ToString();
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -92,7 +92,7 @@ var result = playerId.Equals(o);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -103,7 +103,7 @@ var result = playerId.GetHashCode();
 ### FromString
 `public static PlayerId FromString(string id)`
 
-**Purpose:** **Purpose:** Executes the FromString logic.
+**Purpose:** Executes the FromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ PlayerId.FromString("example");
 ### CompareTo
 `public int CompareTo(PlayerId other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
+**Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first
@@ -124,7 +124,7 @@ var result = playerId.CompareTo(other);
 ### Equals
 `public bool Equals(PlayerId other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of PlayerId from the subsystem API first

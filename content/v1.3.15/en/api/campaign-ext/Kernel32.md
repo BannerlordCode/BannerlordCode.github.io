@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### LoadLibrary
 `public static extern IntPtr LoadLibrary(string lpFileName)`
 
-**Purpose:** **Purpose:** Reads library from persistent storage or a stream.
+**Purpose:** Reads library from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Kernel32.LoadLibrary("example");
 ### GetModuleHandle
 `public static extern IntPtr GetModuleHandle(string lpModuleName)`
 
-**Purpose:** **Purpose:** Reads and returns the module handle value held by the this instance.
+**Purpose:** Reads and returns the module handle value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Kernel32.GetModuleHandle("example");
 ### GetLastError
 `public static extern int GetLastError()`
 
-**Purpose:** **Purpose:** Reads and returns the last error value held by the this instance.
+**Purpose:** Reads and returns the last error value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Kernel32.GetLastError();
 ### GetConsoleWindow
 `public static extern IntPtr GetConsoleWindow()`
 
-**Purpose:** **Purpose:** Reads and returns the console window value held by the this instance.
+**Purpose:** Reads and returns the console window value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ Kernel32.GetConsoleWindow();
 ### GetUserGeoID
 `public static extern int GetUserGeoID(Kernel32.GeoTypeId type)`
 
-**Purpose:** **Purpose:** Reads and returns the user geo i d value held by the this instance.
+**Purpose:** Reads and returns the user geo i d value held by the this instance.
 
 ```csharp
 // Static call; no instance required

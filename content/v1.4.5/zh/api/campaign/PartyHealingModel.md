@@ -23,7 +23,7 @@ description: "PartyHealingModel 的自动生成类参考。"
 ### GetSurgeryChance
 `public abstract float GetSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 surgery chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 surgery chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -34,7 +34,7 @@ var result = partyHealingModel.GetSurgeryChance(party);
 ### GetSurvivalChance
 `public abstract float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 survival chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 survival chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -45,7 +45,7 @@ var result = partyHealingModel.GetSurvivalChance(party, agentCharacter, damageTy
 ### GetSkillXpFromHealingTroop
 `public abstract int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp from healing troop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp from healing troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -56,7 +56,7 @@ var result = partyHealingModel.GetSkillXpFromHealingTroop(party);
 ### GetDailyHealingForRegulars
 `public abstract ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily healing for regulars 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily healing for regulars 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -67,7 +67,7 @@ var result = partyHealingModel.GetDailyHealingForRegulars(partyBase, false, fals
 ### GetDailyHealingHpForHeroes
 `public abstract ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily healing hp for heroes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 daily healing hp for heroes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -78,7 +78,7 @@ var result = partyHealingModel.GetDailyHealingHpForHeroes(partyBase, false, fals
 ### GetHeroesEffectedHealingAmount
 `public abstract int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 heroes effected healing amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 heroes effected healing amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -89,7 +89,7 @@ var result = partyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
 ### GetSiegeBombardmentHitSurgeryChance
 `public abstract float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege bombardment hit surgery chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege bombardment hit surgery chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例
@@ -100,7 +100,7 @@ var result = partyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
 ### GetBattleEndHealingAmount
 `public abstract ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle end healing amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 battle end healing amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealingModel 实例

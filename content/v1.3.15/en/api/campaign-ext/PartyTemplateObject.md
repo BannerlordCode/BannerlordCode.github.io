@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of PartyTemplateObject from the subsystem API first
@@ -34,7 +34,7 @@ partyTemplateObject.Deserialize(objectManager, node);
 ### GetUpperTroopLimit
 `public int GetUpperTroopLimit()`
 
-**Purpose:** **Purpose:** Reads and returns the upper troop limit value held by the this instance.
+**Purpose:** Reads and returns the upper troop limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTemplateObject from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyTemplateObject.GetUpperTroopLimit();
 ### GetLowerTroopLimit
 `public int GetLowerTroopLimit()`
 
-**Purpose:** **Purpose:** Reads and returns the lower troop limit value held by the this instance.
+**Purpose:** Reads and returns the lower troop limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTemplateObject from the subsystem API first

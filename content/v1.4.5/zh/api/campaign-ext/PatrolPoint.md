@@ -23,7 +23,7 @@ description: "PatrolPoint 的自动生成类参考。"
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 agent items visibility 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 agent items visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPoint 实例
@@ -34,7 +34,7 @@ patrolPoint.SetAgentItemsVisibility(false);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 use 事件触发时调用此回调。
+**用途 / Purpose:** 在 use 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPoint 实例
@@ -45,7 +45,7 @@ patrolPoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
+**用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPoint 实例
@@ -56,7 +56,7 @@ patrolPoint.OnUseStopped(userAgent, false, 0);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PatrolPoint 实例

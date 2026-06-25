@@ -23,7 +23,7 @@ description: "ConversationPlayArgs 的自动生成类参考。"
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationPlayArgs 对应的操作。
+**用途 / Purpose:** 调用 ConversationPlayArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationPlayArgs 实例

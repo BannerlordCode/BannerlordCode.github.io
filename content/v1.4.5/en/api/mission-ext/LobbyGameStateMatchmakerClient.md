@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyGameClientHandler lobbyGameClientHandler, int playerIndex, int sessionKey, string address, int assignedPort, string multiplayerGameType, string scene)`
 
-**Purpose:** **Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
+**Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LobbyGameStateMatchmakerClient from the subsystem API first

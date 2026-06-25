@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetCenter
 `public void SetCenter(in Vec2 center)`
 
-**Purpose:** **Purpose:** Assigns a new value to center and updates the object's internal state.
+**Purpose:** Assigns a new value to center and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -48,7 +48,7 @@ oriented2DArea.SetCenter(center);
 ### SetForward
 `public void SetForward(in Vec2 forward)`
 
-**Purpose:** **Purpose:** Assigns a new value to forward and updates the object's internal state.
+**Purpose:** Assigns a new value to forward and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -59,7 +59,7 @@ oriented2DArea.SetForward(forward);
 ### SetDimensions
 `public void SetDimensions(in Vec2 dimensions)`
 
-**Purpose:** **Purpose:** Assigns a new value to dimensions and updates the object's internal state.
+**Purpose:** Assigns a new value to dimensions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -70,7 +70,7 @@ oriented2DArea.SetDimensions(dimensions);
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**Purpose:** **Purpose:** Executes the Overlaps logic.
+**Purpose:** Executes the Overlaps logic.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -81,7 +81,7 @@ var result = oriented2DArea.Overlaps(otherArea, 0);
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**Purpose:** **Purpose:** Executes the Intersects logic.
+**Purpose:** Executes the Intersects logic.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -92,7 +92,7 @@ var result = oriented2DArea.Intersects(line, 0);
 ### GetCorners
 `public Oriented2DArea.Corners GetCorners()`
 
-**Purpose:** **Purpose:** Reads and returns the corners value held by the this instance.
+**Purpose:** Reads and returns the corners value held by the this instance.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first

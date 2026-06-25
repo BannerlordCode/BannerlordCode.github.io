@@ -50,7 +50,7 @@ description: "PartyTroopManagerVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -61,7 +61,7 @@ partyTroopManagerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -72,7 +72,7 @@ partyTroopManagerVM.OnFinalize();
 ### OpenPopUp
 `public virtual void OpenPopUp()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开pop up对应的资源或界面。
+**用途 / Purpose:** 打开pop up对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -83,7 +83,7 @@ partyTroopManagerVM.OpenPopUp();
 ### ExecuteDone
 `public virtual void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -94,7 +94,7 @@ partyTroopManagerVM.ExecuteDone();
 ### UpdateOpenButtonHint
 `public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 open button hint 的最新表示。
+**用途 / Purpose:** 重新计算并更新 open button hint 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -105,7 +105,7 @@ partyTroopManagerVM.UpdateOpenButtonHint(false, false, false);
 ### ExecuteCancel
 `public abstract void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -116,7 +116,7 @@ partyTroopManagerVM.ExecuteCancel();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -127,7 +127,7 @@ partyTroopManagerVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -138,7 +138,7 @@ partyTroopManagerVM.SetCancelInputKey(hotKey);
 ### SetPrimaryActionInputKey
 `public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 primary action input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 primary action input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例
@@ -149,7 +149,7 @@ partyTroopManagerVM.SetPrimaryActionInputKey(hotKey);
 ### SetSecondaryActionInputKey
 `public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 secondary action input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 secondary action input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagerVM 实例

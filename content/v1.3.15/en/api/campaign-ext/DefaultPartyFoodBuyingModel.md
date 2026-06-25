@@ -31,7 +31,7 @@ Treat `DefaultPartyFoodBuyingModel` as a Model-style extension point: first iden
 ### FindItemToBuy
 `public override void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemElement, out float itemElementsPrice)`
 
-**Purpose:** **Purpose:** Looks up the matching item to buy in the current collection or scope.
+**Purpose:** Looks up the matching item to buy in the current collection or scope.
 
 ```csharp
 // Obtain an instance of DefaultPartyFoodBuyingModel from the subsystem API first

@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CalculateEquipment
 `public Equipment CalculateEquipment()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of equipment.
+**Purpose:** Calculates the current value or result of equipment.
 
 ```csharp
 // Obtain an instance of CharacterCode from the subsystem API first
@@ -50,7 +50,7 @@ var result = characterCode.CalculateEquipment();
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ CharacterCode.CreateFrom(character);
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -70,7 +70,7 @@ CharacterCode.CreateFrom(character, equipment);
 ### CreateFrom
 `public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -80,7 +80,7 @@ CharacterCode.CreateFrom("example", bodyProperties, false, false, 0, 0, formatio
 ### CreateNewCodeString
 `public string CreateNewCodeString()`
 
-**Purpose:** **Purpose:** Constructs a new new code string entity and returns it to the caller.
+**Purpose:** Constructs a new new code string entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CharacterCode from the subsystem API first
@@ -91,7 +91,7 @@ var result = characterCode.CreateNewCodeString();
 ### CreateEmpty
 `public static CharacterCode CreateEmpty()`
 
-**Purpose:** **Purpose:** Constructs a new empty entity and returns it to the caller.
+**Purpose:** Constructs a new empty entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -101,7 +101,7 @@ CharacterCode.CreateEmpty();
 ### CreateFrom
 `public static CharacterCode CreateFrom(string code)`
 
-**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
+**Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

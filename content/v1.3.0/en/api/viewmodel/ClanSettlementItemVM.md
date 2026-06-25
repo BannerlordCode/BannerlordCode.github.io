@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first
@@ -58,7 +58,7 @@ clanSettlementItemVM.RefreshValues();
 ### OnSettlementSelection
 `public void OnSettlementSelection()`
 
-**Purpose:** **Purpose:** Invoked when the settlement selection event is raised.
+**Purpose:** Invoked when the settlement selection event is raised.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first
@@ -69,7 +69,7 @@ clanSettlementItemVM.OnSettlementSelection();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
+**Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first
@@ -80,7 +80,7 @@ clanSettlementItemVM.ExecuteLink();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close tooltip.
+**Purpose:** Runs the operation or workflow associated with close tooltip.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first
@@ -91,7 +91,7 @@ clanSettlementItemVM.ExecuteCloseTooltip();
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open tooltip.
+**Purpose:** Runs the operation or workflow associated with open tooltip.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first
@@ -102,7 +102,7 @@ clanSettlementItemVM.ExecuteOpenTooltip();
 ### ExecuteSendMembers
 `public void ExecuteSendMembers()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with send members.
+**Purpose:** Runs the operation or workflow associated with send members.
 
 ```csharp
 // Obtain an instance of ClanSettlementItemVM from the subsystem API first

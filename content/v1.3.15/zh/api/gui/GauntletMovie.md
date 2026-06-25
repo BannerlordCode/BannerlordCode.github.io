@@ -37,7 +37,7 @@ description: "GauntletMovie 的自动生成类参考。"
 ### RefreshDataSource
 `public void RefreshDataSource(IViewModel dataSourve)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 data source 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 data source 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMovie 实例
@@ -48,7 +48,7 @@ gauntletMovie.RefreshDataSource(dataSourve);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
+**用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMovie 实例
@@ -59,7 +59,7 @@ gauntletMovie.Release();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMovie 实例
@@ -70,7 +70,7 @@ gauntletMovie.Update();
 ### Load
 `public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ GauntletMovie.Load(context, widgetFactory, "example", datasource, false, false);
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 binding with children 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 binding with children 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMovie 实例
@@ -91,7 +91,7 @@ gauntletMovie.RefreshBindingWithChildren();
 ### FindViewOf
 `public GauntletView FindViewOf(Widget widget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的view of。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的view of。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMovie 实例

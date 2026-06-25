@@ -34,7 +34,7 @@ description: "ClanPartyMemberItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例
@@ -45,7 +45,7 @@ clanPartyMemberItemVM.RefreshValues();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 properties 的最新表示。
+**用途 / Purpose:** 重新计算并更新 properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例
@@ -56,7 +56,7 @@ clanPartyMemberItemVM.UpdateProperties();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
+**用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例
@@ -67,7 +67,7 @@ clanPartyMemberItemVM.ExecuteLink();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例
@@ -78,7 +78,7 @@ clanPartyMemberItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
+**用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例
@@ -89,7 +89,7 @@ clanPartyMemberItemVM.ExecuteEndHint();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartyMemberItemVM 实例

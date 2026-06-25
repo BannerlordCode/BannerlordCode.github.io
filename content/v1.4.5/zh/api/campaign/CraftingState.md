@@ -30,7 +30,7 @@ description: "CraftingState 的自动生成类参考。"
 ### InitializeLogic
 `public void InitializeLogic(Crafting newCraftingLogic, bool isReplacingWeaponClass = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 logic 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 logic 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingState 实例

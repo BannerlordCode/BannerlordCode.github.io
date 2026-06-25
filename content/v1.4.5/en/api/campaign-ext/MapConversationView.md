@@ -30,7 +30,7 @@ Treat `MapConversationView` as a View-style extension point: first identify who 
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** **Purpose:** Executes the ConversationPlayArgs logic.
+**Purpose:** Executes the ConversationPlayArgs logic.
 
 ```csharp
 // Obtain an instance of MapConversationView from the subsystem API first
@@ -41,7 +41,7 @@ var result = mapConversationView.ConversationPlayArgs("example", "example", "exa
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**Purpose:** **Purpose:** Assigns a new value to conversation tableau and updates the object's internal state.
+**Purpose:** Assigns a new value to conversation tableau and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationView from the subsystem API first
@@ -52,7 +52,7 @@ mapConversationView.SetConversationTableau(tableau);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapConversationView from the subsystem API first
@@ -63,7 +63,7 @@ mapConversationView.Tick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationView from the subsystem API first

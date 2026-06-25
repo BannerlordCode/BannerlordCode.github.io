@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### ShipTemplateStack
 `public struct ShipTemplateStack(ShipHull shipHull, int minValue, int maxValue)`
 
-**Purpose:** **Purpose:** Executes the ShipTemplateStack logic.
+**Purpose:** Executes the ShipTemplateStack logic.
 
 ```csharp
 // Obtain an instance of ShipTemplateStack from the subsystem API first

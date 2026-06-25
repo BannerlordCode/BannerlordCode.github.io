@@ -32,7 +32,7 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with view.
+**Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of QuestsNavigationElement from the subsystem API first
@@ -43,7 +43,7 @@ questsNavigationElement.OpenView();
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with view.
+**Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of QuestsNavigationElement from the subsystem API first

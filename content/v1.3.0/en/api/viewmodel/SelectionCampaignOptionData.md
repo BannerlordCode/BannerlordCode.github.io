@@ -29,7 +29,7 @@ Treat `SelectionCampaignOptionData` as a Data-style extension point: first ident
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** **Purpose:** Reads and returns the data type value held by the this instance.
+**Purpose:** Reads and returns the data type value held by the this instance.
 
 ```csharp
 // Obtain an instance of SelectionCampaignOptionData from the subsystem API first

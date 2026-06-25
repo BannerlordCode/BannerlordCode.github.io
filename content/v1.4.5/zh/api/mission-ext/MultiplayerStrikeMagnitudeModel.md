@@ -23,7 +23,7 @@ description: "MultiplayerStrikeMagnitudeModel 的自动生成类参考。"
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for missile的当前值或结果。
+**用途 / Purpose:** 计算strike magnitude for missile的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -34,7 +34,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPoint, float extraLinearSpeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for swing的当前值或结果。
+**用途 / Purpose:** 计算strike magnitude for swing的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -45,7 +45,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(at
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for unarmed attack的当前值或结果。
+**用途 / Purpose:** 计算strike magnitude for unarmed attack的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -56,7 +56,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedA
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for thrust的当前值或结果。
+**用途 / Purpose:** 计算strike magnitude for thrust的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -67,7 +67,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(a
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeRawDamage 对应的操作。
+**用途 / Purpose:** 调用 ComputeRawDamage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -78,7 +78,7 @@ var result = multiplayerStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 blunt damage factor by damage type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 blunt damage factor by damage type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -89,7 +89,7 @@ var result = multiplayerStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(da
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算horse archery factor的当前值或结果。
+**用途 / Purpose:** 计算horse archery factor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例
@@ -100,7 +100,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateHorseArcheryFactor(charact
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public override float CalculateBaseBlowMagnitudeForPassiveUsage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float extraLinearSpeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算base blow magnitude for passive usage的当前值或结果。
+**用途 / Purpose:** 计算base blow magnitude for passive usage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerStrikeMagnitudeModel 实例

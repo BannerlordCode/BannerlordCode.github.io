@@ -23,7 +23,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string message)`
 
-**Purpose:** **Purpose:** Verifies whether cheat usage holds true for the this instance.
+**Purpose:** Verifies whether cheat usage holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ StoryModeCheats.CheckCheatUsage(message);
 ### AddFamilyMembers
 `public static string AddFamilyMembers(List<string> strings)`
 
-**Purpose:** **Purpose:** Adds family members to the current collection or state.
+**Purpose:** Adds family members to the current collection or state.
 
 ```csharp
 // Static call; no instance required

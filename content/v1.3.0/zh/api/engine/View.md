@@ -23,7 +23,7 @@ description: "View 的自动生成类参考。"
 ### SetScale
 `public void SetScale(Vec2 scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scale 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scale 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -34,7 +34,7 @@ view.SetScale(scale);
 ### SetOffset
 `public void SetOffset(Vec2 offset)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 offset 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 offset 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -45,7 +45,7 @@ view.SetOffset(offset);
 ### SetRenderOrder
 `public void SetRenderOrder(int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 render order 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 render order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -56,7 +56,7 @@ view.SetRenderOrder(0);
 ### SetRenderOption
 `public void SetRenderOption(View.ViewRenderOptions optionEnum, bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 render option 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 render option 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -67,7 +67,7 @@ view.SetRenderOption(optionEnum, false);
 ### SetRenderTarget
 `public void SetRenderTarget(Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 render target 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 render target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -78,7 +78,7 @@ view.SetRenderTarget(texture);
 ### SetDepthTarget
 `public void SetDepthTarget(Texture texture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 depth target 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 depth target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -89,7 +89,7 @@ view.SetDepthTarget(texture);
 ### DontClearBackground
 `public void DontClearBackground()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DontClearBackground 对应的操作。
+**用途 / Purpose:** 调用 DontClearBackground 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -100,7 +100,7 @@ view.DontClearBackground();
 ### SetClearColor
 `public void SetClearColor(uint rgba)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 clear color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 clear color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -111,7 +111,7 @@ view.SetClearColor(0);
 ### SetEnable
 `public void SetEnable(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 enable 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -122,7 +122,7 @@ view.SetEnable(false);
 ### SetRenderOnDemand
 `public void SetRenderOnDemand(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 render on demand 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 render on demand 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -133,7 +133,7 @@ view.SetRenderOnDemand(false);
 ### SetAutoDepthTargetCreation
 `public void SetAutoDepthTargetCreation(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 auto depth target creation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 auto depth target creation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -144,7 +144,7 @@ view.SetAutoDepthTargetCreation(false);
 ### SetSaveFinalResultToDisk
 `public void SetSaveFinalResultToDisk(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 save final result to disk 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 save final result to disk 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -155,7 +155,7 @@ view.SetSaveFinalResultToDisk(false);
 ### SetFileNameToSaveResult
 `public void SetFileNameToSaveResult(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 file name to save result 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 file name to save result 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -166,7 +166,7 @@ view.SetFileNameToSaveResult("example");
 ### SetFileTypeToSave
 `public void SetFileTypeToSave(View.TextureSaveFormat format)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 file type to save 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 file type to save 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例
@@ -177,7 +177,7 @@ view.SetFileTypeToSave(format);
 ### SetFilePathToSaveResult
 `public void SetFilePathToSaveResult(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 file path to save result 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 file path to save result 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 View 实例

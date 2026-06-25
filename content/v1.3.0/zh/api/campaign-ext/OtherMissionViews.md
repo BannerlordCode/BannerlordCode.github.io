@@ -23,7 +23,7 @@ description: "OtherMissionViews 的自动生成类参考。"
 ### OpenBattleChallengeMission
 `public static MissionView OpenBattleChallengeMission(Mission mission)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开battle challenge mission对应的资源或界面。
+**用途 / Purpose:** 打开battle challenge mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RegisterMessages
 `public void RegisterMessages()`
 
-**Purpose:** **Purpose:** Registers messages with the current system so it can later be observed or dispatched.
+**Purpose:** Registers messages with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of NetworkMessageHandlerRegistererContainer from the subsystem API first
@@ -34,7 +34,7 @@ networkMessageHandlerRegistererContainer.RegisterMessages();
 ### UnregisterMessages
 `public void UnregisterMessages()`
 
-**Purpose:** **Purpose:** Unregisters messages from the current system.
+**Purpose:** Unregisters messages from the current system.
 
 ```csharp
 // Obtain an instance of NetworkMessageHandlerRegistererContainer from the subsystem API first

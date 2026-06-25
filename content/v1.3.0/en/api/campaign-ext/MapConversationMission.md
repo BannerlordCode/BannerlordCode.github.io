@@ -29,7 +29,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**Purpose:** **Purpose:** Assigns a new value to conversation tableau and updates the object's internal state.
+**Purpose:** Assigns a new value to conversation tableau and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationMission from the subsystem API first
@@ -40,7 +40,7 @@ mapConversationMission.SetConversationTableau(tableau);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapConversationMission from the subsystem API first
@@ -51,7 +51,7 @@ mapConversationMission.Tick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapConversationMission from the subsystem API first

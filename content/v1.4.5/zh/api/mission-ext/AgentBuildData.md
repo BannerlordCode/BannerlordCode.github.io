@@ -55,7 +55,7 @@ description: "AgentBuildData 的自动生成类参考。"
 ### Character
 `public AgentBuildData Character(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Character 对应的操作。
+**用途 / Purpose:** 调用 Character 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -66,7 +66,7 @@ var result = agentBuildData.Character(characterObject);
 ### Controller
 `public AgentBuildData Controller(AgentControllerType controller)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Controller 对应的操作。
+**用途 / Purpose:** 调用 Controller 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -77,7 +77,7 @@ var result = agentBuildData.Controller(controller);
 ### Team
 `public AgentBuildData Team(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Team 对应的操作。
+**用途 / Purpose:** 调用 Team 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -88,7 +88,7 @@ var result = agentBuildData.Team(team);
 ### IsReinforcement
 `public AgentBuildData IsReinforcement(bool isReinforcement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 reinforcement 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 reinforcement 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -99,7 +99,7 @@ var result = agentBuildData.IsReinforcement(false);
 ### SpawnsIntoOwnFormation
 `public AgentBuildData SpawnsIntoOwnFormation(bool spawnIntoOwnFormation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnsIntoOwnFormation 对应的操作。
+**用途 / Purpose:** 调用 SpawnsIntoOwnFormation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -110,7 +110,7 @@ var result = agentBuildData.SpawnsIntoOwnFormation(false);
 ### SpawnsUsingOwnTroopClass
 `public AgentBuildData SpawnsUsingOwnTroopClass(bool spawnUsingOwnTroopClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnsUsingOwnTroopClass 对应的操作。
+**用途 / Purpose:** 调用 SpawnsUsingOwnTroopClass 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -121,7 +121,7 @@ var result = agentBuildData.SpawnsUsingOwnTroopClass(false);
 ### MakeUnitStandOutOfFormationDistance
 `public AgentBuildData MakeUnitStandOutOfFormationDistance(float makeUnitStandOutDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeUnitStandOutOfFormationDistance 对应的操作。
+**用途 / Purpose:** 调用 MakeUnitStandOutOfFormationDistance 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -132,7 +132,7 @@ var result = agentBuildData.MakeUnitStandOutOfFormationDistance(0);
 ### InitialPosition
 `public AgentBuildData InitialPosition(in Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ial position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ial position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -143,7 +143,7 @@ var result = agentBuildData.InitialPosition(position);
 ### InitialDirection
 `public AgentBuildData InitialDirection(in Vec2 direction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ial direction 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ial direction 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -154,7 +154,7 @@ var result = agentBuildData.InitialDirection(direction);
 ### InitialFrameFromSpawnPointEntity
 `public AgentBuildData InitialFrameFromSpawnPointEntity(GameEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -165,7 +165,7 @@ var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
 ### InitialFrameFromSpawnPointEntity
 `public AgentBuildData InitialFrameFromSpawnPointEntity(WeakGameEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -176,7 +176,7 @@ var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
 ### Formation
 `public AgentBuildData Formation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ion格式化为适合显示或存储的字符串。
+**用途 / Purpose:** 将ion格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -187,7 +187,7 @@ var result = agentBuildData.Formation(formation);
 ### Monster
 `public AgentBuildData Monster(Monster monster)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Monster 对应的操作。
+**用途 / Purpose:** 调用 Monster 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -198,7 +198,7 @@ var result = agentBuildData.Monster(monster);
 ### VisualsIndex
 `public AgentBuildData VisualsIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 VisualsIndex 对应的操作。
+**用途 / Purpose:** 调用 VisualsIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -209,7 +209,7 @@ var result = agentBuildData.VisualsIndex(0);
 ### Equipment
 `public AgentBuildData Equipment(Equipment equipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Equipment 对应的操作。
+**用途 / Purpose:** 调用 Equipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -220,7 +220,7 @@ var result = agentBuildData.Equipment(equipment);
 ### MissionEquipment
 `public AgentBuildData MissionEquipment(MissionEquipment missionEquipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEquipment 对应的操作。
+**用途 / Purpose:** 调用 MissionEquipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -231,7 +231,7 @@ var result = agentBuildData.MissionEquipment(missionEquipment);
 ### EquipmentSeed
 `public AgentBuildData EquipmentSeed(int seed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EquipmentSeed 对应的操作。
+**用途 / Purpose:** 调用 EquipmentSeed 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -242,7 +242,7 @@ var result = agentBuildData.EquipmentSeed(0);
 ### NoHorses
 `public AgentBuildData NoHorses(bool noHorses)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NoHorses 对应的操作。
+**用途 / Purpose:** 调用 NoHorses 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -253,7 +253,7 @@ var result = agentBuildData.NoHorses(false);
 ### NoWeapons
 `public AgentBuildData NoWeapons(bool noWeapons)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NoWeapons 对应的操作。
+**用途 / Purpose:** 调用 NoWeapons 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -264,7 +264,7 @@ var result = agentBuildData.NoWeapons(false);
 ### NoArmor
 `public AgentBuildData NoArmor(bool noArmor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NoArmor 对应的操作。
+**用途 / Purpose:** 调用 NoArmor 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -275,7 +275,7 @@ var result = agentBuildData.NoArmor(false);
 ### FixedEquipment
 `public AgentBuildData FixedEquipment(bool fixedEquipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FixedEquipment 对应的操作。
+**用途 / Purpose:** 调用 FixedEquipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -286,7 +286,7 @@ var result = agentBuildData.FixedEquipment(false);
 ### CivilianEquipment
 `public AgentBuildData CivilianEquipment(bool civilianEquipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CivilianEquipment 对应的操作。
+**用途 / Purpose:** 调用 CivilianEquipment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -297,7 +297,7 @@ var result = agentBuildData.CivilianEquipment(false);
 ### SetPrepareImmediately
 `public AgentBuildData SetPrepareImmediately()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 prepare immediately 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 prepare immediately 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -308,7 +308,7 @@ var result = agentBuildData.SetPrepareImmediately();
 ### ClothingColor1
 `public AgentBuildData ClothingColor1(uint color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClothingColor1 对应的操作。
+**用途 / Purpose:** 调用 ClothingColor1 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -319,7 +319,7 @@ var result = agentBuildData.ClothingColor1(0);
 ### ClothingColor2
 `public AgentBuildData ClothingColor2(uint color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClothingColor2 对应的操作。
+**用途 / Purpose:** 调用 ClothingColor2 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -330,7 +330,7 @@ var result = agentBuildData.ClothingColor2(0);
 ### MissionPeer
 `public AgentBuildData MissionPeer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionPeer 对应的操作。
+**用途 / Purpose:** 调用 MissionPeer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -341,7 +341,7 @@ var result = agentBuildData.MissionPeer(missionPeer);
 ### OwningMissionPeer
 `public AgentBuildData OwningMissionPeer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 OwningMissionPeer 对应的操作。
+**用途 / Purpose:** 调用 OwningMissionPeer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -352,7 +352,7 @@ var result = agentBuildData.OwningMissionPeer(missionPeer);
 ### BodyProperties
 `public AgentBuildData BodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BodyProperties 对应的操作。
+**用途 / Purpose:** 调用 BodyProperties 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -363,7 +363,7 @@ var result = agentBuildData.BodyProperties(bodyProperties);
 ### Age
 `public AgentBuildData Age(int age)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Age 对应的操作。
+**用途 / Purpose:** 调用 Age 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -374,7 +374,7 @@ var result = agentBuildData.Age(0);
 ### TroopOrigin
 `public AgentBuildData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TroopOrigin 对应的操作。
+**用途 / Purpose:** 调用 TroopOrigin 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -385,7 +385,7 @@ var result = agentBuildData.TroopOrigin(troopOrigin);
 ### IsFemale
 `public AgentBuildData IsFemale(bool isFemale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 female 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 female 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -396,7 +396,7 @@ var result = agentBuildData.IsFemale(false);
 ### Race
 `public AgentBuildData Race(int race)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Race 对应的操作。
+**用途 / Purpose:** 调用 Race 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -407,7 +407,7 @@ var result = agentBuildData.Race(0);
 ### MountKey
 `public AgentBuildData MountKey(string mountKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MountKey 对应的操作。
+**用途 / Purpose:** 调用 MountKey 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -418,7 +418,7 @@ var result = agentBuildData.MountKey("example");
 ### Index
 `public AgentBuildData Index(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Index 对应的操作。
+**用途 / Purpose:** 调用 Index 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -429,7 +429,7 @@ var result = agentBuildData.Index(0);
 ### MountIndex
 `public AgentBuildData MountIndex(int mountIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MountIndex 对应的操作。
+**用途 / Purpose:** 调用 MountIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -440,7 +440,7 @@ var result = agentBuildData.MountIndex(0);
 ### Banner
 `public AgentBuildData Banner(Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Banner 对应的操作。
+**用途 / Purpose:** 调用 Banner 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -451,7 +451,7 @@ var result = agentBuildData.Banner(banner);
 ### BannerItem
 `public AgentBuildData BannerItem(ItemObject bannerItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BannerItem 对应的操作。
+**用途 / Purpose:** 调用 BannerItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -462,7 +462,7 @@ var result = agentBuildData.BannerItem(bannerItem);
 ### BannerReplacementWeaponItem
 `public AgentBuildData BannerReplacementWeaponItem(ItemObject weaponItem)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BannerReplacementWeaponItem 对应的操作。
+**用途 / Purpose:** 调用 BannerReplacementWeaponItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -473,7 +473,7 @@ var result = agentBuildData.BannerReplacementWeaponItem(weaponItem);
 ### FormationTroopSpawnCount
 `public AgentBuildData FormationTroopSpawnCount(int formationTroopCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ion troop spawn count格式化为适合显示或存储的字符串。
+**用途 / Purpose:** 将ion troop spawn count格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -484,7 +484,7 @@ var result = agentBuildData.FormationTroopSpawnCount(0);
 ### FormationTroopSpawnIndex
 `public AgentBuildData FormationTroopSpawnIndex(int formationTroopIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ion troop spawn index格式化为适合显示或存储的字符串。
+**用途 / Purpose:** 将ion troop spawn index格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -495,7 +495,7 @@ var result = agentBuildData.FormationTroopSpawnIndex(0);
 ### CanSpawnOutsideOfMissionBoundary
 `public AgentBuildData CanSpawnOutsideOfMissionBoundary(bool canSpawn)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 spawn outside of mission boundary 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 spawn outside of mission boundary 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例

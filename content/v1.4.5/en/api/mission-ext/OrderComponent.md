@@ -29,7 +29,7 @@ Treat `OrderComponent` as a Component-style extension point: first identify who 
 ### GetDirection
 `public Vec2 GetDirection(Formation f)`
 
-**Purpose:** **Purpose:** Reads and returns the direction value held by the this instance.
+**Purpose:** Reads and returns the direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of OrderComponent from the subsystem API first

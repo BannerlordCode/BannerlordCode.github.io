@@ -23,7 +23,7 @@ description: "GenericMissionObjectiveBuilder 的自动生成类参考。"
 ### SetName
 `public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -34,7 +34,7 @@ var result = genericMissionObjectiveBuilder.SetName(name);
 ### SetDescription
 `public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 description 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 description 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -45,7 +45,7 @@ var result = genericMissionObjectiveBuilder.SetDescription(description);
 ### SetObjectiveGiver
 `public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 objective giver 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 objective giver 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -56,7 +56,7 @@ var result = genericMissionObjectiveBuilder.SetObjectiveGiver(objectiveGiver);
 ### SetInitialTargets
 `public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial targets 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial targets 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -67,7 +67,7 @@ var result = genericMissionObjectiveBuilder.SetInitialTargets(targets);
 ### SetIsActivationRequirementsMetCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is activation requirements met callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is activation requirements met callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -78,7 +78,7 @@ var result = genericMissionObjectiveBuilder.SetIsActivationRequirementsMetCallba
 ### SetIsCompletionRequirementsMetCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 is completion requirements met callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 is completion requirements met callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -89,7 +89,7 @@ var result = genericMissionObjectiveBuilder.SetIsCompletionRequirementsMetCallba
 ### SetOnStartCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on start callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on start callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -100,7 +100,7 @@ var result = genericMissionObjectiveBuilder.SetOnStartCallback(callback);
 ### SetOnCompleteCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on complete callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on complete callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -111,7 +111,7 @@ var result = genericMissionObjectiveBuilder.SetOnCompleteCallback(callback);
 ### SetOnTickCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on tick callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on tick callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -122,7 +122,7 @@ var result = genericMissionObjectiveBuilder.SetOnTickCallback(action<MissionObje
 ### SetProgressCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 progress callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 progress callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
@@ -133,7 +133,7 @@ var result = genericMissionObjectiveBuilder.SetProgressCallback(func<MissionObje
 ### Build
 `public MissionObjective Build()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建当前对象的实例或表示。
+**用途 / Purpose:** 构建当前对象的实例或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例

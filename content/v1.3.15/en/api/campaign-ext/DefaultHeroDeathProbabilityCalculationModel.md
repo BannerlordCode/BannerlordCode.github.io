@@ -23,7 +23,7 @@ Treat `DefaultHeroDeathProbabilityCalculationModel` as a Model-style extension p
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of hero death probability.
+**Purpose:** Calculates the current value or result of hero death probability.
 
 ```csharp
 // Obtain an instance of DefaultHeroDeathProbabilityCalculationModel from the subsystem API first

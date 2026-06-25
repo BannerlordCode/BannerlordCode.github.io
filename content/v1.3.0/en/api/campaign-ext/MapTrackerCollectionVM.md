@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapTrackerCollectionVM from the subsystem API first
@@ -40,7 +40,7 @@ mapTrackerCollectionVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapTrackerCollectionVM from the subsystem API first
@@ -51,7 +51,7 @@ mapTrackerCollectionVM.OnFinalize();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
+**Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of MapTrackerCollectionVM from the subsystem API first

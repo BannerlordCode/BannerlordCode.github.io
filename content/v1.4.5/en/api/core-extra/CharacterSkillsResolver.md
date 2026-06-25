@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core.SaveCompability` to place it in the stack,
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the applicable state or condition.
+**Purpose:** Determines whether the this instance is in the applicable state or condition.
 
 ```csharp
 // Obtain an instance of CharacterSkillsResolver from the subsystem API first
@@ -34,7 +34,7 @@ var result = characterSkillsResolver.IsApplicable(version);
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** **Purpose:** Reads and returns the field member with id value held by the this instance.
+**Purpose:** Reads and returns the field member with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterSkillsResolver from the subsystem API first
@@ -45,7 +45,7 @@ var result = characterSkillsResolver.GetFieldMemberWithId(memberTypeId);
 ### GetNewType
 `public Type GetNewType()`
 
-**Purpose:** **Purpose:** Reads and returns the new type value held by the this instance.
+**Purpose:** Reads and returns the new type value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterSkillsResolver from the subsystem API first
@@ -56,7 +56,7 @@ var result = characterSkillsResolver.GetNewType();
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** **Purpose:** Reads and returns the property member with id value held by the this instance.
+**Purpose:** Reads and returns the property member with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterSkillsResolver from the subsystem API first

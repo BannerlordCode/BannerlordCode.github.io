@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsBlowCrit
 `public bool IsBlowCrit(int maxHitPointsOfVictim)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the blow crit state or condition.
+**Purpose:** Determines whether the this instance is in the blow crit state or condition.
 
 ```csharp
 // Obtain an instance of Blow from the subsystem API first
@@ -40,7 +40,7 @@ var result = blow.IsBlowCrit(0);
 ### IsBlowLow
 `public bool IsBlowLow(int maxHitPointsOfVictim)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the blow low state or condition.
+**Purpose:** Determines whether the this instance is in the blow low state or condition.
 
 ```csharp
 // Obtain an instance of Blow from the subsystem API first
@@ -51,7 +51,7 @@ var result = blow.IsBlowLow(0);
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the head shot state or condition.
+**Purpose:** Determines whether the this instance is in the head shot state or condition.
 
 ```csharp
 // Obtain an instance of Blow from the subsystem API first

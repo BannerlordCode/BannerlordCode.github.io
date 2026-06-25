@@ -23,7 +23,7 @@ Treat `SandBoxSallyOutMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSallyOutMissionController from the subsystem API first

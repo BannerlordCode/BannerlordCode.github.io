@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Start
 `public void Start(string name)`
 
-**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
+**Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first
@@ -34,7 +34,7 @@ performanceAnalyzer.Start("example");
 ### End
 `public void End()`
 
-**Purpose:** **Purpose:** Executes the End logic.
+**Purpose:** Executes the End logic.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first
@@ -45,7 +45,7 @@ performanceAnalyzer.End();
 ### FinalizeAndWrite
 `public void FinalizeAndWrite(string filePath)`
 
-**Purpose:** **Purpose:** Executes the FinalizeAndWrite logic.
+**Purpose:** Executes the FinalizeAndWrite logic.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first
@@ -56,7 +56,7 @@ performanceAnalyzer.FinalizeAndWrite("example");
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first
@@ -67,7 +67,7 @@ performanceAnalyzer.Tick(0);
 ### AddFps
 `public void AddFps(float fps, float main, float renderer)`
 
-**Purpose:** **Purpose:** Adds fps to the current collection or state.
+**Purpose:** Adds fps to the current collection or state.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first
@@ -78,7 +78,7 @@ performanceAnalyzer.AddFps(0, 0, 0);
 ### Write
 `public void Write(XmlNode node, XmlDocument document)`
 
-**Purpose:** **Purpose:** Writes the this instance's data to the target location.
+**Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of PerformanceAnalyzer from the subsystem API first

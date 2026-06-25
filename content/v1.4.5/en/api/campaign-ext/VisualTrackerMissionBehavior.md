@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent created event is raised.
+**Purpose:** Invoked when the agent created event is raised.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -34,7 +34,7 @@ visualTrackerMissionBehavior.OnAgentCreated(agent);
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -45,7 +45,7 @@ visualTrackerMissionBehavior.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -56,7 +56,7 @@ visualTrackerMissionBehavior.OnMissionTick(0);
 ### RegisterLocalOnlyObject
 `public void RegisterLocalOnlyObject(ITrackableBase obj)`
 
-**Purpose:** **Purpose:** Registers local only object with the current system so it can later be observed or dispatched.
+**Purpose:** Registers local only object with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -67,7 +67,7 @@ visualTrackerMissionBehavior.RegisterLocalOnlyObject(obj);
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**Purpose:** **Purpose:** Reads and returns the compass targets value held by the this instance.
+**Purpose:** Reads and returns the compass targets value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = visualTrackerMissionBehavior.GetCompassTargets();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
@@ -89,7 +89,7 @@ visualTrackerMissionBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentS
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**Purpose:** **Purpose:** Invoked when the agent deleted event is raised.
+**Purpose:** Invoked when the agent deleted event is raised.
 
 ```csharp
 // Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnVillageLooted
 `public void OnVillageLooted(Village village)`
 
-**Purpose:** **Purpose:** Invoked when the village looted event is raised.
+**Purpose:** Invoked when the village looted event is raised.
 
 ```csharp
 // Obtain an instance of RaidVillageQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ raidVillageQuestTask.OnVillageLooted(village);
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification)`
 
-**Purpose:** **Purpose:** Invoked when the clan changed kingdom event is raised.
+**Purpose:** Invoked when the clan changed kingdom event is raised.
 
 ```csharp
 // Obtain an instance of RaidVillageQuestTask from the subsystem API first
@@ -45,7 +45,7 @@ raidVillageQuestTask.OnClanChangedKingdom(clan, oldKingdom, newKingdom, detail, 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RaidVillageQuestTask from the subsystem API first

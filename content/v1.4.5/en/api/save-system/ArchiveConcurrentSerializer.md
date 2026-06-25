@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### SerializeFolderConcurrent
 `public void SerializeFolderConcurrent(SaveEntryFolder folder)`
 
-**Purpose:** **Purpose:** Serializes folder concurrent into a storable or transmittable format.
+**Purpose:** Serializes folder concurrent into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of ArchiveConcurrentSerializer from the subsystem API first
@@ -34,7 +34,7 @@ archiveConcurrentSerializer.SerializeFolderConcurrent(folder);
 ### CreateFolder
 `public SaveEntryFolder CreateFolder(SaveEntryFolder parentFolder, FolderId folderId, int entryCount)`
 
-**Purpose:** **Purpose:** Constructs a new folder entity and returns it to the caller.
+**Purpose:** Constructs a new folder entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ArchiveConcurrentSerializer from the subsystem API first
@@ -45,7 +45,7 @@ var result = archiveConcurrentSerializer.CreateFolder(parentFolder, folderId, 0)
 ### FinalizeAndGetBinaryDataConcurrent
 `public byte FinalizeAndGetBinaryDataConcurrent()`
 
-**Purpose:** **Purpose:** Executes the FinalizeAndGetBinaryDataConcurrent logic.
+**Purpose:** Executes the FinalizeAndGetBinaryDataConcurrent logic.
 
 ```csharp
 // Obtain an instance of ArchiveConcurrentSerializer from the subsystem API first

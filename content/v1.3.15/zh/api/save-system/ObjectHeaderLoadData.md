@@ -36,7 +36,7 @@ description: "ObjectHeaderLoadData 的自动生成类参考。"
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ialie readers 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 ialie readers 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
@@ -47,7 +47,7 @@ objectHeaderLoadData.InitialieReaders(saveEntryFolder);
 ### CreateObject
 `public void CreateObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
@@ -58,7 +58,7 @@ objectHeaderLoadData.CreateObject();
 ### AdvancedResolveObject
 `public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AdvancedResolveObject 对应的操作。
+**用途 / Purpose:** 调用 AdvancedResolveObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
@@ -69,7 +69,7 @@ objectHeaderLoadData.AdvancedResolveObject(metaData, objectLoadData);
 ### ResolveObject
 `public void ResolveObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResolveObject 对应的操作。
+**用途 / Purpose:** 调用 ResolveObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例

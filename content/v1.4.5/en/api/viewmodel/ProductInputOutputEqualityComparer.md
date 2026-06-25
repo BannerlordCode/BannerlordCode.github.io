@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Equals
 `public bool Equals((ItemCategory, int) x, (ItemCategory, int) y)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
@@ -34,7 +34,7 @@ var result = productInputOutputEqualityComparer.Equals((ItemCategory, 0, (ItemCa
 ### GetHashCode
 `public int GetHashCode((ItemCategory, int) obj)`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first

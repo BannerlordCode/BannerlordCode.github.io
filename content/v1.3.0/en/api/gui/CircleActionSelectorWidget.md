@@ -35,7 +35,7 @@ Treat `CircleActionSelectorWidget` as a Widget-style extension point: first iden
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**Purpose:** **Purpose:** Executes the AnimateDistanceFromCenterTo logic.
+**Purpose:** Executes the AnimateDistanceFromCenterTo logic.
 
 ```csharp
 // Obtain an instance of CircleActionSelectorWidget from the subsystem API first
@@ -46,7 +46,7 @@ circleActionSelectorWidget.AnimateDistanceFromCenterTo(0, 0);
 ### TrySetSelectedIndex
 `public bool TrySetSelectedIndex(int index)`
 
-**Purpose:** **Purpose:** Attempts to retrieve set selected index, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve set selected index, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of CircleActionSelectorWidget from the subsystem API first

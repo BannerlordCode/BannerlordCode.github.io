@@ -31,7 +31,7 @@ Treat `MultiplayerIntermissionVotingManager` as a Manager-style extension point:
 ### MapItemAddedDelegate
 `public delegate void MapItemAddedDelegate(string mapId)`
 
-**Purpose:** **Purpose:** Executes the MapItemAddedDelegate logic.
+**Purpose:** Executes the MapItemAddedDelegate logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -42,7 +42,7 @@ multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
 ### CultureItemAddedDelegate
 `public delegate void CultureItemAddedDelegate(string cultureId)`
 
-**Purpose:** **Purpose:** Executes the CultureItemAddedDelegate logic.
+**Purpose:** Executes the CultureItemAddedDelegate logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -53,7 +53,7 @@ multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
 ### MapItemVoteCountChangedDelegate
 `public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
 
-**Purpose:** **Purpose:** Executes the MapItemVoteCountChangedDelegate logic.
+**Purpose:** Executes the MapItemVoteCountChangedDelegate logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -64,7 +64,7 @@ multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
 ### CultureItemVoteCountChangedDelegate
 `public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
 
-**Purpose:** **Purpose:** Executes the CultureItemVoteCountChangedDelegate logic.
+**Purpose:** Executes the CultureItemVoteCountChangedDelegate logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -75,7 +75,7 @@ multiplayerIntermissionVotingManager.CultureItemVoteCountChangedDelegate(0, 0);
 ### AddMapItem
 `public void AddMapItem(string mapID)`
 
-**Purpose:** **Purpose:** Adds map item to the current collection or state.
+**Purpose:** Adds map item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -86,7 +86,7 @@ multiplayerIntermissionVotingManager.AddMapItem("example");
 ### AddUsableMap
 `public void AddUsableMap(CustomGameUsableMap usableMap)`
 
-**Purpose:** **Purpose:** Adds usable map to the current collection or state.
+**Purpose:** Adds usable map to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -97,7 +97,7 @@ multiplayerIntermissionVotingManager.AddUsableMap(usableMap);
 ### GetUsableMaps
 `public List<string> GetUsableMaps(string gameType)`
 
-**Purpose:** **Purpose:** Reads and returns the usable maps value held by the this instance.
+**Purpose:** Reads and returns the usable maps value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -108,7 +108,7 @@ var result = multiplayerIntermissionVotingManager.GetUsableMaps("example");
 ### AddCultureItem
 `public void AddCultureItem(string cultureID)`
 
-**Purpose:** **Purpose:** Adds culture item to the current collection or state.
+**Purpose:** Adds culture item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -119,7 +119,7 @@ multiplayerIntermissionVotingManager.AddCultureItem("example");
 ### AddVote
 `public void AddVote(PlayerId voterID, string itemID, int voteCount)`
 
-**Purpose:** **Purpose:** Adds vote to the current collection or state.
+**Purpose:** Adds vote to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -130,7 +130,7 @@ multiplayerIntermissionVotingManager.AddVote(voterID, "example", 0);
 ### SetVotesOfMap
 `public void SetVotesOfMap(int mapItemIndex, int voteCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to votes of map and updates the object's internal state.
+**Purpose:** Assigns a new value to votes of map and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -141,7 +141,7 @@ multiplayerIntermissionVotingManager.SetVotesOfMap(0, 0);
 ### SetVotesOfCulture
 `public void SetVotesOfCulture(int cultureItemIndex, int voteCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to votes of culture and updates the object's internal state.
+**Purpose:** Assigns a new value to votes of culture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -152,7 +152,7 @@ multiplayerIntermissionVotingManager.SetVotesOfCulture(0, 0);
 ### ClearVotes
 `public void ClearVotes()`
 
-**Purpose:** **Purpose:** Removes all votes from the this instance.
+**Purpose:** Removes all votes from the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -163,7 +163,7 @@ multiplayerIntermissionVotingManager.ClearVotes();
 ### ClearItems
 `public void ClearItems()`
 
-**Purpose:** **Purpose:** Removes all items from the this instance.
+**Purpose:** Removes all items from the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -174,7 +174,7 @@ multiplayerIntermissionVotingManager.ClearItems();
 ### IsCultureItem
 `public bool IsCultureItem(string itemID)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the culture item state or condition.
+**Purpose:** Determines whether the this instance is in the culture item state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -185,7 +185,7 @@ var result = multiplayerIntermissionVotingManager.IsCultureItem("example");
 ### IsMapItem
 `public bool IsMapItem(string itemID)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the map item state or condition.
+**Purpose:** Determines whether the this instance is in the map item state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -196,7 +196,7 @@ var result = multiplayerIntermissionVotingManager.IsMapItem("example");
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerID)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
+**Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -207,7 +207,7 @@ multiplayerIntermissionVotingManager.HandlePlayerDisconnect(playerID);
 ### SelectRandomCultures
 `public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
 
-**Purpose:** **Purpose:** Executes the SelectRandomCultures logic.
+**Purpose:** Executes the SelectRandomCultures logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -218,7 +218,7 @@ multiplayerIntermissionVotingManager.SelectRandomCultures(accessMode);
 ### IsPeerVotedForItem
 `public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the peer voted for item state or condition.
+**Purpose:** Determines whether the this instance is in the peer voted for item state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
@@ -229,7 +229,7 @@ var result = multiplayerIntermissionVotingManager.IsPeerVotedForItem(peer, "exam
 ### SortVotesAndPickBest
 `public void SortVotesAndPickBest()`
 
-**Purpose:** **Purpose:** Executes the SortVotesAndPickBest logic.
+**Purpose:** Executes the SortVotesAndPickBest logic.
 
 ```csharp
 // Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first

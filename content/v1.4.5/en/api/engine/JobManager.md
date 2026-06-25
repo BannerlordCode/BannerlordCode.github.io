@@ -23,7 +23,7 @@ Treat `JobManager` as a Manager-style extension point: first identify who create
 ### AddJob
 `public void AddJob(Job job)`
 
-**Purpose:** **Purpose:** Adds job to the current collection or state.
+**Purpose:** Adds job to the current collection or state.
 
 ```csharp
 // Obtain an instance of JobManager from the subsystem API first

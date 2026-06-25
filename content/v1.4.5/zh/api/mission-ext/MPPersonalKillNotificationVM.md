@@ -29,7 +29,7 @@ description: "MPPersonalKillNotificationVM 的自动生成类参考。"
 ### OnGoldChange
 `public void OnGoldChange(int changeAmount, GoldGainFlags goldGainType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 gold change 事件触发时调用此回调。
+**用途 / Purpose:** 在 gold change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPersonalKillNotificationVM 实例
@@ -40,7 +40,7 @@ mPPersonalKillNotificationVM.OnGoldChange(0, goldGainType);
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPersonalKillNotificationVM 实例
@@ -51,7 +51,7 @@ mPPersonalKillNotificationVM.OnPersonalHit(0, false, false, false, false, "examp
 ### OnPersonalAssist
 `public void OnPersonalAssist(string killedAgentName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 personal assist 事件触发时调用此回调。
+**用途 / Purpose:** 在 personal assist 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPersonalKillNotificationVM 实例

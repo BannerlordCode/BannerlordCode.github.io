@@ -33,7 +33,7 @@ Treat `PinnedArrayData` as a Data-style extension point: first identify who crea
 ### CheckIfTypeRequiresManualPinning
 `public static bool CheckIfTypeRequiresManualPinning(Type type)`
 
-**Purpose:** **Purpose:** Verifies whether if type requires manual pinning holds true for the this instance.
+**Purpose:** Verifies whether if type requires manual pinning holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ PinnedArrayData.CheckIfTypeRequiresManualPinning(type);
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
+**Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of PinnedArrayData from the subsystem API first

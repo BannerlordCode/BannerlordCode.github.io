@@ -41,7 +41,7 @@ description: "LocationCharacter 的自动生成类参考。"
 ### SetAlleyOfCharacter
 `public void SetAlleyOfCharacter(Alley alley)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 alley of character 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 alley of character 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationCharacter 实例
@@ -52,7 +52,7 @@ locationCharacter.SetAlleyOfCharacter(alley);
 ### CreateBodyguardHero
 `public static LocationCharacter CreateBodyguardHero(Hero hero, MobileParty party, LocationCharacter.AddBehaviorsDelegate addBehaviorsDelegate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 bodyguard hero 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 bodyguard hero 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ LocationCharacter.CreateBodyguardHero(hero, party, addBehaviorsDelegate);
 ### AddBehaviorsDelegate
 `public delegate void AddBehaviorsDelegate(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 behaviors delegate 添加到当前容器或状态中。
+**用途 / Purpose:** 将 behaviors delegate 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationCharacter 实例
@@ -73,7 +73,7 @@ locationCharacter.AddBehaviorsDelegate(agent);
 ### AfterAgentCreatedDelegate
 `public delegate void AfterAgentCreatedDelegate(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterAgentCreatedDelegate 对应的操作。
+**用途 / Purpose:** 调用 AfterAgentCreatedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationCharacter 实例

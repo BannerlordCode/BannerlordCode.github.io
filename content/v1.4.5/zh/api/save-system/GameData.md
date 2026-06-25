@@ -33,7 +33,7 @@ description: "GameData 的自动生成类参考。"
 ### Inspect
 `public void Inspect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Inspect 对应的操作。
+**用途 / Purpose:** 调用 Inspect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameData 实例
@@ -44,7 +44,7 @@ gameData.Inspect();
 ### CreateFrom
 `public static GameData CreateFrom(byte readBytes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ GameData.CreateFrom(0);
 ### GetData
 `public byte GetData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameData 实例
@@ -65,7 +65,7 @@ var result = gameData.GetData();
 ### Write
 `public static void Write(System.IO.BinaryWriter writer, GameData gameData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 静态调用，不需要实例
@@ -75,7 +75,7 @@ GameData.Write(writer, gameData);
 ### Read
 `public static GameData Read(System.IO.BinaryReader reader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -85,7 +85,7 @@ GameData.Read(reader);
 ### IsEqualTo
 `public bool IsEqualTo(GameData gameData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 equal to 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 equal to 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GameData 实例

@@ -30,7 +30,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Initialize
 `public void Initialize(Agent escortedAgent, Agent targetAgent, EscortAgentBehavior.OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -41,7 +41,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetAgent, null);
 ### Initialize
 `public void Initialize(Agent escortedAgent, UsableMachine targetMachine, EscortAgentBehavior.OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -52,7 +52,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetMachine, null);
 ### Initialize
 `public void Initialize(Agent escortedAgent, Vec3? targetPosition, EscortAgentBehavior.OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -63,7 +63,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetPosition, null);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -74,7 +74,7 @@ escortAgentBehavior.Tick(0, false);
 ### IsEscortFinished
 `public bool IsEscortFinished()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the escort finished state or condition.
+**Purpose:** Determines whether the this instance is in the escort finished state or condition.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -85,7 +85,7 @@ var result = escortAgentBehavior.IsEscortFinished();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
+**Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -96,7 +96,7 @@ var result = escortAgentBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
+**Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first
@@ -107,7 +107,7 @@ var result = escortAgentBehavior.GetDebugInfo();
 ### AddEscortAgentBehavior
 `public static void AddEscortAgentBehavior(Agent ownerAgent, Agent targetAgent, EscortAgentBehavior.OnTargetReachedDelegate onTargetReached)`
 
-**Purpose:** **Purpose:** Adds escort agent behavior to the current collection or state.
+**Purpose:** Adds escort agent behavior to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -117,7 +117,7 @@ EscortAgentBehavior.AddEscortAgentBehavior(ownerAgent, targetAgent, onTargetReac
 ### RemoveEscortBehaviorOfAgent
 `public static void RemoveEscortBehaviorOfAgent(Agent ownerAgent)`
 
-**Purpose:** **Purpose:** Removes escort behavior of agent from the current collection or state.
+**Purpose:** Removes escort behavior of agent from the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -127,7 +127,7 @@ EscortAgentBehavior.RemoveEscortBehaviorOfAgent(ownerAgent);
 ### CheckIfAgentIsEscortedBy
 `public static bool CheckIfAgentIsEscortedBy(Agent ownerAgent, Agent escortedAgent)`
 
-**Purpose:** **Purpose:** Verifies whether if agent is escorted by holds true for the this instance.
+**Purpose:** Verifies whether if agent is escorted by holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -137,7 +137,7 @@ EscortAgentBehavior.CheckIfAgentIsEscortedBy(ownerAgent, escortedAgent);
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent escortedAgent, ref Agent targetAgent, ref UsableMachine targetMachine, ref Vec3? targetPosition)`
 
-**Purpose:** **Purpose:** Invoked when the target reached delegate event is raised.
+**Purpose:** Invoked when the target reached delegate event is raised.
 
 ```csharp
 // Obtain an instance of EscortAgentBehavior from the subsystem API first

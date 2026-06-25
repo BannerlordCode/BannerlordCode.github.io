@@ -23,7 +23,7 @@ Treat `FFAScoreboardData` as a Data-style extension point: first identify who cr
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** **Purpose:** Reads and returns the scoreboard headers value held by the this instance.
+**Purpose:** Reads and returns the scoreboard headers value held by the this instance.
 
 ```csharp
 // Obtain an instance of FFAScoreboardData from the subsystem API first

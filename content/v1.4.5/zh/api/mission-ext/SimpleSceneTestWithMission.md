@@ -23,7 +23,7 @@ description: "SimpleSceneTestWithMission 的自动生成类参考。"
 ### LoadingFinished
 `public bool LoadingFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 ing finished。
+**用途 / Purpose:** 从持久化存储或流中读取 ing finished。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleSceneTestWithMission 实例

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** **Purpose:** Reads and returns the banners value held by the this instance.
+**Purpose:** Reads and returns the banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of DeclareDragonBannerSceneNotificationItem from the subsystem API first
@@ -42,7 +42,7 @@ var result = declareDragonBannerSceneNotificationItem.GetBanners();
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
+**Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of DeclareDragonBannerSceneNotificationItem from the subsystem API first

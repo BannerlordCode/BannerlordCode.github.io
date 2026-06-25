@@ -23,7 +23,7 @@ Treat `GameModelsManager` as a Manager-style extension point: first identify who
 ### GetGameModels
 `public MBReadOnlyList<GameModel> GetGameModels()`
 
-**Purpose:** **Purpose:** Reads and returns the game models value held by the this instance.
+**Purpose:** Reads and returns the game models value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameModelsManager from the subsystem API first

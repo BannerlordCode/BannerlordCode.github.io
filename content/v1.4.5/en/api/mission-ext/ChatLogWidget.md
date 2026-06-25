@@ -41,7 +41,7 @@ Treat `ChatLogWidget` as a Widget-style extension point: first identify who crea
 ### RegisterMultiLineElement
 `public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
 
-**Purpose:** **Purpose:** Registers multi line element with the current system so it can later be observed or dispatched.
+**Purpose:** Registers multi line element with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ChatLogWidget from the subsystem API first
@@ -52,7 +52,7 @@ chatLogWidget.RegisterMultiLineElement(element);
 ### RemoveMultiLineElement
 `public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
 
-**Purpose:** **Purpose:** Removes multi line element from the current collection or state.
+**Purpose:** Removes multi line element from the current collection or state.
 
 ```csharp
 // Obtain an instance of ChatLogWidget from the subsystem API first

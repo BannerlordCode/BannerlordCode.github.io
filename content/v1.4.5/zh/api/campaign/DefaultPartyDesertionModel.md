@@ -23,7 +23,7 @@ description: "DefaultPartyDesertionModel 的自动生成类参考。"
 ### GetMoraleThresholdForTroopDesertion
 `public override int GetMoraleThresholdForTroopDesertion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morale threshold for troop desertion 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morale threshold for troop desertion 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyDesertionModel.GetMoraleThresholdForTroopDesertion();
 ### GetDesertionChanceForTroop
 `public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 desertion chance for troop 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 desertion chance for troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyDesertionModel.GetDesertionChanceForTroop(mobileParty, 
 ### GetTroopsToDesert
 `public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops to desert 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troops to desert 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例

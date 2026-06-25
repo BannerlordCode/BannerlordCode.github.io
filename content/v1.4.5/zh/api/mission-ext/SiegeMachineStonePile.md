@@ -23,7 +23,7 @@ description: "SiegeMachineStonePile 的自动生成类参考。"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeMachineStonePile 实例
@@ -34,7 +34,7 @@ var result = siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObjec
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeMachineStonePile 实例
@@ -45,7 +45,7 @@ var result = siegeMachineStonePile.GetDescriptionText(gameEntity);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawned from spawner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeMachineStonePile 实例
@@ -56,7 +56,7 @@ siegeMachineStonePile.SetSpawnedFromSpawner();
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeMachineStonePile 实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetObjectData
 `public virtual void GetObjectData(SerializationInfo info, StreamingContext context)`
 
-**Purpose:** **Purpose:** Reads and returns the object data value held by the this instance.
+**Purpose:** Reads and returns the object data value held by the this instance.
 
 ```csharp
 // Obtain an instance of NavigationPath from the subsystem API first
@@ -41,7 +41,7 @@ navigationPath.GetObjectData(info, context);
 ### OverridePathPointAtIndex
 `public void OverridePathPointAtIndex(int index, in Vec2 newValue)`
 
-**Purpose:** **Purpose:** Executes the OverridePathPointAtIndex logic.
+**Purpose:** Executes the OverridePathPointAtIndex logic.
 
 ```csharp
 // Obtain an instance of NavigationPath from the subsystem API first

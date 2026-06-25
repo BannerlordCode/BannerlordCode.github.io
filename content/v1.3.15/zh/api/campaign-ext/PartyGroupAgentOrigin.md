@@ -39,7 +39,7 @@ description: "PartyGroupAgentOrigin 的自动生成类参考。"
 ### SetWounded
 `public void SetWounded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 wounded 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 wounded 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupAgentOrigin 实例
@@ -50,7 +50,7 @@ partyGroupAgentOrigin.SetWounded();
 ### SetKilled
 `public void SetKilled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 killed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 killed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupAgentOrigin 实例
@@ -61,7 +61,7 @@ partyGroupAgentOrigin.SetKilled();
 ### SetRouted
 `public void SetRouted(bool isOrderRetreat)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 routed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 routed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupAgentOrigin 实例
@@ -72,7 +72,7 @@ partyGroupAgentOrigin.SetRouted(false);
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupAgentOrigin 实例
@@ -83,7 +83,7 @@ partyGroupAgentOrigin.OnAgentRemoved(0);
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 banner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 banner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupAgentOrigin 实例

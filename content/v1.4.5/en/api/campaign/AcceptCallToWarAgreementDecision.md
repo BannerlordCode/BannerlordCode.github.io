@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the decision title value held by the this instance.
+**Purpose:** Reads and returns the decision title value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -40,7 +40,7 @@ var result = acceptCallToWarAgreementDecision.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the decision description value held by the this instance.
+**Purpose:** Reads and returns the decision description value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -51,7 +51,7 @@ var result = acceptCallToWarAgreementDecision.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** **Purpose:** Reads and returns the decision link value held by the this instance.
+**Purpose:** Reads and returns the decision link value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -62,7 +62,7 @@ var result = acceptCallToWarAgreementDecision.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the decision image identifier value held by the this instance.
+**Purpose:** Reads and returns the decision image identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -73,7 +73,7 @@ var result = acceptCallToWarAgreementDecision.GetDecisionImageIdentifier();
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the allowed state or condition.
+**Purpose:** Determines whether the this instance is in the allowed state or condition.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -84,7 +84,7 @@ var result = acceptCallToWarAgreementDecision.IsAllowed();
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**Purpose:** **Purpose:** Reads and returns the proposal influence cost value held by the this instance.
+**Purpose:** Reads and returns the proposal influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -95,7 +95,7 @@ var result = acceptCallToWarAgreementDecision.GetProposalInfluenceCost();
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the general title value held by the this instance.
+**Purpose:** Reads and returns the general title value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -106,7 +106,7 @@ var result = acceptCallToWarAgreementDecision.GetGeneralTitle();
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the support title value held by the this instance.
+**Purpose:** Reads and returns the support title value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -117,7 +117,7 @@ var result = acceptCallToWarAgreementDecision.GetSupportTitle();
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the choose title value held by the this instance.
+**Purpose:** Reads and returns the choose title value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -128,7 +128,7 @@ var result = acceptCallToWarAgreementDecision.GetChooseTitle();
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the support description value held by the this instance.
+**Purpose:** Reads and returns the support description value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -139,7 +139,7 @@ var result = acceptCallToWarAgreementDecision.GetSupportDescription();
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the choose description value held by the this instance.
+**Purpose:** Reads and returns the choose description value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -150,7 +150,7 @@ var result = acceptCallToWarAgreementDecision.GetChooseDescription();
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** **Purpose:** Determines the result of initial candidates based on the current state.
+**Purpose:** Determines the result of initial candidates based on the current state.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -161,7 +161,7 @@ var result = acceptCallToWarAgreementDecision.DetermineInitialCandidates();
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**Purpose:** **Purpose:** Determines the result of chooser based on the current state.
+**Purpose:** Determines the result of chooser based on the current state.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -172,7 +172,7 @@ var result = acceptCallToWarAgreementDecision.DetermineChooser();
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** **Purpose:** Determines the result of sponsors based on the current state.
+**Purpose:** Determines the result of sponsors based on the current state.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -183,7 +183,7 @@ acceptCallToWarAgreementDecision.DetermineSponsors(possibleOutcomes);
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** **Purpose:** Applies the effect of chosen outcome to the this instance.
+**Purpose:** Applies the effect of chosen outcome to the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -194,7 +194,7 @@ acceptCallToWarAgreementDecision.ApplyChosenOutcome(chosenOutcome);
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** **Purpose:** Applies the effect of secondary effects to the this instance.
+**Purpose:** Applies the effect of secondary effects to the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -205,7 +205,7 @@ acceptCallToWarAgreementDecision.ApplySecondaryEffects(possibleOutcomes, chosenO
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**Purpose:** **Purpose:** Reads and returns the secondary effects value held by the this instance.
+**Purpose:** Reads and returns the secondary effects value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -216,7 +216,7 @@ var result = acceptCallToWarAgreementDecision.GetSecondaryEffects();
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** **Purpose:** Reads and returns the chosen outcome text value held by the this instance.
+**Purpose:** Reads and returns the chosen outcome text value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -227,7 +227,7 @@ var result = acceptCallToWarAgreementDecision.GetChosenOutcomeText(chosenOutcome
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** **Purpose:** Reads and returns the queried decision outcome value held by the this instance.
+**Purpose:** Reads and returns the queried decision outcome value held by the this instance.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -238,7 +238,7 @@ var result = acceptCallToWarAgreementDecision.GetQueriedDecisionOutcome(possible
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of support.
+**Purpose:** Calculates the current value or result of support.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -249,7 +249,7 @@ var result = acceptCallToWarAgreementDecision.CalculateSupport(clan);
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** **Purpose:** Determines the result of support based on the current state.
+**Purpose:** Determines the result of support based on the current state.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first
@@ -260,7 +260,7 @@ var result = acceptCallToWarAgreementDecision.DetermineSupport(clan, possibleOut
 ### CanMakeDecision
 `public override bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make decision.
+**Purpose:** Checks whether the this instance meets the preconditions for make decision.
 
 ```csharp
 // Obtain an instance of AcceptCallToWarAgreementDecision from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeSubModule from the subsystem API first

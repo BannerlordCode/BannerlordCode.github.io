@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -61,7 +61,7 @@ multiplayerClassLoadoutVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -72,7 +72,7 @@ multiplayerClassLoadoutVM.OnFinalize();
 ### RefreshPeerDivision
 `public void RefreshPeerDivision(MissionPeer peer, int divisionType)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of peer division in sync with the underlying state.
+**Purpose:** Keeps the display or cache of peer division in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -83,7 +83,7 @@ multiplayerClassLoadoutVM.RefreshPeerDivision(peer, 0);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -94,7 +94,7 @@ multiplayerClassLoadoutVM.Tick(0);
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Invoked when the peer equipment refreshed event is raised.
+**Purpose:** Invoked when the peer equipment refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -105,7 +105,7 @@ multiplayerClassLoadoutVM.OnPeerEquipmentRefreshed(peer);
 ### OnGoldUpdated
 `public void OnGoldUpdated()`
 
-**Purpose:** **Purpose:** Invoked when the gold updated event is raised.
+**Purpose:** Invoked when the gold updated event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
@@ -116,7 +116,7 @@ multiplayerClassLoadoutVM.OnGoldUpdated();
 ### RefreshRemainingTime
 `public void RefreshRemainingTime()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of remaining time in sync with the underlying state.
+**Purpose:** Keeps the display or cache of remaining time in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first

@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPScoreboardStatsVM from the subsystem API first
@@ -48,7 +48,7 @@ sPScoreboardStatsVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of scores.
+**Purpose:** Recalculates and stores the latest representation of scores.
 
 ```csharp
 // Obtain an instance of SPScoreboardStatsVM from the subsystem API first
@@ -59,7 +59,7 @@ sPScoreboardStatsVM.UpdateScores(0, 0, 0, 0, 0, 0);
 ### IsAnyStatRelevant
 `public bool IsAnyStatRelevant()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any stat relevant state or condition.
+**Purpose:** Determines whether the this instance is in the any stat relevant state or condition.
 
 ```csharp
 // Obtain an instance of SPScoreboardStatsVM from the subsystem API first
@@ -70,7 +70,7 @@ var result = sPScoreboardStatsVM.IsAnyStatRelevant();
 ### GetScoreForOneAliveMember
 `public SPScoreboardStatsVM GetScoreForOneAliveMember()`
 
-**Purpose:** **Purpose:** Reads and returns the score for one alive member value held by the this instance.
+**Purpose:** Reads and returns the score for one alive member value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardStatsVM from the subsystem API first

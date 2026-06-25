@@ -50,7 +50,7 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### Initialize
 `public async void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -61,7 +61,7 @@ saveLoadVM.Initialize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -72,7 +72,7 @@ saveLoadVM.RefreshValues();
 ### ExecuteCreateNewSaveGame
 `public void ExecuteCreateNewSaveGame()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with create new save game.
+**Purpose:** Runs the operation or workflow associated with create new save game.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -83,7 +83,7 @@ saveLoadVM.ExecuteCreateNewSaveGame();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
+**Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -94,7 +94,7 @@ saveLoadVM.ExecuteDone();
 ### ExecuteLoadSave
 `public void ExecuteLoadSave()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with load save.
+**Purpose:** Runs the operation or workflow associated with load save.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -105,7 +105,7 @@ saveLoadVM.ExecuteLoadSave();
 ### DeleteSelectedSave
 `public void DeleteSelectedSave()`
 
-**Purpose:** **Purpose:** Executes the DeleteSelectedSave logic.
+**Purpose:** Executes the DeleteSelectedSave logic.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -116,7 +116,7 @@ saveLoadVM.DeleteSelectedSave();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -127,7 +127,7 @@ saveLoadVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -138,7 +138,7 @@ saveLoadVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first
@@ -149,7 +149,7 @@ saveLoadVM.SetCancelInputKey(hotkey);
 ### SetDeleteInputKey
 `public void SetDeleteInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to delete input key and updates the object's internal state.
+**Purpose:** Assigns a new value to delete input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SaveLoadVM from the subsystem API first

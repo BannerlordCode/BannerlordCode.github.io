@@ -30,7 +30,7 @@ Treat `MultiplayerLobbyArmoryCosmeticItemBrushWidget` as a Widget-style extensio
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
+**Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyArmoryCosmeticItemBrushWidget from the subsystem API first

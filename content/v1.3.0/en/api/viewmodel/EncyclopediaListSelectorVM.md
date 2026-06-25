@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### ExecuteOnDropdownActivated
 `public void ExecuteOnDropdownActivated()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with on dropdown activated.
+**Purpose:** Runs the operation or workflow associated with on dropdown activated.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSelectorVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "SettlementValueModel 的自动生成类参考。"
 ### FindMostSuitableHomeSettlement
 `public abstract Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的most suitable home settlement。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的most suitable home settlement。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementValueModel 实例
@@ -34,7 +34,7 @@ var result = settlementValueModel.FindMostSuitableHomeSettlement(clan);
 ### CalculateSettlementValueForFaction
 `public abstract float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement value for faction的当前值或结果。
+**用途 / Purpose:** 计算settlement value for faction的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementValueModel 实例
@@ -45,7 +45,7 @@ var result = settlementValueModel.CalculateSettlementValueForFaction(settlement,
 ### CalculateSettlementBaseValue
 `public abstract float CalculateSettlementBaseValue(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement base value的当前值或结果。
+**用途 / Purpose:** 计算settlement base value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementValueModel 实例
@@ -56,7 +56,7 @@ var result = settlementValueModel.CalculateSettlementBaseValue(settlement);
 ### CalculateSettlementValueForEnemyHero
 `public abstract float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算settlement value for enemy hero的当前值或结果。
+**用途 / Purpose:** 计算settlement value for enemy hero的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementValueModel 实例

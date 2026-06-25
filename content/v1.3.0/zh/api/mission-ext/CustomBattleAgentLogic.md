@@ -23,7 +23,7 @@ description: "CustomBattleAgentLogic 的自动生成类参考。"
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleAgentLogic 实例
@@ -34,7 +34,7 @@ customBattleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleAgentLogic 实例

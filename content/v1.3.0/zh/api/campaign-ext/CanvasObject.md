@@ -36,7 +36,7 @@ description: "CanvasObject 的自动生成类参考。"
 ### Update
 `public virtual void Update(float scale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -47,7 +47,7 @@ canvasObject.Update(0);
 ### BeginMeasure
 `public void BeginMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BeginMeasure 对应的操作。
+**用途 / Purpose:** 调用 BeginMeasure 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -58,7 +58,7 @@ canvasObject.BeginMeasure(false, false, 0, 0);
 ### DoMeasure
 `public void DoMeasure()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoMeasure 对应的操作。
+**用途 / Purpose:** 调用 DoMeasure 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -69,7 +69,7 @@ canvasObject.DoMeasure();
 ### DoLayout
 `public void DoLayout()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoLayout 对应的操作。
+**用途 / Purpose:** 调用 DoLayout 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -80,7 +80,7 @@ canvasObject.DoLayout();
 ### GetMarginSize
 `public virtual Vector2 GetMarginSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 margin size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 margin size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -91,7 +91,7 @@ var result = canvasObject.GetMarginSize();
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoRender 对应的操作。
+**用途 / Purpose:** 调用 DoRender 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例

@@ -23,7 +23,7 @@ description: "EncyclopediaData 的自动生成类参考。"
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaData 实例
@@ -34,7 +34,7 @@ encyclopediaData.OnFinalize();
 ### CloseEncyclopedia
 `public void CloseEncyclopedia()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭encyclopedia对应的资源或界面。
+**用途 / Purpose:** 关闭encyclopedia对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaData 实例

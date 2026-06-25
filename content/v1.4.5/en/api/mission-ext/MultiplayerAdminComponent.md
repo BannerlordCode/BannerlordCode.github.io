@@ -23,7 +23,7 @@ Treat `MultiplayerAdminComponent` as a Component-style extension point: first id
 ### OnSelectPlayerToKickDelegate
 `public delegate void OnSelectPlayerToKickDelegate(bool banPlayer)`
 
-**Purpose:** **Purpose:** Invoked when the select player to kick delegate event is raised.
+**Purpose:** Invoked when the select player to kick delegate event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerAdminComponent.OnSelectPlayerToKickDelegate(false);
 ### OnSetAdminMenuActiveStateDelegate
 `public delegate void OnSetAdminMenuActiveStateDelegate(bool showMenu)`
 
-**Purpose:** **Purpose:** Invoked when the set admin menu active state delegate event is raised.
+**Purpose:** Invoked when the set admin menu active state delegate event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerAdminComponent.OnSetAdminMenuActiveStateDelegate(false);
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**Purpose:** **Purpose:** Invoked when the mission state activated event is raised.
+**Purpose:** Invoked when the mission state activated event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -56,7 +56,7 @@ multiplayerAdminComponent.OnMissionStateActivated();
 ### ChangeAdminMenuActiveState
 `public void ChangeAdminMenuActiveState(bool isActive)`
 
-**Purpose:** **Purpose:** Executes the ChangeAdminMenuActiveState logic.
+**Purpose:** Executes the ChangeAdminMenuActiveState logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerAdminComponent.ChangeAdminMenuActiveState(false);
 ### KickPlayer
 `public void KickPlayer(NetworkCommunicator peerToKick, bool banPlayer)`
 
-**Purpose:** **Purpose:** Executes the KickPlayer logic.
+**Purpose:** Executes the KickPlayer logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -78,7 +78,7 @@ multiplayerAdminComponent.KickPlayer(peerToKick, false);
 ### GlobalMuteUnmutePlayer
 `public void GlobalMuteUnmutePlayer(NetworkCommunicator peerToMute, bool unmute)`
 
-**Purpose:** **Purpose:** Executes the GlobalMuteUnmutePlayer logic.
+**Purpose:** Executes the GlobalMuteUnmutePlayer logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -89,7 +89,7 @@ multiplayerAdminComponent.GlobalMuteUnmutePlayer(peerToMute, false);
 ### EndWarmup
 `public void EndWarmup()`
 
-**Purpose:** **Purpose:** Executes the EndWarmup logic.
+**Purpose:** Executes the EndWarmup logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -100,7 +100,7 @@ multiplayerAdminComponent.EndWarmup();
 ### ChangeWelcomeMessage
 `public void ChangeWelcomeMessage(string newWelcomeMessage)`
 
-**Purpose:** **Purpose:** Executes the ChangeWelcomeMessage logic.
+**Purpose:** Executes the ChangeWelcomeMessage logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -111,7 +111,7 @@ multiplayerAdminComponent.ChangeWelcomeMessage("example");
 ### AdminAnnouncement
 `public void AdminAnnouncement(string message, bool isBroadcast)`
 
-**Purpose:** **Purpose:** Executes the AdminAnnouncement logic.
+**Purpose:** Executes the AdminAnnouncement logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -122,7 +122,7 @@ multiplayerAdminComponent.AdminAnnouncement("example", false);
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool newValue)`
 
-**Purpose:** **Purpose:** Executes the ChangeClassRestriction logic.
+**Purpose:** Executes the ChangeClassRestriction logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -133,7 +133,7 @@ multiplayerAdminComponent.ChangeClassRestriction(classToChangeRestriction, false
 ### AdminEndMission
 `public void AdminEndMission()`
 
-**Purpose:** **Purpose:** Executes the AdminEndMission logic.
+**Purpose:** Executes the AdminEndMission logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -144,7 +144,7 @@ multiplayerAdminComponent.AdminEndMission();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -155,7 +155,7 @@ multiplayerAdminComponent.OnBehaviorInitialize();
 ### MPAdminAnnouncement
 `public static string MPAdminAnnouncement(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminAnnouncement logic.
+**Purpose:** Executes the MPAdminAnnouncement logic.
 
 ```csharp
 // Static call; no instance required
@@ -165,7 +165,7 @@ MultiplayerAdminComponent.MPAdminAnnouncement(strings);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminComponent from the subsystem API first
@@ -176,7 +176,7 @@ multiplayerAdminComponent.OnRemoveBehavior();
 ### MPAdminKickPlayer
 `public static string MPAdminKickPlayer(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminKickPlayer logic.
+**Purpose:** Executes the MPAdminKickPlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -186,7 +186,7 @@ MultiplayerAdminComponent.MPAdminKickPlayer(strings);
 ### MPAdminBanPlayer
 `public static string MPAdminBanPlayer(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminBanPlayer logic.
+**Purpose:** Executes the MPAdminBanPlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -196,7 +196,7 @@ MultiplayerAdminComponent.MPAdminBanPlayer(strings);
 ### MPAdminChangeWelcomeMessage
 `public static string MPAdminChangeWelcomeMessage(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminChangeWelcomeMessage logic.
+**Purpose:** Executes the MPAdminChangeWelcomeMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -206,7 +206,7 @@ MultiplayerAdminComponent.MPAdminChangeWelcomeMessage(strings);
 ### MPAdminChangeClassRestriction
 `public static string MPAdminChangeClassRestriction(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminChangeClassRestriction logic.
+**Purpose:** Executes the MPAdminChangeClassRestriction logic.
 
 ```csharp
 // Static call; no instance required
@@ -216,7 +216,7 @@ MultiplayerAdminComponent.MPAdminChangeClassRestriction(strings);
 ### MPHostRestartGame
 `public static string MPHostRestartGame(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPHostRestartGame logic.
+**Purpose:** Executes the MPHostRestartGame logic.
 
 ```csharp
 // Static call; no instance required
@@ -226,7 +226,7 @@ MultiplayerAdminComponent.MPHostRestartGame(strings);
 ### MPAdminChangeServerSlots
 `public static string MPAdminChangeServerSlots(List<string> strings)`
 
-**Purpose:** **Purpose:** Executes the MPAdminChangeServerSlots logic.
+**Purpose:** Executes the MPAdminChangeServerSlots logic.
 
 ```csharp
 // Static call; no instance required

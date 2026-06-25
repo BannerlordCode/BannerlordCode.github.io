@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetValueForFaction
 `public int GetValueForFaction(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the value for faction value held by the this instance.
+**Purpose:** Reads and returns the value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -48,7 +48,7 @@ var result = barterable.GetValueForFaction(faction);
 ### CheckBarterLink
 `public virtual void CheckBarterLink(Barterable linkedBarterable)`
 
-**Purpose:** **Purpose:** Verifies whether barter link holds true for the this instance.
+**Purpose:** Verifies whether barter link holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -59,7 +59,7 @@ barterable.CheckBarterLink(linkedBarterable);
 ### GetUnitValueForFaction
 `public abstract int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
+**Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -70,7 +70,7 @@ var result = barterable.GetUnitValueForFaction(faction);
 ### SetIsOffered
 `public void SetIsOffered(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to is offered and updates the object's internal state.
+**Purpose:** Assigns a new value to is offered and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -81,7 +81,7 @@ barterable.SetIsOffered(false);
 ### AddBarterLink
 `public void AddBarterLink(Barterable barterable)`
 
-**Purpose:** **Purpose:** Adds barter link to the current collection or state.
+**Purpose:** Adds barter link to the current collection or state.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -92,7 +92,7 @@ barterable.AddBarterLink(barterable);
 ### Initialize
 `public void Initialize(BarterGroup barterGroup, bool isContextDependent)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -103,7 +103,7 @@ barterable.Initialize(barterGroup, false);
 ### IsCompatible
 `public virtual bool IsCompatible(Barterable barterable)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the compatible state or condition.
+**Purpose:** Determines whether the this instance is in the compatible state or condition.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -114,7 +114,7 @@ var result = barterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public abstract ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
+**Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -125,7 +125,7 @@ var result = barterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public virtual string GetEncyclopediaLink()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia link value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia link value held by the this instance.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first
@@ -136,7 +136,7 @@ var result = barterable.GetEncyclopediaLink();
 ### Apply
 `public abstract void Apply()`
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of Barterable from the subsystem API first

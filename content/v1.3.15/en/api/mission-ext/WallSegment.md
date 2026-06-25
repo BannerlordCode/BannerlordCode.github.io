@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
+**Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of WallSegment from the subsystem API first
@@ -49,7 +49,7 @@ var result = wallSegment.GetPosition();
 ### OnChooseUsedWallSegment
 `public void OnChooseUsedWallSegment(bool isBroken)`
 
-**Purpose:** **Purpose:** Invoked when the choose used wall segment event is raised.
+**Purpose:** Invoked when the choose used wall segment event is raised.
 
 ```csharp
 // Obtain an instance of WallSegment from the subsystem API first

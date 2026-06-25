@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
+**Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of FireMangonel from the subsystem API first
@@ -34,7 +34,7 @@ var result = fireMangonel.GetSiegeEngineType();
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** **Purpose:** Executes the ProcessTargetValue logic.
+**Purpose:** Executes the ProcessTargetValue logic.
 
 ```csharp
 // Obtain an instance of FireMangonel from the subsystem API first

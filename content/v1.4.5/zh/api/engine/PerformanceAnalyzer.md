@@ -23,7 +23,7 @@ description: "PerformanceAnalyzer 的自动生成类参考。"
 ### AddFps
 `public void AddFps(float fps, float main, float renderer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 fps 添加到当前容器或状态中。
+**用途 / Purpose:** 将 fps 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -34,7 +34,7 @@ performanceAnalyzer.AddFps(0, 0, 0);
 ### Write
 `public void Write(XmlNode node, XmlDocument document)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -45,7 +45,7 @@ performanceAnalyzer.Write(node, document);
 ### Start
 `public void Start(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -56,7 +56,7 @@ performanceAnalyzer.Start("example");
 ### End
 `public void End()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 End 对应的操作。
+**用途 / Purpose:** 调用 End 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -67,7 +67,7 @@ performanceAnalyzer.End();
 ### FinalizeAndWrite
 `public void FinalizeAndWrite(string filePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeAndWrite 对应的操作。
+**用途 / Purpose:** 调用 FinalizeAndWrite 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -78,7 +78,7 @@ performanceAnalyzer.FinalizeAndWrite("example");
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例

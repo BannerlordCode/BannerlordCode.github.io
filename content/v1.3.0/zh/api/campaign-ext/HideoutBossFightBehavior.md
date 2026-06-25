@@ -31,7 +31,7 @@ description: "HideoutBossFightBehavior 的自动生成类参考。"
 ### GetPlayerFrames
 `public void GetPlayerFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 player frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -42,7 +42,7 @@ hideoutBossFightBehavior.GetPlayerFrames(initialFrame, targetFrame, 0);
 ### GetBossFrames
 `public void GetBossFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 boss frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 boss frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -53,7 +53,7 @@ hideoutBossFightBehavior.GetBossFrames(initialFrame, targetFrame, 0);
 ### GetAllyFrames
 `public void GetAllyFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ally frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ally frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -64,7 +64,7 @@ hideoutBossFightBehavior.GetAllyFrames(initialFrames, targetFrames, 0, 0, 0);
 ### GetBanditFrames
 `public void GetBanditFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bandit frames 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bandit frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -75,7 +75,7 @@ hideoutBossFightBehavior.GetBanditFrames(initialFrames, targetFrames, 0, 0, 0);
 ### GetAlliesInitialFrame
 `public void GetAlliesInitialFrame(out MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 allies initial frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 allies initial frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -86,7 +86,7 @@ hideoutBossFightBehavior.GetAlliesInitialFrame(frame);
 ### GetBanditsInitialFrame
 `public void GetBanditsInitialFrame(out MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bandits initial frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bandits initial frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -97,7 +97,7 @@ hideoutBossFightBehavior.GetBanditsInitialFrame(frame);
 ### IsWorldPointInsideCameraVolume
 `public bool IsWorldPointInsideCameraVolume(in Vec3 worldPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 world point inside camera volume 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 world point inside camera volume 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
@@ -108,7 +108,7 @@ var result = hideoutBossFightBehavior.IsWorldPointInsideCameraVolume(worldPoint)
 ### ClampWorldPointToCameraVolume
 `public bool ClampWorldPointToCameraVolume(in Vec3 worldPoint, out Vec3 clampedPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ClampWorldPointToCameraVolume 对应的操作。
+**用途 / Purpose:** 调用 ClampWorldPointToCameraVolume 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例

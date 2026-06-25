@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of FoodConsumptionBehavior from the subsystem API first
@@ -34,7 +34,7 @@ foodConsumptionBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of FoodConsumptionBehavior from the subsystem API first
@@ -45,7 +45,7 @@ foodConsumptionBehavior.SyncData(dataStore);
 ### DailyTickParty
 `public void DailyTickParty(MobileParty party)`
 
-**Purpose:** **Purpose:** Executes the DailyTickParty logic.
+**Purpose:** Executes the DailyTickParty logic.
 
 ```csharp
 // Obtain an instance of FoodConsumptionBehavior from the subsystem API first
@@ -56,7 +56,7 @@ foodConsumptionBehavior.DailyTickParty(party);
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of FoodConsumptionBehavior from the subsystem API first

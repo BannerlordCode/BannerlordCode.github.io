@@ -31,7 +31,7 @@ description: "SRTHelper 的自动生成类参考。"
 ### ParseStream
 `public static List<SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将外部输入解析为当前系统可识别的stream。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的stream。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ SRTHelper.ParseStream(subtitleStream, encoding);
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的stream状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的stream状态复制到目标对象。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ SRTHelper.CopyStream(inputStream);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SRTHelper 实例

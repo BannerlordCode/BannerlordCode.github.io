@@ -23,7 +23,7 @@ Treat `BannerHelper` as a Helper-style extension point: first identify who creat
 ### GetRandomBannerItemForHero
 `public static ItemObject GetRandomBannerItemForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the random banner item for hero value held by the this instance.
+**Purpose:** Reads and returns the random banner item for hero value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BannerHelper.GetRandomBannerItemForHero(hero);
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref ExplainedNumber bonuses)`
 
-**Purpose:** **Purpose:** Adds banner bonus for banner to the current collection or state.
+**Purpose:** Adds banner bonus for banner to the current collection or state.
 
 ```csharp
 // Static call; no instance required

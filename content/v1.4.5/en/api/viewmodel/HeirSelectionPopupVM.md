@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.HeirSele
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of HeirSelectionPopupVM from the subsystem API first
@@ -50,7 +50,7 @@ heirSelectionPopupVM.Update();
 ### ExecuteSelectHeir
 `public void ExecuteSelectHeir()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select heir.
+**Purpose:** Runs the operation or workflow associated with select heir.
 
 ```csharp
 // Obtain an instance of HeirSelectionPopupVM from the subsystem API first
@@ -61,7 +61,7 @@ heirSelectionPopupVM.ExecuteSelectHeir();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of HeirSelectionPopupVM from the subsystem API first
@@ -72,7 +72,7 @@ heirSelectionPopupVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of HeirSelectionPopupVM from the subsystem API first
@@ -83,7 +83,7 @@ heirSelectionPopupVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of HeirSelectionPopupVM from the subsystem API first

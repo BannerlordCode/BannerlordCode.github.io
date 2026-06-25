@@ -33,7 +33,7 @@ description: "PropertyDefinition 的自动生成类参考。"
 ### GetMemberType
 `public override Type GetMemberType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 member type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 member type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyDefinition 实例
@@ -44,7 +44,7 @@ var result = propertyDefinition.GetMemberType();
 ### GetValue
 `public override object GetValue(object target)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyDefinition 实例
@@ -55,7 +55,7 @@ var result = propertyDefinition.GetValue(target);
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(GetPropertyValueDelegate getPropertyValueMethod)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 for auto generation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyDefinition 实例

@@ -32,7 +32,7 @@ Treat `RelationTextWidget` as a Widget-style extension point: first identify who
 ### RelationTextWidget
 `public class RelationTextWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the RelationTextWidget logic.
+**Purpose:** Executes the RelationTextWidget logic.
 
 ```csharp
 // Obtain an instance of RelationTextWidget from the subsystem API first

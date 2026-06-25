@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**Purpose:** **Purpose:** Executes the FontData logic.
+**Purpose:** Executes the FontData logic.
 
 ```csharp
 // Obtain an instance of StyleFontContainer from the subsystem API first
@@ -34,7 +34,7 @@ var result = styleFontContainer.FontData(font, 0);
 ### Add
 `public void Add(string style, Font font, float fontSize)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of StyleFontContainer from the subsystem API first
@@ -45,7 +45,7 @@ styleFontContainer.Add("example", font, 0);
 ### GetFontData
 `public FontData GetFontData(string style)`
 
-**Purpose:** **Purpose:** Reads and returns the font data value held by the this instance.
+**Purpose:** Reads and returns the font data value held by the this instance.
 
 ```csharp
 // Obtain an instance of StyleFontContainer from the subsystem API first
@@ -56,7 +56,7 @@ var result = styleFontContainer.GetFontData("example");
 ### ClearFonts
 `public void ClearFonts()`
 
-**Purpose:** **Purpose:** Removes all fonts from the this instance.
+**Purpose:** Removes all fonts from the this instance.
 
 ```csharp
 // Obtain an instance of StyleFontContainer from the subsystem API first

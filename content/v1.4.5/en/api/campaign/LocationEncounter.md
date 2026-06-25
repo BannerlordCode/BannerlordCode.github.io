@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### AddAccompanyingCharacter
 `public void AddAccompanyingCharacter(LocationCharacter locationCharacter, bool isFollowing = false)`
 
-**Purpose:** **Purpose:** Adds accompanying character to the current collection or state.
+**Purpose:** Adds accompanying character to the current collection or state.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -41,7 +41,7 @@ locationEncounter.AddAccompanyingCharacter(locationCharacter, false);
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Reads and returns the accompanying character value held by the this instance.
+**Purpose:** Reads and returns the accompanying character value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -52,7 +52,7 @@ var result = locationEncounter.GetAccompanyingCharacter(locationCharacter);
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the accompanying character value held by the this instance.
+**Purpose:** Reads and returns the accompanying character value held by the this instance.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -63,7 +63,7 @@ var result = locationEncounter.GetAccompanyingCharacter(character);
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Removes accompanying character from the current collection or state.
+**Purpose:** Removes accompanying character from the current collection or state.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -74,7 +74,7 @@ locationEncounter.RemoveAccompanyingCharacter(locationCharacter);
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(Hero hero)`
 
-**Purpose:** **Purpose:** Removes accompanying character from the current collection or state.
+**Purpose:** Removes accompanying character from the current collection or state.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -85,7 +85,7 @@ locationEncounter.RemoveAccompanyingCharacter(hero);
 ### RemoveAllAccompanyingCharacters
 `public void RemoveAllAccompanyingCharacters()`
 
-**Purpose:** **Purpose:** Removes all accompanying characters from the current collection or state.
+**Purpose:** Removes all accompanying characters from the current collection or state.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -96,7 +96,7 @@ locationEncounter.RemoveAllAccompanyingCharacters();
 ### OnCharacterLocationChanged
 `public void OnCharacterLocationChanged(LocationCharacter locationCharacter, Location fromLocation, Location toLocation)`
 
-**Purpose:** **Purpose:** Invoked when the character location changed event is raised.
+**Purpose:** Invoked when the character location changed event is raised.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -107,7 +107,7 @@ locationEncounter.OnCharacterLocationChanged(locationCharacter, fromLocation, to
 ### IsWorkshopLocation
 `public virtual bool IsWorkshopLocation(Location location)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the workshop location state or condition.
+**Purpose:** Determines whether the this instance is in the workshop location state or condition.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -118,7 +118,7 @@ var result = locationEncounter.IsWorkshopLocation(location);
 ### IsTavern
 `public virtual bool IsTavern(Location location)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the tavern state or condition.
+**Purpose:** Determines whether the this instance is in the tavern state or condition.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first
@@ -129,7 +129,7 @@ var result = locationEncounter.IsTavern(location);
 ### CreateAndOpenMissionController
 `public virtual IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** **Purpose:** Constructs a new and open mission controller entity and returns it to the caller.
+**Purpose:** Constructs a new and open mission controller entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of LocationEncounter from the subsystem API first

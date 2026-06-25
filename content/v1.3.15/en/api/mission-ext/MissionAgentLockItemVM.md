@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetLockState
 `public void SetLockState(MissionAgentLockItemVM.LockStates lockState)`
 
-**Purpose:** **Purpose:** Assigns a new value to lock state and updates the object's internal state.
+**Purpose:** Assigns a new value to lock state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionAgentLockItemVM from the subsystem API first
@@ -42,7 +42,7 @@ missionAgentLockItemVM.SetLockState(lockState);
 ### UpdatePosition
 `public void UpdatePosition(Vec2 position)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
+**Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionAgentLockItemVM from the subsystem API first

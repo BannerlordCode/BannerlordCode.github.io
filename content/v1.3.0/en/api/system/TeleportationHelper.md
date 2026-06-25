@@ -23,7 +23,7 @@ Treat `TeleportationHelper` as a Helper-style extension point: first identify wh
 ### GetHoursLeftForTeleportingHeroToReachItsDestination
 `public static float GetHoursLeftForTeleportingHeroToReachItsDestination(Hero teleportingHero)`
 
-**Purpose:** **Purpose:** Reads and returns the hours left for teleporting hero to reach its destination value held by the this instance.
+**Purpose:** Reads and returns the hours left for teleporting hero to reach its destination value held by the this instance.
 
 ```csharp
 // Static call; no instance required

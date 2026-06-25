@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddDefender
 `public void AddDefender(Agent defender)`
 
-**Purpose:** **Purpose:** Adds defender to the current collection or state.
+**Purpose:** Adds defender to the current collection or state.
 
 ```csharp
 // Obtain an instance of DefencePoint from the subsystem API first
@@ -40,7 +40,7 @@ defencePoint.AddDefender(defender);
 ### RemoveDefender
 `public bool RemoveDefender(Agent defender)`
 
-**Purpose:** **Purpose:** Removes defender from the current collection or state.
+**Purpose:** Removes defender from the current collection or state.
 
 ```csharp
 // Obtain an instance of DefencePoint from the subsystem API first
@@ -51,7 +51,7 @@ var result = defencePoint.RemoveDefender(defender);
 ### PurgeInactiveDefenders
 `public void PurgeInactiveDefenders()`
 
-**Purpose:** **Purpose:** Executes the PurgeInactiveDefenders logic.
+**Purpose:** Executes the PurgeInactiveDefenders logic.
 
 ```csharp
 // Obtain an instance of DefencePoint from the subsystem API first
@@ -62,7 +62,7 @@ defencePoint.PurgeInactiveDefenders();
 ### GetVacantPosition
 `public MatrixFrame GetVacantPosition(Agent a)`
 
-**Purpose:** **Purpose:** Reads and returns the vacant position value held by the this instance.
+**Purpose:** Reads and returns the vacant position value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefencePoint from the subsystem API first
@@ -73,7 +73,7 @@ var result = defencePoint.GetVacantPosition(a);
 ### CountOccupiedDefenderPositions
 `public int CountOccupiedDefenderPositions()`
 
-**Purpose:** **Purpose:** Executes the CountOccupiedDefenderPositions logic.
+**Purpose:** Executes the CountOccupiedDefenderPositions logic.
 
 ```csharp
 // Obtain an instance of DefencePoint from the subsystem API first

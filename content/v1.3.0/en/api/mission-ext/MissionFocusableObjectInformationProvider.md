@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
@@ -34,7 +34,7 @@ missionFocusableObjectInformationProvider.OnFinalize();
 ### AddInfoCallback
 `public void AddInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**Purpose:** **Purpose:** Adds info callback to the current collection or state.
+**Purpose:** Adds info callback to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
@@ -45,7 +45,7 @@ missionFocusableObjectInformationProvider.AddInfoCallback(callback);
 ### RemoveInfoCallback
 `public void RemoveInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**Purpose:** **Purpose:** Removes info callback from the current collection or state.
+**Purpose:** Removes info callback from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
@@ -56,7 +56,7 @@ missionFocusableObjectInformationProvider.RemoveInfoCallback(callback);
 ### GetInteractionTexts
 `public void GetInteractionTexts(Agent requesterAgent, IFocusable focusable, bool isInteractable, out FocusableObjectInformation focusableObjectInformation)`
 
-**Purpose:** **Purpose:** Reads and returns the interaction texts value held by the this instance.
+**Purpose:** Reads and returns the interaction texts value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first

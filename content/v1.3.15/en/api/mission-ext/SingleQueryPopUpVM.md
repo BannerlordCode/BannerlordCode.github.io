@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of SingleQueryPopUpVM from the subsystem API first
@@ -42,7 +42,7 @@ singleQueryPopUpVM.OnTick(0);
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with affirmative action.
+**Purpose:** Runs the operation or workflow associated with affirmative action.
 
 ```csharp
 // Obtain an instance of SingleQueryPopUpVM from the subsystem API first
@@ -53,7 +53,7 @@ singleQueryPopUpVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with negative action.
+**Purpose:** Runs the operation or workflow associated with negative action.
 
 ```csharp
 // Obtain an instance of SingleQueryPopUpVM from the subsystem API first
@@ -64,7 +64,7 @@ singleQueryPopUpVM.ExecuteNegativeAction();
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** **Purpose:** Invoked when the clear data event is raised.
+**Purpose:** Invoked when the clear data event is raised.
 
 ```csharp
 // Obtain an instance of SingleQueryPopUpVM from the subsystem API first
@@ -75,7 +75,7 @@ singleQueryPopUpVM.OnClearData();
 ### SetData
 `public void SetData(InquiryData data)`
 
-**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
+**Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SingleQueryPopUpVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "MBGUID 的自动生成类参考。"
 ### GetHash2
 `public static long GetHash2(MBGUID id1, MBGUID id2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hash2 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hash2 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBGUID.GetHash2(id1, id2);
 ### CompareTo
 `public int CompareTo(object a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例
@@ -44,7 +44,7 @@ var result = mBGUID.CompareTo(a);
 ### GetTypeIndex
 `public uint GetTypeIndex()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 type index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 type index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例
@@ -55,7 +55,7 @@ var result = mBGUID.GetTypeIndex();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例
@@ -66,7 +66,7 @@ var result = mBGUID.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例
@@ -77,7 +77,7 @@ var result = mBGUID.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例
@@ -88,7 +88,7 @@ var result = mBGUID.Equals(obj);
 ### Equals
 `public bool Equals(MBGUID other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGUID 实例

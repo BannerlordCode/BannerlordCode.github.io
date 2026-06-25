@@ -29,7 +29,7 @@ description: "MissionGauntletConversationView 的自动生成类参考。"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletConversationView 实例
@@ -40,7 +40,7 @@ missionGauntletConversationView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletConversationView 实例
@@ -51,7 +51,7 @@ missionGauntletConversationView.OnMissionScreenFinalize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletConversationView 实例
@@ -62,7 +62,7 @@ missionGauntletConversationView.EarlyStart();
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen activate 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen activate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletConversationView 实例
@@ -73,7 +73,7 @@ missionGauntletConversationView.OnMissionScreenActivate();
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission mode change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletConversationView 实例

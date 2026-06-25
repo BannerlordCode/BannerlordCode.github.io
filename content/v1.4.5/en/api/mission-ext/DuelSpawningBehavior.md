@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of DuelSpawningBehavior from the subsystem API first
@@ -34,7 +34,7 @@ duelSpawningBehavior.Initialize(spawnComponent);
 ### Clear
 `public override void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of DuelSpawningBehavior from the subsystem API first
@@ -45,7 +45,7 @@ duelSpawningBehavior.Clear();
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of DuelSpawningBehavior from the subsystem API first
@@ -56,7 +56,7 @@ duelSpawningBehavior.OnTick(0);
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**Purpose:** **Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
+**Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of DuelSpawningBehavior from the subsystem API first

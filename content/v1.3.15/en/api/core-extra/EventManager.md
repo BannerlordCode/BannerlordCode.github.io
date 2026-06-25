@@ -23,7 +23,7 @@ Treat `EventManager` as a Manager-style extension point: first identify who crea
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -34,7 +34,7 @@ eventManager.Clear();
 ### GetCloneOfEventDictionary
 `public IDictionary<Type, object> GetCloneOfEventDictionary()`
 
-**Purpose:** **Purpose:** Reads and returns the clone of event dictionary value held by the this instance.
+**Purpose:** Reads and returns the clone of event dictionary value held by the this instance.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetParametersAsString
 `public string GetParametersAsString()`
 
-**Purpose:** **Purpose:** Reads and returns the parameters as string value held by the this instance.
+**Purpose:** Reads and returns the parameters as string value held by the this instance.
 
 ```csharp
 // Obtain an instance of LobbyNotification from the subsystem API first
@@ -44,7 +44,7 @@ var result = lobbyNotification.GetParametersAsString();
 ### GetTextObjectOfMessage
 `public TextObject GetTextObjectOfMessage()`
 
-**Purpose:** **Purpose:** Reads and returns the text object of message value held by the this instance.
+**Purpose:** Reads and returns the text object of message value held by the this instance.
 
 ```csharp
 // Obtain an instance of LobbyNotification from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of DXGI from the subsystem API first
@@ -34,7 +34,7 @@ var result = dXGI.Equals(o);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of DXGI from the subsystem API first
@@ -45,7 +45,7 @@ var result = dXGI.GetHashCode();
 ### CreateDXGIFactory
 `public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
 
-**Purpose:** **Purpose:** Constructs a new d x g i factory entity and returns it to the caller.
+**Purpose:** Constructs a new d x g i factory entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

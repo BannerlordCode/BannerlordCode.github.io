@@ -19,7 +19,7 @@ ChangeCrimeRatingAction is a set of static methods that trigger "ChangeCrimeRati
 public static void Apply(IFaction faction, float deltaCrimeRating, bool showNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

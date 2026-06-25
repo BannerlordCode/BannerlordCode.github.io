@@ -35,7 +35,7 @@ Treat `DefaultWorkshopModel` as a Model-style extension point: first identify wh
 ### GetEffectiveConversionSpeedOfProduction
 `public override ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescription)`
 
-**Purpose:** **Purpose:** Reads and returns the effective conversion speed of production value held by the this instance.
+**Purpose:** Reads and returns the effective conversion speed of production value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -46,7 +46,7 @@ var result = defaultWorkshopModel.GetEffectiveConversionSpeedOfProduction(worksh
 ### GetMaxWorkshopCountForClanTier
 `public override int GetMaxWorkshopCountForClanTier(int tier)`
 
-**Purpose:** **Purpose:** Reads and returns the max workshop count for clan tier value held by the this instance.
+**Purpose:** Reads and returns the max workshop count for clan tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -57,7 +57,7 @@ var result = defaultWorkshopModel.GetMaxWorkshopCountForClanTier(0);
 ### GetCostForPlayer
 `public override int GetCostForPlayer(Workshop workshop)`
 
-**Purpose:** **Purpose:** Reads and returns the cost for player value held by the this instance.
+**Purpose:** Reads and returns the cost for player value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -68,7 +68,7 @@ var result = defaultWorkshopModel.GetCostForPlayer(workshop);
 ### GetCostForNotable
 `public override int GetCostForNotable(Workshop workshop)`
 
-**Purpose:** **Purpose:** Reads and returns the cost for notable value held by the this instance.
+**Purpose:** Reads and returns the cost for notable value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -79,7 +79,7 @@ var result = defaultWorkshopModel.GetCostForNotable(workshop);
 ### GetNotableOwnerForWorkshop
 `public override Hero GetNotableOwnerForWorkshop(Workshop workshop)`
 
-**Purpose:** **Purpose:** Reads and returns the notable owner for workshop value held by the this instance.
+**Purpose:** Reads and returns the notable owner for workshop value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -90,7 +90,7 @@ var result = defaultWorkshopModel.GetNotableOwnerForWorkshop(workshop);
 ### GetConvertProductionCost
 `public override int GetConvertProductionCost(WorkshopType workshopType)`
 
-**Purpose:** **Purpose:** Reads and returns the convert production cost value held by the this instance.
+**Purpose:** Reads and returns the convert production cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -101,7 +101,7 @@ var result = defaultWorkshopModel.GetConvertProductionCost(workshopType);
 ### CanPlayerSellWorkshop
 `public override bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player sell workshop.
+**Purpose:** Checks whether the this instance meets the preconditions for player sell workshop.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first
@@ -112,7 +112,7 @@ var result = defaultWorkshopModel.CanPlayerSellWorkshop(workshop, explanation);
 ### GetTradeXpPerWarehouseProduction
 `public override float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
 
-**Purpose:** **Purpose:** Reads and returns the trade xp per warehouse production value held by the this instance.
+**Purpose:** Reads and returns the trade xp per warehouse production value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultWorkshopModel from the subsystem API first

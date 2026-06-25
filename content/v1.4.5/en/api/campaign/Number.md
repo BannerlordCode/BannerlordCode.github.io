@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### GetBetween
 `public IEnumerable<Number> GetBetween(int start, int end)`
 
-**Purpose:** **Purpose:** Reads and returns the between value held by the this instance.
+**Purpose:** Reads and returns the between value held by the this instance.
 
 ```csharp
 // Obtain an instance of Number from the subsystem API first

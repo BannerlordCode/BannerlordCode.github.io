@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetParameter
 `public static float GetParameter(ManagedParametersEnum managedParameterType)`
 
-**Purpose:** **Purpose:** Reads and returns the parameter value held by the this instance.
+**Purpose:** Reads and returns the parameter value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ ManagedParameters.GetParameter(managedParameterType);
 ### SetParameter
 `public static void SetParameter(ManagedParametersEnum managedParameterType, float newValue)`
 
-**Purpose:** **Purpose:** Assigns a new value to parameter and updates the object's internal state.
+**Purpose:** Assigns a new value to parameter and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ ManagedParameters.SetParameter(managedParameterType, 0);
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ManagedParameters from the subsystem API first
@@ -60,7 +60,7 @@ managedParameters.Initialize("example");
 ### GetManagedParameter
 `public float GetManagedParameter(ManagedParametersEnum managedParameterEnum)`
 
-**Purpose:** **Purpose:** Reads and returns the managed parameter value held by the this instance.
+**Purpose:** Reads and returns the managed parameter value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedParameters from the subsystem API first

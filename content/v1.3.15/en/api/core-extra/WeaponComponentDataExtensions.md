@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetModifiedThrustDamage
 `public static int GetModifiedThrustDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified thrust damage value held by the this instance.
+**Purpose:** Reads and returns the modified thrust damage value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ WeaponComponentDataExtensions.GetModifiedThrustDamage(componentData, itemModifie
 ### GetModifiedSwingDamage
 `public static int GetModifiedSwingDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified swing damage value held by the this instance.
+**Purpose:** Reads and returns the modified swing damage value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ WeaponComponentDataExtensions.GetModifiedSwingDamage(componentData, itemModifier
 ### GetModifiedMissileDamage
 `public static int GetModifiedMissileDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified missile damage value held by the this instance.
+**Purpose:** Reads and returns the modified missile damage value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ WeaponComponentDataExtensions.GetModifiedMissileDamage(componentData, itemModifi
 ### GetModifiedThrustSpeed
 `public static int GetModifiedThrustSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified thrust speed value held by the this instance.
+**Purpose:** Reads and returns the modified thrust speed value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ WeaponComponentDataExtensions.GetModifiedThrustSpeed(componentData, itemModifier
 ### GetModifiedSwingSpeed
 `public static int GetModifiedSwingSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified swing speed value held by the this instance.
+**Purpose:** Reads and returns the modified swing speed value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ WeaponComponentDataExtensions.GetModifiedSwingSpeed(componentData, itemModifier)
 ### GetModifiedMissileSpeed
 `public static int GetModifiedMissileSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified missile speed value held by the this instance.
+**Purpose:** Reads and returns the modified missile speed value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ WeaponComponentDataExtensions.GetModifiedMissileSpeed(componentData, itemModifie
 ### GetModifiedHandling
 `public static int GetModifiedHandling(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified handling value held by the this instance.
+**Purpose:** Reads and returns the modified handling value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ WeaponComponentDataExtensions.GetModifiedHandling(componentData, itemModifier);
 ### GetModifiedStackCount
 `public static short GetModifiedStackCount(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified stack count value held by the this instance.
+**Purpose:** Reads and returns the modified stack count value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ WeaponComponentDataExtensions.GetModifiedStackCount(componentData, itemModifier)
 ### GetModifiedMaximumHitPoints
 `public static short GetModifiedMaximumHitPoints(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified maximum hit points value held by the this instance.
+**Purpose:** Reads and returns the modified maximum hit points value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ WeaponComponentDataExtensions.GetModifiedMaximumHitPoints(componentData, itemMod
 ### GetModifiedArmor
 `public static int GetModifiedArmor(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the modified armor value held by the this instance.
+**Purpose:** Reads and returns the modified armor value held by the this instance.
 
 ```csharp
 // Static call; no instance required

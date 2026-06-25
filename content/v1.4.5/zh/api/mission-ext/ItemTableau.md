@@ -29,7 +29,7 @@ description: "ItemTableau 的自动生成类参考。"
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -40,7 +40,7 @@ itemTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -51,7 +51,7 @@ itemTableau.OnFinalize();
 ### SetStringId
 `public void SetStringId(string stringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 string id 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 string id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -62,7 +62,7 @@ itemTableau.SetStringId("example");
 ### SetAmmo
 `public void SetAmmo(int ammo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -73,7 +73,7 @@ itemTableau.SetAmmo(0);
 ### SetAverageUnitCost
 `public void SetAverageUnitCost(int averageUnitCost)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 average unit cost 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 average unit cost 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -84,7 +84,7 @@ itemTableau.SetAverageUnitCost(0);
 ### SetItemModifierId
 `public void SetItemModifierId(string itemModifierId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 item modifier id 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 item modifier id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -95,7 +95,7 @@ itemTableau.SetItemModifierId("example");
 ### SetBannerCode
 `public void SetBannerCode(string bannerCode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -106,7 +106,7 @@ itemTableau.SetBannerCode("example");
 ### Recalculate
 `public void Recalculate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算recalculate以反映最新状态。
+**用途 / Purpose:** 重新计算recalculate以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -117,7 +117,7 @@ itemTableau.Recalculate();
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -128,7 +128,7 @@ itemTableau.Initialize();
 ### RotateItem
 `public void RotateItem(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateItem 对应的操作。
+**用途 / Purpose:** 调用 RotateItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -139,7 +139,7 @@ itemTableau.RotateItem(false);
 ### RotateItemVerticalWithAmount
 `public void RotateItemVerticalWithAmount(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateItemVerticalWithAmount 对应的操作。
+**用途 / Purpose:** 调用 RotateItemVerticalWithAmount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -150,7 +150,7 @@ itemTableau.RotateItemVerticalWithAmount(0);
 ### RotateItemHorizontalWithAmount
 `public void RotateItemHorizontalWithAmount(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateItemHorizontalWithAmount 对应的操作。
+**用途 / Purpose:** 调用 RotateItemHorizontalWithAmount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -161,7 +161,7 @@ itemTableau.RotateItemHorizontalWithAmount(0);
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -172,7 +172,7 @@ itemTableau.OnTick(0);
 ### SetInitialTiltRotation
 `public void SetInitialTiltRotation(float amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial tilt rotation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial tilt rotation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -183,7 +183,7 @@ itemTableau.SetInitialTiltRotation(0);
 ### SetInitialPanRotation
 `public void SetInitialPanRotation(float amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 initial pan rotation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 initial pan rotation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -194,7 +194,7 @@ itemTableau.SetInitialPanRotation(0);
 ### Zoom
 `public void Zoom(double value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Zoom 对应的操作。
+**用途 / Purpose:** 调用 Zoom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -205,7 +205,7 @@ itemTableau.Zoom(0);
 ### SetItem
 `public void SetItem(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 item 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 item 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例

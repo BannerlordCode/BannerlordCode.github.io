@@ -35,7 +35,7 @@ description: "ConversationItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationItemVM 实例
@@ -46,7 +46,7 @@ conversationItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
+**用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationItemVM 实例
@@ -57,7 +57,7 @@ conversationItemVM.ExecuteAction();
 ### SetCurrentAnswer
 `public void SetCurrentAnswer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current answer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current answer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationItemVM 实例
@@ -68,7 +68,7 @@ conversationItemVM.SetCurrentAnswer();
 ### ResetCurrentAnswer
 `public void ResetCurrentAnswer()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 current answer 重置回默认或初始状态。
+**用途 / Purpose:** 将 current answer 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationItemVM 实例

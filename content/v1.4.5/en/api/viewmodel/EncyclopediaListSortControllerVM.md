@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
@@ -46,7 +46,7 @@ encyclopediaListSortControllerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
@@ -57,7 +57,7 @@ encyclopediaListSortControllerVM.OnFinalize();
 ### SetSortSelection
 `public void SetSortSelection(int index)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort selection and updates the object's internal state.
+**Purpose:** Assigns a new value to sort selection and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
@@ -68,7 +68,7 @@ encyclopediaListSortControllerVM.SetSortSelection(0);
 ### ExecuteSwitchSortOrder
 `public void ExecuteSwitchSortOrder()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch sort order.
+**Purpose:** Runs the operation or workflow associated with switch sort order.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
@@ -79,7 +79,7 @@ encyclopediaListSortControllerVM.ExecuteSwitchSortOrder();
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort order and updates the object's internal state.
+**Purpose:** Assigns a new value to sort order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
@@ -90,7 +90,7 @@ encyclopediaListSortControllerVM.SetSortOrder(false);
 ### GetSortOrder
 `public bool GetSortOrder()`
 
-**Purpose:** **Purpose:** Reads and returns the sort order value held by the this instance.
+**Purpose:** Reads and returns the sort order value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first

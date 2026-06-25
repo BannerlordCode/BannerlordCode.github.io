@@ -23,7 +23,7 @@ Treat `DefaultItemPickupModel` as a Model-style extension point: first identify 
 ### GetItemScoreForAgent
 `public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**Purpose:** **Purpose:** Reads and returns the item score for agent value held by the this instance.
+**Purpose:** Reads and returns the item score for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultItemPickupModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultItemPickupModel.GetItemScoreForAgent(item, agent);
 ### IsItemAvailableForAgent
 `public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the item available for agent state or condition.
+**Purpose:** Determines whether the this instance is in the item available for agent state or condition.
 
 ```csharp
 // Obtain an instance of DefaultItemPickupModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultItemPickupModel.IsItemAvailableForAgent(item, agent, slotToP
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the agent equipment suitable for pick up availability state or condition.
+**Purpose:** Determines whether the this instance is in the agent equipment suitable for pick up availability state or condition.
 
 ```csharp
 // Obtain an instance of DefaultItemPickupModel from the subsystem API first

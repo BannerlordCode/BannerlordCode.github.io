@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### SupportsPlayerCard
 `public static bool SupportsPlayerCard(this PlayerIdProvidedTypes type)`
 
-**Purpose:** **Purpose:** Executes the SupportsPlayerCard logic.
+**Purpose:** Executes the SupportsPlayerCard logic.
 
 ```csharp
 // Static call; no instance required

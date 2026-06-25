@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetSkill
 `public static SkillObject GetSkill(int i)`
 
-**Purpose:** **Purpose:** Reads and returns the skill value held by the this instance.
+**Purpose:** Reads and returns the skill value held by the this instance.
 
 ```csharp
 // Static call; no instance required

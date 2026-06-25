@@ -66,7 +66,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### OnHoverMapEntity
 `public void OnHoverMapEntity(MapEntityVisual mapEntityVisual)`
 
-**Purpose:** **Purpose:** Invoked when the hover map entity event is raised.
+**Purpose:** Invoked when the hover map entity event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -77,7 +77,7 @@ mapScreen.OnHoverMapEntity(mapEntityVisual);
 ### RemoveMapTooltip
 `public void RemoveMapTooltip()`
 
-**Purpose:** **Purpose:** Removes map tooltip from the current collection or state.
+**Purpose:** Removes map tooltip from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -88,7 +88,7 @@ mapScreen.RemoveMapTooltip();
 ### ClearGPUMemory
 `public void ClearGPUMemory()`
 
-**Purpose:** **Purpose:** Removes all g p u memory from the this instance.
+**Purpose:** Removes all g p u memory from the this instance.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -99,7 +99,7 @@ mapScreen.ClearGPUMemory();
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** **Purpose:** Invoked when the focus change on game window event is raised.
+**Purpose:** Invoked when the focus change on game window event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -110,7 +110,7 @@ mapScreen.OnFocusChangeOnGameWindow(false);
 ### RemoveMapView
 `public void RemoveMapView(MapView mapView)`
 
-**Purpose:** **Purpose:** Removes map view from the current collection or state.
+**Purpose:** Removes map view from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -121,7 +121,7 @@ mapScreen.RemoveMapView(mapView);
 ### AddEncounterOverlay
 `public void AddEncounterOverlay(GameMenu.MenuOverlayType type)`
 
-**Purpose:** **Purpose:** Adds encounter overlay to the current collection or state.
+**Purpose:** Adds encounter overlay to the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -132,7 +132,7 @@ mapScreen.AddEncounterOverlay(type);
 ### AddArmyOverlay
 `public void AddArmyOverlay(MapScreen.MapOverlayType type)`
 
-**Purpose:** **Purpose:** Adds army overlay to the current collection or state.
+**Purpose:** Adds army overlay to the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -143,7 +143,7 @@ mapScreen.AddArmyOverlay(type);
 ### RemoveEncounterOverlay
 `public void RemoveEncounterOverlay()`
 
-**Purpose:** **Purpose:** Removes encounter overlay from the current collection or state.
+**Purpose:** Removes encounter overlay from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -154,7 +154,7 @@ mapScreen.RemoveEncounterOverlay();
 ### RemoveArmyOverlay
 `public void RemoveArmyOverlay()`
 
-**Purpose:** **Purpose:** Removes army overlay from the current collection or state.
+**Purpose:** Removes army overlay from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -165,7 +165,7 @@ mapScreen.RemoveArmyOverlay();
 ### CloseMarriageOfferPopup
 `public void CloseMarriageOfferPopup()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with marriage offer popup.
+**Purpose:** Closes the resource or UI associated with marriage offer popup.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -176,7 +176,7 @@ mapScreen.CloseMarriageOfferPopup();
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**Purpose:** **Purpose:** Invoked when the hourly tick event is raised.
+**Purpose:** Invoked when the hourly tick event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -187,7 +187,7 @@ mapScreen.OnHourlyTick();
 ### BeginParleyWith
 `public void BeginParleyWith(PartyBase party)`
 
-**Purpose:** **Purpose:** Executes the BeginParleyWith logic.
+**Purpose:** Executes the BeginParleyWith logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -198,7 +198,7 @@ mapScreen.BeginParleyWith(party);
 ### OnExit
 `public void OnExit()`
 
-**Purpose:** **Purpose:** Invoked when the exit event is raised.
+**Purpose:** Invoked when the exit event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -209,7 +209,7 @@ mapScreen.OnExit();
 ### GetCursorIntersectionPoint
 `public void GetCursorIntersectionPoint(ref Vec3 clippedMouseNear, ref Vec3 clippedMouseFar, out float closestDistanceSquared, out Vec3 intersectionPoint, ref PathFaceRecord currentFace, out bool isOnland, BodyFlags excludedBodyFlags = 79617)`
 
-**Purpose:** **Purpose:** Reads and returns the cursor intersection point value held by the this instance.
+**Purpose:** Reads and returns the cursor intersection point value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -220,7 +220,7 @@ mapScreen.GetCursorIntersectionPoint(clippedMouseNear, clippedMouseFar, closestD
 ### FastMoveCameraToPosition
 `public void FastMoveCameraToPosition(CampaignVec2 target)`
 
-**Purpose:** **Purpose:** Executes the FastMoveCameraToPosition logic.
+**Purpose:** Executes the FastMoveCameraToPosition logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -231,7 +231,7 @@ mapScreen.FastMoveCameraToPosition(target);
 ### OnSiegeEngineFrameClick
 `public void OnSiegeEngineFrameClick(MatrixFrame siegeFrame)`
 
-**Purpose:** **Purpose:** Invoked when the siege engine frame click event is raised.
+**Purpose:** Invoked when the siege engine frame click event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -242,7 +242,7 @@ mapScreen.OnSiegeEngineFrameClick(siegeFrame);
 ### OnFadeInAndOut
 `public void OnFadeInAndOut(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**Purpose:** **Purpose:** Invoked when the fade in and out event is raised.
+**Purpose:** Invoked when the fade in and out event is raised.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -253,7 +253,7 @@ mapScreen.OnFadeInAndOut(0, 0, 0);
 ### SetIsMapCheatsActive
 `public void SetIsMapCheatsActive(bool isMapCheatsActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to is map cheats active and updates the object's internal state.
+**Purpose:** Assigns a new value to is map cheats active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -264,7 +264,7 @@ mapScreen.SetIsMapCheatsActive(false);
 ### SetIsInTownManagement
 `public void SetIsInTownManagement(bool isInTownManagement)`
 
-**Purpose:** **Purpose:** Assigns a new value to is in town management and updates the object's internal state.
+**Purpose:** Assigns a new value to is in town management and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -275,7 +275,7 @@ mapScreen.SetIsInTownManagement(false);
 ### SetIsInHideoutTroopManage
 `public void SetIsInHideoutTroopManage(bool isInHideoutTroopManage)`
 
-**Purpose:** **Purpose:** Assigns a new value to is in hideout troop manage and updates the object's internal state.
+**Purpose:** Assigns a new value to is in hideout troop manage and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -286,7 +286,7 @@ mapScreen.SetIsInHideoutTroopManage(false);
 ### SetIsInArmyManagement
 `public void SetIsInArmyManagement(bool isInArmyManagement)`
 
-**Purpose:** **Purpose:** Assigns a new value to is in army management and updates the object's internal state.
+**Purpose:** Assigns a new value to is in army management and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -297,7 +297,7 @@ mapScreen.SetIsInArmyManagement(false);
 ### SetIsOverlayContextMenuActive
 `public void SetIsOverlayContextMenuActive(bool isOverlayContextMenuEnabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to is overlay context menu active and updates the object's internal state.
+**Purpose:** Assigns a new value to is overlay context menu active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -308,7 +308,7 @@ mapScreen.SetIsOverlayContextMenuActive(false);
 ### SetIsInRecruitment
 `public void SetIsInRecruitment(bool isInRecruitment)`
 
-**Purpose:** **Purpose:** Assigns a new value to is in recruitment and updates the object's internal state.
+**Purpose:** Assigns a new value to is in recruitment and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -319,7 +319,7 @@ mapScreen.SetIsInRecruitment(false);
 ### SetIsBarExtended
 `public void SetIsBarExtended(bool isBarExtended)`
 
-**Purpose:** **Purpose:** Assigns a new value to is bar extended and updates the object's internal state.
+**Purpose:** Assigns a new value to is bar extended and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -330,7 +330,7 @@ mapScreen.SetIsBarExtended(false);
 ### SetIsMarriageOfferPopupActive
 `public void SetIsMarriageOfferPopupActive(bool isMarriageOfferPopupActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to is marriage offer popup active and updates the object's internal state.
+**Purpose:** Assigns a new value to is marriage offer popup active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -341,7 +341,7 @@ mapScreen.SetIsMarriageOfferPopupActive(false);
 ### SetIsInCampaignOptions
 `public void SetIsInCampaignOptions(bool isInCampaignOptions)`
 
-**Purpose:** **Purpose:** Assigns a new value to is in campaign options and updates the object's internal state.
+**Purpose:** Assigns a new value to is in campaign options and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -352,7 +352,7 @@ mapScreen.SetIsInCampaignOptions(false);
 ### SetIsMapIncidentActive
 `public void SetIsMapIncidentActive(bool isMapIncidentActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to is map incident active and updates the object's internal state.
+**Purpose:** Assigns a new value to is map incident active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -363,7 +363,7 @@ mapScreen.SetIsMapIncidentActive(false);
 ### SetMouseVisible
 `public void SetMouseVisible(bool value)`
 
-**Purpose:** **Purpose:** Assigns a new value to mouse visible and updates the object's internal state.
+**Purpose:** Assigns a new value to mouse visible and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -374,7 +374,7 @@ mapScreen.SetMouseVisible(false);
 ### SetIsHeirSelectionPopupActive
 `public void SetIsHeirSelectionPopupActive(bool isHeirSelectionPopupActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to is heir selection popup active and updates the object's internal state.
+**Purpose:** Assigns a new value to is heir selection popup active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -385,7 +385,7 @@ mapScreen.SetIsHeirSelectionPopupActive(false);
 ### GetMouseVisible
 `public bool GetMouseVisible()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse visible value held by the this instance.
+**Purpose:** Reads and returns the mouse visible value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -396,7 +396,7 @@ var result = mapScreen.GetMouseVisible();
 ### RestartAmbientSounds
 `public void RestartAmbientSounds()`
 
-**Purpose:** **Purpose:** Executes the RestartAmbientSounds logic.
+**Purpose:** Executes the RestartAmbientSounds logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -407,7 +407,7 @@ mapScreen.RestartAmbientSounds();
 ### PauseAmbientSounds
 `public void PauseAmbientSounds()`
 
-**Purpose:** **Purpose:** Executes the PauseAmbientSounds logic.
+**Purpose:** Executes the PauseAmbientSounds logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -418,7 +418,7 @@ mapScreen.PauseAmbientSounds();
 ### CreatePeriodicUIEvent
 `public MBCampaignEvent CreatePeriodicUIEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**Purpose:** **Purpose:** Constructs a new periodic u i event entity and returns it to the caller.
+**Purpose:** Constructs a new periodic u i event entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -429,7 +429,7 @@ var result = mapScreen.CreatePeriodicUIEvent(triggerPeriod, initialWait);
 ### DeletePeriodicUIEvent
 `public void DeletePeriodicUIEvent(MBCampaignEvent campaignEvent)`
 
-**Purpose:** **Purpose:** Executes the DeletePeriodicUIEvent logic.
+**Purpose:** Executes the DeletePeriodicUIEvent logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -440,7 +440,7 @@ mapScreen.DeletePeriodicUIEvent(campaignEvent);
 ### OpenOptions
 `public void OpenOptions()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with options.
+**Purpose:** Opens the resource or UI associated with options.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -451,7 +451,7 @@ mapScreen.OpenOptions();
 ### OpenEncyclopedia
 `public void OpenEncyclopedia()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with encyclopedia.
+**Purpose:** Opens the resource or UI associated with encyclopedia.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -462,7 +462,7 @@ mapScreen.OpenEncyclopedia();
 ### OpenSaveLoad
 `public void OpenSaveLoad(bool isSaving)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with save load.
+**Purpose:** Opens the resource or UI associated with save load.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -473,7 +473,7 @@ mapScreen.OpenSaveLoad(false);
 ### CloseEscapeMenu
 `public void CloseEscapeMenu()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with escape menu.
+**Purpose:** Closes the resource or UI associated with escape menu.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -484,7 +484,7 @@ mapScreen.CloseEscapeMenu();
 ### OpenEscapeMenu
 `public void OpenEscapeMenu()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with escape menu.
+**Purpose:** Opens the resource or UI associated with escape menu.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -495,7 +495,7 @@ mapScreen.OpenEscapeMenu();
 ### CloseGameplayCheats
 `public void CloseGameplayCheats()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with gameplay cheats.
+**Purpose:** Closes the resource or UI associated with gameplay cheats.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -506,7 +506,7 @@ mapScreen.CloseGameplayCheats();
 ### CloseCampaignOptions
 `public void CloseCampaignOptions()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with campaign options.
+**Purpose:** Closes the resource or UI associated with campaign options.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -517,7 +517,7 @@ mapScreen.CloseCampaignOptions();
 ### OpenInventory
 `public void OpenInventory()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with inventory.
+**Purpose:** Opens the resource or UI associated with inventory.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -528,7 +528,7 @@ mapScreen.OpenInventory();
 ### OpenFacegenScreenAux
 `public void OpenFacegenScreenAux()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with facegen screen aux.
+**Purpose:** Opens the resource or UI associated with facegen screen aux.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -539,7 +539,7 @@ mapScreen.OpenFacegenScreenAux();
 ### IsCameraLockedToPlayerParty
 `public bool IsCameraLockedToPlayerParty()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the camera locked to player party state or condition.
+**Purpose:** Determines whether the this instance is in the camera locked to player party state or condition.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -550,7 +550,7 @@ var result = mapScreen.IsCameraLockedToPlayerParty();
 ### FastMoveCameraToMainParty
 `public void FastMoveCameraToMainParty()`
 
-**Purpose:** **Purpose:** Executes the FastMoveCameraToMainParty logic.
+**Purpose:** Executes the FastMoveCameraToMainParty logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -561,7 +561,7 @@ mapScreen.FastMoveCameraToMainParty();
 ### ResetCamera
 `public void ResetCamera(bool resetDistance, bool teleportToMainParty)`
 
-**Purpose:** **Purpose:** Returns camera to its default or initial condition.
+**Purpose:** Returns camera to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -572,7 +572,7 @@ mapScreen.ResetCamera(false, false);
 ### TeleportCameraToMainParty
 `public void TeleportCameraToMainParty()`
 
-**Purpose:** **Purpose:** Executes the TeleportCameraToMainParty logic.
+**Purpose:** Executes the TeleportCameraToMainParty logic.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first
@@ -583,7 +583,7 @@ mapScreen.TeleportCameraToMainParty();
 ### Create
 `public static MapScreen.DecalEntity Create(Scene scene, string material, string entityName = null)`
 
-**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
+**Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -593,7 +593,7 @@ MapScreen.Create(scene, "example", "example");
 ### ApplyHandlerChangesTo
 `public void ApplyHandlerChangesTo(IConversationStateHandler newHandler)`
 
-**Purpose:** **Purpose:** Applies the effect of handler changes to to the this instance.
+**Purpose:** Applies the effect of handler changes to to the this instance.
 
 ```csharp
 // Obtain an instance of MapScreen from the subsystem API first

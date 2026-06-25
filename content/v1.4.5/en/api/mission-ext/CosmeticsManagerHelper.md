@@ -23,7 +23,7 @@ Treat `CosmeticsManagerHelper` as a Helper-style extension point: first identify
 ### GetUsedIndicesFromIds
 `public static Dictionary<int, List<int>> GetUsedIndicesFromIds(Dictionary<string, List<string>> usedCosmetics)`
 
-**Purpose:** **Purpose:** Reads and returns the used indices from ids value held by the this instance.
+**Purpose:** Reads and returns the used indices from ids value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CosmeticsManagerHelper.GetUsedIndicesFromIds(dictionary<string, usedCosmetics);
 ### GetSuitableTauntAction
 `public static ActionIndexCache GetSuitableTauntAction(Agent agent, int tauntIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the suitable taunt action value held by the this instance.
+**Purpose:** Reads and returns the suitable taunt action value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CosmeticsManagerHelper.GetSuitableTauntAction(agent, 0);
 ### GetActionNotUsableReason
 `public static TauntUsageManager.TauntUsage.TauntUsageFlag GetActionNotUsableReason(Agent agent, int tauntIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the action not usable reason value held by the this instance.
+**Purpose:** Reads and returns the action not usable reason value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CosmeticsManagerHelper.GetActionNotUsableReason(agent, 0);
 ### GetSuitableTauntActionForEquipment
 `public static string GetSuitableTauntActionForEquipment(Equipment equipment, TauntCosmeticElement taunt)`
 
-**Purpose:** **Purpose:** Reads and returns the suitable taunt action for equipment value held by the this instance.
+**Purpose:** Reads and returns the suitable taunt action for equipment value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CosmeticsManagerHelper.GetSuitableTauntActionForEquipment(equipment, taunt);
 ### IsWeaponClassOneHanded
 `public static bool IsWeaponClassOneHanded(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the weapon class one handed state or condition.
+**Purpose:** Determines whether the this instance is in the weapon class one handed state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ CosmeticsManagerHelper.IsWeaponClassOneHanded(weaponClass);
 ### IsWeaponClassTwoHanded
 `public static bool IsWeaponClassTwoHanded(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the weapon class two handed state or condition.
+**Purpose:** Determines whether the this instance is in the weapon class two handed state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ CosmeticsManagerHelper.IsWeaponClassTwoHanded(weaponClass);
 ### IsWeaponClassShield
 `public static bool IsWeaponClassShield(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the weapon class shield state or condition.
+**Purpose:** Determines whether the this instance is in the weapon class shield state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ CosmeticsManagerHelper.IsWeaponClassShield(weaponClass);
 ### IsWeaponClassBow
 `public static bool IsWeaponClassBow(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the weapon class bow state or condition.
+**Purpose:** Determines whether the this instance is in the weapon class bow state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ CosmeticsManagerHelper.IsWeaponClassBow(weaponClass);
 ### IsWeaponClassCrossbow
 `public static bool IsWeaponClassCrossbow(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the weapon class crossbow state or condition.
+**Purpose:** Determines whether the this instance is in the weapon class crossbow state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ CosmeticsManagerHelper.IsWeaponClassCrossbow(weaponClass);
 ### GetComplimentaryWeaponClasses
 `public static WeaponClass GetComplimentaryWeaponClasses(WeaponClass weaponClass)`
 
-**Purpose:** **Purpose:** Reads and returns the complimentary weapon classes value held by the this instance.
+**Purpose:** Reads and returns the complimentary weapon classes value held by the this instance.
 
 ```csharp
 // Static call; no instance required

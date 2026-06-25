@@ -23,7 +23,7 @@ Treat `MissionGauntletBarterView` as a View-style extension point: first identif
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletBarterView.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletBarterView.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletBarterView.OnMissionScreenFinalize();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletBarterView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletBarterView.OnPhotoModeDeactivated();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
+**Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletBarterView from the subsystem API first

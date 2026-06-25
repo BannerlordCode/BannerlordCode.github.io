@@ -23,7 +23,7 @@ description: "EncyclopediaListSelectorVM 的自动生成类参考。"
 ### ExecuteOnDropdownActivated
 `public void ExecuteOnDropdownActivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 on dropdown activated 对应的操作或工作流。
+**用途 / Purpose:** 执行 on dropdown activated 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListSelectorVM 实例

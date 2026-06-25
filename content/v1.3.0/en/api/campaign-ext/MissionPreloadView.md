@@ -23,7 +23,7 @@ Treat `MissionPreloadView` as a View-style extension point: first identify who c
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionPreloadView from the subsystem API first
@@ -34,7 +34,7 @@ missionPreloadView.OnPreMissionTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
+**Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionPreloadView from the subsystem API first
@@ -45,7 +45,7 @@ missionPreloadView.OnSceneRenderingStarted();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the mission state deactivated event is raised.
+**Purpose:** Invoked when the mission state deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionPreloadView from the subsystem API first
@@ -56,7 +56,7 @@ missionPreloadView.OnMissionStateDeactivated();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionPreloadView from the subsystem API first

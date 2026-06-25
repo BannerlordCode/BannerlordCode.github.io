@@ -29,7 +29,7 @@ Treat `MultiplayerPlayerBadgeVisualWidget` as a Widget-style extension point: fi
 ### SetForcedSize
 `public void SetForcedSize(float width, float height)`
 
-**Purpose:** **Purpose:** Assigns a new value to forced size and updates the object's internal state.
+**Purpose:** Assigns a new value to forced size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerPlayerBadgeVisualWidget from the subsystem API first

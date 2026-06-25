@@ -45,7 +45,7 @@ description: "OrderTroopItemVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -56,7 +56,7 @@ orderTroopItemVM.OnFinalize();
 ### OnFormationAgentRemoved
 `public void OnFormationAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 formation agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 formation agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -67,7 +67,7 @@ orderTroopItemVM.OnFormationAgentRemoved(agent);
 ### UpdateVisuals
 `public virtual void UpdateVisuals()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 visuals 的最新表示。
+**用途 / Purpose:** 重新计算并更新 visuals 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -78,7 +78,7 @@ orderTroopItemVM.UpdateVisuals();
 ### Update
 `public virtual void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -89,7 +89,7 @@ orderTroopItemVM.Update();
 ### UpdateSelectionKeyInfo
 `public void UpdateSelectionKeyInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 selection key info 的最新表示。
+**用途 / Purpose:** 重新计算并更新 selection key info 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -100,7 +100,7 @@ orderTroopItemVM.UpdateSelectionKeyInfo();
 ### SetFormationClassFromFormation
 `public bool SetFormationClassFromFormation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 formation class from formation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 formation class from formation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -111,7 +111,7 @@ var result = orderTroopItemVM.SetFormationClassFromFormation(formation);
 ### UpdateFilterData
 `public void UpdateFilterData(List<FormationFilterType> usedFilters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 filter data 的最新表示。
+**用途 / Purpose:** 重新计算并更新 filter data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -122,7 +122,7 @@ orderTroopItemVM.UpdateFilterData(usedFilters);
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
+**用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -133,7 +133,7 @@ orderTroopItemVM.ExecuteAction();
 ### RefreshTargetedOrderVisual
 `public virtual void RefreshTargetedOrderVisual()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 targeted order visual 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 targeted order visual 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例
@@ -144,7 +144,7 @@ orderTroopItemVM.RefreshTargetedOrderVisual();
 ### GetVisibleNameOfFormationForMessage
 `public virtual TextObject GetVisibleNameOfFormationForMessage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visible name of formation for message 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visible name of formation for message 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemVM 实例

@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ### Compare
 `public int Compare(PerkObject x, PerkObject y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of PerkObjectComparer from the subsystem API first

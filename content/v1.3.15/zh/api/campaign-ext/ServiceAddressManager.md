@@ -32,7 +32,7 @@ description: "ServiceAddressManager 的自动生成类参考。"
 ### Initalize
 `public static void Initalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 alize 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 alize 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ ServiceAddressManager.Initalize();
 ### ResolveAddress
 `public static bool ResolveAddress(string serviceDiscoveryAddress, ref string serviceAddress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResolveAddress 对应的操作。
+**用途 / Purpose:** 调用 ResolveAddress 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

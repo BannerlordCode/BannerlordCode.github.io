@@ -32,7 +32,7 @@ description: "KingdomCreationModel 的自动生成类参考。"
 ### IsPlayerKingdomCreationPossible
 `public abstract bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player kingdom creation possible 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player kingdom creation possible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomCreationModel 实例
@@ -43,7 +43,7 @@ var result = kingdomCreationModel.IsPlayerKingdomCreationPossible(explanations);
 ### IsPlayerKingdomAbdicationPossible
 `public abstract bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player kingdom abdication possible 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 player kingdom abdication possible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomCreationModel 实例
@@ -54,7 +54,7 @@ var result = kingdomCreationModel.IsPlayerKingdomAbdicationPossible(explanations
 ### GetAvailablePlayerKingdomCultures
 `public abstract IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available player kingdom cultures 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 available player kingdom cultures 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomCreationModel 实例

@@ -31,7 +31,7 @@ description: "TacticalPosition 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticalPosition 实例
@@ -42,7 +42,7 @@ tacticalPosition.AfterMissionStart();
 ### SetWidth
 `public void SetWidth(float width)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 width 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 width 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TacticalPosition 实例

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(string videoPath, string audioPath, string subtitleFileBasePath, float frameRate = 30f, bool canUserSkip = true)`
 
-**Purpose:** **Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
+**Purpose:** Assigns a new value to starting parameters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VideoPlaybackState from the subsystem API first
@@ -44,7 +44,7 @@ videoPlaybackState.SetStartingParameters("example", "example", "example", 0, fal
 ### SetOnVideoFinisedDelegate
 `public void SetOnVideoFinisedDelegate(Action onVideoFinised)`
 
-**Purpose:** **Purpose:** Assigns a new value to on video finised delegate and updates the object's internal state.
+**Purpose:** Assigns a new value to on video finised delegate and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VideoPlaybackState from the subsystem API first
@@ -55,7 +55,7 @@ videoPlaybackState.SetOnVideoFinisedDelegate(onVideoFinised);
 ### OnVideoFinished
 `public void OnVideoFinished()`
 
-**Purpose:** **Purpose:** Invoked when the video finished event is raised.
+**Purpose:** Invoked when the video finished event is raised.
 
 ```csharp
 // Obtain an instance of VideoPlaybackState from the subsystem API first

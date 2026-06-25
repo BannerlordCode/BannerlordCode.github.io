@@ -23,7 +23,7 @@ description: "BehaviorUseMurderHole 的自动生成类参考。"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorUseMurderHole 实例
@@ -34,7 +34,7 @@ behaviorUseMurderHole.TickOccasionally();
 ### IsMurderHoleActive
 `public bool IsMurderHoleActive()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 murder hole active 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 murder hole active 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorUseMurderHole 实例

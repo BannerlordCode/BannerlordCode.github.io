@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
+**Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -46,7 +46,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -57,7 +57,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.ExecuteClosePopup();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -68,7 +68,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.RefreshValues();
 ### ExecuteTryAddFriend
 `public async void ExecuteTryAddFriend()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with try add friend.
+**Purpose:** Runs the operation or workflow associated with try add friend.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -79,7 +79,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.ExecuteTryAddFriend();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -90,7 +90,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first
@@ -101,7 +101,7 @@ mPLobbyBannerlordIDAddFriendPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBannerlordIDAddFriendPopupVM from the subsystem API first

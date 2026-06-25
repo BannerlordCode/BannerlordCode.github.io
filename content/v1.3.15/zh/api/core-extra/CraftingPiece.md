@@ -63,7 +63,7 @@ description: "CraftingPiece 的自动生成类参考。"
 ### GetInvalidCraftingPiece
 `public static CraftingPiece GetInvalidCraftingPiece(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 invalid crafting piece 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 invalid crafting piece 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ CraftingPiece.GetInvalidCraftingPiece(pieceType);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingPiece 实例

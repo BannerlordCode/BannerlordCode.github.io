@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of TransposedLineFormation from the subsystem API first
@@ -34,7 +34,7 @@ var result = transposedLineFormation.Clone(formation);
 ### RearrangeFrom
 `public override void RearrangeFrom(IFormationArrangement arrangement)`
 
-**Purpose:** **Purpose:** Executes the RearrangeFrom logic.
+**Purpose:** Executes the RearrangeFrom logic.
 
 ```csharp
 // Obtain an instance of TransposedLineFormation from the subsystem API first

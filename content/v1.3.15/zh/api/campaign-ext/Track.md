@@ -36,7 +36,7 @@ description: "Track 的自动生成类参考。"
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 party interact 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 party interact 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Track 实例
@@ -47,7 +47,7 @@ var result = track.CanPartyInteract(mobileParty, 0);
 ### GetPartyTypeEnum
 `public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party type enum 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 party type enum 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -57,7 +57,7 @@ Track.GetPartyTypeEnum(party);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Track 实例

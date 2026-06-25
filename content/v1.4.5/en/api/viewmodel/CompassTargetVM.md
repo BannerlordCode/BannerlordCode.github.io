@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` 
 ### RefreshColor
 `public void RefreshColor(uint color, uint color2)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of color in sync with the underlying state.
+**Purpose:** Keeps the display or cache of color in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CompassTargetVM from the subsystem API first
@@ -51,7 +51,7 @@ compassTargetVM.RefreshColor(0, 0);
 ### Refresh
 `public virtual void Refresh(float circleX, float x, float distance)`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of CompassTargetVM from the subsystem API first

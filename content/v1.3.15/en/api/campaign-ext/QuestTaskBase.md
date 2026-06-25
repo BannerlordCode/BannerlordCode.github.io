@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Finish
 `public void Finish(QuestTaskBase.FinishStates finishState)`
 
-**Purpose:** **Purpose:** Concludes the this instance's flow and performs any cleanup.
+**Purpose:** Concludes the this instance's flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of QuestTaskBase from the subsystem API first
@@ -41,7 +41,7 @@ questTaskBase.Finish(finishState);
 ### AddTaskDialogs
 `public void AddTaskDialogs()`
 
-**Purpose:** **Purpose:** Adds task dialogs to the current collection or state.
+**Purpose:** Adds task dialogs to the current collection or state.
 
 ```csharp
 // Obtain an instance of QuestTaskBase from the subsystem API first
@@ -52,7 +52,7 @@ questTaskBase.AddTaskDialogs();
 ### SetReferences
 `public virtual void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of QuestTaskBase from the subsystem API first
@@ -63,7 +63,7 @@ questTaskBase.SetReferences();
 ### AddTaskDialogOnGameLoaded
 `public void AddTaskDialogOnGameLoaded(DialogFlow dialogFlow)`
 
-**Purpose:** **Purpose:** Adds task dialog on game loaded to the current collection or state.
+**Purpose:** Adds task dialog on game loaded to the current collection or state.
 
 ```csharp
 // Obtain an instance of QuestTaskBase from the subsystem API first
@@ -74,7 +74,7 @@ questTaskBase.AddTaskDialogOnGameLoaded(dialogFlow);
 ### AddTaskBehaviorsOnGameLoad
 `public void AddTaskBehaviorsOnGameLoad(Action onSucceededAction = null, Action onFailedAction = null, Action onCanceledAction = null)`
 
-**Purpose:** **Purpose:** Adds task behaviors on game load to the current collection or state.
+**Purpose:** Adds task behaviors on game load to the current collection or state.
 
 ```csharp
 // Obtain an instance of QuestTaskBase from the subsystem API first

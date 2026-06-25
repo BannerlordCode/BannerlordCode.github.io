@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### StartCustomBattle
 `public void StartCustomBattle()`
 
-**Purpose:** **Purpose:** Starts the custom battle flow or state machine.
+**Purpose:** Starts the custom battle flow or state machine.
 
 ```csharp
 // Obtain an instance of CustomBattleProvider from the subsystem API first
@@ -34,7 +34,7 @@ customBattleProvider.StartCustomBattle();
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleProvider from the subsystem API first

@@ -23,7 +23,7 @@ Treat `DialogHelper` as a Helper-style extension point: first identify who creat
 ### SetDialogString
 `public static void SetDialogString(string stringVariable, string gameTextId)`
 
-**Purpose:** **Purpose:** Assigns a new value to dialog string and updates the object's internal state.
+**Purpose:** Assigns a new value to dialog string and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "MBTestRun 的自动生成类参考。"
 ### EnterEditMode
 `public static bool EnterEditMode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EnterEditMode 对应的操作。
+**用途 / Purpose:** 调用 EnterEditMode 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBTestRun.EnterEditMode();
 ### NewScene
 `public static bool NewScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 NewScene 对应的操作。
+**用途 / Purpose:** 调用 NewScene 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBTestRun.NewScene();
 ### LeaveEditMode
 `public static bool LeaveEditMode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LeaveEditMode 对应的操作。
+**用途 / Purpose:** 调用 LeaveEditMode 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MBTestRun.LeaveEditMode();
 ### OpenScene
 `public static bool OpenScene(string sceneName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开scene对应的资源或界面。
+**用途 / Purpose:** 打开scene对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MBTestRun.OpenScene("example");
 ### CloseScene
 `public static bool CloseScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭scene对应的资源或界面。
+**用途 / Purpose:** 关闭scene对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBTestRun.CloseScene();
 ### SaveScene
 `public static bool SaveScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 scene 写入持久化存储或流中。
+**用途 / Purpose:** 将 scene 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MBTestRun.SaveScene();
 ### OpenDefaultScene
 `public static bool OpenDefaultScene()`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开default scene对应的资源或界面。
+**用途 / Purpose:** 打开default scene对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MBTestRun.OpenDefaultScene();
 ### GetFPS
 `public static int GetFPS()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 f p s 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 f p s 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ MBTestRun.GetFPS();
 ### StartMission
 `public static void StartMission()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动mission流程或状态机。
+**用途 / Purpose:** 启动mission流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例

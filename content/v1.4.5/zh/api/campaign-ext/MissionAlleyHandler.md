@@ -29,7 +29,7 @@ description: "MissionAlleyHandler 的自动生成类参考。"
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAlleyHandler 实例
@@ -40,7 +40,7 @@ missionAlleyHandler.OnMissionTick(0);
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAlleyHandler 实例
@@ -51,7 +51,7 @@ missionAlleyHandler.AfterStart();
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAlleyHandler 实例
@@ -62,7 +62,7 @@ missionAlleyHandler.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blo
 ### StartCommonAreaBattle
 `public void StartCommonAreaBattle(Alley alley)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动common area battle流程或状态机。
+**用途 / Purpose:** 启动common area battle流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAlleyHandler 实例

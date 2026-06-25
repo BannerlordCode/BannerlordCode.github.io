@@ -32,7 +32,7 @@ description: "SaveCodeGenerationContextAssembly 的自动生成类参考。"
 ### AddClassDefinition
 `public void AddClassDefinition(TypeDefinition classDefinition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 class definition 添加到当前容器或状态中。
+**用途 / Purpose:** 将 class definition 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContextAssembly 实例
@@ -43,7 +43,7 @@ saveCodeGenerationContextAssembly.AddClassDefinition(classDefinition);
 ### AddStructDefinition
 `public void AddStructDefinition(TypeDefinition classDefinition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 struct definition 添加到当前容器或状态中。
+**用途 / Purpose:** 将 struct definition 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContextAssembly 实例
@@ -54,7 +54,7 @@ saveCodeGenerationContextAssembly.AddStructDefinition(classDefinition);
 ### CheckIfGotAnyNonPrimitiveMembers
 `public bool CheckIfGotAnyNonPrimitiveMembers(TypeDefinition typeDefinition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查if got any non primitive members在当前对象中是否成立。
+**用途 / Purpose:** 检查if got any non primitive members在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContextAssembly 实例
@@ -65,7 +65,7 @@ var result = saveCodeGenerationContextAssembly.CheckIfGotAnyNonPrimitiveMembers(
 ### Generate
 `public void Generate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成当前对象的实例、数据或表示。
+**用途 / Purpose:** 生成当前对象的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContextAssembly 实例
@@ -76,7 +76,7 @@ saveCodeGenerationContextAssembly.Generate();
 ### GenerateText
 `public string GenerateText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成text的实例、数据或表示。
+**用途 / Purpose:** 生成text的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContextAssembly 实例

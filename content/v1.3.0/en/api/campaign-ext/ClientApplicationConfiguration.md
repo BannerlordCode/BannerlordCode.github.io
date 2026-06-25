@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### GetDefaultConfigurationFromFile
 `public static string GetDefaultConfigurationFromFile()`
 
-**Purpose:** **Purpose:** Reads and returns the default configuration from file value held by the this instance.
+**Purpose:** Reads and returns the default configuration from file value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 ### SetDefaultConfigurationCategory
 `public static void SetDefaultConfigurationCategory(string category)`
 
-**Purpose:** **Purpose:** Assigns a new value to default configuration category and updates the object's internal state.
+**Purpose:** Assigns a new value to default configuration category and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of ClientApplicationConfiguration from the subsystem API first
@@ -64,7 +64,7 @@ clientApplicationConfiguration.FillFrom("example");
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of ClientApplicationConfiguration from the subsystem API first

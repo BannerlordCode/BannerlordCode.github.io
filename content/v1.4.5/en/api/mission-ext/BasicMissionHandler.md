@@ -29,7 +29,7 @@ Treat `BasicMissionHandler` as a Handler-style extension point: first identify w
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of BasicMissionHandler from the subsystem API first
@@ -40,7 +40,7 @@ basicMissionHandler.OnBehaviorInitialize();
 ### CreateWarningWidgetForResult
 `public void CreateWarningWidgetForResult(BattleEndLogic.ExitResult result)`
 
-**Purpose:** **Purpose:** Constructs a new warning widget for result entity and returns it to the caller.
+**Purpose:** Constructs a new warning widget for result entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of BasicMissionHandler from the subsystem API first

@@ -19,7 +19,7 @@ ChangeProductionTypeOfWorkshopAction is a set of static methods that trigger "Ch
 public static void Apply(Workshop workshop, WorkshopType newWorkshopType, bool ignoreCost = false)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

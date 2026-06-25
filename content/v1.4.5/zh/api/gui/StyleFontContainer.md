@@ -23,7 +23,7 @@ description: "StyleFontContainer 的自动生成类参考。"
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FontData 对应的操作。
+**用途 / Purpose:** 调用 FontData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleFontContainer 实例
@@ -34,7 +34,7 @@ var result = styleFontContainer.FontData(font, 0);
 ### Add
 `public void Add(string style, Font font, float fontSize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleFontContainer 实例
@@ -45,7 +45,7 @@ styleFontContainer.Add("example", font, 0);
 ### GetFontData
 `public FontData GetFontData(string style)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 font data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 font data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleFontContainer 实例
@@ -56,7 +56,7 @@ var result = styleFontContainer.GetFontData("example");
 ### ClearFonts
 `public void ClearFonts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的fonts。
+**用途 / Purpose:** 清空当前对象中的fonts。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleFontContainer 实例

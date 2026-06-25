@@ -23,7 +23,7 @@ description: "MBAnimation 的自动生成类参考。"
 ### Equals
 `public bool Equals(MBAnimation a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAnimation 实例
@@ -34,7 +34,7 @@ var result = mBAnimation.Equals(a);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAnimation 实例
@@ -45,7 +45,7 @@ var result = mBAnimation.GetHashCode();
 ### GetAnimationIndexWithName
 `public static int GetAnimationIndexWithName(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation index with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation index with name 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -55,7 +55,7 @@ MBAnimation.GetAnimationIndexWithName("example");
 ### GetActionType
 `public static Agent.ActionCodeType GetActionType(ActionIndexCache actionIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action type 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ MBAnimation.GetActionType(actionIndex);
 ### PrefetchAnimationClip
 `public static void PrefetchAnimationClip(MBActionSet actionSet, ActionIndexCache actionIndexCache)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PrefetchAnimationClip 对应的操作。
+**用途 / Purpose:** 调用 PrefetchAnimationClip 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -75,7 +75,7 @@ MBAnimation.PrefetchAnimationClip(actionSet, actionIndexCache);
 ### GetAnimationDuration
 `public static float GetAnimationDuration(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation duration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation duration 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -85,7 +85,7 @@ MBAnimation.GetAnimationDuration("example");
 ### GetAnimationDuration
 `public static float GetAnimationDuration(int animationIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation duration 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation duration 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -95,7 +95,7 @@ MBAnimation.GetAnimationDuration(0);
 ### GetAnimationParameter1
 `public static float GetAnimationParameter1(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation parameter1 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation parameter1 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ MBAnimation.GetAnimationParameter1("example");
 ### GetAnimationParameter1
 `public static float GetAnimationParameter1(int animationIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation parameter1 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation parameter1 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -115,7 +115,7 @@ MBAnimation.GetAnimationParameter1(0);
 ### GetAnimationParameter2
 `public static float GetAnimationParameter2(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation parameter2 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation parameter2 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -125,7 +125,7 @@ MBAnimation.GetAnimationParameter2("example");
 ### GetAnimationParameter2
 `public static float GetAnimationParameter2(int animationIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation parameter2 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation parameter2 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -135,7 +135,7 @@ MBAnimation.GetAnimationParameter2(0);
 ### GetAnimationParameter3
 `public static float GetAnimationParameter3(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation parameter3 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation parameter3 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -145,7 +145,7 @@ MBAnimation.GetAnimationParameter3("example");
 ### GetAnimationBlendInPeriod
 `public static float GetAnimationBlendInPeriod(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation blend in period 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation blend in period 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -155,7 +155,7 @@ MBAnimation.GetAnimationBlendInPeriod("example");
 ### GetAnimationBlendInPeriod
 `public static float GetAnimationBlendInPeriod(int animationIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation blend in period 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation blend in period 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -165,7 +165,7 @@ MBAnimation.GetAnimationBlendInPeriod(0);
 ### GetAnimationBlendsWithActionIndex
 `public static ActionIndexCache GetAnimationBlendsWithActionIndex(string animationName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -175,7 +175,7 @@ MBAnimation.GetAnimationBlendsWithActionIndex("example");
 ### GetAnimationBlendsWithActionIndex
 `public static ActionIndexCache GetAnimationBlendsWithActionIndex(int animationIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation blends with action index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -185,7 +185,7 @@ MBAnimation.GetAnimationBlendsWithActionIndex(0);
 ### GetAnimationDisplacementAtProgress
 `public static Vec3 GetAnimationDisplacementAtProgress(string animationName, float progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation displacement at progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation displacement at progress 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -195,7 +195,7 @@ MBAnimation.GetAnimationDisplacementAtProgress("example", 0);
 ### GetAnimationDisplacementAtProgress
 `public static Vec3 GetAnimationDisplacementAtProgress(int animationIndex, float progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 animation displacement at progress 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 animation displacement at progress 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -205,7 +205,7 @@ MBAnimation.GetAnimationDisplacementAtProgress(0, 0);
 ### GetActionCodeWithName
 `public static int GetActionCodeWithName(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action code with name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action code with name 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -215,7 +215,7 @@ MBAnimation.GetActionCodeWithName("example");
 ### GetNumActionCodes
 `public static int GetNumActionCodes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num action codes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 num action codes 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -225,7 +225,7 @@ MBAnimation.GetNumActionCodes();
 ### GetNumAnimations
 `public static int GetNumAnimations()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num animations 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 num animations 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -235,7 +235,7 @@ MBAnimation.GetNumAnimations();
 ### IsAnyAnimationLoadingFromDisk
 `public static bool IsAnyAnimationLoadingFromDisk()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any animation loading from disk 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 any animation loading from disk 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
+**Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of MainHeroBattleVictoryDeathNotificationItem from the subsystem API first

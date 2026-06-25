@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EnterEditMode
 `public static bool EnterEditMode()`
 
-**Purpose:** **Purpose:** Executes the EnterEditMode logic.
+**Purpose:** Executes the EnterEditMode logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBTestRun.EnterEditMode();
 ### NewScene
 `public static bool NewScene()`
 
-**Purpose:** **Purpose:** Executes the NewScene logic.
+**Purpose:** Executes the NewScene logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBTestRun.NewScene();
 ### LeaveEditMode
 `public static bool LeaveEditMode()`
 
-**Purpose:** **Purpose:** Executes the LeaveEditMode logic.
+**Purpose:** Executes the LeaveEditMode logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MBTestRun.LeaveEditMode();
 ### OpenScene
 `public static bool OpenScene(string sceneName)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with scene.
+**Purpose:** Opens the resource or UI associated with scene.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MBTestRun.OpenScene("example");
 ### CloseScene
 `public static bool CloseScene()`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with scene.
+**Purpose:** Closes the resource or UI associated with scene.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MBTestRun.CloseScene();
 ### SaveScene
 `public static bool SaveScene()`
 
-**Purpose:** **Purpose:** Writes scene to persistent storage or a stream.
+**Purpose:** Writes scene to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MBTestRun.SaveScene();
 ### OpenDefaultScene
 `public static bool OpenDefaultScene()`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with default scene.
+**Purpose:** Opens the resource or UI associated with default scene.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MBTestRun.OpenDefaultScene();
 ### GetFPS
 `public static int GetFPS()`
 
-**Purpose:** **Purpose:** Reads and returns the f p s value held by the this instance.
+**Purpose:** Reads and returns the f p s value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ MBTestRun.GetFPS();
 ### StartMission
 `public static void StartMission()`
 
-**Purpose:** **Purpose:** Starts the mission flow or state machine.
+**Purpose:** Starts the mission flow or state machine.
 
 ```csharp
 // Static call; no instance required

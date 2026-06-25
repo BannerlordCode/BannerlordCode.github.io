@@ -36,7 +36,7 @@ Treat `DropdownWidget` as a Widget-style extension point: first identify who cre
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the button click event is raised.
+**Purpose:** Invoked when the button click event is raised.
 
 ```csharp
 // Obtain an instance of DropdownWidget from the subsystem API first
@@ -47,7 +47,7 @@ dropdownWidget.OnButtonClick(widget);
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of button text.
+**Purpose:** Recalculates and stores the latest representation of button text.
 
 ```csharp
 // Obtain an instance of DropdownWidget from the subsystem API first
@@ -58,7 +58,7 @@ dropdownWidget.UpdateButtonText("example");
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget newChild)`
 
-**Purpose:** **Purpose:** Invoked when the list item added event is raised.
+**Purpose:** Invoked when the list item added event is raised.
 
 ```csharp
 // Obtain an instance of DropdownWidget from the subsystem API first
@@ -69,7 +69,7 @@ dropdownWidget.OnListItemAdded(parentWidget, newChild);
 ### OnListItemRemoved
 `public void OnListItemRemoved(Widget removedItem, Widget removedChild)`
 
-**Purpose:** **Purpose:** Invoked when the list item removed event is raised.
+**Purpose:** Invoked when the list item removed event is raised.
 
 ```csharp
 // Obtain an instance of DropdownWidget from the subsystem API first
@@ -80,7 +80,7 @@ dropdownWidget.OnListItemRemoved(removedItem, removedChild);
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** **Purpose:** Invoked when the selection changed event is raised.
+**Purpose:** Invoked when the selection changed event is raised.
 
 ```csharp
 // Obtain an instance of DropdownWidget from the subsystem API first

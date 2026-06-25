@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### Compare
 `public abstract int Compare(QuestItemVM x, QuestItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -41,7 +41,7 @@ var result = questItemSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -52,7 +52,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -63,7 +63,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -74,7 +74,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### SortByOption
 `public void SortByOption(QuestItemSortOption sortOption)`
 
-**Purpose:** **Purpose:** Executes the SortByOption logic.
+**Purpose:** Executes the SortByOption logic.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first

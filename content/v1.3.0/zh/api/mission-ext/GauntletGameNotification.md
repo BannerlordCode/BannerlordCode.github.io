@@ -29,7 +29,7 @@ description: "GauntletGameNotification 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ GauntletGameNotification.Initialize();
 ### OnFinalize
 `public static void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ GauntletGameNotification.OnFinalize();
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 movie。
+**用途 / Purpose:** 从持久化存储或流中读取 movie。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletGameNotification 实例

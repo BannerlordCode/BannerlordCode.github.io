@@ -34,7 +34,7 @@ description: "ArenaPracticeFightMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -45,7 +45,7 @@ arenaPracticeFightMissionController.AfterStart();
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -56,7 +56,7 @@ arenaPracticeFightMissionController.OnScoreHit(affectedAgent, affectorAgent, att
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -67,7 +67,7 @@ arenaPracticeFightMissionController.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -78,7 +78,7 @@ arenaPracticeFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent,
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
+**用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -89,7 +89,7 @@ var result = arenaPracticeFightMissionController.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
+**用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -100,7 +100,7 @@ var result = arenaPracticeFightMissionController.OnEndMissionRequest(canPlayerLe
 ### StartPlayerPractice
 `public void StartPlayerPractice()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动player practice流程或状态机。
+**用途 / Purpose:** 启动player practice流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaPracticeFightMissionController 实例
@@ -111,7 +111,7 @@ arenaPracticeFightMissionController.StartPlayerPractice();
 ### GetParticipantCharacters
 `public static List<CharacterObject> GetParticipantCharacters(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participant characters 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 participant characters 的结果。
 
 ```csharp
 // 静态调用，不需要实例

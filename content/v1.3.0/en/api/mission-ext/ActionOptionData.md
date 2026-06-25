@@ -29,7 +29,7 @@ Treat `ActionOptionData` as a Data-style extension point: first identify who cre
 ### Commit
 `public void Commit()`
 
-**Purpose:** **Purpose:** Executes the Commit logic.
+**Purpose:** Executes the Commit logic.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -40,7 +40,7 @@ actionOptionData.Commit();
 ### GetDefaultValue
 `public float GetDefaultValue()`
 
-**Purpose:** **Purpose:** Reads and returns the default value value held by the this instance.
+**Purpose:** Reads and returns the default value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -51,7 +51,7 @@ var result = actionOptionData.GetDefaultValue();
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** **Purpose:** Reads and returns the option type value held by the this instance.
+**Purpose:** Reads and returns the option type value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -62,7 +62,7 @@ var result = actionOptionData.GetOptionType();
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -73,7 +73,7 @@ var result = actionOptionData.GetValue(false);
 ### IsNative
 `public bool IsNative()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the native state or condition.
+**Purpose:** Determines whether the this instance is in the native state or condition.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -84,7 +84,7 @@ var result = actionOptionData.IsNative();
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
+**Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -95,7 +95,7 @@ actionOptionData.SetValue(0);
 ### IsAction
 `public bool IsAction()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the action state or condition.
+**Purpose:** Determines whether the this instance is in the action state or condition.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first
@@ -106,7 +106,7 @@ var result = actionOptionData.IsAction();
 ### GetIsDisabledAndReasonID
 `public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
 
-**Purpose:** **Purpose:** Reads and returns the is disabled and reason i d value held by the this instance.
+**Purpose:** Reads and returns the is disabled and reason i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionOptionData from the subsystem API first

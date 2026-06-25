@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -51,7 +51,7 @@ missionScoreboardPlayerSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -62,7 +62,7 @@ var result = missionScoreboardPlayerSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -73,7 +73,7 @@ var result = missionScoreboardPlayerSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -84,7 +84,7 @@ var result = missionScoreboardPlayerSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -95,7 +95,7 @@ var result = missionScoreboardPlayerSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -106,7 +106,7 @@ var result = missionScoreboardPlayerSortControllerVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -117,7 +117,7 @@ missionScoreboardPlayerSortControllerVM.RefreshValues();
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** **Purpose:** Executes the SortByCurrentState logic.
+**Purpose:** Executes the SortByCurrentState logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -128,7 +128,7 @@ missionScoreboardPlayerSortControllerVM.SortByCurrentState();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
+**Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -139,7 +139,7 @@ missionScoreboardPlayerSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByScore
 `public void ExecuteSortByScore()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by score.
+**Purpose:** Runs the operation or workflow associated with sort by score.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -150,7 +150,7 @@ missionScoreboardPlayerSortControllerVM.ExecuteSortByScore();
 ### ExecuteSortByKill
 `public void ExecuteSortByKill()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by kill.
+**Purpose:** Runs the operation or workflow associated with sort by kill.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first
@@ -161,7 +161,7 @@ missionScoreboardPlayerSortControllerVM.ExecuteSortByKill();
 ### ExecuteSortByAssist
 `public void ExecuteSortByAssist()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by assist.
+**Purpose:** Runs the operation or workflow associated with sort by assist.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerSortControllerVM from the subsystem API first

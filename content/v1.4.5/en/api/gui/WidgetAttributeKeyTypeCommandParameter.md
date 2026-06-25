@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** **Purpose:** Verifies whether key type holds true for the this instance.
+**Purpose:** Verifies whether key type holds true for the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first
@@ -34,7 +34,7 @@ var result = widgetAttributeKeyTypeCommandParameter.CheckKeyType("example");
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the key name value held by the this instance.
+**Purpose:** Reads and returns the key name value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first
@@ -45,7 +45,7 @@ var result = widgetAttributeKeyTypeCommandParameter.GetKeyName("example");
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the serialized key value held by the this instance.
+**Purpose:** Reads and returns the serialized key value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first

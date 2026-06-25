@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CraftingSystem` to place it in t
 ### InitializeCraftingOrderOnLoad
 `public void InitializeCraftingOrderOnLoad()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by crafting order on load.
+**Purpose:** Prepares the resources, state, or bindings required by crafting order on load.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -42,7 +42,7 @@ craftingOrder.InitializeCraftingOrderOnLoad();
 ### IsPreCraftedWeaponDesignValid
 `public bool IsPreCraftedWeaponDesignValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the pre crafted weapon design valid state or condition.
+**Purpose:** Determines whether the this instance is in the pre crafted weapon design valid state or condition.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -53,7 +53,7 @@ var result = craftingOrder.IsPreCraftedWeaponDesignValid();
 ### GetStatWeapon
 `public WeaponComponentData GetStatWeapon()`
 
-**Purpose:** **Purpose:** Reads and returns the stat weapon value held by the this instance.
+**Purpose:** Reads and returns the stat weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -64,7 +64,7 @@ var result = craftingOrder.GetStatWeapon();
 ### IsOrderAvailableForHero
 `public bool IsOrderAvailableForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the order available for hero state or condition.
+**Purpose:** Determines whether the this instance is in the order available for hero state or condition.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -75,7 +75,7 @@ var result = craftingOrder.IsOrderAvailableForHero(hero);
 ### CanHeroCompleteOrder
 `public bool CanHeroCompleteOrder(Hero hero, ItemObject craftDesignItem)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero complete order.
+**Purpose:** Checks whether the this instance meets the preconditions for hero complete order.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -86,7 +86,7 @@ var result = craftingOrder.CanHeroCompleteOrder(hero, craftDesignItem);
 ### GetOrderExperience
 `public float GetOrderExperience(ItemObject craftedItem, ItemModifier itemModifier)`
 
-**Purpose:** **Purpose:** Reads and returns the order experience value held by the this instance.
+**Purpose:** Reads and returns the order experience value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -97,7 +97,7 @@ var result = craftingOrder.GetOrderExperience(craftedItem, itemModifier);
 ### CheckForBonusesAndPenalties
 `public void CheckForBonusesAndPenalties(ItemObject craftedItem, ItemModifier itemModifier, out float craftedStatsSum, out float requiredStatsSum, out bool thrustDamageCheck, out bool swingDamageCheck)`
 
-**Purpose:** **Purpose:** Verifies whether for bonuses and penalties holds true for the this instance.
+**Purpose:** Verifies whether for bonuses and penalties holds true for the this instance.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first
@@ -108,7 +108,7 @@ craftingOrder.CheckForBonusesAndPenalties(craftedItem, itemModifier, craftedStat
 ### GetStatDataForItem
 `public List<CraftingStatData> GetStatDataForItem(ItemObject itemObject, out WeaponComponentData weapon)`
 
-**Purpose:** **Purpose:** Reads and returns the stat data for item value held by the this instance.
+**Purpose:** Reads and returns the stat data for item value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingOrder from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Destroy
 `public virtual void Destroy()`
 
-**Purpose:** **Purpose:** Executes the Destroy logic.
+**Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of PathFinder from the subsystem API first
@@ -34,7 +34,7 @@ pathFinder.Destroy();
 ### Initialize
 `public abstract void Initialize(Vec3 bbSize)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PathFinder from the subsystem API first
@@ -45,7 +45,7 @@ pathFinder.Initialize(bbSize);
 ### FindPath
 `public abstract bool FindPath(Vec3 wSource, Vec3 wDestination, List<Vec3> path, float craftWidth = 5f)`
 
-**Purpose:** **Purpose:** Looks up the matching path in the current collection or scope.
+**Purpose:** Looks up the matching path in the current collection or scope.
 
 ```csharp
 // Obtain an instance of PathFinder from the subsystem API first

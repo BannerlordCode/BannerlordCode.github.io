@@ -23,7 +23,7 @@ Treat `ParallaxContainerWidget` as a Widget-style extension point: first identif
 ### ParallaxContainerWidget
 `public class ParallaxContainerWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ParallaxContainerWidget logic.
+**Purpose:** Executes the ParallaxContainerWidget logic.
 
 ```csharp
 // Obtain an instance of ParallaxContainerWidget from the subsystem API first

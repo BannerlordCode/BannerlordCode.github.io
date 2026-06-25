@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### Load
 `public static void Load(this SpriteCategory category)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

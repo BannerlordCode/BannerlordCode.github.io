@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClimbingMachine from the subsystem API first
@@ -34,7 +34,7 @@ var result = climbingMachine.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClimbingMachine from the subsystem API first
@@ -45,7 +45,7 @@ var result = climbingMachine.GetDescriptionText(gameEntity);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClimbingMachine from the subsystem API first
@@ -56,7 +56,7 @@ var result = climbingMachine.GetTickRequirement();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of ClimbingMachine from the subsystem API first
@@ -67,7 +67,7 @@ climbingMachine.OnDeploymentFinished();
 ### OnMissionEnded
 `public override void OnMissionEnded()`
 
-**Purpose:** **Purpose:** Invoked when the mission ended event is raised.
+**Purpose:** Invoked when the mission ended event is raised.
 
 ```csharp
 // Obtain an instance of ClimbingMachine from the subsystem API first

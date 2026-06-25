@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetShader
 `public Shader GetShader()`
 
-**Purpose:** **Purpose:** Reads and returns the shader value held by the this instance.
+**Purpose:** Reads and returns the shader value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -41,7 +41,7 @@ var result = weakMaterial.GetShader();
 ### GetShaderFlags
 `public ulong GetShaderFlags()`
 
-**Purpose:** **Purpose:** Reads and returns the shader flags value held by the this instance.
+**Purpose:** Reads and returns the shader flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -52,7 +52,7 @@ var result = weakMaterial.GetShaderFlags();
 ### SetShaderFlags
 `public void SetShaderFlags(ulong flagEntry)`
 
-**Purpose:** **Purpose:** Assigns a new value to shader flags and updates the object's internal state.
+**Purpose:** Assigns a new value to shader flags and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -63,7 +63,7 @@ weakMaterial.SetShaderFlags(0);
 ### SetMeshVectorArgument
 `public void SetMeshVectorArgument(float x, float y, float z, float w)`
 
-**Purpose:** **Purpose:** Assigns a new value to mesh vector argument and updates the object's internal state.
+**Purpose:** Assigns a new value to mesh vector argument and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -74,7 +74,7 @@ weakMaterial.SetMeshVectorArgument(0, 0, 0, 0);
 ### SetTexture
 `public void SetTexture(Material.MBTextureType textureType, Texture texture)`
 
-**Purpose:** **Purpose:** Assigns a new value to texture and updates the object's internal state.
+**Purpose:** Assigns a new value to texture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -85,7 +85,7 @@ weakMaterial.SetTexture(textureType, texture);
 ### SetTextureAtSlot
 `public void SetTextureAtSlot(int textureSlot, Texture texture)`
 
-**Purpose:** **Purpose:** Assigns a new value to texture at slot and updates the object's internal state.
+**Purpose:** Assigns a new value to texture at slot and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -96,7 +96,7 @@ weakMaterial.SetTextureAtSlot(0, texture);
 ### SetAreaMapScale
 `public void SetAreaMapScale(float scale)`
 
-**Purpose:** **Purpose:** Assigns a new value to area map scale and updates the object's internal state.
+**Purpose:** Assigns a new value to area map scale and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -107,7 +107,7 @@ weakMaterial.SetAreaMapScale(0);
 ### SetEnableSkinning
 `public void SetEnableSkinning(bool enable)`
 
-**Purpose:** **Purpose:** Assigns a new value to enable skinning and updates the object's internal state.
+**Purpose:** Assigns a new value to enable skinning and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -118,7 +118,7 @@ weakMaterial.SetEnableSkinning(false);
 ### UsingSkinning
 `public bool UsingSkinning()`
 
-**Purpose:** **Purpose:** Executes the UsingSkinning logic.
+**Purpose:** Executes the UsingSkinning logic.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -129,7 +129,7 @@ var result = weakMaterial.UsingSkinning();
 ### GetTexture
 `public Texture GetTexture(Material.MBTextureType textureType)`
 
-**Purpose:** **Purpose:** Reads and returns the texture value held by the this instance.
+**Purpose:** Reads and returns the texture value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -140,7 +140,7 @@ var result = weakMaterial.GetTexture(textureType);
 ### GetTextureWithSlot
 `public Texture GetTextureWithSlot(int textureSlot)`
 
-**Purpose:** **Purpose:** Reads and returns the texture with slot value held by the this instance.
+**Purpose:** Reads and returns the texture with slot value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -151,7 +151,7 @@ var result = weakMaterial.GetTextureWithSlot(0);
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string flagName, bool showErrors)`
 
-**Purpose:** **Purpose:** Adds material shader flag to the current collection or state.
+**Purpose:** Adds material shader flag to the current collection or state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -162,7 +162,7 @@ weakMaterial.AddMaterialShaderFlag("example", false);
 ### RemoveMaterialShaderFlag
 `public void RemoveMaterialShaderFlag(string flagName)`
 
-**Purpose:** **Purpose:** Removes material shader flag from the current collection or state.
+**Purpose:** Removes material shader flag from the current collection or state.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -173,7 +173,7 @@ weakMaterial.RemoveMaterialShaderFlag("example");
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first
@@ -184,7 +184,7 @@ var result = weakMaterial.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of WeakMaterial from the subsystem API first

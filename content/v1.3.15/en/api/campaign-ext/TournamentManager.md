@@ -23,7 +23,7 @@ Treat `TournamentManager` as a Manager-style extension point: first identify who
 ### AddTournament
 `public void AddTournament(TournamentGame game)`
 
-**Purpose:** **Purpose:** Adds tournament to the current collection or state.
+**Purpose:** Adds tournament to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -34,7 +34,7 @@ tournamentManager.AddTournament(game);
 ### RemoveTournament
 `public void RemoveTournament(TournamentGame game)`
 
-**Purpose:** **Purpose:** Removes tournament from the current collection or state.
+**Purpose:** Removes tournament from the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -45,7 +45,7 @@ tournamentManager.RemoveTournament(game);
 ### GetTournamentGame
 `public TournamentGame GetTournamentGame(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the tournament game value held by the this instance.
+**Purpose:** Reads and returns the tournament game value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -56,7 +56,7 @@ var result = tournamentManager.GetTournamentGame(town);
 ### OnPlayerJoinMatch
 `public void OnPlayerJoinMatch(Type gameType)`
 
-**Purpose:** **Purpose:** Invoked when the player join match event is raised.
+**Purpose:** Invoked when the player join match event is raised.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -67,7 +67,7 @@ tournamentManager.OnPlayerJoinMatch(gameType);
 ### OnPlayerJoinTournament
 `public void OnPlayerJoinTournament(Type gameType, Settlement settlement)`
 
-**Purpose:** **Purpose:** Invoked when the player join tournament event is raised.
+**Purpose:** Invoked when the player join tournament event is raised.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -78,7 +78,7 @@ tournamentManager.OnPlayerJoinTournament(gameType, settlement);
 ### OnPlayerWatchTournament
 `public void OnPlayerWatchTournament(Type gameType, Settlement settlement)`
 
-**Purpose:** **Purpose:** Invoked when the player watch tournament event is raised.
+**Purpose:** Invoked when the player watch tournament event is raised.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -89,7 +89,7 @@ tournamentManager.OnPlayerWatchTournament(gameType, settlement);
 ### OnPlayerWinMatch
 `public void OnPlayerWinMatch(Type gameType)`
 
-**Purpose:** **Purpose:** Invoked when the player win match event is raised.
+**Purpose:** Invoked when the player win match event is raised.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -100,7 +100,7 @@ tournamentManager.OnPlayerWinMatch(gameType);
 ### OnPlayerWinTournament
 `public void OnPlayerWinTournament(Type gameType)`
 
-**Purpose:** **Purpose:** Invoked when the player win tournament event is raised.
+**Purpose:** Invoked when the player win tournament event is raised.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -111,7 +111,7 @@ tournamentManager.OnPlayerWinTournament(gameType);
 ### GetLeaderboard
 `public List<KeyValuePair<Hero, int>> GetLeaderboard()`
 
-**Purpose:** **Purpose:** Reads and returns the leaderboard value held by the this instance.
+**Purpose:** Reads and returns the leaderboard value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -122,7 +122,7 @@ var result = tournamentManager.GetLeaderboard();
 ### GetLeaderBoardRank
 `public int GetLeaderBoardRank(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the leader board rank value held by the this instance.
+**Purpose:** Reads and returns the leader board rank value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -133,7 +133,7 @@ var result = tournamentManager.GetLeaderBoardRank(hero);
 ### GetLeaderBoardLeader
 `public Hero GetLeaderBoardLeader()`
 
-**Purpose:** **Purpose:** Reads and returns the leader board leader value held by the this instance.
+**Purpose:** Reads and returns the leader board leader value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -144,7 +144,7 @@ var result = tournamentManager.GetLeaderBoardLeader();
 ### InitializeLeaderboardEntry
 `public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by leaderboard entry.
+**Purpose:** Prepares the resources, state, or bindings required by leaderboard entry.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -155,7 +155,7 @@ tournamentManager.InitializeLeaderboardEntry(hero, 0);
 ### AddLeaderboardEntry
 `public void AddLeaderboardEntry(Hero hero)`
 
-**Purpose:** **Purpose:** Adds leaderboard entry to the current collection or state.
+**Purpose:** Adds leaderboard entry to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -166,7 +166,7 @@ tournamentManager.AddLeaderboardEntry(hero);
 ### DeleteLeaderboardEntry
 `public void DeleteLeaderboardEntry(Hero hero)`
 
-**Purpose:** **Purpose:** Executes the DeleteLeaderboardEntry logic.
+**Purpose:** Executes the DeleteLeaderboardEntry logic.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -177,7 +177,7 @@ tournamentManager.DeleteLeaderboardEntry(hero);
 ### ResolveTournament
 `public void ResolveTournament(TournamentGame tournament, Town town)`
 
-**Purpose:** **Purpose:** Executes the ResolveTournament logic.
+**Purpose:** Executes the ResolveTournament logic.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first
@@ -188,7 +188,7 @@ tournamentManager.ResolveTournament(tournament, town);
 ### GivePrizeToWinner
 `public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)`
 
-**Purpose:** **Purpose:** Executes the GivePrizeToWinner logic.
+**Purpose:** Executes the GivePrizeToWinner logic.
 
 ```csharp
 // Obtain an instance of TournamentManager from the subsystem API first

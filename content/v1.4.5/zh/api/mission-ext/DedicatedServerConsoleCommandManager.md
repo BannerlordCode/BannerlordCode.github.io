@@ -23,7 +23,7 @@ description: "DedicatedServerConsoleCommandManager 的自动生成类参考。"
 ### AddType
 `public static void AddType(Type type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 type 添加到当前容器或状态中。
+**用途 / Purpose:** 将 type 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendGroupVM from the subsystem API first
@@ -42,7 +42,7 @@ mPLobbyFriendGroupVM.RefreshValues();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendGroupVM from the subsystem API first
@@ -53,7 +53,7 @@ mPLobbyFriendGroupVM.Tick();
 ### ClearFriends
 `public void ClearFriends()`
 
-**Purpose:** **Purpose:** Removes all friends from the this instance.
+**Purpose:** Removes all friends from the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendGroupVM from the subsystem API first
@@ -64,7 +64,7 @@ mPLobbyFriendGroupVM.ClearFriends();
 ### AddFriend
 `public void AddFriend(MPLobbyFriendItemVM player)`
 
-**Purpose:** **Purpose:** Adds friend to the current collection or state.
+**Purpose:** Adds friend to the current collection or state.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendGroupVM from the subsystem API first
@@ -75,7 +75,7 @@ mPLobbyFriendGroupVM.AddFriend(player);
 ### RemoveFriend
 `public void RemoveFriend(MPLobbyFriendItemVM player)`
 
-**Purpose:** **Purpose:** Removes friend from the current collection or state.
+**Purpose:** Removes friend from the current collection or state.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendGroupVM from the subsystem API first

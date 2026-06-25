@@ -32,7 +32,7 @@ Treat `JoustingAgentController` as a Controller-style extension point: first ide
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the initialize event is raised.
+**Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of JoustingAgentController from the subsystem API first
@@ -43,7 +43,7 @@ joustingAgentController.OnInitialize();
 ### UpdateState
 `public void UpdateState()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of state.
+**Purpose:** Recalculates and stores the latest representation of state.
 
 ```csharp
 // Obtain an instance of JoustingAgentController from the subsystem API first
@@ -54,7 +54,7 @@ joustingAgentController.UpdateState();
 ### PrepareAgentToSwordDuel
 `public void PrepareAgentToSwordDuel()`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming agent to sword duel operation.
+**Purpose:** Finishes prerequisite setup for the upcoming agent to sword duel operation.
 
 ```csharp
 // Obtain an instance of JoustingAgentController from the subsystem API first
@@ -65,7 +65,7 @@ joustingAgentController.PrepareAgentToSwordDuel();
 ### PrepareEquipmentsForSwordDuel
 `public void PrepareEquipmentsForSwordDuel()`
 
-**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming equipments for sword duel operation.
+**Purpose:** Finishes prerequisite setup for the upcoming equipments for sword duel operation.
 
 ```csharp
 // Obtain an instance of JoustingAgentController from the subsystem API first
@@ -76,7 +76,7 @@ joustingAgentController.PrepareEquipmentsForSwordDuel();
 ### IsRiding
 `public bool IsRiding()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the riding state or condition.
+**Purpose:** Determines whether the this instance is in the riding state or condition.
 
 ```csharp
 // Obtain an instance of JoustingAgentController from the subsystem API first

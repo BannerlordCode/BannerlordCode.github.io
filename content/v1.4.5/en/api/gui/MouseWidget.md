@@ -36,7 +36,7 @@ Treat `MouseWidget` as a Widget-style extension point: first identify who create
 ### UpdatePressedKeys
 `public void UpdatePressedKeys()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of pressed keys.
+**Purpose:** Recalculates and stores the latest representation of pressed keys.
 
 ```csharp
 // Obtain an instance of MouseWidget from the subsystem API first

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first
@@ -43,7 +43,7 @@ mBEquipmentRoster.Init(objectManager, node);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first
@@ -54,7 +54,7 @@ mBEquipmentRoster.Deserialize(objectManager, node);
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** **Purpose:** Adds equipment roster to the current collection or state.
+**Purpose:** Adds equipment roster to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first
@@ -65,7 +65,7 @@ mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
 ### AddOverriddenEquipments
 `public void AddOverriddenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
-**Purpose:** **Purpose:** Adds overridden equipments to the current collection or state.
+**Purpose:** Adds overridden equipments to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first
@@ -76,7 +76,7 @@ mBEquipmentRoster.AddOverriddenEquipments(objectManager, overridenEquipmentSlots
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**Purpose:** **Purpose:** Executes the OrderEquipments logic.
+**Purpose:** Executes the OrderEquipments logic.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first
@@ -87,7 +87,7 @@ mBEquipmentRoster.OrderEquipments();
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by default equipment.
+**Purpose:** Prepares the resources, state, or bindings required by default equipment.
 
 ```csharp
 // Obtain an instance of MBEquipmentRoster from the subsystem API first

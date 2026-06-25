@@ -31,7 +31,7 @@ description: "MapSiegeProductionVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeProductionVM 实例
@@ -42,7 +42,7 @@ mapSiegeProductionVM.RefreshValues();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeProductionVM 实例
@@ -53,7 +53,7 @@ mapSiegeProductionVM.Update();
 ### OnMachineSelection
 `public void OnMachineSelection(MapSiegePOIVM poi)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 machine selection 事件触发时调用此回调。
+**用途 / Purpose:** 在 machine selection 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeProductionVM 实例
@@ -64,7 +64,7 @@ mapSiegeProductionVM.OnMachineSelection(poi);
 ### ExecuteDisable
 `public void ExecuteDisable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 disable 对应的操作或工作流。
+**用途 / Purpose:** 执行 disable 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeProductionVM 实例

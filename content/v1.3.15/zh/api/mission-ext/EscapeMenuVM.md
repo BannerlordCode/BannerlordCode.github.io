@@ -31,7 +31,7 @@ description: "EscapeMenuVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EscapeMenuVM 实例
@@ -42,7 +42,7 @@ escapeMenuVM.RefreshValues();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EscapeMenuVM 实例
@@ -53,7 +53,7 @@ escapeMenuVM.Tick(0);
 ### RefreshItems
 `public void RefreshItems(IEnumerable<EscapeMenuItemVM> items)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 items 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 items 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EscapeMenuVM 实例

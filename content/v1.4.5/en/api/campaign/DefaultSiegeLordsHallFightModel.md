@@ -23,7 +23,7 @@ Treat `DefaultSiegeLordsHallFightModel` as a Model-style extension point: first 
 ### GetPriorityListForLordsHallFightMission
 `public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
 
-**Purpose:** **Purpose:** Reads and returns the priority list for lords hall fight mission value held by the this instance.
+**Purpose:** Reads and returns the priority list for lords hall fight mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSiegeLordsHallFightModel from the subsystem API first

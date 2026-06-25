@@ -23,7 +23,7 @@ Treat `DefaultBannerItemModel` as a Model-style extension point: first identify 
 ### GetPossibleRewardBannerItems
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** **Purpose:** Reads and returns the possible reward banner items value held by the this instance.
+**Purpose:** Reads and returns the possible reward banner items value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBannerItemModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultBannerItemModel.GetPossibleRewardBannerItems();
 ### GetPossibleRewardBannerItemsForHero
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the possible reward banner items for hero value held by the this instance.
+**Purpose:** Reads and returns the possible reward banner items for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBannerItemModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultBannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
 ### GetBannerItemLevelForHero
 `public override int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the banner item level for hero value held by the this instance.
+**Purpose:** Reads and returns the banner item level for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBannerItemModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultBannerItemModel.GetBannerItemLevelForHero(hero);
 ### CanBannerBeUpdated
 `public override bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for banner be updated.
+**Purpose:** Checks whether the this instance meets the preconditions for banner be updated.
 
 ```csharp
 // Obtain an instance of DefaultBannerItemModel from the subsystem API first

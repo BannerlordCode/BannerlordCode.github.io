@@ -31,7 +31,7 @@ Treat `CapsuleData` as a Data-style extension point: first identify who creates 
 ### GetBoxMinMax
 `public ValueTuple<Vec3, Vec3> GetBoxMinMax()`
 
-**Purpose:** **Purpose:** Reads and returns the box min max value held by the this instance.
+**Purpose:** Reads and returns the box min max value held by the this instance.
 
 ```csharp
 // Obtain an instance of CapsuleData from the subsystem API first

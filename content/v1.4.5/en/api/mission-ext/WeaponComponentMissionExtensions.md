@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetItemUsageIndex
 `public static int GetItemUsageIndex(this WeaponComponentData weaponComponentData)`
 
-**Purpose:** **Purpose:** Reads and returns the item usage index value held by the this instance.
+**Purpose:** Reads and returns the item usage index value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ WeaponComponentMissionExtensions.GetItemUsageIndex(weaponComponentData);
 ### GetWeaponCenterOfMass
 `public static Vec3 GetWeaponCenterOfMass(this PhysicsShape body)`
 
-**Purpose:** **Purpose:** Reads and returns the weapon center of mass value held by the this instance.
+**Purpose:** Reads and returns the weapon center of mass value held by the this instance.
 
 ```csharp
 // Static call; no instance required

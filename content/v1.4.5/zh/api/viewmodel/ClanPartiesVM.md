@@ -47,7 +47,7 @@ description: "ClanPartiesVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -58,7 +58,7 @@ clanPartiesVM.RefreshValues();
 ### RefreshTotalExpense
 `public void RefreshTotalExpense()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 total expense 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 total expense 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -69,7 +69,7 @@ clanPartiesVM.RefreshTotalExpense();
 ### RefreshPartiesList
 `public void RefreshPartiesList()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 parties list 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 parties list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -80,7 +80,7 @@ clanPartiesVM.RefreshPartiesList();
 ### ExecuteCreateNewParty
 `public void ExecuteCreateNewParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 create new party 对应的操作或工作流。
+**用途 / Purpose:** 执行 create new party 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -91,7 +91,7 @@ clanPartiesVM.ExecuteCreateNewParty();
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectParty 对应的操作。
+**用途 / Purpose:** 调用 SelectParty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -102,7 +102,7 @@ clanPartiesVM.SelectParty(party);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -113,7 +113,7 @@ clanPartiesVM.OnFinalize();
 ### OnShowNewPartyPopup
 `public void OnShowNewPartyPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 show new party popup 事件触发时调用此回调。
+**用途 / Purpose:** 在 show new party popup 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例
@@ -124,7 +124,7 @@ clanPartiesVM.OnShowNewPartyPopup();
 ### OnShowChangeLeaderPopup
 `public void OnShowChangeLeaderPopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 show change leader popup 事件触发时调用此回调。
+**用途 / Purpose:** 在 show change leader popup 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPartiesVM 实例

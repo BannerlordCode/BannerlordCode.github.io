@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
+**Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of TWSharedMutexWriteLock from the subsystem API first

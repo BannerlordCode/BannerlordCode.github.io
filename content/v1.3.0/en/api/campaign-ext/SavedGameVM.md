@@ -57,7 +57,7 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SavedGameVM from the subsystem API first
@@ -68,7 +68,7 @@ savedGameVM.RefreshValues();
 ### ExecuteSaveLoad
 `public void ExecuteSaveLoad()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with save load.
+**Purpose:** Runs the operation or workflow associated with save load.
 
 ```csharp
 // Obtain an instance of SavedGameVM from the subsystem API first
@@ -79,7 +79,7 @@ savedGameVM.ExecuteSaveLoad();
 ### ExecuteUpdate
 `public void ExecuteUpdate()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with update.
+**Purpose:** Runs the operation or workflow associated with update.
 
 ```csharp
 // Obtain an instance of SavedGameVM from the subsystem API first
@@ -90,7 +90,7 @@ savedGameVM.ExecuteUpdate();
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with delete.
+**Purpose:** Runs the operation or workflow associated with delete.
 
 ```csharp
 // Obtain an instance of SavedGameVM from the subsystem API first
@@ -101,7 +101,7 @@ savedGameVM.ExecuteDelete();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
+**Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of SavedGameVM from the subsystem API first

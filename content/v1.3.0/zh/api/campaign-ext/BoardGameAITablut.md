@@ -23,7 +23,7 @@ description: "BoardGameAITablut 的自动生成类参考。"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAITablut 实例
@@ -34,7 +34,7 @@ boardGameAITablut.Initialize();
 ### OnSetGameOver
 `public override void OnSetGameOver()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 set game over 事件触发时调用此回调。
+**用途 / Purpose:** 在 set game over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAITablut 实例
@@ -45,7 +45,7 @@ boardGameAITablut.OnSetGameOver();
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算movement stage move的当前值或结果。
+**用途 / Purpose:** 计算movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAITablut 实例

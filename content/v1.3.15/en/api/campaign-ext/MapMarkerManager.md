@@ -29,7 +29,7 @@ Treat `MapMarkerManager` as a Manager-style extension point: first identify who 
 ### CreateMapMarker
 `public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)`
 
-**Purpose:** **Purpose:** Constructs a new map marker entity and returns it to the caller.
+**Purpose:** Constructs a new map marker entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MapMarkerManager from the subsystem API first
@@ -40,7 +40,7 @@ var result = mapMarkerManager.CreateMapMarker(banner, name, position, false, "ex
 ### RemoveMapMarker
 `public void RemoveMapMarker(MapMarker mapMarker)`
 
-**Purpose:** **Purpose:** Removes map marker from the current collection or state.
+**Purpose:** Removes map marker from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapMarkerManager from the subsystem API first
@@ -51,7 +51,7 @@ mapMarkerManager.RemoveMapMarker(mapMarker);
 ### RemoveAllMapMarkersByQuestId
 `public void RemoveAllMapMarkersByQuestId(string questId)`
 
-**Purpose:** **Purpose:** Removes all map markers by quest id from the current collection or state.
+**Purpose:** Removes all map markers by quest id from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapMarkerManager from the subsystem API first
@@ -62,7 +62,7 @@ mapMarkerManager.RemoveAllMapMarkersByQuestId("example");
 ### GetMapMarkersByQuestId
 `public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)`
 
-**Purpose:** **Purpose:** Reads and returns the map markers by quest id value held by the this instance.
+**Purpose:** Reads and returns the map markers by quest id value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapMarkerManager from the subsystem API first

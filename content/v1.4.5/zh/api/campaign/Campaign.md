@@ -102,7 +102,7 @@ description: "Campaign 的自动生成类参考。"
 ### GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
 `public float GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average distance between closest two towns with navigation type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 average distance between closest two towns with navigation type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -113,7 +113,7 @@ var result = campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
 ### InitializeMainParty
 `public void InitializeMainParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 main party 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 main party 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -124,7 +124,7 @@ campaign.InitializeMainParty();
 ### WaitAsyncTasks
 `public void WaitAsyncTasks()`
 
-**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到async tasks条件满足。
+**用途 / Purpose:** 暂停当前流程，直到async tasks条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -135,7 +135,7 @@ campaign.WaitAsyncTasks();
 ### GetSimplifiedTimeControlMode
 `public CampaignTimeControlMode GetSimplifiedTimeControlMode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 simplified time control mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 simplified time control mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -146,7 +146,7 @@ var result = campaign.GetSimplifiedTimeControlMode();
 ### OnGameOver
 `public void OnGameOver()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 game over 事件触发时调用此回调。
+**用途 / Purpose:** 在 game over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -157,7 +157,7 @@ campaign.OnGameOver();
 ### SetTimeSpeed
 `public void SetTimeSpeed(int speed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 time speed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 time speed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -168,7 +168,7 @@ campaign.SetTimeSpeed(0);
 ### LateAITick
 `public static void LateAITick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 LateAITick 对应的操作。
+**用途 / Purpose:** 调用 LateAITick 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -178,7 +178,7 @@ Campaign.LateAITick();
 ### AddCampaignBehaviorManager
 `public void AddCampaignBehaviorManager(ICampaignBehaviorManager manager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 campaign behavior manager 添加到当前容器或状态中。
+**用途 / Purpose:** 将 campaign behavior manager 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -189,7 +189,7 @@ campaign.AddCampaignBehaviorManager(manager);
 ### OnDestroy
 `public override void OnDestroy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 destroy 事件触发时调用此回调。
+**用途 / Purpose:** 在 destroy 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -200,7 +200,7 @@ campaign.OnDestroy();
 ### InitializeSinglePlayerReferences
 `public void InitializeSinglePlayerReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 single player references 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 single player references 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -211,7 +211,7 @@ campaign.InitializeSinglePlayerReferences();
 ### InitializeGamePlayReferences
 `public void InitializeGamePlayReferences()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 game play references 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 game play references 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -222,7 +222,7 @@ campaign.InitializeGamePlayReferences();
 ### SetLoadingParameters
 `public void SetLoadingParameters(GameLoadingType gameLoadingType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 loading parameters 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 loading parameters 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -233,7 +233,7 @@ campaign.SetLoadingParameters(gameLoadingType);
 ### AddCampaignEventReceiver
 `public void AddCampaignEventReceiver(CampaignEventReceiver receiver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 campaign event receiver 添加到当前容器或状态中。
+**用途 / Purpose:** 将 campaign event receiver 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -244,7 +244,7 @@ campaign.AddCampaignEventReceiver(receiver);
 ### OnMissionIsStarting
 `public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission is starting 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission is starting 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -255,7 +255,7 @@ campaign.OnMissionIsStarting("example", rec);
 ### InitializeParameters
 `public override void InitializeParameters()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 parameters 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 parameters 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -266,7 +266,7 @@ campaign.InitializeParameters();
 ### SetTimeControlModeLock
 `public void SetTimeControlModeLock(bool isLocked)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 time control mode lock 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 time control mode lock 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -277,7 +277,7 @@ campaign.SetTimeControlModeLock(false);
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(out bool isMainPartyChanged)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player character changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 player character changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -288,7 +288,7 @@ campaign.OnPlayerCharacterChanged(isMainPartyChanged);
 ### SetPlayerFormationPreference
 `public void SetPlayerFormationPreference(CharacterObject character, FormationClass formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 player formation preference 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 player formation preference 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -299,7 +299,7 @@ campaign.SetPlayerFormationPreference(character, formation);
 ### OnStateChanged
 `public override void OnStateChanged(TaleWorlds.Core.GameState oldState)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 state changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例
@@ -310,7 +310,7 @@ campaign.OnStateChanged(oldState);
 ### UnlockFigurehead
 `public void UnlockFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UnlockFigurehead 对应的操作。
+**用途 / Purpose:** 调用 UnlockFigurehead 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例

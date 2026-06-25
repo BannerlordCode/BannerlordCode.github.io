@@ -23,7 +23,7 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ### CreateSaveLoadScreen
 `public static ScreenBase CreateSaveLoadScreen(bool isSaving)`
 
-**Purpose:** **Purpose:** Constructs a new save load screen entity and returns it to the caller.
+**Purpose:** Constructs a new save load screen entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SandBoxViewCreator.CreateSaveLoadScreen(false);
 ### CreateMissionCraftingView
 `public static MissionView CreateMissionCraftingView()`
 
-**Purpose:** **Purpose:** Constructs a new mission crafting view entity and returns it to the caller.
+**Purpose:** Constructs a new mission crafting view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SandBoxViewCreator.CreateMissionCraftingView();
 ### CreateMissionNameMarkerUIHandler
 `public static MissionView CreateMissionNameMarkerUIHandler(Mission mission = null)`
 
-**Purpose:** **Purpose:** Constructs a new mission name marker u i handler entity and returns it to the caller.
+**Purpose:** Constructs a new mission name marker u i handler entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ SandBoxViewCreator.CreateMissionNameMarkerUIHandler(null);
 ### CreateMissionConversationView
 `public static MissionView CreateMissionConversationView(Mission mission)`
 
-**Purpose:** **Purpose:** Constructs a new mission conversation view entity and returns it to the caller.
+**Purpose:** Constructs a new mission conversation view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ SandBoxViewCreator.CreateMissionConversationView(mission);
 ### CreateMissionBarterView
 `public static MissionView CreateMissionBarterView()`
 
-**Purpose:** **Purpose:** Constructs a new mission barter view entity and returns it to the caller.
+**Purpose:** Constructs a new mission barter view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ SandBoxViewCreator.CreateMissionBarterView();
 ### CreateMissionAgentAlarmStateView
 `public static MissionView CreateMissionAgentAlarmStateView(Mission mission = null)`
 
-**Purpose:** **Purpose:** Constructs a new mission agent alarm state view entity and returns it to the caller.
+**Purpose:** Constructs a new mission agent alarm state view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ SandBoxViewCreator.CreateMissionAgentAlarmStateView(null);
 ### CreateMissionMainAgentDetectionView
 `public static MissionView CreateMissionMainAgentDetectionView(Mission mission = null)`
 
-**Purpose:** **Purpose:** Constructs a new mission main agent detection view entity and returns it to the caller.
+**Purpose:** Constructs a new mission main agent detection view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ SandBoxViewCreator.CreateMissionMainAgentDetectionView(null);
 ### CreateMissionStealthFailCounter
 `public static MissionView CreateMissionStealthFailCounter(Mission mission = null)`
 
-**Purpose:** **Purpose:** Constructs a new mission stealth fail counter entity and returns it to the caller.
+**Purpose:** Constructs a new mission stealth fail counter entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ SandBoxViewCreator.CreateMissionStealthFailCounter(null);
 ### CreateMissionTournamentView
 `public static MissionView CreateMissionTournamentView()`
 
-**Purpose:** **Purpose:** Constructs a new mission tournament view entity and returns it to the caller.
+**Purpose:** Constructs a new mission tournament view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ SandBoxViewCreator.CreateMissionTournamentView();
 ### CreateMissionQuestBarView
 `public static MissionView CreateMissionQuestBarView()`
 
-**Purpose:** **Purpose:** Constructs a new mission quest bar view entity and returns it to the caller.
+**Purpose:** Constructs a new mission quest bar view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ SandBoxViewCreator.CreateMissionQuestBarView();
 ### CreateBoardGameView
 `public static MissionView CreateBoardGameView()`
 
-**Purpose:** **Purpose:** Constructs a new board game view entity and returns it to the caller.
+**Purpose:** Constructs a new board game view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ SandBoxViewCreator.CreateBoardGameView();
 ### CreateMissionArenaPracticeFightView
 `public static MissionView CreateMissionArenaPracticeFightView()`
 
-**Purpose:** **Purpose:** Constructs a new mission arena practice fight view entity and returns it to the caller.
+**Purpose:** Constructs a new mission arena practice fight view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

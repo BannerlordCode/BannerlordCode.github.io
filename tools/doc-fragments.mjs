@@ -105,11 +105,11 @@ export function methodPurpose(methodName, lang) {
       Update: '重新计算并更新当前对象的最新表示。',
       Refresh: '刷新当前对象的显示或缓存，使其与底层状态保持一致。',
       Reset: '将当前对象重置为默认或初始状态。',
-      Initialize: '初始化当前对象所需的资源、状态或绑定。',
-      Init: '初始化当前对象所需的资源、状态或绑定。',
+      Initialize: '加载当前对象所需的初始资源、状态或绑定。',
+      Init: '加载当前对象所需的初始资源、状态或绑定。',
       Execute: '执行当前对象代表的操作或工作流。',
       Apply: '将当前对象的效果应用到目标。',
-      Handle: '处理当前对象关联的事件或逻辑。',
+      Handle: '响应当前对象关联的事件并执行对应逻辑。',
       Tick: '推进当前对象一帧/一个更新周期的状态。',
       Prepare: '完成当前对象操作所需的前置准备。',
       Start: '启动当前对象的流程或状态机。',
@@ -145,8 +145,8 @@ export function methodPurpose(methodName, lang) {
       Disallow: '禁止当前对象执行其对应的操作或状态。',
       Check: '检查当前对象是否满足指定条件。',
       Sync: '将当前对象的状态同步到相关上下文。',
-      Does: '返回当前对象是否满足指定条件的布尔结果。',
-      Contains: '判断当前对象是否包含指定项。',
+      Does: '判断指定条件在当前对象上是否成立。',
+      Contains: '检查当前对象是否含有目标项。',
       StartsWith: '判断当前对象是否以指定内容开头。',
       EndsWith: '判断当前对象是否以指定内容结尾。',
       IndexOf: '查找指定内容在当前对象中的位置索引。',
@@ -154,7 +154,7 @@ export function methodPurpose(methodName, lang) {
       Boost: '提升当前对象对应数值或强度。',
       Gather: '收集或汇总当前对象相关的内容。',
       Finish: '结束当前对象的流程并执行必要的收尾工作。',
-      Read: '读取当前对象的数据或状态。',
+      Read: '从当前实例读取数据或状态。',
       Write: '将当前对象的数据写入目标位置。',
       Show: '显示当前对象对应的界面或元素。',
       Hide: '隐藏当前对象对应的界面或元素。',
@@ -254,7 +254,7 @@ export function methodPurpose(methodName, lang) {
     Init: `为 「${subject}」 初始化必要的资源、状态或绑定。`,
     Initialize: `为 「${subject}」 初始化必要的资源、状态或绑定。`,
     On: `在 「${subject}」 事件触发时调用此回调。`,
-    Handle: `执行与 「${subject}」 相关的响应逻辑。`,
+    Handle: `响应 「${subject}」 事件，执行对应的处理逻辑。`,
     Compare: `比较两个「${subject}」对象并返回大小/顺序结果。`,
     Equals: `判断当前对象是否与给定的「${subject}」相等。`,
     ToString: `生成当前对象的可读字符串表示。`,
@@ -299,10 +299,10 @@ export function methodPurpose(methodName, lang) {
     Disallow: `禁止当前对象启用或执行「${subject}」。`,
     Check: `检查「${subject}」在当前对象中是否成立。`,
     Sync: `将「${subject}」同步到相关上下文或系统中。`,
-    Does: `返回「${subject}」对当前对象是否成立的布尔结果。`,
-    Contains: `判断当前对象是否包含「${subject}」。`,
-    StartsWith: `判断当前对象是否以「${subject}」开头。`,
-    EndsWith: `判断当前对象是否以「${subject}」结尾。`,
+    Does: `判断「${subject}」这一条件在当前对象上是否成立。`,
+    Contains: `检查当前对象是否含有「${subject}」。`,
+    StartsWith: `检查当前对象是否以「${subject}」开头。`,
+    EndsWith: `检查当前对象是否以「${subject}」结尾。`,
     IndexOf: `查找「${subject}」在当前对象中的位置索引。`,
     Recalculate: `重新计算「${subject}」以反映最新状态。`,
     Recompute: `重新执行「${subject}」相关的计算并返回结果。`,
@@ -311,7 +311,7 @@ export function methodPurpose(methodName, lang) {
     Boost: `提升「${subject}」的数值或强度。`,
     Gather: `收集或汇总「${subject}」到当前对象。`,
     Finish: `结束「${subject}」流程并执行必要的收尾工作。`,
-    Read: `读取「${subject}」的数据或状态。`,
+    Read: `从当前实例读取「${subject}」相关数据。`,
     Write: `将「${subject}」写入目标位置。`,
     Show: `显示「${subject}」对应的界面或元素。`,
     Hide: `隐藏「${subject}」对应的界面或元素。`,
@@ -610,7 +610,8 @@ export function renderMethodBlocks(methods, className, lang) {
     lines.push(`### ${method.name}`);
     lines.push(`\`${method.sig}\``);
     lines.push('');
-    lines.push(methodPurpose(method.name, lang));
+    const purposeText = methodPurpose(method.name, lang);
+    lines.push(/^\*\*(?:Purpose|用途\s*\/\s*Purpose):\*\*/.test(purposeText) ? purposeText : `${ lang === 'zh' ? '**用途 / Purpose:**' : '**Purpose:**' } ${ purposeText }`);
     lines.push('');
     lines.push('```csharp');
     lines.push(methodExample(method, className, lang));

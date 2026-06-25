@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### StartUsingWorkspace
 `public T StartUsingWorkspace()`
 
-**Purpose:** **Purpose:** Starts the using workspace flow or state machine.
+**Purpose:** Starts the using workspace flow or state machine.
 
 ```csharp
 // Obtain an instance of MBWorkspace from the subsystem API first
@@ -34,7 +34,7 @@ var result = mBWorkspace.StartUsingWorkspace();
 ### StopUsingWorkspace
 `public void StopUsingWorkspace()`
 
-**Purpose:** **Purpose:** Stops the using workspace flow or state machine.
+**Purpose:** Stops the using workspace flow or state machine.
 
 ```csharp
 // Obtain an instance of MBWorkspace from the subsystem API first
@@ -45,7 +45,7 @@ mBWorkspace.StopUsingWorkspace();
 ### GetWorkspace
 `public T GetWorkspace()`
 
-**Purpose:** **Purpose:** Reads and returns the workspace value held by the this instance.
+**Purpose:** Reads and returns the workspace value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBWorkspace from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetIndoorWandering
 `public void SetIndoorWandering(bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to indoor wandering and updates the object's internal state.
+**Purpose:** Assigns a new value to indoor wandering and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -34,7 +34,7 @@ walkingBehavior.SetIndoorWandering(false);
 ### SetOutdoorWandering
 `public void SetOutdoorWandering(bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to outdoor wandering and updates the object's internal state.
+**Purpose:** Assigns a new value to outdoor wandering and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -45,7 +45,7 @@ walkingBehavior.SetOutdoorWandering(false);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -56,7 +56,7 @@ walkingBehavior.Tick(0, false);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** **Purpose:** Executes the ConversationTick logic.
+**Purpose:** Executes the ConversationTick logic.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -67,7 +67,7 @@ walkingBehavior.ConversationTick();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
+**Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = walkingBehavior.GetAvailability(false);
 ### SetCustomWanderTarget
 `public override void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom wander target and updates the object's internal state.
+**Purpose:** Assigns a new value to custom wander target and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -89,7 +89,7 @@ walkingBehavior.SetCustomWanderTarget(customUsableMachine);
 ### OnSpecialTargetChanged
 `public override void OnSpecialTargetChanged()`
 
-**Purpose:** **Purpose:** Invoked when the special target changed event is raised.
+**Purpose:** Invoked when the special target changed event is raised.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first
@@ -100,7 +100,7 @@ walkingBehavior.OnSpecialTargetChanged();
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
+**Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of WalkingBehavior from the subsystem API first

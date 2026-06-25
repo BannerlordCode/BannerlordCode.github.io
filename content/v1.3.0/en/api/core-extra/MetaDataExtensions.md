@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetCreationTime
 `public static DateTime GetCreationTime(this MetaData metaData)`
 
-**Purpose:** **Purpose:** Reads and returns the creation time value held by the this instance.
+**Purpose:** Reads and returns the creation time value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MetaDataExtensions.GetCreationTime(metaData);
 ### GetModules
 `public static string GetModules(this MetaData metaData)`
 
-**Purpose:** **Purpose:** Reads and returns the modules value held by the this instance.
+**Purpose:** Reads and returns the modules value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MetaDataExtensions.GetModules(metaData);
 ### GetModuleVersion
 `public static ApplicationVersion GetModuleVersion(this MetaData metaData, string moduleName)`
 
-**Purpose:** **Purpose:** Reads and returns the module version value held by the this instance.
+**Purpose:** Reads and returns the module version value held by the this instance.
 
 ```csharp
 // Static call; no instance required

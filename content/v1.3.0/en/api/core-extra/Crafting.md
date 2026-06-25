@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetCraftedWeaponName
 `public void SetCraftedWeaponName(TextObject name)`
 
-**Purpose:** **Purpose:** Assigns a new value to crafted weapon name and updates the object's internal state.
+**Purpose:** Assigns a new value to crafted weapon name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -54,7 +54,7 @@ crafting.SetCraftedWeaponName(name);
 ### Init
 `public void Init()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -65,7 +65,7 @@ crafting.Init();
 ### GetRandomPieceOfType
 `public WeaponDesignElement GetRandomPieceOfType(CraftingPiece.PieceTypes pieceType, bool randomScale)`
 
-**Purpose:** **Purpose:** Reads and returns the random piece of type value held by the this instance.
+**Purpose:** Reads and returns the random piece of type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -76,7 +76,7 @@ var result = crafting.GetRandomPieceOfType(pieceType, false);
 ### SwitchToCraftedItem
 `public void SwitchToCraftedItem(ItemObject item)`
 
-**Purpose:** **Purpose:** Executes the SwitchToCraftedItem logic.
+**Purpose:** Executes the SwitchToCraftedItem logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -87,7 +87,7 @@ crafting.SwitchToCraftedItem(item);
 ### Randomize
 `public void Randomize()`
 
-**Purpose:** **Purpose:** Executes the Randomize logic.
+**Purpose:** Executes the Randomize logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -98,7 +98,7 @@ crafting.Randomize();
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement piece)`
 
-**Purpose:** **Purpose:** Executes the SwitchToPiece logic.
+**Purpose:** Executes the SwitchToPiece logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -109,7 +109,7 @@ crafting.SwitchToPiece(piece);
 ### ScaleThePiece
 `public void ScaleThePiece(CraftingPiece.PieceTypes scalingPieceType, int percentage)`
 
-**Purpose:** **Purpose:** Executes the ScaleThePiece logic.
+**Purpose:** Executes the ScaleThePiece logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -120,7 +120,7 @@ crafting.ScaleThePiece(scalingPieceType, 0);
 ### ReIndex
 `public void ReIndex(bool enforceReCreation = false)`
 
-**Purpose:** **Purpose:** Executes the ReIndex logic.
+**Purpose:** Executes the ReIndex logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -131,7 +131,7 @@ crafting.ReIndex(false);
 ### Undo
 `public bool Undo()`
 
-**Purpose:** **Purpose:** Executes the Undo logic.
+**Purpose:** Executes the Undo logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -142,7 +142,7 @@ var result = crafting.Undo();
 ### Redo
 `public bool Redo()`
 
-**Purpose:** **Purpose:** Executes the Redo logic.
+**Purpose:** Executes the Redo logic.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -153,7 +153,7 @@ var result = crafting.Redo();
 ### UpdateHistory
 `public void UpdateHistory()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of history.
+**Purpose:** Recalculates and stores the latest representation of history.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -164,7 +164,7 @@ crafting.UpdateHistory();
 ### GetRandomCraftName
 `public TextObject GetRandomCraftName()`
 
-**Purpose:** **Purpose:** Reads and returns the random craft name value held by the this instance.
+**Purpose:** Reads and returns the random craft name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -175,7 +175,7 @@ var result = crafting.GetRandomCraftName();
 ### GenerateItem
 `public static void GenerateItem(WeaponDesign weaponDesignTemplate, TextObject name, BasicCultureObject culture, ItemModifierGroup itemModifierGroup, ref ItemObject itemObject)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of item.
+**Purpose:** Generates an instance, data, or representation of item.
 
 ```csharp
 // Static call; no instance required
@@ -185,7 +185,7 @@ Crafting.GenerateItem(weaponDesignTemplate, name, culture, itemModifierGroup, it
 ### GetCurrentCraftedItemObject
 `public ItemObject GetCurrentCraftedItemObject(bool forceReCreate = false)`
 
-**Purpose:** **Purpose:** Reads and returns the current crafted item object value held by the this instance.
+**Purpose:** Reads and returns the current crafted item object value held by the this instance.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -196,7 +196,7 @@ var result = crafting.GetCurrentCraftedItemObject(false);
 ### GetStatDatasFromTemplate
 `public static IEnumerable<CraftingStatData> GetStatDatasFromTemplate(int usageIndex, ItemObject craftedItemObject, CraftingTemplate template)`
 
-**Purpose:** **Purpose:** Reads and returns the stat datas from template value held by the this instance.
+**Purpose:** Reads and returns the stat datas from template value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -206,7 +206,7 @@ Crafting.GetStatDatasFromTemplate(0, craftedItemObject, template);
 ### GetStatDatas
 `public IEnumerable<CraftingStatData> GetStatDatas(int usageIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the stat datas value held by the this instance.
+**Purpose:** Reads and returns the stat datas value held by the this instance.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -217,7 +217,7 @@ var result = crafting.GetStatDatas(0);
 ### GetXmlCodeForCurrentItem
 `public string GetXmlCodeForCurrentItem(ItemObject item)`
 
-**Purpose:** **Purpose:** Reads and returns the xml code for current item value held by the this instance.
+**Purpose:** Reads and returns the xml code for current item value held by the this instance.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -228,7 +228,7 @@ var result = crafting.GetXmlCodeForCurrentItem(item);
 ### TryGetWeaponPropertiesFromXmlCode
 `public bool TryGetWeaponPropertiesFromXmlCode(string xmlCode, out CraftingTemplate craftingTemplate, out ValueTuple<CraftingPiece, int> pieces)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get weapon properties from xml code, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get weapon properties from xml code, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of Crafting from the subsystem API first
@@ -239,7 +239,7 @@ var result = crafting.TryGetWeaponPropertiesFromXmlCode("example", craftingTempl
 ### CreatePreCraftedWeapon
 `public static ItemObject CreatePreCraftedWeapon(ItemObject itemObject, WeaponDesignElement usedPieces, string templateId, TextObject weaponName, ItemModifierGroup itemModifierGroup)`
 
-**Purpose:** **Purpose:** Constructs a new pre crafted weapon entity and returns it to the caller.
+**Purpose:** Constructs a new pre crafted weapon entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -249,7 +249,7 @@ Crafting.CreatePreCraftedWeapon(itemObject, usedPieces, "example", weaponName, i
 ### InitializePreCraftedWeaponOnLoad
 `public static ItemObject InitializePreCraftedWeaponOnLoad(ItemObject itemObject, WeaponDesign craftedData, TextObject itemName, BasicCultureObject culture)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by pre crafted weapon on load.
+**Purpose:** Prepares the resources, state, or bindings required by pre crafted weapon on load.
 
 ```csharp
 // Static call; no instance required
@@ -259,7 +259,7 @@ Crafting.InitializePreCraftedWeaponOnLoad(itemObject, craftedData, itemName, cul
 ### CreateRandomCraftedItem
 `public static ItemObject CreateRandomCraftedItem(BasicCultureObject culture)`
 
-**Purpose:** **Purpose:** Constructs a new random crafted item entity and returns it to the caller.
+**Purpose:** Constructs a new random crafted item entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -269,7 +269,7 @@ Crafting.CreateRandomCraftedItem(culture);
 ### GenerateCraftedItem
 `public static ItemObject GenerateCraftedItem(ItemObject item, WeaponDesign weaponDesign, ItemModifierGroup itemModifierGroup)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of crafted item.
+**Purpose:** Generates an instance, data, or representation of crafted item.
 
 ```csharp
 // Static call; no instance required
@@ -279,7 +279,7 @@ Crafting.GenerateCraftedItem(item, weaponDesign, itemModifierGroup);
 ### FillWeapon
 `public static void FillWeapon(ItemObject item, WeaponDescription weaponDescription, WeaponFlags weaponFlags, bool isAlternative, out WeaponComponentData filledWeapon)`
 
-**Purpose:** **Purpose:** Executes the FillWeapon logic.
+**Purpose:** Executes the FillWeapon logic.
 
 ```csharp
 // Static call; no instance required

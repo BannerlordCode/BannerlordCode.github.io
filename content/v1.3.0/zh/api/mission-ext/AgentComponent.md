@@ -23,7 +23,7 @@ description: "AgentComponent 的自动生成类参考。"
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -34,7 +34,7 @@ agentComponent.Initialize();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -45,7 +45,7 @@ agentComponent.OnTick(0);
 ### OnTickParallel
 `public virtual void OnTickParallel(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick parallel 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick parallel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -56,7 +56,7 @@ agentComponent.OnTickParallel(0);
 ### GetMoraleAddition
 `public virtual float GetMoraleAddition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morale addition 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morale addition 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -67,7 +67,7 @@ var result = agentComponent.GetMoraleAddition();
 ### GetMoraleDecreaseConstant
 `public virtual float GetMoraleDecreaseConstant()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morale decrease constant 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morale decrease constant 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -78,7 +78,7 @@ var result = agentComponent.GetMoraleDecreaseConstant();
 ### OnItemPickup
 `public virtual void OnItemPickup(SpawnedItemEntity item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 item pickup 事件触发时调用此回调。
+**用途 / Purpose:** 在 item pickup 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -89,7 +89,7 @@ agentComponent.OnItemPickup(item);
 ### OnWeaponDrop
 `public virtual void OnWeaponDrop(MissionWeapon droppedWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon drop 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon drop 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -100,7 +100,7 @@ agentComponent.OnWeaponDrop(droppedWeapon);
 ### OnStopUsingGameObject
 `public virtual void OnStopUsingGameObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 stop using game object 事件触发时调用此回调。
+**用途 / Purpose:** 在 stop using game object 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -111,7 +111,7 @@ agentComponent.OnStopUsingGameObject();
 ### OnWeaponHPChanged
 `public virtual void OnWeaponHPChanged(ItemObject item, int hitPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon h p changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon h p changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -122,7 +122,7 @@ agentComponent.OnWeaponHPChanged(item, 0);
 ### OnRetreating
 `public virtual void OnRetreating()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 retreating 事件触发时调用此回调。
+**用途 / Purpose:** 在 retreating 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -133,7 +133,7 @@ agentComponent.OnRetreating();
 ### OnMount
 `public virtual void OnMount(Agent mount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mount 事件触发时调用此回调。
+**用途 / Purpose:** 在 mount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -144,7 +144,7 @@ agentComponent.OnMount(mount);
 ### OnDismount
 `public virtual void OnDismount(Agent mount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 dismount 事件触发时调用此回调。
+**用途 / Purpose:** 在 dismount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -155,7 +155,7 @@ agentComponent.OnDismount(mount);
 ### OnHit
 `public virtual void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 hit 事件触发时调用此回调。
+**用途 / Purpose:** 在 hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -166,7 +166,7 @@ agentComponent.OnHit(affectorAgent, 0, affectorWeapon);
 ### OnDisciplineChanged
 `public virtual void OnDisciplineChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 discipline changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 discipline changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -177,7 +177,7 @@ agentComponent.OnDisciplineChanged();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -188,7 +188,7 @@ agentComponent.OnAgentRemoved();
 ### OnAgentTeleported
 `public virtual void OnAgentTeleported()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent teleported 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent teleported 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -199,7 +199,7 @@ agentComponent.OnAgentTeleported();
 ### OnAIInputSet
 `public virtual void OnAIInputSet(ref Agent.EventControlFlag eventFlag, ref Agent.MovementControlFlag movementFlag, ref Vec2 inputVector)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 a i input set 事件触发时调用此回调。
+**用途 / Purpose:** 在 a i input set 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -210,7 +210,7 @@ agentComponent.OnAIInputSet(eventFlag, movementFlag, inputVector);
 ### OnComponentRemoved
 `public virtual void OnComponentRemoved()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 component removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 component removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例
@@ -221,7 +221,7 @@ agentComponent.OnComponentRemoved();
 ### OnFormationSet
 `public virtual void OnFormationSet()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 formation set 事件触发时调用此回调。
+**用途 / Purpose:** 在 formation set 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentComponent 实例

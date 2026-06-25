@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### Initialize
 `public void Initialize(int seed, string customSailPatternId = "")`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ShipVisual from the subsystem API first

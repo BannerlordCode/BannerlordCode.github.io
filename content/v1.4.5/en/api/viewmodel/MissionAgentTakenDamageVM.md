@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetIsEnabled
 `public void SetIsEnabled(bool isEnabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to is enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to is enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionAgentTakenDamageVM from the subsystem API first

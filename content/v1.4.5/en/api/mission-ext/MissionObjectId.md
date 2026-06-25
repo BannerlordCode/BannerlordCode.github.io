@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### MissionObjectId
 `public struct MissionObjectId(int id, bool createdAtRuntime = false)`
 
-**Purpose:** **Purpose:** Executes the MissionObjectId logic.
+**Purpose:** Executes the MissionObjectId logic.
 
 ```csharp
 // Obtain an instance of MissionObjectId from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionObjectId.MissionObjectId(0, false);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MissionObjectId from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionObjectId.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MissionObjectId from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionObjectId.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjectId from the subsystem API first

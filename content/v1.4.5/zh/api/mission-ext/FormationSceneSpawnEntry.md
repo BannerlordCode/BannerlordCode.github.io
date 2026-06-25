@@ -23,7 +23,7 @@ description: "FormationSceneSpawnEntry 的自动生成类参考。"
 ### FormationSceneSpawnEntry
 `public struct FormationSceneSpawnEntry(FormationClass formationClass, GameEntity spawnEntity, GameEntity reinforcementSpawnEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将ion scene spawn entry格式化为适合显示或存储的字符串。
+**用途 / Purpose:** 将ion scene spawn entry格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationSceneSpawnEntry 实例

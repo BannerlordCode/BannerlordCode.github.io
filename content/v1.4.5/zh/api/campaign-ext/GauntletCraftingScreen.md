@@ -23,7 +23,7 @@ description: "GauntletCraftingScreen 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletCraftingScreen 实例
@@ -34,7 +34,7 @@ gauntletCraftingScreen.Initialize();
 ### OnCraftingLogicInitialized
 `public void OnCraftingLogicInitialized()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 crafting logic initialized 事件触发时调用此回调。
+**用途 / Purpose:** 在 crafting logic initialized 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletCraftingScreen 实例
@@ -45,7 +45,7 @@ gauntletCraftingScreen.OnCraftingLogicInitialized();
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 crafting logic refreshed 事件触发时调用此回调。
+**用途 / Purpose:** 在 crafting logic refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletCraftingScreen 实例

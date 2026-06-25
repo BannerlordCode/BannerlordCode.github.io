@@ -33,7 +33,7 @@ Treat `ChangeAmountTextWidget` as a Widget-style extension point: first identify
 ### ChangeAmountTextWidget
 `public class ChangeAmountTextWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ChangeAmountTextWidget logic.
+**Purpose:** Executes the ChangeAmountTextWidget logic.
 
 ```csharp
 // Obtain an instance of ChangeAmountTextWidget from the subsystem API first

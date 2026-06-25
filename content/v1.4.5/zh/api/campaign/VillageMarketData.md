@@ -23,7 +23,7 @@ description: "VillageMarketData 的自动生成类参考。"
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageMarketData 实例
@@ -34,7 +34,7 @@ var result = villageMarketData.GetPrice(item, tradingParty, false, merchantParty
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 price 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageMarketData 实例

@@ -30,7 +30,7 @@ description: "TroopSacrificeModel 的自动生成类参考。"
 ### GetLostTroopCountForBreakingInBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 lost troop count for breaking in besieged settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 lost troop count for breaking in besieged settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSacrificeModel 实例
@@ -41,7 +41,7 @@ var result = troopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlemen
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 lost troop count for breaking out of besieged settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 lost troop count for breaking out of besieged settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSacrificeModel 实例
@@ -52,7 +52,7 @@ var result = troopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettle
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
 `public abstract int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops sacrificed for trying to get away 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of troops sacrificed for trying to get away 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSacrificeModel 实例
@@ -63,7 +63,7 @@ var result = troopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway(p
 ### GetShipsToSacrificeForTryingToGetAway
 `public abstract void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ships to sacrifice for trying to get away 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ships to sacrifice for trying to get away 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSacrificeModel 实例
@@ -74,7 +74,7 @@ troopSacrificeModel.GetShipsToSacrificeForTryingToGetAway(playerBattleSide, mapE
 ### CanPlayerGetAwayFromEncounter
 `public abstract bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 player get away from encounter 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 player get away from encounter 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSacrificeModel 实例

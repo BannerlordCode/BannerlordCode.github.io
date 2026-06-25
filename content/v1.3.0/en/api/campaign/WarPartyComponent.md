@@ -29,7 +29,7 @@ Treat `WarPartyComponent` as a Component-style extension point: first identify w
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
+**Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of WarPartyComponent from the subsystem API first

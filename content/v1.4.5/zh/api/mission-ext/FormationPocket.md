@@ -35,7 +35,7 @@ description: "FormationPocket 的自动生成类参考。"
 ### AddTroop
 `public void AddTroop()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 troop 添加到当前容器或状态中。
+**用途 / Purpose:** 将 troop 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationPocket 实例
@@ -46,7 +46,7 @@ formationPocket.AddTroop();
 ### IsFormationPocketFilled
 `public bool IsFormationPocketFilled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 formation pocket filled 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 formation pocket filled 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationPocket 实例
@@ -57,7 +57,7 @@ var result = formationPocket.IsFormationPocketFilled();
 ### UpdateScoreToSeek
 `public void UpdateScoreToSeek()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 score to seek 的最新表示。
+**用途 / Purpose:** 重新计算并更新 score to seek 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationPocket 实例
@@ -68,7 +68,7 @@ formationPocket.UpdateScoreToSeek();
 ### SetBestScoreSoFar
 `public void SetBestScoreSoFar(int bestScoreSoFar)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 best score so far 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 best score so far 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationPocket 实例

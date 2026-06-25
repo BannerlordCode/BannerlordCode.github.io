@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Roster` to place it in the stack
 ### Add
 `public void Add(MBList<TroopRosterElement> roster)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -41,7 +41,7 @@ flattenedTroopRoster.Add(roster);
 ### Add
 `public void Add(TroopRosterElement troop)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -52,7 +52,7 @@ flattenedTroopRoster.Add(troop);
 ### Add
 `public void Add(CharacterObject troop, int number, int woundedNumber = 0)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -63,7 +63,7 @@ flattenedTroopRoster.Add(troop, 0, 0);
 ### Add
 `public UniqueTroopDescriptor Add(CharacterObject troop, bool isWounded = false, int xp = 0)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -74,7 +74,7 @@ var result = flattenedTroopRoster.Add(troop, false, 0);
 ### GenerateUniqueNoFromParty
 `public static int GenerateUniqueNoFromParty(MobileParty party, int troopIndex)`
 
-**Purpose:** **Purpose:** Generates an instance, data, or representation of unique no from party.
+**Purpose:** Generates an instance, data, or representation of unique no from party.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ FlattenedTroopRoster.GenerateUniqueNoFromParty(party, 0);
 ### Remove
 `public void Remove(UniqueTroopDescriptor descriptor)`
 
-**Purpose:** **Purpose:** Removes an item from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -95,7 +95,7 @@ flattenedTroopRoster.Remove(descriptor);
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -106,7 +106,7 @@ flattenedTroopRoster.Clear();
 ### RemoveIf
 `public ICollection<FlattenedTroopRosterElement> RemoveIf(Predicate<FlattenedTroopRosterElement> match)`
 
-**Purpose:** **Purpose:** Removes if from the current collection or state.
+**Purpose:** Removes if from the current collection or state.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -117,7 +117,7 @@ var result = flattenedTroopRoster.RemoveIf(match);
 ### FindIndexOfCharacter
 `public UniqueTroopDescriptor FindIndexOfCharacter(CharacterObject character)`
 
-**Purpose:** **Purpose:** Looks up the matching index of character in the current collection or scope.
+**Purpose:** Looks up the matching index of character in the current collection or scope.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -128,7 +128,7 @@ var result = flattenedTroopRoster.FindIndexOfCharacter(character);
 ### GetEnumerator
 `public IEnumerator<FlattenedTroopRosterElement> GetEnumerator()`
 
-**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
+**Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -139,7 +139,7 @@ var result = flattenedTroopRoster.GetEnumerator();
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop killed event is raised.
+**Purpose:** Invoked when the troop killed event is raised.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -150,7 +150,7 @@ flattenedTroopRoster.OnTroopKilled(troopSeed);
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop wounded event is raised.
+**Purpose:** Invoked when the troop wounded event is raised.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -161,7 +161,7 @@ flattenedTroopRoster.OnTroopWounded(troopSeed);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
 
-**Purpose:** **Purpose:** Invoked when the troop routed event is raised.
+**Purpose:** Invoked when the troop routed event is raised.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first
@@ -172,7 +172,7 @@ flattenedTroopRoster.OnTroopRouted(troopSeed);
 ### OnTroopGainXp
 `public void OnTroopGainXp(UniqueTroopDescriptor troopSeed, int xpGained)`
 
-**Purpose:** **Purpose:** Invoked when the troop gain xp event is raised.
+**Purpose:** Invoked when the troop gain xp event is raised.
 
 ```csharp
 // Obtain an instance of FlattenedTroopRoster from the subsystem API first

@@ -23,7 +23,7 @@ Treat `CampaignPeriodicEventManager` as a Manager-style extension point: first i
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CampaignPeriodicEventManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = campaignPeriodicEventManager.ToString();
 ### CreatePeriodicEvent
 `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**Purpose:** **Purpose:** Constructs a new periodic event entity and returns it to the caller.
+**Purpose:** Constructs a new periodic event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

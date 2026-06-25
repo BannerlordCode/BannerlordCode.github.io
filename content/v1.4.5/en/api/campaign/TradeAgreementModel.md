@@ -23,7 +23,7 @@ Treat `TradeAgreementModel` as a Model-style extension point: first identify who
 ### GetProfitPerCaravanVisit
 `public abstract int GetProfitPerCaravanVisit(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the profit per caravan visit value held by the this instance.
+**Purpose:** Reads and returns the profit per caravan visit value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = tradeAgreementModel.GetProfitPerCaravanVisit(mobileParty);
 ### GetTradeAgreementDurationInYears
 `public abstract CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the trade agreement duration in years value held by the this instance.
+**Purpose:** Reads and returns the trade agreement duration in years value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = tradeAgreementModel.GetTradeAgreementDurationInYears(iniatatingKing
 ### GetMaximumTradeAgreementCount
 `public abstract int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum trade agreement count value held by the this instance.
+**Purpose:** Reads and returns the maximum trade agreement count value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = tradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
 ### GetInfluenceCostOfProposingTradeAgreement
 `public abstract int GetInfluenceCostOfProposingTradeAgreement(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of proposing trade agreement value held by the this instance.
+**Purpose:** Reads and returns the influence cost of proposing trade agreement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = tradeAgreementModel.GetInfluenceCostOfProposingTradeAgreement(clan)
 ### GetScoreOfStartingTradeAgreement
 `public abstract float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)`
 
-**Purpose:** **Purpose:** Reads and returns the score of starting trade agreement value held by the this instance.
+**Purpose:** Reads and returns the score of starting trade agreement value held by the this instance.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = tradeAgreementModel.GetScoreOfStartingTradeAgreement(kingdom, targe
 ### CanMakeTradeAgreement
 `public abstract bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make trade agreement.
+**Purpose:** Checks whether the this instance meets the preconditions for make trade agreement.
 
 ```csharp
 // Obtain an instance of TradeAgreementModel from the subsystem API first

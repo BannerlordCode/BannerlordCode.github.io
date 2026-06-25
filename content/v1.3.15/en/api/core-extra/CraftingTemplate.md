@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetIndexOfUsageDataWithId
 `public int GetIndexOfUsageDataWithId(string weaponDescriptionId)`
 
-**Purpose:** **Purpose:** Reads and returns the index of usage data with id value held by the this instance.
+**Purpose:** Reads and returns the index of usage data with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -51,7 +51,7 @@ var result = craftingTemplate.GetIndexOfUsageDataWithId("example");
 ### IsPieceTypeHiddenOnHolster
 `public bool IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the piece type hidden on holster state or condition.
+**Purpose:** Determines whether the this instance is in the piece type hidden on holster state or condition.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -62,7 +62,7 @@ var result = craftingTemplate.IsPieceTypeHiddenOnHolster(pieceType);
 ### GetStatDatas
 `public IEnumerable<KeyValuePair<CraftingTemplate.CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
 
-**Purpose:** **Purpose:** Reads and returns the stat datas value held by the this instance.
+**Purpose:** Reads and returns the stat datas value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -73,7 +73,7 @@ var result = craftingTemplate.GetStatDatas("example", thrustDamageType, swingDam
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -84,7 +84,7 @@ var result = craftingTemplate.ToString();
 ### IsPieceTypeUsable
 `public bool IsPieceTypeUsable(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the piece type usable state or condition.
+**Purpose:** Determines whether the this instance is in the piece type usable state or condition.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -95,7 +95,7 @@ var result = craftingTemplate.IsPieceTypeUsable(pieceType);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of CraftingTemplate from the subsystem API first
@@ -106,7 +106,7 @@ craftingTemplate.Deserialize(objectManager, node);
 ### GetTemplateFromId
 `public static CraftingTemplate GetTemplateFromId(string templateId)`
 
-**Purpose:** **Purpose:** Reads and returns the template from id value held by the this instance.
+**Purpose:** Reads and returns the template from id value held by the this instance.
 
 ```csharp
 // Static call; no instance required

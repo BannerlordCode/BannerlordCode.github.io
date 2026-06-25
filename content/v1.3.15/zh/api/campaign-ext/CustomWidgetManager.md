@@ -23,7 +23,7 @@ description: "CustomWidgetManager 的自动生成类参考。"
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TouchAssembly 对应的操作。
+**用途 / Purpose:** 调用 TouchAssembly 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

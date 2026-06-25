@@ -23,7 +23,7 @@ description: "MusicianGroup 的自动生成类参考。"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicianGroup 实例
@@ -34,7 +34,7 @@ var result = musicianGroup.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicianGroup 实例
@@ -45,7 +45,7 @@ var result = musicianGroup.GetDescriptionText(gameEntity);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicianGroup 实例
@@ -56,7 +56,7 @@ var result = musicianGroup.CreateAIBehaviorObject();
 ### SetPlayList
 `public void SetPlayList(List<SettlementMusicData> playList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 play list 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 play list 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicianGroup 实例
@@ -67,7 +67,7 @@ musicianGroup.SetPlayList(playList);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicianGroup 实例

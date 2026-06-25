@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateDecal
 `public static Decal CreateDecal(string name = null)`
 
-**Purpose:** **Purpose:** Constructs a new decal entity and returns it to the caller.
+**Purpose:** Constructs a new decal entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ Decal.CreateDecal("example");
 ### CreateCopy
 `public Decal CreateCopy()`
 
-**Purpose:** **Purpose:** Constructs a new copy entity and returns it to the caller.
+**Purpose:** Constructs a new copy entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -51,7 +51,7 @@ var result = decal.CreateCopy();
 ### GetFactor1
 `public uint GetFactor1()`
 
-**Purpose:** **Purpose:** Reads and returns the factor1 value held by the this instance.
+**Purpose:** Reads and returns the factor1 value held by the this instance.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -62,7 +62,7 @@ var result = decal.GetFactor1();
 ### SetFactor1Linear
 `public void SetFactor1Linear(uint linearFactorColor1)`
 
-**Purpose:** **Purpose:** Assigns a new value to factor1 linear and updates the object's internal state.
+**Purpose:** Assigns a new value to factor1 linear and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -73,7 +73,7 @@ decal.SetFactor1Linear(0);
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**Purpose:** **Purpose:** Assigns a new value to factor1 and updates the object's internal state.
+**Purpose:** Assigns a new value to factor1 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -84,7 +84,7 @@ decal.SetFactor1(0);
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** **Purpose:** Assigns a new value to vector argument and updates the object's internal state.
+**Purpose:** Assigns a new value to vector argument and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -95,7 +95,7 @@ decal.SetVectorArgument(0, 0, 0, 0);
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** **Purpose:** Assigns a new value to vector argument2 and updates the object's internal state.
+**Purpose:** Assigns a new value to vector argument2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -106,7 +106,7 @@ decal.SetVectorArgument2(0, 0, 0, 0);
 ### GetMaterial
 `public Material GetMaterial()`
 
-**Purpose:** **Purpose:** Reads and returns the material value held by the this instance.
+**Purpose:** Reads and returns the material value held by the this instance.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -117,7 +117,7 @@ var result = decal.GetMaterial();
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** **Purpose:** Assigns a new value to material and updates the object's internal state.
+**Purpose:** Assigns a new value to material and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first
@@ -128,7 +128,7 @@ decal.SetMaterial(material);
 ### SetFrame
 `public void SetFrame(MatrixFrame Frame)`
 
-**Purpose:** **Purpose:** Assigns a new value to frame and updates the object's internal state.
+**Purpose:** Assigns a new value to frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Decal from the subsystem API first

@@ -23,7 +23,7 @@ description: "BattleResultPartyData 的自动生成类参考。"
 ### BattleResultPartyData
 `public struct BattleResultPartyData(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BattleResultPartyData 对应的操作。
+**用途 / Purpose:** 调用 BattleResultPartyData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResultPartyData 实例

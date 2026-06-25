@@ -30,7 +30,7 @@ Treat `ServiceExceptionModel` as a Model-style extension point: first identify w
 ### ToServiceException
 `public ServiceException ToServiceException()`
 
-**Purpose:** **Purpose:** Executes the ToServiceException logic.
+**Purpose:** Executes the ToServiceException logic.
 
 ```csharp
 // Obtain an instance of ServiceExceptionModel from the subsystem API first

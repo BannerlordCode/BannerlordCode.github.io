@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### SelectSortType
 `public void SelectSortType(PartyScreenLogic.TroopSortType sortType)`
 
-**Purpose:** **Purpose:** Executes the SelectSortType logic.
+**Purpose:** Executes the SelectSortType logic.
 
 ```csharp
 // Obtain an instance of PartySortControllerVM from the subsystem API first
@@ -42,7 +42,7 @@ partySortControllerVM.SelectSortType(sortType);
 ### SortWith
 `public void SortWith(PartyScreenLogic.TroopSortType sortType, bool isAscending)`
 
-**Purpose:** **Purpose:** Executes the SortWith logic.
+**Purpose:** Executes the SortWith logic.
 
 ```csharp
 // Obtain an instance of PartySortControllerVM from the subsystem API first
@@ -53,7 +53,7 @@ partySortControllerVM.SortWith(sortType, false);
 ### ExecuteToggleOrder
 `public void ExecuteToggleOrder()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle order.
+**Purpose:** Runs the operation or workflow associated with toggle order.
 
 ```csharp
 // Obtain an instance of PartySortControllerVM from the subsystem API first

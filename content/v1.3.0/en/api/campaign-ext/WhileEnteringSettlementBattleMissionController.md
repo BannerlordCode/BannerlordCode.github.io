@@ -23,7 +23,7 @@ Treat `WhileEnteringSettlementBattleMissionController` as a Controller-style ext
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -34,7 +34,7 @@ whileEnteringSettlementBattleMissionController.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -45,7 +45,7 @@ whileEnteringSettlementBattleMissionController.OnMissionTick(0);
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Starts the spawner flow or state machine.
+**Purpose:** Starts the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -56,7 +56,7 @@ whileEnteringSettlementBattleMissionController.StartSpawner(side);
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Stops the spawner flow or state machine.
+**Purpose:** Stops the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -67,7 +67,7 @@ whileEnteringSettlementBattleMissionController.StopSpawner(side);
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
+**Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -78,7 +78,7 @@ var result = whileEnteringSettlementBattleMissionController.IsSideSpawnEnabled(s
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement interval value held by the this instance.
+**Purpose:** Reads and returns the reinforcement interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -89,7 +89,7 @@ var result = whileEnteringSettlementBattleMissionController.GetReinforcementInte
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side depleted state or condition.
+**Purpose:** Determines whether the this instance is in the side depleted state or condition.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -100,7 +100,7 @@ var result = whileEnteringSettlementBattleMissionController.IsSideDepleted(side)
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the all troops for side value held by the this instance.
+**Purpose:** Reads and returns the all troops for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -111,7 +111,7 @@ var result = whileEnteringSettlementBattleMissionController.GetAllTroopsForSide(
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
+**Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first
@@ -122,7 +122,7 @@ var result = whileEnteringSettlementBattleMissionController.GetNumberOfPlayerCon
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn horses value held by the this instance.
+**Purpose:** Reads and returns the spawn horses value held by the this instance.
 
 ```csharp
 // Obtain an instance of WhileEnteringSettlementBattleMissionController from the subsystem API first

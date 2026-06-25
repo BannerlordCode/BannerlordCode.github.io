@@ -33,7 +33,7 @@ description: "GameKeyContext 的自动生成类参考。"
 ### GetHotKey
 `public HotKey GetHotKey(string hotKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hot key 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyContext 实例
@@ -44,7 +44,7 @@ var result = gameKeyContext.GetHotKey("example");
 ### GetGameKey
 `public GameKey GetGameKey(int gameKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game key 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 game key 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyContext 实例
@@ -55,7 +55,7 @@ var result = gameKeyContext.GetGameKey(0);
 ### GetHotKeyId
 `public string GetHotKeyId(string hotKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hot key id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyContext 实例
@@ -66,7 +66,7 @@ var result = gameKeyContext.GetHotKeyId("example");
 ### GetHotKeyId
 `public string GetHotKeyId(int gameKeyId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hot key id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyContext 实例

@@ -30,7 +30,7 @@ description: "LobbyClientConnectResult 的自动生成类参考。"
 ### FromServerConnectResult
 `public static LobbyClientConnectResult FromServerConnectResult(string errorCode, Dictionary<string, string> parameters)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FromServerConnectResult 对应的操作。
+**用途 / Purpose:** 调用 FromServerConnectResult 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

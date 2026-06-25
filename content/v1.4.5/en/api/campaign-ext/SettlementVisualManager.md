@@ -23,7 +23,7 @@ Treat `SettlementVisualManager` as a Manager-style extension point: first identi
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first
@@ -34,7 +34,7 @@ settlementVisualManager.OnTick(0, 0);
 ### OnVisualIntersected
 `public override bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** **Purpose:** Invoked when the visual intersected event is raised.
+**Purpose:** Invoked when the visual intersected event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = settlementVisualManager.OnVisualIntersected(mouseRay, intersectedEn
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first
@@ -56,7 +56,7 @@ settlementVisualManager.OnFrameTick(0);
 ### OnMouseClick
 `public override bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** **Purpose:** Invoked when the mouse click event is raised.
+**Purpose:** Invoked when the mouse click event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first
@@ -67,7 +67,7 @@ var result = settlementVisualManager.OnMouseClick(visualOfSelectedEntity, inters
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**Purpose:** **Purpose:** Reads and returns the visual of entity value held by the this instance.
+**Purpose:** Reads and returns the visual of entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first
@@ -78,7 +78,7 @@ var result = settlementVisualManager.GetVisualOfEntity(partyBase);
 ### GetSettlementVisual
 `public SettlementVisual GetSettlementVisual(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the settlement visual value held by the this instance.
+**Purpose:** Reads and returns the settlement visual value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisualManager from the subsystem API first

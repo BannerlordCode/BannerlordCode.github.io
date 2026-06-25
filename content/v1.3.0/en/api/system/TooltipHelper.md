@@ -23,7 +23,7 @@ Treat `TooltipHelper` as a Helper-style extension point: first identify who crea
 ### GetSendTroopsPowerContextTooltipForMapEvent
 `public static TextObject GetSendTroopsPowerContextTooltipForMapEvent()`
 
-**Purpose:** **Purpose:** Reads and returns the send troops power context tooltip for map event value held by the this instance.
+**Purpose:** Reads and returns the send troops power context tooltip for map event value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TooltipHelper.GetSendTroopsPowerContextTooltipForMapEvent();
 ### GetSendTroopsPowerContextTooltipForSiege
 `public static TextObject GetSendTroopsPowerContextTooltipForSiege()`
 
-**Purpose:** **Purpose:** Reads and returns the send troops power context tooltip for siege value held by the this instance.
+**Purpose:** Reads and returns the send troops power context tooltip for siege value held by the this instance.
 
 ```csharp
 // Static call; no instance required

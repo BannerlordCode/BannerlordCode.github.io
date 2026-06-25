@@ -19,7 +19,7 @@ ChangeRelationAction is a set of static methods that trigger "ChangeRelation" in
 public static void ApplyPlayerRelation(Hero gainedRelationWith, int relation, bool affectRelatives = true, bool showQuickNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of player relation to the this instance.
+**Purpose:** Applies the effect of player relation to the this instance.
 
 ### ApplyRelationChangeBetweenHeroes
 
@@ -27,7 +27,7 @@ public static void ApplyPlayerRelation(Hero gainedRelationWith, int relation, bo
 public static void ApplyRelationChangeBetweenHeroes(Hero hero, Hero gainedRelationWith, int relationChange, bool showQuickNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of relation change between heroes to the this instance.
+**Purpose:** Applies the effect of relation change between heroes to the this instance.
 
 ### ApplyEmissaryRelation
 
@@ -35,7 +35,7 @@ public static void ApplyRelationChangeBetweenHeroes(Hero hero, Hero gainedRelati
 public static void ApplyEmissaryRelation(Hero emissary, Hero gainedRelationWith, int relationChange, bool showQuickNotification = true)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of emissary relation to the this instance.
+**Purpose:** Applies the effect of emissary relation to the this instance.
 
 ## Usage Example
 

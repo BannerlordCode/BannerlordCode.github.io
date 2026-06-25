@@ -30,7 +30,7 @@ description: "MPArmoryHeroPreviewVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
@@ -41,7 +41,7 @@ mPArmoryHeroPreviewVM.RefreshValues();
 ### SetCharacter
 `public unsafe void SetCharacter(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, int race, bool isFemale)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 character 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 character 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
@@ -52,7 +52,7 @@ mPArmoryHeroPreviewVM.SetCharacter(character, dynamicBodyProperties, 0, false);
 ### SetCharacterClass
 `public void SetCharacterClass(BasicCharacterObject classCharacter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 character class 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 character class 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
@@ -63,7 +63,7 @@ mPArmoryHeroPreviewVM.SetCharacterClass(classCharacter);
 ### SetCharacterPerks
 `public void SetCharacterPerks(List<IReadOnlyPerkObject> selectedPerks)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 character perks 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 character perks 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例

@@ -47,7 +47,7 @@ description: "SiegeEvent 的自动生成类参考。"
 ### Hold
 `public void Hold()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Hold 对应的操作。
+**用途 / Purpose:** 调用 Hold 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -58,7 +58,7 @@ siegeEvent.Hold();
 ### Reload
 `public void Reload()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Reload 对应的操作。
+**用途 / Purpose:** 调用 Reload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -69,7 +69,7 @@ siegeEvent.Reload();
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 fire decision taken 事件触发时调用此回调。
+**用途 / Purpose:** 在 fire decision taken 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -80,7 +80,7 @@ siegeEvent.OnFireDecisionTaken(siegeEvent, battleSide, 0, targetType);
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 redeployment progress 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 redeployment progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -91,7 +91,7 @@ siegeEvent.SetRedeploymentProgress(0);
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hitpoints 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hitpoints 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -102,7 +102,7 @@ siegeEvent.SetHitpoints(0);
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 progress 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -113,7 +113,7 @@ siegeEvent.SetProgress(0);
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(RangedSiegeEngine rangedSiegeEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 ranged siege engine 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 ranged siege engine 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -124,7 +124,7 @@ siegeEvent.SetRangedSiegeEngine(rangedSiegeEngine);
 ### AllSiegeEngines
 `public IEnumerable<SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AllSiegeEngines 对应的操作。
+**用途 / Purpose:** 调用 AllSiegeEngines 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -135,7 +135,7 @@ var result = siegeEvent.AllSiegeEngines();
 ### AddPrebuiltEngineToReserve
 `public void AddPrebuiltEngineToReserve(SiegeEngineConstructionProgress siegeEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 prebuilt engine to reserve 添加到当前容器或状态中。
+**用途 / Purpose:** 将 prebuilt engine to reserve 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -146,7 +146,7 @@ siegeEvent.AddPrebuiltEngineToReserve(siegeEngine);
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeploySiegeEngineAtIndex 对应的操作。
+**用途 / Purpose:** 调用 DeploySiegeEngineAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -157,7 +157,7 @@ siegeEvent.DeploySiegeEngineAtIndex(siegeEngine, 0);
 ### RemoveDeployedSiegeEngine
 `public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 deployed siege engine。
+**用途 / Purpose:** 从当前容器或状态中移除 deployed siege engine。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -168,7 +168,7 @@ siegeEvent.RemoveDeployedSiegeEngine(0, false, false);
 ### RemovedSiegeEngineFromReservedSiegeEngines
 `public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEngineConstructionProgress siegeEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 d siege engine from reserved siege engines。
+**用途 / Purpose:** 从当前容器或状态中移除 d siege engine from reserved siege engines。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -179,7 +179,7 @@ var result = siegeEvent.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
 ### FindDeploymentIndexOfDeployedEngine
 `public int FindDeploymentIndexOfDeployedEngine(SiegeEngineConstructionProgress deployedEngine)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的deployment index of deployed engine。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的deployment index of deployed engine。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -190,7 +190,7 @@ var result = siegeEvent.FindDeploymentIndexOfDeployedEngine(deployedEngine);
 ### ClearRemovedEnginesIfNecessary
 `public bool ClearRemovedEnginesIfNecessary()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的removed engines if necessary。
+**用途 / Purpose:** 清空当前对象中的removed engines if necessary。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -201,7 +201,7 @@ var result = siegeEvent.ClearRemovedEnginesIfNecessary();
 ### ActivateBlockade
 `public void ActivateBlockade()`
 
-**用途 / Purpose:** **用途 / Purpose:** 激活blockade对应的资源、状态或功能。
+**用途 / Purpose:** 激活blockade对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -212,7 +212,7 @@ siegeEvent.ActivateBlockade();
 ### DeactivateBlockade
 `public void DeactivateBlockade()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用blockade对应的资源、状态或功能。
+**用途 / Purpose:** 停用blockade对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -223,7 +223,7 @@ siegeEvent.DeactivateBlockade();
 ### GetInvolvedPartiesForEventType
 `public List<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 involved parties for event type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 involved parties for event type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -234,7 +234,7 @@ var result = siegeEvent.GetInvolvedPartiesForEventType(battleType);
 ### GetCurrentBattleType
 `public MapEvent.BattleTypes GetCurrentBattleType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current battle type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 current battle type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -245,7 +245,7 @@ var result = siegeEvent.GetCurrentBattleType();
 ### GetSiegeEventSide
 `public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege event side 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege event side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -256,7 +256,7 @@ var result = siegeEvent.GetSiegeEventSide(side);
 ### CanPartyJoinSide
 `public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 party join side 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 party join side 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -267,7 +267,7 @@ var result = siegeEvent.CanPartyJoinSide(party, side);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -278,7 +278,7 @@ siegeEvent.Tick(0);
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after load 事件触发时调用此回调。
+**用途 / Purpose:** 在 after load 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -289,7 +289,7 @@ siegeEvent.OnAfterLoad();
 ### OnBeforeSiegeEventEnd
 `public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before siege event end 事件触发时调用此回调。
+**用途 / Purpose:** 在 before siege event end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -300,7 +300,7 @@ siegeEvent.OnBeforeSiegeEventEnd(winnerSide, battleType);
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeSiegeEvent 对应的操作。
+**用途 / Purpose:** 调用 FinalizeSiegeEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -311,7 +311,7 @@ siegeEvent.FinalizeSiegeEvent();
 ### IsPartyInvolved
 `public bool IsPartyInvolved(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 party involved 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 party involved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -322,7 +322,7 @@ var result = siegeEvent.IsPartyInvolved(party);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -333,7 +333,7 @@ siegeEvent.SetPositionAfterMapChange(newPosition);
 ### DoSiegeAction
 `public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoSiegeAction 对应的操作。
+**用途 / Purpose:** 调用 DoSiegeAction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -344,7 +344,7 @@ siegeEvent.DoSiegeAction(siegeEventSide, siegeAction, siegeEngineType, 0, 0);
 ### AdvanceStrategy
 `public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AdvanceStrategy 对应的操作。
+**用途 / Purpose:** 调用 AdvanceStrategy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -355,7 +355,7 @@ siegeEvent.AdvanceStrategy(siegeEventSide);
 ### BreakSiegeEngine
 `public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BreakSiegeEngine 对应的操作。
+**用途 / Purpose:** 调用 BreakSiegeEngine 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -366,7 +366,7 @@ siegeEvent.BreakSiegeEngine(siegeEventSide, siegeEngineType);
 ### GetPreparedSiegeEnginesAsDictionary
 `public Dictionary<SiegeEngineType, int> GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prepared siege engines as dictionary 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prepared siege engines as dictionary 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -377,7 +377,7 @@ var result = siegeEvent.GetPreparedSiegeEnginesAsDictionary(siegeEventSide);
 ### GetPreparedAndActiveSiegeEngines
 `public List<MissionSiegeWeapon> GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prepared and active siege engines 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prepared and active siege engines 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -388,7 +388,7 @@ var result = siegeEvent.GetPreparedAndActiveSiegeEngines(siegeEventSide);
 ### SetSiegeEngineStatesAfterSiegeMission
 `public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable<IMissionSiegeWeapon> attackerMissionSiegeEngineData, IEnumerable<IMissionSiegeWeapon> defenderMissionSiegeEngineData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 siege engine states after siege mission 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 siege engine states after siege mission 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -399,7 +399,7 @@ siegeEvent.SetSiegeEngineStatesAfterSiegeMission(attackerMissionSiegeEngineData,
 ### CreateSiegeObject
 `public void CreateSiegeObject(SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 siege object 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 siege object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -410,7 +410,7 @@ siegeEvent.CreateSiegeObject(siegeEngineConstructionProgress, siegeSide);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -421,7 +421,7 @@ var result = siegeEvent.ToString();
 ### ConstructionTick
 `public void ConstructionTick(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ConstructionTick 对应的操作。
+**用途 / Purpose:** 调用 ConstructionTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -432,7 +432,7 @@ siegeEvent.ConstructionTick(siegeEventSide);
 ### BombardTick
 `public void BombardTick(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BombardTick 对应的操作。
+**用途 / Purpose:** 调用 BombardTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -443,7 +443,7 @@ siegeEvent.BombardTick(siegeEventSide);
 ### FindAttackableRangedEngineWithHighestPriority
 `public void FindAttackableRangedEngineWithHighestPriority(ISiegeEventSide siegeEventSide, int attackerSlotIndex, out int targetIndex, out float targetPriority)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的attackable ranged engine with highest priority。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的attackable ranged engine with highest priority。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例

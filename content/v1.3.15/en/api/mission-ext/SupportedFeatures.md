@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SupportsFeatures
 `public bool SupportsFeatures(Features feature)`
 
-**Purpose:** **Purpose:** Executes the SupportsFeatures logic.
+**Purpose:** Executes the SupportsFeatures logic.
 
 ```csharp
 // Obtain an instance of SupportedFeatures from the subsystem API first

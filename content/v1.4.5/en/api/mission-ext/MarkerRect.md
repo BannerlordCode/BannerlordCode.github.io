@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MarkerRect from the subsystem API first
@@ -43,7 +43,7 @@ markerRect.Reset();
 ### UpdatePoints
 `public void UpdatePoints(float left, float right, float top, float bottom)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of points.
+**Purpose:** Recalculates and stores the latest representation of points.
 
 ```csharp
 // Obtain an instance of MarkerRect from the subsystem API first
@@ -54,7 +54,7 @@ markerRect.UpdatePoints(0, 0, 0, 0);
 ### IsOverlapping
 `public bool IsOverlapping(MarkerRect other)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the overlapping state or condition.
+**Purpose:** Determines whether the this instance is in the overlapping state or condition.
 
 ```csharp
 // Obtain an instance of MarkerRect from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of CreateArmyStep2Tutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = createArmyStep2Tutorial.IsConditionsMetForCompletion();
 ### OnPartyAddedToArmyByPlayer
 `public override void OnPartyAddedToArmyByPlayer(PartyAddedToArmyByPlayerEvent obj)`
 
-**Purpose:** **Purpose:** Invoked when the party added to army by player event is raised.
+**Purpose:** Invoked when the party added to army by player event is raised.
 
 ```csharp
 // Obtain an instance of CreateArmyStep2Tutorial from the subsystem API first
@@ -45,7 +45,7 @@ createArmyStep2Tutorial.OnPartyAddedToArmyByPlayer(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
+**Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of CreateArmyStep2Tutorial from the subsystem API first
@@ -56,7 +56,7 @@ var result = createArmyStep2Tutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of CreateArmyStep2Tutorial from the subsystem API first

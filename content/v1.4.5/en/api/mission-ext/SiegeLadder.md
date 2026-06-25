@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** **Purpose:** Reads the data or state of from network.
+**Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -51,7 +51,7 @@ var result = siegeLadder.ReadFromNetwork(bufferReadValid);
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
+**Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -62,7 +62,7 @@ var result = siegeLadder.GetSiegeEngineType();
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
+**Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -73,7 +73,7 @@ var result = siegeLadder.GetOrder(side);
 ### HasCompletedAction
 `public bool HasCompletedAction()`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds completed action.
+**Purpose:** Determines whether the this instance already holds completed action.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -84,7 +84,7 @@ var result = siegeLadder.HasCompletedAction();
 ### IsDisabledForBattleSide
 `public override bool IsDisabledForBattleSide(BattleSideEnum sideEnum)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for battle side state or condition.
+**Purpose:** Determines whether the this instance is in the disabled for battle side state or condition.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -95,7 +95,7 @@ var result = siegeLadder.IsDisabledForBattleSide(sideEnum);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -106,7 +106,7 @@ var result = siegeLadder.GetTickRequirement();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -117,7 +117,7 @@ var result = siegeLadder.CreateAIBehaviorObject();
 ### SetUpStateVisibility
 `public void SetUpStateVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to up state visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to up state visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -128,7 +128,7 @@ siegeLadder.SetUpStateVisibility(false);
 ### SetAbilityOfFaces
 `public override void SetAbilityOfFaces(bool enabled)`
 
-**Purpose:** **Purpose:** Assigns a new value to ability of faces and updates the object's internal state.
+**Purpose:** Assigns a new value to ability of faces and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -139,7 +139,7 @@ siegeLadder.SetAbilityOfFaces(false);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -150,7 +150,7 @@ var result = siegeLadder.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
+**Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -161,7 +161,7 @@ var result = siegeLadder.GetActionTextForStandingPoint(usableGameObject);
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** **Purpose:** Writes to network to the target location.
+**Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -172,7 +172,7 @@ siegeLadder.WriteToNetwork();
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** **Purpose:** Reads and returns the target flags value held by the this instance.
+**Purpose:** Reads and returns the target flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -183,7 +183,7 @@ var result = siegeLadder.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** **Purpose:** Reads and returns the target value value held by the this instance.
+**Purpose:** Reads and returns the target value value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -194,7 +194,7 @@ var result = siegeLadder.GetTargetValue(weaponPos);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** **Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
+**Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -205,7 +205,7 @@ siegeLadder.SetSpawnedFromSpawner();
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** **Purpose:** Invoked when the after read from network event is raised.
+**Purpose:** Invoked when the after read from network event is raised.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -216,7 +216,7 @@ siegeLadder.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, sync
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string sideTag, string targetWallSegment, int onWallNavMeshId, float downStateRotationRadian, float upperStateRotationRadian, string barrierTagToRemove, string indestructibleMerlonsTag)`
 
-**Purpose:** **Purpose:** Executes the AssignParametersFromSpawner logic.
+**Purpose:** Executes the AssignParametersFromSpawner logic.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -227,7 +227,7 @@ siegeLadder.AssignParametersFromSpawner("example", "example", 0, 0, 0, "example"
 ### GetNavmeshFaceIds
 `public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
 
-**Purpose:** **Purpose:** Reads and returns the navmesh face ids value held by the this instance.
+**Purpose:** Reads and returns the navmesh face ids value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first
@@ -238,7 +238,7 @@ var result = siegeLadder.GetNavmeshFaceIds(navmeshFaceIds);
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition position)`
 
-**Purpose:** **Purpose:** Invoked when the formation frame changed event is raised.
+**Purpose:** Invoked when the formation frame changed event is raised.
 
 ```csharp
 // Obtain an instance of SiegeLadder from the subsystem API first

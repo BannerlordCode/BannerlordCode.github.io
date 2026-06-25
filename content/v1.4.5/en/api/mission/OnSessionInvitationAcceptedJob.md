@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoJob
 `public override void DoJob(float dt)`
 
-**Purpose:** **Purpose:** Executes the DoJob logic.
+**Purpose:** Executes the DoJob logic.
 
 ```csharp
 // Obtain an instance of OnSessionInvitationAcceptedJob from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### FlushCache
 `public void FlushCache()`
 
-**Purpose:** **Purpose:** Executes the FlushCache logic.
+**Purpose:** Executes the FlushCache logic.
 
 ```csharp
 // Obtain an instance of AvatarThumbnailCache from the subsystem API first

@@ -23,7 +23,7 @@ description: "RangedHeadShotDamageEffect 的自动生成类参考。"
 ### GetRangedHeadShotDamage
 `public override float GetRangedHeadShotDamage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ranged head shot damage 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ranged head shot damage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedHeadShotDamageEffect 实例

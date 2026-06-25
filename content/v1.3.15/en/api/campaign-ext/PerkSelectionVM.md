@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### SetCurrentSelectionPerk
 `public void SetCurrentSelectionPerk(PerkVM perk)`
 
-**Purpose:** **Purpose:** Assigns a new value to current selection perk and updates the object's internal state.
+**Purpose:** Assigns a new value to current selection perk and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first
@@ -41,7 +41,7 @@ perkSelectionVM.SetCurrentSelectionPerk(perk);
 ### ResetSelectedPerks
 `public void ResetSelectedPerks()`
 
-**Purpose:** **Purpose:** Returns selected perks to its default or initial condition.
+**Purpose:** Returns selected perks to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first
@@ -52,7 +52,7 @@ perkSelectionVM.ResetSelectedPerks();
 ### ApplySelectedPerks
 `public void ApplySelectedPerks()`
 
-**Purpose:** **Purpose:** Applies the effect of selected perks to the this instance.
+**Purpose:** Applies the effect of selected perks to the this instance.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first
@@ -63,7 +63,7 @@ perkSelectionVM.ApplySelectedPerks();
 ### IsPerkSelected
 `public bool IsPerkSelected(PerkObject perk)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the perk selected state or condition.
+**Purpose:** Determines whether the this instance is in the perk selected state or condition.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first
@@ -74,7 +74,7 @@ var result = perkSelectionVM.IsPerkSelected(perk);
 ### IsAnyPerkSelected
 `public bool IsAnyPerkSelected()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any perk selected state or condition.
+**Purpose:** Determines whether the this instance is in the any perk selected state or condition.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first
@@ -85,7 +85,7 @@ var result = perkSelectionVM.IsAnyPerkSelected();
 ### ExecuteDeactivate
 `public void ExecuteDeactivate()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with deactivate.
+**Purpose:** Runs the operation or workflow associated with deactivate.
 
 ```csharp
 // Obtain an instance of PerkSelectionVM from the subsystem API first

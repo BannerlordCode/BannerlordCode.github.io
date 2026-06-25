@@ -29,7 +29,7 @@ description: "ClimbingMachineDetachment 的自动生成类参考。"
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -40,7 +40,7 @@ climbingMachineDetachment.Deactivate();
 ### AddAgent
 `public void AddAgent(Agent agent, int slotIndex, Agent.AIScriptedFrameFlags customFlags = Agent.AIScriptedFrameFlags.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 agent 添加到当前容器或状态中。
+**用途 / Purpose:** 将 agent 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -51,7 +51,7 @@ climbingMachineDetachment.AddAgent(agent, 0, agent.AIScriptedFrameFlags.None);
 ### AddAgentAtSlotIndex
 `public void AddAgentAtSlotIndex(Agent agent, int slotIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 agent at slot index 添加到当前容器或状态中。
+**用途 / Purpose:** 将 agent at slot index 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -62,7 +62,7 @@ climbingMachineDetachment.AddAgentAtSlotIndex(agent, 0);
 ### IsUsedByFormation
 `public bool IsUsedByFormation(Formation formation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 used by formation 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 used by formation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -73,7 +73,7 @@ var result = climbingMachineDetachment.IsUsedByFormation(formation);
 ### IsStandingPointAvailableForAgent
 `public bool IsStandingPointAvailableForAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 standing point available for agent 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 standing point available for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -84,7 +84,7 @@ var result = climbingMachineDetachment.IsStandingPointAvailableForAgent(agent);
 ### GetTemplateCostsOfAgent
 `public List<float> GetTemplateCostsOfAgent(Agent candidate, List<float> oldValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 template costs of agent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 template costs of agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -95,7 +95,7 @@ var result = climbingMachineDetachment.GetTemplateCostsOfAgent(candidate, oldVal
 ### GetTemplateWeightOfAgent
 `public float GetTemplateWeightOfAgent(Agent candidate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 template weight of agent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 template weight of agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -106,7 +106,7 @@ var result = climbingMachineDetachment.GetTemplateWeightOfAgent(candidate);
 ### GetWeightOfAgentAtNextSlot
 `public float? GetWeightOfAgentAtNextSlot(List<Agent> newAgents, out Agent match)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -117,7 +117,7 @@ var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(newAgents, mat
 ### GetWeightOfAgentAtNextSlot
 `public float? GetWeightOfAgentAtNextSlot(List<(Agent, float)> agentTemplateScores, out Agent match)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weight of agent at next slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -128,7 +128,7 @@ var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(list<(Agent, 0
 ### GetWeightOfAgentAtOccupiedSlot
 `public float? GetWeightOfAgentAtOccupiedSlot(Agent detachedAgent, List<Agent> newAgents, out Agent match)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight of agent at occupied slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weight of agent at occupied slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -139,7 +139,7 @@ var result = climbingMachineDetachment.GetWeightOfAgentAtOccupiedSlot(detachedAg
 ### RemoveAgent
 `public void RemoveAgent(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 agent。
+**用途 / Purpose:** 从当前容器或状态中移除 agent。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -150,7 +150,7 @@ climbingMachineDetachment.RemoveAgent(agent);
 ### GetNumberOfUsableSlots
 `public int GetNumberOfUsableSlots()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of usable slots 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of usable slots 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -161,7 +161,7 @@ var result = climbingMachineDetachment.GetNumberOfUsableSlots();
 ### GetAgentFrame
 `public WorldFrame? GetAgentFrame(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agent frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -172,7 +172,7 @@ var result = climbingMachineDetachment.GetAgentFrame(agent);
 ### GetWeightOfNextSlot
 `public float? GetWeightOfNextSlot(BattleSideEnum side)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight of next slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weight of next slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -183,7 +183,7 @@ var result = climbingMachineDetachment.GetWeightOfNextSlot(side);
 ### GetWeightOfOccupiedSlot
 `public float GetWeightOfOccupiedSlot(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight of occupied slot 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weight of occupied slot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例
@@ -194,7 +194,7 @@ var result = climbingMachineDetachment.GetWeightOfOccupiedSlot(agent);
 ### TickClimbingMachines
 `public void TickClimbingMachines()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进climbing machines的状态。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进climbing machines的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClimbingMachineDetachment 实例

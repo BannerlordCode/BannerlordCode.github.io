@@ -23,7 +23,7 @@ description: "StoryModeAgentDecideKilledOrUnconsciousModel 的自动生成类参
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent state probability 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 agent state probability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeAgentDecideKilledOrUnconsciousModel 实例

@@ -32,7 +32,7 @@ Treat `CommonAIComponent` as a Component-style extension point: first identify w
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -43,7 +43,7 @@ commonAIComponent.Initialize();
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick parallel event is raised.
+**Purpose:** Invoked when the tick parallel event is raised.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -54,7 +54,7 @@ commonAIComponent.OnTickParallel(0);
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -65,7 +65,7 @@ commonAIComponent.OnTick(0);
 ### Panic
 `public void Panic()`
 
-**Purpose:** **Purpose:** Executes the Panic logic.
+**Purpose:** Executes the Panic logic.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -76,7 +76,7 @@ commonAIComponent.Panic();
 ### Retreat
 `public void Retreat(bool useCachingSystem = false)`
 
-**Purpose:** **Purpose:** Executes the Retreat logic.
+**Purpose:** Executes the Retreat logic.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -87,7 +87,7 @@ commonAIComponent.Retreat(false);
 ### StopRetreating
 `public void StopRetreating()`
 
-**Purpose:** **Purpose:** Stops the retreating flow or state machine.
+**Purpose:** Stops the retreating flow or state machine.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -98,7 +98,7 @@ commonAIComponent.StopRetreating();
 ### CanPanic
 `public bool CanPanic()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for panic.
+**Purpose:** Checks whether the this instance meets the preconditions for panic.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -109,7 +109,7 @@ var result = commonAIComponent.CanPanic();
 ### OnHit
 `public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
 
-**Purpose:** **Purpose:** Invoked when the hit event is raised.
+**Purpose:** Invoked when the hit event is raised.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -120,7 +120,7 @@ commonAIComponent.OnHit(affectorAgent, 0, affectorWeapon, b, collisionData);
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first
@@ -131,7 +131,7 @@ commonAIComponent.OnAgentRemoved();
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**Purpose:** **Purpose:** Invoked when the component removed event is raised.
+**Purpose:** Invoked when the component removed event is raised.
 
 ```csharp
 // Obtain an instance of CommonAIComponent from the subsystem API first

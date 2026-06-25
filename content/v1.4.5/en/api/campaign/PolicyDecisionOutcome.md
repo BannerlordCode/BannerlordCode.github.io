@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the decision title value held by the this instance.
+**Purpose:** Reads and returns the decision title value held by the this instance.
 
 ```csharp
 // Obtain an instance of PolicyDecisionOutcome from the subsystem API first
@@ -40,7 +40,7 @@ var result = policyDecisionOutcome.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the decision description value held by the this instance.
+**Purpose:** Reads and returns the decision description value held by the this instance.
 
 ```csharp
 // Obtain an instance of PolicyDecisionOutcome from the subsystem API first
@@ -51,7 +51,7 @@ var result = policyDecisionOutcome.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** **Purpose:** Reads and returns the decision link value held by the this instance.
+**Purpose:** Reads and returns the decision link value held by the this instance.
 
 ```csharp
 // Obtain an instance of PolicyDecisionOutcome from the subsystem API first
@@ -62,7 +62,7 @@ var result = policyDecisionOutcome.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** **Purpose:** Reads and returns the decision image identifier value held by the this instance.
+**Purpose:** Reads and returns the decision image identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of PolicyDecisionOutcome from the subsystem API first

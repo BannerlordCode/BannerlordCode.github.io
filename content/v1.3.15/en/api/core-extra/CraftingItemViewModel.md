@@ -30,7 +30,7 @@ Treat `CraftingItemViewModel` as a ViewModel-style extension point: first identi
 ### GetWeaponClass
 `public WeaponClass GetWeaponClass()`
 
-**Purpose:** **Purpose:** Reads and returns the weapon class value held by the this instance.
+**Purpose:** Reads and returns the weapon class value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingItemViewModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = craftingItemViewModel.GetWeaponClass();
 ### SetCraftingData
 `public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
 
-**Purpose:** **Purpose:** Assigns a new value to crafting data and updates the object's internal state.
+**Purpose:** Assigns a new value to crafting data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingItemViewModel from the subsystem API first

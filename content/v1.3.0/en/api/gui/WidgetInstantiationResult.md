@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### AddExtensionData
 `public void AddExtensionData(string name, object data, bool passToChildWidgetCreation = false)`
 
-**Purpose:** **Purpose:** Adds extension data to the current collection or state.
+**Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetInstantiationResult from the subsystem API first
@@ -43,7 +43,7 @@ widgetInstantiationResult.AddExtensionData("example", data, false);
 ### AddExtensionData
 `public void AddExtensionData(object data, bool passToChildWidgetCreation = false)`
 
-**Purpose:** **Purpose:** Adds extension data to the current collection or state.
+**Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetInstantiationResult from the subsystem API first
@@ -54,7 +54,7 @@ widgetInstantiationResult.AddExtensionData(data, false);
 ### GetLogicalOrDefaultChildrenLocation
 `public WidgetInstantiationResult GetLogicalOrDefaultChildrenLocation()`
 
-**Purpose:** **Purpose:** Reads and returns the logical or default children location value held by the this instance.
+**Purpose:** Reads and returns the logical or default children location value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetInstantiationResult from the subsystem API first

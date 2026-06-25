@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### GetManagedId
 `public int GetManagedId()`
 
-**Purpose:** **Purpose:** Reads and returns the managed id value held by the this instance.
+**Purpose:** Reads and returns the managed id value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedObject from the subsystem API first
@@ -34,7 +34,7 @@ var result = managedObject.GetManagedId();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ManagedObject from the subsystem API first

@@ -23,7 +23,7 @@ Treat `TownHorseRaceAgentController` as a Controller-style extension point: firs
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the initialize event is raised.
+**Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of TownHorseRaceAgentController from the subsystem API first
@@ -34,7 +34,7 @@ townHorseRaceAgentController.OnInitialize();
 ### DisableMovement
 `public void DisableMovement()`
 
-**Purpose:** **Purpose:** Executes the DisableMovement logic.
+**Purpose:** Executes the DisableMovement logic.
 
 ```csharp
 // Obtain an instance of TownHorseRaceAgentController from the subsystem API first
@@ -45,7 +45,7 @@ townHorseRaceAgentController.DisableMovement();
 ### Start
 `public void Start()`
 
-**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
+**Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of TownHorseRaceAgentController from the subsystem API first
@@ -56,7 +56,7 @@ townHorseRaceAgentController.Start();
 ### OnEnterCheckPoint
 `public void OnEnterCheckPoint(VolumeBox checkPoint)`
 
-**Purpose:** **Purpose:** Invoked when the enter check point event is raised.
+**Purpose:** Invoked when the enter check point event is raised.
 
 ```csharp
 // Obtain an instance of TownHorseRaceAgentController from the subsystem API first

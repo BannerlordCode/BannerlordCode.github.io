@@ -39,7 +39,7 @@ description: "MapBarVM 的自动生成类参考。"
 ### Initialize
 `public void Initialize(INavigationHandler navigationHandler, IMapStateHandler mapStateHandler, Func<MapBarShortcuts> getMapBarShortcuts, Action openArmyManagement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例
@@ -50,7 +50,7 @@ mapBarVM.Initialize(navigationHandler, mapStateHandler, getMapBarShortcuts, open
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例
@@ -61,7 +61,7 @@ mapBarVM.RefreshValues();
 ### OnRefresh
 `public void OnRefresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 refresh 事件触发时调用此回调。
+**用途 / Purpose:** 在 refresh 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例
@@ -72,7 +72,7 @@ mapBarVM.OnRefresh();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例
@@ -83,7 +83,7 @@ mapBarVM.Tick(0);
 ### ExecuteArmyManagement
 `public void ExecuteArmyManagement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 army management 对应的操作或工作流。
+**用途 / Purpose:** 执行 army management 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例
@@ -94,7 +94,7 @@ mapBarVM.ExecuteArmyManagement();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapBarVM 实例

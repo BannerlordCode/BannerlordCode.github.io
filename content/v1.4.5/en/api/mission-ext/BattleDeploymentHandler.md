@@ -23,7 +23,7 @@ Treat `BattleDeploymentHandler` as a Handler-style extension point: first identi
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of BattleDeploymentHandler from the subsystem API first
@@ -34,7 +34,7 @@ battleDeploymentHandler.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of BattleDeploymentHandler from the subsystem API first
@@ -45,7 +45,7 @@ battleDeploymentHandler.AfterStart();
 ### AutoDeployTeamUsingDeploymentPlan
 `public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
 
-**Purpose:** **Purpose:** Executes the AutoDeployTeamUsingDeploymentPlan logic.
+**Purpose:** Executes the AutoDeployTeamUsingDeploymentPlan logic.
 
 ```csharp
 // Obtain an instance of BattleDeploymentHandler from the subsystem API first
@@ -56,7 +56,7 @@ battleDeploymentHandler.AutoDeployTeamUsingDeploymentPlan(team);
 ### ForceUpdateAllUnits
 `public override void ForceUpdateAllUnits()`
 
-**Purpose:** **Purpose:** Executes the ForceUpdateAllUnits logic.
+**Purpose:** Executes the ForceUpdateAllUnits logic.
 
 ```csharp
 // Obtain an instance of BattleDeploymentHandler from the subsystem API first
@@ -67,7 +67,7 @@ battleDeploymentHandler.ForceUpdateAllUnits();
 ### SetDefaultFormationOrders
 `public void SetDefaultFormationOrders(OrderController orderController)`
 
-**Purpose:** **Purpose:** Assigns a new value to default formation orders and updates the object's internal state.
+**Purpose:** Assigns a new value to default formation orders and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleDeploymentHandler from the subsystem API first

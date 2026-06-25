@@ -23,7 +23,7 @@ description: "MissionLobbyEquipmentNetworkComponent 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -34,7 +34,7 @@ missionLobbyEquipmentNetworkComponent.OnBehaviorInitialize();
 ### PerkUpdated
 `public void PerkUpdated(int perkList, int perkIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PerkUpdated 对应的操作。
+**用途 / Purpose:** 调用 PerkUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -45,7 +45,7 @@ missionLobbyEquipmentNetworkComponent.PerkUpdated(0, 0);
 ### EquipmentUpdated
 `public void EquipmentUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EquipmentUpdated 对应的操作。
+**用途 / Purpose:** 调用 EquipmentUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -56,7 +56,7 @@ missionLobbyEquipmentNetworkComponent.EquipmentUpdated();
 ### ToggleLoadout
 `public void ToggleLoadout(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleLoadout 对应的操作。
+**用途 / Purpose:** 调用 ToggleLoadout 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -67,7 +67,7 @@ missionLobbyEquipmentNetworkComponent.ToggleLoadout(false);
 ### OnToggleLoadoutDelegate
 `public delegate void OnToggleLoadoutDelegate(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 toggle loadout delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 toggle loadout delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -78,7 +78,7 @@ missionLobbyEquipmentNetworkComponent.OnToggleLoadoutDelegate(false);
 ### OnRefreshEquipmentEventDelegate
 `public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 refresh equipment event delegate 事件触发时调用此回调。
+**用途 / Purpose:** 在 refresh equipment event delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例

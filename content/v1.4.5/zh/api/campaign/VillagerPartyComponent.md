@@ -30,7 +30,7 @@ description: "VillagerPartyComponent 的自动生成类参考。"
 ### InitializeVillagerPartyProperties
 `public void InitializeVillagerPartyProperties(MobileParty mobileParty, Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 villager party properties 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 villager party properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerPartyComponent 实例
@@ -41,7 +41,7 @@ villagerPartyComponent.InitializeVillagerPartyProperties(mobileParty, village);
 ### CreateVillagerParty
 `public static MobileParty CreateVillagerParty(string stringId, Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 villager party 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 villager party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ VillagerPartyComponent.CreateVillagerParty("example", village);
 ### ConvertPartyToVillagerParty
 `public static void ConvertPartyToVillagerParty(MobileParty mobileParty, Village village)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把party to villager party转换为另一种表示或类型。
+**用途 / Purpose:** 把party to villager party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ VillagerPartyComponent.ConvertPartyToVillagerParty(mobileParty, village);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerPartyComponent 实例
@@ -72,7 +72,7 @@ var result = villagerPartyComponent.GetDefaultComponentBanner();
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
+**用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerPartyComponent 实例

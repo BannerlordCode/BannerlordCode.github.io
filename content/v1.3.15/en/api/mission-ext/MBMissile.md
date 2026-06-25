@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
+**Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBMissile from the subsystem API first
@@ -40,7 +40,7 @@ var result = mBMissile.GetPosition();
 ### GetOldPosition
 `public Vec3 GetOldPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the old position value held by the this instance.
+**Purpose:** Reads and returns the old position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBMissile from the subsystem API first
@@ -51,7 +51,7 @@ var result = mBMissile.GetOldPosition();
 ### GetVelocity
 `public Vec3 GetVelocity()`
 
-**Purpose:** **Purpose:** Reads and returns the velocity value held by the this instance.
+**Purpose:** Reads and returns the velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBMissile from the subsystem API first
@@ -62,7 +62,7 @@ var result = mBMissile.GetVelocity();
 ### SetVelocity
 `public void SetVelocity(in Vec3 velocity)`
 
-**Purpose:** **Purpose:** Assigns a new value to velocity and updates the object's internal state.
+**Purpose:** Assigns a new value to velocity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBMissile from the subsystem API first
@@ -73,7 +73,7 @@ mBMissile.SetVelocity(velocity);
 ### GetHasRigidBody
 `public bool GetHasRigidBody()`
 
-**Purpose:** **Purpose:** Reads and returns the has rigid body value held by the this instance.
+**Purpose:** Reads and returns the has rigid body value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBMissile from the subsystem API first

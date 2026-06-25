@@ -36,7 +36,7 @@ description: "MPDuelKillNotificationItemVM 的自动生成类参考。"
 ### InitProperties
 `public void InitProperties(MissionPeer firstPlayerPeer, MissionPeer secondPlayerPeer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 properties 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MPDuelKillNotificationItemVM 实例
@@ -47,7 +47,7 @@ mPDuelKillNotificationItemVM.InitProperties(firstPlayerPeer, secondPlayerPeer);
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 remove 对应的操作或工作流。
+**用途 / Purpose:** 执行 remove 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPDuelKillNotificationItemVM 实例

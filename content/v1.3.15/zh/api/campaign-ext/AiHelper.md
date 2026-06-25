@@ -23,7 +23,7 @@ description: "AiHelper 的自动生成类参考。"
 ### GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty
 `public static void GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(MobileParty mobileParty, Settlement settlement, bool isTargetingPort, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance, out bool isFromPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best navigation type and adjusted distance of settlement for mobile party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 best navigation type and adjusted distance of settlement for mobile party 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AiHelper.GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(mobi
 ### GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty
 `public static void GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(MobileParty mobileParty, MobileParty toMobileParty, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best navigation type and distance of mobile party for mobile party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 best navigation type and distance of mobile party for mobile party 的结果。
 
 ```csharp
 // 静态调用，不需要实例

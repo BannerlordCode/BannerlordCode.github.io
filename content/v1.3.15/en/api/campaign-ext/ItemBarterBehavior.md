@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehavior
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ItemBarterBehavior from the subsystem API first
@@ -34,7 +34,7 @@ itemBarterBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ItemBarterBehavior from the subsystem API first
@@ -45,7 +45,7 @@ itemBarterBehavior.SyncData(dataStore);
 ### CheckForBarters
 `public void CheckForBarters(BarterData args)`
 
-**Purpose:** **Purpose:** Verifies whether for barters holds true for the this instance.
+**Purpose:** Verifies whether for barters holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ItemBarterBehavior from the subsystem API first
@@ -56,7 +56,7 @@ itemBarterBehavior.CheckForBarters(args);
 ### GetClosestSettlements
 `public List<Settlement> GetClosestSettlements(Vec2 position)`
 
-**Purpose:** **Purpose:** Reads and returns the closest settlements value held by the this instance.
+**Purpose:** Reads and returns the closest settlements value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemBarterBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = itemBarterBehavior.GetClosestSettlements(position);
 ### CompareTo
 `public int CompareTo(ItemBarterBehavior.SettlementDistanceCache.SettlementDistancePair other)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
+**Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of ItemBarterBehavior from the subsystem API first

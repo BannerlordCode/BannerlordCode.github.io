@@ -40,7 +40,7 @@ Treat `BladeData` as a Data-style extension point: first identify who creates it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of BladeData from the subsystem API first

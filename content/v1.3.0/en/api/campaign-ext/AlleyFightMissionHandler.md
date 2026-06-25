@@ -23,7 +23,7 @@ Treat `AlleyFightMissionHandler` as a Handler-style extension point: first ident
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -34,7 +34,7 @@ alleyFightMissionHandler.EarlyStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -45,7 +45,7 @@ alleyFightMissionHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -56,7 +56,7 @@ alleyFightMissionHandler.AfterStart();
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
+**Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -67,7 +67,7 @@ var result = alleyFightMissionHandler.OnEndMissionRequest(canLeave);
 ### OnRetreatMission
 `public override void OnRetreatMission()`
 
-**Purpose:** **Purpose:** Invoked when the retreat mission event is raised.
+**Purpose:** Invoked when the retreat mission event is raised.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -78,7 +78,7 @@ alleyFightMissionHandler.OnRetreatMission();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** **Purpose:** Invoked when the rendering started event is raised.
+**Purpose:** Invoked when the rendering started event is raised.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -89,7 +89,7 @@ alleyFightMissionHandler.OnRenderingStarted();
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Starts the spawner flow or state machine.
+**Purpose:** Starts the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -100,7 +100,7 @@ alleyFightMissionHandler.StartSpawner(side);
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Stops the spawner flow or state machine.
+**Purpose:** Stops the spawner flow or state machine.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -111,7 +111,7 @@ alleyFightMissionHandler.StopSpawner(side);
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
+**Purpose:** Determines whether the this instance is in the side spawn enabled state or condition.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -122,7 +122,7 @@ var result = alleyFightMissionHandler.IsSideSpawnEnabled(side);
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the side depleted state or condition.
+**Purpose:** Determines whether the this instance is in the side depleted state or condition.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -133,7 +133,7 @@ var result = alleyFightMissionHandler.IsSideDepleted(side);
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** **Purpose:** Reads and returns the reinforcement interval value held by the this instance.
+**Purpose:** Reads and returns the reinforcement interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -144,7 +144,7 @@ var result = alleyFightMissionHandler.GetReinforcementInterval();
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the all troops for side value held by the this instance.
+**Purpose:** Reads and returns the all troops for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -155,7 +155,7 @@ var result = alleyFightMissionHandler.GetAllTroopsForSide(side);
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
+**Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first
@@ -166,7 +166,7 @@ var result = alleyFightMissionHandler.GetNumberOfPlayerControllableTroops();
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn horses value held by the this instance.
+**Purpose:** Reads and returns the spawn horses value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyFightMissionHandler from the subsystem API first

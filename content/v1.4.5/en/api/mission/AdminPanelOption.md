@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ### AddValueChangedCallback
 `public void AddValueChangedCallback(Action callback)`
 
-**Purpose:** **Purpose:** Adds value changed callback to the current collection or state.
+**Purpose:** Adds value changed callback to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -40,7 +40,7 @@ adminPanelOption.AddValueChangedCallback(callback);
 ### RemoveValueChangedCallback
 `public void RemoveValueChangedCallback(Action callback)`
 
-**Purpose:** **Purpose:** Removes value changed callback from the current collection or state.
+**Purpose:** Removes value changed callback from the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -51,7 +51,7 @@ adminPanelOption.RemoveValueChangedCallback(callback);
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -62,7 +62,7 @@ adminPanelOption.OnFinalize();
 ### BuildOptionType
 `public AdminPanelOption<T> BuildOptionType(OptionType optionType, MultiplayerOptionsAccessMode accessMode = (MultiplayerOptionsAccessMode)1, bool buildDefaultValue = true, bool buildInitialValue = true)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for option type.
+**Purpose:** Assembles and returns the built result for option type.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -73,7 +73,7 @@ var result = adminPanelOption.BuildOptionType(optionType, (MultiplayerOptionsAcc
 ### BuildIsRequired
 `public AdminPanelOption<T> BuildIsRequired(bool isRequired)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for is required.
+**Purpose:** Assembles and returns the built result for is required.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -84,7 +84,7 @@ var result = adminPanelOption.BuildIsRequired(false);
 ### BuildRequiresRestart
 `public AdminPanelOption<T> BuildRequiresRestart(bool requiresRestart)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for requires restart.
+**Purpose:** Assembles and returns the built result for requires restart.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -95,7 +95,7 @@ var result = adminPanelOption.BuildRequiresRestart(false);
 ### BuildName
 `public AdminPanelOption<T> BuildName(TextObject name)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for name.
+**Purpose:** Assembles and returns the built result for name.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -106,7 +106,7 @@ var result = adminPanelOption.BuildName(name);
 ### BuildDescription
 `public AdminPanelOption<T> BuildDescription(TextObject description)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for description.
+**Purpose:** Assembles and returns the built result for description.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -117,7 +117,7 @@ var result = adminPanelOption.BuildDescription(description);
 ### BuildInitialValue
 `public AdminPanelOption<T> BuildInitialValue(T value)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for initial value.
+**Purpose:** Assembles and returns the built result for initial value.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -128,7 +128,7 @@ var result = adminPanelOption.BuildInitialValue(value);
 ### BuildDefaultValue
 `public AdminPanelOption<T> BuildDefaultValue(T value)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for default value.
+**Purpose:** Assembles and returns the built result for default value.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -139,7 +139,7 @@ var result = adminPanelOption.BuildDefaultValue(value);
 ### BuildOnAppliedCallback
 `public AdminPanelOption<T> BuildOnAppliedCallback(Action<T> onApplied)`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for on applied callback.
+**Purpose:** Assembles and returns the built result for on applied callback.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -150,7 +150,7 @@ var result = adminPanelOption.BuildOnAppliedCallback(onApplied);
 ### GetValue
 `public T GetValue()`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -161,7 +161,7 @@ var result = adminPanelOption.GetValue();
 ### SetValue
 `public void SetValue(T value)`
 
-**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
+**Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -172,7 +172,7 @@ adminPanelOption.SetValue(value);
 ### GetIsAvailable
 `public virtual bool GetIsAvailable()`
 
-**Purpose:** **Purpose:** Reads and returns the is available value held by the this instance.
+**Purpose:** Reads and returns the is available value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -183,7 +183,7 @@ var result = adminPanelOption.GetIsAvailable();
 ### OnApplyChanges
 `public void OnApplyChanges()`
 
-**Purpose:** **Purpose:** Invoked when the apply changes event is raised.
+**Purpose:** Invoked when the apply changes event is raised.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -194,7 +194,7 @@ adminPanelOption.OnApplyChanges();
 ### RevertChanges
 `public void RevertChanges()`
 
-**Purpose:** **Purpose:** Executes the RevertChanges logic.
+**Purpose:** Executes the RevertChanges logic.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -205,7 +205,7 @@ adminPanelOption.RevertChanges();
 ### RestoreDefaults
 `public void RestoreDefaults()`
 
-**Purpose:** **Purpose:** Executes the RestoreDefaults logic.
+**Purpose:** Executes the RestoreDefaults logic.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -216,7 +216,7 @@ adminPanelOption.RestoreDefaults();
 ### SetOnRefreshCallback
 `public void SetOnRefreshCallback(Action callback)`
 
-**Purpose:** **Purpose:** Assigns a new value to on refresh callback and updates the object's internal state.
+**Purpose:** Assigns a new value to on refresh callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -227,7 +227,7 @@ adminPanelOption.SetOnRefreshCallback(callback);
 ### GetIsDisabled
 `public virtual bool GetIsDisabled(out string reason)`
 
-**Purpose:** **Purpose:** Reads and returns the is disabled value held by the this instance.
+**Purpose:** Reads and returns the is disabled value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -238,7 +238,7 @@ var result = adminPanelOption.GetIsDisabled(reason);
 ### GetOptionType
 `public OptionType GetOptionType()`
 
-**Purpose:** **Purpose:** Reads and returns the option type value held by the this instance.
+**Purpose:** Reads and returns the option type value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first
@@ -249,7 +249,7 @@ var result = adminPanelOption.GetOptionType();
 ### GetOptionAccessMode
 `public MultiplayerOptionsAccessMode GetOptionAccessMode()`
 
-**Purpose:** **Purpose:** Reads and returns the option access mode value held by the this instance.
+**Purpose:** Reads and returns the option access mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelOption from the subsystem API first

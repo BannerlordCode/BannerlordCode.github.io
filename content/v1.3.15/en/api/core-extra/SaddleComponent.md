@@ -23,7 +23,7 @@ Treat `SaddleComponent` as a Component-style extension point: first identify who
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** **Purpose:** Reads and returns the copy value held by the this instance.
+**Purpose:** Reads and returns the copy value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaddleComponent from the subsystem API first

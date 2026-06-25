@@ -29,7 +29,7 @@ description: "ColorAssigner 的自动生成类参考。"
 ### SetColor
 `public void SetColor(WeakGameEntity entity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ColorAssigner 实例

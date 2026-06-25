@@ -32,7 +32,7 @@ description: "ObjectLoadData 的自动生成类参考。"
 ### GetDataBySaveId
 `public object GetDataBySaveId(int localSaveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data by save id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 data by save id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -43,7 +43,7 @@ var result = objectLoadData.GetDataBySaveId(0);
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId, int typeLevel)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 member value by save id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 member value by save id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -54,7 +54,7 @@ var result = objectLoadData.GetMemberValueBySaveId(0, 0);
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 member value by save id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 member value by save id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -65,7 +65,7 @@ var result = objectLoadData.GetMemberValueBySaveId(0);
 ### GetFieldValueBySaveId
 `public object GetFieldValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 field value by save id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 field value by save id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -76,7 +76,7 @@ var result = objectLoadData.GetFieldValueBySaveId(0);
 ### GetPropertyValueBySaveId
 `public object GetPropertyValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property value by save id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 property value by save id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -87,7 +87,7 @@ var result = objectLoadData.GetPropertyValueBySaveId(0);
 ### HasMember
 `public bool HasMember(int localSaveId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 member。
+**用途 / Purpose:** 判断当前对象是否已经持有 member。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -98,7 +98,7 @@ var result = objectLoadData.HasMember(0);
 ### HasMember
 `public bool HasMember(int localSaveId, int typeLevel)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 member。
+**用途 / Purpose:** 判断当前对象是否已经持有 member。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -109,7 +109,7 @@ var result = objectLoadData.HasMember(0, 0);
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 readers 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 readers 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -120,7 +120,7 @@ objectLoadData.InitializeReaders(saveEntryFolder);
 ### CreateStruct
 `public void CreateStruct()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 struct 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 struct 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -131,7 +131,7 @@ objectLoadData.CreateStruct();
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillCreatedObject 对应的操作。
+**用途 / Purpose:** 调用 FillCreatedObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -142,7 +142,7 @@ objectLoadData.FillCreatedObject();
 ### Read
 `public void Read()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** 从当前实例读取数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例
@@ -153,7 +153,7 @@ objectLoadData.Read();
 ### FillObject
 `public void FillObject()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillObject 对应的操作。
+**用途 / Purpose:** 调用 FillObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectLoadData 实例

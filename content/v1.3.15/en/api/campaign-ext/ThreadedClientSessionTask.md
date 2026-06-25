@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### BeginJob
 `public abstract void BeginJob()`
 
-**Purpose:** **Purpose:** Executes the BeginJob logic.
+**Purpose:** Executes the BeginJob logic.
 
 ```csharp
 // Obtain an instance of ThreadedClientSessionTask from the subsystem API first
@@ -41,7 +41,7 @@ threadedClientSessionTask.BeginJob();
 ### DoMainThreadJob
 `public abstract void DoMainThreadJob()`
 
-**Purpose:** **Purpose:** Executes the DoMainThreadJob logic.
+**Purpose:** Executes the DoMainThreadJob logic.
 
 ```csharp
 // Obtain an instance of ThreadedClientSessionTask from the subsystem API first

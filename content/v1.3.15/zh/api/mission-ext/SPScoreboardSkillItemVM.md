@@ -31,7 +31,7 @@ description: "SPScoreboardSkillItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSkillItemVM 实例
@@ -42,7 +42,7 @@ sPScoreboardSkillItemVM.RefreshValues();
 ### UpdateSkill
 `public void UpdateSkill(int newValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 skill 的最新表示。
+**用途 / Purpose:** 重新计算并更新 skill 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSkillItemVM 实例
@@ -53,7 +53,7 @@ sPScoreboardSkillItemVM.UpdateSkill(0);
 ### IsValid
 `public bool IsValid()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSkillItemVM 实例

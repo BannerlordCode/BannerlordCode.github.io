@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.E
 ### SetData
 `public void SetData(BasicCultureObject culture, int score, bool isWinner, MultiplayerCultureColorInfo cultureColors)`
 
-**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
+**Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfRoundSideVM from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfRoundSideVM from the subsystem API first

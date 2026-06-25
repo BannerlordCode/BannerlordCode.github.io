@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the tick event is raised.
+**Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first
@@ -40,7 +40,7 @@ basicCharacterTableau.OnTick(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
+**Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first
@@ -51,7 +51,7 @@ basicCharacterTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first
@@ -62,7 +62,7 @@ basicCharacterTableau.OnFinalize();
 ### DeserializeCharacterCode
 `public void DeserializeCharacterCode(string code)`
 
-**Purpose:** **Purpose:** Restores character code from serialized data.
+**Purpose:** Restores character code from serialized data.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first
@@ -73,7 +73,7 @@ basicCharacterTableau.DeserializeCharacterCode("example");
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**Purpose:** **Purpose:** Executes the RotateCharacter logic.
+**Purpose:** Executes the RotateCharacter logic.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first
@@ -84,7 +84,7 @@ basicCharacterTableau.RotateCharacter(false);
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
+**Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicCharacterTableau from the subsystem API first

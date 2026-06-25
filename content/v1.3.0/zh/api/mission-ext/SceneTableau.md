@@ -30,7 +30,7 @@ description: "SceneTableau 的自动生成类参考。"
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例
@@ -41,7 +41,7 @@ sceneTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例
@@ -52,7 +52,7 @@ sceneTableau.OnFinalize();
 ### SetScene
 `public void SetScene(object scene)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例
@@ -63,7 +63,7 @@ sceneTableau.SetScene(scene);
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例
@@ -74,7 +74,7 @@ sceneTableau.SetBannerCode("example");
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateCharacter 对应的操作。
+**用途 / Purpose:** 调用 RotateCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例
@@ -85,7 +85,7 @@ sceneTableau.RotateCharacter(false);
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneTableau 实例

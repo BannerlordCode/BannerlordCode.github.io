@@ -23,7 +23,7 @@ Treat `ParticleSystemManager` as a Manager-style extension point: first identify
 ### GetRuntimeIdByName
 `public static int GetRuntimeIdByName(string particleSystemName)`
 
-**Purpose:** **Purpose:** Reads and returns the runtime id by name value held by the this instance.
+**Purpose:** Reads and returns the runtime id by name value held by the this instance.
 
 ```csharp
 // Static call; no instance required

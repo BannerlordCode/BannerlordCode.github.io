@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
+**Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -54,7 +54,7 @@ mPCustomGameSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -65,7 +65,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -76,7 +76,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -87,7 +87,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -98,7 +98,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -109,7 +109,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -120,7 +120,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -131,7 +131,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -142,7 +142,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -153,7 +153,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -164,7 +164,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -175,7 +175,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -186,7 +186,7 @@ var result = mPCustomGameSortControllerVM.Compare(x, y);
 ### InitializeWithSortState
 `public void InitializeWithSortState(CustomServerSortOption? sortOption, SortState sortState = SortState.Default)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with sort state.
+**Purpose:** Prepares the resources, state, or bindings required by with sort state.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -197,7 +197,7 @@ mPCustomGameSortControllerVM.InitializeWithSortState(sortOption, sortState.Defau
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** **Purpose:** Executes the SortByCurrentState logic.
+**Purpose:** Executes the SortByCurrentState logic.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -208,7 +208,7 @@ mPCustomGameSortControllerVM.SortByCurrentState();
 ### ExecuteSortByFavorites
 `public void ExecuteSortByFavorites()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by favorites.
+**Purpose:** Runs the operation or workflow associated with sort by favorites.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -219,7 +219,7 @@ mPCustomGameSortControllerVM.ExecuteSortByFavorites();
 ### ExecuteSortByServerName
 `public void ExecuteSortByServerName()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by server name.
+**Purpose:** Runs the operation or workflow associated with sort by server name.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -230,7 +230,7 @@ mPCustomGameSortControllerVM.ExecuteSortByServerName();
 ### ExecuteSortByGameType
 `public void ExecuteSortByGameType()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by game type.
+**Purpose:** Runs the operation or workflow associated with sort by game type.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -241,7 +241,7 @@ mPCustomGameSortControllerVM.ExecuteSortByGameType();
 ### ExecuteSortByPlayerCount
 `public void ExecuteSortByPlayerCount()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by player count.
+**Purpose:** Runs the operation or workflow associated with sort by player count.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -252,7 +252,7 @@ mPCustomGameSortControllerVM.ExecuteSortByPlayerCount();
 ### ExecuteSortByPassword
 `public void ExecuteSortByPassword()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by password.
+**Purpose:** Runs the operation or workflow associated with sort by password.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -263,7 +263,7 @@ mPCustomGameSortControllerVM.ExecuteSortByPassword();
 ### ExecuteSortByFirstFaction
 `public void ExecuteSortByFirstFaction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by first faction.
+**Purpose:** Runs the operation or workflow associated with sort by first faction.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -274,7 +274,7 @@ mPCustomGameSortControllerVM.ExecuteSortByFirstFaction();
 ### ExecuteSortBySecondFaction
 `public void ExecuteSortBySecondFaction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by second faction.
+**Purpose:** Runs the operation or workflow associated with sort by second faction.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -285,7 +285,7 @@ mPCustomGameSortControllerVM.ExecuteSortBySecondFaction();
 ### ExecuteSortByRegion
 `public void ExecuteSortByRegion()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by region.
+**Purpose:** Runs the operation or workflow associated with sort by region.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -296,7 +296,7 @@ mPCustomGameSortControllerVM.ExecuteSortByRegion();
 ### ExecuteSortByPremadeMatchType
 `public void ExecuteSortByPremadeMatchType()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by premade match type.
+**Purpose:** Runs the operation or workflow associated with sort by premade match type.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -307,7 +307,7 @@ mPCustomGameSortControllerVM.ExecuteSortByPremadeMatchType();
 ### ExecuteSortByHost
 `public void ExecuteSortByHost()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by host.
+**Purpose:** Runs the operation or workflow associated with sort by host.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first
@@ -318,7 +318,7 @@ mPCustomGameSortControllerVM.ExecuteSortByHost();
 ### ExecuteSortByPing
 `public void ExecuteSortByPing()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by ping.
+**Purpose:** Runs the operation or workflow associated with sort by ping.
 
 ```csharp
 // Obtain an instance of MPCustomGameSortControllerVM from the subsystem API first

@@ -29,7 +29,7 @@ description: "PointOfInterestScorePair 的自动生成类参考。"
 ### Clone
 `public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例
@@ -40,7 +40,7 @@ var result = pointOfInterestScorePair.Clone();
 ### AddToData
 `public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to data 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例
@@ -51,7 +51,7 @@ pointOfInterestScorePair.AddToData(pointOfInterestToAdd);
 ### IsDataEqualTo
 `public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 data equal to 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 data equal to 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例
@@ -62,7 +62,7 @@ var result = pointOfInterestScorePair.IsDataEqualTo(other, newDataToAdd);
 ### IsBetterThan
 `public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 better than 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 better than 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例
@@ -73,7 +73,7 @@ var result = pointOfInterestScorePair.IsBetterThan(other);
 ### IsSufficient
 `public bool IsSufficient()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 sufficient 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 sufficient 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例
@@ -84,7 +84,7 @@ var result = pointOfInterestScorePair.IsSufficient();
 ### ReOrderDataAccordingToPathRatios
 `public void ReOrderDataAccordingToPathRatios()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReOrderDataAccordingToPathRatios 对应的操作。
+**用途 / Purpose:** 调用 ReOrderDataAccordingToPathRatios 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PointOfInterestScorePair 实例

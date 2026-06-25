@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of KingdomDecisionProposalBehavior from the subsystem API first
@@ -40,7 +40,7 @@ kingdomDecisionProposalBehavior.RegisterEvents();
 ### UpdateKingdomDecisions
 `public void UpdateKingdomDecisions(Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of kingdom decisions.
+**Purpose:** Recalculates and stores the latest representation of kingdom decisions.
 
 ```csharp
 // Obtain an instance of KingdomDecisionProposalBehavior from the subsystem API first
@@ -51,7 +51,7 @@ kingdomDecisionProposalBehavior.UpdateKingdomDecisions(kingdom);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of KingdomDecisionProposalBehavior from the subsystem API first

@@ -29,7 +29,7 @@ description: "NavigationCache 的自动生成类参考。"
 ### GetNeighbors
 `public MBReadOnlyList<T> GetNeighbors(T settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbors 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 neighbors 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -40,7 +40,7 @@ var result = navigationCache.GetNeighbors(settlement);
 ### GetClosestSettlementToFaceIndex
 `public T GetClosestSettlementToFaceIndex(int faceId, out bool isAtSea)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest settlement to face index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 closest settlement to face index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -51,7 +51,7 @@ var result = navigationCache.GetClosestSettlementToFaceIndex(0, isAtSea);
 ### GenerateCacheData
 `public void GenerateCacheData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成cache data的实例、数据或表示。
+**用途 / Purpose:** 生成cache data的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -62,7 +62,7 @@ navigationCache.GenerateCacheData();
 ### GetSceneXmlCrcValues
 `public abstract void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene xml crc values 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 scene xml crc values 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -73,7 +73,7 @@ navigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
 ### GetSettlementsDistanceCacheFileForCapability
 `public bool GetSettlementsDistanceCacheFileForCapability(string moduleId, out string filePath)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlements distance cache file for capability 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 settlements distance cache file for capability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -84,7 +84,7 @@ var result = navigationCache.GetSettlementsDistanceCacheFileForCapability("examp
 ### Serialize
 `public void Serialize(string path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例
@@ -95,7 +95,7 @@ navigationCache.Serialize("example");
 ### Deserialize
 `public void Deserialize(string path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCache 实例

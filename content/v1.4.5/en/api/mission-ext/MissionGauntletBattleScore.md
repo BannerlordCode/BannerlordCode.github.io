@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletBattleScore.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletBattleScore.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionGauntletBattleScore.OnEscape();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletBattleScore.EarlyStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletBattleScore.OnMissionScreenTick(0);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
+**Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -89,7 +89,7 @@ missionGauntletBattleScore.OnDeploymentFinished();
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
+**Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -100,7 +100,7 @@ missionGauntletBattleScore.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
+**Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBattleScore from the subsystem API first
@@ -111,7 +111,7 @@ missionGauntletBattleScore.OnPhotoModeDeactivated();
 ### ForceScoreboardToggle
 `public static string ForceScoreboardToggle(List<string> args)`
 
-**Purpose:** **Purpose:** Executes the ForceScoreboardToggle logic.
+**Purpose:** Executes the ForceScoreboardToggle logic.
 
 ```csharp
 // Static call; no instance required

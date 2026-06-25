@@ -32,7 +32,7 @@ description: "SPScoreboardUnitVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardUnitVM 实例
@@ -43,7 +43,7 @@ sPScoreboardUnitVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 scores 的最新表示。
+**用途 / Purpose:** 重新计算并更新 scores 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardUnitVM 实例
@@ -54,7 +54,7 @@ sPScoreboardUnitVM.UpdateScores(0, 0, 0, 0, 0, 0);
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(SkillObject gainedSkill, int currentSkill)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 hero skills 的最新表示。
+**用途 / Purpose:** 重新计算并更新 hero skills 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardUnitVM 实例

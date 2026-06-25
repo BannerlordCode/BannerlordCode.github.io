@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**Purpose:** **Purpose:** Removes all notifications from the this instance.
+**Purpose:** Removes all notifications from the this instance.
 
 ```csharp
 // Obtain an instance of GameNotificationVM from the subsystem API first
@@ -43,7 +43,7 @@ gameNotificationVM.ClearNotifications();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of GameNotificationVM from the subsystem API first
@@ -54,7 +54,7 @@ gameNotificationVM.Tick(0);
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
-**Purpose:** **Purpose:** Adds game notification to the current collection or state.
+**Purpose:** Adds game notification to the current collection or state.
 
 ```csharp
 // Obtain an instance of GameNotificationVM from the subsystem API first

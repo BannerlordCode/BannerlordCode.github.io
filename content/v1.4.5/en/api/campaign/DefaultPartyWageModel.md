@@ -23,7 +23,7 @@ Treat `DefaultPartyWageModel` as a Model-style extension point: first identify w
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** **Purpose:** Reads and returns the character wage value held by the this instance.
+**Purpose:** Reads and returns the character wage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyWageModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyWageModel.GetCharacterWage(character);
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Reads and returns the total wage value held by the this instance.
+**Purpose:** Reads and returns the total wage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyWageModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyWageModel.GetTotalWage(mobileParty, troopRoster, false)
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** **Purpose:** Reads and returns the troop recruitment cost value held by the this instance.
+**Purpose:** Reads and returns the troop recruitment cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyWageModel from the subsystem API first

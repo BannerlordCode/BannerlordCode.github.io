@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = bombardmentStep1Tutorial.IsConditionsMetForCompletion();
 ### OnPlayerStartEngineConstruction
 `public override void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)`
 
-**Purpose:** **Purpose:** Invoked when the player start engine construction event is raised.
+**Purpose:** Invoked when the player start engine construction event is raised.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first
@@ -45,7 +45,7 @@ bombardmentStep1Tutorial.OnPlayerStartEngineConstruction(obj);
 ### OnGameMenuOptionSelected
 `public override void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**Purpose:** **Purpose:** Invoked when the game menu option selected event is raised.
+**Purpose:** Invoked when the game menu option selected event is raised.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first
@@ -56,7 +56,7 @@ bombardmentStep1Tutorial.OnGameMenuOptionSelected(obj);
 ### OnGameMenuOpened
 `public override void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**Purpose:** **Purpose:** Invoked when the game menu opened event is raised.
+**Purpose:** Invoked when the game menu opened event is raised.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first
@@ -67,7 +67,7 @@ bombardmentStep1Tutorial.OnGameMenuOpened(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
+**Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first
@@ -78,7 +78,7 @@ var result = bombardmentStep1Tutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
+**Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of BombardmentStep1Tutorial from the subsystem API first

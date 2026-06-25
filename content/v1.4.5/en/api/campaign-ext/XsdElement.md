@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**Purpose:** **Purpose:** Executes the XsdElement logic.
+**Purpose:** Executes the XsdElement logic.
 
 ```csharp
 // Obtain an instance of XsdElement from the subsystem API first

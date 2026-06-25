@@ -23,7 +23,7 @@ description: "BannerHelper 的自动生成类参考。"
 ### GetRandomBannerItemForHero
 `public static ItemObject GetRandomBannerItemForHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random banner item for hero 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 random banner item for hero 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BannerHelper.GetRandomBannerItemForHero(hero);
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref ExplainedNumber bonuses)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 banner bonus for banner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 banner bonus for banner 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

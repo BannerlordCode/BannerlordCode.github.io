@@ -23,7 +23,7 @@ description: "Theme 的自动生成类参考。"
 ### ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities
 `public static bool ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(ThemeInterruptionBehavior interruptionBehavior)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities 对应的操作。
+**用途 / Purpose:** 调用 ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interr
 ### ThemeTypeToString
 `public static string ThemeTypeToString(ThemeType themeType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ThemeTypeToString 对应的操作。
+**用途 / Purpose:** 调用 ThemeTypeToString 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Theme.ThemeTypeToString(themeType);
 ### GetThemeInterruptionBehavior
 `public static ThemeInterruptionBehavior GetThemeInterruptionBehavior(ThemeType sourceThemeType, ThemeType targetThemeType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 theme interruption behavior 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 theme interruption behavior 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Theme.GetThemeInterruptionBehavior(sourceThemeType, targetThemeType);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例

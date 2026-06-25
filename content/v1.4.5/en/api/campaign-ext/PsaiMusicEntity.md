@@ -29,7 +29,7 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### GetClassString
 `public abstract string GetClassString()`
 
-**Purpose:** **Purpose:** Reads and returns the class string value held by the this instance.
+**Purpose:** Reads and returns the class string value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -40,7 +40,7 @@ var result = psaiMusicEntity.GetClassString();
 ### GetCompatibilitySetting
 `public abstract CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the compatibility setting value held by the this instance.
+**Purpose:** Reads and returns the compatibility setting value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -51,7 +51,7 @@ var result = psaiMusicEntity.GetCompatibilitySetting(targetEntity);
 ### GetCompatibilityType
 `public abstract CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** **Purpose:** Reads and returns the compatibility type value held by the this instance.
+**Purpose:** Reads and returns the compatibility type value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -62,7 +62,7 @@ var result = psaiMusicEntity.GetCompatibilityType(targetEntity, reason);
 ### GetParent
 `public abstract PsaiMusicEntity GetParent()`
 
-**Purpose:** **Purpose:** Reads and returns the parent value held by the this instance.
+**Purpose:** Reads and returns the parent value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -73,7 +73,7 @@ var result = psaiMusicEntity.GetParent();
 ### GetChildren
 `public abstract List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** **Purpose:** Reads and returns the children value held by the this instance.
+**Purpose:** Reads and returns the children value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -84,7 +84,7 @@ var result = psaiMusicEntity.GetChildren();
 ### GetIndexPositionWithinParentEntity
 `public abstract int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** **Purpose:** Reads and returns the index position within parent entity value held by the this instance.
+**Purpose:** Reads and returns the index position within parent entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -95,7 +95,7 @@ var result = psaiMusicEntity.GetIndexPositionWithinParentEntity(parentProject);
 ### Clone
 `public virtual object Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -106,7 +106,7 @@ var result = psaiMusicEntity.Clone();
 ### ShallowCopy
 `public virtual PsaiMusicEntity ShallowCopy()`
 
-**Purpose:** **Purpose:** Executes the ShallowCopy logic.
+**Purpose:** Executes the ShallowCopy logic.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -117,7 +117,7 @@ var result = psaiMusicEntity.ShallowCopy();
 ### PropertyDifferencesAffectCompatibilities
 `public virtual bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**Purpose:** **Purpose:** Executes the PropertyDifferencesAffectCompatibilities logic.
+**Purpose:** Executes the PropertyDifferencesAffectCompatibilities logic.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first
@@ -128,7 +128,7 @@ var result = psaiMusicEntity.PropertyDifferencesAffectCompatibilities(otherEntit
 ### GetTheme
 `public Theme GetTheme()`
 
-**Purpose:** **Purpose:** Reads and returns the theme value held by the this instance.
+**Purpose:** Reads and returns the theme value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiMusicEntity from the subsystem API first

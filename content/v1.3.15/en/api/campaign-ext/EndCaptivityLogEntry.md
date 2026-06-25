@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of EndCaptivityLogEntry from the subsystem API first
@@ -42,7 +42,7 @@ var result = endCaptivityLogEntry.ToString();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
+**Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of EndCaptivityLogEntry from the subsystem API first
@@ -53,7 +53,7 @@ var result = endCaptivityLogEntry.GetEncyclopediaText();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of EndCaptivityLogEntry from the subsystem API first
@@ -64,7 +64,7 @@ var result = endCaptivityLogEntry.GetNotificationText();
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** **Purpose:** Reads and returns the conversation score and comment value held by the this instance.
+**Purpose:** Reads and returns the conversation score and comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of EndCaptivityLogEntry from the subsystem API first
@@ -75,7 +75,7 @@ endCaptivityLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, s
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of EndCaptivityLogEntry from the subsystem API first

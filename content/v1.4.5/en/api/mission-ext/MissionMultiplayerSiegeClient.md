@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -40,7 +40,7 @@ missionMultiplayerSiegeClient.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -51,7 +51,7 @@ missionMultiplayerSiegeClient.AfterStart();
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** **Purpose:** Reads and returns the gold amount value held by the this instance.
+**Purpose:** Reads and returns the gold amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -62,7 +62,7 @@ var result = missionMultiplayerSiegeClient.GetGoldAmount();
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** **Purpose:** Invoked when the gold amount changed for representative event is raised.
+**Purpose:** Invoked when the gold amount changed for representative event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -73,7 +73,7 @@ missionMultiplayerSiegeClient.OnGoldAmountChangedForRepresentative(representativ
 ### OnNumberOfFlagsChanged
 `public void OnNumberOfFlagsChanged()`
 
-**Purpose:** **Purpose:** Invoked when the number of flags changed event is raised.
+**Purpose:** Invoked when the number of flags changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -84,7 +84,7 @@ missionMultiplayerSiegeClient.OnNumberOfFlagsChanged();
 ### OnCapturePointOwnerChanged
 `public void OnCapturePointOwnerChanged(FlagCapturePoint flagCapturePoint, Team ownerTeam)`
 
-**Purpose:** **Purpose:** Invoked when the capture point owner changed event is raised.
+**Purpose:** Invoked when the capture point owner changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -95,7 +95,7 @@ missionMultiplayerSiegeClient.OnCapturePointOwnerChanged(flagCapturePoint, owner
 ### OnMoraleChanged
 `public void OnMoraleChanged(int attackerMorale, int defenderMorale, int capturePointRemainingMoraleGains)`
 
-**Purpose:** **Purpose:** Invoked when the morale changed event is raised.
+**Purpose:** Invoked when the morale changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -106,7 +106,7 @@ missionMultiplayerSiegeClient.OnMoraleChanged(0, 0, 0);
 ### GetFlagOwner
 `public Team GetFlagOwner(FlagCapturePoint flag)`
 
-**Purpose:** **Purpose:** Reads and returns the flag owner value held by the this instance.
+**Purpose:** Reads and returns the flag owner value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -117,7 +117,7 @@ var result = missionMultiplayerSiegeClient.GetFlagOwner(flag);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -128,7 +128,7 @@ missionMultiplayerSiegeClient.OnRemoveBehavior();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
@@ -139,7 +139,7 @@ missionMultiplayerSiegeClient.OnMissionTick(0);
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**Purpose:** **Purpose:** Reads and returns the siege missiles value held by the this instance.
+**Purpose:** Reads and returns the siege missiles value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### ExecuteBeginTooltip
 `public void ExecuteBeginTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin tooltip.
+**Purpose:** Runs the operation or workflow associated with begin tooltip.
 
 ```csharp
 // Obtain an instance of GameMenuPlunderItemVM from the subsystem API first
@@ -41,7 +41,7 @@ gameMenuPlunderItemVM.ExecuteBeginTooltip();
 ### ExecuteEndTooltip
 `public void ExecuteEndTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with end tooltip.
+**Purpose:** Runs the operation or workflow associated with end tooltip.
 
 ```csharp
 // Obtain an instance of GameMenuPlunderItemVM from the subsystem API first

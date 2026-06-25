@@ -23,7 +23,7 @@ description: "ThemeQueueEntry 的自动生成类参考。"
 ### Clone
 `public object Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 ThemeQueueEntry 实例
@@ -34,7 +34,7 @@ var result = themeQueueEntry.Clone();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ThemeQueueEntry 实例

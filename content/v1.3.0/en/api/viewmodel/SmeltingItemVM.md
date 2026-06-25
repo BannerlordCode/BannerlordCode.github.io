@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SmeltingItemVM from the subsystem API first
@@ -49,7 +49,7 @@ smeltingItemVM.RefreshValues();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
+**Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of SmeltingItemVM from the subsystem API first
@@ -60,7 +60,7 @@ smeltingItemVM.ExecuteSelection();
 ### ExecuteShowItemTooltip
 `public void ExecuteShowItemTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with show item tooltip.
+**Purpose:** Runs the operation or workflow associated with show item tooltip.
 
 ```csharp
 // Obtain an instance of SmeltingItemVM from the subsystem API first
@@ -71,7 +71,7 @@ smeltingItemVM.ExecuteShowItemTooltip();
 ### ExecuteHideItemTooltip
 `public void ExecuteHideItemTooltip()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with hide item tooltip.
+**Purpose:** Runs the operation or workflow associated with hide item tooltip.
 
 ```csharp
 // Obtain an instance of SmeltingItemVM from the subsystem API first

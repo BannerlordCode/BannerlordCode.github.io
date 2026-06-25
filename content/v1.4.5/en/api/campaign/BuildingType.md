@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**Purpose:** **Purpose:** Reads and returns the effect value value held by the this instance.
+**Purpose:** Reads and returns the effect value value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -47,7 +47,7 @@ var result = buildingType.GetEffectValue(0);
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -58,7 +58,7 @@ var result = buildingType.GetName();
 ### Initialize
 `public void Initialize(TextObject name, TextObject explanation, int productionCosts, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects, bool isMilitaryProject, float varianceChance, int startLevel = 0)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -69,7 +69,7 @@ buildingType.Initialize(name, explanation, 0, tuple<BuildingEffectEnum, building
 ### InitializeDailyProject
 `public void InitializeDailyProject(TextObject name, TextObject explanation, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by daily project.
+**Purpose:** Prepares the resources, state, or bindings required by daily project.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -80,7 +80,7 @@ buildingType.InitializeDailyProject(name, explanation, tuple<BuildingEffectEnum,
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -91,7 +91,7 @@ var result = buildingType.ToString();
 ### GetProductionCost
 `public int GetProductionCost(int level)`
 
-**Purpose:** **Purpose:** Reads and returns the production cost value held by the this instance.
+**Purpose:** Reads and returns the production cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -102,7 +102,7 @@ var result = buildingType.GetProductionCost(0);
 ### GetBaseBuildingEffectAmount
 `public float GetBaseBuildingEffectAmount(BuildingEffectEnum effect, int level)`
 
-**Purpose:** **Purpose:** Reads and returns the base building effect amount value held by the this instance.
+**Purpose:** Reads and returns the base building effect amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -113,7 +113,7 @@ var result = buildingType.GetBaseBuildingEffectAmount(effect, 0);
 ### HasEffect
 `public bool HasEffect(BuildingEffectEnum effect)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds effect.
+**Purpose:** Determines whether the this instance already holds effect.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -124,7 +124,7 @@ var result = buildingType.HasEffect(effect);
 ### GetExplanationAtLevel
 `public TextObject GetExplanationAtLevel(int level)`
 
-**Purpose:** **Purpose:** Reads and returns the explanation at level value held by the this instance.
+**Purpose:** Reads and returns the explanation at level value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first
@@ -135,7 +135,7 @@ var result = buildingType.GetExplanationAtLevel(0);
 ### GetBuildingEffectType
 `public BuildingEffectIncrementType GetBuildingEffectType(BuildingEffectEnum effect)`
 
-**Purpose:** **Purpose:** Reads and returns the building effect type value held by the this instance.
+**Purpose:** Reads and returns the building effect type value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingType from the subsystem API first

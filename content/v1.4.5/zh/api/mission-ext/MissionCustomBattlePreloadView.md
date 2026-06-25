@@ -23,7 +23,7 @@ description: "MissionCustomBattlePreloadView 的自动生成类参考。"
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCustomBattlePreloadView 实例
@@ -34,7 +34,7 @@ missionCustomBattlePreloadView.OnPreMissionTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 scene rendering started 事件触发时调用此回调。
+**用途 / Purpose:** 在 scene rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCustomBattlePreloadView 实例
@@ -45,7 +45,7 @@ missionCustomBattlePreloadView.OnSceneRenderingStarted();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission state deactivated 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission state deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCustomBattlePreloadView 实例

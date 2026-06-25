@@ -23,7 +23,7 @@ Treat `MPPerksAgentComponent` as a Component-style extension point: first identi
 ### OnMount
 `public override void OnMount(Agent mount)`
 
-**Purpose:** **Purpose:** Invoked when the mount event is raised.
+**Purpose:** Invoked when the mount event is raised.
 
 ```csharp
 // Obtain an instance of MPPerksAgentComponent from the subsystem API first
@@ -34,7 +34,7 @@ mPPerksAgentComponent.OnMount(mount);
 ### OnDismount
 `public override void OnDismount(Agent mount)`
 
-**Purpose:** **Purpose:** Invoked when the dismount event is raised.
+**Purpose:** Invoked when the dismount event is raised.
 
 ```csharp
 // Obtain an instance of MPPerksAgentComponent from the subsystem API first
@@ -45,7 +45,7 @@ mPPerksAgentComponent.OnDismount(mount);
 ### OnItemPickup
 `public override void OnItemPickup(SpawnedItemEntity item)`
 
-**Purpose:** **Purpose:** Invoked when the item pickup event is raised.
+**Purpose:** Invoked when the item pickup event is raised.
 
 ```csharp
 // Obtain an instance of MPPerksAgentComponent from the subsystem API first
@@ -56,7 +56,7 @@ mPPerksAgentComponent.OnItemPickup(item);
 ### OnWeaponDrop
 `public override void OnWeaponDrop(MissionWeapon droppedWeapon)`
 
-**Purpose:** **Purpose:** Invoked when the weapon drop event is raised.
+**Purpose:** Invoked when the weapon drop event is raised.
 
 ```csharp
 // Obtain an instance of MPPerksAgentComponent from the subsystem API first
@@ -67,7 +67,7 @@ mPPerksAgentComponent.OnWeaponDrop(droppedWeapon);
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MPPerksAgentComponent from the subsystem API first

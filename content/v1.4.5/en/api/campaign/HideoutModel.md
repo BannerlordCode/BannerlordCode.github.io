@@ -31,7 +31,7 @@ Treat `HideoutModel` as a Model-style extension point: first identify who create
 ### GetRogueryXpGainAsGhost
 `public abstract float GetRogueryXpGainAsGhost()`
 
-**Purpose:** **Purpose:** Reads and returns the roguery xp gain as ghost value held by the this instance.
+**Purpose:** Reads and returns the roguery xp gain as ghost value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutModel from the subsystem API first
@@ -42,7 +42,7 @@ var result = hideoutModel.GetRogueryXpGainAsGhost();
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**Purpose:** **Purpose:** Reads and returns the roguery xp gain on hideout mission end value held by the this instance.
+**Purpose:** Reads and returns the roguery xp gain on hideout mission end value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutModel from the subsystem API first
@@ -53,7 +53,7 @@ var result = hideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
 ### GetSendTroopsSuccessChance
 `public abstract float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**Purpose:** **Purpose:** Reads and returns the send troops success chance value held by the this instance.
+**Purpose:** Reads and returns the send troops success chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutModel from the subsystem API first

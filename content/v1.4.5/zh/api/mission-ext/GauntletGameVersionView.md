@@ -29,7 +29,7 @@ description: "GauntletGameVersionView 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ GauntletGameVersionView.Initialize();
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ GauntletGameVersionView.Refresh();
 ### AddModuleVersionInfo
 `public static void AddModuleVersionInfo(string title, string versionStr)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 module version info 添加到当前容器或状态中。
+**用途 / Purpose:** 将 module version info 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ GauntletGameVersionView.AddModuleVersionInfo("example", "example");
 ### RemoveModuleVersionInfo
 `public static void RemoveModuleVersionInfo(string title)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 module version info。
+**用途 / Purpose:** 从当前容器或状态中移除 module version info。
 
 ```csharp
 // 静态调用，不需要实例

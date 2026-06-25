@@ -19,7 +19,7 @@ MakePeaceAction is a set of static methods that trigger "MakePeace" in the campa
 public static void ApplyPardonPlayer(IFaction faction)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of pardon player to the this instance.
+**Purpose:** Applies the effect of pardon player to the this instance.
 
 ### Apply
 
@@ -27,7 +27,7 @@ public static void ApplyPardonPlayer(IFaction faction)
 public static void Apply(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2 = 0)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByKingdomDecision
 
@@ -35,7 +35,7 @@ public static void Apply(IFaction faction1, IFaction faction2, int dailyTributeF
 public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2 = 0)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by kingdom decision to the this instance.
+**Purpose:** Applies the effect of by kingdom decision to the this instance.
 
 ## Usage Example
 

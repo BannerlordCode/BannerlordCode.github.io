@@ -30,7 +30,7 @@ description: "DefaultTeamDeploymentPlan 的自动生成类参考。"
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 spawn with horses 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 spawn with horses 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -41,7 +41,7 @@ defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(FormationSceneSpawnEntry formationSceneSpawnEntries, bool isReinforcement = false, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
+**用途 / Purpose:** 调用 MakeDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -52,7 +52,7 @@ defaultTeamDeploymentPlan.MakeDeploymentPlan(formationSceneSpawnEntries, false, 
 ### UpdateReinforcementPlans
 `public void UpdateReinforcementPlans()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 reinforcement plans 的最新表示。
+**用途 / Purpose:** 重新计算并更新 reinforcement plans 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -63,7 +63,7 @@ defaultTeamDeploymentPlan.UpdateReinforcementPlans();
 ### ClearPlan
 `public void ClearPlan(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的plan。
+**用途 / Purpose:** 清空当前对象中的plan。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -74,7 +74,7 @@ defaultTeamDeploymentPlan.ClearPlan(false);
 ### ClearAddedTroops
 `public void ClearAddedTroops(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的added troops。
+**用途 / Purpose:** 清空当前对象中的added troops。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -85,7 +85,7 @@ defaultTeamDeploymentPlan.ClearAddedTroops(false);
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount, bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 troops 添加到当前容器或状态中。
+**用途 / Purpose:** 将 troops 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -96,7 +96,7 @@ defaultTeamDeploymentPlan.AddTroops(formationClass, 0, 0, false);
 ### IsFirstPlan
 `public bool IsFirstPlan(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 first plan 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 first plan 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -107,7 +107,7 @@ var result = defaultTeamDeploymentPlan.IsFirstPlan(false);
 ### IsPlanMade
 `public bool IsPlanMade(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 plan made 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -118,7 +118,7 @@ var result = defaultTeamDeploymentPlan.IsPlanMade(false);
 ### GetSpawnPathOffset
 `public float GetSpawnPathOffset(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path offset 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawn path offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -129,7 +129,7 @@ var result = defaultTeamDeploymentPlan.GetSpawnPathOffset(false);
 ### GetTargetOffset
 `public float GetTargetOffset(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target offset 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 target offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -140,7 +140,7 @@ var result = defaultTeamDeploymentPlan.GetTargetOffset(false);
 ### GetTroopCount
 `public int GetTroopCount(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -151,7 +151,7 @@ var result = defaultTeamDeploymentPlan.GetTroopCount(false);
 ### GetDeploymentFrame
 `public MatrixFrame GetDeploymentFrame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment frame 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -162,7 +162,7 @@ var result = defaultTeamDeploymentPlan.GetDeploymentFrame();
 ### HasDeploymentBoundaries
 `public bool HasDeploymentBoundaries()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 deployment boundaries。
+**用途 / Purpose:** 判断当前对象是否已经持有 deployment boundaries。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -173,7 +173,7 @@ var result = defaultTeamDeploymentPlan.HasDeploymentBoundaries();
 ### GetFormationPlan
 `public IFormationDeploymentPlan GetFormationPlan(FormationClass fClass, bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation plan 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 formation plan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -184,7 +184,7 @@ var result = defaultTeamDeploymentPlan.GetFormationPlan(fClass, false);
 ### GetMeanPosition
 `public Vec3 GetMeanPosition(bool isReinforcement = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mean position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mean position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -195,7 +195,7 @@ var result = defaultTeamDeploymentPlan.GetMeanPosition(false);
 ### IsInitialPlanSuitableForFormations
 `public bool IsInitialPlanSuitableForFormations(ValueTuple<int, int> troopDataPerFormationClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 initial plan suitable for formations 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 initial plan suitable for formations 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -206,7 +206,7 @@ var result = defaultTeamDeploymentPlan.IsInitialPlanSuitableForFormations(valueT
 ### IsPositionInsideDeploymentBoundaries
 `public bool IsPositionInsideDeploymentBoundaries(in Vec2 position, { "id", "points" })`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 position inside deployment boundaries 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 position inside deployment boundaries 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -217,7 +217,7 @@ var result = defaultTeamDeploymentPlan.IsPositionInsideDeploymentBoundaries(posi
 ### GetClosestDeploymentBoundaryPosition
 `public Vec2 GetClosestDeploymentBoundaryPosition(in Vec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest deployment boundary position 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 closest deployment boundary position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
@@ -228,7 +228,7 @@ var result = defaultTeamDeploymentPlan.GetClosestDeploymentBoundaryPosition(posi
 ### GetPathDeploymentBoundaryIntersection
 `public bool GetPathDeploymentBoundaryIntersection(in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path deployment boundary intersection 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 path deployment boundary intersection 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例

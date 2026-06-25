@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### Initialize
 `public void Initialize(string name, string description, float effectBonus, bool isPositiveEffect, AdditionType incrementType)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of FeatObject from the subsystem API first

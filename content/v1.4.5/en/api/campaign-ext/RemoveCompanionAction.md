@@ -19,7 +19,7 @@ RemoveCompanionAction is a set of static methods that trigger "RemoveCompanion" 
 public static void ApplyByFire(Clan clan, Hero companion)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by fire to the this instance.
+**Purpose:** Applies the effect of by fire to the this instance.
 
 ### ApplyAfterQuest
 
@@ -27,7 +27,7 @@ public static void ApplyByFire(Clan clan, Hero companion)
 public static void ApplyAfterQuest(Clan clan, Hero companion)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of after quest to the this instance.
+**Purpose:** Applies the effect of after quest to the this instance.
 
 ### ApplyByDeath
 
@@ -35,7 +35,7 @@ public static void ApplyAfterQuest(Clan clan, Hero companion)
 public static void ApplyByDeath(Clan clan, Hero companion)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by death to the this instance.
+**Purpose:** Applies the effect of by death to the this instance.
 
 ### ApplyByByTurningToLord
 
@@ -43,7 +43,7 @@ public static void ApplyByDeath(Clan clan, Hero companion)
 public static void ApplyByByTurningToLord(Clan clan, Hero companion)
 ```
 
-**Purpose:** **Purpose:** Applies the effect of by by turning to lord to the this instance.
+**Purpose:** Applies the effect of by by turning to lord to the this instance.
 
 ## Usage Example
 

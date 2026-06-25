@@ -31,7 +31,7 @@ description: "OptionsGamepadOptionItemListPanel 的自动生成类参考。"
 ### OnActionTextChangeEvent
 `public delegate void OnActionTextChangeEvent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 action text change event 事件触发时调用此回调。
+**用途 / Purpose:** 在 action text change event 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsGamepadOptionItemListPanel 实例
@@ -42,7 +42,7 @@ optionsGamepadOptionItemListPanel.OnActionTextChangeEvent();
 ### SetKeyProperties
 `public void SetKeyProperties(OptionsGamepadKeyLocationWidget currentTarget, Widget parentAreaWidget)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 key properties 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 key properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsGamepadOptionItemListPanel 实例

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### RefreshMenu
 `public void RefreshMenu()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of menu in sync with the underlying state.
+**Purpose:** Keeps the display or cache of menu in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -44,7 +44,7 @@ characterCreationNarrativeStageVM.RefreshMenu();
 ### OnOptionSelected
 `public void OnOptionSelected(CharacterCreationOptionVM option)`
 
-**Purpose:** **Purpose:** Invoked when the option selected event is raised.
+**Purpose:** Invoked when the option selected event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -55,7 +55,7 @@ characterCreationNarrativeStageVM.OnOptionSelected(option);
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** **Purpose:** Invoked when the next stage event is raised.
+**Purpose:** Invoked when the next stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -66,7 +66,7 @@ characterCreationNarrativeStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** **Purpose:** Invoked when the previous stage event is raised.
+**Purpose:** Invoked when the previous stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -77,7 +77,7 @@ characterCreationNarrativeStageVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
+**Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -88,7 +88,7 @@ var result = characterCreationNarrativeStageVM.CanAdvanceToNextStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -99,7 +99,7 @@ characterCreationNarrativeStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
@@ -110,7 +110,7 @@ characterCreationNarrativeStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first

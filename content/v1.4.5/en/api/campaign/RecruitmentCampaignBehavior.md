@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**Purpose:** **Purpose:** Executes the ChangeMercenaryType logic.
+**Purpose:** Executes the ChangeMercenaryType logic.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -41,7 +41,7 @@ recruitmentCampaignBehavior.ChangeMercenaryType(troopType, 0);
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**Purpose:** **Purpose:** Executes the ChangeMercenaryCount logic.
+**Purpose:** Executes the ChangeMercenaryCount logic.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -52,7 +52,7 @@ recruitmentCampaignBehavior.ChangeMercenaryCount(0);
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds available mercenary.
+**Purpose:** Determines whether the this instance already holds available mercenary.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -63,7 +63,7 @@ var result = recruitmentCampaignBehavior.HasAvailableMercenary(occupation.NotAss
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -74,7 +74,7 @@ recruitmentCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -85,7 +85,7 @@ recruitmentCampaignBehavior.SyncData(dataStore);
 ### GetMercenaryData
 `public TownMercenaryData GetMercenaryData(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the mercenary data value held by the this instance.
+**Purpose:** Reads and returns the mercenary data value held by the this instance.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -96,7 +96,7 @@ var result = recruitmentCampaignBehavior.GetMercenaryData(town);
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Executes the HourlyTickParty logic.
+**Purpose:** Executes the HourlyTickParty logic.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
@@ -107,7 +107,7 @@ recruitmentCampaignBehavior.HourlyTickParty(mobileParty);
 ### OnBeforeSettlementEntered
 `public void OnBeforeSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** **Purpose:** Invoked when the before settlement entered event is raised.
+**Purpose:** Invoked when the before settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first

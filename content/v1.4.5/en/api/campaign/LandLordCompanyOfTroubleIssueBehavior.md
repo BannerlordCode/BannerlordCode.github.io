@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
+**Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of LandLordCompanyOfTroubleIssueBehavior from the subsystem API first
@@ -41,7 +41,7 @@ var result = landLordCompanyOfTroubleIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** **Purpose:** Creates or raises stay alive conditions.
+**Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of LandLordCompanyOfTroubleIssueBehavior from the subsystem API first
@@ -52,7 +52,7 @@ var result = landLordCompanyOfTroubleIssueBehavior.IssueStayAliveConditions();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of LandLordCompanyOfTroubleIssueBehavior from the subsystem API first
@@ -63,7 +63,7 @@ landLordCompanyOfTroubleIssueBehavior.RegisterEvents();
 ### company_of_trouble_menu_game_menu_on_init_background
 `public static void company_of_trouble_menu_game_menu_on_init_background(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the company_of_trouble_menu_game_menu_on_init_background logic.
+**Purpose:** Executes the company_of_trouble_menu_game_menu_on_init_background logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ LandLordCompanyOfTroubleIssueBehavior.company_of_trouble_menu_game_menu_on_init_
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
+**Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of LandLordCompanyOfTroubleIssueBehavior from the subsystem API first
@@ -84,7 +84,7 @@ landLordCompanyOfTroubleIssueBehavior.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of LandLordCompanyOfTroubleIssueBehavior from the subsystem API first

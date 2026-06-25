@@ -34,7 +34,7 @@ Treat `UIResourceManager` as a Manager-style extension point: first identify who
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ UIResourceManager.Refresh();
 ### GetSpriteCategory
 `public static SpriteCategory GetSpriteCategory(string spriteCategoryName)`
 
-**Purpose:** **Purpose:** Reads and returns the sprite category value held by the this instance.
+**Purpose:** Reads and returns the sprite category value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ UIResourceManager.GetSpriteCategory("example");
 ### LoadSpriteCategory
 `public static SpriteCategory LoadSpriteCategory(string spriteCategoryName)`
 
-**Purpose:** **Purpose:** Reads sprite category from persistent storage or a stream.
+**Purpose:** Reads sprite category from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ UIResourceManager.LoadSpriteCategory("example");
 ### Update
 `public static void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ UIResourceManager.Update();
 ### OnLanguageChange
 `public static void OnLanguageChange(string newLanguageCode)`
 
-**Purpose:** **Purpose:** Invoked when the language change event is raised.
+**Purpose:** Invoked when the language change event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ UIResourceManager.OnLanguageChange("example");
 ### Clear
 `public static void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required

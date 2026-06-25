@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### LoadXMLFromFile
 `public void LoadXMLFromFile(string xmlPath, string xsdPath)`
 
-**Purpose:** **Purpose:** Reads x m l from file from persistent storage or a stream.
+**Purpose:** Reads x m l from file from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of MultiplayerStarter from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerStarter.LoadXMLFromFile("example", "example");
 ### ClearEmptyObjects
 `public void ClearEmptyObjects()`
 
-**Purpose:** **Purpose:** Removes all empty objects from the this instance.
+**Purpose:** Removes all empty objects from the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerStarter from the subsystem API first

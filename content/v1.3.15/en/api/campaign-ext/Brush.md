@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetStyle
 `public Style GetStyle(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the style value held by the this instance.
+**Purpose:** Reads and returns the style value held by the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -72,7 +72,7 @@ var result = brush.GetStyle("example");
 ### GetStyleOrDefault
 `public Style GetStyleOrDefault(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the style or default value held by the this instance.
+**Purpose:** Reads and returns the style or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -83,7 +83,7 @@ var result = brush.GetStyleOrDefault("example");
 ### AddStyle
 `public void AddStyle(Style style)`
 
-**Purpose:** **Purpose:** Adds style to the current collection or state.
+**Purpose:** Adds style to the current collection or state.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -94,7 +94,7 @@ brush.AddStyle(style);
 ### RemoveStyle
 `public void RemoveStyle(string styleName)`
 
-**Purpose:** **Purpose:** Removes style from the current collection or state.
+**Purpose:** Removes style from the current collection or state.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -105,7 +105,7 @@ brush.RemoveStyle("example");
 ### AddLayer
 `public void AddLayer(BrushLayer layer)`
 
-**Purpose:** **Purpose:** Adds layer to the current collection or state.
+**Purpose:** Adds layer to the current collection or state.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -116,7 +116,7 @@ brush.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
-**Purpose:** **Purpose:** Removes layer from the current collection or state.
+**Purpose:** Removes layer from the current collection or state.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -127,7 +127,7 @@ brush.RemoveLayer("example");
 ### GetLayer
 `public BrushLayer GetLayer(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the layer value held by the this instance.
+**Purpose:** Reads and returns the layer value held by the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -138,7 +138,7 @@ var result = brush.GetLayer("example");
 ### FillFrom
 `public void FillFrom(Brush brush)`
 
-**Purpose:** **Purpose:** Executes the FillFrom logic.
+**Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -149,7 +149,7 @@ brush.FillFrom(brush);
 ### Clone
 `public Brush Clone()`
 
-**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
+**Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -160,7 +160,7 @@ var result = brush.Clone();
 ### AddAnimation
 `public void AddAnimation(BrushAnimation animation)`
 
-**Purpose:** **Purpose:** Adds animation to the current collection or state.
+**Purpose:** Adds animation to the current collection or state.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -171,7 +171,7 @@ brush.AddAnimation(animation);
 ### GetAnimation
 `public BrushAnimation GetAnimation(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the animation value held by the this instance.
+**Purpose:** Reads and returns the animation value held by the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -182,7 +182,7 @@ var result = brush.GetAnimation("example");
 ### GetAnimations
 `public IEnumerable<BrushAnimation> GetAnimations()`
 
-**Purpose:** **Purpose:** Reads and returns the animations value held by the this instance.
+**Purpose:** Reads and returns the animations value held by the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -193,7 +193,7 @@ var result = brush.GetAnimations();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first
@@ -204,7 +204,7 @@ var result = brush.ToString();
 ### IsCloneRelated
 `public bool IsCloneRelated(Brush brush)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the clone related state or condition.
+**Purpose:** Determines whether the this instance is in the clone related state or condition.
 
 ```csharp
 // Obtain an instance of Brush from the subsystem API first

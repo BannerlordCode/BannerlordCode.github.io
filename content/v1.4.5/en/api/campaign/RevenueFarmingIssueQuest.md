@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**Purpose:** **Purpose:** Executes the RevenuesAreDeliveredToSteward logic.
+**Purpose:** Executes the RevenuesAreDeliveredToSteward logic.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first
@@ -40,7 +40,7 @@ revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
 ### FindCurrentRevenueVillage
 `public RevenueVillage FindCurrentRevenueVillage()`
 
-**Purpose:** **Purpose:** Looks up the matching current revenue village in the current collection or scope.
+**Purpose:** Looks up the matching current revenue village in the current collection or scope.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first
@@ -51,7 +51,7 @@ var result = revenueFarmingIssueQuest.FindCurrentRevenueVillage();
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueVillage village, bool addLog = true)`
 
-**Purpose:** **Purpose:** Assigns a new value to village as completed and updates the object's internal state.
+**Purpose:** Assigns a new value to village as completed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first

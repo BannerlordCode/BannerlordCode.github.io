@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets` to p
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericVisualOrderSet from the subsystem API first

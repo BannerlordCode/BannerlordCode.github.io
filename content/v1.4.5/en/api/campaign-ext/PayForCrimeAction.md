@@ -19,7 +19,7 @@ PayForCrimeAction is a set of static methods that trigger "PayForCrime" in the c
 public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
 ```
 
-**Purpose:** **Purpose:** Reads and returns the clear crime cost value held by the this instance.
+**Purpose:** Reads and returns the clear crime cost value held by the this instance.
 
 ### Apply
 
@@ -27,7 +27,7 @@ public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod
 public static void Apply(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

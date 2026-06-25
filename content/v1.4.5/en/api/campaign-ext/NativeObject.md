@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**Purpose:** **Purpose:** Executes the ManualInvalidate logic.
+**Purpose:** Executes the ManualInvalidate logic.
 
 ```csharp
 // Obtain an instance of NativeObject from the subsystem API first
@@ -40,7 +40,7 @@ nativeObject.ManualInvalidate();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of NativeObject from the subsystem API first
@@ -51,7 +51,7 @@ var result = nativeObject.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
+**Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of NativeObject from the subsystem API first

@@ -41,7 +41,7 @@ description: "GameMenuTroopSelectionVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -52,7 +52,7 @@ gameMenuTroopSelectionVM.RefreshValues();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -63,7 +63,7 @@ gameMenuTroopSelectionVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -74,7 +74,7 @@ gameMenuTroopSelectionVM.ExecuteCancel();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -85,7 +85,7 @@ gameMenuTroopSelectionVM.ExecuteReset();
 ### ExecuteClearSelection
 `public void ExecuteClearSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 clear selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 clear selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -96,7 +96,7 @@ gameMenuTroopSelectionVM.ExecuteClearSelection();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -107,7 +107,7 @@ gameMenuTroopSelectionVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -118,7 +118,7 @@ gameMenuTroopSelectionVM.SetCancelInputKey(hotkey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例
@@ -129,7 +129,7 @@ gameMenuTroopSelectionVM.SetDoneInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuTroopSelectionVM 实例

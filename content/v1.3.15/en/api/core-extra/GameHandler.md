@@ -23,7 +23,7 @@ Treat `GameHandler` as a Handler-style extension point: first identify who creat
 ### OnBeforeSave
 `public abstract void OnBeforeSave()`
 
-**Purpose:** **Purpose:** Invoked when the before save event is raised.
+**Purpose:** Invoked when the before save event is raised.
 
 ```csharp
 // Obtain an instance of GameHandler from the subsystem API first
@@ -34,7 +34,7 @@ gameHandler.OnBeforeSave();
 ### OnAfterSave
 `public abstract void OnAfterSave()`
 
-**Purpose:** **Purpose:** Invoked when the after save event is raised.
+**Purpose:** Invoked when the after save event is raised.
 
 ```csharp
 // Obtain an instance of GameHandler from the subsystem API first

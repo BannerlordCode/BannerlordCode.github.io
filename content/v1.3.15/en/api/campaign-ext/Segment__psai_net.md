@@ -36,7 +36,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -47,7 +47,7 @@ var result = segment.ToString();
 ### IsUsableAs
 `public bool IsUsableAs(SegmentSuitability snippetType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the usable as state or condition.
+**Purpose:** Determines whether the this instance is in the usable as state or condition.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -58,7 +58,7 @@ var result = segment.IsUsableAs(snippetType);
 ### IsUsableOnlyAs
 `public bool IsUsableOnlyAs(SegmentSuitability snippetType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the usable only as state or condition.
+**Purpose:** Determines whether the this instance is in the usable only as state or condition.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -69,7 +69,7 @@ var result = segment.IsUsableOnlyAs(snippetType);
 ### ReturnSegmentWithLowestIntensityDifference
 `public Segment ReturnSegmentWithLowestIntensityDifference(List<Segment> argSnippets)`
 
-**Purpose:** **Purpose:** Executes the ReturnSegmentWithLowestIntensityDifference logic.
+**Purpose:** Executes the ReturnSegmentWithLowestIntensityDifference logic.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -80,7 +80,7 @@ var result = segment.ReturnSegmentWithLowestIntensityDifference(argSnippets);
 ### CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible
 `public bool CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(Soundtrack soundtrack, int targetThemeId)`
 
-**Purpose:** **Purpose:** Verifies whether if at least one direct transition or layering is possible holds true for the this instance.
+**Purpose:** Verifies whether if at least one direct transition or layering is possible holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -91,7 +91,7 @@ var result = segment.CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(sound
 ### GetStringFromSegmentSuitabilities
 `public static string GetStringFromSegmentSuitabilities(int snippetTypeBitfield)`
 
-**Purpose:** **Purpose:** Reads and returns the string from segment suitabilities value held by the this instance.
+**Purpose:** Reads and returns the string from segment suitabilities value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `MusicStealthMissionView` as a View-style extension point: first identify 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first
@@ -34,7 +34,7 @@ musicStealthMissionView.OnBehaviorInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first
@@ -45,7 +45,7 @@ musicStealthMissionView.OnMissionScreenFinalize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first
@@ -56,7 +56,7 @@ musicStealthMissionView.AfterStart();
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**Purpose:** **Purpose:** Invoked when the agent alarmed state changed event is raised.
+**Purpose:** Invoked when the agent alarmed state changed event is raised.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first
@@ -67,7 +67,7 @@ musicStealthMissionView.OnAgentAlarmedStateChanged(agent, flag);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first
@@ -78,7 +78,7 @@ musicStealthMissionView.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon,
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MusicStealthMissionView from the subsystem API first

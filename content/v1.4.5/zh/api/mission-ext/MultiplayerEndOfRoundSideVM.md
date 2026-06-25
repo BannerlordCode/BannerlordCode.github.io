@@ -34,7 +34,7 @@ description: "MultiplayerEndOfRoundSideVM 的自动生成类参考。"
 ### SetData
 `public void SetData(BasicCultureObject culture, int score, bool isWinner, MultiplayerCultureColorInfo cultureColors)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 data 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerEndOfRoundSideVM 实例
@@ -45,7 +45,7 @@ multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerEndOfRoundSideVM 实例

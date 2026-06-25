@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -62,7 +62,7 @@ orderOfBattleVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -73,7 +73,7 @@ orderOfBattleVM.OnFinalize();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -84,7 +84,7 @@ orderOfBattleVM.Tick();
 ### Initialize
 `public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -95,7 +95,7 @@ orderOfBattleVM.Initialize(mission, missionCamera, selectFormationAtIndex, desel
 ### OnAllFormationsAssignedSergeants
 `public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)`
 
-**Purpose:** **Purpose:** Invoked when the all formations assigned sergeants event is raised.
+**Purpose:** Invoked when the all formations assigned sergeants event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -106,7 +106,7 @@ orderOfBattleVM.OnAllFormationsAssignedSergeants(dictionary<int, preAssignedCapt
 ### IsAnyClassSelectionEnabled
 `public bool IsAnyClassSelectionEnabled()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the any class selection enabled state or condition.
+**Purpose:** Determines whether the this instance is in the any class selection enabled state or condition.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -117,7 +117,7 @@ var result = orderOfBattleVM.IsAnyClassSelectionEnabled();
 ### ExecuteDisableAllClassSelections
 `public void ExecuteDisableAllClassSelections()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with disable all class selections.
+**Purpose:** Runs the operation or workflow associated with disable all class selections.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -128,7 +128,7 @@ orderOfBattleVM.ExecuteDisableAllClassSelections();
 ### ExecuteAcceptHeroes
 `public void ExecuteAcceptHeroes()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with accept heroes.
+**Purpose:** Runs the operation or workflow associated with accept heroes.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -139,7 +139,7 @@ orderOfBattleVM.ExecuteAcceptHeroes();
 ### ExecuteSelectAllHeroes
 `public void ExecuteSelectAllHeroes()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select all heroes.
+**Purpose:** Runs the operation or workflow associated with select all heroes.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -150,7 +150,7 @@ orderOfBattleVM.ExecuteSelectAllHeroes();
 ### ExecuteClearHeroSelection
 `public void ExecuteClearHeroSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with clear hero selection.
+**Purpose:** Runs the operation or workflow associated with clear hero selection.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -161,7 +161,7 @@ orderOfBattleVM.ExecuteClearHeroSelection();
 ### OnDeploymentFinalized
 `public void OnDeploymentFinalized(bool playerDeployed)`
 
-**Purpose:** **Purpose:** Invoked when the deployment finalized event is raised.
+**Purpose:** Invoked when the deployment finalized event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -172,7 +172,7 @@ orderOfBattleVM.OnDeploymentFinalized(false);
 ### SelectFormationItemAtIndex
 `public void SelectFormationItemAtIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the SelectFormationItemAtIndex logic.
+**Purpose:** Executes the SelectFormationItemAtIndex logic.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -183,7 +183,7 @@ orderOfBattleVM.SelectFormationItemAtIndex(0);
 ### FocusFormationItemAtIndex
 `public void FocusFormationItemAtIndex(int index)`
 
-**Purpose:** **Purpose:** Executes the FocusFormationItemAtIndex logic.
+**Purpose:** Executes the FocusFormationItemAtIndex logic.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -194,7 +194,7 @@ orderOfBattleVM.FocusFormationItemAtIndex(0);
 ### DeselectAllFormations
 `public void DeselectAllFormations()`
 
-**Purpose:** **Purpose:** Executes the DeselectAllFormations logic.
+**Purpose:** Executes the DeselectAllFormations logic.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -205,7 +205,7 @@ orderOfBattleVM.DeselectAllFormations();
 ### OnUnitDeployed
 `public void OnUnitDeployed()`
 
-**Purpose:** **Purpose:** Invoked when the unit deployed event is raised.
+**Purpose:** Invoked when the unit deployed event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -216,7 +216,7 @@ orderOfBattleVM.OnUnitDeployed();
 ### OnEscape
 `public bool OnEscape()`
 
-**Purpose:** **Purpose:** Invoked when the escape event is raised.
+**Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -227,7 +227,7 @@ var result = orderOfBattleVM.OnEscape();
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with auto deploy.
+**Purpose:** Runs the operation or workflow associated with auto deploy.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -238,7 +238,7 @@ orderOfBattleVM.ExecuteAutoDeploy();
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with begin mission.
+**Purpose:** Runs the operation or workflow associated with begin mission.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -249,7 +249,7 @@ orderOfBattleVM.ExecuteBeginMission();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first
@@ -260,7 +260,7 @@ orderOfBattleVM.SetDoneInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
+**Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleVM from the subsystem API first

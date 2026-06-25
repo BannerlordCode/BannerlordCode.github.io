@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MachineId.Initialize();
 ### AsInteger
 `public static int AsInteger()`
 
-**Purpose:** **Purpose:** Executes the AsInteger logic.
+**Purpose:** Executes the AsInteger logic.
 
 ```csharp
 // Static call; no instance required

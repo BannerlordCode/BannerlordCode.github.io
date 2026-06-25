@@ -23,7 +23,7 @@ Treat `DefaultRansomValueCalculationModel` as a Model-style extension point: fir
 ### PrisonerRansomValue
 `public override int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**Purpose:** **Purpose:** Executes the PrisonerRansomValue logic.
+**Purpose:** Executes the PrisonerRansomValue logic.
 
 ```csharp
 // Obtain an instance of DefaultRansomValueCalculationModel from the subsystem API first

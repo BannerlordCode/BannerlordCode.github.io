@@ -29,7 +29,7 @@ Treat `EncounterManager` as a Manager-style extension point: first identify who 
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ EncounterManager.Tick(0);
 ### HandleEncounterForMobileParty
 `public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with encounter for mobile party.
+**Purpose:** Executes the response logic associated with encounter for mobile party.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ EncounterManager.HandleEncounterForMobileParty(mobileParty, 0);
 ### StartPartyEncounter
 `public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** **Purpose:** Starts the party encounter flow or state machine.
+**Purpose:** Starts the party encounter flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ EncounterManager.StartPartyEncounter(attackerParty, defenderParty);
 ### StartSettlementEncounter
 `public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
 
-**Purpose:** **Purpose:** Starts the settlement encounter flow or state machine.
+**Purpose:** Starts the settlement encounter flow or state machine.
 
 ```csharp
 // Static call; no instance required

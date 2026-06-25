@@ -23,7 +23,7 @@ description: "SiegeAftermathModel 的自动生成类参考。"
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public abstract int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege aftermath trait xp change for player 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege aftermath trait xp change for player 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeAftermathModel 实例

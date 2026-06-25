@@ -39,7 +39,7 @@ description: "UpgradeTargetVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例
@@ -50,7 +50,7 @@ upgradeTargetVM.RefreshValues();
 ### Refresh
 `public void Refresh(int upgradableAmount, bool isAvailable, bool isInsufficient, bool itemRequirementsMet, bool perkRequirementsMet, string hintString, bool isMarinerTroop)`
 
-**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例
@@ -61,7 +61,7 @@ upgradeTargetVM.Refresh(0, false, false, false, false, "example", false);
 ### ExecuteUpgradeEncyclopediaLink
 `public void ExecuteUpgradeEncyclopediaLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 upgrade encyclopedia link 对应的操作或工作流。
+**用途 / Purpose:** 执行 upgrade encyclopedia link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例
@@ -72,7 +72,7 @@ upgradeTargetVM.ExecuteUpgradeEncyclopediaLink();
 ### ExecuteUpgrade
 `public void ExecuteUpgrade()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 upgrade 对应的操作或工作流。
+**用途 / Purpose:** 执行 upgrade 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例
@@ -83,7 +83,7 @@ upgradeTargetVM.ExecuteUpgrade();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例
@@ -94,7 +94,7 @@ upgradeTargetVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
+**用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeTargetVM 实例

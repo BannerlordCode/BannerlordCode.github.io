@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of Markable from the subsystem API first
@@ -34,7 +34,7 @@ var result = markable.GetTickRequirement();
 ### DisableMarkerActivation
 `public void DisableMarkerActivation()`
 
-**Purpose:** **Purpose:** Executes the DisableMarkerActivation logic.
+**Purpose:** Executes the DisableMarkerActivation logic.
 
 ```csharp
 // Obtain an instance of Markable from the subsystem API first
@@ -45,7 +45,7 @@ markable.DisableMarkerActivation();
 ### ActivateMarkerFor
 `public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with marker for.
+**Purpose:** Activates the resource, state, or feature associated with marker for.
 
 ```csharp
 // Obtain an instance of Markable from the subsystem API first
@@ -56,7 +56,7 @@ markable.ActivateMarkerFor(0, 0);
 ### ResetPassiveDurationTimer
 `public void ResetPassiveDurationTimer()`
 
-**Purpose:** **Purpose:** Returns passive duration timer to its default or initial condition.
+**Purpose:** Returns passive duration timer to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Markable from the subsystem API first

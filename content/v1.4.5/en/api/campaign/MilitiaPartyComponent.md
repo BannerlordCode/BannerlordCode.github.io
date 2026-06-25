@@ -30,7 +30,7 @@ Treat `MilitiaPartyComponent` as a Component-style extension point: first identi
 ### InitializeMilitiaPartyProperties
 `public void InitializeMilitiaPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by militia party properties.
+**Purpose:** Prepares the resources, state, or bindings required by militia party properties.
 
 ```csharp
 // Obtain an instance of MilitiaPartyComponent from the subsystem API first
@@ -41,7 +41,7 @@ militiaPartyComponent.InitializeMilitiaPartyProperties(mobileParty, settlement);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
+**Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitiaPartyComponent from the subsystem API first
@@ -52,7 +52,7 @@ var result = militiaPartyComponent.GetDefaultComponentBanner();
 ### CreateMilitiaParty
 `public static MobileParty CreateMilitiaParty(string stringId, Settlement settlement)`
 
-**Purpose:** **Purpose:** Constructs a new militia party entity and returns it to the caller.
+**Purpose:** Constructs a new militia party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ MilitiaPartyComponent.CreateMilitiaParty("example", settlement);
 ### ConvertPartyToMilitiaParty
 `public static void ConvertPartyToMilitiaParty(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** **Purpose:** Converts party to militia party into another representation or type.
+**Purpose:** Converts party to militia party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -72,7 +72,7 @@ MilitiaPartyComponent.ConvertPartyToMilitiaParty(mobileParty, settlement);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** **Purpose:** Removes all cached name from the this instance.
+**Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of MilitiaPartyComponent from the subsystem API first

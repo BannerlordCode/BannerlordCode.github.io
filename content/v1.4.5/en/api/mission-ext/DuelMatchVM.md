@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### OnDuelPrepStarted
 `public void OnDuelPrepStarted(MissionPeer opponentPeer, int prepDuration)`
 
-**Purpose:** **Purpose:** Invoked when the duel prep started event is raised.
+**Purpose:** Invoked when the duel prep started event is raised.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first
@@ -50,7 +50,7 @@ duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first
@@ -61,7 +61,7 @@ duelMatchVM.Tick(0);
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer, int arenaType)`
 
-**Purpose:** **Purpose:** Invoked when the duel started event is raised.
+**Purpose:** Invoked when the duel started event is raised.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first
@@ -72,7 +72,7 @@ duelMatchVM.OnDuelStarted(firstPeer, secondPeer, 0);
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**Purpose:** **Purpose:** Invoked when the duel ended event is raised.
+**Purpose:** Invoked when the duel ended event is raised.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first
@@ -83,7 +83,7 @@ duelMatchVM.OnDuelEnded();
 ### OnPeerScored
 `public void OnPeerScored(MissionPeer peer)`
 
-**Purpose:** **Purpose:** Invoked when the peer scored event is raised.
+**Purpose:** Invoked when the peer scored event is raised.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first
@@ -94,7 +94,7 @@ duelMatchVM.OnPeerScored(peer);
 ### RefreshNames
 `public void RefreshNames(bool changeGenericNames = false)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of names in sync with the underlying state.
+**Purpose:** Keeps the display or cache of names in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DuelMatchVM from the subsystem API first

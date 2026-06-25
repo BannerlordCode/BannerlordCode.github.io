@@ -30,7 +30,7 @@ description: "InformationData 的自动生成类参考。"
 ### IsValid
 `public virtual bool IsValid()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 InformationData 实例

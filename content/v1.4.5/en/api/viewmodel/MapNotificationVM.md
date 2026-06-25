@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map` to plac
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -42,7 +42,7 @@ mapNotificationVM.RefreshValues();
 ### RegisterMapNotificationType
 `public void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** **Purpose:** Registers map notification type with the current system so it can later be observed or dispatched.
+**Purpose:** Registers map notification type with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -53,7 +53,7 @@ mapNotificationVM.RegisterMapNotificationType(data, item);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -64,7 +64,7 @@ mapNotificationVM.OnFinalize();
 ### OnFrameTick
 `public void OnFrameTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
+**Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -75,7 +75,7 @@ mapNotificationVM.OnFrameTick(0);
 ### OnMenuModeTick
 `public void OnMenuModeTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the menu mode tick event is raised.
+**Purpose:** Invoked when the menu mode tick event is raised.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -86,7 +86,7 @@ mapNotificationVM.OnMenuModeTick(0);
 ### AddMapNotification
 `public void AddMapNotification(InformationData data)`
 
-**Purpose:** **Purpose:** Adds map notification to the current collection or state.
+**Purpose:** Adds map notification to the current collection or state.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -97,7 +97,7 @@ mapNotificationVM.AddMapNotification(data);
 ### RemoveAllNotifications
 `public void RemoveAllNotifications()`
 
-**Purpose:** **Purpose:** Removes all notifications from the current collection or state.
+**Purpose:** Removes all notifications from the current collection or state.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first
@@ -108,7 +108,7 @@ mapNotificationVM.RemoveAllNotifications();
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to remove input key and updates the object's internal state.
+**Purpose:** Assigns a new value to remove input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapNotificationVM from the subsystem API first

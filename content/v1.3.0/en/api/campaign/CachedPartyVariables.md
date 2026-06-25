@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CachedPartyVariables from the subsystem API first

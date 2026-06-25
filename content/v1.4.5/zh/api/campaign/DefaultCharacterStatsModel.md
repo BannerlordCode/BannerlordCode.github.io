@@ -23,7 +23,7 @@ description: "DefaultCharacterStatsModel 的自动生成类参考。"
 ### WoundedHitPointLimit
 `public override int WoundedHitPointLimit(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WoundedHitPointLimit 对应的操作。
+**用途 / Purpose:** 调用 WoundedHitPointLimit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCharacterStatsModel 实例
@@ -34,7 +34,7 @@ var result = defaultCharacterStatsModel.WoundedHitPointLimit(hero);
 ### GetTier
 `public override int GetTier(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCharacterStatsModel 实例
@@ -45,7 +45,7 @@ var result = defaultCharacterStatsModel.GetTier(character);
 ### MaxHitpoints
 `public override ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MaxHitpoints 对应的操作。
+**用途 / Purpose:** 调用 MaxHitpoints 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultCharacterStatsModel 实例

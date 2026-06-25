@@ -23,7 +23,7 @@ description: "MiscHelper 的自动生成类参考。"
 ### LoadXmlFile
 `public static XmlDocument LoadXmlFile(string path)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 xml file。
+**用途 / Purpose:** 从持久化存储或流中读取 xml file。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MiscHelper.LoadXmlFile("example");
 ### GenerateCampaignId
 `public static string GenerateCampaignId(int length)`
 
-**用途 / Purpose:** **用途 / Purpose:** 生成campaign id的实例、数据或表示。
+**用途 / Purpose:** 生成campaign id的实例、数据或表示。
 
 ```csharp
 // 静态调用，不需要实例

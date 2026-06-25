@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of TacticBreachWalls from the subsystem API first
@@ -34,7 +34,7 @@ tacticBreachWalls.TickOccasionally();
 ### GetRetreatThresholdRatio
 `public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
 
-**Purpose:** **Purpose:** Reads and returns the retreat threshold ratio value held by the this instance.
+**Purpose:** Reads and returns the retreat threshold ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of TacticBreachWalls from the subsystem API first

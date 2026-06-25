@@ -23,7 +23,7 @@ Treat `GauntletQueryManager` as a Manager-style extension point: first identify 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GauntletQueryManager from the subsystem API first

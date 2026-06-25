@@ -23,7 +23,7 @@ Treat `MissionFaceCacheView` as a View-style extension point: first identify who
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
+**Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionFaceCacheView from the subsystem API first
@@ -34,7 +34,7 @@ missionFaceCacheView.OnPreMissionTick(0);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionFaceCacheView from the subsystem API first
@@ -45,7 +45,7 @@ missionFaceCacheView.OnBehaviorInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionFaceCacheView from the subsystem API first

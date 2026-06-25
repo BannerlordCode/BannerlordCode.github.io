@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetHermiteFrameForDt
 `public MatrixFrame GetHermiteFrameForDt(float phase, int first_point)`
 
-**Purpose:** **Purpose:** Reads and returns the hermite frame for dt value held by the this instance.
+**Purpose:** Reads and returns the hermite frame for dt value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -41,7 +41,7 @@ var result = path.GetHermiteFrameForDt(0, 0);
 ### GetFrameForDistance
 `public MatrixFrame GetFrameForDistance(float distance)`
 
-**Purpose:** **Purpose:** Reads and returns the frame for distance value held by the this instance.
+**Purpose:** Reads and returns the frame for distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -52,7 +52,7 @@ var result = path.GetFrameForDistance(0);
 ### GetNearestFrameWithValidAlphaForDistance
 `public MatrixFrame GetNearestFrameWithValidAlphaForDistance(float distance, bool searchForward = true, float alphaThreshold = 0.5f)`
 
-**Purpose:** **Purpose:** Reads and returns the nearest frame with valid alpha for distance value held by the this instance.
+**Purpose:** Reads and returns the nearest frame with valid alpha for distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -63,7 +63,7 @@ var result = path.GetNearestFrameWithValidAlphaForDistance(0, false, 0);
 ### GetFrameAndColorForDistance
 `public void GetFrameAndColorForDistance(float distance, out MatrixFrame frame, out Vec3 color)`
 
-**Purpose:** **Purpose:** Reads and returns the frame and color for distance value held by the this instance.
+**Purpose:** Reads and returns the frame and color for distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -74,7 +74,7 @@ path.GetFrameAndColorForDistance(0, frame, color);
 ### GetArcLength
 `public float GetArcLength(int first_point)`
 
-**Purpose:** **Purpose:** Reads and returns the arc length value held by the this instance.
+**Purpose:** Reads and returns the arc length value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -85,7 +85,7 @@ var result = path.GetArcLength(0);
 ### GetPoints
 `public void GetPoints(MatrixFrame points)`
 
-**Purpose:** **Purpose:** Reads and returns the points value held by the this instance.
+**Purpose:** Reads and returns the points value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -96,7 +96,7 @@ path.GetPoints(points);
 ### GetTotalLength
 `public float GetTotalLength()`
 
-**Purpose:** **Purpose:** Reads and returns the total length value held by the this instance.
+**Purpose:** Reads and returns the total length value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -107,7 +107,7 @@ var result = path.GetTotalLength();
 ### GetVersion
 `public int GetVersion()`
 
-**Purpose:** **Purpose:** Reads and returns the version value held by the this instance.
+**Purpose:** Reads and returns the version value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -118,7 +118,7 @@ var result = path.GetVersion();
 ### SetFrameOfPoint
 `public void SetFrameOfPoint(int pointIndex, ref MatrixFrame frame)`
 
-**Purpose:** **Purpose:** Assigns a new value to frame of point and updates the object's internal state.
+**Purpose:** Assigns a new value to frame of point and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -129,7 +129,7 @@ path.SetFrameOfPoint(0, frame);
 ### SetTangentPositionOfPoint
 `public void SetTangentPositionOfPoint(int pointIndex, int tangentIndex, ref Vec3 position)`
 
-**Purpose:** **Purpose:** Assigns a new value to tangent position of point and updates the object's internal state.
+**Purpose:** Assigns a new value to tangent position of point and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -140,7 +140,7 @@ path.SetTangentPositionOfPoint(0, 0, position);
 ### AddPathPoint
 `public int AddPathPoint(int newNodeIndex)`
 
-**Purpose:** **Purpose:** Adds path point to the current collection or state.
+**Purpose:** Adds path point to the current collection or state.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -151,7 +151,7 @@ var result = path.AddPathPoint(0);
 ### DeletePathPoint
 `public void DeletePathPoint(int nodeIndex)`
 
-**Purpose:** **Purpose:** Executes the DeletePathPoint logic.
+**Purpose:** Executes the DeletePathPoint logic.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -162,7 +162,7 @@ path.DeletePathPoint(0);
 ### HasValidAlphaAtPathPoint
 `public bool HasValidAlphaAtPathPoint(int nodeIndex, float alphaThreshold = 0.5f)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds valid alpha at path point.
+**Purpose:** Determines whether the this instance already holds valid alpha at path point.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first
@@ -173,7 +173,7 @@ var result = path.HasValidAlphaAtPathPoint(0, 0);
 ### GetName
 `public string GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Path from the subsystem API first

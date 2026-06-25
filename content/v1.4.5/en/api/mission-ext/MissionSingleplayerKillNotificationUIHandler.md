@@ -23,7 +23,7 @@ Treat `MissionSingleplayerKillNotificationUIHandler` as a Handler-style extensio
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionSingleplayerKillNotificationUIHandler from the subsystem API first

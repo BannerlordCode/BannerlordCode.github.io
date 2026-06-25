@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** **Purpose:** Invoked when the valid behavior side changed event is raised.
+**Purpose:** Invoked when the valid behavior side changed event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorEliminateEnemyInsideCastle from the subsystem API first
@@ -40,7 +40,7 @@ behaviorEliminateEnemyInsideCastle.OnValidBehaviorSideChanged();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorEliminateEnemyInsideCastle from the subsystem API first

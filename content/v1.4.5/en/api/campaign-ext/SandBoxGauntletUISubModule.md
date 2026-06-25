@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** **Purpose:** Invoked when the campaign start event is raised.
+**Purpose:** Invoked when the campaign start event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first
@@ -34,7 +34,7 @@ sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** **Purpose:** Invoked when the game end event is raised.
+**Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first
@@ -45,7 +45,7 @@ sandBoxGauntletUISubModule.OnGameEnd(game);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** **Purpose:** Executes the BeginGameStart logic.
+**Purpose:** Executes the BeginGameStart logic.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first

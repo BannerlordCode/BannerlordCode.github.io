@@ -39,7 +39,7 @@ description: "MPLobbyHomeVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -50,7 +50,7 @@ mPLobbyHomeVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -61,7 +61,7 @@ mPLobbyHomeVM.OnTick(0);
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData, bool updateRating = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 player data 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 player data 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -72,7 +72,7 @@ mPLobbyHomeVM.RefreshPlayerData(playerData, false);
 ### OnMatchSelectionChanged
 `public void OnMatchSelectionChanged(string selectionInfo, bool isMatchFindPossible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 match selection changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 match selection changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -83,7 +83,7 @@ mPLobbyHomeVM.OnMatchSelectionChanged("example", false);
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -94,7 +94,7 @@ mPLobbyHomeVM.OnClanInfoChanged();
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例
@@ -105,7 +105,7 @@ mPLobbyHomeVM.OnPlayerNameUpdated("example");
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyHomeVM 实例

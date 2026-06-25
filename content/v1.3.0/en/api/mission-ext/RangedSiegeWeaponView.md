@@ -33,7 +33,7 @@ Treat `RangedSiegeWeaponView` as a View-style extension point: first identify wh
 ### Initialize
 `public void Initialize(RangedSiegeWeapon rangedSiegeWeapon, MissionScreen missionScreen)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeaponView from the subsystem API first
@@ -44,7 +44,7 @@ rangedSiegeWeaponView.Initialize(rangedSiegeWeapon, missionScreen);
 ### IsOnTickRequired
 `public override bool IsOnTickRequired()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the on tick required state or condition.
+**Purpose:** Determines whether the this instance is in the on tick required state or condition.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeaponView from the subsystem API first

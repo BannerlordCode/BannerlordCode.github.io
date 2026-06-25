@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetPointerX
 `public int GetPointerX()`
 
-**Purpose:** **Purpose:** Reads and returns the pointer x value held by the this instance.
+**Purpose:** Reads and returns the pointer x value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -34,7 +34,7 @@ var result = emptyInputContext.GetPointerX();
 ### GetPointerY
 `public int GetPointerY()`
 
-**Purpose:** **Purpose:** Reads and returns the pointer y value held by the this instance.
+**Purpose:** Reads and returns the pointer y value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -45,7 +45,7 @@ var result = emptyInputContext.GetPointerY();
 ### GetPointerPosition
 `public Vector2 GetPointerPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the pointer position value held by the this instance.
+**Purpose:** Reads and returns the pointer position value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -56,7 +56,7 @@ var result = emptyInputContext.GetPointerPosition();
 ### IsGameKeyDown
 `public bool IsGameKeyDown(int gameKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the game key down state or condition.
+**Purpose:** Determines whether the this instance is in the game key down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -67,7 +67,7 @@ var result = emptyInputContext.IsGameKeyDown(0);
 ### IsGameKeyDownImmediate
 `public bool IsGameKeyDownImmediate(int gameKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the game key down immediate state or condition.
+**Purpose:** Determines whether the this instance is in the game key down immediate state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -78,7 +78,7 @@ var result = emptyInputContext.IsGameKeyDownImmediate(0);
 ### IsGameKeyPressed
 `public bool IsGameKeyPressed(int gameKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the game key pressed state or condition.
+**Purpose:** Determines whether the this instance is in the game key pressed state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -89,7 +89,7 @@ var result = emptyInputContext.IsGameKeyPressed(0);
 ### IsGameKeyReleased
 `public bool IsGameKeyReleased(int gameKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the game key released state or condition.
+**Purpose:** Determines whether the this instance is in the game key released state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -100,7 +100,7 @@ var result = emptyInputContext.IsGameKeyReleased(0);
 ### GetGameKeyAxis
 `public float GetGameKeyAxis(string gameAxisKey)`
 
-**Purpose:** **Purpose:** Reads and returns the game key axis value held by the this instance.
+**Purpose:** Reads and returns the game key axis value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -111,7 +111,7 @@ var result = emptyInputContext.GetGameKeyAxis("example");
 ### IsHotKeyDown
 `public bool IsHotKeyDown(string hotKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hot key down state or condition.
+**Purpose:** Determines whether the this instance is in the hot key down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -122,7 +122,7 @@ var result = emptyInputContext.IsHotKeyDown("example");
 ### IsHotKeyReleased
 `public bool IsHotKeyReleased(string hotKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hot key released state or condition.
+**Purpose:** Determines whether the this instance is in the hot key released state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -133,7 +133,7 @@ var result = emptyInputContext.IsHotKeyReleased("example");
 ### IsHotKeyPressed
 `public bool IsHotKeyPressed(string hotKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hot key pressed state or condition.
+**Purpose:** Determines whether the this instance is in the hot key pressed state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -144,7 +144,7 @@ var result = emptyInputContext.IsHotKeyPressed("example");
 ### IsHotKeyDoublePressed
 `public bool IsHotKeyDoublePressed(string hotKey)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the hot key double pressed state or condition.
+**Purpose:** Determines whether the this instance is in the hot key double pressed state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -155,7 +155,7 @@ var result = emptyInputContext.IsHotKeyDoublePressed("example");
 ### GetKeyState
 `public Vec2 GetKeyState(InputKey key)`
 
-**Purpose:** **Purpose:** Reads and returns the key state value held by the this instance.
+**Purpose:** Reads and returns the key state value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -166,7 +166,7 @@ var result = emptyInputContext.GetKeyState(key);
 ### IsKeyDown
 `public bool IsKeyDown(InputKey key)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the key down state or condition.
+**Purpose:** Determines whether the this instance is in the key down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -177,7 +177,7 @@ var result = emptyInputContext.IsKeyDown(key);
 ### IsKeyPressed
 `public bool IsKeyPressed(InputKey key)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the key pressed state or condition.
+**Purpose:** Determines whether the this instance is in the key pressed state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -188,7 +188,7 @@ var result = emptyInputContext.IsKeyPressed(key);
 ### IsKeyReleased
 `public bool IsKeyReleased(InputKey key)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the key released state or condition.
+**Purpose:** Determines whether the this instance is in the key released state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -199,7 +199,7 @@ var result = emptyInputContext.IsKeyReleased(key);
 ### GetMouseMoveX
 `public float GetMouseMoveX()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse move x value held by the this instance.
+**Purpose:** Reads and returns the mouse move x value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -210,7 +210,7 @@ var result = emptyInputContext.GetMouseMoveX();
 ### GetMouseMoveY
 `public float GetMouseMoveY()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse move y value held by the this instance.
+**Purpose:** Reads and returns the mouse move y value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -221,7 +221,7 @@ var result = emptyInputContext.GetMouseMoveY();
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**Purpose:** **Purpose:** Reads and returns the is mouse active value held by the this instance.
+**Purpose:** Reads and returns the is mouse active value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -232,7 +232,7 @@ var result = emptyInputContext.GetIsMouseActive();
 ### GetMousePositionPixel
 `public Vec2 GetMousePositionPixel()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse position pixel value held by the this instance.
+**Purpose:** Reads and returns the mouse position pixel value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -243,7 +243,7 @@ var result = emptyInputContext.GetMousePositionPixel();
 ### GetDeltaMouseScroll
 `public float GetDeltaMouseScroll()`
 
-**Purpose:** **Purpose:** Reads and returns the delta mouse scroll value held by the this instance.
+**Purpose:** Reads and returns the delta mouse scroll value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -254,7 +254,7 @@ var result = emptyInputContext.GetDeltaMouseScroll();
 ### GetIsControllerConnected
 `public bool GetIsControllerConnected()`
 
-**Purpose:** **Purpose:** Reads and returns the is controller connected value held by the this instance.
+**Purpose:** Reads and returns the is controller connected value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -265,7 +265,7 @@ var result = emptyInputContext.GetIsControllerConnected();
 ### GetMousePositionRanged
 `public Vec2 GetMousePositionRanged()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse position ranged value held by the this instance.
+**Purpose:** Reads and returns the mouse position ranged value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -276,7 +276,7 @@ var result = emptyInputContext.GetMousePositionRanged();
 ### GetMouseSensitivity
 `public float GetMouseSensitivity()`
 
-**Purpose:** **Purpose:** Reads and returns the mouse sensitivity value held by the this instance.
+**Purpose:** Reads and returns the mouse sensitivity value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -287,7 +287,7 @@ var result = emptyInputContext.GetMouseSensitivity();
 ### IsControlDown
 `public bool IsControlDown()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the control down state or condition.
+**Purpose:** Determines whether the this instance is in the control down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -298,7 +298,7 @@ var result = emptyInputContext.IsControlDown();
 ### IsShiftDown
 `public bool IsShiftDown()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the shift down state or condition.
+**Purpose:** Determines whether the this instance is in the shift down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -309,7 +309,7 @@ var result = emptyInputContext.IsShiftDown();
 ### IsAltDown
 `public bool IsAltDown()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the alt down state or condition.
+**Purpose:** Determines whether the this instance is in the alt down state or condition.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -320,7 +320,7 @@ var result = emptyInputContext.IsAltDown();
 ### GetControllerRightStickState
 `public Vec2 GetControllerRightStickState()`
 
-**Purpose:** **Purpose:** Reads and returns the controller right stick state value held by the this instance.
+**Purpose:** Reads and returns the controller right stick state value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -331,7 +331,7 @@ var result = emptyInputContext.GetControllerRightStickState();
 ### GetControllerLeftStickState
 `public Vec2 GetControllerLeftStickState()`
 
-**Purpose:** **Purpose:** Reads and returns the controller left stick state value held by the this instance.
+**Purpose:** Reads and returns the controller left stick state value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first
@@ -342,7 +342,7 @@ var result = emptyInputContext.GetControllerLeftStickState();
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**Purpose:** **Purpose:** Reads and returns the click keys value held by the this instance.
+**Purpose:** Reads and returns the click keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of EmptyInputContext from the subsystem API first

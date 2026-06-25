@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of CraftingPieceListVM from the subsystem API first
@@ -44,7 +44,7 @@ craftingPieceListVM.ExecuteSelect();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingPieceListVM from the subsystem API first

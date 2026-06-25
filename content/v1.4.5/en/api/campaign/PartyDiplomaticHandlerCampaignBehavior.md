@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PartyDiplomaticHandlerCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
 ### hostile_action_end_by_peace_on_init
 `public static void hostile_action_end_by_peace_on_init(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the hostile_action_end_by_peace_on_init logic.
+**Purpose:** Executes the hostile_action_end_by_peace_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ PartyDiplomaticHandlerCampaignBehavior.hostile_action_end_by_peace_on_init(args)
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PartyDiplomaticHandlerCampaignBehavior from the subsystem API first

@@ -29,7 +29,7 @@ description: "UserDataManager 的自动生成类参考。"
 ### HasUserData
 `public bool HasUserData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 user data。
+**用途 / Purpose:** 判断当前对象是否已经持有 user data。
 
 ```csharp
 // 先通过子系统 API 拿到 UserDataManager 实例
@@ -40,7 +40,7 @@ var result = userDataManager.HasUserData();
 ### LoadUserData
 `public void LoadUserData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 user data。
+**用途 / Purpose:** 从持久化存储或流中读取 user data。
 
 ```csharp
 // 先通过子系统 API 拿到 UserDataManager 实例
@@ -51,7 +51,7 @@ userDataManager.LoadUserData();
 ### SaveUserData
 `public void SaveUserData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 user data 写入持久化存储或流中。
+**用途 / Purpose:** 将 user data 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 UserDataManager 实例

@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of version.
+**Purpose:** Recalculates and stores the latest representation of version.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first
@@ -45,7 +45,7 @@ pathTracker.UpdateVersion();
 ### PathExists
 `public bool PathExists()`
 
-**Purpose:** **Purpose:** Executes the PathExists logic.
+**Purpose:** Executes the PathExists logic.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first
@@ -56,7 +56,7 @@ var result = pathTracker.PathExists();
 ### Advance
 `public void Advance(float deltaDistance)`
 
-**Purpose:** **Purpose:** Executes the Advance logic.
+**Purpose:** Executes the Advance logic.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first
@@ -67,7 +67,7 @@ pathTracker.Advance(0);
 ### GetPathLength
 `public float GetPathLength()`
 
-**Purpose:** **Purpose:** Reads and returns the path length value held by the this instance.
+**Purpose:** Reads and returns the path length value held by the this instance.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first
@@ -78,7 +78,7 @@ var result = pathTracker.GetPathLength();
 ### CurrentFrameAndColor
 `public void CurrentFrameAndColor(out MatrixFrame frame, out Vec3 color)`
 
-**Purpose:** **Purpose:** Executes the CurrentFrameAndColor logic.
+**Purpose:** Executes the CurrentFrameAndColor logic.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first
@@ -89,7 +89,7 @@ pathTracker.CurrentFrameAndColor(frame, color);
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PathTracker from the subsystem API first

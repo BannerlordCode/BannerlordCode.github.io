@@ -35,7 +35,7 @@ description: "ArmyCompositionItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyCompositionItemVM 实例
@@ -46,7 +46,7 @@ armyCompositionItemVM.RefreshValues();
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject culture)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 current selected culture 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 current selected culture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyCompositionItemVM 实例
@@ -57,7 +57,7 @@ armyCompositionItemVM.SetCurrentSelectedCulture(culture);
 ### ExecuteRandomize
 `public void ExecuteRandomize(int compositionValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 randomize 对应的操作或工作流。
+**用途 / Purpose:** 执行 randomize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyCompositionItemVM 实例
@@ -68,7 +68,7 @@ armyCompositionItemVM.ExecuteRandomize(0);
 ### ExecuteAddTroopTypes
 `public void ExecuteAddTroopTypes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 add troop types 对应的操作或工作流。
+**用途 / Purpose:** 执行 add troop types 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyCompositionItemVM 实例
@@ -79,7 +79,7 @@ armyCompositionItemVM.ExecuteAddTroopTypes();
 ### RefreshCompositionValue
 `public void RefreshCompositionValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 composition value 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 composition value 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyCompositionItemVM 实例
@@ -90,7 +90,7 @@ armyCompositionItemVM.RefreshCompositionValue();
 ### GetTroopTypeIconData
 `public static StringItemWithHintVM GetTroopTypeIconData(BasicCharacterObject basicCharacterObject, CompositionType type, bool isBig = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop type icon data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 troop type icon data 的结果。
 
 ```csharp
 // 静态调用，不需要实例

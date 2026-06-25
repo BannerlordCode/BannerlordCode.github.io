@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitializeLogic
 `public void InitializeLogic(ILobbyStateHandler lobbyStateHandler)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by logic.
+**Purpose:** Prepares the resources, state, or bindings required by logic.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -45,7 +45,7 @@ lobbyState.InitializeLogic(lobbyStateHandler);
 ### UpdateHasMultiplayerPrivilege
 `public async Task UpdateHasMultiplayerPrivilege()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of has multiplayer privilege.
+**Purpose:** Recalculates and stores the latest representation of has multiplayer privilege.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -56,7 +56,7 @@ var result = lobbyState.UpdateHasMultiplayerPrivilege();
 ### UpdateHasCrossplayPrivilege
 `public async Task UpdateHasCrossplayPrivilege()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of has crossplay privilege.
+**Purpose:** Recalculates and stores the latest representation of has crossplay privilege.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -67,7 +67,7 @@ var result = lobbyState.UpdateHasCrossplayPrivilege();
 ### OnClientRefusedToJoinCustomServer
 `public void OnClientRefusedToJoinCustomServer(GameServerEntry serverEntry)`
 
-**Purpose:** **Purpose:** Invoked when the client refused to join custom server event is raised.
+**Purpose:** Invoked when the client refused to join custom server event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -78,7 +78,7 @@ lobbyState.OnClientRefusedToJoinCustomServer(serverEntry);
 ### UpdateHasUserGeneratedContentPrivilege
 `public async Task UpdateHasUserGeneratedContentPrivilege(bool showResolveUI)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of has user generated content privilege.
+**Purpose:** Recalculates and stores the latest representation of has user generated content privilege.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -89,7 +89,7 @@ var result = lobbyState.UpdateHasUserGeneratedContentPrivilege(false);
 ### TryLogin
 `public async Task TryLogin()`
 
-**Purpose:** **Purpose:** Attempts to retrieve login, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve login, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -100,7 +100,7 @@ var result = lobbyState.TryLogin();
 ### TryLogin
 `public async Task TryLogin(string userName, string password)`
 
-**Purpose:** **Purpose:** Attempts to retrieve login, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve login, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -111,7 +111,7 @@ var result = lobbyState.TryLogin("example", "example");
 ### HostGame
 `public void HostGame()`
 
-**Purpose:** **Purpose:** Executes the HostGame logic.
+**Purpose:** Executes the HostGame logic.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -122,7 +122,7 @@ lobbyState.HostGame();
 ### CreatePremadeGame
 `public void CreatePremadeGame()`
 
-**Purpose:** **Purpose:** Constructs a new premade game entity and returns it to the caller.
+**Purpose:** Constructs a new premade game entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -133,7 +133,7 @@ lobbyState.CreatePremadeGame();
 ### ShowFeedback
 `public string ShowFeedback(string title, string message)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with feedback.
+**Purpose:** Displays the UI or element associated with feedback.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -144,7 +144,7 @@ var result = lobbyState.ShowFeedback("example", "example");
 ### ShowFeedback
 `public string ShowFeedback(InquiryData inquiryData)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with feedback.
+**Purpose:** Displays the UI or element associated with feedback.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -155,7 +155,7 @@ var result = lobbyState.ShowFeedback(inquiryData);
 ### DismissFeedback
 `public void DismissFeedback(string messageId)`
 
-**Purpose:** **Purpose:** Executes the DismissFeedback logic.
+**Purpose:** Executes the DismissFeedback logic.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -166,7 +166,7 @@ lobbyState.DismissFeedback("example");
 ### OnPause
 `public void OnPause()`
 
-**Purpose:** **Purpose:** Invoked when the pause event is raised.
+**Purpose:** Invoked when the pause event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -177,7 +177,7 @@ lobbyState.OnPause();
 ### OnResume
 `public void OnResume()`
 
-**Purpose:** **Purpose:** Invoked when the resume event is raised.
+**Purpose:** Invoked when the resume event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -188,7 +188,7 @@ lobbyState.OnResume();
 ### OnRequestedToSearchBattle
 `public void OnRequestedToSearchBattle()`
 
-**Purpose:** **Purpose:** Invoked when the requested to search battle event is raised.
+**Purpose:** Invoked when the requested to search battle event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -199,7 +199,7 @@ lobbyState.OnRequestedToSearchBattle();
 ### OnUpdateFindingGame
 `public void OnUpdateFindingGame(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo = null)`
 
-**Purpose:** **Purpose:** Invoked when the update finding game event is raised.
+**Purpose:** Invoked when the update finding game event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -210,7 +210,7 @@ lobbyState.OnUpdateFindingGame(matchmakingWaitTimeStats, "example");
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**Purpose:** **Purpose:** Invoked when the requested to cancel search battle event is raised.
+**Purpose:** Invoked when the requested to cancel search battle event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -221,7 +221,7 @@ lobbyState.OnRequestedToCancelSearchBattle();
 ### OnCancelFindingGame
 `public void OnCancelFindingGame()`
 
-**Purpose:** **Purpose:** Invoked when the cancel finding game event is raised.
+**Purpose:** Invoked when the cancel finding game event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -232,7 +232,7 @@ lobbyState.OnCancelFindingGame();
 ### OnDisconnected
 `public void OnDisconnected(TextObject feedback)`
 
-**Purpose:** **Purpose:** Invoked when the disconnected event is raised.
+**Purpose:** Invoked when the disconnected event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -243,7 +243,7 @@ lobbyState.OnDisconnected(feedback);
 ### OnPlayerDataReceived
 `public void OnPlayerDataReceived(PlayerData playerData)`
 
-**Purpose:** **Purpose:** Invoked when the player data received event is raised.
+**Purpose:** Invoked when the player data received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -254,7 +254,7 @@ lobbyState.OnPlayerDataReceived(playerData);
 ### OnPendingRejoin
 `public void OnPendingRejoin()`
 
-**Purpose:** **Purpose:** Invoked when the pending rejoin event is raised.
+**Purpose:** Invoked when the pending rejoin event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -265,7 +265,7 @@ lobbyState.OnPendingRejoin();
 ### OnEnterBattleWithParty
 `public void OnEnterBattleWithParty(string selectedGameTypes)`
 
-**Purpose:** **Purpose:** Invoked when the enter battle with party event is raised.
+**Purpose:** Invoked when the enter battle with party event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -276,7 +276,7 @@ lobbyState.OnEnterBattleWithParty("example");
 ### OnPartyInvitationReceived
 `public async void OnPartyInvitationReceived(string inviterPlayerName, PlayerId playerId)`
 
-**Purpose:** **Purpose:** Invoked when the party invitation received event is raised.
+**Purpose:** Invoked when the party invitation received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -287,7 +287,7 @@ lobbyState.OnPartyInvitationReceived("example", playerId);
 ### OnPartyJoinRequestReceived
 `public async void OnPartyJoinRequestReceived(PlayerId joiningPlayerId, PlayerId viaPlayerId, string viaFriendName)`
 
-**Purpose:** **Purpose:** Invoked when the party join request received event is raised.
+**Purpose:** Invoked when the party join request received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -298,7 +298,7 @@ lobbyState.OnPartyJoinRequestReceived(joiningPlayerId, viaPlayerId, "example");
 ### OnAdminMessageReceived
 `public void OnAdminMessageReceived(string message)`
 
-**Purpose:** **Purpose:** Invoked when the admin message received event is raised.
+**Purpose:** Invoked when the admin message received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -309,7 +309,7 @@ lobbyState.OnAdminMessageReceived("example");
 ### OnPartyInvitationInvalidated
 `public void OnPartyInvitationInvalidated()`
 
-**Purpose:** **Purpose:** Invoked when the party invitation invalidated event is raised.
+**Purpose:** Invoked when the party invitation invalidated event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -320,7 +320,7 @@ lobbyState.OnPartyInvitationInvalidated();
 ### OnPlayerInvitedToParty
 `public void OnPlayerInvitedToParty(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Invoked when the player invited to party event is raised.
+**Purpose:** Invoked when the player invited to party event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -331,7 +331,7 @@ lobbyState.OnPlayerInvitedToParty(playerId);
 ### OnPlayerRemovedFromParty
 `public void OnPlayerRemovedFromParty(PlayerId playerId, PartyRemoveReason reason)`
 
-**Purpose:** **Purpose:** Invoked when the player removed from party event is raised.
+**Purpose:** Invoked when the player removed from party event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -342,7 +342,7 @@ lobbyState.OnPlayerRemovedFromParty(playerId, reason);
 ### OnPlayersAddedToParty
 `public void OnPlayersAddedToParty(List<(PlayerId PlayerId, string PlayerName, bool IsPartyLeader)> addedPlayers, List<(PlayerId PlayerId, string PlayerName)> invitedPlayers)`
 
-**Purpose:** **Purpose:** Invoked when the players added to party event is raised.
+**Purpose:** Invoked when the players added to party event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -353,7 +353,7 @@ lobbyState.OnPlayersAddedToParty(playerId, "example", false, playerId, "example"
 ### OnGameClientStateChange
 `public void OnGameClientStateChange(State state)`
 
-**Purpose:** **Purpose:** Invoked when the game client state change event is raised.
+**Purpose:** Invoked when the game client state change event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -364,7 +364,7 @@ lobbyState.OnGameClientStateChange(state);
 ### SetConnectionState
 `public void SetConnectionState(bool isAuthenticated)`
 
-**Purpose:** **Purpose:** Assigns a new value to connection state and updates the object's internal state.
+**Purpose:** Assigns a new value to connection state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -375,7 +375,7 @@ lobbyState.SetConnectionState(false);
 ### OnActivateHome
 `public void OnActivateHome()`
 
-**Purpose:** **Purpose:** Invoked when the activate home event is raised.
+**Purpose:** Invoked when the activate home event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -386,7 +386,7 @@ lobbyState.OnActivateHome();
 ### OnActivateCustomServer
 `public void OnActivateCustomServer()`
 
-**Purpose:** **Purpose:** Invoked when the activate custom server event is raised.
+**Purpose:** Invoked when the activate custom server event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -397,7 +397,7 @@ lobbyState.OnActivateCustomServer();
 ### OnActivateMatchmaking
 `public void OnActivateMatchmaking()`
 
-**Purpose:** **Purpose:** Invoked when the activate matchmaking event is raised.
+**Purpose:** Invoked when the activate matchmaking event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -408,7 +408,7 @@ lobbyState.OnActivateMatchmaking();
 ### OnActivateProfile
 `public void OnActivateProfile()`
 
-**Purpose:** **Purpose:** Invoked when the activate profile event is raised.
+**Purpose:** Invoked when the activate profile event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -419,7 +419,7 @@ lobbyState.OnActivateProfile();
 ### OnClanInvitationReceived
 `public void OnClanInvitationReceived(string clanName, string clanTag, bool isCreation)`
 
-**Purpose:** **Purpose:** Invoked when the clan invitation received event is raised.
+**Purpose:** Invoked when the clan invitation received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -430,7 +430,7 @@ lobbyState.OnClanInvitationReceived("example", "example", false);
 ### OnClanInvitationAnswered
 `public void OnClanInvitationAnswered(PlayerId playerId, ClanCreationAnswer answer)`
 
-**Purpose:** **Purpose:** Invoked when the clan invitation answered event is raised.
+**Purpose:** Invoked when the clan invitation answered event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -441,7 +441,7 @@ lobbyState.OnClanInvitationAnswered(playerId, answer);
 ### OnClanCreationSuccessful
 `public void OnClanCreationSuccessful()`
 
-**Purpose:** **Purpose:** Invoked when the clan creation successful event is raised.
+**Purpose:** Invoked when the clan creation successful event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -452,7 +452,7 @@ lobbyState.OnClanCreationSuccessful();
 ### OnClanCreationFailed
 `public void OnClanCreationFailed()`
 
-**Purpose:** **Purpose:** Invoked when the clan creation failed event is raised.
+**Purpose:** Invoked when the clan creation failed event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -463,7 +463,7 @@ lobbyState.OnClanCreationFailed();
 ### OnClanCreationStarted
 `public void OnClanCreationStarted()`
 
-**Purpose:** **Purpose:** Invoked when the clan creation started event is raised.
+**Purpose:** Invoked when the clan creation started event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -474,7 +474,7 @@ lobbyState.OnClanCreationStarted();
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
+**Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -485,7 +485,7 @@ lobbyState.OnClanInfoChanged();
 ### OnPremadeGameEligibilityStatusReceived
 `public void OnPremadeGameEligibilityStatusReceived(bool isEligible)`
 
-**Purpose:** **Purpose:** Invoked when the premade game eligibility status received event is raised.
+**Purpose:** Invoked when the premade game eligibility status received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -496,7 +496,7 @@ lobbyState.OnPremadeGameEligibilityStatusReceived(false);
 ### OnPremadeGameCreated
 `public void OnPremadeGameCreated()`
 
-**Purpose:** **Purpose:** Invoked when the premade game created event is raised.
+**Purpose:** Invoked when the premade game created event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -507,7 +507,7 @@ lobbyState.OnPremadeGameCreated();
 ### OnPremadeGameListReceived
 `public void OnPremadeGameListReceived()`
 
-**Purpose:** **Purpose:** Invoked when the premade game list received event is raised.
+**Purpose:** Invoked when the premade game list received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -518,7 +518,7 @@ lobbyState.OnPremadeGameListReceived();
 ### OnPremadeGameCreationCancelled
 `public void OnPremadeGameCreationCancelled()`
 
-**Purpose:** **Purpose:** Invoked when the premade game creation cancelled event is raised.
+**Purpose:** Invoked when the premade game creation cancelled event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -529,7 +529,7 @@ lobbyState.OnPremadeGameCreationCancelled();
 ### OnJoinPremadeGameRequested
 `public void OnJoinPremadeGameRequested(string clanName, string clanSigilCode, Guid partyId, PlayerId challengerPlayerIDs, PlayerId challengerPartyLeaderID, PremadeGameType premadeGameType)`
 
-**Purpose:** **Purpose:** Invoked when the join premade game requested event is raised.
+**Purpose:** Invoked when the join premade game requested event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -540,7 +540,7 @@ lobbyState.OnJoinPremadeGameRequested("example", "example", partyId, challengerP
 ### OnJoinPremadeGameRequestSuccessful
 `public void OnJoinPremadeGameRequestSuccessful()`
 
-**Purpose:** **Purpose:** Invoked when the join premade game request successful event is raised.
+**Purpose:** Invoked when the join premade game request successful event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -551,7 +551,7 @@ lobbyState.OnJoinPremadeGameRequestSuccessful();
 ### OnActivateArmory
 `public void OnActivateArmory()`
 
-**Purpose:** **Purpose:** Invoked when the activate armory event is raised.
+**Purpose:** Invoked when the activate armory event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -562,7 +562,7 @@ lobbyState.OnActivateArmory();
 ### OnActivateOptions
 `public void OnActivateOptions()`
 
-**Purpose:** **Purpose:** Invoked when the activate options event is raised.
+**Purpose:** Invoked when the activate options event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -573,7 +573,7 @@ lobbyState.OnActivateOptions();
 ### OnDeactivateOptions
 `public void OnDeactivateOptions()`
 
-**Purpose:** **Purpose:** Invoked when the deactivate options event is raised.
+**Purpose:** Invoked when the deactivate options event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -584,7 +584,7 @@ lobbyState.OnDeactivateOptions();
 ### OnCustomGameServerListReceived
 `public void OnCustomGameServerListReceived(AvailableCustomGames customGameServerList)`
 
-**Purpose:** **Purpose:** Invoked when the custom game server list received event is raised.
+**Purpose:** Invoked when the custom game server list received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -595,7 +595,7 @@ lobbyState.OnCustomGameServerListReceived(customGameServerList);
 ### OnMatchmakerGameOver
 `public void OnMatchmakerGameOver(int oldExp, int newExp, List<string> badgesEarned, int lootGained, RankBarInfo oldRankBarInfo, RankBarInfo newRankBarInfo, BattleCancelReason battleCancelReason)`
 
-**Purpose:** **Purpose:** Invoked when the matchmaker game over event is raised.
+**Purpose:** Invoked when the matchmaker game over event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -606,7 +606,7 @@ lobbyState.OnMatchmakerGameOver(0, 0, badgesEarned, 0, oldRankBarInfo, newRankBa
 ### OnBattleServerLost
 `public void OnBattleServerLost()`
 
-**Purpose:** **Purpose:** Invoked when the battle server lost event is raised.
+**Purpose:** Invoked when the battle server lost event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -617,7 +617,7 @@ lobbyState.OnBattleServerLost();
 ### OnRemovedFromMatchmakerGame
 `public void OnRemovedFromMatchmakerGame(DisconnectType disconnectType)`
 
-**Purpose:** **Purpose:** Invoked when the removed from matchmaker game event is raised.
+**Purpose:** Invoked when the removed from matchmaker game event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -628,7 +628,7 @@ lobbyState.OnRemovedFromMatchmakerGame(disconnectType);
 ### OnRemovedFromCustomGame
 `public void OnRemovedFromCustomGame(DisconnectType disconnectType)`
 
-**Purpose:** **Purpose:** Invoked when the removed from custom game event is raised.
+**Purpose:** Invoked when the removed from custom game event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -639,7 +639,7 @@ lobbyState.OnRemovedFromCustomGame(disconnectType);
 ### OnPlayerAssignedPartyLeader
 `public void OnPlayerAssignedPartyLeader(PlayerId partyLeaderId)`
 
-**Purpose:** **Purpose:** Invoked when the player assigned party leader event is raised.
+**Purpose:** Invoked when the player assigned party leader event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -650,7 +650,7 @@ lobbyState.OnPlayerAssignedPartyLeader(partyLeaderId);
 ### OnPlayerSuggestedToParty
 `public void OnPlayerSuggestedToParty(PlayerId playerId, string playerName, PlayerId suggestingPlayerId, string suggestingPlayerName)`
 
-**Purpose:** **Purpose:** Invoked when the player suggested to party event is raised.
+**Purpose:** Invoked when the player suggested to party event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -661,7 +661,7 @@ lobbyState.OnPlayerSuggestedToParty(playerId, "example", suggestingPlayerId, "ex
 ### OnJoinCustomGameFailureResponse
 `public void OnJoinCustomGameFailureResponse(CustomGameJoinResponse response)`
 
-**Purpose:** **Purpose:** Invoked when the join custom game failure response event is raised.
+**Purpose:** Invoked when the join custom game failure response event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -672,7 +672,7 @@ lobbyState.OnJoinCustomGameFailureResponse(response);
 ### OnServerStatusReceived
 `public void OnServerStatusReceived(ServerStatus serverStatus)`
 
-**Purpose:** **Purpose:** Invoked when the server status received event is raised.
+**Purpose:** Invoked when the server status received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -683,7 +683,7 @@ lobbyState.OnServerStatusReceived(serverStatus);
 ### OnFriendListReceived
 `public void OnFriendListReceived(FriendInfo friends)`
 
-**Purpose:** **Purpose:** Invoked when the friend list received event is raised.
+**Purpose:** Invoked when the friend list received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -694,7 +694,7 @@ lobbyState.OnFriendListReceived(friends);
 ### OnRecentPlayerStatusesReceived
 `public void OnRecentPlayerStatusesReceived(FriendInfo friends)`
 
-**Purpose:** **Purpose:** Invoked when the recent player statuses received event is raised.
+**Purpose:** Invoked when the recent player statuses received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -705,7 +705,7 @@ lobbyState.OnRecentPlayerStatusesReceived(friends);
 ### OnBattleServerInformationReceived
 `public void OnBattleServerInformationReceived(BattleServerInformationForClient battleServerInformation)`
 
-**Purpose:** **Purpose:** Invoked when the battle server information received event is raised.
+**Purpose:** Invoked when the battle server information received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -716,7 +716,7 @@ lobbyState.OnBattleServerInformationReceived(battleServerInformation);
 ### OnRejoinBattleRequestAnswered
 `public void OnRejoinBattleRequestAnswered(bool isSuccessful)`
 
-**Purpose:** **Purpose:** Invoked when the rejoin battle request answered event is raised.
+**Purpose:** Invoked when the rejoin battle request answered event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -727,7 +727,7 @@ lobbyState.OnRejoinBattleRequestAnswered(false);
 ### OnNotificationsReceived
 `public void OnNotificationsReceived(LobbyNotification notifications)`
 
-**Purpose:** **Purpose:** Invoked when the notifications received event is raised.
+**Purpose:** Invoked when the notifications received event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -738,7 +738,7 @@ lobbyState.OnNotificationsReceived(notifications);
 ### OnInviteToPlatformSession
 `public async Task<bool> OnInviteToPlatformSession(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Invoked when the invite to platform session event is raised.
+**Purpose:** Invoked when the invite to platform session event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -749,7 +749,7 @@ var result = lobbyState.OnInviteToPlatformSession(playerId);
 ### OnPlatformRequestedMultiplayer
 `public async void OnPlatformRequestedMultiplayer()`
 
-**Purpose:** **Purpose:** Invoked when the platform requested multiplayer event is raised.
+**Purpose:** Invoked when the platform requested multiplayer event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -760,7 +760,7 @@ lobbyState.OnPlatformRequestedMultiplayer();
 ### OnSessionInvitationAccepted
 `public async void OnSessionInvitationAccepted(SessionInvitationType targetGameType)`
 
-**Purpose:** **Purpose:** Invoked when the session invitation accepted event is raised.
+**Purpose:** Invoked when the session invitation accepted event is raised.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -771,7 +771,7 @@ lobbyState.OnSessionInvitationAccepted(targetGameType);
 ### GetCustomActionsForServer
 `public List<CustomServerAction> GetCustomActionsForServer(GameServerEntry gameServerEntry)`
 
-**Purpose:** **Purpose:** Reads and returns the custom actions for server value held by the this instance.
+**Purpose:** Reads and returns the custom actions for server value held by the this instance.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -782,7 +782,7 @@ var result = lobbyState.GetCustomActionsForServer(gameServerEntry);
 ### RegisterForCustomServerAction
 `public void RegisterForCustomServerAction(Func<GameServerEntry, List<CustomServerAction>> action)`
 
-**Purpose:** **Purpose:** Registers for custom server action with the current system so it can later be observed or dispatched.
+**Purpose:** Registers for custom server action with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first
@@ -793,7 +793,7 @@ lobbyState.RegisterForCustomServerAction(func<GameServerEntry, action);
 ### UnregisterForCustomServerAction
 `public void UnregisterForCustomServerAction(Func<GameServerEntry, List<CustomServerAction>> action)`
 
-**Purpose:** **Purpose:** Unregisters for custom server action from the current system.
+**Purpose:** Unregisters for custom server action from the current system.
 
 ```csharp
 // Obtain an instance of LobbyState from the subsystem API first

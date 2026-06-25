@@ -57,7 +57,7 @@ description: "SavedGameVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SavedGameVM 实例
@@ -68,7 +68,7 @@ savedGameVM.RefreshValues();
 ### ExecuteSaveLoad
 `public void ExecuteSaveLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 save load 对应的操作或工作流。
+**用途 / Purpose:** 执行 save load 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SavedGameVM 实例
@@ -79,7 +79,7 @@ savedGameVM.ExecuteSaveLoad();
 ### ExecuteUpdate
 `public void ExecuteUpdate()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 update 对应的操作或工作流。
+**用途 / Purpose:** 执行 update 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SavedGameVM 实例
@@ -90,7 +90,7 @@ savedGameVM.ExecuteUpdate();
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 delete 对应的操作或工作流。
+**用途 / Purpose:** 执行 delete 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SavedGameVM 实例
@@ -101,7 +101,7 @@ savedGameVM.ExecuteDelete();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 selection 对应的操作或工作流。
+**用途 / Purpose:** 执行 selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SavedGameVM 实例

@@ -30,7 +30,7 @@ description: "PropertyChangedWithVec2ValueEventArgs 的自动生成类参考。"
 ### PropertyChangedWithVec2ValueEventArgs
 `public struct PropertyChangedWithVec2ValueEventArgs(string propertyName, Vec2 value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyChangedWithVec2ValueEventArgs 对应的操作。
+**用途 / Purpose:** 调用 PropertyChangedWithVec2ValueEventArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyChangedWithVec2ValueEventArgs 实例

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then
 ### InitializeObjects
 `public void InitializeObjects()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by objects.
+**Purpose:** Prepares the resources, state, or bindings required by objects.
 
 ```csharp
 // Obtain an instance of LoadResult from the subsystem API first
@@ -43,7 +43,7 @@ loadResult.InitializeObjects();
 ### AfterInitializeObjects
 `public void AfterInitializeObjects()`
 
-**Purpose:** **Purpose:** Executes the AfterInitializeObjects logic.
+**Purpose:** Executes the AfterInitializeObjects logic.
 
 ```csharp
 // Obtain an instance of LoadResult from the subsystem API first

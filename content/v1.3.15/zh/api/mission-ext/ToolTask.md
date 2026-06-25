@@ -23,7 +23,7 @@ description: "ToolTask 的自动生成类参考。"
 ### LoadFrom
 `public abstract void LoadFrom(XmlNode xmlNode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
+**用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 先通过子系统 API 拿到 ToolTask 实例
@@ -34,7 +34,7 @@ toolTask.LoadFrom(xmlNode);
 ### DoJob
 `public abstract void DoJob()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DoJob 对应的操作。
+**用途 / Purpose:** 调用 DoJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ToolTask 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Diamond.Socket` to place it in the stack, then 
 ### SerializeToNetworkMessage
 `public override void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**Purpose:** **Purpose:** Serializes to network message into a storable or transmittable format.
+**Purpose:** Serializes to network message into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of SocketMessage from the subsystem API first
@@ -40,7 +40,7 @@ socketMessage.SerializeToNetworkMessage(networkMessage);
 ### DeserializeFromNetworkMessage
 `public override void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**Purpose:** **Purpose:** Restores from network message from serialized data.
+**Purpose:** Restores from network message from serialized data.
 
 ```csharp
 // Obtain an instance of SocketMessage from the subsystem API first

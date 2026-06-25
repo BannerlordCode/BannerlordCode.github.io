@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CalculateLevelFromExperience
 `public static int CalculateLevelFromExperience(int experience)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of level from experience.
+**Purpose:** Calculates the current value or result of level from experience.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ PlayerDataExperience.CalculateLevelFromExperience(0);
 ### CalculateExperienceFromLevel
 `public static int CalculateExperienceFromLevel(int level)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of experience from level.
+**Purpose:** Calculates the current value or result of experience from level.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ PlayerDataExperience.CalculateExperienceFromLevel(0);
 ### ExperienceRequiredForLevel
 `public static int ExperienceRequiredForLevel(int level)`
 
-**Purpose:** **Purpose:** Executes the ExperienceRequiredForLevel logic.
+**Purpose:** Executes the ExperienceRequiredForLevel logic.
 
 ```csharp
 // Static call; no instance required

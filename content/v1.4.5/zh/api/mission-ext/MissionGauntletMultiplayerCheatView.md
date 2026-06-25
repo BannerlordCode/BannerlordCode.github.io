@@ -23,7 +23,7 @@ description: "MissionGauntletMultiplayerCheatView 的自动生成类参考。"
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is cheats available 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is cheats available 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例
@@ -34,7 +34,7 @@ var result = missionGauntletMultiplayerCheatView.GetIsCheatsAvailable();
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 screen 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 screen 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例
@@ -45,7 +45,7 @@ missionGauntletMultiplayerCheatView.InitializeScreen();
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeScreen 对应的操作。
+**用途 / Purpose:** 调用 FinalizeScreen 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例

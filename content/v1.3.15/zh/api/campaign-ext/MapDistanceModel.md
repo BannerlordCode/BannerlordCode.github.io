@@ -31,7 +31,7 @@ description: "MapDistanceModel 的自动生成类参考。"
 ### GetMaximumDistanceBetweenTwoConnectedSettlements
 `public abstract float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum distance between two connected settlements 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 maximum distance between two connected settlements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -42,7 +42,7 @@ var result = mapDistanceModel.GetMaximumDistanceBetweenTwoConnectedSettlements(n
 ### GetLandRatioOfPathBetweenSettlements
 `public abstract float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 land ratio of path between settlements 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 land ratio of path between settlements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -53,7 +53,7 @@ var result = mapDistanceModel.GetLandRatioOfPathBetweenSettlements(fromSettlemen
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -64,7 +64,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toSettlement, false, 
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -75,7 +75,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toMobileParty, custom
 ### GetDistance
 `public abstract bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -86,7 +86,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toMobileParty, custom
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -97,7 +97,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toSettlement, false, f
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -108,7 +108,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toSettlement, false, f
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType, out float landRatio)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -119,7 +119,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toPoint, navigationTy
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -130,7 +130,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toPoint, false, naviga
 ### GetPortToGateDistanceForSettlement
 `public abstract float GetPortToGateDistanceForSettlement(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 port to gate distance for settlement 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 port to gate distance for settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -141,7 +141,7 @@ var result = mapDistanceModel.GetPortToGateDistanceForSettlement(settlement);
 ### PathExistBetweenPoints
 `public abstract bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PathExistBetweenPoints 对应的操作。
+**用途 / Purpose:** 调用 PathExistBetweenPoints 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -152,7 +152,7 @@ var result = mapDistanceModel.PathExistBetweenPoints(fromPoint, toPoint, navigat
 ### RegisterDistanceCache
 `public abstract void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, MapDistanceModel.INavigationCache cacheToRegister)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将distance cache注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将distance cache注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -163,7 +163,7 @@ mapDistanceModel.RegisterDistanceCache(navigationCapability, cacheToRegister);
 ### GetClosestEntranceToFace
 `public abstract ValueTuple<Settlement, bool> GetClosestEntranceToFace(PathFaceRecord face, MobileParty.NavigationType navigationCapabilities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest entrance to face 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 closest entrance to face 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -174,7 +174,7 @@ var result = mapDistanceModel.GetClosestEntranceToFace(face, navigationCapabilit
 ### GetNeighborsOfFortification
 `public abstract MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbors of fortification 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 neighbors of fortification 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例
@@ -185,7 +185,7 @@ var result = mapDistanceModel.GetNeighborsOfFortification(town, navigationCapabi
 ### GetTransitionCostAdjustment
 `public abstract float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transition cost adjustment 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 transition cost adjustment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapDistanceModel 实例

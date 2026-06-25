@@ -68,7 +68,7 @@ Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in th
 ### AddWidgetAtIndex
 `public void AddWidgetAtIndex(Widget widget, int index)`
 
-**Purpose:** **Purpose:** Adds widget at index to the current collection or state.
+**Purpose:** Adds widget at index to the current collection or state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first
@@ -79,7 +79,7 @@ gamepadNavigationScope.AddWidgetAtIndex(widget, 0);
 ### AddWidget
 `public void AddWidget(Widget widget)`
 
-**Purpose:** **Purpose:** Adds widget to the current collection or state.
+**Purpose:** Adds widget to the current collection or state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first
@@ -90,7 +90,7 @@ gamepadNavigationScope.AddWidget(widget);
 ### RemoveWidget
 `public void RemoveWidget(Widget widget)`
 
-**Purpose:** **Purpose:** Removes widget from the current collection or state.
+**Purpose:** Removes widget from the current collection or state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first
@@ -101,7 +101,7 @@ gamepadNavigationScope.RemoveWidget(widget);
 ### SetParentScope
 `public void SetParentScope(GamepadNavigationScope scope)`
 
-**Purpose:** **Purpose:** Assigns a new value to parent scope and updates the object's internal state.
+**Purpose:** Assigns a new value to parent scope and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first
@@ -112,7 +112,7 @@ gamepadNavigationScope.SetParentScope(scope);
 ### ClearNavigatableWidgets
 `public void ClearNavigatableWidgets()`
 
-**Purpose:** **Purpose:** Removes all navigatable widgets from the this instance.
+**Purpose:** Removes all navigatable widgets from the this instance.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first
@@ -123,7 +123,7 @@ gamepadNavigationScope.ClearNavigatableWidgets();
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of GamepadNavigationScope from the subsystem API first

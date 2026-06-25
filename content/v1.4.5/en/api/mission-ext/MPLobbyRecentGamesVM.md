@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
@@ -47,7 +47,7 @@ mPLobbyRecentGamesVM.RefreshValues();
 ### RefreshData
 `public void RefreshData(MBReadOnlyList<MatchHistoryData> matches)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of data in sync with the underlying state.
+**Purpose:** Keeps the display or cache of data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
@@ -58,7 +58,7 @@ mPLobbyRecentGamesVM.RefreshData(matches);
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyRecentGamePlayerItemVM playerVM)`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with player actions.
+**Purpose:** Activates the resource, state, or feature associated with player actions.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
@@ -69,7 +69,7 @@ mPLobbyRecentGamesVM.ActivatePlayerActions(playerVM);
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
+**Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
@@ -80,7 +80,7 @@ mPLobbyRecentGamesVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
@@ -91,7 +91,7 @@ mPLobbyRecentGamesVM.ExecuteClosePopup();
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** **Purpose:** Invoked when the friend list updated event is raised.
+**Purpose:** Invoked when the friend list updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first

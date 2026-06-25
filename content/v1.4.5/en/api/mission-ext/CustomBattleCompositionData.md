@@ -23,7 +23,7 @@ Treat `CustomBattleCompositionData` as a Data-style extension point: first ident
 ### CustomBattleCompositionData
 `public struct CustomBattleCompositionData(float rangedPercentage, float cavalryPercentage, float rangedCavalryPercentage)`
 
-**Purpose:** **Purpose:** Executes the CustomBattleCompositionData logic.
+**Purpose:** Executes the CustomBattleCompositionData logic.
 
 ```csharp
 // Obtain an instance of CustomBattleCompositionData from the subsystem API first

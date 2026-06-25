@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens.Scripts` to place it
 ### MeshMerger
 `public static void MeshMerger(InputLayout layout)`
 
-**Purpose:** **Purpose:** Executes the MeshMerger logic.
+**Purpose:** Executes the MeshMerger logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiThreadedStressTestsScreen.MeshMerger(layout);
 ### SceneHandler
 `public static void SceneHandler(SceneView view)`
 
-**Purpose:** **Purpose:** Executes the SceneHandler logic.
+**Purpose:** Executes the SceneHandler logic.
 
 ```csharp
 // Static call; no instance required

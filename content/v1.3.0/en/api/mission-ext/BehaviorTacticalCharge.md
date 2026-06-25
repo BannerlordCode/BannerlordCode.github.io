@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
+**Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorTacticalCharge from the subsystem API first
@@ -40,7 +40,7 @@ behaviorTacticalCharge.TickOccasionally();
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** **Purpose:** Reads and returns the behavior string value held by the this instance.
+**Purpose:** Reads and returns the behavior string value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorTacticalCharge from the subsystem API first

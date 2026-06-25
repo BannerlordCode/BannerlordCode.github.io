@@ -32,7 +32,7 @@ Treat `UserData` as a Data-style extension point: first identify who creates it,
 ### GetUserModData
 `public UserModData GetUserModData(bool isMultiplayer, string id)`
 
-**Purpose:** **Purpose:** Reads and returns the user mod data value held by the this instance.
+**Purpose:** Reads and returns the user mod data value held by the this instance.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -43,7 +43,7 @@ var result = userData.GetUserModData(false, "example");
 ### GetDLLLatestSizeInBytes
 `public uint? GetDLLLatestSizeInBytes(string dllName)`
 
-**Purpose:** **Purpose:** Reads and returns the d l l latest size in bytes value held by the this instance.
+**Purpose:** Reads and returns the d l l latest size in bytes value held by the this instance.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -54,7 +54,7 @@ var result = userData.GetDLLLatestSizeInBytes("example");
 ### GetDLLLatestIsDangerous
 `public bool GetDLLLatestIsDangerous(string dllName)`
 
-**Purpose:** **Purpose:** Reads and returns the d l l latest is dangerous value held by the this instance.
+**Purpose:** Reads and returns the d l l latest is dangerous value held by the this instance.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -65,7 +65,7 @@ var result = userData.GetDLLLatestIsDangerous("example");
 ### GetDLLLatestVerifyInformation
 `public string GetDLLLatestVerifyInformation(string dllName)`
 
-**Purpose:** **Purpose:** Reads and returns the d l l latest verify information value held by the this instance.
+**Purpose:** Reads and returns the d l l latest verify information value held by the this instance.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -76,7 +76,7 @@ var result = userData.GetDLLLatestVerifyInformation("example");
 ### SetDLLLatestSizeInBytes
 `public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
 
-**Purpose:** **Purpose:** Assigns a new value to d l l latest size in bytes and updates the object's internal state.
+**Purpose:** Assigns a new value to d l l latest size in bytes and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -87,7 +87,7 @@ userData.SetDLLLatestSizeInBytes("example", 0);
 ### SetDLLLatestVerifyInformation
 `public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
 
-**Purpose:** **Purpose:** Assigns a new value to d l l latest verify information and updates the object's internal state.
+**Purpose:** Assigns a new value to d l l latest verify information and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first
@@ -98,7 +98,7 @@ userData.SetDLLLatestVerifyInformation("example", "example");
 ### SetDLLLatestIsDangerous
 `public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
 
-**Purpose:** **Purpose:** Assigns a new value to d l l latest is dangerous and updates the object's internal state.
+**Purpose:** Assigns a new value to d l l latest is dangerous and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UserData from the subsystem API first

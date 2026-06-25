@@ -23,7 +23,7 @@ Treat `HouseMissionController` as a Controller-style extension point: first iden
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of HouseMissionController from the subsystem API first
@@ -34,7 +34,7 @@ houseMissionController.OnBehaviorInitialize();
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** **Purpose:** Invoked when the created event is raised.
+**Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of HouseMissionController from the subsystem API first
@@ -45,7 +45,7 @@ houseMissionController.OnCreated();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of HouseMissionController from the subsystem API first
@@ -56,7 +56,7 @@ houseMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of HouseMissionController from the subsystem API first

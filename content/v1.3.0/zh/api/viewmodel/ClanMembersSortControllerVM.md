@@ -34,7 +34,7 @@ description: "ClanMembersSortControllerVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -45,7 +45,7 @@ clanMembersSortControllerVM.RefreshValues();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -56,7 +56,7 @@ clanMembersSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByLocation
 `public void ExecuteSortByLocation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 sort by location 对应的操作或工作流。
+**用途 / Purpose:** 执行 sort by location 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -67,7 +67,7 @@ clanMembersSortControllerVM.ExecuteSortByLocation();
 ### ResetAllStates
 `public void ResetAllStates()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 all states 重置回默认或初始状态。
+**用途 / Purpose:** 将 all states 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -78,7 +78,7 @@ clanMembersSortControllerVM.ResetAllStates();
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -89,7 +89,7 @@ clanMembersSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -100,7 +100,7 @@ var result = clanMembersSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例
@@ -111,7 +111,7 @@ var result = clanMembersSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMembersSortControllerVM 实例

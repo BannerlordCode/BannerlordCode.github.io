@@ -23,7 +23,7 @@ description: "MapEventManager 的自动生成类参考。"
 ### OnMapEventCreated
 `public void OnMapEventCreated(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 map event created 事件触发时调用此回调。
+**用途 / Purpose:** 在 map event created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -34,7 +34,7 @@ mapEventManager.OnMapEventCreated(mapEvent);
 ### GetMapEvent
 `public MapEvent GetMapEvent(int attackerPartyIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map event 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 map event 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -45,7 +45,7 @@ var result = mapEventManager.GetMapEvent(0);
 ### GetMapEventsBetweenFactions
 `public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map events between factions 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 map events between factions 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -56,7 +56,7 @@ var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
 ### FinalizePlayerMapEvent
 `public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizePlayerMapEvent 对应的操作。
+**用途 / Purpose:** 调用 FinalizePlayerMapEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -67,7 +67,7 @@ mapEventManager.FinalizePlayerMapEvent(null);
 ### StartSiegeMapEvent
 `public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动siege map event流程或状态机。
+**用途 / Purpose:** 启动siege map event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -78,7 +78,7 @@ var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
 ### StartSallyOutMapEvent
 `public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动sally out map event流程或状态机。
+**用途 / Purpose:** 启动sally out map event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -89,7 +89,7 @@ var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty)
 ### StartSiegeOutsideMapEvent
 `public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动siege outside map event流程或状态机。
+**用途 / Purpose:** 启动siege outside map event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例
@@ -100,7 +100,7 @@ var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderPa
 ### StartBlockadeBattleMapEvent
 `public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动blockade battle map event流程或状态机。
+**用途 / Purpose:** 启动blockade battle map event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventManager 实例

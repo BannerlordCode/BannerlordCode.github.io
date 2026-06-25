@@ -23,7 +23,7 @@ Treat `DefaultWallHitPointCalculationModel` as a Model-style extension point: fi
 ### CalculateMaximumWallHitPoint
 `public override float CalculateMaximumWallHitPoint(Town town)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of maximum wall hit point.
+**Purpose:** Calculates the current value or result of maximum wall hit point.
 
 ```csharp
 // Obtain an instance of DefaultWallHitPointCalculationModel from the subsystem API first

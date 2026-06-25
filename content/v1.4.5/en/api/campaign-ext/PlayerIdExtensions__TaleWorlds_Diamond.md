@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### ConvertToPeerId
 `public static PeerId ConvertToPeerId(this PlayerId playerId)`
 
-**Purpose:** **Purpose:** Converts to peer id into another representation or type.
+**Purpose:** Converts to peer id into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ PlayerIdExtensions.ConvertToPeerId(playerId);
 ### ConvertToPlayerId
 `public static PlayerId ConvertToPlayerId(this PeerId peerId)`
 
-**Purpose:** **Purpose:** Converts to player id into another representation or type.
+**Purpose:** Converts to player id into another representation or type.
 
 ```csharp
 // Static call; no instance required

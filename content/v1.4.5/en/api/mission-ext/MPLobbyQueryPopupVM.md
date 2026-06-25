@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -45,7 +45,7 @@ mPLobbyQueryPopupVM.RefreshValues();
 ### ShowMessage
 `public void ShowMessage(TextObject title, TextObject message)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with message.
+**Purpose:** Displays the UI or element associated with message.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -56,7 +56,7 @@ mPLobbyQueryPopupVM.ShowMessage(title, message);
 ### ShowInquiry
 `public void ShowInquiry(TextObject title, TextObject message, Action onAccepted, Action onDeclined)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with inquiry.
+**Purpose:** Displays the UI or element associated with inquiry.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -67,7 +67,7 @@ mPLobbyQueryPopupVM.ShowInquiry(title, message, onAccepted, onDeclined);
 ### ExecuteAccept
 `public void ExecuteAccept()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with accept.
+**Purpose:** Runs the operation or workflow associated with accept.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -78,7 +78,7 @@ mPLobbyQueryPopupVM.ExecuteAccept();
 ### ExecuteDecline
 `public void ExecuteDecline()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with decline.
+**Purpose:** Runs the operation or workflow associated with decline.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -89,7 +89,7 @@ mPLobbyQueryPopupVM.ExecuteDecline();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
@@ -100,7 +100,7 @@ mPLobbyQueryPopupVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first

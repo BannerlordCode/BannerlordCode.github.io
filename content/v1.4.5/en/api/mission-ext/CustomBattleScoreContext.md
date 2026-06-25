@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.BattleScore` to place it
 ### GetAttackerBanner
 `public override Banner GetAttackerBanner()`
 
-**Purpose:** **Purpose:** Reads and returns the attacker banner value held by the this instance.
+**Purpose:** Reads and returns the attacker banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreContext from the subsystem API first
@@ -34,7 +34,7 @@ var result = customBattleScoreContext.GetAttackerBanner();
 ### GetDefenderBanner
 `public override Banner GetDefenderBanner()`
 
-**Purpose:** **Purpose:** Reads and returns the defender banner value held by the this instance.
+**Purpose:** Reads and returns the defender banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreContext from the subsystem API first

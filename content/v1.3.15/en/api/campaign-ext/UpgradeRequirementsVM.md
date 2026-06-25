@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of UpgradeRequirementsVM from the subsystem API first
@@ -47,7 +47,7 @@ upgradeRequirementsVM.RefreshValues();
 ### SetItemRequirement
 `public void SetItemRequirement(ItemCategory category)`
 
-**Purpose:** **Purpose:** Assigns a new value to item requirement and updates the object's internal state.
+**Purpose:** Assigns a new value to item requirement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UpgradeRequirementsVM from the subsystem API first
@@ -58,7 +58,7 @@ upgradeRequirementsVM.SetItemRequirement(category);
 ### SetPerkRequirement
 `public void SetPerkRequirement(PerkObject perk)`
 
-**Purpose:** **Purpose:** Assigns a new value to perk requirement and updates the object's internal state.
+**Purpose:** Assigns a new value to perk requirement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UpgradeRequirementsVM from the subsystem API first
@@ -69,7 +69,7 @@ upgradeRequirementsVM.SetPerkRequirement(perk);
 ### SetRequirementsMet
 `public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)`
 
-**Purpose:** **Purpose:** Assigns a new value to requirements met and updates the object's internal state.
+**Purpose:** Assigns a new value to requirements met and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UpgradeRequirementsVM from the subsystem API first

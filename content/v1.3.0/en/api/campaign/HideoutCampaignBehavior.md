@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** **Purpose:** Invoked when the new game created event is raised.
+**Purpose:** Invoked when the new game created event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ hideoutCampaignBehavior.OnNewGameCreated(campaignGameStarter);
 ### OnGameLoaded
 `public void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
+**Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ hideoutCampaignBehavior.OnGameLoaded(campaignGameStarter);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ hideoutCampaignBehavior.RegisterEvents();
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Executes the HourlyTickSettlement logic.
+**Purpose:** Executes the HourlyTickSettlement logic.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ hideoutCampaignBehavior.HourlyTickSettlement(settlement);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ hideoutCampaignBehavior.SyncData(dataStore);
 ### GetInitialHideoutPopulation
 `public int GetInitialHideoutPopulation()`
 
-**Purpose:** **Purpose:** Reads and returns the initial hideout population value held by the this instance.
+**Purpose:** Reads and returns the initial hideout population value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = hideoutCampaignBehavior.GetInitialHideoutPopulation();
 ### hideout_wait_menu_on_condition
 `public bool hideout_wait_menu_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the hideout_wait_menu_on_condition logic.
+**Purpose:** Executes the hideout_wait_menu_on_condition logic.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ var result = hideoutCampaignBehavior.hideout_wait_menu_on_condition(args);
 ### hideout_wait_menu_on_tick
 `public void hideout_wait_menu_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**Purpose:** **Purpose:** Executes the hideout_wait_menu_on_tick logic.
+**Purpose:** Executes the hideout_wait_menu_on_tick logic.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ hideoutCampaignBehavior.hideout_wait_menu_on_tick(args, campaignTime);
 ### hideout_wait_menu_on_consequence
 `public void hideout_wait_menu_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** **Purpose:** Executes the hideout_wait_menu_on_consequence logic.
+**Purpose:** Executes the hideout_wait_menu_on_consequence logic.
 
 ```csharp
 // Obtain an instance of HideoutCampaignBehavior from the subsystem API first

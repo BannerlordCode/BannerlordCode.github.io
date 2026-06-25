@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### GetGoldAmountForVisual
 `public int GetGoldAmountForVisual()`
 
-**Purpose:** **Purpose:** Reads and returns the gold amount for visual value held by the this instance.
+**Purpose:** Reads and returns the gold amount for visual value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
@@ -34,7 +34,7 @@ var result = flagDominationMissionRepresentative.GetGoldAmountForVisual();
 ### UpdateSelectedClassServer
 `public void UpdateSelectedClassServer(Agent agent)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of selected class server.
+**Purpose:** Recalculates and stores the latest representation of selected class server.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
@@ -45,7 +45,7 @@ flagDominationMissionRepresentative.UpdateSelectedClassServer(agent);
 ### CheckIfSurvivedLastRoundAndReset
 `public bool CheckIfSurvivedLastRoundAndReset()`
 
-**Purpose:** **Purpose:** Verifies whether if survived last round and reset holds true for the this instance.
+**Purpose:** Verifies whether if survived last round and reset holds true for the this instance.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
@@ -56,7 +56,7 @@ var result = flagDominationMissionRepresentative.CheckIfSurvivedLastRoundAndRese
 ### GetGoldGainsFromKillData
 `public int GetGoldGainsFromKillData(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isFriendly)`
 
-**Purpose:** **Purpose:** Reads and returns the gold gains from kill data value held by the this instance.
+**Purpose:** Reads and returns the gold gains from kill data value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
@@ -67,7 +67,7 @@ var result = flagDominationMissionRepresentative.GetGoldGainsFromKillData(killer
 ### GetGoldGainFromKillDataAndUpdateFlags
 `public int GetGoldGainFromKillDataAndUpdateFlags(MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist)`
 
-**Purpose:** **Purpose:** Reads and returns the gold gain from kill data and update flags value held by the this instance.
+**Purpose:** Reads and returns the gold gain from kill data and update flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
@@ -78,7 +78,7 @@ var result = flagDominationMissionRepresentative.GetGoldGainFromKillDataAndUpdat
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** **Purpose:** Reads and returns the gold gains from ally death reward value held by the this instance.
+**Purpose:** Reads and returns the gold gains from ally death reward value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first

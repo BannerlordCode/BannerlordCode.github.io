@@ -30,7 +30,7 @@ description: "GauntletLayer 的自动生成类参考。"
 ### OnResourceRefreshBegin
 `public void OnResourceRefreshBegin(out List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 resource refresh begin 事件触发时调用此回调。
+**用途 / Purpose:** 在 resource refresh begin 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -41,7 +41,7 @@ gauntletLayer.OnResourceRefreshBegin(previouslyLoadedMovies);
 ### OnResourceRefreshEnd
 `public void OnResourceRefreshEnd(List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 resource refresh end 事件触发时调用此回调。
+**用途 / Purpose:** 在 resource refresh end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -52,7 +52,7 @@ gauntletLayer.OnResourceRefreshEnd(previouslyLoadedMovies);
 ### GetMovieIdentifier
 `public GauntletMovieIdentifier GetMovieIdentifier(string movieName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 movie identifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 movie identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -63,7 +63,7 @@ var result = gauntletLayer.GetMovieIdentifier("example");
 ### LoadMovie
 `public GauntletMovieIdentifier LoadMovie(string movieName, ViewModel dataSource)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 movie。
+**用途 / Purpose:** 从持久化存储或流中读取 movie。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -74,7 +74,7 @@ var result = gauntletLayer.LoadMovie("example", dataSource);
 ### ReleaseMovie
 `public void ReleaseMovie(GauntletMovieIdentifier identifier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseMovie 对应的操作。
+**用途 / Purpose:** 调用 ReleaseMovie 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -85,7 +85,7 @@ gauntletLayer.ReleaseMovie(identifier);
 ### ProcessEvents
 `public override void ProcessEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessEvents 对应的操作。
+**用途 / Purpose:** 调用 ProcessEvents 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -96,7 +96,7 @@ gauntletLayer.ProcessEvents();
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
+**用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -107,7 +107,7 @@ var result = gauntletLayer.HitTest(position);
 ### HitTest
 `public override bool HitTest()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
+**用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -118,7 +118,7 @@ var result = gauntletLayer.HitTest();
 ### FocusTest
 `public override bool FocusTest()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTest 对应的操作。
+**用途 / Purpose:** 调用 FocusTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -129,7 +129,7 @@ var result = gauntletLayer.FocusTest();
 ### IsFocusedOnInput
 `public override bool IsFocusedOnInput()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 focused on input 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 focused on input 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -140,7 +140,7 @@ var result = gauntletLayer.IsFocusedOnInput();
 ### OnOnScreenKeyboardDone
 `public override void OnOnScreenKeyboardDone(string inputText)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 on screen keyboard done 事件触发时调用此回调。
+**用途 / Purpose:** 在 on screen keyboard done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -151,7 +151,7 @@ gauntletLayer.OnOnScreenKeyboardDone("example");
 ### OnOnScreenKeyboardCanceled
 `public override void OnOnScreenKeyboardCanceled()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 on screen keyboard canceled 事件触发时调用此回调。
+**用途 / Purpose:** 在 on screen keyboard canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -162,7 +162,7 @@ gauntletLayer.OnOnScreenKeyboardCanceled();
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 layout 的最新表示。
+**用途 / Purpose:** 重新计算并更新 layout 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -173,7 +173,7 @@ gauntletLayer.UpdateLayout();
 ### GetIsAvailableForGamepadNavigation
 `public bool GetIsAvailableForGamepadNavigation()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is available for gamepad navigation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is available for gamepad navigation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -184,7 +184,7 @@ var result = gauntletLayer.GetIsAvailableForGamepadNavigation();
 ### DrawDebugInfo
 `public override void DrawDebugInfo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawDebugInfo 对应的操作。
+**用途 / Purpose:** 调用 DrawDebugInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例

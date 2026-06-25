@@ -52,7 +52,7 @@ description: "OptionsVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -63,7 +63,7 @@ optionsVM.RefreshValues();
 ### ExecuteCloseOptions
 `public void ExecuteCloseOptions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close options 对应的操作或工作流。
+**用途 / Purpose:** 执行 close options 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -74,7 +74,7 @@ optionsVM.ExecuteCloseOptions();
 ### GetActiveCategory
 `public ViewModel GetActiveCategory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active category 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -85,7 +85,7 @@ var result = optionsVM.GetActiveCategory();
 ### GetIndexOfCategory
 `public int GetIndexOfCategory(ViewModel categoryVM)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index of category 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 index of category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -96,7 +96,7 @@ var result = optionsVM.GetIndexOfCategory(categoryVM);
 ### GetConfig
 `public float GetConfig(IOptionData data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 config 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 config 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -107,7 +107,7 @@ var result = optionsVM.GetConfig(data);
 ### SetConfig
 `public void SetConfig(IOptionData data, float val)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 config 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 config 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -118,7 +118,7 @@ optionsVM.SetConfig(data, 0);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectPreviousCategory 对应的操作。
+**用途 / Purpose:** 调用 SelectPreviousCategory 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -129,7 +129,7 @@ optionsVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectNextCategory 对应的操作。
+**用途 / Purpose:** 调用 SelectNextCategory 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -140,7 +140,7 @@ optionsVM.SelectNextCategory();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -151,7 +151,7 @@ optionsVM.OnFinalize();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
+**用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -162,7 +162,7 @@ optionsVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
+**用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -173,7 +173,7 @@ optionsVM.ExecuteDone();
 ### IsOptionsChanged
 `public bool IsOptionsChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 options changed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 options changed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -184,7 +184,7 @@ var result = optionsVM.IsOptionsChanged();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -195,7 +195,7 @@ optionsVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -206,7 +206,7 @@ optionsVM.SetCancelInputKey(hotkey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -217,7 +217,7 @@ optionsVM.SetPreviousTabInputKey(hotkey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -228,7 +228,7 @@ optionsVM.SetNextTabInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例

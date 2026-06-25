@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetFromResource
 `public static Shader GetFromResource(string shaderName)`
 
-**Purpose:** **Purpose:** Reads and returns the from resource value held by the this instance.
+**Purpose:** Reads and returns the from resource value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ Shader.GetFromResource("example");
 ### GetMaterialShaderFlagMask
 `public ulong GetMaterialShaderFlagMask(string flagName, bool showErrors = true)`
 
-**Purpose:** **Purpose:** Reads and returns the material shader flag mask value held by the this instance.
+**Purpose:** Reads and returns the material shader flag mask value held by the this instance.
 
 ```csharp
 // Obtain an instance of Shader from the subsystem API first

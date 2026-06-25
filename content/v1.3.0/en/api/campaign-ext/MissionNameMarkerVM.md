@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerVM from the subsystem API first
@@ -42,7 +42,7 @@ missionNameMarkerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerVM from the subsystem API first
@@ -53,7 +53,7 @@ missionNameMarkerVM.OnFinalize();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerVM from the subsystem API first
@@ -64,7 +64,7 @@ missionNameMarkerVM.Tick(0);
 ### SetTargetsDirty
 `public void SetTargetsDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to targets dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to targets dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerVM from the subsystem API first
@@ -75,7 +75,7 @@ missionNameMarkerVM.SetTargetsDirty();
 ### Compare
 `public int Compare(MissionNameMarkerTargetBaseVM x, MissionNameMarkerTargetBaseVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerVM from the subsystem API first

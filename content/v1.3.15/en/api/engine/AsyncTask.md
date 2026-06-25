@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateWithDelegate
 `public static AsyncTask CreateWithDelegate(ManagedDelegate function, bool isBackground)`
 
-**Purpose:** **Purpose:** Constructs a new with delegate entity and returns it to the caller.
+**Purpose:** Constructs a new with delegate entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ description: "TextDrawObject 的自动生成类参考。"
 ### Create
 `public static TextDrawObject Create(float vertices, float uvs, uint indices, float text_MeshWidth, float text_MeshHeight, in Rectangle2D rectangle)`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
 ### ConvertToHashInPlace
 `public void ConvertToHashInPlace()`
 
-**用途 / Purpose:** **用途 / Purpose:** 把to hash in place转换为另一种表示或类型。
+**用途 / Purpose:** 把to hash in place转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 TextDrawObject 实例

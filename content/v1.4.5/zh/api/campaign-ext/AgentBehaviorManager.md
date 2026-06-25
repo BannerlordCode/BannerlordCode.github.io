@@ -23,7 +23,7 @@ description: "AgentBehaviorManager 的自动生成类参考。"
 ### AddQuestCharacterBehaviors
 `public void AddQuestCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 quest character behaviors 添加到当前容器或状态中。
+**用途 / Purpose:** 将 quest character behaviors 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorManager 实例
@@ -34,7 +34,7 @@ agentBehaviorManager.AddQuestCharacterBehaviors(agent);
 ### AddFirstCompanionBehavior
 `public void AddFirstCompanionBehavior(IAgent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 first companion behavior 添加到当前容器或状态中。
+**用途 / Purpose:** 将 first companion behavior 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorManager 实例

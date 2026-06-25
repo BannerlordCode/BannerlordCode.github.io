@@ -23,7 +23,7 @@ Treat `BattleSurgeonLogic` as a Logic-style extension point: first identify who 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent created event is raised.
+**Purpose:** Invoked when the agent created event is raised.
 
 ```csharp
 // Obtain an instance of BattleSurgeonLogic from the subsystem API first

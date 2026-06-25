@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RenderDebugCircleOnTerrain
 `public static void RenderDebugCircleOnTerrain(Scene scene, MatrixFrame frame, float radius, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**Purpose:** **Purpose:** Executes the RenderDebugCircleOnTerrain logic.
+**Purpose:** Executes the RenderDebugCircleOnTerrain logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
 ### RenderDebugArcOnTerrain
 `public static void RenderDebugArcOnTerrain(Scene scene, MatrixFrame frame, float radius, float beginAngle, float endAngle, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**Purpose:** **Purpose:** Executes the RenderDebugArcOnTerrain logic.
+**Purpose:** Executes the RenderDebugArcOnTerrain logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ DebugExtensions.RenderDebugArcOnTerrain(scene, frame, 0, 0, 0, 0, false, false);
 ### RenderDebugLineOnTerrain
 `public static void RenderDebugLineOnTerrain(Scene scene, Vec3 position, Vec3 direction, uint color, bool depthCheck = true, float time = 0f, bool isDotted = false, float pointDensity = 1f)`
 
-**Purpose:** **Purpose:** Executes the RenderDebugLineOnTerrain logic.
+**Purpose:** Executes the RenderDebugLineOnTerrain logic.
 
 ```csharp
 // Static call; no instance required

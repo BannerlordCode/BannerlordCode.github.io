@@ -23,7 +23,7 @@ Treat `GameApplicationDomainController` as a Controller-style extension point: f
 ### LoadAsHostedByNative
 `public void LoadAsHostedByNative(IntPtr passManagedInitializeMethodPointer, IntPtr passManagedCallbackMethodPointer, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**Purpose:** **Purpose:** Reads as hosted by native from persistent storage or a stream.
+**Purpose:** Reads as hosted by native from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameApplicationDomainController from the subsystem API first
@@ -34,7 +34,7 @@ gameApplicationDomainController.LoadAsHostedByNative(passManagedInitializeMethod
 ### Load
 `public void Load(Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
+**Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameApplicationDomainController from the subsystem API first

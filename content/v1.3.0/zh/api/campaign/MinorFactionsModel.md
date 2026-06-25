@@ -30,7 +30,7 @@ description: "MinorFactionsModel 的自动生成类参考。"
 ### GetMercenaryAwardFactorToJoinKingdom
 `public abstract int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mercenary award factor to join kingdom 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mercenary award factor to join kingdom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MinorFactionsModel 实例

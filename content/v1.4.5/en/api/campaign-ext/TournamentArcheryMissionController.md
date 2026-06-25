@@ -23,7 +23,7 @@ Treat `TournamentArcheryMissionController` as a Controller-style extension point
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -34,7 +34,7 @@ tournamentArcheryMissionController.AfterStart();
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**Purpose:** **Purpose:** Starts the match flow or state machine.
+**Purpose:** Starts the match flow or state machine.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -45,7 +45,7 @@ tournamentArcheryMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**Purpose:** **Purpose:** Executes the SkipMatch logic.
+**Purpose:** Executes the SkipMatch logic.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -56,7 +56,7 @@ tournamentArcheryMissionController.SkipMatch(match);
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the match ended state or condition.
+**Purpose:** Determines whether the this instance is in the match ended state or condition.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -67,7 +67,7 @@ var result = tournamentArcheryMissionController.IsMatchEnded();
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** **Purpose:** Invoked when the match ended event is raised.
+**Purpose:** Invoked when the match ended event is raised.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -78,7 +78,7 @@ tournamentArcheryMissionController.OnMatchEnded();
 ### OnTargetDestroyed
 `public void OnTargetDestroyed(DestructableComponent destroyedComponent, Agent destroyerAgent, in MissionWeapon attackerWeapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
 
-**Purpose:** **Purpose:** Invoked when the target destroyed event is raised.
+**Purpose:** Invoked when the target destroyed event is raised.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -89,7 +89,7 @@ tournamentArcheryMissionController.OnTargetDestroyed(destroyedComponent, destroy
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first
@@ -100,7 +100,7 @@ tournamentArcheryMissionController.OnMissionTick(0);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
+**Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of TournamentArcheryMissionController from the subsystem API first

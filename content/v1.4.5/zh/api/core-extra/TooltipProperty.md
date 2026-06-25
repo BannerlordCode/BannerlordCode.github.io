@@ -35,7 +35,7 @@ description: "TooltipProperty 的自动生成类参考。"
 ### RefreshValue
 `public void RefreshValue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 value 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 value 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipProperty 实例
@@ -46,7 +46,7 @@ tooltipProperty.RefreshValue();
 ### RefreshDefinition
 `public void RefreshDefinition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 definition 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 definition 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipProperty 实例
@@ -57,7 +57,7 @@ tooltipProperty.RefreshDefinition();
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出from。
+**用途 / Purpose:** 从序列化数据还原出from。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipProperty 实例
@@ -68,7 +68,7 @@ tooltipProperty.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将to序列化为可存储或传输的格式。
+**用途 / Purpose:** 将to序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipProperty 实例

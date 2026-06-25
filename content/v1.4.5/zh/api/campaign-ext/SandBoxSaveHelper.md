@@ -23,7 +23,7 @@ description: "SandBoxSaveHelper 的自动生成类参考。"
 ### ModuleCheckResult
 `public readonly struct ModuleCheckResult(string moduleId, ModuleCheckResultType type)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ModuleCheckResult 对应的操作。
+**用途 / Purpose:** 调用 ModuleCheckResult 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxSaveHelper 实例
@@ -34,7 +34,7 @@ var result = sandBoxSaveHelper.ModuleCheckResult("example", type);
 ### TryLoadSave
 `public static void TryLoadSave(SaveGameFileInfo saveInfo, Action<LoadResult> onStartGame, Action onCancel = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 load save 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 load save 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ SandBoxSaveHelper.TryLoadSave(saveInfo, onStartGame, null);
 ### CheckMetaDataCompatibilityErrors
 `public static MBReadOnlyList<ModuleCheckResult> CheckMetaDataCompatibilityErrors(MetaData fileMetaData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查meta data compatibility errors在当前对象中是否成立。
+**用途 / Purpose:** 检查meta data compatibility errors在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ SandBoxSaveHelper.CheckMetaDataCompatibilityErrors(fileMetaData);
 ### GetIsDisabledWithReason
 `public unsafe static bool GetIsDisabledWithReason(SaveGameFileInfo saveGameFileInfo, out TextObject reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is disabled with reason 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is disabled with reason 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ SandBoxSaveHelper.GetIsDisabledWithReason(saveGameFileInfo, reason);
 ### GetModuleNameFromModuleId
 `public static string GetModuleNameFromModuleId(string id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 module name from module id 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 module name from module id 的结果。
 
 ```csharp
 // 静态调用，不需要实例

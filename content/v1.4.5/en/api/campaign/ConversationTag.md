@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public abstract bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the applicable to state or condition.
+**Purpose:** Determines whether the this instance is in the applicable to state or condition.
 
 ```csharp
 // Obtain an instance of ConversationTag from the subsystem API first
@@ -40,7 +40,7 @@ var result = conversationTag.IsApplicableTo(character);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ConversationTag from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MissionGauntletAgentAlarmStateView` as a View-style extension point: firs
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
+**Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletAgentAlarmStateView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
+**Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletAgentAlarmStateView.OnMissionScreenFinalize();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** **Purpose:** Invoked when the agent build event is raised.
+**Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletAgentAlarmStateView.OnAgentBuild(agent, banner);
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent team changed event is raised.
+**Purpose:** Invoked when the agent team changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletAgentAlarmStateView.OnAgentTeamChanged(prevTeam, newTeam, agent);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletAgentAlarmStateView.OnAgentRemoved(affectedAgent, affectorAgent, 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first

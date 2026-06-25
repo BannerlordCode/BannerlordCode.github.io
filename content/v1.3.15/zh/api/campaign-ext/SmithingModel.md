@@ -23,7 +23,7 @@ description: "SmithingModel 的自动生成类参考。"
 ### GetCraftingPartDifficulty
 `public abstract int GetCraftingPartDifficulty(CraftingPiece craftingPiece)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafting part difficulty 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafting part difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -34,7 +34,7 @@ var result = smithingModel.GetCraftingPartDifficulty(craftingPiece);
 ### CalculateWeaponDesignDifficulty
 `public abstract int CalculateWeaponDesignDifficulty(WeaponDesign weaponDesign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算weapon design difficulty的当前值或结果。
+**用途 / Purpose:** 计算weapon design difficulty的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -45,7 +45,7 @@ var result = smithingModel.CalculateWeaponDesignDifficulty(weaponDesign);
 ### GetCraftedWeaponModifier
 `public abstract ItemModifier GetCraftedWeaponModifier(WeaponDesign weaponDesign, Hero weaponsmith)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafted weapon modifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafted weapon modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -56,7 +56,7 @@ var result = smithingModel.GetCraftedWeaponModifier(weaponDesign, weaponsmith);
 ### GetRefiningFormulas
 `public abstract IEnumerable<Crafting.RefiningFormula> GetRefiningFormulas(Hero weaponsmith)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 refining formulas 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 refining formulas 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -67,7 +67,7 @@ var result = smithingModel.GetRefiningFormulas(weaponsmith);
 ### GetCraftingMaterialItem
 `public abstract ItemObject GetCraftingMaterialItem(CraftingMaterials craftingMaterial)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 crafting material item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 crafting material item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -78,7 +78,7 @@ var result = smithingModel.GetCraftingMaterialItem(craftingMaterial);
 ### GetSmeltingOutputForItem
 `public abstract int GetSmeltingOutputForItem(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 smelting output for item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 smelting output for item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -89,7 +89,7 @@ var result = smithingModel.GetSmeltingOutputForItem(item);
 ### GetSkillXpForRefining
 `public abstract int GetSkillXpForRefining(ref Crafting.RefiningFormula refineFormula)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp for refining 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp for refining 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -100,7 +100,7 @@ var result = smithingModel.GetSkillXpForRefining(refineFormula);
 ### GetSkillXpForSmelting
 `public abstract int GetSkillXpForSmelting(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp for smelting 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp for smelting 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -111,7 +111,7 @@ var result = smithingModel.GetSkillXpForSmelting(item);
 ### GetSkillXpForSmithingInFreeBuildMode
 `public abstract int GetSkillXpForSmithingInFreeBuildMode(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp for smithing in free build mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp for smithing in free build mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -122,7 +122,7 @@ var result = smithingModel.GetSkillXpForSmithingInFreeBuildMode(item);
 ### GetSkillXpForSmithingInCraftingOrderMode
 `public abstract int GetSkillXpForSmithingInCraftingOrderMode(ItemObject item)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp for smithing in crafting order mode 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill xp for smithing in crafting order mode 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -133,7 +133,7 @@ var result = smithingModel.GetSkillXpForSmithingInCraftingOrderMode(item);
 ### GetSmithingCostsForWeaponDesign
 `public abstract int GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 smithing costs for weapon design 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 smithing costs for weapon design 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -144,7 +144,7 @@ var result = smithingModel.GetSmithingCostsForWeaponDesign(weaponDesign);
 ### GetEnergyCostForRefining
 `public abstract int GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 energy cost for refining 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 energy cost for refining 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -155,7 +155,7 @@ var result = smithingModel.GetEnergyCostForRefining(refineFormula, hero);
 ### GetEnergyCostForSmithing
 `public abstract int GetEnergyCostForSmithing(ItemObject item, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 energy cost for smithing 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 energy cost for smithing 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -166,7 +166,7 @@ var result = smithingModel.GetEnergyCostForSmithing(item, hero);
 ### GetEnergyCostForSmelting
 `public abstract int GetEnergyCostForSmelting(ItemObject item, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 energy cost for smelting 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 energy cost for smelting 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -177,7 +177,7 @@ var result = smithingModel.GetEnergyCostForSmelting(item, hero);
 ### ResearchPointsNeedForNewPart
 `public abstract float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ResearchPointsNeedForNewPart 对应的操作。
+**用途 / Purpose:** 调用 ResearchPointsNeedForNewPart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -188,7 +188,7 @@ var result = smithingModel.ResearchPointsNeedForNewPart(0, 0);
 ### GetPartResearchGainForSmeltingItem
 `public abstract int GetPartResearchGainForSmeltingItem(ItemObject item, Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 part research gain for smelting item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 part research gain for smelting item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例
@@ -199,7 +199,7 @@ var result = smithingModel.GetPartResearchGainForSmeltingItem(item, hero);
 ### GetPartResearchGainForSmithingItem
 `public abstract int GetPartResearchGainForSmithingItem(ItemObject item, Hero hero, bool isFreeBuildMode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 part research gain for smithing item 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 part research gain for smithing item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例

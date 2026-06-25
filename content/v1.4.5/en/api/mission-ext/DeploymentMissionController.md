@@ -29,7 +29,7 @@ Treat `DeploymentMissionController` as a Controller-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of DeploymentMissionController from the subsystem API first
@@ -40,7 +40,7 @@ deploymentMissionController.AfterStart();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentMissionController from the subsystem API first
@@ -51,7 +51,7 @@ deploymentMissionController.OnBehaviorInitialize();
 ### FinishDeployment
 `public void FinishDeployment()`
 
-**Purpose:** **Purpose:** Concludes the deployment flow and performs any cleanup.
+**Purpose:** Concludes the deployment flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of DeploymentMissionController from the subsystem API first
@@ -62,7 +62,7 @@ deploymentMissionController.FinishDeployment();
 ### OnAgentControllerSetToPlayer
 `public override void OnAgentControllerSetToPlayer(Agent agent)`
 
-**Purpose:** **Purpose:** Invoked when the agent controller set to player event is raised.
+**Purpose:** Invoked when the agent controller set to player event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentMissionController from the subsystem API first
@@ -73,7 +73,7 @@ deploymentMissionController.OnAgentControllerSetToPlayer(agent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentMissionController from the subsystem API first

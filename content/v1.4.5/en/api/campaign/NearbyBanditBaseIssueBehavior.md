@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### CanBeCompletedByAI
 `public override bool CanBeCompletedByAI()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for be completed by a i.
+**Purpose:** Checks whether the this instance meets the preconditions for be completed by a i.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -48,7 +48,7 @@ var result = nearbyBanditBaseIssueBehavior.CanBeCompletedByAI();
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
+**Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -59,7 +59,7 @@ var result = nearbyBanditBaseIssueBehavior.DoTroopsSatisfyAlternativeSolution(tr
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
+**Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -70,7 +70,7 @@ var result = nearbyBanditBaseIssueBehavior.IsTroopTypeNeededByAlternativeSolutio
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
+**Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -81,7 +81,7 @@ var result = nearbyBanditBaseIssueBehavior.AlternativeSolutionCondition(explanat
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
+**Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -92,7 +92,7 @@ var result = nearbyBanditBaseIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** **Purpose:** Creates or raises stay alive conditions.
+**Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -103,7 +103,7 @@ var result = nearbyBanditBaseIssueBehavior.IssueStayAliveConditions();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first
@@ -114,7 +114,7 @@ nearbyBanditBaseIssueBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of NearbyBanditBaseIssueBehavior from the subsystem API first

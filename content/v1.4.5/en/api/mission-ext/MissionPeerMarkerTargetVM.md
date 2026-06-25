@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of screen position.
+**Purpose:** Recalculates and stores the latest representation of screen position.
 
 ```csharp
 // Obtain an instance of MissionPeerMarkerTargetVM from the subsystem API first

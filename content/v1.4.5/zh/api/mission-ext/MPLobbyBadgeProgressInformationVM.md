@@ -38,7 +38,7 @@ description: "MPLobbyBadgeProgressInformationVM 的自动生成类参考。"
 ### OpenWith
 `public void OpenWith(MPLobbyAchievementBadgeGroupVM badgeGroup)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
+**用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -49,7 +49,7 @@ mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
+**用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -60,7 +60,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteClosePopup();
 ### ExecuteIncreaseActiveBadgeIndices
 `public void ExecuteIncreaseActiveBadgeIndices()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 increase active badge indices 对应的操作或工作流。
+**用途 / Purpose:** 执行 increase active badge indices 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -71,7 +71,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteIncreaseActiveBadgeIndices();
 ### ExecuteDecreaseActiveBadgeIndices
 `public void ExecuteDecreaseActiveBadgeIndices()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 decrease active badge indices 对应的操作或工作流。
+**用途 / Purpose:** 执行 decrease active badge indices 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -82,7 +82,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteDecreaseActiveBadgeIndices();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -93,7 +93,7 @@ mPLobbyBadgeProgressInformationVM.OnFinalize();
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
@@ -104,7 +104,7 @@ mPLobbyBadgeProgressInformationVM.SetPreviousTabInputKey(hotKey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例

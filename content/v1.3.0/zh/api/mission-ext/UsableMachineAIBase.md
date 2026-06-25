@@ -29,7 +29,7 @@ description: "UsableMachineAIBase 的自动生成类参考。"
 ### Tick
 `public void Tick(Agent agentToCompareTo, Formation formationToCompareTo, Team potentialUsersTeam, float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachineAIBase 实例
@@ -40,7 +40,7 @@ usableMachineAIBase.Tick(agentToCompareTo, formationToCompareTo, potentialUsersT
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, IEnumerable<Agent> agents, List<Agent> usedAgents)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoin
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoin
 ### TeleportUserAgentsToMachine
 `public virtual void TeleportUserAgentsToMachine(List<Agent> agentList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TeleportUserAgentsToMachine 对应的操作。
+**用途 / Purpose:** 调用 TeleportUserAgentsToMachine 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachineAIBase 实例
@@ -71,7 +71,7 @@ usableMachineAIBase.TeleportUserAgentsToMachine(agentList);
 ### StopUsingStandingPoint
 `public void StopUsingStandingPoint(StandingPoint standingPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 停止using standing point流程或状态机。
+**用途 / Purpose:** 停止using standing point流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachineAIBase 实例

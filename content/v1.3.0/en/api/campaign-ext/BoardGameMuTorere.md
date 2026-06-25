@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
+**Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -40,7 +40,7 @@ boardGameMuTorere.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
+**Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -51,7 +51,7 @@ boardGameMuTorere.InitializeTiles();
 ### InitializeCapturedUnitsZones
 `public override void InitializeCapturedUnitsZones()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by captured units zones.
+**Purpose:** Prepares the resources, state, or bindings required by captured units zones.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -62,7 +62,7 @@ boardGameMuTorere.InitializeCapturedUnitsZones();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
+**Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -73,7 +73,7 @@ boardGameMuTorere.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -84,7 +84,7 @@ boardGameMuTorere.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
+**Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -95,7 +95,7 @@ var result = boardGameMuTorere.CalculateValidMoves(pawn);
 ### FindTileByCoordinate
 `public TileMuTorere FindTileByCoordinate(int x)`
 
-**Purpose:** **Purpose:** Looks up the matching tile by coordinate in the current collection or scope.
+**Purpose:** Looks up the matching tile by coordinate in the current collection or scope.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -106,7 +106,7 @@ var result = boardGameMuTorere.FindTileByCoordinate(0);
 ### TakePawnsSnapshot
 `public BoardGameMuTorere.BoardInformation TakePawnsSnapshot()`
 
-**Purpose:** **Purpose:** Executes the TakePawnsSnapshot logic.
+**Purpose:** Executes the TakePawnsSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -117,7 +117,7 @@ var result = boardGameMuTorere.TakePawnsSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameMuTorere.BoardInformation board)`
 
-**Purpose:** **Purpose:** Executes the UndoMove logic.
+**Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -128,7 +128,7 @@ boardGameMuTorere.UndoMove(board);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** **Purpose:** Executes the AIMakeMove logic.
+**Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first
@@ -139,7 +139,7 @@ boardGameMuTorere.AIMakeMove(move);
 ### FindAvailableTile
 `public TileBase FindAvailableTile()`
 
-**Purpose:** **Purpose:** Looks up the matching available tile in the current collection or scope.
+**Purpose:** Looks up the matching available tile in the current collection or scope.
 
 ```csharp
 // Obtain an instance of BoardGameMuTorere from the subsystem API first

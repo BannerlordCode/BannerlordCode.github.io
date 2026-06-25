@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ### ScoreboardGainedSkillsListPanel
 `public class ScoreboardGainedSkillsListPanel(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ScoreboardGainedSkillsListPanel logic.
+**Purpose:** Executes the ScoreboardGainedSkillsListPanel logic.
 
 ```csharp
 // Obtain an instance of ScoreboardGainedSkillsListPanel from the subsystem API first
@@ -34,7 +34,7 @@ var result = scoreboardGainedSkillsListPanel.ScoreboardGainedSkillsListPanel(con
 ### SetCurrentUnit
 `public void SetCurrentUnit(ScoreboardSkillItemHoverToggleWidget unit)`
 
-**Purpose:** **Purpose:** Assigns a new value to current unit and updates the object's internal state.
+**Purpose:** Assigns a new value to current unit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoreboardGainedSkillsListPanel from the subsystem API first

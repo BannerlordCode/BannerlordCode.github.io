@@ -23,7 +23,7 @@ description: "MissionSiegeEngineCalculationModel 的自动生成类参考。"
 ### CalculateReloadSpeed
 `public abstract float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算reload speed的当前值或结果。
+**用途 / Purpose:** 计算reload speed的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineCalculationModel 实例
@@ -34,7 +34,7 @@ var result = missionSiegeEngineCalculationModel.CalculateReloadSpeed(userAgent, 
 ### CalculateShipSiegeWeaponAmmoCount
 `public abstract int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算ship siege weapon ammo count的当前值或结果。
+**用途 / Purpose:** 计算ship siege weapon ammo count的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineCalculationModel 实例
@@ -45,7 +45,7 @@ var result = missionSiegeEngineCalculationModel.CalculateShipSiegeWeaponAmmoCoun
 ### CalculateDamage
 `public abstract int CalculateDamage(Agent attackerAgent, float baseDamage)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算damage的当前值或结果。
+**用途 / Purpose:** 计算damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineCalculationModel 实例

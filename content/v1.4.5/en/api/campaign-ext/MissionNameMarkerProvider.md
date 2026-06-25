@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### CreateMarkers
 `public abstract void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** **Purpose:** Constructs a new markers entity and returns it to the caller.
+**Purpose:** Constructs a new markers entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerProvider from the subsystem API first
@@ -34,7 +34,7 @@ missionNameMarkerProvider.CreateMarkers(markers);
 ### Initialize
 `public void Initialize(Mission mission, Action onSetMarkersDirty)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerProvider from the subsystem API first
@@ -45,7 +45,7 @@ missionNameMarkerProvider.Initialize(mission, onSetMarkersDirty);
 ### Destroy
 `public void Destroy(Mission mission)`
 
-**Purpose:** **Purpose:** Executes the Destroy logic.
+**Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerProvider from the subsystem API first
@@ -56,7 +56,7 @@ missionNameMarkerProvider.Destroy(mission);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerProvider from the subsystem API first

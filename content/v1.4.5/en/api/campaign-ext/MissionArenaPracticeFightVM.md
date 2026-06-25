@@ -32,7 +32,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionArenaPracticeFightVM from the subsystem API first
@@ -43,7 +43,7 @@ missionArenaPracticeFightVM.Tick();
 ### UpdatePrizeText
 `public void UpdatePrizeText()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of prize text.
+**Purpose:** Recalculates and stores the latest representation of prize text.
 
 ```csharp
 // Obtain an instance of MissionArenaPracticeFightVM from the subsystem API first

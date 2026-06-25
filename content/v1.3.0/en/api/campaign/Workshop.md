@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -49,7 +49,7 @@ var result = workshop.GetHashCode();
 ### InitializeWorkshop
 `public void InitializeWorkshop(Hero owner, WorkshopType type)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by workshop.
+**Purpose:** Prepares the resources, state, or bindings required by workshop.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -60,7 +60,7 @@ workshop.InitializeWorkshop(owner, type);
 ### ChangeOwnerOfWorkshop
 `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
 
-**Purpose:** **Purpose:** Executes the ChangeOwnerOfWorkshop logic.
+**Purpose:** Executes the ChangeOwnerOfWorkshop logic.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -71,7 +71,7 @@ workshop.ChangeOwnerOfWorkshop(newOwner, type, 0);
 ### ChangeWorkshopProduction
 `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
 
-**Purpose:** **Purpose:** Executes the ChangeWorkshopProduction logic.
+**Purpose:** Executes the ChangeWorkshopProduction logic.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -82,7 +82,7 @@ workshop.ChangeWorkshopProduction(newWorkshopType);
 ### SetCustomName
 `public void SetCustomName(TextObject customName)`
 
-**Purpose:** **Purpose:** Assigns a new value to custom name and updates the object's internal state.
+**Purpose:** Assigns a new value to custom name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -93,7 +93,7 @@ workshop.SetCustomName(customName);
 ### UpdateLastRunTime
 `public void UpdateLastRunTime()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of last run time.
+**Purpose:** Recalculates and stores the latest representation of last run time.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -104,7 +104,7 @@ workshop.UpdateLastRunTime();
 ### SetProgress
 `public void SetProgress(int i, float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to progress and updates the object's internal state.
+**Purpose:** Assigns a new value to progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -115,7 +115,7 @@ workshop.SetProgress(0, 0);
 ### ChangeGold
 `public void ChangeGold(int goldChange)`
 
-**Purpose:** **Purpose:** Executes the ChangeGold logic.
+**Purpose:** Executes the ChangeGold logic.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -126,7 +126,7 @@ workshop.ChangeGold(0);
 ### GetProductionProgress
 `public float GetProductionProgress(int index)`
 
-**Purpose:** **Purpose:** Reads and returns the production progress value held by the this instance.
+**Purpose:** Reads and returns the production progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first
@@ -137,7 +137,7 @@ var result = workshop.GetProductionProgress(0);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Workshop from the subsystem API first

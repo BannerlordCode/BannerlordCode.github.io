@@ -23,7 +23,7 @@ Treat `MultiplayerReportPlayerManager` as a Manager-style extension point: first
 ### RequestReportPlayer
 `public static void RequestReportPlayer(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**Purpose:** **Purpose:** Executes the RequestReportPlayer logic.
+**Purpose:** Executes the RequestReportPlayer logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerReportPlayerManager.RequestReportPlayer("example", playerId, "example
 ### OnPlayerReported
 `public static void OnPlayerReported(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Invoked when the player reported event is raised.
+**Purpose:** Invoked when the player reported event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerReportPlayerManager.OnPlayerReported(playerId);
 ### IsPlayerReportedOverLimit
 `public static bool IsPlayerReportedOverLimit(PlayerId player)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the player reported over limit state or condition.
+**Purpose:** Determines whether the this instance is in the player reported over limit state or condition.
 
 ```csharp
 // Static call; no instance required

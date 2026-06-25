@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### HasIdentifierType
 `public bool HasIdentifierType(Type identifierType)`
 
-**Purpose:** **Purpose:** Determines whether the this instance already holds identifier type.
+**Purpose:** Determines whether the this instance already holds identifier type.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -41,7 +41,7 @@ var result = encyclopediaPage.HasIdentifierType(identifierType);
 ### GetIdentifier
 `public string GetIdentifier(Type identifierType)`
 
-**Purpose:** **Purpose:** Reads and returns the identifier value held by the this instance.
+**Purpose:** Reads and returns the identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -52,7 +52,7 @@ var result = encyclopediaPage.GetIdentifier(identifierType);
 ### GetIdentifierNames
 `public string GetIdentifierNames()`
 
-**Purpose:** **Purpose:** Reads and returns the identifier names value held by the this instance.
+**Purpose:** Reads and returns the identifier names value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -63,7 +63,7 @@ var result = encyclopediaPage.GetIdentifierNames();
 ### IsFiltered
 `public bool IsFiltered(object o)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the filtered state or condition.
+**Purpose:** Determines whether the this instance is in the filtered state or condition.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -74,7 +74,7 @@ var result = encyclopediaPage.IsFiltered(o);
 ### GetViewFullyQualifiedName
 `public virtual string GetViewFullyQualifiedName()`
 
-**Purpose:** **Purpose:** Reads and returns the view fully qualified name value held by the this instance.
+**Purpose:** Reads and returns the view fully qualified name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -85,7 +85,7 @@ var result = encyclopediaPage.GetViewFullyQualifiedName();
 ### GetStringID
 `public virtual string GetStringID()`
 
-**Purpose:** **Purpose:** Reads and returns the string i d value held by the this instance.
+**Purpose:** Reads and returns the string i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -96,7 +96,7 @@ var result = encyclopediaPage.GetStringID();
 ### GetName
 `public virtual TextObject GetName()`
 
-**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
+**Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -107,7 +107,7 @@ var result = encyclopediaPage.GetName();
 ### GetObject
 `public virtual MBObjectBase GetObject(string typeName, string stringID)`
 
-**Purpose:** **Purpose:** Reads and returns the object value held by the this instance.
+**Purpose:** Reads and returns the object value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -118,7 +118,7 @@ var result = encyclopediaPage.GetObject("example", "example");
 ### IsValidEncyclopediaItem
 `public virtual bool IsValidEncyclopediaItem(object o)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid encyclopedia item state or condition.
+**Purpose:** Determines whether the this instance is in the valid encyclopedia item state or condition.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -129,7 +129,7 @@ var result = encyclopediaPage.IsValidEncyclopediaItem(o);
 ### GetDescriptionText
 `public virtual TextObject GetDescriptionText()`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -140,7 +140,7 @@ var result = encyclopediaPage.GetDescriptionText();
 ### GetListItems
 `public IEnumerable<EncyclopediaListItem> GetListItems()`
 
-**Purpose:** **Purpose:** Reads and returns the list items value held by the this instance.
+**Purpose:** Reads and returns the list items value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -151,7 +151,7 @@ var result = encyclopediaPage.GetListItems();
 ### GetFilterItems
 `public IEnumerable<EncyclopediaFilterGroup> GetFilterItems()`
 
-**Purpose:** **Purpose:** Reads and returns the filter items value held by the this instance.
+**Purpose:** Reads and returns the filter items value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first
@@ -162,7 +162,7 @@ var result = encyclopediaPage.GetFilterItems();
 ### GetSortControllers
 `public IEnumerable<EncyclopediaSortController> GetSortControllers()`
 
-**Purpose:** **Purpose:** Reads and returns the sort controllers value held by the this instance.
+**Purpose:** Reads and returns the sort controllers value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaPage from the subsystem API first

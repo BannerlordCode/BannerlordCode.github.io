@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### RegisterProvider
 `public static void RegisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** **Purpose:** Registers provider with the current system so it can later be observed or dispatched.
+**Purpose:** Registers provider with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ VisualOrderFactory.RegisterProvider(provider);
 ### UnregisterProvider
 `public static void UnregisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** **Purpose:** Unregisters provider from the current system.
+**Purpose:** Unregisters provider from the current system.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ VisualOrderFactory.UnregisterProvider(provider);
 ### GetOrders
 `public static MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** **Purpose:** Reads and returns the orders value held by the this instance.
+**Purpose:** Reads and returns the orders value held by the this instance.
 
 ```csharp
 // Static call; no instance required

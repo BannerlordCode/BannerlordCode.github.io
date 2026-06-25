@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -48,7 +48,7 @@ var result = army.ToString();
 ### CalculateCurrentStrength
 `public float CalculateCurrentStrength()`
 
-**Purpose:** **Purpose:** Calculates the current value or result of current strength.
+**Purpose:** Calculates the current value or result of current strength.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -59,7 +59,7 @@ var result = army.CalculateCurrentStrength();
 ### GetCustomStrength
 `public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** **Purpose:** Reads and returns the custom strength value held by the this instance.
+**Purpose:** Reads and returns the custom strength value held by the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -70,7 +70,7 @@ var result = army.GetCustomStrength(side, context);
 ### UpdateName
 `public void UpdateName()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of name.
+**Purpose:** Recalculates and stores the latest representation of name.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -81,7 +81,7 @@ army.UpdateName();
 ### DoesLeaderPartyAndAttachedPartiesContain
 `public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether leader party and attached parties contain is true for the this instance.
+**Purpose:** Returns a boolean answer to whether leader party and attached parties contain is true for the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -92,7 +92,7 @@ var result = army.DoesLeaderPartyAndAttachedPartiesContain(party);
 ### BoostCohesionWithInfluence
 `public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
 
-**Purpose:** **Purpose:** Increases the value or strength of cohesion with influence.
+**Purpose:** Increases the value or strength of cohesion with influence.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -103,7 +103,7 @@ army.BoostCohesionWithInfluence(0, 0);
 ### RecalculateArmyMorale
 `public void RecalculateArmyMorale()`
 
-**Purpose:** **Purpose:** Recalculates army morale to reflect the latest state.
+**Purpose:** Recalculates army morale to reflect the latest state.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -114,7 +114,7 @@ army.RecalculateArmyMorale();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -125,7 +125,7 @@ var result = army.GetNotificationText();
 ### GetLongTermBehaviorText
 `public TextObject GetLongTermBehaviorText(bool setWithLink = false)`
 
-**Purpose:** **Purpose:** Reads and returns the long term behavior text value held by the this instance.
+**Purpose:** Reads and returns the long term behavior text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -136,7 +136,7 @@ var result = army.GetLongTermBehaviorText(false);
 ### Gather
 `public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
 
-**Purpose:** **Purpose:** Collects or aggregates the content related to the this instance.
+**Purpose:** Collects or aggregates the content related to the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -147,7 +147,7 @@ army.Gather(initialHostileSettlement, null);
 ### IsWaitingForArmyMembers
 `public bool IsWaitingForArmyMembers()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the waiting for army members state or condition.
+**Purpose:** Determines whether the this instance is in the waiting for army members state or condition.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -158,7 +158,7 @@ var result = army.IsWaitingForArmyMembers();
 ### FinishArmyObjective
 `public void FinishArmyObjective()`
 
-**Purpose:** **Purpose:** Concludes the army objective flow and performs any cleanup.
+**Purpose:** Concludes the army objective flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -169,7 +169,7 @@ army.FinishArmyObjective();
 ### GetRelativePositionForParty
 `public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
 
-**Purpose:** **Purpose:** Reads and returns the relative position for party value held by the this instance.
+**Purpose:** Reads and returns the relative position for party value held by the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -180,7 +180,7 @@ var result = army.GetRelativePositionForParty(mobileParty, armyFacing);
 ### AddPartyToMergedParties
 `public void AddPartyToMergedParties(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Adds party to merged parties to the current collection or state.
+**Purpose:** Adds party to merged parties to the current collection or state.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -191,7 +191,7 @@ army.AddPartyToMergedParties(mobileParty);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**Purpose:** **Purpose:** Assigns a new value to position after map change and updates the object's internal state.
+**Purpose:** Assigns a new value to position after map change and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first
@@ -202,7 +202,7 @@ army.SetPositionAfterMapChange(newPosition);
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** **Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
+**Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Army from the subsystem API first

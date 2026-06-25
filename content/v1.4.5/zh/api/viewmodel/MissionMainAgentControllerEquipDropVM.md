@@ -34,7 +34,7 @@ description: "MissionMainAgentControllerEquipDropVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -45,7 +45,7 @@ missionMainAgentControllerEquipDropVM.RefreshValues();
 ### InitializeMainAgentPropterties
 `public void InitializeMainAgentPropterties()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 main agent propterties 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 main agent propterties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -56,7 +56,7 @@ missionMainAgentControllerEquipDropVM.InitializeMainAgentPropterties();
 ### OnToggle
 `public void OnToggle(bool isEnabled)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 toggle 事件触发时调用此回调。
+**用途 / Purpose:** 在 toggle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -67,7 +67,7 @@ missionMainAgentControllerEquipDropVM.OnToggle(false);
 ### OnCancelHoldController
 `public void OnCancelHoldController()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 cancel hold controller 事件触发时调用此回调。
+**用途 / Purpose:** 在 cancel hold controller 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -78,7 +78,7 @@ missionMainAgentControllerEquipDropVM.OnCancelHoldController();
 ### OnWeaponDroppedAtIndex
 `public void OnWeaponDroppedAtIndex(int droppedWeaponIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon dropped at index 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon dropped at index 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -89,7 +89,7 @@ missionMainAgentControllerEquipDropVM.OnWeaponDroppedAtIndex(0);
 ### OnWeaponEquippedAtIndex
 `public void OnWeaponEquippedAtIndex(int equippedWeaponIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon equipped at index 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon equipped at index 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -100,7 +100,7 @@ missionMainAgentControllerEquipDropVM.OnWeaponEquippedAtIndex(0);
 ### SetDropProgressForIndex
 `public void SetDropProgressForIndex(EquipmentIndex eqIndex, float progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 drop progress for index 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 drop progress for index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -111,7 +111,7 @@ missionMainAgentControllerEquipDropVM.SetDropProgressForIndex(eqIndex, 0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
@@ -122,7 +122,7 @@ missionMainAgentControllerEquipDropVM.OnFinalize();
 ### OnGamepadActiveChanged
 `public void OnGamepadActiveChanged(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 gamepad active changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 gamepad active changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例

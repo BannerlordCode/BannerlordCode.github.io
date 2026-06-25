@@ -23,7 +23,7 @@ description: "BattleDeploymentHandler 的自动生成类参考。"
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
+**用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -34,7 +34,7 @@ battleDeploymentHandler.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -45,7 +45,7 @@ battleDeploymentHandler.AfterStart();
 ### AutoDeployTeamUsingDeploymentPlan
 `public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AutoDeployTeamUsingDeploymentPlan 对应的操作。
+**用途 / Purpose:** 调用 AutoDeployTeamUsingDeploymentPlan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -56,7 +56,7 @@ battleDeploymentHandler.AutoDeployTeamUsingDeploymentPlan(team);
 ### ForceUpdateAllUnits
 `public override void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceUpdateAllUnits 对应的操作。
+**用途 / Purpose:** 调用 ForceUpdateAllUnits 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -67,7 +67,7 @@ battleDeploymentHandler.ForceUpdateAllUnits();
 ### SetDefaultFormationOrders
 `public void SetDefaultFormationOrders(OrderController orderController)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 default formation orders 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 default formation orders 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例

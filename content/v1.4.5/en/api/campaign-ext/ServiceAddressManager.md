@@ -32,7 +32,7 @@ Treat `ServiceAddressManager` as a Manager-style extension point: first identify
 ### Initalize
 `public static void Initalize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by alize.
+**Purpose:** Prepares the resources, state, or bindings required by alize.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ ServiceAddressManager.Initalize();
 ### ResolveAddress
 `public static bool ResolveAddress(string serviceDiscoveryAddress, ref string serviceAddress)`
 
-**Purpose:** **Purpose:** Executes the ResolveAddress logic.
+**Purpose:** Executes the ResolveAddress logic.
 
 ```csharp
 // Static call; no instance required

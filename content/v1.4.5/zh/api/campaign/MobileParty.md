@@ -103,7 +103,7 @@ description: "MobileParty 的自动生成类参考。"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -114,7 +114,7 @@ var result = mobileParty.ToString();
 ### SetLandNavigationAccess
 `public void SetLandNavigationAccess(bool access)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 land navigation access 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 land navigation access 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -125,7 +125,7 @@ mobileParty.SetLandNavigationAccess(false);
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -136,7 +136,7 @@ var result = mobileParty.GetName();
 ### HasLimitedWage
 `public bool HasLimitedWage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 limited wage。
+**用途 / Purpose:** 判断当前对象是否已经持有 limited wage。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -147,7 +147,7 @@ var result = mobileParty.HasLimitedWage();
 ### GetAvailableWageBudget
 `public int GetAvailableWageBudget()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available wage budget 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 available wage budget 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -158,7 +158,7 @@ var result = mobileParty.GetAvailableWageBudget();
 ### IsWageLimitExceeded
 `public bool IsWageLimitExceeded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 wage limit exceeded 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 wage limit exceeded 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -169,7 +169,7 @@ var result = mobileParty.IsWageLimitExceeded();
 ### SetWagePaymentLimit
 `public void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -180,7 +180,7 @@ mobileParty.SetWagePaymentLimit(0);
 ### SetNavalVisualAsDirty
 `public void SetNavalVisualAsDirty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 naval visual as dirty 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 naval visual as dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -191,7 +191,7 @@ mobileParty.SetNavalVisualAsDirty();
 ### OnNavalVisualsUpdated
 `public void OnNavalVisualsUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 naval visuals updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 naval visuals updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -202,7 +202,7 @@ mobileParty.OnNavalVisualsUpdated();
 ### SetSailAtPosition
 `public void SetSailAtPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sail at position 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 sail at position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -213,7 +213,7 @@ mobileParty.SetSailAtPosition(position);
 ### DisembarkToPosition
 `public void DisembarkToPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisembarkToPosition 对应的操作。
+**用途 / Purpose:** 调用 DisembarkToPosition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -224,7 +224,7 @@ mobileParty.DisembarkToPosition(position);
 ### CancelNavigationTransition
 `public void CancelNavigationTransition()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel navigation transition 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 cel navigation transition 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -235,7 +235,7 @@ mobileParty.CancelNavigationTransition();
 ### ChangeIsCurrentlyAtSeaCheat
 `public void ChangeIsCurrentlyAtSeaCheat()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeIsCurrentlyAtSeaCheat 对应的操作。
+**用途 / Purpose:** 调用 ChangeIsCurrentlyAtSeaCheat 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -246,7 +246,7 @@ mobileParty.ChangeIsCurrentlyAtSeaCheat();
 ### SetCustomHomeSettlement
 `public void SetCustomHomeSettlement(Settlement customHomeSettlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom home settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom home settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -257,7 +257,7 @@ mobileParty.SetCustomHomeSettlement(customHomeSettlement);
 ### SetTargetSettlement
 `public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 target settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 target settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -268,7 +268,7 @@ mobileParty.SetTargetSettlement(settlement, false);
 ### SetPartyScout
 `public void SetPartyScout(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party scout 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party scout 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -279,7 +279,7 @@ mobileParty.SetPartyScout(hero);
 ### SetPartyQuartermaster
 `public void SetPartyQuartermaster(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party quartermaster 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party quartermaster 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -290,7 +290,7 @@ mobileParty.SetPartyQuartermaster(hero);
 ### SetPartyEngineer
 `public void SetPartyEngineer(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party engineer 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party engineer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -301,7 +301,7 @@ mobileParty.SetPartyEngineer(hero);
 ### SetPartySurgeon
 `public void SetPartySurgeon(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party surgeon 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party surgeon 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -312,7 +312,7 @@ mobileParty.SetPartySurgeon(hero);
 ### SetPartyFirstMate
 `public void SetPartyFirstMate(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party first mate 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party first mate 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -323,7 +323,7 @@ mobileParty.SetPartyFirstMate(hero);
 ### SetPartyNavigator
 `public void SetPartyNavigator(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party navigator 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party navigator 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -334,7 +334,7 @@ mobileParty.SetPartyNavigator(hero);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -345,7 +345,7 @@ var result = mobileParty.ToString();
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangePartyLeader 对应的操作。
+**用途 / Purpose:** 调用 ChangePartyLeader 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -356,7 +356,7 @@ mobileParty.ChangePartyLeader(newLeader);
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty engagingParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 party interaction 事件触发时调用此回调。
+**用途 / Purpose:** 在 party interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -367,7 +367,7 @@ mobileParty.OnPartyInteraction(engagingParty);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -378,7 +378,7 @@ mobileParty.SetPositionAfterMapChange(newPosition);
 ### RemovePartyLeader
 `public void RemovePartyLeader()`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 party leader。
+**用途 / Purpose:** 从当前容器或状态中移除 party leader。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -389,7 +389,7 @@ mobileParty.RemovePartyLeader();
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
+**用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -400,7 +400,7 @@ mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### CheckAiForMapChangeAndUpdateIfNeeded
 `public void CheckAiForMapChangeAndUpdateIfNeeded()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查ai for map change and update if needed在当前对象中是否成立。
+**用途 / Purpose:** 检查ai for map change and update if needed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -411,7 +411,7 @@ mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
 ### MovePartyToTheClosestLand
 `public void MovePartyToTheClosestLand()`
 
-**用途 / Purpose:** **用途 / Purpose:** 移动party to the closest land到新的位置或状态。
+**用途 / Purpose:** 移动party to the closest land到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -422,7 +422,7 @@ mobileParty.MovePartyToTheClosestLand();
 ### GetBehaviorText
 `public TextObject GetBehaviorText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 behavior text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -433,7 +433,7 @@ var result = mobileParty.GetBehaviorText();
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -444,7 +444,7 @@ mobileParty.Initialize();
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -455,7 +455,7 @@ mobileParty.InitializeMobilePartyAtPosition(position);
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -466,7 +466,7 @@ mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, positi
 ### InitializeMobilePartyAroundPosition
 `public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -477,7 +477,7 @@ mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, po
 ### InitializeMobilePartyAtPosition
 `public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 mobile party at position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -488,7 +488,7 @@ mobileParty.InitializeMobilePartyAtPosition(pt, position);
 ### InitializeMobilePartyAroundPosition
 `public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 mobile party around position 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -499,7 +499,7 @@ mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
 ### SetDisorganized
 `public void SetDisorganized(bool isDisorganized)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 disorganized 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 disorganized 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -510,7 +510,7 @@ mobileParty.SetDisorganized(false);
 ### RecalculateShortTermBehavior
 `public void RecalculateShortTermBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算short term behavior以反映最新状态。
+**用途 / Purpose:** 重新计算short term behavior以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -521,7 +521,7 @@ mobileParty.RecalculateShortTermBehavior();
 ### IsFleeBehavior
 `public static bool IsFleeBehavior(AiBehavior aiBehavior)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 flee behavior 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 flee behavior 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -531,7 +531,7 @@ MobileParty.IsFleeBehavior(aiBehavior);
 ### IsFleeing
 `public bool IsFleeing()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 fleeing 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 fleeing 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -542,7 +542,7 @@ var result = mobileParty.IsFleeing();
 ### SetPartyUsedByQuest
 `public void SetPartyUsedByQuest(bool isActivelyUsed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party used by quest 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party used by quest 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -553,7 +553,7 @@ mobileParty.SetPartyUsedByQuest(false);
 ### IgnoreForHours
 `public void IgnoreForHours(float hours)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 IgnoreForHours 对应的操作。
+**用途 / Purpose:** 调用 IgnoreForHours 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -564,7 +564,7 @@ mobileParty.IgnoreForHours(0);
 ### IgnoreByOtherPartiesTill
 `public void IgnoreByOtherPartiesTill(CampaignTime time)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 IgnoreByOtherPartiesTill 对应的操作。
+**用途 / Purpose:** 调用 IgnoreByOtherPartiesTill 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -575,7 +575,7 @@ mobileParty.IgnoreByOtherPartiesTill(time);
 ### SetAnchor
 `public void SetAnchor(AnchorPoint anchor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 anchor 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 anchor 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -586,7 +586,7 @@ mobileParty.SetAnchor(anchor);
 ### SetPartyObjective
 `public void SetPartyObjective(PartyObjective objective)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party objective 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party objective 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -597,7 +597,7 @@ mobileParty.SetPartyObjective(objective);
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version no 的最新表示。
+**用途 / Purpose:** 重新计算并更新 version no 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -608,7 +608,7 @@ mobileParty.UpdateVersionNo();
 ### IsSpotted
 `public bool IsSpotted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 spotted 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 spotted 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -619,7 +619,7 @@ var result = mobileParty.IsSpotted();
 ### AddElementToMemberRoster
 `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 element to member roster 添加到当前容器或状态中。
+**用途 / Purpose:** 将 element to member roster 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -630,7 +630,7 @@ var result = mobileParty.AddElementToMemberRoster(element, 0, false);
 ### AddPrisoner
 `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 prisoner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 prisoner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -641,7 +641,7 @@ var result = mobileParty.AddPrisoner(element, 0);
 ### GetPositionAsVec3
 `public Vec3 GetPositionAsVec3()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position as vec3 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 position as vec3 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -652,7 +652,7 @@ var result = mobileParty.GetPositionAsVec3();
 ### GetTotalLandStrengthWithFollowers
 `public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total land strength with followers 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total land strength with followers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -663,7 +663,7 @@ var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
 ### HasPerk
 `public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 perk。
+**用途 / Purpose:** 判断当前对象是否已经持有 perk。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -674,7 +674,7 @@ var result = mobileParty.HasPerk(perk, false);
 ### SetHeroPartyRole
 `public void SetHeroPartyRole(Hero hero, PartyRole partyRole)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hero party role 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hero party role 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -685,7 +685,7 @@ mobileParty.SetHeroPartyRole(hero, partyRole);
 ### RemoveAllPartyRolesOfHero
 `public void RemoveAllPartyRolesOfHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 all party roles of hero。
+**用途 / Purpose:** 从当前容器或状态中移除 all party roles of hero。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -696,7 +696,7 @@ mobileParty.RemoveAllPartyRolesOfHero(hero);
 ### GetHeroPartyRoles
 `public List<PartyRole> GetHeroPartyRoles(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero party roles 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hero party roles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -707,7 +707,7 @@ var result = mobileParty.GetHeroPartyRoles(hero);
 ### RemovePartyRoleOfHero
 `public void RemovePartyRoleOfHero(Hero hero, PartyRole partyRole)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 party role of hero。
+**用途 / Purpose:** 从当前容器或状态中移除 party role of hero。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -718,7 +718,7 @@ mobileParty.RemovePartyRoleOfHero(hero, partyRole);
 ### RemoveOnePartyRoleOfHero
 `public void RemoveOnePartyRoleOfHero(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 one party role of hero。
+**用途 / Purpose:** 从当前容器或状态中移除 one party role of hero。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -729,7 +729,7 @@ mobileParty.RemoveOnePartyRoleOfHero(hero);
 ### GetRoleHolder
 `public Hero GetRoleHolder(PartyRole partyRole)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 role holder 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 role holder 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -740,7 +740,7 @@ var result = mobileParty.GetRoleHolder(partyRole);
 ### GetEffectiveRoleHolder
 `public Hero GetEffectiveRoleHolder(PartyRole partyRole)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective role holder 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 effective role holder 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -751,7 +751,7 @@ var result = mobileParty.GetEffectiveRoleHolder(partyRole);
 ### GetNumDaysForFoodToLast
 `public int GetNumDaysForFoodToLast()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num days for food to last 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 num days for food to last 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -762,7 +762,7 @@ var result = mobileParty.GetNumDaysForFoodToLast();
 ### RecalculateLongTermPath
 `public bool RecalculateLongTermPath()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算long term path以反映最新状态。
+**用途 / Purpose:** 重新计算long term path以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -773,7 +773,7 @@ var result = mobileParty.RecalculateLongTermPath();
 ### GetRegionSwitchCostFromLandToSea
 `public int GetRegionSwitchCostFromLandToSea()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 region switch cost from land to sea 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 region switch cost from land to sea 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -784,7 +784,7 @@ var result = mobileParty.GetRegionSwitchCostFromLandToSea();
 ### GetRegionSwitchCostFromSeaToLand
 `public int GetRegionSwitchCostFromSeaToLand()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 region switch cost from sea to land 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 region switch cost from sea to land 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -795,7 +795,7 @@ var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
 ### SetMoveModeHold
 `public void SetMoveModeHold()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move mode hold 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move mode hold 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -806,7 +806,7 @@ mobileParty.SetMoveModeHold();
 ### SetMoveEngageParty
 `public void SetMoveEngageParty(MobileParty party, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move engage party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move engage party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -817,7 +817,7 @@ mobileParty.SetMoveEngageParty(party, navigationType);
 ### SetMoveGoAroundParty
 `public void SetMoveGoAroundParty(MobileParty party, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move go around party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move go around party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -828,7 +828,7 @@ mobileParty.SetMoveGoAroundParty(party, navigationType);
 ### SetMoveGoToSettlement
 `public void SetMoveGoToSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingThePort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move go to settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move go to settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -839,7 +839,7 @@ mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
 ### SetMoveGoToPoint
 `public void SetMoveGoToPoint(CampaignVec2 point, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move go to point 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move go to point 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -850,7 +850,7 @@ mobileParty.SetMoveGoToPoint(point, navigationType);
 ### SetMoveToNearestLand
 `public void SetMoveToNearestLand(Settlement settlement)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move to nearest land 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move to nearest land 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -861,7 +861,7 @@ mobileParty.SetMoveToNearestLand(settlement);
 ### SetMoveGoToInteractablePoint
 `public void SetMoveGoToInteractablePoint(IInteractablePoint point, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move go to interactable point 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move go to interactable point 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -872,7 +872,7 @@ mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
 ### SetMoveEscortParty
 `public void SetMoveEscortParty(MobileParty mobileParty, NavigationType navigationType, bool isTargetingPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move escort party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move escort party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -883,7 +883,7 @@ mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
 ### SetMovePatrolAroundPoint
 `public void SetMovePatrolAroundPoint(CampaignVec2 point, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move patrol around point 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move patrol around point 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -894,7 +894,7 @@ mobileParty.SetMovePatrolAroundPoint(point, navigationType);
 ### SetMovePatrolAroundSettlement
 `public void SetMovePatrolAroundSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move patrol around settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move patrol around settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -905,7 +905,7 @@ mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
 ### SetMoveRaidSettlement
 `public void SetMoveRaidSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move raid settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move raid settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -916,7 +916,7 @@ mobileParty.SetMoveRaidSettlement(settlement, navigationType, false);
 ### SetMoveBesiegeSettlement
 `public void SetMoveBesiegeSettlement(Settlement settlement, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move besiege settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move besiege settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -927,7 +927,7 @@ mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
 ### SetMoveDefendSettlement
 `public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, NavigationType navigationType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 move defend settlement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 move defend settlement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -938,7 +938,7 @@ mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
 ### StartFindingLocatablesAroundPosition
 `public static LocatableSearchData<MobileParty> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动finding locatables around position流程或状态机。
+**用途 / Purpose:** 启动finding locatables around position流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -948,7 +948,7 @@ MobileParty.StartFindingLocatablesAroundPosition(position, 0);
 ### FindNextLocatable
 `public static MobileParty FindNextLocatable(ref LocatableSearchData<MobileParty> data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的next locatable。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的next locatable。
 
 ```csharp
 // 静态调用，不需要实例
@@ -958,7 +958,7 @@ MobileParty.FindNextLocatable(data);
 ### UpdateLocator
 `public static void UpdateLocator(MobileParty party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 locator 的最新表示。
+**用途 / Purpose:** 重新计算并更新 locator 的最新表示。
 
 ```csharp
 // 静态调用，不需要实例
@@ -968,7 +968,7 @@ MobileParty.UpdateLocator(party);
 ### ComputeIsWaiting
 `public bool ComputeIsWaiting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeIsWaiting 对应的操作。
+**用途 / Purpose:** 调用 ComputeIsWaiting 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -979,7 +979,7 @@ var result = mobileParty.ComputeIsWaiting();
 ### InitializePartyTrade
 `public void InitializePartyTrade(int initialGold)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party trade 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 party trade 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -990,7 +990,7 @@ mobileParty.InitializePartyTrade(0);
 ### AddTaxGold
 `public void AddTaxGold(int amount)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 tax gold 添加到当前容器或状态中。
+**用途 / Purpose:** 将 tax gold 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -1001,7 +1001,7 @@ mobileParty.AddTaxGold(0);
 ### CreateParty
 `public static MobileParty CreateParty(string stringId, PartyComponent component)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 party 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1011,7 +1011,7 @@ MobileParty.CreateParty("example", component);
 ### SetPartyComponent
 `public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 party component 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 party component 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -1022,7 +1022,7 @@ mobileParty.SetPartyComponent(partyComponent, false);
 ### UpdatePartyComponentFlags
 `public void UpdatePartyComponentFlags()`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 party component flags 的最新表示。
+**用途 / Purpose:** 重新计算并更新 party component flags 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例

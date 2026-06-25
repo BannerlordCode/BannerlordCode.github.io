@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ResetTaskStatus
 `public void ResetTaskStatus()`
 
-**Purpose:** **Purpose:** Returns task status to its default or initial condition.
+**Purpose:** Returns task status to its default or initial condition.
 
 ```csharp
 // Obtain an instance of DividableTask from the subsystem API first
@@ -34,7 +34,7 @@ dividableTask.ResetTaskStatus();
 ### SetTaskFinished
 `public void SetTaskFinished(bool callLastAction = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to task finished and updates the object's internal state.
+**Purpose:** Assigns a new value to task finished and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DividableTask from the subsystem API first
@@ -45,7 +45,7 @@ dividableTask.SetTaskFinished(false);
 ### Update
 `public bool Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of DividableTask from the subsystem API first
@@ -56,7 +56,7 @@ var result = dividableTask.Update();
 ### SetLastAction
 `public void SetLastAction(Action action)`
 
-**Purpose:** **Purpose:** Assigns a new value to last action and updates the object's internal state.
+**Purpose:** Assigns a new value to last action and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DividableTask from the subsystem API first

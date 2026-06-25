@@ -32,7 +32,7 @@ description: "MPLobbyCosmeticSigilItemVM 的自动生成类参考。"
 ### SetOnSelectionCallback
 `public static void SetOnSelectionCallback(Action<MPLobbyCosmeticSigilItemVM> onSelection)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on selection callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on selection callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
 ### ResetOnSelectionCallback
 `public static void ResetOnSelectionCallback()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 on selection callback 重置回默认或初始状态。
+**用途 / Purpose:** 将 on selection callback 重置回默认或初始状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ MPLobbyCosmeticSigilItemVM.ResetOnSelectionCallback();
 ### SetOnObtainRequestedCallback
 `public static void SetOnObtainRequestedCallback(Action<MPLobbyCosmeticSigilItemVM> onObtainRequested)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on obtain requested callback 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on obtain requested callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ MPLobbyCosmeticSigilItemVM.SetOnObtainRequestedCallback(onObtainRequested);
 ### ResetOnObtainRequestedCallback
 `public static void ResetOnObtainRequestedCallback()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 on obtain requested callback 重置回默认或初始状态。
+**用途 / Purpose:** 将 on obtain requested callback 重置回默认或初始状态。
 
 ```csharp
 // 静态调用，不需要实例

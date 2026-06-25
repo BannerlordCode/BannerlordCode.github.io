@@ -23,7 +23,7 @@ Treat `MissionSettlementPrepareView` as a View-style extension point: first iden
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionSettlementPrepareView from the subsystem API first

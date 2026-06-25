@@ -31,7 +31,7 @@ Treat `MapDistanceModel` as a Model-style extension point: first identify who cr
 ### GetMaximumDistanceBetweenTwoConnectedSettlements
 `public abstract float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum distance between two connected settlements value held by the this instance.
+**Purpose:** Reads and returns the maximum distance between two connected settlements value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -42,7 +42,7 @@ var result = mapDistanceModel.GetMaximumDistanceBetweenTwoConnectedSettlements(n
 ### GetLandRatioOfPathBetweenSettlements
 `public abstract float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)`
 
-**Purpose:** **Purpose:** Reads and returns the land ratio of path between settlements value held by the this instance.
+**Purpose:** Reads and returns the land ratio of path between settlements value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -53,7 +53,7 @@ var result = mapDistanceModel.GetLandRatioOfPathBetweenSettlements(fromSettlemen
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -64,7 +64,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toSettlement, false, 
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -75,7 +75,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toMobileParty, custom
 ### GetDistance
 `public abstract bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -86,7 +86,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toMobileParty, custom
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -97,7 +97,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toSettlement, false, f
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -108,7 +108,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toSettlement, false, f
 ### GetDistance
 `public abstract float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType, out float landRatio)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -119,7 +119,7 @@ var result = mapDistanceModel.GetDistance(fromMobileParty, toPoint, navigationTy
 ### GetDistance
 `public abstract float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Reads and returns the distance value held by the this instance.
+**Purpose:** Reads and returns the distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -130,7 +130,7 @@ var result = mapDistanceModel.GetDistance(fromSettlement, toPoint, false, naviga
 ### GetPortToGateDistanceForSettlement
 `public abstract float GetPortToGateDistanceForSettlement(Settlement settlement)`
 
-**Purpose:** **Purpose:** Reads and returns the port to gate distance for settlement value held by the this instance.
+**Purpose:** Reads and returns the port to gate distance for settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -141,7 +141,7 @@ var result = mapDistanceModel.GetPortToGateDistanceForSettlement(settlement);
 ### PathExistBetweenPoints
 `public abstract bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)`
 
-**Purpose:** **Purpose:** Executes the PathExistBetweenPoints logic.
+**Purpose:** Executes the PathExistBetweenPoints logic.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -152,7 +152,7 @@ var result = mapDistanceModel.PathExistBetweenPoints(fromPoint, toPoint, navigat
 ### RegisterDistanceCache
 `public abstract void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, INavigationCache cacheToRegister)`
 
-**Purpose:** **Purpose:** Registers distance cache with the current system so it can later be observed or dispatched.
+**Purpose:** Registers distance cache with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -163,7 +163,7 @@ mapDistanceModel.RegisterDistanceCache(navigationCapability, cacheToRegister);
 ### GetNeighborsOfFortification
 `public abstract MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)`
 
-**Purpose:** **Purpose:** Reads and returns the neighbors of fortification value held by the this instance.
+**Purpose:** Reads and returns the neighbors of fortification value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first
@@ -174,7 +174,7 @@ var result = mapDistanceModel.GetNeighborsOfFortification(town, navigationCapabi
 ### GetTransitionCostAdjustment
 `public abstract float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)`
 
-**Purpose:** **Purpose:** Reads and returns the transition cost adjustment value held by the this instance.
+**Purpose:** Reads and returns the transition cost adjustment value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapDistanceModel from the subsystem API first

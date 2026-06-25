@@ -19,7 +19,7 @@ ChangeClanInfluenceAction is a set of static methods that trigger "ChangeClanInf
 public static void Apply(Clan clan, float amount)
 ```
 
-**Purpose:** **Purpose:** Applies the this instance's effect to its target.
+**Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

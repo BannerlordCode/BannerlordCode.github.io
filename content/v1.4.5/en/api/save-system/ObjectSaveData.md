@@ -33,7 +33,7 @@ Treat `ObjectSaveData` as a Data-style extension point: first identify who creat
 ### GetFolderCount
 `public int GetFolderCount()`
 
-**Purpose:** **Purpose:** Reads and returns the folder count value held by the this instance.
+**Purpose:** Reads and returns the folder count value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -44,7 +44,7 @@ var result = objectSaveData.GetFolderCount();
 ### GetEntryCount
 `public int GetEntryCount()`
 
-**Purpose:** **Purpose:** Reads and returns the entry count value held by the this instance.
+**Purpose:** Reads and returns the entry count value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -55,7 +55,7 @@ var result = objectSaveData.GetEntryCount();
 ### CollectMembers
 `public void CollectMembers()`
 
-**Purpose:** **Purpose:** Executes the CollectMembers logic.
+**Purpose:** Executes the CollectMembers logic.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -66,7 +66,7 @@ objectSaveData.CollectMembers();
 ### CollectStringsInto
 `public void CollectStringsInto(List<string> collection)`
 
-**Purpose:** **Purpose:** Executes the CollectStringsInto logic.
+**Purpose:** Executes the CollectStringsInto logic.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -77,7 +77,7 @@ objectSaveData.CollectStringsInto(collection);
 ### CollectStrings
 `public void CollectStrings()`
 
-**Purpose:** **Purpose:** Executes the CollectStrings logic.
+**Purpose:** Executes the CollectStrings logic.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -88,7 +88,7 @@ objectSaveData.CollectStrings();
 ### CollectStructs
 `public void CollectStructs()`
 
-**Purpose:** **Purpose:** Executes the CollectStructs logic.
+**Purpose:** Executes the CollectStructs logic.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -99,7 +99,7 @@ objectSaveData.CollectStructs();
 ### SaveHeaderTo
 `public void SaveHeaderTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**Purpose:** **Purpose:** Writes header to to persistent storage or a stream.
+**Purpose:** Writes header to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -110,7 +110,7 @@ objectSaveData.SaveHeaderTo(parentFolder, archiveContext);
 ### SaveHeaderFolderTo
 `public void SaveHeaderFolderTo(BinaryWriter headerWriter, int folderId)`
 
-**Purpose:** **Purpose:** Writes header folder to to persistent storage or a stream.
+**Purpose:** Writes header folder to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -121,7 +121,7 @@ objectSaveData.SaveHeaderFolderTo(headerWriter, 0);
 ### SaveHeaderDataTo
 `public void SaveHeaderDataTo(BinaryWriter headerWriter, int folderId)`
 
-**Purpose:** **Purpose:** Writes header data to to persistent storage or a stream.
+**Purpose:** Writes header data to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -132,7 +132,7 @@ objectSaveData.SaveHeaderDataTo(headerWriter, 0);
 ### GetHeaderSize
 `public int GetHeaderSize()`
 
-**Purpose:** **Purpose:** Reads and returns the header size value held by the this instance.
+**Purpose:** Reads and returns the header size value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -143,7 +143,7 @@ var result = objectSaveData.GetHeaderSize();
 ### GetDataSize
 `public int GetDataSize()`
 
-**Purpose:** **Purpose:** Reads and returns the data size value held by the this instance.
+**Purpose:** Reads and returns the data size value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -154,7 +154,7 @@ var result = objectSaveData.GetDataSize();
 ### SaveDataFolder
 `public void SaveDataFolder(BinaryWriter writer, int parentFolderId, ref int folderId)`
 
-**Purpose:** **Purpose:** Writes data folder to persistent storage or a stream.
+**Purpose:** Writes data folder to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -165,7 +165,7 @@ objectSaveData.SaveDataFolder(writer, 0, folderId);
 ### SaveTo
 `public void SaveTo(BinaryWriter writer, ref int folderId)`
 
-**Purpose:** **Purpose:** Writes to to persistent storage or a stream.
+**Purpose:** Writes to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -176,7 +176,7 @@ objectSaveData.SaveTo(writer, folderId);
 ### SaveTo
 `public void SaveTo(SaveEntryFolder parentFolder, IArchiveContext archiveContext)`
 
-**Purpose:** **Purpose:** Writes to to persistent storage or a stream.
+**Purpose:** Writes to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -187,7 +187,7 @@ objectSaveData.SaveTo(parentFolder, archiveContext);
 ### GetChildObjects
 `public IEnumerable<object> GetChildObjects()`
 
-**Purpose:** **Purpose:** Reads and returns the child objects value held by the this instance.
+**Purpose:** Reads and returns the child objects value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectSaveData from the subsystem API first
@@ -198,7 +198,7 @@ var result = objectSaveData.GetChildObjects();
 ### GetChildObjects
 `public static void GetChildObjects(ISaveContext context, TypeDefinition typeDefinition, object target, List<object> collectedObjects)`
 
-**Purpose:** **Purpose:** Reads and returns the child objects value held by the this instance.
+**Purpose:** Reads and returns the child objects value held by the this instance.
 
 ```csharp
 // Static call; no instance required

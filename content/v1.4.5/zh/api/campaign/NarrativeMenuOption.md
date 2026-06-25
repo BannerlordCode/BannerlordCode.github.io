@@ -23,7 +23,7 @@ description: "NarrativeMenuOption 的自动生成类参考。"
 ### OnCondition
 `public bool OnCondition(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 condition 事件触发时调用此回调。
+**用途 / Purpose:** 在 condition 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -34,7 +34,7 @@ var result = narrativeMenuOption.OnCondition(characterCreationManager);
 ### OnSelect
 `public void OnSelect(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 select 事件触发时调用此回调。
+**用途 / Purpose:** 在 select 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -45,7 +45,7 @@ narrativeMenuOption.OnSelect(characterCreationManager);
 ### OnConsequence
 `public void OnConsequence(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 consequence 事件触发时调用此回调。
+**用途 / Purpose:** 在 consequence 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -56,7 +56,7 @@ narrativeMenuOption.OnConsequence(characterCreationManager);
 ### SetOnCondition
 `public void SetOnCondition(NarrativeMenuOptionOnConditionDelegate onCondition)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on condition 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on condition 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -67,7 +67,7 @@ narrativeMenuOption.SetOnCondition(onCondition);
 ### SetOnSelect
 `public void SetOnSelect(NarrativeMenuOptionOnSelectDelegate onSelect)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on select 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on select 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -78,7 +78,7 @@ narrativeMenuOption.SetOnSelect(onSelect);
 ### SetOnConsequence
 `public void SetOnConsequence(NarrativeMenuOptionOnConsequenceDelegate onConsequence)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 on consequence 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 on consequence 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例
@@ -89,7 +89,7 @@ narrativeMenuOption.SetOnConsequence(onConsequence);
 ### ApplyFinalEffects
 `public void ApplyFinalEffects(CharacterCreationContent characterCreationContent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 final effects 的效果应用到当前对象。
+**用途 / Purpose:** 将 final effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuOption 实例

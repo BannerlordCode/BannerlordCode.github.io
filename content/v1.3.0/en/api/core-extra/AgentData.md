@@ -49,7 +49,7 @@ Treat `AgentData` as a Data-style extension point: first identify who creates it
 ### Character
 `public AgentData Character(BasicCharacterObject characterObject)`
 
-**Purpose:** **Purpose:** Executes the Character logic.
+**Purpose:** Executes the Character logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -60,7 +60,7 @@ var result = agentData.Character(characterObject);
 ### Monster
 `public AgentData Monster(Monster monster)`
 
-**Purpose:** **Purpose:** Executes the Monster logic.
+**Purpose:** Executes the Monster logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -71,7 +71,7 @@ var result = agentData.Monster(monster);
 ### OwnerParty
 `public AgentData OwnerParty(IBattleCombatant owner)`
 
-**Purpose:** **Purpose:** Executes the OwnerParty logic.
+**Purpose:** Executes the OwnerParty logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -82,7 +82,7 @@ var result = agentData.OwnerParty(owner);
 ### Equipment
 `public AgentData Equipment(Equipment equipment)`
 
-**Purpose:** **Purpose:** Executes the Equipment logic.
+**Purpose:** Executes the Equipment logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -93,7 +93,7 @@ var result = agentData.Equipment(equipment);
 ### EquipmentSeed
 `public AgentData EquipmentSeed(int seed)`
 
-**Purpose:** **Purpose:** Executes the EquipmentSeed logic.
+**Purpose:** Executes the EquipmentSeed logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -104,7 +104,7 @@ var result = agentData.EquipmentSeed(0);
 ### NoHorses
 `public AgentData NoHorses(bool noHorses)`
 
-**Purpose:** **Purpose:** Executes the NoHorses logic.
+**Purpose:** Executes the NoHorses logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -115,7 +115,7 @@ var result = agentData.NoHorses(false);
 ### NoWeapons
 `public AgentData NoWeapons(bool noWeapons)`
 
-**Purpose:** **Purpose:** Executes the NoWeapons logic.
+**Purpose:** Executes the NoWeapons logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -126,7 +126,7 @@ var result = agentData.NoWeapons(false);
 ### NoArmor
 `public AgentData NoArmor(bool noArmor)`
 
-**Purpose:** **Purpose:** Executes the NoArmor logic.
+**Purpose:** Executes the NoArmor logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -137,7 +137,7 @@ var result = agentData.NoArmor(false);
 ### FixedEquipment
 `public AgentData FixedEquipment(bool fixedEquipment)`
 
-**Purpose:** **Purpose:** Executes the FixedEquipment logic.
+**Purpose:** Executes the FixedEquipment logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -148,7 +148,7 @@ var result = agentData.FixedEquipment(false);
 ### CivilianEquipment
 `public AgentData CivilianEquipment(bool civilianEquipment)`
 
-**Purpose:** **Purpose:** Executes the CivilianEquipment logic.
+**Purpose:** Executes the CivilianEquipment logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -159,7 +159,7 @@ var result = agentData.CivilianEquipment(false);
 ### ClothingColor1
 `public AgentData ClothingColor1(uint color)`
 
-**Purpose:** **Purpose:** Executes the ClothingColor1 logic.
+**Purpose:** Executes the ClothingColor1 logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -170,7 +170,7 @@ var result = agentData.ClothingColor1(0);
 ### ClothingColor2
 `public AgentData ClothingColor2(uint color)`
 
-**Purpose:** **Purpose:** Executes the ClothingColor2 logic.
+**Purpose:** Executes the ClothingColor2 logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -181,7 +181,7 @@ var result = agentData.ClothingColor2(0);
 ### BodyProperties
 `public AgentData BodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** **Purpose:** Executes the BodyProperties logic.
+**Purpose:** Executes the BodyProperties logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -192,7 +192,7 @@ var result = agentData.BodyProperties(bodyProperties);
 ### Age
 `public AgentData Age(int age)`
 
-**Purpose:** **Purpose:** Executes the Age logic.
+**Purpose:** Executes the Age logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -203,7 +203,7 @@ var result = agentData.Age(0);
 ### TroopOrigin
 `public AgentData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**Purpose:** **Purpose:** Executes the TroopOrigin logic.
+**Purpose:** Executes the TroopOrigin logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -214,7 +214,7 @@ var result = agentData.TroopOrigin(troopOrigin);
 ### IsFemale
 `public AgentData IsFemale(bool isFemale)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the female state or condition.
+**Purpose:** Determines whether the this instance is in the female state or condition.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -225,7 +225,7 @@ var result = agentData.IsFemale(false);
 ### Race
 `public AgentData Race(int race)`
 
-**Purpose:** **Purpose:** Executes the Race logic.
+**Purpose:** Executes the Race logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first
@@ -236,7 +236,7 @@ var result = agentData.Race(0);
 ### MountKey
 `public AgentData MountKey(string mountKey)`
 
-**Purpose:** **Purpose:** Executes the MountKey logic.
+**Purpose:** Executes the MountKey logic.
 
 ```csharp
 // Obtain an instance of AgentData from the subsystem API first

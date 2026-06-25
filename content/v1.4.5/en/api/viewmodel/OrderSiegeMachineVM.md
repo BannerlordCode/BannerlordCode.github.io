@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshSiegeWeapon
 `public void RefreshSiegeWeapon()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of siege weapon in sync with the underlying state.
+**Purpose:** Keeps the display or cache of siege weapon in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderSiegeMachineVM from the subsystem API first
@@ -45,7 +45,7 @@ orderSiegeMachineVM.RefreshSiegeWeapon();
 ### GetSiegeType
 `public static SiegeEngineType GetSiegeType(Type t, BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Reads and returns the siege type value held by the this instance.
+**Purpose:** Reads and returns the siege type value held by the this instance.
 
 ```csharp
 // Static call; no instance required

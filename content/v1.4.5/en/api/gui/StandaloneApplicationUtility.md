@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### TerminateWithMessageBox
 `public static void TerminateWithMessageBox(string title, string message)`
 
-**Purpose:** **Purpose:** Executes the TerminateWithMessageBox logic.
+**Purpose:** Executes the TerminateWithMessageBox logic.
 
 ```csharp
 // Static call; no instance required

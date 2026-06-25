@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -41,7 +41,7 @@ orderTroopPlacer.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -52,7 +52,7 @@ orderTroopPlacer.OnMissionTick(0);
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**Purpose:** **Purpose:** Executes the RestrictOrdersToDeploymentBoundaries logic.
+**Purpose:** Executes the RestrictOrdersToDeploymentBoundaries logic.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -63,7 +63,7 @@ orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
+**Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first

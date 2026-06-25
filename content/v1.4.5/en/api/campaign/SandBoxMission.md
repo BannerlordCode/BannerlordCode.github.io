@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### OpenTournamentArcheryMission
 `public static IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with tournament archery mission.
+**Purpose:** Opens the resource or UI associated with tournament archery mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlemen
 ### OpenTournamentFightMission
 `public static IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with tournament fight mission.
+**Purpose:** Opens the resource or UI associated with tournament fight mission.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SandBoxMission.OpenTournamentFightMission("example", tournamentGame, settlement,
 ### OpenTournamentHorseRaceMission
 `public static IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with tournament horse race mission.
+**Purpose:** Opens the resource or UI associated with tournament horse race mission.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ SandBoxMission.OpenTournamentHorseRaceMission("example", tournamentGame, settlem
 ### OpenTournamentJoustingMission
 `public static IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with tournament jousting mission.
+**Purpose:** Opens the resource or UI associated with tournament jousting mission.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ SandBoxMission.OpenTournamentJoustingMission("example", tournamentGame, settleme
 ### OpenBattleChallengeMission
 `public static IMission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with battle challenge mission.
+**Purpose:** Opens the resource or UI associated with battle challenge mission.
 
 ```csharp
 // Static call; no instance required

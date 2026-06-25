@@ -41,7 +41,7 @@ description: "ChatLogWidget 的自动生成类参考。"
 ### RegisterMultiLineElement
 `public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将multi line element注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将multi line element注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatLogWidget 实例
@@ -52,7 +52,7 @@ chatLogWidget.RegisterMultiLineElement(element);
 ### RemoveMultiLineElement
 `public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 multi line element。
+**用途 / Purpose:** 从当前容器或状态中移除 multi line element。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatLogWidget 实例

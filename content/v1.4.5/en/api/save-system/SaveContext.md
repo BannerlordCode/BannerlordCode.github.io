@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -42,7 +42,7 @@ var result = saveContext.ToString();
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**Purpose:** **Purpose:** Writes statistics to persistent storage or a stream.
+**Purpose:** Writes statistics to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -53,7 +53,7 @@ var result = saveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictio
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the container size value held by the this instance.
+**Purpose:** Reads and returns the container size value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -64,7 +64,7 @@ var result = saveContext.GetContainerSize("example");
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** **Purpose:** Reads and returns the type keys value held by the this instance.
+**Purpose:** Reads and returns the type keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -75,7 +75,7 @@ var result = saveContext.GetTypeKeys();
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** **Purpose:** Reads and returns the container keys value held by the this instance.
+**Purpose:** Reads and returns the container keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -86,7 +86,7 @@ var result = saveContext.GetContainerKeys();
 ### GetStatistics
 `public static SaveStatistics GetStatistics()`
 
-**Purpose:** **Purpose:** Reads and returns the statistics value held by the this instance.
+**Purpose:** Reads and returns the statistics value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ SaveContext.GetStatistics();
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
-**Purpose:** **Purpose:** Adds or get string id to the current collection or state.
+**Purpose:** Adds or get string id to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -107,7 +107,7 @@ var result = saveContext.AddOrGetStringId("example");
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**Purpose:** **Purpose:** Reads and returns the object id value held by the this instance.
+**Purpose:** Reads and returns the object id value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -118,7 +118,7 @@ var result = saveContext.GetObjectId(target);
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**Purpose:** **Purpose:** Reads and returns the container id value held by the this instance.
+**Purpose:** Reads and returns the container id value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -129,7 +129,7 @@ var result = saveContext.GetContainerId(target);
 ### GetStringId
 `public int GetStringId(string target)`
 
-**Purpose:** **Purpose:** Reads and returns the string id value held by the this instance.
+**Purpose:** Reads and returns the string id value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first
@@ -140,7 +140,7 @@ var result = saveContext.GetStringId("example");
 ### GetStringSizeInBytes
 `public static int GetStringSizeInBytes(string text)`
 
-**Purpose:** **Purpose:** Reads and returns the string size in bytes value held by the this instance.
+**Purpose:** Reads and returns the string size in bytes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -150,7 +150,7 @@ SaveContext.GetStringSizeInBytes("example");
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
+**Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SaveContext from the subsystem API first

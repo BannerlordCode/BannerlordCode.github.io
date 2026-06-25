@@ -36,7 +36,7 @@ description: "MPLobbyClanInvitationPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
@@ -47,7 +47,7 @@ mPLobbyClanInvitationPopupVM.RefreshValues();
 ### Open
 `public void Open(string clanName, string clanTag, bool isCreation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开当前对象代表的资源或界面。
+**用途 / Purpose:** 打开当前对象代表的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
@@ -58,7 +58,7 @@ mPLobbyClanInvitationPopupVM.Open("example", "example", false);
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** **用途 / Purpose:** 关闭当前对象代表的资源或界面。
+**用途 / Purpose:** 关闭当前对象代表的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
@@ -69,7 +69,7 @@ mPLobbyClanInvitationPopupVM.Close();
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 confirmation 的最新表示。
+**用途 / Purpose:** 重新计算并更新 confirmation 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例

@@ -37,7 +37,7 @@ Treat `BanditDensityModel` as a Model-style extension point: first identify who 
 ### GetMaxSupportedNumberOfLootersForClan
 `public abstract int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** **Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
+**Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of BanditDensityModel from the subsystem API first
@@ -48,7 +48,7 @@ var result = banditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
 ### GetMinimumTroopCountForHideoutMission
 `public abstract int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** **Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of BanditDensityModel from the subsystem API first
@@ -59,7 +59,7 @@ var result = banditDensityModel.GetMinimumTroopCountForHideoutMission(party, fal
 ### GetMaximumTroopCountForHideoutMission
 `public abstract int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** **Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
 
 ```csharp
 // Obtain an instance of BanditDensityModel from the subsystem API first
@@ -70,7 +70,7 @@ var result = banditDensityModel.GetMaximumTroopCountForHideoutMission(party, fal
 ### IsPositionInsideNavalSafeZone
 `public abstract bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
+**Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
 
 ```csharp
 // Obtain an instance of BanditDensityModel from the subsystem API first

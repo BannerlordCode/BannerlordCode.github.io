@@ -49,7 +49,7 @@ description: "CustomBattleVM 的自动生成类参考。"
 ### SetActiveState
 `public void SetActiveState(bool isActive)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 active state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 active state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -60,7 +60,7 @@ customBattleVM.SetActiveState(false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -71,7 +71,7 @@ customBattleVM.RefreshValues();
 ### ExecuteBack
 `public void ExecuteBack()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 back 对应的操作或工作流。
+**用途 / Purpose:** 执行 back 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -82,7 +82,7 @@ customBattleVM.ExecuteBack();
 ### ExecuteStart
 `public void ExecuteStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 start 对应的操作或工作流。
+**用途 / Purpose:** 执行 start 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -93,7 +93,7 @@ customBattleVM.ExecuteStart();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 randomize 对应的操作或工作流。
+**用途 / Purpose:** 执行 randomize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -104,7 +104,7 @@ customBattleVM.ExecuteRandomize();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -115,7 +115,7 @@ customBattleVM.OnFinalize();
 ### ExecuteSwitchToNextCustomBattle
 `public void ExecuteSwitchToNextCustomBattle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 switch to next custom battle 对应的操作或工作流。
+**用途 / Purpose:** 执行 switch to next custom battle 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -126,7 +126,7 @@ customBattleVM.ExecuteSwitchToNextCustomBattle();
 ### SetStartInputKey
 `public void SetStartInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 start input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 start input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -137,7 +137,7 @@ customBattleVM.SetStartInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -148,7 +148,7 @@ customBattleVM.SetCancelInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例
@@ -159,7 +159,7 @@ customBattleVM.SetResetInputKey(hotkey);
 ### SetRandomizeInputKey
 `public void SetRandomizeInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 randomize input key 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 randomize input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleVM 实例

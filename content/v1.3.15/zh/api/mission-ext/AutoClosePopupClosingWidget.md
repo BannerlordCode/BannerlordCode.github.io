@@ -31,7 +31,7 @@ description: "AutoClosePopupClosingWidget 的自动生成类参考。"
 ### ShouldClosePopup
 `public bool ShouldClosePopup()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldClosePopup 对应的操作。
+**用途 / Purpose:** 调用 ShouldClosePopup 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AutoClosePopupClosingWidget 实例

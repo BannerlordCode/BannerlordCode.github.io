@@ -33,7 +33,7 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### StealthZoneEvent
 `public delegate void StealthZoneEvent()`
 
-**Purpose:** **Purpose:** Executes the StealthZoneEvent logic.
+**Purpose:** Executes the StealthZoneEvent logic.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -44,7 +44,7 @@ stealthZone.StealthZoneEvent();
 ### SetStealthAgents
 `public void SetStealthAgents(List<Agent> agents)`
 
-**Purpose:** **Purpose:** Assigns a new value to stealth agents and updates the object's internal state.
+**Purpose:** Assigns a new value to stealth agents and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -55,7 +55,7 @@ stealthZone.SetStealthAgents(agents);
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -66,7 +66,7 @@ stealthZone.Tick();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -77,7 +77,7 @@ stealthZone.OnAgentRemoved(affectedAgent, affectorAgent);
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the agent inside state or condition.
+**Purpose:** Determines whether the this instance is in the agent inside state or condition.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -88,7 +88,7 @@ var result = stealthZone.IsAgentInside(agent);
 ### OnPlayerFlees
 `public void OnPlayerFlees()`
 
-**Purpose:** **Purpose:** Invoked when the player flees event is raised.
+**Purpose:** Invoked when the player flees event is raised.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -99,7 +99,7 @@ stealthZone.OnPlayerFlees();
 ### ResetEvents
 `public void ResetEvents()`
 
-**Purpose:** **Purpose:** Returns events to its default or initial condition.
+**Purpose:** Returns events to its default or initial condition.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first
@@ -110,7 +110,7 @@ stealthZone.ResetEvents();
 ### DisableAll
 `public void DisableAll()`
 
-**Purpose:** **Purpose:** Executes the DisableAll logic.
+**Purpose:** Executes the DisableAll logic.
 
 ```csharp
 // Obtain an instance of StealthZone from the subsystem API first

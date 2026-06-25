@@ -29,7 +29,7 @@ description: "ForceSuppliesEventComponent 的自动生成类参考。"
 ### CreateForceSuppliesEvent
 `public static ForceSuppliesEventComponent CreateForceSuppliesEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 force supplies event 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 force supplies event 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ ForceSuppliesEventComponent.CreateForceSuppliesEvent(attackerParty, defenderPart
 ### CreateComponentForOldSaves
 `public static ForceSuppliesEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 component for old saves 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

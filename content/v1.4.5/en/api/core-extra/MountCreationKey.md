@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### FromString
 `public static MountCreationKey FromString(string str)`
 
-**Purpose:** **Purpose:** Executes the FromString logic.
+**Purpose:** Executes the FromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ MountCreationKey.FromString("example");
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MountCreationKey from the subsystem API first
@@ -55,7 +55,7 @@ var result = mountCreationKey.ToString();
 ### GetRandomMountKeyString
 `public static string GetRandomMountKeyString(ItemObject mountItem, int randomSeed)`
 
-**Purpose:** **Purpose:** Reads and returns the random mount key string value held by the this instance.
+**Purpose:** Reads and returns the random mount key string value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ MountCreationKey.GetRandomMountKeyString(mountItem, 0);
 ### GetRandomMountKey
 `public static MountCreationKey GetRandomMountKey(ItemObject mountItem, int randomSeed)`
 
-**Purpose:** **Purpose:** Reads and returns the random mount key value held by the this instance.
+**Purpose:** Reads and returns the random mount key value held by the this instance.
 
 ```csharp
 // Static call; no instance required

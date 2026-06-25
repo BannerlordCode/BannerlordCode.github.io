@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### Initialize
 `public void Initialize(Location locationTemplate, LocationComplex ownerComplex)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -49,7 +49,7 @@ location.Initialize(locationTemplate, ownerComplex);
 ### CanAIExit
 `public bool CanAIExit(LocationCharacter character)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for a i exit.
+**Purpose:** Checks whether the this instance meets the preconditions for a i exit.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -60,7 +60,7 @@ var result = location.CanAIExit(character);
 ### CanAIEnter
 `public bool CanAIEnter(LocationCharacter character)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for a i enter.
+**Purpose:** Checks whether the this instance meets the preconditions for a i enter.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -71,7 +71,7 @@ var result = location.CanAIEnter(character);
 ### CanPlayerEnter
 `public bool CanPlayerEnter()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player enter.
+**Purpose:** Checks whether the this instance meets the preconditions for player enter.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -82,7 +82,7 @@ var result = location.CanPlayerEnter();
 ### CanPlayerSee
 `public bool CanPlayerSee()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player see.
+**Purpose:** Checks whether the this instance meets the preconditions for player see.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -93,7 +93,7 @@ var result = location.CanPlayerSee();
 ### ReserveLocation
 `public void ReserveLocation(TextObject locationName, TextObject doorName)`
 
-**Purpose:** **Purpose:** Executes the ReserveLocation logic.
+**Purpose:** Executes the ReserveLocation logic.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -104,7 +104,7 @@ location.ReserveLocation(locationName, doorName);
 ### RemoveReservation
 `public void RemoveReservation()`
 
-**Purpose:** **Purpose:** Removes reservation from the current collection or state.
+**Purpose:** Removes reservation from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -115,7 +115,7 @@ location.RemoveReservation();
 ### SetOwnerComplex
 `public void SetOwnerComplex(LocationComplex locationComplex)`
 
-**Purpose:** **Purpose:** Assigns a new value to owner complex and updates the object's internal state.
+**Purpose:** Assigns a new value to owner complex and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -126,7 +126,7 @@ location.SetOwnerComplex(locationComplex);
 ### AddCharacter
 `public void AddCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Adds character to the current collection or state.
+**Purpose:** Adds character to the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -137,7 +137,7 @@ location.AddCharacter(locationCharacter);
 ### AddLocationCharacters
 `public void AddLocationCharacters(CreateLocationCharacterDelegate createDelegate, CultureObject culture, LocationCharacter.CharacterRelations relation, int count)`
 
-**Purpose:** **Purpose:** Adds location characters to the current collection or state.
+**Purpose:** Adds location characters to the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -148,7 +148,7 @@ location.AddLocationCharacters(createDelegate, culture, relation, 0);
 ### AddLocationCharacter
 `public LocationCharacter AddLocationCharacter(CreateLocationCharacterDelegate createDelegate, CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** **Purpose:** Adds location character to the current collection or state.
+**Purpose:** Adds location character to the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -159,7 +159,7 @@ var result = location.AddLocationCharacter(createDelegate, culture, relation);
 ### AddSpecialItem
 `public void AddSpecialItem(ItemObject itemObject)`
 
-**Purpose:** **Purpose:** Adds special item to the current collection or state.
+**Purpose:** Adds special item to the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -170,7 +170,7 @@ location.AddSpecialItem(itemObject);
 ### GetSceneName
 `public string GetSceneName(int upgradeLevel)`
 
-**Purpose:** **Purpose:** Reads and returns the scene name value held by the this instance.
+**Purpose:** Reads and returns the scene name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -181,7 +181,7 @@ var result = location.GetSceneName(0);
 ### SetSceneName
 `public void SetSceneName(int upgradeLevel, string sceneName)`
 
-**Purpose:** **Purpose:** Assigns a new value to scene name and updates the object's internal state.
+**Purpose:** Assigns a new value to scene name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -192,7 +192,7 @@ location.SetSceneName(0, "example");
 ### GetSceneCount
 `public int GetSceneCount()`
 
-**Purpose:** **Purpose:** Reads and returns the scene count value held by the this instance.
+**Purpose:** Reads and returns the scene count value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -203,7 +203,7 @@ var result = location.GetSceneCount();
 ### RemoveAllHeroCharactersFromPrison
 `public void RemoveAllHeroCharactersFromPrison()`
 
-**Purpose:** **Purpose:** Removes all hero characters from prison from the current collection or state.
+**Purpose:** Removes all hero characters from prison from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -214,7 +214,7 @@ location.RemoveAllHeroCharactersFromPrison();
 ### RemoveAllCharacters
 `public void RemoveAllCharacters()`
 
-**Purpose:** **Purpose:** Removes all characters from the current collection or state.
+**Purpose:** Removes all characters from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -225,7 +225,7 @@ location.RemoveAllCharacters();
 ### RemoveAllCharacters
 `public void RemoveAllCharacters(Predicate<LocationCharacter> predicate)`
 
-**Purpose:** **Purpose:** Removes all characters from the current collection or state.
+**Purpose:** Removes all characters from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -236,7 +236,7 @@ location.RemoveAllCharacters(predicate);
 ### RemoveLocationCharacter
 `public void RemoveLocationCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Removes location character from the current collection or state.
+**Purpose:** Removes location character from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -247,7 +247,7 @@ location.RemoveLocationCharacter(locationCharacter);
 ### RemoveCharacter
 `public void RemoveCharacter(Hero hero)`
 
-**Purpose:** **Purpose:** Removes character from the current collection or state.
+**Purpose:** Removes character from the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -258,7 +258,7 @@ location.RemoveCharacter(hero);
 ### ContainsCharacter
 `public bool ContainsCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** **Purpose:** Indicates whether the this instance contains character.
+**Purpose:** Indicates whether the this instance contains character.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -269,7 +269,7 @@ var result = location.ContainsCharacter(locationCharacter);
 ### ContainsCharacter
 `public bool ContainsCharacter(Hero hero)`
 
-**Purpose:** **Purpose:** Indicates whether the this instance contains character.
+**Purpose:** Indicates whether the this instance contains character.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -280,7 +280,7 @@ var result = location.ContainsCharacter(hero);
 ### AddPassageToLocation
 `public void AddPassageToLocation(Location passageToLocation)`
 
-**Purpose:** **Purpose:** Adds passage to location to the current collection or state.
+**Purpose:** Adds passage to location to the current collection or state.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -291,7 +291,7 @@ location.AddPassageToLocation(passageToLocation);
 ### GetCharacterList
 `public IEnumerable<LocationCharacter> GetCharacterList()`
 
-**Purpose:** **Purpose:** Reads and returns the character list value held by the this instance.
+**Purpose:** Reads and returns the character list value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -302,7 +302,7 @@ var result = location.GetCharacterList();
 ### GetPassageToLocation
 `public Location GetPassageToLocation(string locationId)`
 
-**Purpose:** **Purpose:** Reads and returns the passage to location value held by the this instance.
+**Purpose:** Reads and returns the passage to location value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -313,7 +313,7 @@ var result = location.GetPassageToLocation("example");
 ### OnAIChangeLocation
 `public void OnAIChangeLocation(Location previousLocation)`
 
-**Purpose:** **Purpose:** Invoked when the a i change location event is raised.
+**Purpose:** Invoked when the a i change location event is raised.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -324,7 +324,7 @@ location.OnAIChangeLocation(previousLocation);
 ### GetLocationCharacter
 `public LocationCharacter GetLocationCharacter(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the location character value held by the this instance.
+**Purpose:** Reads and returns the location character value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first
@@ -335,7 +335,7 @@ var result = location.GetLocationCharacter(hero);
 ### GetLocationCharacter
 `public LocationCharacter GetLocationCharacter(IAgentOriginBase agentOrigin)`
 
-**Purpose:** **Purpose:** Reads and returns the location character value held by the this instance.
+**Purpose:** Reads and returns the location character value held by the this instance.
 
 ```csharp
 // Obtain an instance of Location from the subsystem API first

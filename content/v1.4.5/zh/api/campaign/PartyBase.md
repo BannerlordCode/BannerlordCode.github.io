@@ -59,7 +59,7 @@ description: "PartyBase 的自动生成类参考。"
 ### OnVisibilityChanged
 `public void OnVisibilityChanged(bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 visibility changed 事件触发时调用此回调。
+**用途 / Purpose:** 在 visibility changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -70,7 +70,7 @@ partyBase.OnVisibilityChanged(false);
 ### OnConsumedFood
 `public void OnConsumedFood()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 consumed food 事件触发时调用此回调。
+**用途 / Purpose:** 在 consumed food 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -81,7 +81,7 @@ partyBase.OnConsumedFood();
 ### SetCustomOwner
 `public void SetCustomOwner(Hero customOwner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom owner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom owner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -92,7 +92,7 @@ partyBase.SetCustomOwner(customOwner);
 ### IsPartyUnderPlayerCommand
 `public static bool IsPartyUnderPlayerCommand(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 party under player command 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 party under player command 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -102,7 +102,7 @@ PartyBase.IsPartyUnderPlayerCommand(party);
 ### SetLevelMaskIsDirty
 `public void SetLevelMaskIsDirty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 level mask is dirty 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 level mask is dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -113,7 +113,7 @@ partyBase.SetLevelMaskIsDirty();
 ### OnLevelMaskUpdated
 `public void OnLevelMaskUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 level mask updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 level mask updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -124,7 +124,7 @@ partyBase.OnLevelMaskUpdated();
 ### SetCustomName
 `public void SetCustomName(TextObject name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom name 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -135,7 +135,7 @@ partyBase.SetCustomName(name);
 ### SetCustomBanner
 `public void SetCustomBanner(Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom banner 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 custom banner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -146,7 +146,7 @@ partyBase.SetCustomBanner(banner);
 ### IsUnderPlayersCommand
 `public bool IsUnderPlayersCommand(BattleSideEnum playerSide)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 under players command 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 under players command 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -157,7 +157,7 @@ var result = partyBase.IsUnderPlayersCommand(playerSide);
 ### GetNumberOfHealthyMenOfTier
 `public int GetNumberOfHealthyMenOfTier(int tier)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of healthy men of tier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of healthy men of tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -168,7 +168,7 @@ var result = partyBase.GetNumberOfHealthyMenOfTier(0);
 ### CalculateCurrentStrength
 `public float CalculateCurrentStrength()`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算current strength的当前值或结果。
+**用途 / Purpose:** 计算current strength的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -179,7 +179,7 @@ var result = partyBase.CalculateCurrentStrength();
 ### GetCustomStrength
 `public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 custom strength 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 custom strength 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -190,7 +190,7 @@ var result = partyBase.GetCustomStrength(side, context);
 ### GetShipsVersion
 `public int GetShipsVersion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ships version 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ships version 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -201,7 +201,7 @@ var result = partyBase.GetShipsVersion();
 ### GetNumberOfMenWith
 `public int GetNumberOfMenWith(TraitObject trait)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of men with 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of men with 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -212,7 +212,7 @@ var result = partyBase.GetNumberOfMenWith(trait);
 ### AddPrisoner
 `public int AddPrisoner(CharacterObject element, int numberToAdd)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 prisoner 添加到当前容器或状态中。
+**用途 / Purpose:** 将 prisoner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -223,7 +223,7 @@ var result = partyBase.AddPrisoner(element, 0);
 ### AddMember
 `public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 member 添加到当前容器或状态中。
+**用途 / Purpose:** 将 member 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -234,7 +234,7 @@ var result = partyBase.AddMember(element, 0, 0);
 ### AddPrisoners
 `public void AddPrisoners(TroopRoster roster)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 prisoners 添加到当前容器或状态中。
+**用途 / Purpose:** 将 prisoners 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -245,7 +245,7 @@ partyBase.AddPrisoners(roster);
 ### AddMembers
 `public void AddMembers(TroopRoster roster)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 members 添加到当前容器或状态中。
+**用途 / Purpose:** 将 members 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -256,7 +256,7 @@ partyBase.AddMembers(roster);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -267,7 +267,7 @@ var result = partyBase.ToString();
 ### AddElementToMemberRoster
 `public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 element to member roster 添加到当前容器或状态中。
+**用途 / Purpose:** 将 element to member roster 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -278,7 +278,7 @@ var result = partyBase.AddElementToMemberRoster(element, 0, false);
 ### AddToMemberRosterElementAtIndex
 `public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 to member roster element at index 添加到当前容器或状态中。
+**用途 / Purpose:** 将 to member roster element at index 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -289,7 +289,7 @@ partyBase.AddToMemberRosterElementAtIndex(0, 0, 0);
 ### WoundMemberRosterElements
 `public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WoundMemberRosterElements 对应的操作。
+**用途 / Purpose:** 调用 WoundMemberRosterElements 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -300,7 +300,7 @@ partyBase.WoundMemberRosterElements(elementObj, 0);
 ### WoundMemberRosterElementsWithIndex
 `public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 WoundMemberRosterElementsWithIndex 对应的操作。
+**用途 / Purpose:** 调用 WoundMemberRosterElementsWithIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -311,7 +311,7 @@ partyBase.WoundMemberRosterElementsWithIndex(0, 0);
 ### UpdateVisibilityAndInspected
 `public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 visibility and inspected 的最新表示。
+**用途 / Purpose:** 重新计算并更新 visibility and inspected 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -322,7 +322,7 @@ partyBase.UpdateVisibilityAndInspected(fromPosition, 0);
 ### SetAsCameraFollowParty
 `public void SetAsCameraFollowParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as camera follow party 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 as camera follow party 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -333,7 +333,7 @@ partyBase.SetAsCameraFollowParty();
 ### SetVisualAsDirty
 `public void SetVisualAsDirty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 visual as dirty 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 visual as dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -344,7 +344,7 @@ partyBase.SetVisualAsDirty();
 ### OnVisualsUpdated
 `public void OnVisualsUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 visuals updated 事件触发时调用此回调。
+**用途 / Purpose:** 在 visuals updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例

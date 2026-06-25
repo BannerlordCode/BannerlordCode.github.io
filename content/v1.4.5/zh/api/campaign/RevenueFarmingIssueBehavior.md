@@ -31,7 +31,7 @@ description: "RevenueFarmingIssueBehavior 的自动生成类参考。"
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -42,7 +42,7 @@ var result = revenueFarmingIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** **用途 / Purpose:** 创建或发起stay alive conditions。
+**用途 / Purpose:** 创建或发起stay alive conditions。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -53,7 +53,7 @@ var result = revenueFarmingIssueBehavior.IssueStayAliveConditions();
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RevenuesAreDeliveredToSteward 对应的操作。
+**用途 / Purpose:** 调用 RevenuesAreDeliveredToSteward 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -64,7 +64,7 @@ revenueFarmingIssueBehavior.RevenuesAreDeliveredToSteward();
 ### FindCurrentRevenueVillage
 `public RevenueVillage FindCurrentRevenueVillage()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的current revenue village。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的current revenue village。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -75,7 +75,7 @@ var result = revenueFarmingIssueBehavior.FindCurrentRevenueVillage();
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueVillage village, bool addLog = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 village as completed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 village as completed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -86,7 +86,7 @@ revenueFarmingIssueBehavior.SetVillageAsCompleted(village, false);
 ### SetDone
 `public void SetDone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 done 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 done 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -97,7 +97,7 @@ revenueFarmingIssueBehavior.SetDone();
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 additional progress 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 additional progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -108,7 +108,7 @@ revenueFarmingIssueBehavior.SetAdditionalProgress(0);
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is completed 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 is completed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -119,7 +119,7 @@ var result = revenueFarmingIssueBehavior.GetIsCompleted();
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 VillageEventOptionData 对应的操作。
+**用途 / Purpose:** 调用 VillageEventOptionData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -130,7 +130,7 @@ var result = revenueFarmingIssueBehavior.VillageEventOptionData("example", onCon
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -141,7 +141,7 @@ revenueFarmingIssueBehavior.RegisterEvents();
 ### OnVillageEventWithIdSpawned
 `public void OnVillageEventWithIdSpawned(string Id)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 village event with id spawned 事件触发时调用此回调。
+**用途 / Purpose:** 在 village event with id spawned 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -152,7 +152,7 @@ revenueFarmingIssueBehavior.OnVillageEventWithIdSpawned("example");
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例
@@ -163,7 +163,7 @@ revenueFarmingIssueBehavior.SyncData(dataStore);
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
+**用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueBehavior 实例

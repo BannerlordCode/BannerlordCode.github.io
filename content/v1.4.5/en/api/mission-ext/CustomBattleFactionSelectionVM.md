@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first
@@ -42,7 +42,7 @@ customBattleFactionSelectionVM.RefreshValues();
 ### SelectFaction
 `public void SelectFaction(int index)`
 
-**Purpose:** **Purpose:** Executes the SelectFaction logic.
+**Purpose:** Executes the SelectFaction logic.
 
 ```csharp
 // Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first
@@ -53,7 +53,7 @@ customBattleFactionSelectionVM.SelectFaction(0);
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
+**Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first

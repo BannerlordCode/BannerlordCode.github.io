@@ -23,7 +23,7 @@ Treat `GauntletMapNotificationView` as a View-style extension point: first ident
 ### RegisterMapNotificationType
 `public override void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** **Purpose:** Registers map notification type with the current system so it can later be observed or dispatched.
+**Purpose:** Registers map notification type with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GauntletMapNotificationView from the subsystem API first
@@ -34,7 +34,7 @@ gauntletMapNotificationView.RegisterMapNotificationType(data, item);
 ### ResetNotifications
 `public override void ResetNotifications()`
 
-**Purpose:** **Purpose:** Returns notifications to its default or initial condition.
+**Purpose:** Returns notifications to its default or initial condition.
 
 ```csharp
 // Obtain an instance of GauntletMapNotificationView from the subsystem API first

@@ -30,7 +30,7 @@ Treat `StealthFailCounterMissionLogic` as a Logic-style extension point: first i
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**Purpose:** **Purpose:** Invoked when the agent alarmed state changed event is raised.
+**Purpose:** Invoked when the agent alarmed state changed event is raised.
 
 ```csharp
 // Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
@@ -41,7 +41,7 @@ stealthFailCounterMissionLogic.OnAgentAlarmedStateChanged(agent, flag);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
@@ -52,7 +52,7 @@ stealthFailCounterMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agen
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
@@ -63,7 +63,7 @@ stealthFailCounterMissionLogic.OnMissionTick(0);
 ### SetFailTexts
 `public void SetFailTexts(TextObject title, TextObject description)`
 
-**Purpose:** **Purpose:** Assigns a new value to fail texts and updates the object's internal state.
+**Purpose:** Assigns a new value to fail texts and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first

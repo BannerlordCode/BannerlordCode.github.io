@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public virtual void LoadFrom(XmlNode canvasImageNode)`
 
-**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
+**Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CanvasElement from the subsystem API first
@@ -45,7 +45,7 @@ canvasElement.LoadFrom(canvasImageNode);
 ### GetMarginSize
 `public override Vector2 GetMarginSize()`
 
-**Purpose:** **Purpose:** Reads and returns the margin size value held by the this instance.
+**Purpose:** Reads and returns the margin size value held by the this instance.
 
 ```csharp
 // Obtain an instance of CanvasElement from the subsystem API first

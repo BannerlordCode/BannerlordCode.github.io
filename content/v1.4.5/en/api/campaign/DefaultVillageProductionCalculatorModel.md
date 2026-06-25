@@ -23,7 +23,7 @@ Treat `DefaultVillageProductionCalculatorModel` as a Model-style extension point
 ### CalculateDailyProductionAmount
 `public override ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of daily production amount.
+**Purpose:** Calculates the current value or result of daily production amount.
 
 ```csharp
 // Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultVillageProductionCalculatorModel.CalculateDailyProductionAmo
 ### CalculateDailyFoodProductionAmount
 `public override float CalculateDailyFoodProductionAmount(Village village)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of daily food production amount.
+**Purpose:** Calculates the current value or result of daily food production amount.
 
 ```csharp
 // Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultVillageProductionCalculatorModel.CalculateDailyFoodProductio
 ### CalculateProductionSpeedOfItemCategory
 `public override float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of production speed of item category.
+**Purpose:** Calculates the current value or result of production speed of item category.
 
 ```csharp
 // Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first

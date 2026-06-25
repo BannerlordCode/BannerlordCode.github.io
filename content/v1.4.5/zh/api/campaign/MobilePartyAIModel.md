@@ -39,7 +39,7 @@ description: "MobilePartyAIModel 的自动生成类参考。"
 ### ShouldConsiderAvoiding
 `public abstract bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldConsiderAvoiding 对应的操作。
+**用途 / Purpose:** 调用 ShouldConsiderAvoiding 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例
@@ -50,7 +50,7 @@ var result = mobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty);
 ### ShouldConsiderAttacking
 `public abstract bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldConsiderAttacking 对应的操作。
+**用途 / Purpose:** 调用 ShouldConsiderAttacking 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例
@@ -61,7 +61,7 @@ var result = mobilePartyAIModel.ShouldConsiderAttacking(party, targetParty);
 ### GetPatrolRadius
 `public abstract float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 patrol radius 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 patrol radius 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例
@@ -72,7 +72,7 @@ var result = mobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint);
 ### GetSettlementNearbyThreatAndAllyCheckRadius
 `public abstract float GetSettlementNearbyThreatAndAllyCheckRadius(Settlement settlement, bool isPort)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement nearby threat and ally check radius 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 settlement nearby threat and ally check radius 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例
@@ -83,7 +83,7 @@ var result = mobilePartyAIModel.GetSettlementNearbyThreatAndAllyCheckRadius(sett
 ### ShouldPartyCheckInitiativeBehavior
 `public abstract bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldPartyCheckInitiativeBehavior 对应的操作。
+**用途 / Purpose:** 调用 ShouldPartyCheckInitiativeBehavior 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例
@@ -94,7 +94,7 @@ var result = mobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobileParty);
 ### GetBestInitiativeBehavior
 `public abstract void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best initiative behavior 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 best initiative behavior 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAIModel 实例

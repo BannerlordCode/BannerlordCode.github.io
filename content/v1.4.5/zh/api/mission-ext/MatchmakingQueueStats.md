@@ -31,7 +31,7 @@ description: "MatchmakingQueueStats 的自动生成类参考。"
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingQueueRegionStats matchmakingQueueRegionStats)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 region stats 添加到当前容器或状态中。
+**用途 / Purpose:** 将 region stats 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueStats 实例
@@ -42,7 +42,7 @@ matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
 ### GetRegionStats
 `public MatchmakingQueueRegionStats GetRegionStats(string region)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 region stats 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 region stats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueStats 实例
@@ -53,7 +53,7 @@ var result = matchmakingQueueStats.GetRegionStats("example");
 ### GetQueueCountOf
 `public int GetQueueCountOf(string region, string gameTypes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 queue count of 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 queue count of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueStats 实例
@@ -64,7 +64,7 @@ var result = matchmakingQueueStats.GetQueueCountOf("example", "example");
 ### GetRegionNames
 `public string GetRegionNames()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 region names 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 region names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueStats 实例

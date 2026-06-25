@@ -30,7 +30,7 @@ Treat `InformationData` as a Data-style extension point: first identify who crea
 ### IsValid
 `public virtual bool IsValid()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
+**Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of InformationData from the subsystem API first

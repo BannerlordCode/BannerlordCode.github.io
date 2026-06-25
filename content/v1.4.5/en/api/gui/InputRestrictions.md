@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### SetMouseVisibility
 `public void SetMouseVisibility(bool isVisible)`
 
-**Purpose:** **Purpose:** Assigns a new value to mouse visibility and updates the object's internal state.
+**Purpose:** Assigns a new value to mouse visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InputRestrictions from the subsystem API first
@@ -43,7 +43,7 @@ inputRestrictions.SetMouseVisibility(false);
 ### SetInputRestrictions
 `public void SetInputRestrictions(bool isMouseVisible = true, InputUsageMask mask = InputUsageMask.All)`
 
-**Purpose:** **Purpose:** Assigns a new value to input restrictions and updates the object's internal state.
+**Purpose:** Assigns a new value to input restrictions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InputRestrictions from the subsystem API first
@@ -54,7 +54,7 @@ inputRestrictions.SetInputRestrictions(false, inputUsageMask.All);
 ### ResetInputRestrictions
 `public void ResetInputRestrictions()`
 
-**Purpose:** **Purpose:** Returns input restrictions to its default or initial condition.
+**Purpose:** Returns input restrictions to its default or initial condition.
 
 ```csharp
 // Obtain an instance of InputRestrictions from the subsystem API first

@@ -29,7 +29,7 @@ description: "CustomPartyComponent 的自动生成类参考。"
 ### InitializeCustomPartyPropertiesWithPartyTemplate
 `public void InitializeCustomPartyPropertiesWithPartyTemplate(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom party properties with party template 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 custom party properties with party template 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomPartyComponent 实例
@@ -40,7 +40,7 @@ customPartyComponent.InitializeCustomPartyPropertiesWithPartyTemplate(mobilePart
 ### InitializeCustomPartyPropertiesWithTroopRoster
 `public void InitializeCustomPartyPropertiesWithTroopRoster(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 custom party properties with troop roster 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 custom party properties with troop roster 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomPartyComponent 实例
@@ -51,7 +51,7 @@ customPartyComponent.InitializeCustomPartyPropertiesWithTroopRoster(mobileParty)
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomPartyComponent 实例
@@ -62,7 +62,7 @@ var result = customPartyComponent.GetDefaultComponentBanner();
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 custom party with party template 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 custom party with party template 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlem
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, Hero leader, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 custom party with party template 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 custom party with party template 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -82,7 +82,7 @@ CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlem
 ### CreateCustomPartyWithTroopRoster
 `public static MobileParty CreateCustomPartyWithTroopRoster(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, TroopRoster troopRoster, TroopRoster prisonerRoster, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 custom party with troop roster 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 custom party with troop roster 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -92,7 +92,7 @@ CustomPartyComponent.CreateCustomPartyWithTroopRoster(position, 0, homeSettlemen
 ### ConvertPartyToCustomParty
 `public static void ConvertPartyToCustomParty(MobileParty mobileParty, Settlement homeSettlement, TextObject name, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把party to custom party转换为另一种表示或类型。
+**用途 / Purpose:** 把party to custom party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -102,7 +102,7 @@ CustomPartyComponent.ConvertPartyToCustomParty(mobileParty, homeSettlement, name
 ### SetBaseSpeed
 `public void SetBaseSpeed(float speed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 base speed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 base speed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomPartyComponent 实例
@@ -113,7 +113,7 @@ customPartyComponent.SetBaseSpeed(0);
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount and harness visual ids for party icon 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mount and harness visual ids for party icon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomPartyComponent 实例

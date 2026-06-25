@@ -23,7 +23,7 @@ description: "SimpleMountedPlayerMissionController 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
+**用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
@@ -34,7 +34,7 @@ simpleMountedPlayerMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
@@ -45,7 +45,7 @@ simpleMountedPlayerMissionController.AfterStart();
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
+**用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例

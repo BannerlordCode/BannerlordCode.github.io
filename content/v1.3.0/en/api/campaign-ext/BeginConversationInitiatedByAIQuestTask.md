@@ -23,7 +23,7 @@ Start from namespace `SandBox.Issues.IssueQuestTasks` to place it in the stack, 
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**Purpose:** **Purpose:** Executes the MissionTick logic.
+**Purpose:** Executes the MissionTick logic.
 
 ```csharp
 // Obtain an instance of BeginConversationInitiatedByAIQuestTask from the subsystem API first
@@ -34,7 +34,7 @@ beginConversationInitiatedByAIQuestTask.MissionTick(0);
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** **Purpose:** Assigns a new value to references and updates the object's internal state.
+**Purpose:** Assigns a new value to references and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BeginConversationInitiatedByAIQuestTask from the subsystem API first

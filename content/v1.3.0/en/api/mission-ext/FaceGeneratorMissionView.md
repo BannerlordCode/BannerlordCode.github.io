@@ -23,7 +23,7 @@ Treat `FaceGeneratorMissionView` as a View-style extension point: first identify
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of FaceGeneratorMissionView from the subsystem API first

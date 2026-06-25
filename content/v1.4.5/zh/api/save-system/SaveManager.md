@@ -23,7 +23,7 @@ description: "SaveManager 的自动生成类参考。"
 ### InitializeGlobalDefinitionContext
 `public static void InitializeGlobalDefinitionContext()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 global definition context 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 global definition context 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SaveManager.InitializeGlobalDefinitionContext();
 ### CheckSaveableTypes
 `public static List<Type> CheckSaveableTypes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查saveable types在当前对象中是否成立。
+**用途 / Purpose:** 检查saveable types在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ SaveManager.CheckSaveableTypes();
 ### Save
 `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ SaveManager.Save(target, metaData, "example", driver);
 ### ShouldResolveConflicts
 `public static bool ShouldResolveConflicts()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldResolveConflicts 对应的操作。
+**用途 / Purpose:** 调用 ShouldResolveConflicts 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ SaveManager.ShouldResolveConflicts();
 ### LoadMetaData
 `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 meta data。
+**用途 / Purpose:** 从持久化存储或流中读取 meta data。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ SaveManager.LoadMetaData("example", driver);
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ SaveManager.Load("example", driver);
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 静态调用，不需要实例

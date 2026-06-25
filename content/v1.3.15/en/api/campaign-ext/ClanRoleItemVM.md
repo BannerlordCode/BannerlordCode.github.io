@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first
@@ -50,7 +50,7 @@ clanRoleItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first
@@ -61,7 +61,7 @@ clanRoleItemVM.OnFinalize();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first
@@ -72,7 +72,7 @@ clanRoleItemVM.Refresh();
 ### ExecuteToggleRoleSelection
 `public void ExecuteToggleRoleSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle role selection.
+**Purpose:** Runs the operation or workflow associated with toggle role selection.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first
@@ -83,7 +83,7 @@ clanRoleItemVM.ExecuteToggleRoleSelection();
 ### SetEnabled
 `public void SetEnabled(bool enabled, TextObject disabledHint)`
 
-**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
+**Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first
@@ -94,7 +94,7 @@ clanRoleItemVM.SetEnabled(false, disabledHint);
 ### Compare
 `public int Compare(ClanRoleMemberItemVM x, ClanRoleMemberItemVM y)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ClanRoleItemVM from the subsystem API first

@@ -30,7 +30,7 @@ description: "MissionEquipment 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -41,7 +41,7 @@ missionEquipment.Initialize();
 ### IsValid
 `public bool IsValid(CachedBool queriedData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -52,7 +52,7 @@ var result = missionEquipment.IsValid(queriedData);
 ### UpdateAndMarkValid
 `public void UpdateAndMarkValid(CachedBool data, bool value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
+**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -63,7 +63,7 @@ missionEquipment.UpdateAndMarkValid(data, false);
 ### GetValue
 `public bool GetValue(CachedBool data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -74,7 +74,7 @@ var result = missionEquipment.GetValue(data);
 ### IsValid
 `public bool IsValid(CachedFloat queriedData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -85,7 +85,7 @@ var result = missionEquipment.IsValid(queriedData);
 ### UpdateAndMarkValid
 `public void UpdateAndMarkValid(CachedFloat data, float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
+**用途 / Purpose:** 重新计算并更新 and mark valid 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -96,7 +96,7 @@ missionEquipment.UpdateAndMarkValid(data, 0);
 ### GetValue
 `public float GetValue(CachedFloat data)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -107,7 +107,7 @@ var result = missionEquipment.GetValue(data);
 ### InvalidateOnWeaponSlotUpdated
 `public void InvalidateOnWeaponSlotUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponSlotUpdated 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponSlotUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -118,7 +118,7 @@ missionEquipment.InvalidateOnWeaponSlotUpdated();
 ### InvalidateOnWeaponUsageIndexUpdated
 `public void InvalidateOnWeaponUsageIndexUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponUsageIndexUpdated 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponUsageIndexUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -129,7 +129,7 @@ missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
 ### InvalidateOnWeaponAmmoUpdated
 `public void InvalidateOnWeaponAmmoUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponAmmoUpdated 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -140,7 +140,7 @@ missionEquipment.InvalidateOnWeaponAmmoUpdated();
 ### InvalidateOnWeaponAmmoAvailabilityChanged
 `public void InvalidateOnWeaponAmmoAvailabilityChanged()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponAmmoAvailabilityChanged 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponAmmoAvailabilityChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -151,7 +151,7 @@ missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
 ### InvalidateOnWeaponHitPointsUpdated
 `public void InvalidateOnWeaponHitPointsUpdated()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponHitPointsUpdated 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponHitPointsUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -162,7 +162,7 @@ missionEquipment.InvalidateOnWeaponHitPointsUpdated();
 ### InvalidateOnWeaponDestroyed
 `public void InvalidateOnWeaponDestroyed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 InvalidateOnWeaponDestroyed 对应的操作。
+**用途 / Purpose:** 调用 InvalidateOnWeaponDestroyed 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -173,7 +173,7 @@ missionEquipment.InvalidateOnWeaponDestroyed();
 ### FillFrom
 `public void FillFrom(MissionEquipment sourceEquipment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -184,7 +184,7 @@ missionEquipment.FillFrom(sourceEquipment);
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
+**用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -195,7 +195,7 @@ missionEquipment.FillFrom(sourceEquipment, banner);
 ### GetTotalWeightOfWeapons
 `public float GetTotalWeightOfWeapons()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total weight of weapons 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total weight of weapons 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -206,7 +206,7 @@ var result = missionEquipment.GetTotalWeightOfWeapons();
 ### SelectWeaponPickUpSlot
 `public static EquipmentIndex SelectWeaponPickUpSlot(Agent agentPickingUp, MissionWeapon weaponBeingPickedUp, bool isStuckMissile)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SelectWeaponPickUpSlot 对应的操作。
+**用途 / Purpose:** 调用 SelectWeaponPickUpSlot 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -216,7 +216,7 @@ MissionEquipment.SelectWeaponPickUpSlot(agentPickingUp, weaponBeingPickedUp, fal
 ### HasAmmo
 `public bool HasAmmo(EquipmentIndex equipmentIndex, out int rangedUsageIndex, out bool hasLoadedAmmo, out bool noAmmoInThisSlot)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 ammo。
+**用途 / Purpose:** 判断当前对象是否已经持有 ammo。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -227,7 +227,7 @@ var result = missionEquipment.HasAmmo(equipmentIndex, rangedUsageIndex, hasLoade
 ### GetAmmoAmount
 `public int GetAmmoAmount(EquipmentIndex weaponIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ammo amount 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ammo amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -238,7 +238,7 @@ var result = missionEquipment.GetAmmoAmount(weaponIndex);
 ### GetMaxAmmo
 `public int GetMaxAmmo(EquipmentIndex weaponIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max ammo 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max ammo 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -249,7 +249,7 @@ var result = missionEquipment.GetMaxAmmo(weaponIndex);
 ### GetAmmoCountAndIndexOfType
 `public void GetAmmoCountAndIndexOfType(ItemObject.ItemTypeEnum itemType, out int ammoCount, out EquipmentIndex eIndex, EquipmentIndex equippedIndex = EquipmentIndex.None)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ammo count and index of type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 ammo count and index of type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -260,7 +260,7 @@ missionEquipment.GetAmmoCountAndIndexOfType(itemType, ammoCount, eIndex, equipme
 ### DoesWeaponFitToSlot
 `public static bool DoesWeaponFitToSlot(EquipmentIndex slotIndex, MissionWeapon weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回weapon fit to slot对当前对象是否成立的布尔结果。
+**用途 / Purpose:** 判断weapon fit to slot这一条件在当前对象上是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -270,7 +270,7 @@ MissionEquipment.DoesWeaponFitToSlot(slotIndex, weapon);
 ### CheckLoadedAmmos
 `public void CheckLoadedAmmos()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查loaded ammos在当前对象中是否成立。
+**用途 / Purpose:** 检查loaded ammos在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -281,7 +281,7 @@ missionEquipment.CheckLoadedAmmos();
 ### SetUsageIndexOfSlot
 `public void SetUsageIndexOfSlot(EquipmentIndex slotIndex, int usageIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 usage index of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 usage index of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -292,7 +292,7 @@ missionEquipment.SetUsageIndexOfSlot(slotIndex, 0);
 ### SetReloadPhaseOfSlot
 `public void SetReloadPhaseOfSlot(EquipmentIndex slotIndex, short reloadPhase)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reload phase of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reload phase of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -303,7 +303,7 @@ missionEquipment.SetReloadPhaseOfSlot(slotIndex, 0);
 ### SetAmountOfSlot
 `public void SetAmountOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxAmount = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 amount of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 amount of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -314,7 +314,7 @@ missionEquipment.SetAmountOfSlot(slotIndex, 0, false);
 ### SetHitPointsOfSlot
 `public void SetHitPointsOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxHitPoints = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hit points of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hit points of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -325,7 +325,7 @@ missionEquipment.SetHitPointsOfSlot(slotIndex, 0, false);
 ### SetReloadedAmmoOfSlot
 `public void SetReloadedAmmoOfSlot(EquipmentIndex slotIndex, EquipmentIndex ammoSlotIndex, short totalAmmo)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 reloaded ammo of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 reloaded ammo of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -336,7 +336,7 @@ missionEquipment.SetReloadedAmmoOfSlot(slotIndex, ammoSlotIndex, 0);
 ### SetConsumedAmmoOfSlot
 `public void SetConsumedAmmoOfSlot(EquipmentIndex slotIndex, short count)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 consumed ammo of slot 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 consumed ammo of slot 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -347,7 +347,7 @@ missionEquipment.SetConsumedAmmoOfSlot(slotIndex, 0);
 ### AttachWeaponToWeaponInSlot
 `public void AttachWeaponToWeaponInSlot(EquipmentIndex slotIndex, ref MissionWeapon weapon, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AttachWeaponToWeaponInSlot 对应的操作。
+**用途 / Purpose:** 调用 AttachWeaponToWeaponInSlot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -358,7 +358,7 @@ missionEquipment.AttachWeaponToWeaponInSlot(slotIndex, weapon, attachLocalFrame)
 ### HasShield
 `public bool HasShield()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 shield。
+**用途 / Purpose:** 判断当前对象是否已经持有 shield。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -369,7 +369,7 @@ var result = missionEquipment.HasShield();
 ### HasAnyWeapon
 `public bool HasAnyWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any weapon。
+**用途 / Purpose:** 判断当前对象是否已经持有 any weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -380,7 +380,7 @@ var result = missionEquipment.HasAnyWeapon();
 ### HasAnyWeaponWithFlags
 `public bool HasAnyWeaponWithFlags(WeaponFlags flags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any weapon with flags。
+**用途 / Purpose:** 判断当前对象是否已经持有 any weapon with flags。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -391,7 +391,7 @@ var result = missionEquipment.HasAnyWeaponWithFlags(flags);
 ### HasAnyWeaponWithItemUsageSetFlags
 `public bool HasAnyWeaponWithItemUsageSetFlags(ItemObject.ItemUsageSetFlags flags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any weapon with item usage set flags。
+**用途 / Purpose:** 判断当前对象是否已经持有 any weapon with item usage set flags。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -402,7 +402,7 @@ var result = missionEquipment.HasAnyWeaponWithItemUsageSetFlags(flags);
 ### GetBanner
 `public ItemObject GetBanner()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -413,7 +413,7 @@ var result = missionEquipment.GetBanner();
 ### HasRangedWeapon
 `public bool HasRangedWeapon(WeaponClass requiredAmmoClass = WeaponClass.Undefined)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 ranged weapon。
+**用途 / Purpose:** 判断当前对象是否已经持有 ranged weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -424,7 +424,7 @@ var result = missionEquipment.HasRangedWeapon(weaponClass.Undefined);
 ### ContainsNonConsumableRangedWeaponWithAmmo
 `public bool ContainsNonConsumableRangedWeaponWithAmmo()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含non consumable ranged weapon with ammo。
+**用途 / Purpose:** 检查当前对象是否含有non consumable ranged weapon with ammo。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -435,7 +435,7 @@ var result = missionEquipment.ContainsNonConsumableRangedWeaponWithAmmo();
 ### ContainsMeleeWeapon
 `public bool ContainsMeleeWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含melee weapon。
+**用途 / Purpose:** 检查当前对象是否含有melee weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -446,7 +446,7 @@ var result = missionEquipment.ContainsMeleeWeapon();
 ### ContainsShield
 `public bool ContainsShield()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含shield。
+**用途 / Purpose:** 检查当前对象是否含有shield。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -457,7 +457,7 @@ var result = missionEquipment.ContainsShield();
 ### ContainsSpear
 `public bool ContainsSpear()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含spear。
+**用途 / Purpose:** 检查当前对象是否含有spear。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -468,7 +468,7 @@ var result = missionEquipment.ContainsSpear();
 ### ContainsThrownWeapon
 `public bool ContainsThrownWeapon()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含thrown weapon。
+**用途 / Purpose:** 检查当前对象是否含有thrown weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -479,7 +479,7 @@ var result = missionEquipment.ContainsThrownWeapon();
 ### SetGlossMultipliersOfWeaponsRandomly
 `public void SetGlossMultipliersOfWeaponsRandomly(int seed)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 gloss multipliers of weapons randomly 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 gloss multipliers of weapons randomly 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例

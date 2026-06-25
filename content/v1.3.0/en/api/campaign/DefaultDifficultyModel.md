@@ -23,7 +23,7 @@ Treat `DefaultDifficultyModel` as a Model-style extension point: first identify 
 ### GetPlayerTroopsReceivedDamageMultiplier
 `public override float GetPlayerTroopsReceivedDamageMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the player troops received damage multiplier value held by the this instance.
+**Purpose:** Reads and returns the player troops received damage multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultDifficultyModel.GetPlayerTroopsReceivedDamageMultiplier();
 ### GetDamageToPlayerMultiplier
 `public override float GetDamageToPlayerMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the damage to player multiplier value held by the this instance.
+**Purpose:** Reads and returns the damage to player multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultDifficultyModel.GetDamageToPlayerMultiplier();
 ### GetPlayerRecruitSlotBonus
 `public override int GetPlayerRecruitSlotBonus()`
 
-**Purpose:** **Purpose:** Reads and returns the player recruit slot bonus value held by the this instance.
+**Purpose:** Reads and returns the player recruit slot bonus value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultDifficultyModel.GetPlayerRecruitSlotBonus();
 ### GetPlayerMapMovementSpeedBonusMultiplier
 `public override float GetPlayerMapMovementSpeedBonusMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the player map movement speed bonus multiplier value held by the this instance.
+**Purpose:** Reads and returns the player map movement speed bonus multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultDifficultyModel.GetPlayerMapMovementSpeedBonusMultiplier();
 ### GetStealthDifficultyMultiplier
 `public override float GetStealthDifficultyMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the stealth difficulty multiplier value held by the this instance.
+**Purpose:** Reads and returns the stealth difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultDifficultyModel.GetStealthDifficultyMultiplier();
 ### GetDisguiseDifficultyMultiplier
 `public override float GetDisguiseDifficultyMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the disguise difficulty multiplier value held by the this instance.
+**Purpose:** Reads and returns the disguise difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultDifficultyModel.GetDisguiseDifficultyMultiplier();
 ### GetCombatAIDifficultyMultiplier
 `public override float GetCombatAIDifficultyMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the combat a i difficulty multiplier value held by the this instance.
+**Purpose:** Reads and returns the combat a i difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultDifficultyModel.GetCombatAIDifficultyMultiplier();
 ### GetPersuasionBonusChance
 `public override float GetPersuasionBonusChance()`
 
-**Purpose:** **Purpose:** Reads and returns the persuasion bonus chance value held by the this instance.
+**Purpose:** Reads and returns the persuasion bonus chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultDifficultyModel.GetPersuasionBonusChance();
 ### GetClanMemberDeathChanceMultiplier
 `public override float GetClanMemberDeathChanceMultiplier()`
 
-**Purpose:** **Purpose:** Reads and returns the clan member death chance multiplier value held by the this instance.
+**Purpose:** Reads and returns the clan member death chance multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDifficultyModel from the subsystem API first

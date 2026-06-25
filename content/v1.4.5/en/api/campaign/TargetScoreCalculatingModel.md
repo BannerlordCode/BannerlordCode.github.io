@@ -33,7 +33,7 @@ Treat `TargetScoreCalculatingModel` as a Model-style extension point: first iden
 ### GetDefensivePatrollingFactor
 `public abstract float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** **Purpose:** Reads and returns the defensive patrolling factor value held by the this instance.
+**Purpose:** Reads and returns the defensive patrolling factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
@@ -44,7 +44,7 @@ var result = targetScoreCalculatingModel.GetDefensivePatrollingFactor(false);
 ### GetOffensivePatrollingFactor
 `public abstract float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** **Purpose:** Reads and returns the offensive patrolling factor value held by the this instance.
+**Purpose:** Reads and returns the offensive patrolling factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
@@ -55,7 +55,7 @@ var result = targetScoreCalculatingModel.GetOffensivePatrollingFactor(false);
 ### GetTargetScoreForFaction
 `public abstract float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** **Purpose:** Reads and returns the target score for faction value held by the this instance.
+**Purpose:** Reads and returns the target score for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
@@ -66,7 +66,7 @@ var result = targetScoreCalculatingModel.GetTargetScoreForFaction(targetSettleme
 ### CalculateDefensivePatrollingScoreForSettlement
 `public abstract float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of defensive patrolling score for settlement.
+**Purpose:** Calculates the current value or result of defensive patrolling score for settlement.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
@@ -77,7 +77,7 @@ var result = targetScoreCalculatingModel.CalculateDefensivePatrollingScoreForSet
 ### CalculateOffensivePatrollingScoreForSettlement
 `public abstract float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of offensive patrolling score for settlement.
+**Purpose:** Calculates the current value or result of offensive patrolling score for settlement.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
@@ -88,7 +88,7 @@ var result = targetScoreCalculatingModel.CalculateOffensivePatrollingScoreForSet
 ### CurrentObjectiveValue
 `public abstract float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Executes the CurrentObjectiveValue logic.
+**Purpose:** Executes the CurrentObjectiveValue logic.
 
 ```csharp
 // Obtain an instance of TargetScoreCalculatingModel from the subsystem API first

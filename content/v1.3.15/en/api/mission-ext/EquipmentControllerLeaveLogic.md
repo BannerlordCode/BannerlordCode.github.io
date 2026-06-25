@@ -29,7 +29,7 @@ Treat `EquipmentControllerLeaveLogic` as a Logic-style extension point: first id
 ### SetIsEquipmentSelectionActive
 `public void SetIsEquipmentSelectionActive(bool isActive)`
 
-**Purpose:** **Purpose:** Assigns a new value to is equipment selection active and updates the object's internal state.
+**Purpose:** Assigns a new value to is equipment selection active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EquipmentControllerLeaveLogic from the subsystem API first
@@ -40,7 +40,7 @@ equipmentControllerLeaveLogic.SetIsEquipmentSelectionActive(false);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
+**Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of EquipmentControllerLeaveLogic from the subsystem API first

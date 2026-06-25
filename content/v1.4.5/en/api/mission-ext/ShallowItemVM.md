@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ShallowItemVM from the subsystem API first
@@ -51,7 +51,7 @@ shallowItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ShallowItemVM from the subsystem API first
@@ -62,7 +62,7 @@ shallowItemVM.OnFinalize();
 ### RefreshWith
 `public void RefreshWith(EquipmentIndex equipmentIndex, Equipment equipment)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ShallowItemVM from the subsystem API first
@@ -73,7 +73,7 @@ shallowItemVM.RefreshWith(equipmentIndex, equipment);
 ### OnSelect
 `public void OnSelect()`
 
-**Purpose:** **Purpose:** Invoked when the select event is raised.
+**Purpose:** Invoked when the select event is raised.
 
 ```csharp
 // Obtain an instance of ShallowItemVM from the subsystem API first
@@ -84,7 +84,7 @@ shallowItemVM.OnSelect();
 ### IsItemUsageApplicable
 `public static bool IsItemUsageApplicable(WeaponComponentData weapon)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the item usage applicable state or condition.
+**Purpose:** Determines whether the this instance is in the item usage applicable state or condition.
 
 ```csharp
 // Static call; no instance required

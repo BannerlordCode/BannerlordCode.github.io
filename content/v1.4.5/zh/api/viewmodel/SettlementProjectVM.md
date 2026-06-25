@@ -39,7 +39,7 @@ description: "SettlementProjectVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -50,7 +50,7 @@ settlementProjectVM.RefreshValues();
 ### RefreshProductionText
 `public virtual void RefreshProductionText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 production text 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 production text 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -61,7 +61,7 @@ settlementProjectVM.RefreshProductionText();
 ### ExecuteAddRemoveToQueue
 `public abstract void ExecuteAddRemoveToQueue()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 add remove to queue 对应的操作或工作流。
+**用途 / Purpose:** 执行 add remove to queue 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -72,7 +72,7 @@ settlementProjectVM.ExecuteAddRemoveToQueue();
 ### ExecuteSetAsActiveDevelopment
 `public abstract void ExecuteSetAsActiveDevelopment()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set as active development 对应的操作或工作流。
+**用途 / Purpose:** 执行 set as active development 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -83,7 +83,7 @@ settlementProjectVM.ExecuteSetAsActiveDevelopment();
 ### ExecuteSetAsCurrent
 `public abstract void ExecuteSetAsCurrent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 set as current 对应的操作或工作流。
+**用途 / Purpose:** 执行 set as current 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -94,7 +94,7 @@ settlementProjectVM.ExecuteSetAsCurrent();
 ### ExecuteResetCurrent
 `public abstract void ExecuteResetCurrent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 reset current 对应的操作或工作流。
+**用途 / Purpose:** 执行 reset current 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例
@@ -105,7 +105,7 @@ settlementProjectVM.ExecuteResetCurrent();
 ### ExecuteToggleSelected
 `public abstract void ExecuteToggleSelected()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 toggle selected 对应的操作或工作流。
+**用途 / Purpose:** 执行 toggle selected 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementProjectVM 实例

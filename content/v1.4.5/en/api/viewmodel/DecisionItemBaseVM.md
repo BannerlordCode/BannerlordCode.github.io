@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DecisionItemBaseVM from the subsystem API first
@@ -55,7 +55,7 @@ decisionItemBaseVM.RefreshValues();
 ### ExecuteFinalSelection
 `public void ExecuteFinalSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with final selection.
+**Purpose:** Runs the operation or workflow associated with final selection.
 
 ```csharp
 // Obtain an instance of DecisionItemBaseVM from the subsystem API first
@@ -66,7 +66,7 @@ decisionItemBaseVM.ExecuteFinalSelection();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of DecisionItemBaseVM from the subsystem API first
@@ -77,7 +77,7 @@ decisionItemBaseVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(InputKeyItemVM inputKeyItemVM)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DecisionItemBaseVM from the subsystem API first

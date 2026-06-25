@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GauntletGameNotification.Initialize();
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletGameNotification from the subsystem API first
@@ -44,7 +44,7 @@ gauntletGameNotification.OnFinalize();
 ### RegisterEvents
 `public virtual void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GauntletGameNotification from the subsystem API first
@@ -55,7 +55,7 @@ gauntletGameNotification.RegisterEvents();
 ### UnregisterEvents
 `public virtual void UnregisterEvents()`
 
-**Purpose:** **Purpose:** Unregisters events from the current system.
+**Purpose:** Unregisters events from the current system.
 
 ```csharp
 // Obtain an instance of GauntletGameNotification from the subsystem API first

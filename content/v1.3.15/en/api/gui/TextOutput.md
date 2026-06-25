@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### AddNewLine
 `public TextLineOutput AddNewLine(bool currentLineEnded, float newLineBaseHeight = 0f)`
 
-**Purpose:** **Purpose:** Adds new line to the current collection or state.
+**Purpose:** Adds new line to the current collection or state.
 
 ```csharp
 // Obtain an instance of TextOutput from the subsystem API first
@@ -48,7 +48,7 @@ var result = textOutput.AddNewLine(false, 0);
 ### AddToken
 `public void AddToken(TextToken textToken, float tokenWidth, float scaleValue, string style = "Default", float tokenHeight = -1f)`
 
-**Purpose:** **Purpose:** Adds token to the current collection or state.
+**Purpose:** Adds token to the current collection or state.
 
 ```csharp
 // Obtain an instance of TextOutput from the subsystem API first
@@ -59,7 +59,7 @@ textOutput.AddToken(textToken, 0, 0, "example", 0);
 ### RemoveTokensFromEnd
 `public List<TextTokenOutput> RemoveTokensFromEnd(int numberOfTokensToRemove)`
 
-**Purpose:** **Purpose:** Removes tokens from end from the current collection or state.
+**Purpose:** Removes tokens from end from the current collection or state.
 
 ```csharp
 // Obtain an instance of TextOutput from the subsystem API first
@@ -70,7 +70,7 @@ var result = textOutput.RemoveTokensFromEnd(0);
 ### GetLine
 `public TextLineOutput GetLine(int i)`
 
-**Purpose:** **Purpose:** Reads and returns the line value held by the this instance.
+**Purpose:** Reads and returns the line value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextOutput from the subsystem API first
@@ -81,7 +81,7 @@ var result = textOutput.GetLine(0);
 ### Clear
 `public void Clear()`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TextOutput from the subsystem API first

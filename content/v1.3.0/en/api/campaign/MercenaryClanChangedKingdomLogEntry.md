@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the related to war state or condition.
+**Purpose:** Determines whether the this instance is in the related to war state or condition.
 
 ```csharp
 // Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first
@@ -41,7 +41,7 @@ var result = mercenaryClanChangedKingdomLogEntry.IsRelatedToWar(stance, effector
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first
@@ -52,7 +52,7 @@ var result = mercenaryClanChangedKingdomLogEntry.ToString();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
+**Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, float stepSize, bool hasClippingPlane, bool isFemale)`
 
-**Purpose:** **Purpose:** Executes the FillAnimationSystemData logic.
+**Purpose:** Executes the FillAnimationSystemData logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, MBActionSet actionSet, float stepSize, bool hasClippingPlane)`
 
-**Purpose:** **Purpose:** Executes the FillAnimationSystemData logic.
+**Purpose:** Executes the FillAnimationSystemData logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MonsterExtensions.FillAnimationSystemData(monster, actionSet, 0, false);
 ### FillCapsuleData
 `public static AgentCapsuleData FillCapsuleData(this Monster monster)`
 
-**Purpose:** **Purpose:** Executes the FillCapsuleData logic.
+**Purpose:** Executes the FillCapsuleData logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MonsterExtensions.FillCapsuleData(monster);
 ### FillSpawnData
 `public static AgentSpawnData FillSpawnData(this Monster monster, ItemObject mountItem)`
 
-**Purpose:** **Purpose:** Executes the FillSpawnData logic.
+**Purpose:** Executes the FillSpawnData logic.
 
 ```csharp
 // Static call; no instance required

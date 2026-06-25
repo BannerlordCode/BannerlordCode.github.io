@@ -36,7 +36,7 @@ Treat `CounterTextBrushWidget` as a Widget-style extension point: first identify
 ### SetInitialValue
 `public void SetInitialValue(float value)`
 
-**Purpose:** **Purpose:** Assigns a new value to initial value and updates the object's internal state.
+**Purpose:** Assigns a new value to initial value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CounterTextBrushWidget from the subsystem API first
@@ -47,7 +47,7 @@ counterTextBrushWidget.SetInitialValue(0);
 ### ForceSetValue
 `public void ForceSetValue(float value)`
 
-**Purpose:** **Purpose:** Executes the ForceSetValue logic.
+**Purpose:** Executes the ForceSetValue logic.
 
 ```csharp
 // Obtain an instance of CounterTextBrushWidget from the subsystem API first

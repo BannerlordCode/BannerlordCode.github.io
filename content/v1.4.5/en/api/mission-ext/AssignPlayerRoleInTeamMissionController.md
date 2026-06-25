@@ -32,7 +32,7 @@ Treat `AssignPlayerRoleInTeamMissionController` as a Controller-style extension 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
@@ -43,7 +43,7 @@ assignPlayerRoleInTeamMissionController.AfterStart();
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**Purpose:** **Purpose:** Invoked when the team deployed event is raised.
+**Purpose:** Invoked when the team deployed event is raised.
 
 ```csharp
 // Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
@@ -54,7 +54,7 @@ assignPlayerRoleInTeamMissionController.OnTeamDeployed(team);
 ### OnPlayerTeamDeployed
 `public virtual void OnPlayerTeamDeployed()`
 
-**Purpose:** **Purpose:** Invoked when the player team deployed event is raised.
+**Purpose:** Invoked when the player team deployed event is raised.
 
 ```csharp
 // Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
@@ -65,7 +65,7 @@ assignPlayerRoleInTeamMissionController.OnPlayerTeamDeployed();
 ### OnPlayerChoiceMade
 `public virtual void OnPlayerChoiceMade(int chosenIndex)`
 
-**Purpose:** **Purpose:** Invoked when the player choice made event is raised.
+**Purpose:** Invoked when the player choice made event is raised.
 
 ```csharp
 // Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
@@ -76,7 +76,7 @@ assignPlayerRoleInTeamMissionController.OnPlayerChoiceMade(0);
 ### OnPlayerChoiceFinalized
 `public void OnPlayerChoiceFinalized()`
 
-**Purpose:** **Purpose:** Invoked when the player choice finalized event is raised.
+**Purpose:** Invoked when the player choice finalized event is raised.
 
 ```csharp
 // Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first

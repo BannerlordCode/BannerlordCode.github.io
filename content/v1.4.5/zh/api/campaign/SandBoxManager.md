@@ -33,7 +33,7 @@ description: "SandBoxManager 的自动生成类参考。"
 ### Initialize
 `public void Initialize(CampaignGameStarter gameStarter)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例
@@ -44,7 +44,7 @@ sandBoxManager.Initialize(gameStarter);
 ### OnCampaignStart
 `public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
+**用途 / Purpose:** 在 campaign start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例
@@ -55,7 +55,7 @@ sandBoxManager.OnCampaignStart(gameInitializer, gameManager, false);
 ### InitializeSandboxXMLs
 `public void InitializeSandboxXMLs(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 sandbox x m ls 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 sandbox x m ls 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例
@@ -66,7 +66,7 @@ sandBoxManager.InitializeSandboxXMLs(false);
 ### InitializeCharactersAfterLoad
 `public void InitializeCharactersAfterLoad(bool isSavedCampaign)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 characters after load 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 characters after load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例
@@ -77,7 +77,7 @@ sandBoxManager.InitializeCharactersAfterLoad(false);
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 before save 事件触发时调用此回调。
+**用途 / Purpose:** 在 before save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例
@@ -88,7 +88,7 @@ sandBoxManager.OnBeforeSave();
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 after save 事件触发时调用此回调。
+**用途 / Purpose:** 在 after save 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxManager 实例

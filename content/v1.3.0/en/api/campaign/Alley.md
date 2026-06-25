@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### SetOwner
 `public void SetOwner(Hero newOwner)`
 
-**Purpose:** **Purpose:** Assigns a new value to owner and updates the object's internal state.
+**Purpose:** Assigns a new value to owner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Alley from the subsystem API first
@@ -44,7 +44,7 @@ alley.SetOwner(newOwner);
 ### Initialize
 `public void Initialize(Settlement settlement, string tag, TextObject name)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Alley from the subsystem API first

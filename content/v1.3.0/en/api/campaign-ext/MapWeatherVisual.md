@@ -33,7 +33,7 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### ToString
 `public override string ToString()`
 
-**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
+**Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -44,7 +44,7 @@ var result = mapWeatherVisual.ToString();
 ### Tick
 `public void Tick()`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -55,7 +55,7 @@ mapWeatherVisual.Tick();
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** **Purpose:** Invoked when the map click event is raised.
+**Purpose:** Invoked when the map click event is raised.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -66,7 +66,7 @@ var result = mapWeatherVisual.OnMapClick(false);
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** **Purpose:** Invoked when the hover event is raised.
+**Purpose:** Invoked when the hover event is raised.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -77,7 +77,7 @@ mapWeatherVisual.OnHover();
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** **Purpose:** Invoked when the open encyclopedia event is raised.
+**Purpose:** Invoked when the open encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -88,7 +88,7 @@ mapWeatherVisual.OnOpenEncyclopedia();
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
+**Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first
@@ -99,7 +99,7 @@ var result = mapWeatherVisual.IsVisibleOrFadingOut();
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** **Purpose:** Reads and returns the visual position value held by the this instance.
+**Purpose:** Reads and returns the visual position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapWeatherVisual from the subsystem API first

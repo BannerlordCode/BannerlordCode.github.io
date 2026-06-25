@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### IsAllowed
 `public abstract bool IsAllowed()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the allowed state or condition.
+**Purpose:** Determines whether the this instance is in the allowed state or condition.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -48,7 +48,7 @@ var result = kingdomDecision.IsAllowed();
 ### GetInfluenceCost
 `public int GetInfluenceCost(Clan sponsorClan)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost value held by the this instance.
+**Purpose:** Reads and returns the influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -59,7 +59,7 @@ var result = kingdomDecision.GetInfluenceCost(sponsorClan);
 ### GetProposalInfluenceCost
 `public abstract int GetProposalInfluenceCost()`
 
-**Purpose:** **Purpose:** Reads and returns the proposal influence cost value held by the this instance.
+**Purpose:** Reads and returns the proposal influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -70,7 +70,7 @@ var result = kingdomDecision.GetProposalInfluenceCost();
 ### GetGeneralTitle
 `public abstract TextObject GetGeneralTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the general title value held by the this instance.
+**Purpose:** Reads and returns the general title value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -81,7 +81,7 @@ var result = kingdomDecision.GetGeneralTitle();
 ### GetSupportTitle
 `public abstract TextObject GetSupportTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the support title value held by the this instance.
+**Purpose:** Reads and returns the support title value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -92,7 +92,7 @@ var result = kingdomDecision.GetSupportTitle();
 ### GetChooseTitle
 `public abstract TextObject GetChooseTitle()`
 
-**Purpose:** **Purpose:** Reads and returns the choose title value held by the this instance.
+**Purpose:** Reads and returns the choose title value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -103,7 +103,7 @@ var result = kingdomDecision.GetChooseTitle();
 ### GetSupportDescription
 `public abstract TextObject GetSupportDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the support description value held by the this instance.
+**Purpose:** Reads and returns the support description value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -114,7 +114,7 @@ var result = kingdomDecision.GetSupportDescription();
 ### GetChooseDescription
 `public abstract TextObject GetChooseDescription()`
 
-**Purpose:** **Purpose:** Reads and returns the choose description value held by the this instance.
+**Purpose:** Reads and returns the choose description value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -125,7 +125,7 @@ var result = kingdomDecision.GetChooseDescription();
 ### CalculateMeritOfOutcome
 `public virtual float CalculateMeritOfOutcome(DecisionOutcome candidateOutcome)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of merit of outcome.
+**Purpose:** Calculates the current value or result of merit of outcome.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -136,7 +136,7 @@ var result = kingdomDecision.CalculateMeritOfOutcome(candidateOutcome);
 ### DetermineInitialCandidates
 `public abstract IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** **Purpose:** Determines the result of initial candidates based on the current state.
+**Purpose:** Determines the result of initial candidates based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -147,7 +147,7 @@ var result = kingdomDecision.DetermineInitialCandidates();
 ### NarrowDownCandidates
 `public MBList<DecisionOutcome> NarrowDownCandidates(MBList<DecisionOutcome> initialCandidates, int maxCandidateCount)`
 
-**Purpose:** **Purpose:** Executes the NarrowDownCandidates logic.
+**Purpose:** Executes the NarrowDownCandidates logic.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -158,7 +158,7 @@ var result = kingdomDecision.NarrowDownCandidates(initialCandidates, 0);
 ### DetermineChooser
 `public abstract Clan DetermineChooser()`
 
-**Purpose:** **Purpose:** Determines the result of chooser based on the current state.
+**Purpose:** Determines the result of chooser based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -169,7 +169,7 @@ var result = kingdomDecision.DetermineChooser();
 ### DetermineSupporters
 `public IEnumerable<Supporter> DetermineSupporters()`
 
-**Purpose:** **Purpose:** Determines the result of supporters based on the current state.
+**Purpose:** Determines the result of supporters based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -180,7 +180,7 @@ var result = kingdomDecision.DetermineSupporters();
 ### CanMakeDecision
 `public virtual bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make decision.
+**Purpose:** Checks whether the this instance meets the preconditions for make decision.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -191,7 +191,7 @@ var result = kingdomDecision.CanMakeDecision(reason, false);
 ### ShouldBeCancelled
 `public bool ShouldBeCancelled()`
 
-**Purpose:** **Purpose:** Executes the ShouldBeCancelled logic.
+**Purpose:** Executes the ShouldBeCancelled logic.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -202,7 +202,7 @@ var result = kingdomDecision.ShouldBeCancelled();
 ### DetermineSupportOption
 `public DecisionOutcome DetermineSupportOption(Supporter supporter, MBReadOnlyList<DecisionOutcome> possibleOutcomes, out Supporter.SupportWeights supportWeightOfSelectedOutcome, bool calculateRelationshipEffect)`
 
-**Purpose:** **Purpose:** Determines the result of support option based on the current state.
+**Purpose:** Determines the result of support option based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -213,7 +213,7 @@ var result = kingdomDecision.DetermineSupportOption(supporter, possibleOutcomes,
 ### DetermineSupport
 `public abstract float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** **Purpose:** Determines the result of support based on the current state.
+**Purpose:** Determines the result of support based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -224,7 +224,7 @@ var result = kingdomDecision.DetermineSupport(clan, possibleOutcome);
 ### DetermineSponsors
 `public abstract void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** **Purpose:** Determines the result of sponsors based on the current state.
+**Purpose:** Determines the result of sponsors based on the current state.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -235,7 +235,7 @@ kingdomDecision.DetermineSponsors(possibleOutcomes);
 ### ApplyChosenOutcome
 `public abstract void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** **Purpose:** Applies the effect of chosen outcome to the this instance.
+**Purpose:** Applies the effect of chosen outcome to the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -246,7 +246,7 @@ kingdomDecision.ApplyChosenOutcome(chosenOutcome);
 ### GetInfluenceCost
 `public int GetInfluenceCost(DecisionOutcome decisionOutcome, Clan clan, Supporter.SupportWeights supportWeight)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost value held by the this instance.
+**Purpose:** Reads and returns the influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -257,7 +257,7 @@ var result = kingdomDecision.GetInfluenceCost(decisionOutcome, clan, supportWeig
 ### GetSecondaryEffects
 `public abstract TextObject GetSecondaryEffects()`
 
-**Purpose:** **Purpose:** Reads and returns the secondary effects value held by the this instance.
+**Purpose:** Reads and returns the secondary effects value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -268,7 +268,7 @@ var result = kingdomDecision.GetSecondaryEffects();
 ### ApplySecondaryEffects
 `public abstract void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** **Purpose:** Applies the effect of secondary effects to the this instance.
+**Purpose:** Applies the effect of secondary effects to the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -279,7 +279,7 @@ kingdomDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
 ### GetChosenOutcomeText
 `public abstract TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** **Purpose:** Reads and returns the chosen outcome text value held by the this instance.
+**Purpose:** Reads and returns the chosen outcome text value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -290,7 +290,7 @@ var result = kingdomDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, 
 ### SortDecisionOutcomes
 `public MBList<DecisionOutcome> SortDecisionOutcomes(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** **Purpose:** Executes the SortDecisionOutcomes logic.
+**Purpose:** Executes the SortDecisionOutcomes logic.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -301,7 +301,7 @@ var result = kingdomDecision.SortDecisionOutcomes(possibleOutcomes);
 ### GetQueriedDecisionOutcome
 `public abstract DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** **Purpose:** Reads and returns the queried decision outcome value held by the this instance.
+**Purpose:** Reads and returns the queried decision outcome value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -312,7 +312,7 @@ var result = kingdomDecision.GetQueriedDecisionOutcome(possibleOutcomes);
 ### IsSingleClanDecision
 `public bool IsSingleClanDecision()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the single clan decision state or condition.
+**Purpose:** Determines whether the this instance is in the single clan decision state or condition.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -323,7 +323,7 @@ var result = kingdomDecision.IsSingleClanDecision();
 ### CalculateRelationshipEffectWithSponsor
 `public virtual float CalculateRelationshipEffectWithSponsor(Clan clan)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of relationship effect with sponsor.
+**Purpose:** Calculates the current value or result of relationship effect with sponsor.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -334,7 +334,7 @@ var result = kingdomDecision.CalculateRelationshipEffectWithSponsor(clan);
 ### GetInfluenceCostOfSupport
 `public int GetInfluenceCostOfSupport(Clan clan, Supporter.SupportWeights supportWeight)`
 
-**Purpose:** **Purpose:** Reads and returns the influence cost of support value held by the this instance.
+**Purpose:** Reads and returns the influence cost of support value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -345,7 +345,7 @@ var result = kingdomDecision.GetInfluenceCostOfSupport(clan, supportWeight);
 ### OnShowDecision
 `public virtual bool OnShowDecision()`
 
-**Purpose:** **Purpose:** Invoked when the show decision event is raised.
+**Purpose:** Invoked when the show decision event is raised.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first
@@ -356,7 +356,7 @@ var result = kingdomDecision.OnShowDecision();
 ### GetFollowUpDecision
 `public virtual KingdomDecision GetFollowUpDecision()`
 
-**Purpose:** **Purpose:** Reads and returns the follow up decision value held by the this instance.
+**Purpose:** Reads and returns the follow up decision value held by the this instance.
 
 ```csharp
 // Obtain an instance of KingdomDecision from the subsystem API first

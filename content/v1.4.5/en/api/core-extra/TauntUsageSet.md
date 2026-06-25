@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AddUsage
 `public void AddUsage(TauntUsage usage)`
 
-**Purpose:** **Purpose:** Adds usage to the current collection or state.
+**Purpose:** Adds usage to the current collection or state.
 
 ```csharp
 // Obtain an instance of TauntUsageSet from the subsystem API first
@@ -34,7 +34,7 @@ tauntUsageSet.AddUsage(usage);
 ### GetUsages
 `public MBReadOnlyList<TauntUsage> GetUsages()`
 
-**Purpose:** **Purpose:** Reads and returns the usages value held by the this instance.
+**Purpose:** Reads and returns the usages value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageSet from the subsystem API first

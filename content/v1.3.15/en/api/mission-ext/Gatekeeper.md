@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### IsGenerous
 `public static Task<bool> IsGenerous()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the generous state or condition.
+**Purpose:** Determines whether the this instance is in the generous state or condition.
 
 ```csharp
 // Static call; no instance required

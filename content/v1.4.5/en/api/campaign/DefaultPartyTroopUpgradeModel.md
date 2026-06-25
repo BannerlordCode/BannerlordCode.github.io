@@ -23,7 +23,7 @@ Treat `DefaultPartyTroopUpgradeModel` as a Model-style extension point: first id
 ### CanPartyUpgradeTroopToTarget
 `public override bool CanPartyUpgradeTroopToTarget(PartyBase upgradingParty, CharacterObject upgradeableCharacter, CharacterObject upgradeTarget)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party upgrade troop to target.
+**Purpose:** Checks whether the this instance meets the preconditions for party upgrade troop to target.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyTroopUpgradeModel.CanPartyUpgradeTroopToTarget(upgradin
 ### IsTroopUpgradeable
 `public override bool IsTroopUpgradeable(PartyBase party, CharacterObject character)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the troop upgradeable state or condition.
+**Purpose:** Determines whether the this instance is in the troop upgradeable state or condition.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyTroopUpgradeModel.IsTroopUpgradeable(party, character);
 ### GetXpCostForUpgrade
 `public override int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** **Purpose:** Reads and returns the xp cost for upgrade value held by the this instance.
+**Purpose:** Reads and returns the xp cost for upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultPartyTroopUpgradeModel.GetXpCostForUpgrade(party, characterO
 ### GetGoldCostForUpgrade
 `public override ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** **Purpose:** Reads and returns the gold cost for upgrade value held by the this instance.
+**Purpose:** Reads and returns the gold cost for upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultPartyTroopUpgradeModel.GetGoldCostForUpgrade(party, characte
 ### GetSkillXpFromUpgradingTroops
 `public override int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)`
 
-**Purpose:** **Purpose:** Reads and returns the skill xp from upgrading troops value held by the this instance.
+**Purpose:** Reads and returns the skill xp from upgrading troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultPartyTroopUpgradeModel.GetSkillXpFromUpgradingTroops(party, 
 ### DoesPartyHaveRequiredItemsForUpgrade
 `public override bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether party have required items for upgrade is true for the this instance.
+**Purpose:** Returns a boolean answer to whether party have required items for upgrade is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultPartyTroopUpgradeModel.DoesPartyHaveRequiredItemsForUpgrade(
 ### DoesPartyHaveRequiredPerksForUpgrade
 `public override bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)`
 
-**Purpose:** **Purpose:** Returns a boolean answer to whether party have required perks for upgrade is true for the this instance.
+**Purpose:** Returns a boolean answer to whether party have required perks for upgrade is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultPartyTroopUpgradeModel.DoesPartyHaveRequiredPerksForUpgrade(
 ### GetUpgradeChanceForTroopUpgrade
 `public override float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)`
 
-**Purpose:** **Purpose:** Reads and returns the upgrade chance for troop upgrade value held by the this instance.
+**Purpose:** Reads and returns the upgrade chance for troop upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTroopUpgradeModel from the subsystem API first

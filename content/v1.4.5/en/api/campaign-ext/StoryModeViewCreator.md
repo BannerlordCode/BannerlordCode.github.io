@@ -23,7 +23,7 @@ Start from namespace `StoryMode.View` to place it in the stack, then inspect its
 ### CreateTrainingFieldObjectiveView
 `public static MissionView CreateTrainingFieldObjectiveView(Mission mission)`
 
-**Purpose:** **Purpose:** Constructs a new training field objective view entity and returns it to the caller.
+**Purpose:** Constructs a new training field objective view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

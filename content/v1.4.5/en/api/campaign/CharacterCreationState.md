@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### FinalizeCharacterCreationState
 `public void FinalizeCharacterCreationState()`
 
-**Purpose:** **Purpose:** Executes the FinalizeCharacterCreationState logic.
+**Purpose:** Executes the FinalizeCharacterCreationState logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationState from the subsystem API first
@@ -41,7 +41,7 @@ characterCreationState.FinalizeCharacterCreationState();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
+**Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterCreationState from the subsystem API first
@@ -52,7 +52,7 @@ characterCreationState.Refresh();
 ### OnStageActivated
 `public void OnStageActivated(CharacterCreationStageBase stage)`
 
-**Purpose:** **Purpose:** Invoked when the stage activated event is raised.
+**Purpose:** Invoked when the stage activated event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationState from the subsystem API first

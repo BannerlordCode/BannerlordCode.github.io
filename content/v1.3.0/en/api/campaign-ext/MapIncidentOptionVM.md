@@ -32,7 +32,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Incidents` to place it in 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapIncidentOptionVM from the subsystem API first
@@ -43,7 +43,7 @@ mapIncidentOptionVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapIncidentOptionVM from the subsystem API first
@@ -54,7 +54,7 @@ mapIncidentOptionVM.OnFinalize();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of MapIncidentOptionVM from the subsystem API first
@@ -65,7 +65,7 @@ mapIncidentOptionVM.ExecuteSelect();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focus.
+**Purpose:** Runs the operation or workflow associated with focus.
 
 ```csharp
 // Obtain an instance of MapIncidentOptionVM from the subsystem API first
@@ -76,7 +76,7 @@ mapIncidentOptionVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with unfocus.
+**Purpose:** Runs the operation or workflow associated with unfocus.
 
 ```csharp
 // Obtain an instance of MapIncidentOptionVM from the subsystem API first

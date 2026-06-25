@@ -32,7 +32,7 @@ description: "AgentBehaviorGroup 的自动生成类参考。"
 ### DisableScriptedBehavior
 `public void DisableScriptedBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableScriptedBehavior 对应的操作。
+**用途 / Purpose:** 调用 DisableScriptedBehavior 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -43,7 +43,7 @@ agentBehaviorGroup.DisableScriptedBehavior();
 ### DisableAllBehaviors
 `public void DisableAllBehaviors()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DisableAllBehaviors 对应的操作。
+**用途 / Purpose:** 调用 DisableAllBehaviors 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -54,7 +54,7 @@ agentBehaviorGroup.DisableAllBehaviors();
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active behavior 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 active behavior 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -65,7 +65,7 @@ var result = agentBehaviorGroup.GetActiveBehavior();
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -76,7 +76,7 @@ agentBehaviorGroup.Tick(0, false);
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationTick 对应的操作。
+**用途 / Purpose:** 调用 ConversationTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -87,7 +87,7 @@ agentBehaviorGroup.ConversationTick();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -98,7 +98,7 @@ agentBehaviorGroup.OnAgentRemoved(agent);
 ### GetScore
 `public virtual float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -109,7 +109,7 @@ var result = agentBehaviorGroup.GetScore(false);
 ### ForceThink
 `public virtual void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceThink 对应的操作。
+**用途 / Purpose:** 调用 ForceThink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例

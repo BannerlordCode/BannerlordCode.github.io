@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CheatActionItemVM from the subsystem API first
@@ -34,7 +34,7 @@ cheatActionItemVM.RefreshValues();
 ### ExecuteAction
 `public override void ExecuteAction()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
+**Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of CheatActionItemVM from the subsystem API first

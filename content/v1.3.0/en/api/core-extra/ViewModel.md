@@ -39,7 +39,7 @@ Treat `ViewModel` as a Model-style extension point: first identify who creates i
 ### OnPropertyChanged
 `public void OnPropertyChanged( string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed event is raised.
+**Purpose:** Invoked when the property changed event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -50,7 +50,7 @@ viewModel.OnPropertyChanged("example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -61,7 +61,7 @@ viewModel.OnPropertyChangedWithValue(false, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(int value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -72,7 +72,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(float value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -83,7 +83,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -94,7 +94,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -105,7 +105,7 @@ viewModel.OnPropertyChangedWithValue(value, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(double value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -116,7 +116,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
 
-**Purpose:** **Purpose:** Invoked when the property changed with value event is raised.
+**Purpose:** Invoked when the property changed with value event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -127,7 +127,7 @@ viewModel.OnPropertyChangedWithValue(value, "example");
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path, bool isList)`
 
-**Purpose:** **Purpose:** Reads and returns the view model at path value held by the this instance.
+**Purpose:** Reads and returns the view model at path value held by the this instance.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -138,7 +138,7 @@ var result = viewModel.GetViewModelAtPath(path, false);
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path)`
 
-**Purpose:** **Purpose:** Reads and returns the view model at path value held by the this instance.
+**Purpose:** Reads and returns the view model at path value held by the this instance.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -149,7 +149,7 @@ var result = viewModel.GetViewModelAtPath(path);
 ### GetPropertyValue
 `public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
 
-**Purpose:** **Purpose:** Reads and returns the property value value held by the this instance.
+**Purpose:** Reads and returns the property value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -160,7 +160,7 @@ var result = viewModel.GetPropertyValue("example", propertyTypeFeeder);
 ### GetPropertyValue
 `public object GetPropertyValue(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the property value value held by the this instance.
+**Purpose:** Reads and returns the property value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -171,7 +171,7 @@ var result = viewModel.GetPropertyValue("example");
 ### GetPropertyType
 `public Type GetPropertyType(string name)`
 
-**Purpose:** **Purpose:** Reads and returns the property type value held by the this instance.
+**Purpose:** Reads and returns the property type value held by the this instance.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -182,7 +182,7 @@ var result = viewModel.GetPropertyType("example");
 ### SetPropertyValue
 `public void SetPropertyValue(string name, object value)`
 
-**Purpose:** **Purpose:** Assigns a new value to property value and updates the object's internal state.
+**Purpose:** Assigns a new value to property value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -193,7 +193,7 @@ viewModel.SetPropertyValue("example", value);
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -204,7 +204,7 @@ viewModel.OnFinalize();
 ### ExecuteCommand
 `public void ExecuteCommand(string commandName, object parameters)`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with command.
+**Purpose:** Runs the operation or workflow associated with command.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -215,7 +215,7 @@ viewModel.ExecuteCommand("example", parameters);
 ### RefreshValues
 `public virtual void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ViewModel from the subsystem API first
@@ -226,7 +226,7 @@ viewModel.RefreshValues();
 ### RefreshPropertyAndMethodInfos
 `public static void RefreshPropertyAndMethodInfos()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of property and method infos in sync with the underlying state.
+**Purpose:** Keeps the display or cache of property and method infos in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required

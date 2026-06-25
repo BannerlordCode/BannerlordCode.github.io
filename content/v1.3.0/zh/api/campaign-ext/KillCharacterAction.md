@@ -19,7 +19,7 @@ KillCharacterAction 是一组静态方法，用于在战役中以特定原因触
 public static void ApplyByOldAge(Hero victim, bool showNotification = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by old age 的效果应用到当前对象。
+**用途 / Purpose:** 将 by old age 的效果应用到当前对象。
 
 ### ApplyByWounds
 
@@ -27,7 +27,7 @@ public static void ApplyByOldAge(Hero victim, bool showNotification = true)
 public static void ApplyByWounds(Hero victim, bool showNotification = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by wounds 的效果应用到当前对象。
+**用途 / Purpose:** 将 by wounds 的效果应用到当前对象。
 
 ### ApplyByBattle
 
@@ -35,7 +35,7 @@ public static void ApplyByWounds(Hero victim, bool showNotification = true)
 public static void ApplyByBattle(Hero victim, Hero killer, bool showNotification = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by battle 的效果应用到当前对象。
+**用途 / Purpose:** 将 by battle 的效果应用到当前对象。
 
 ### ApplyByMurder
 
@@ -43,7 +43,7 @@ public static void ApplyByBattle(Hero victim, Hero killer, bool showNotification
 public static void ApplyByMurder(Hero victim, Hero killer = null, bool showNotification = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by murder 的效果应用到当前对象。
+**用途 / Purpose:** 将 by murder 的效果应用到当前对象。
 
 ### ApplyInLabor
 
@@ -51,7 +51,7 @@ public static void ApplyByMurder(Hero victim, Hero killer = null, bool showNotif
 public static void ApplyInLabor(Hero lostMother, bool showNotification = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 in labor 的效果应用到当前对象。
+**用途 / Purpose:** 将 in labor 的效果应用到当前对象。
 
 ### ApplyByExecution
 
@@ -59,7 +59,7 @@ public static void ApplyInLabor(Hero lostMother, bool showNotification = true)
 public static void ApplyByExecution(Hero victim, Hero executer, bool showNotification = true, bool isForced = false)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by execution 的效果应用到当前对象。
+**用途 / Purpose:** 将 by execution 的效果应用到当前对象。
 
 ### ApplyByRemove
 
@@ -67,7 +67,7 @@ public static void ApplyByExecution(Hero victim, Hero executer, bool showNotific
 public static void ApplyByRemove(Hero victim, bool showNotification = false, bool isForced = true)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by remove 的效果应用到当前对象。
+**用途 / Purpose:** 将 by remove 的效果应用到当前对象。
 
 ### ApplyByDeathMark
 
@@ -75,7 +75,7 @@ public static void ApplyByRemove(Hero victim, bool showNotification = false, boo
 public static void ApplyByDeathMark(Hero victim, bool showNotification = false)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by death mark 的效果应用到当前对象。
+**用途 / Purpose:** 将 by death mark 的效果应用到当前对象。
 
 ### ApplyByDeathMarkForced
 
@@ -83,7 +83,7 @@ public static void ApplyByDeathMark(Hero victim, bool showNotification = false)
 public static void ApplyByDeathMarkForced(Hero victim, bool showNotification = false)
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by death mark forced 的效果应用到当前对象。
+**用途 / Purpose:** 将 by death mark forced 的效果应用到当前对象。
 
 ### ApplyByPlayerIllness
 
@@ -91,7 +91,7 @@ public static void ApplyByDeathMarkForced(Hero victim, bool showNotification = f
 public static void ApplyByPlayerIllness()
 ```
 
-**用途 / Purpose:** **用途 / Purpose:** 将 by player illness 的效果应用到当前对象。
+**用途 / Purpose:** 将 by player illness 的效果应用到当前对象。
 
 ## 使用示例
 

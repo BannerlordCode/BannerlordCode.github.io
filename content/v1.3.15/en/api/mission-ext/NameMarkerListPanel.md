@@ -53,7 +53,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of NameMarkerListPanel from the subsystem API first
@@ -64,7 +64,7 @@ nameMarkerListPanel.Update(0);
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of rectangle.
+**Purpose:** Recalculates and stores the latest representation of rectangle.
 
 ```csharp
 // Obtain an instance of NameMarkerListPanel from the subsystem API first

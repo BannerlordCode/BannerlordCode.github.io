@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -47,7 +47,7 @@ mPArmoryCosmeticTauntSlotVM.OnFinalize();
 ### AssignTauntItem
 `public void AssignTauntItem(MPArmoryCosmeticTauntItemVM tauntItem, bool isSwapping = false)`
 
-**Purpose:** **Purpose:** Executes the AssignTauntItem logic.
+**Purpose:** Executes the AssignTauntItem logic.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -58,7 +58,7 @@ mPArmoryCosmeticTauntSlotVM.AssignTauntItem(tauntItem, false);
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
+**Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -69,7 +69,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteSelect();
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with preview.
+**Purpose:** Runs the operation or workflow associated with preview.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -80,7 +80,7 @@ mPArmoryCosmeticTauntSlotVM.ExecutePreview();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with focus.
+**Purpose:** Runs the operation or workflow associated with focus.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -91,7 +91,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with unfocus.
+**Purpose:** Runs the operation or workflow associated with unfocus.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -102,7 +102,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteUnfocus();
 ### SetSelectKeyVisual
 `public void SetSelectKeyVisual(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to select key visual and updates the object's internal state.
+**Purpose:** Assigns a new value to select key visual and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
@@ -113,7 +113,7 @@ mPArmoryCosmeticTauntSlotVM.SetSelectKeyVisual(hotKey);
 ### SetEmptySlotKeyVisual
 `public void SetEmptySlotKeyVisual(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to empty slot key visual and updates the object's internal state.
+**Purpose:** Assigns a new value to empty slot key visual and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first

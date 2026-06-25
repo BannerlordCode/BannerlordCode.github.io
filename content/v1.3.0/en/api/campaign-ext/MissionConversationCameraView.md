@@ -29,7 +29,7 @@ Treat `MissionConversationCameraView` as a View-style extension point: first ide
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
+**Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionConversationCameraView from the subsystem API first
@@ -40,7 +40,7 @@ missionConversationCameraView.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** **Purpose:** Executes the AfterStart logic.
+**Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionConversationCameraView from the subsystem API first
@@ -51,7 +51,7 @@ missionConversationCameraView.AfterStart();
 ### UpdateOverridenCamera
 `public override bool UpdateOverridenCamera(float dt)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of overriden camera.
+**Purpose:** Recalculates and stores the latest representation of overriden camera.
 
 ```csharp
 // Obtain an instance of MissionConversationCameraView from the subsystem API first

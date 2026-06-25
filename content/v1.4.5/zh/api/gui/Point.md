@@ -23,7 +23,7 @@ description: "Point 的自动生成类参考。"
 ### Point
 `public struct Point(int x, int y)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Point 对应的操作。
+**用途 / Purpose:** 调用 Point 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Point 实例

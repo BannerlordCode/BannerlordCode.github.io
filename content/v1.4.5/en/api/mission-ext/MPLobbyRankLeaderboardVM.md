@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -62,7 +62,7 @@ mPLobbyRankLeaderboardVM.RefreshValues();
 ### OpenWith
 `public async void OpenWith(string gameType)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -73,7 +73,7 @@ mPLobbyRankLeaderboardVM.OpenWith("example");
 ### ExecuteLoadFirstPage
 `public void ExecuteLoadFirstPage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with load first page.
+**Purpose:** Runs the operation or workflow associated with load first page.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -84,7 +84,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadFirstPage();
 ### ExecuteLoadPreviousPage
 `public void ExecuteLoadPreviousPage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with load previous page.
+**Purpose:** Runs the operation or workflow associated with load previous page.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -95,7 +95,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadPreviousPage();
 ### ExecuteLoadNextPage
 `public void ExecuteLoadNextPage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with load next page.
+**Purpose:** Runs the operation or workflow associated with load next page.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -106,7 +106,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadNextPage();
 ### ExecuteLoadLastPage
 `public void ExecuteLoadLastPage()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with load last page.
+**Purpose:** Runs the operation or workflow associated with load last page.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -117,7 +117,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadLastPage();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
+**Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -128,7 +128,7 @@ mPLobbyRankLeaderboardVM.ExecuteClosePopup();
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyLeaderboardPlayerItemVM playerVM)`
 
-**Purpose:** **Purpose:** Activates the resource, state, or feature associated with player actions.
+**Purpose:** Activates the resource, state, or feature associated with player actions.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -139,7 +139,7 @@ mPLobbyRankLeaderboardVM.ActivatePlayerActions(playerVM);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -150,7 +150,7 @@ mPLobbyRankLeaderboardVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -161,7 +161,7 @@ mPLobbyRankLeaderboardVM.SetCancelInputKey(hotKey);
 ### SetPreviousInputKey
 `public void SetPreviousInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to previous input key and updates the object's internal state.
+**Purpose:** Assigns a new value to previous input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -172,7 +172,7 @@ mPLobbyRankLeaderboardVM.SetPreviousInputKey(hotKey);
 ### SetNextInputKey
 `public void SetNextInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to next input key and updates the object's internal state.
+**Purpose:** Assigns a new value to next input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -183,7 +183,7 @@ mPLobbyRankLeaderboardVM.SetNextInputKey(hotKey);
 ### SetFirstInputKey
 `public void SetFirstInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to first input key and updates the object's internal state.
+**Purpose:** Assigns a new value to first input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
@@ -194,7 +194,7 @@ mPLobbyRankLeaderboardVM.SetFirstInputKey(hotKey);
 ### SetLastInputKey
 `public void SetLastInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to last input key and updates the object's internal state.
+**Purpose:** Assigns a new value to last input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first

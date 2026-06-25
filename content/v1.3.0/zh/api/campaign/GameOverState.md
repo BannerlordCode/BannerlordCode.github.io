@@ -31,7 +31,7 @@ description: "GameOverState 的自动生成类参考。"
 ### CreateForVictory
 `public static GameOverState CreateForVictory()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for victory 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 for victory 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ GameOverState.CreateForVictory();
 ### CreateForRetirement
 `public static GameOverState CreateForRetirement()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for retirement 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 for retirement 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ GameOverState.CreateForRetirement();
 ### CreateForClanDestroyed
 `public static GameOverState CreateForClanDestroyed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for clan destroyed 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 for clan destroyed 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

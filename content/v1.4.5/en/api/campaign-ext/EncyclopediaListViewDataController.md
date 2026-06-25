@@ -23,7 +23,7 @@ Treat `EncyclopediaListViewDataController` as a Controller-style extension point
 ### SaveListData
 `public void SaveListData(EncyclopediaListVM list, string id)`
 
-**Purpose:** **Purpose:** Writes list data to persistent storage or a stream.
+**Purpose:** Writes list data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of EncyclopediaListViewDataController from the subsystem API first
@@ -34,7 +34,7 @@ encyclopediaListViewDataController.SaveListData(list, "example");
 ### LoadListData
 `public void LoadListData(EncyclopediaListVM list)`
 
-**Purpose:** **Purpose:** Reads list data from persistent storage or a stream.
+**Purpose:** Reads list data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of EncyclopediaListViewDataController from the subsystem API first

@@ -23,7 +23,7 @@ Treat `ConversationCharacterData` as a Data-style extension point: first identif
 ### ConversationCharacterData
 `public struct ConversationCharacterData(CharacterObject character, PartyBase party = null, bool noHorse = false, bool noWeapon = false, bool spawnAfterFight = false, bool isCivilianEquipmentRequiredForLeader = false, bool isCivilianEquipmentRequiredForBodyGuardCharacters = false, bool noBodyguards = false)`
 
-**Purpose:** **Purpose:** Executes the ConversationCharacterData logic.
+**Purpose:** Executes the ConversationCharacterData logic.
 
 ```csharp
 // Obtain an instance of ConversationCharacterData from the subsystem API first

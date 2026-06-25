@@ -23,7 +23,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of TrainingField from the subsystem API first

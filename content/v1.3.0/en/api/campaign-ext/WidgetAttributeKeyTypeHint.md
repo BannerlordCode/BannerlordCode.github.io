@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.TooltipExtensions` to place it in th
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** **Purpose:** Verifies whether key type holds true for the this instance.
+**Purpose:** Verifies whether key type holds true for the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first
@@ -34,7 +34,7 @@ var result = widgetAttributeKeyTypeHint.CheckKeyType("example");
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the key name value held by the this instance.
+**Purpose:** Reads and returns the key name value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first
@@ -45,7 +45,7 @@ var result = widgetAttributeKeyTypeHint.GetKeyName("example");
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** **Purpose:** Reads and returns the serialized key value held by the this instance.
+**Purpose:** Reads and returns the serialized key value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first

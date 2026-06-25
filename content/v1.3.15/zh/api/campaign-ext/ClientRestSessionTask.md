@@ -34,7 +34,7 @@ description: "ClientRestSessionTask 的自动生成类参考。"
 ### SetRequestData
 `public void SetRequestData(byte userCertificate, string address, IHttpDriver networkClient)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 request data 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 request data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例
@@ -45,7 +45,7 @@ clientRestSessionTask.SetRequestData(0, "example", networkClient);
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例
@@ -56,7 +56,7 @@ clientRestSessionTask.Tick();
 ### WaitUntilFinished
 `public Task WaitUntilFinished()`
 
-**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到until finished条件满足。
+**用途 / Purpose:** 暂停当前流程，直到until finished条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例
@@ -67,7 +67,7 @@ var result = clientRestSessionTask.WaitUntilFinished();
 ### SetFinishedAsSuccessful
 `public void SetFinishedAsSuccessful(RestResponse restResponse)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 finished as successful 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 finished as successful 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例
@@ -78,7 +78,7 @@ clientRestSessionTask.SetFinishedAsSuccessful(restResponse);
 ### SetFinishedAsFailed
 `public void SetFinishedAsFailed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 finished as failed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 finished as failed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例
@@ -89,7 +89,7 @@ clientRestSessionTask.SetFinishedAsFailed();
 ### SetFinishedAsFailed
 `public void SetFinishedAsFailed(RestResponse restResponse)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 finished as failed 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 finished as failed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientRestSessionTask 实例

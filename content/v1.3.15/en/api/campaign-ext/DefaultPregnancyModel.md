@@ -33,7 +33,7 @@ Treat `DefaultPregnancyModel` as a Model-style extension point: first identify w
 ### GetDailyChanceOfPregnancyForHero
 `public override float GetDailyChanceOfPregnancyForHero(Hero hero)`
 
-**Purpose:** **Purpose:** Reads and returns the daily chance of pregnancy for hero value held by the this instance.
+**Purpose:** Reads and returns the daily chance of pregnancy for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPregnancyModel from the subsystem API first

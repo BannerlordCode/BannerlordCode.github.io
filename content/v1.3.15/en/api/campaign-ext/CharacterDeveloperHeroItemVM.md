@@ -55,7 +55,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -66,7 +66,7 @@ characterDeveloperHeroItemVM.RefreshValues();
 ### ExecuteStopInspectingCurrentAttribute
 `public void ExecuteStopInspectingCurrentAttribute()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with stop inspecting current attribute.
+**Purpose:** Runs the operation or workflow associated with stop inspecting current attribute.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -77,7 +77,7 @@ characterDeveloperHeroItemVM.ExecuteStopInspectingCurrentAttribute();
 ### RefreshCharacterValues
 `public void RefreshCharacterValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of character values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of character values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -88,7 +88,7 @@ characterDeveloperHeroItemVM.RefreshCharacterValues();
 ### RefreshPerksOfSkill
 `public void RefreshPerksOfSkill(SkillObject skill)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of perks of skill in sync with the underlying state.
+**Purpose:** Keeps the display or cache of perks of skill in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -99,7 +99,7 @@ characterDeveloperHeroItemVM.RefreshPerksOfSkill(skill);
 ### ResetChanges
 `public void ResetChanges(bool isCancel)`
 
-**Purpose:** **Purpose:** Returns changes to its default or initial condition.
+**Purpose:** Returns changes to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -110,7 +110,7 @@ characterDeveloperHeroItemVM.ResetChanges(false);
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**Purpose:** **Purpose:** Applies the effect of changes to the this instance.
+**Purpose:** Applies the effect of changes to the this instance.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -121,7 +121,7 @@ characterDeveloperHeroItemVM.ApplyChanges();
 ### SetCurrentSkill
 `public void SetCurrentSkill(SkillVM skill)`
 
-**Purpose:** **Purpose:** Assigns a new value to current skill and updates the object's internal state.
+**Purpose:** Assigns a new value to current skill and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -132,7 +132,7 @@ characterDeveloperHeroItemVM.SetCurrentSkill(skill);
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the there any changes state or condition.
+**Purpose:** Determines whether the this instance is in the there any changes state or condition.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -143,7 +143,7 @@ var result = characterDeveloperHeroItemVM.IsThereAnyChanges();
 ### GetRequiredFocusPointsToAddFocusWithCurrentFocus
 `public int GetRequiredFocusPointsToAddFocusWithCurrentFocus(SkillObject skill)`
 
-**Purpose:** **Purpose:** Reads and returns the required focus points to add focus with current focus value held by the this instance.
+**Purpose:** Reads and returns the required focus points to add focus with current focus value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -154,7 +154,7 @@ var result = characterDeveloperHeroItemVM.GetRequiredFocusPointsToAddFocusWithCu
 ### CanAddFocusToSkillWithFocusAmount
 `public bool CanAddFocusToSkillWithFocusAmount(int currentFocusAmount)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for add focus to skill with focus amount.
+**Purpose:** Checks whether the this instance meets the preconditions for add focus to skill with focus amount.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -165,7 +165,7 @@ var result = characterDeveloperHeroItemVM.CanAddFocusToSkillWithFocusAmount(0);
 ### IsSkillMaxAmongOtherSkills
 `public bool IsSkillMaxAmongOtherSkills(SkillVM skill)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the skill max among other skills state or condition.
+**Purpose:** Determines whether the this instance is in the skill max among other skills state or condition.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -176,7 +176,7 @@ var result = characterDeveloperHeroItemVM.IsSkillMaxAmongOtherSkills(skill);
 ### GetNameWithNumOfUnopenedPerks
 `public string GetNameWithNumOfUnopenedPerks()`
 
-**Purpose:** **Purpose:** Reads and returns the name with num of unopened perks value held by the this instance.
+**Purpose:** Reads and returns the name with num of unopened perks value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -187,7 +187,7 @@ var result = characterDeveloperHeroItemVM.GetNameWithNumOfUnopenedPerks();
 ### GetNumberOfUnselectedPerks
 `public int GetNumberOfUnselectedPerks()`
 
-**Purpose:** **Purpose:** Reads and returns the number of unselected perks value held by the this instance.
+**Purpose:** Reads and returns the number of unselected perks value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
@@ -198,7 +198,7 @@ var result = characterDeveloperHeroItemVM.GetNumberOfUnselectedPerks();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first

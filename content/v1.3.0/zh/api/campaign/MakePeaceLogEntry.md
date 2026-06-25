@@ -31,7 +31,7 @@ description: "MakePeaceLogEntry 的自动生成类参考。"
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 as rumor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 as rumor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MakePeaceLogEntry 实例
@@ -42,7 +42,7 @@ var result = makePeaceLogEntry.GetAsRumor(talkSettlement, comment);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MakePeaceLogEntry 实例
@@ -53,7 +53,7 @@ var result = makePeaceLogEntry.ToString();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 notification text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 notification text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MakePeaceLogEntry 实例
@@ -64,7 +64,7 @@ var result = makePeaceLogEntry.GetNotificationText();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 encyclopedia text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MakePeaceLogEntry 实例

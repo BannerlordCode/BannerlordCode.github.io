@@ -23,7 +23,7 @@ description: "ThreadedClient 的自动生成类参考。"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClient 实例
@@ -34,7 +34,7 @@ threadedClient.Tick();
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查connection在当前对象中是否成立。
+**用途 / Purpose:** 检查connection在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClient 实例

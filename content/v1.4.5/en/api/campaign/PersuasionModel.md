@@ -23,7 +23,7 @@ Treat `PersuasionModel` as a Model-style extension point: first identify who cre
 ### GetSkillXpFromPersuasion
 `public abstract int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**Purpose:** **Purpose:** Reads and returns the skill xp from persuasion value held by the this instance.
+**Purpose:** Reads and returns the skill xp from persuasion value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = persuasionModel.GetSkillXpFromPersuasion(difficulty, 0);
 ### GetChances
 `public abstract void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
 
-**Purpose:** **Purpose:** Reads and returns the chances value held by the this instance.
+**Purpose:** Reads and returns the chances value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -45,7 +45,7 @@ persuasionModel.GetChances(optionArgs, successChance, critSuccessChance, critFai
 ### GetEffectChances
 `public abstract void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
 
-**Purpose:** **Purpose:** Reads and returns the effect chances value held by the this instance.
+**Purpose:** Reads and returns the effect chances value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -56,7 +56,7 @@ persuasionModel.GetEffectChances(option, moveToNextStageChance, blockRandomOptio
 ### GetArgumentStrengthBasedOnTargetTraits
 `public abstract PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelation)`
 
-**Purpose:** **Purpose:** Reads and returns the argument strength based on target traits value held by the this instance.
+**Purpose:** Reads and returns the argument strength based on target traits value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = persuasionModel.GetArgumentStrengthBasedOnTargetTraits(character, t
 ### GetDifficulty
 `public abstract float GetDifficulty(PersuasionDifficulty difficulty)`
 
-**Purpose:** **Purpose:** Reads and returns the difficulty value held by the this instance.
+**Purpose:** Reads and returns the difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = persuasionModel.GetDifficulty(difficulty);
 ### CalculateInitialPersuasionProgress
 `public abstract float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of initial persuasion progress.
+**Purpose:** Calculates the current value or result of initial persuasion progress.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = persuasionModel.CalculateInitialPersuasionProgress(character, 0, 0)
 ### CalculatePersuasionGoalValue
 `public abstract float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of persuasion goal value.
+**Purpose:** Calculates the current value or result of persuasion goal value.
 
 ```csharp
 // Obtain an instance of PersuasionModel from the subsystem API first

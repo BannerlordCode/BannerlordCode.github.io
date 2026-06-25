@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Remove
 `public bool Remove(T item)`
 
-**Purpose:** **Purpose:** Removes an item from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MBQueue from the subsystem API first

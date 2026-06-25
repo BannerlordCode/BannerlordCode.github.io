@@ -30,7 +30,7 @@ description: "BotData 的自动生成类参考。"
 ### ResetKillDeathAssist
 `public void ResetKillDeathAssist()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 kill death assist 重置回默认或初始状态。
+**用途 / Purpose:** 将 kill death assist 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BotData 实例

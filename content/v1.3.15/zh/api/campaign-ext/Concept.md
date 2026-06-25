@@ -35,7 +35,7 @@ description: "Concept 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Concept 实例
@@ -46,7 +46,7 @@ concept.Deserialize(objectManager, node);
 ### IsGroupMember
 `public static bool IsGroupMember(string groupName, Concept c)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 group member 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 group member 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ Concept.IsGroupMember("example", c);
 ### SetConceptTextLinks
 `public static void SetConceptTextLinks()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 concept text links 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 concept text links 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

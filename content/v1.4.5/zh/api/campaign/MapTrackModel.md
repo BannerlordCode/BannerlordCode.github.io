@@ -29,7 +29,7 @@ description: "MapTrackModel 的自动生成类参考。"
 ### GetSkipTrackChance
 `public abstract float GetSkipTrackChance(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skip track chance 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skip track chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -40,7 +40,7 @@ var result = mapTrackModel.GetSkipTrackChance(mobileParty);
 ### GetMaxTrackSpottingDistanceForMainParty
 `public abstract float GetMaxTrackSpottingDistanceForMainParty()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max track spotting distance for main party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max track spotting distance for main party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -51,7 +51,7 @@ var result = mapTrackModel.GetMaxTrackSpottingDistanceForMainParty();
 ### CanPartyLeaveTrack
 `public abstract bool CanPartyLeaveTrack(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 party leave track 的前置条件。
+**用途 / Purpose:** 检查当前对象是否满足 party leave track 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -62,7 +62,7 @@ var result = mapTrackModel.CanPartyLeaveTrack(mobileParty);
 ### GetTrackDetectionDifficultyForMainParty
 `public abstract float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 track detection difficulty for main party 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 track detection difficulty for main party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -73,7 +73,7 @@ var result = mapTrackModel.GetTrackDetectionDifficultyForMainParty(track, 0);
 ### GetSkillFromTrackDetected
 `public abstract float GetSkillFromTrackDetected(Track track)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill from track detected 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 skill from track detected 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -84,7 +84,7 @@ var result = mapTrackModel.GetSkillFromTrackDetected(track);
 ### GetTrackLife
 `public abstract int GetTrackLife(MobileParty mobileParty)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 track life 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 track life 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -95,7 +95,7 @@ var result = mapTrackModel.GetTrackLife(mobileParty);
 ### TrackTitle
 `public abstract TextObject TrackTitle(Track track)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 TrackTitle 对应的操作。
+**用途 / Purpose:** 调用 TrackTitle 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -106,7 +106,7 @@ var result = mapTrackModel.TrackTitle(track);
 ### GetTrackColor
 `public abstract uint GetTrackColor(Track track)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 track color 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 track color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例
@@ -117,7 +117,7 @@ var result = mapTrackModel.GetTrackColor(track);
 ### GetTrackScale
 `public abstract float GetTrackScale(Track track)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 track scale 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 track scale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTrackModel 实例

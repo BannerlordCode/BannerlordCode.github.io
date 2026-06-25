@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.AI` to place it in the stack, the
 ### DeployAll
 `public void DeployAll(BattleSideEnum side)`
 
-**Purpose:** **Purpose:** Executes the DeployAll logic.
+**Purpose:** Executes the DeployAll logic.
 
 ```csharp
 // Obtain an instance of SiegeWeaponAutoDeployer from the subsystem API first

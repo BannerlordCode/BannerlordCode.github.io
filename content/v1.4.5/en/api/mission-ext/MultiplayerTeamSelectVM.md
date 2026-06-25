@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -48,7 +48,7 @@ multiplayerTeamSelectVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -59,7 +59,7 @@ multiplayerTeamSelectVM.Tick(0);
 ### RefreshDisabledTeams
 `public void RefreshDisabledTeams(List<Team> disabledTeams)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of disabled teams in sync with the underlying state.
+**Purpose:** Keeps the display or cache of disabled teams in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -70,7 +70,7 @@ multiplayerTeamSelectVM.RefreshDisabledTeams(disabledTeams);
 ### RefreshPlayerAndBotCount
 `public void RefreshPlayerAndBotCount(int playersCountOne, int playersCountTwo, int botsCountOne, int botsCountTwo)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of player and bot count in sync with the underlying state.
+**Purpose:** Keeps the display or cache of player and bot count in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -81,7 +81,7 @@ multiplayerTeamSelectVM.RefreshPlayerAndBotCount(0, 0, 0, 0);
 ### RefreshFriendsPerTeam
 `public void RefreshFriendsPerTeam(IEnumerable<MissionPeer> friendsTeamOne, IEnumerable<MissionPeer> friendsTeamTwo)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of friends per team in sync with the underlying state.
+**Purpose:** Keeps the display or cache of friends per team in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -92,7 +92,7 @@ multiplayerTeamSelectVM.RefreshFriendsPerTeam(friendsTeamOne, friendsTeamTwo);
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
@@ -103,7 +103,7 @@ multiplayerTeamSelectVM.ExecuteCancel();
 ### ExecuteAutoAssign
 `public void ExecuteAutoAssign()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with auto assign.
+**Purpose:** Runs the operation or workflow associated with auto assign.
 
 ```csharp
 // Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first

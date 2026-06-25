@@ -23,7 +23,7 @@ description: "MBUnusedResourceManager 的自动生成类参考。"
 ### SetMeshUsed
 `public static void SetMeshUsed(string meshName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 mesh used 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 mesh used 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBUnusedResourceManager.SetMeshUsed("example");
 ### SetMaterialUsed
 `public static void SetMaterialUsed(string meshName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 material used 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 material used 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBUnusedResourceManager.SetMaterialUsed("example");
 ### SetBodyUsed
 `public static void SetBodyUsed(string bodyName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 body used 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 body used 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

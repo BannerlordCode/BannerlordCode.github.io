@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### AddNarrativeMenuOption
 `public void AddNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**Purpose:** **Purpose:** Adds narrative menu option to the current collection or state.
+**Purpose:** Adds narrative menu option to the current collection or state.
 
 ```csharp
 // Obtain an instance of NarrativeMenu from the subsystem API first
@@ -41,7 +41,7 @@ narrativeMenu.AddNarrativeMenuOption(narrativeMenuOption);
 ### RemoveNarrativeMenuOption
 `public void RemoveNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**Purpose:** **Purpose:** Removes narrative menu option from the current collection or state.
+**Purpose:** Removes narrative menu option from the current collection or state.
 
 ```csharp
 // Obtain an instance of NarrativeMenu from the subsystem API first
@@ -52,7 +52,7 @@ narrativeMenu.RemoveNarrativeMenuOption(narrativeMenuOption);
 ### GetNarrativeMenuCharacterArgsDelegate
 `public delegate List<NarrativeMenuCharacterArgs> GetNarrativeMenuCharacterArgsDelegate(CultureObject culture, string occupationType, CharacterCreationManager characterCreationManager)`
 
-**Purpose:** **Purpose:** Reads and returns the narrative menu character args delegate value held by the this instance.
+**Purpose:** Reads and returns the narrative menu character args delegate value held by the this instance.
 
 ```csharp
 // Obtain an instance of NarrativeMenu from the subsystem API first

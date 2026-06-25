@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ### UpdateCamera
 `public void UpdateCamera()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of camera.
+**Purpose:** Recalculates and stores the latest representation of camera.
 
 ```csharp
 // Obtain an instance of BenchmarkScreen from the subsystem API first

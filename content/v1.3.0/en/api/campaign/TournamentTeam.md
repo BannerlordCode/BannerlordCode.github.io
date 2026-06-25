@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the participant required state or condition.
+**Purpose:** Determines whether the this instance is in the participant required state or condition.
 
 ```csharp
 // Obtain an instance of TournamentTeam from the subsystem API first
@@ -45,7 +45,7 @@ var result = tournamentTeam.IsParticipantRequired();
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant)`
 
-**Purpose:** **Purpose:** Adds participant to the current collection or state.
+**Purpose:** Adds participant to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentTeam from the subsystem API first

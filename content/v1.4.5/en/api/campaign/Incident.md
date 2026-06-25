@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Incidents` to place it in the st
 ### IncidentOptionConditionDelegate
 `public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-**Purpose:** **Purpose:** Executes the IncidentOptionConditionDelegate logic.
+**Purpose:** Executes the IncidentOptionConditionDelegate logic.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -44,7 +44,7 @@ var result = incident.IncidentOptionConditionDelegate(text);
 ### IncidentOptionConsequenceDelegate
 `public delegate void IncidentOptionConsequenceDelegate()`
 
-**Purpose:** **Purpose:** Executes the IncidentOptionConsequenceDelegate logic.
+**Purpose:** Executes the IncidentOptionConsequenceDelegate logic.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -55,7 +55,7 @@ incident.IncidentOptionConsequenceDelegate();
 ### Initialize
 `public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -66,7 +66,7 @@ incident.Initialize("example", "example", trigger, type, cooldown, func<TextObje
 ### AddOption
 `public void AddOption(string text, List<IncidentEffect> effects, IncidentOptionConditionDelegate condition = null, IncidentOptionConsequenceDelegate consequence = null)`
 
-**Purpose:** **Purpose:** Adds option to the current collection or state.
+**Purpose:** Adds option to the current collection or state.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -77,7 +77,7 @@ incident.AddOption("example", effects, null, null);
 ### CanIncidentBeInvoked
 `public bool CanIncidentBeInvoked()`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for incident be invoked.
+**Purpose:** Checks whether the this instance meets the preconditions for incident be invoked.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -88,7 +88,7 @@ var result = incident.CanIncidentBeInvoked();
 ### GetOptionText
 `public TextObject GetOptionText(int index)`
 
-**Purpose:** **Purpose:** Reads and returns the option text value held by the this instance.
+**Purpose:** Reads and returns the option text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -99,7 +99,7 @@ var result = incident.GetOptionText(0);
 ### GetOptionHint
 `public List<TextObject> GetOptionHint(int index)`
 
-**Purpose:** **Purpose:** Reads and returns the option hint value held by the this instance.
+**Purpose:** Reads and returns the option hint value held by the this instance.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first
@@ -110,7 +110,7 @@ var result = incident.GetOptionHint(0);
 ### InvokeOption
 `public List<TextObject> InvokeOption(int index)`
 
-**Purpose:** **Purpose:** Executes the InvokeOption logic.
+**Purpose:** Executes the InvokeOption logic.
 
 ```csharp
 // Obtain an instance of Incident from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** **Purpose:** Removes all content from the this instance.
+**Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of BannerImageTextureProvider from the subsystem API first

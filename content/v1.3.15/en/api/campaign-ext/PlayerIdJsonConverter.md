@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for convert.
+**Purpose:** Checks whether the this instance meets the preconditions for convert.
 
 ```csharp
 // Obtain an instance of PlayerIdJsonConverter from the subsystem API first
@@ -40,7 +40,7 @@ var result = playerIdJsonConverter.CanConvert(objectType);
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** **Purpose:** Reads the data or state of json.
+**Purpose:** Reads the data or state of json.
 
 ```csharp
 // Obtain an instance of PlayerIdJsonConverter from the subsystem API first
@@ -51,7 +51,7 @@ var result = playerIdJsonConverter.ReadJson(reader, objectType, existingValue, s
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** **Purpose:** Writes json to the target location.
+**Purpose:** Writes json to the target location.
 
 ```csharp
 // Obtain an instance of PlayerIdJsonConverter from the subsystem API first

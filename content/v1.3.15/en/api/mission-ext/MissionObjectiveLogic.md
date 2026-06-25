@@ -29,7 +29,7 @@ Treat `MissionObjectiveLogic` as a Logic-style extension point: first identify w
 ### StartObjective
 `public void StartObjective(MissionObjective objective)`
 
-**Purpose:** **Purpose:** Starts the objective flow or state machine.
+**Purpose:** Starts the objective flow or state machine.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -40,7 +40,7 @@ missionObjectiveLogic.StartObjective(objective);
 ### CompleteCurrentObjective
 `public void CompleteCurrentObjective()`
 
-**Purpose:** **Purpose:** Executes the CompleteCurrentObjective logic.
+**Purpose:** Executes the CompleteCurrentObjective logic.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -51,7 +51,7 @@ missionObjectiveLogic.CompleteCurrentObjective();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
+**Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first

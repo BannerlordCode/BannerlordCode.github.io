@@ -23,7 +23,7 @@ Treat `MissionGauntletMultiplayerCheatView` as a View-style extension point: fir
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**Purpose:** **Purpose:** Reads and returns the is cheats available value held by the this instance.
+**Purpose:** Reads and returns the is cheats available value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionGauntletMultiplayerCheatView.GetIsCheatsAvailable();
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by screen.
+**Purpose:** Prepares the resources, state, or bindings required by screen.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletMultiplayerCheatView.InitializeScreen();
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**Purpose:** **Purpose:** Executes the FinalizeScreen logic.
+**Purpose:** Executes the FinalizeScreen logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first

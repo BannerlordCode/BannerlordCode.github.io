@@ -30,7 +30,7 @@ Treat `ArmyOverlayCohesionFillBarWidget` as a Widget-style extension point: firs
 ### ArmyOverlayCohesionFillBarWidget
 `public class ArmyOverlayCohesionFillBarWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the ArmyOverlayCohesionFillBarWidget logic.
+**Purpose:** Executes the ArmyOverlayCohesionFillBarWidget logic.
 
 ```csharp
 // Obtain an instance of ArmyOverlayCohesionFillBarWidget from the subsystem API first

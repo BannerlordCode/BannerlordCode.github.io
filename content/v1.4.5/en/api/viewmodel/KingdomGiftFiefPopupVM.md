@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -55,7 +55,7 @@ kingdomGiftFiefPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(Settlement settlement)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with with.
+**Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -66,7 +66,7 @@ kingdomGiftFiefPopupVM.OpenWith(settlement);
 ### ExecuteGiftSettlement
 `public void ExecuteGiftSettlement()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with gift settlement.
+**Purpose:** Runs the operation or workflow associated with gift settlement.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -77,7 +77,7 @@ kingdomGiftFiefPopupVM.ExecuteGiftSettlement();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
+**Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -88,7 +88,7 @@ kingdomGiftFiefPopupVM.ExecuteClose();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -99,7 +99,7 @@ kingdomGiftFiefPopupVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
@@ -110,7 +110,7 @@ kingdomGiftFiefPopupVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
+**Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first

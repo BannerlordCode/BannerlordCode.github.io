@@ -36,7 +36,7 @@ Treat `DestructableComponent` as a Component-style extension point: first identi
 ### GetOriginalState
 `public WeakGameEntity GetOriginalState(WeakGameEntity parent)`
 
-**Purpose:** **Purpose:** Reads and returns the original state value held by the this instance.
+**Purpose:** Reads and returns the original state value held by the this instance.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -47,7 +47,7 @@ var result = destructableComponent.GetOriginalState(parent);
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -58,7 +58,7 @@ destructableComponent.Reset();
 ### TriggerOnHit
 `public void TriggerOnHit(Agent attackerAgent, int inflictedDamage, Vec3 impactPosition, Vec3 impactDirection, in MissionWeapon weapon, int affectorWeaponSlotOrMissileIndex, ScriptComponentBehavior attackerScriptComponentBehavior)`
 
-**Purpose:** **Purpose:** Triggers the logic or event associated with on hit.
+**Purpose:** Triggers the logic or event associated with on hit.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -69,7 +69,7 @@ destructableComponent.TriggerOnHit(attackerAgent, 0, impactPosition, impactDirec
 ### BurstHeavyHitParticles
 `public void BurstHeavyHitParticles()`
 
-**Purpose:** **Purpose:** Executes the BurstHeavyHitParticles logic.
+**Purpose:** Executes the BurstHeavyHitParticles logic.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -80,7 +80,7 @@ destructableComponent.BurstHeavyHitParticles();
 ### SetDestructionLevel
 `public void SetDestructionLevel(int state, int forcedId, float blowMagnitude, Vec3 blowPosition, Vec3 blowDirection, bool noEffects = false)`
 
-**Purpose:** **Purpose:** Assigns a new value to destruction level and updates the object's internal state.
+**Purpose:** Assigns a new value to destruction level and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -91,7 +91,7 @@ destructableComponent.SetDestructionLevel(0, 0, 0, blowPosition, blowDirection, 
 ### PreDestroy
 `public void PreDestroy()`
 
-**Purpose:** **Purpose:** Executes the PreDestroy logic.
+**Purpose:** Executes the PreDestroy logic.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -102,7 +102,7 @@ destructableComponent.PreDestroy();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** **Purpose:** Writes to network to the target location.
+**Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -113,7 +113,7 @@ destructableComponent.WriteToNetwork();
 ### AddStuckMissile
 `public override void AddStuckMissile(GameEntity missileEntity)`
 
-**Purpose:** **Purpose:** Adds stuck missile to the current collection or state.
+**Purpose:** Adds stuck missile to the current collection or state.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -124,7 +124,7 @@ destructableComponent.AddStuckMissile(missileEntity);
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
+**Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -135,7 +135,7 @@ destructableComponent.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
+**Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -146,7 +146,7 @@ destructableComponent.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** **Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
+**Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -157,7 +157,7 @@ var result = destructableComponent.GetInfoTextForBeingNotInteractable(userAgent)
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord)`
 
-**Purpose:** **Purpose:** Invoked when the after read from network event is raised.
+**Purpose:** Invoked when the after read from network event is raised.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -168,7 +168,7 @@ destructableComponent.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObject
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
+**Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -179,7 +179,7 @@ var result = destructableComponent.GetDescriptionText(gameEntity);
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** **Purpose:** Reads the data or state of from network.
+**Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first
@@ -190,7 +190,7 @@ var result = destructableComponent.ReadFromNetwork(bufferReadValid);
 ### OnHitTakenAndDestroyedDelegate
 `public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
 
-**Purpose:** **Purpose:** Invoked when the hit taken and destroyed delegate event is raised.
+**Purpose:** Invoked when the hit taken and destroyed delegate event is raised.
 
 ```csharp
 // Obtain an instance of DestructableComponent from the subsystem API first

@@ -23,7 +23,7 @@ Treat `IncidentModel` as a Model-style extension point: first identify who creat
 ### GetMinGlobalCooldownTime
 `public abstract CampaignTime GetMinGlobalCooldownTime()`
 
-**Purpose:** **Purpose:** Reads and returns the min global cooldown time value held by the this instance.
+**Purpose:** Reads and returns the min global cooldown time value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = incidentModel.GetMinGlobalCooldownTime();
 ### GetMaxGlobalCooldownTime
 `public abstract CampaignTime GetMaxGlobalCooldownTime()`
 
-**Purpose:** **Purpose:** Reads and returns the max global cooldown time value held by the this instance.
+**Purpose:** Reads and returns the max global cooldown time value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = incidentModel.GetMaxGlobalCooldownTime();
 ### GetIncidentTriggerGlobalProbability
 `public abstract float GetIncidentTriggerGlobalProbability()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger global probability value held by the this instance.
+**Purpose:** Reads and returns the incident trigger global probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = incidentModel.GetIncidentTriggerGlobalProbability();
 ### GetIncidentTriggerProbabilityDuringSiege
 `public abstract float GetIncidentTriggerProbabilityDuringSiege()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger probability during siege value held by the this instance.
+**Purpose:** Reads and returns the incident trigger probability during siege value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = incidentModel.GetIncidentTriggerProbabilityDuringSiege();
 ### GetIncidentTriggerProbabilityDuringWait
 `public abstract float GetIncidentTriggerProbabilityDuringWait()`
 
-**Purpose:** **Purpose:** Reads and returns the incident trigger probability during wait value held by the this instance.
+**Purpose:** Reads and returns the incident trigger probability during wait value held by the this instance.
 
 ```csharp
 // Obtain an instance of IncidentModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `StoryMode.View.Permissions` to place it in the stack, then
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** **Purpose:** Invoked when the initialize event is raised.
+**Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Static call; no instance required

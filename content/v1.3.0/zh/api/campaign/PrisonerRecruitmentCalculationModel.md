@@ -23,7 +23,7 @@ description: "PrisonerRecruitmentCalculationModel 的自动生成类参考。"
 ### GetConformityNeededToRecruitPrisoner
 `public abstract int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conformity needed to recruit prisoner 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conformity needed to recruit prisoner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例
@@ -34,7 +34,7 @@ var result = prisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPri
 ### GetConformityChangePerHour
 `public abstract ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conformity change per hour 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 conformity change per hour 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例
@@ -45,7 +45,7 @@ var result = prisonerRecruitmentCalculationModel.GetConformityChangePerHour(part
 ### GetPrisonerRecruitmentMoraleEffect
 `public abstract int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prisoner recruitment morale effect 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 prisoner recruitment morale effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例
@@ -56,7 +56,7 @@ var result = prisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEff
 ### IsPrisonerRecruitable
 `public abstract bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 prisoner recruitable 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 prisoner recruitable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例
@@ -67,7 +67,7 @@ var result = prisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, ch
 ### ShouldPartyRecruitPrisoners
 `public abstract bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldPartyRecruitPrisoners 对应的操作。
+**用途 / Purpose:** 调用 ShouldPartyRecruitPrisoners 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例
@@ -78,7 +78,7 @@ var result = prisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(par
 ### CalculateRecruitableNumber
 `public abstract int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算recruitable number的当前值或结果。
+**用途 / Purpose:** 计算recruitable number的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitmentCalculationModel 实例

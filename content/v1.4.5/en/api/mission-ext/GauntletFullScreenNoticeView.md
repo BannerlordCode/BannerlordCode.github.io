@@ -29,7 +29,7 @@ Treat `GauntletFullScreenNoticeView` as a View-style extension point: first iden
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ GauntletFullScreenNoticeView.Initialize();
 ### SkipNotice
 `public static void SkipNotice()`
 
-**Purpose:** **Purpose:** Executes the SkipNotice logic.
+**Purpose:** Executes the SkipNotice logic.
 
 ```csharp
 // Static call; no instance required

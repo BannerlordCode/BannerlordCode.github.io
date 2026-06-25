@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### AddNewItems
 `public void AddNewItems(List<(EquipmentElement, int)> newItems)`
 
-**Purpose:** **Purpose:** Adds new items to the current collection or state.
+**Purpose:** Adds new items to the current collection or state.
 
 ```csharp
 // Obtain an instance of CaravanTransactionNotificationItemVM from the subsystem API first

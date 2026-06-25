@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### MonitorEnumDelegate
 `public delegate bool MonitorEnumDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref RECT lprcMonitor, IntPtr lParam)`
 
-**Purpose:** **Purpose:** Executes the MonitorEnumDelegate logic.
+**Purpose:** Executes the MonitorEnumDelegate logic.
 
 ```csharp
 // Obtain an instance of User32 from the subsystem API first
@@ -34,7 +34,7 @@ var result = user32.MonitorEnumDelegate(hMonitor, hdcMonitor, lprcMonitor, lPara
 ### GetAsyncKeyState
 `public static extern short GetAsyncKeyState(int vkey)`
 
-**Purpose:** **Purpose:** Reads and returns the async key state value held by the this instance.
+**Purpose:** Reads and returns the async key state value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ User32.GetAsyncKeyState(0);
 ### DestroyWindow
 `public static extern bool DestroyWindow(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Executes the DestroyWindow logic.
+**Purpose:** Executes the DestroyWindow logic.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ User32.DestroyWindow(hWnd);
 ### GetDC
 `public static extern IntPtr GetDC(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Reads and returns the d c value held by the this instance.
+**Purpose:** Reads and returns the d c value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ User32.GetDC(hWnd);
 ### SetParent
 `public static extern IntPtr SetParent(IntPtr child, IntPtr newParent)`
 
-**Purpose:** **Purpose:** Assigns a new value to parent and updates the object's internal state.
+**Purpose:** Assigns a new value to parent and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ User32.SetParent(child, newParent);
 ### ReleaseDC
 `public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC)`
 
-**Purpose:** **Purpose:** Executes the ReleaseDC logic.
+**Purpose:** Executes the ReleaseDC logic.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ User32.ReleaseDC(hWnd, hDC);
 ### ScreenToClient
 `public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint)`
 
-**Purpose:** **Purpose:** Executes the ScreenToClient logic.
+**Purpose:** Executes the ScreenToClient logic.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ User32.ScreenToClient(hWnd, lpPoint);
 ### GetCursorPos
 `public static extern bool GetCursorPos(out Point lpPoint)`
 
-**Purpose:** **Purpose:** Reads and returns the cursor pos value held by the this instance.
+**Purpose:** Reads and returns the cursor pos value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -104,7 +104,7 @@ User32.GetCursorPos(lpPoint);
 ### ReleaseCapture
 `public static extern bool ReleaseCapture()`
 
-**Purpose:** **Purpose:** Executes the ReleaseCapture logic.
+**Purpose:** Executes the ReleaseCapture logic.
 
 ```csharp
 // Static call; no instance required
@@ -114,7 +114,7 @@ User32.ReleaseCapture();
 ### SetCapture
 `public static extern IntPtr SetCapture(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Assigns a new value to capture and updates the object's internal state.
+**Purpose:** Assigns a new value to capture and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -124,7 +124,7 @@ User32.SetCapture(hWnd);
 ### SetActiveWindow
 `public static extern IntPtr SetActiveWindow(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Assigns a new value to active window and updates the object's internal state.
+**Purpose:** Assigns a new value to active window and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -134,7 +134,7 @@ User32.SetActiveWindow(hWnd);
 ### SetForegroundWindow
 `public static extern bool SetForegroundWindow(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Assigns a new value to foreground window and updates the object's internal state.
+**Purpose:** Assigns a new value to foreground window and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -144,7 +144,7 @@ User32.SetForegroundWindow(hWnd);
 ### CreateWindowEx
 `public static extern IntPtr CreateWindowEx(int dwExStyle, string lpClassName, string lpWindowName, WindowStyle dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam)`
 
-**Purpose:** **Purpose:** Constructs a new window ex entity and returns it to the caller.
+**Purpose:** Constructs a new window ex entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -154,7 +154,7 @@ User32.CreateWindowEx(0, "example", "example", dwStyle, 0, 0, 0, 0, hWndParent, 
 ### ShowWindow
 `public static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow)`
 
-**Purpose:** **Purpose:** Displays the UI or element associated with window.
+**Purpose:** Displays the UI or element associated with window.
 
 ```csharp
 // Static call; no instance required
@@ -164,7 +164,7 @@ User32.ShowWindow(hWnd, nCmdShow);
 ### IsIconic
 `public static extern bool IsIconic(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the iconic state or condition.
+**Purpose:** Determines whether the this instance is in the iconic state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -174,7 +174,7 @@ User32.IsIconic(hWnd);
 ### CloseWindow
 `public static extern bool CloseWindow(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Closes the resource or UI associated with window.
+**Purpose:** Closes the resource or UI associated with window.
 
 ```csharp
 // Static call; no instance required
@@ -184,7 +184,7 @@ User32.CloseWindow(hWnd);
 ### PeekMessage
 `public static extern bool PeekMessage(out NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg)`
 
-**Purpose:** **Purpose:** Executes the PeekMessage logic.
+**Purpose:** Executes the PeekMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -194,7 +194,7 @@ User32.PeekMessage(lpMsg, hWnd, 0, 0, 0);
 ### TranslateMessage
 `public static extern bool TranslateMessage( ref NativeMessage lpMsg)`
 
-**Purpose:** **Purpose:** Executes the TranslateMessage logic.
+**Purpose:** Executes the TranslateMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -204,7 +204,7 @@ User32.TranslateMessage(lpMsg);
 ### DispatchMessage
 `public static extern IntPtr DispatchMessage( ref NativeMessage lpMsg)`
 
-**Purpose:** **Purpose:** Executes the DispatchMessage logic.
+**Purpose:** Executes the DispatchMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -214,7 +214,7 @@ User32.DispatchMessage(lpMsg);
 ### RegisterClass
 `public static extern ushort RegisterClass( ref WindowClass lpWndClass)`
 
-**Purpose:** **Purpose:** Registers class with the current system so it can later be observed or dispatched.
+**Purpose:** Registers class with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -224,7 +224,7 @@ User32.RegisterClass(lpWndClass);
 ### UnregisterClass
 `public static extern bool UnregisterClass( string lpClassName, IntPtr hInstance)`
 
-**Purpose:** **Purpose:** Unregisters class from the current system.
+**Purpose:** Unregisters class from the current system.
 
 ```csharp
 // Static call; no instance required
@@ -234,7 +234,7 @@ User32.UnregisterClass("example", hInstance);
 ### DefWindowProc
 `public static extern IntPtr DefWindowProc(IntPtr hWnd, uint uMsg, IntPtr wParam, IntPtr lParam)`
 
-**Purpose:** **Purpose:** Executes the DefWindowProc logic.
+**Purpose:** Executes the DefWindowProc logic.
 
 ```csharp
 // Static call; no instance required
@@ -244,7 +244,7 @@ User32.DefWindowProc(hWnd, 0, wParam, lParam);
 ### LoadCursorFromFile
 `public static extern IntPtr LoadCursorFromFile(string lpFileName)`
 
-**Purpose:** **Purpose:** Reads cursor from file from persistent storage or a stream.
+**Purpose:** Reads cursor from file from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -254,7 +254,7 @@ User32.LoadCursorFromFile("example");
 ### GetDesktopWindow
 `public static extern IntPtr GetDesktopWindow()`
 
-**Purpose:** **Purpose:** Reads and returns the desktop window value held by the this instance.
+**Purpose:** Reads and returns the desktop window value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -264,7 +264,7 @@ User32.GetDesktopWindow();
 ### GetClientRect
 `public static extern bool GetClientRect(IntPtr hWnd, out Rectangle lpRect)`
 
-**Purpose:** **Purpose:** Reads and returns the client rect value held by the this instance.
+**Purpose:** Reads and returns the client rect value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -274,7 +274,7 @@ User32.GetClientRect(hWnd, lpRect);
 ### GetWindowRect
 `public static extern bool GetWindowRect(IntPtr hWnd, out Rectangle lpRect)`
 
-**Purpose:** **Purpose:** Reads and returns the window rect value held by the this instance.
+**Purpose:** Reads and returns the window rect value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -284,7 +284,7 @@ User32.GetWindowRect(hWnd, lpRect);
 ### SetWindowPos
 `public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags)`
 
-**Purpose:** **Purpose:** Assigns a new value to window pos and updates the object's internal state.
+**Purpose:** Assigns a new value to window pos and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -294,7 +294,7 @@ User32.SetWindowPos(hWnd, hWndInsertAfter, 0, 0, 0, 0, 0);
 ### MoveWindow
 `public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint)`
 
-**Purpose:** **Purpose:** Moves window to a new position or state.
+**Purpose:** Moves window to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -304,7 +304,7 @@ User32.MoveWindow(hWnd, 0, 0, 0, 0, false);
 ### UpdateWindow
 `public static extern bool UpdateWindow(IntPtr hWnd)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of window.
+**Purpose:** Recalculates and stores the latest representation of window.
 
 ```csharp
 // Static call; no instance required
@@ -314,7 +314,7 @@ User32.UpdateWindow(hWnd);
 ### SetWindowLong
 `public static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong)`
 
-**Purpose:** **Purpose:** Assigns a new value to window long and updates the object's internal state.
+**Purpose:** Assigns a new value to window long and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -324,7 +324,7 @@ User32.SetWindowLong(hWnd, 0, 0);
 ### UpdateLayeredWindow
 `public static extern bool UpdateLayeredWindow(IntPtr hWnd, IntPtr hdcDst, ref System.Drawing.Point pptDst, ref Size psize, IntPtr hdcSrc, ref System.Drawing.Point pprSrc, int crKey, ref BlendFunction pblend, int dwFlags)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of layered window.
+**Purpose:** Recalculates and stores the latest representation of layered window.
 
 ```csharp
 // Static call; no instance required
@@ -334,7 +334,7 @@ User32.UpdateLayeredWindow(hWnd, hdcDst, pptDst, psize, hdcSrc, pprSrc, 0, pblen
 ### GetMessage
 `public static extern bool GetMessage(out NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax)`
 
-**Purpose:** **Purpose:** Reads and returns the message value held by the this instance.
+**Purpose:** Reads and returns the message value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -344,7 +344,7 @@ User32.GetMessage(lpMsg, hWnd, 0, 0);
 ### SendMessage
 `public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam)`
 
-**Purpose:** **Purpose:** Executes the SendMessage logic.
+**Purpose:** Executes the SendMessage logic.
 
 ```csharp
 // Static call; no instance required
@@ -354,7 +354,7 @@ User32.SendMessage(hWnd, 0, wParam, lParam);
 ### MessageBox
 `public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type)`
 
-**Purpose:** **Purpose:** Executes the MessageBox logic.
+**Purpose:** Executes the MessageBox logic.
 
 ```csharp
 // Static call; no instance required
@@ -364,7 +364,7 @@ User32.MessageBox(hWnd, "example", "example", 0);
 ### EnumDisplayMonitors
 `public static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, MonitorEnumDelegate lpfnEnum, IntPtr dwData)`
 
-**Purpose:** **Purpose:** Executes the EnumDisplayMonitors logic.
+**Purpose:** Executes the EnumDisplayMonitors logic.
 
 ```csharp
 // Static call; no instance required
@@ -374,7 +374,7 @@ User32.EnumDisplayMonitors(hdc, lprcClip, lpfnEnum, dwData);
 ### GetMonitorInfo
 `public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi)`
 
-**Purpose:** **Purpose:** Reads and returns the monitor info value held by the this instance.
+**Purpose:** Reads and returns the monitor info value held by the this instance.
 
 ```csharp
 // Static call; no instance required

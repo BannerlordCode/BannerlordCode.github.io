@@ -35,7 +35,7 @@ description: "MPAnnouncementItemVM 的自动生成类参考。"
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**用途 / Purpose:** **用途 / Purpose:** 执行 inspect 对应的操作或工作流。
+**用途 / Purpose:** 执行 inspect 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPAnnouncementItemVM 实例

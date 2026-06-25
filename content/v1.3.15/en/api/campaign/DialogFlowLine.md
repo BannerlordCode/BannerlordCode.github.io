@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### AddVariation
 `public void AddVariation(TextObject text, List<GameTextManager.ChoiceTag> list)`
 
-**Purpose:** **Purpose:** Adds variation to the current collection or state.
+**Purpose:** Adds variation to the current collection or state.
 
 ```csharp
 // Obtain an instance of DialogFlowLine from the subsystem API first

@@ -32,7 +32,7 @@ description: "MetaMesh 的自动生成类参考。"
 ### CreateMetaMesh
 `public static MetaMesh CreateMetaMesh(string name = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 meta mesh 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 meta mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ MetaMesh.CreateMetaMesh("example");
 ### GetLodMaskForMeshAtIndex
 `public int GetLodMaskForMeshAtIndex(int index)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 lod mask for mesh at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 lod mask for mesh at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -53,7 +53,7 @@ var result = metaMesh.GetLodMaskForMeshAtIndex(0);
 ### GetTotalGpuSize
 `public int GetTotalGpuSize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total gpu size 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 total gpu size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -64,7 +64,7 @@ var result = metaMesh.GetTotalGpuSize();
 ### RemoveMeshesWithTag
 `public int RemoveMeshesWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 meshes with tag。
+**用途 / Purpose:** 从当前容器或状态中移除 meshes with tag。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -75,7 +75,7 @@ var result = metaMesh.RemoveMeshesWithTag("example");
 ### RemoveMeshesWithoutTag
 `public int RemoveMeshesWithoutTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 meshes without tag。
+**用途 / Purpose:** 从当前容器或状态中移除 meshes without tag。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -86,7 +86,7 @@ var result = metaMesh.RemoveMeshesWithoutTag("example");
 ### GetMeshCountWithTag
 `public int GetMeshCountWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mesh count with tag 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mesh count with tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -97,7 +97,7 @@ var result = metaMesh.GetMeshCountWithTag("example");
 ### HasVertexBufferOrEditDataOrPackageItem
 `public bool HasVertexBufferOrEditDataOrPackageItem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 vertex buffer or edit data or package item。
+**用途 / Purpose:** 判断当前对象是否已经持有 vertex buffer or edit data or package item。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -108,7 +108,7 @@ var result = metaMesh.HasVertexBufferOrEditDataOrPackageItem();
 ### HasAnyGeneratedLods
 `public bool HasAnyGeneratedLods()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any generated lods。
+**用途 / Purpose:** 判断当前对象是否已经持有 any generated lods。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -119,7 +119,7 @@ var result = metaMesh.HasAnyGeneratedLods();
 ### HasAnyLods
 `public bool HasAnyLods()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any lods。
+**用途 / Purpose:** 判断当前对象是否已经持有 any lods。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -130,7 +130,7 @@ var result = metaMesh.HasAnyLods();
 ### GetCopy
 `public static MetaMesh GetCopy(string metaMeshName, bool showErrors = true, bool mayReturnNull = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -140,7 +140,7 @@ MetaMesh.GetCopy("example", false, false);
 ### CopyTo
 `public void CopyTo(MetaMesh res, bool copyMeshes = true)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把当前对象的to状态复制到目标对象。
+**用途 / Purpose:** 把当前对象的to状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -151,7 +151,7 @@ metaMesh.CopyTo(res, false);
 ### ClearMeshesForOtherLods
 `public void ClearMeshesForOtherLods(int lodToKeep)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的meshes for other lods。
+**用途 / Purpose:** 清空当前对象中的meshes for other lods。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -162,7 +162,7 @@ metaMesh.ClearMeshesForOtherLods(0);
 ### ClearMeshesForLod
 `public void ClearMeshesForLod(int lodToClear)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的meshes for lod。
+**用途 / Purpose:** 清空当前对象中的meshes for lod。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -173,7 +173,7 @@ metaMesh.ClearMeshesForLod(0);
 ### ClearMeshesForLowerLods
 `public void ClearMeshesForLowerLods(int lodToClear)`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的meshes for lower lods。
+**用途 / Purpose:** 清空当前对象中的meshes for lower lods。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -184,7 +184,7 @@ metaMesh.ClearMeshesForLowerLods(0);
 ### ClearMeshes
 `public void ClearMeshes()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的meshes。
+**用途 / Purpose:** 清空当前对象中的meshes。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -195,7 +195,7 @@ metaMesh.ClearMeshes();
 ### SetNumLods
 `public void SetNumLods(int lodToClear)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 num lods 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 num lods 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -206,7 +206,7 @@ metaMesh.SetNumLods(0);
 ### CheckMetaMeshExistence
 `public static void CheckMetaMeshExistence(string metaMeshName, int lod_count_check)`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查meta mesh existence在当前对象中是否成立。
+**用途 / Purpose:** 检查meta mesh existence在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -216,7 +216,7 @@ MetaMesh.CheckMetaMeshExistence("example", 0);
 ### GetMorphedCopy
 `public static MetaMesh GetMorphedCopy(string metaMeshName, float morphTarget, bool showErrors)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morphed copy 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 morphed copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -226,7 +226,7 @@ MetaMesh.GetMorphedCopy("example", 0, false);
 ### CreateCopy
 `public MetaMesh CreateCopy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 copy 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 copy 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -237,7 +237,7 @@ var result = metaMesh.CreateCopy();
 ### AddMesh
 `public void AddMesh(Mesh mesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -248,7 +248,7 @@ metaMesh.AddMesh(mesh);
 ### AddMesh
 `public void AddMesh(Mesh mesh, uint lodLevel)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -259,7 +259,7 @@ metaMesh.AddMesh(mesh, 0);
 ### AddMetaMesh
 `public void AddMetaMesh(MetaMesh metaMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 meta mesh 添加到当前容器或状态中。
+**用途 / Purpose:** 将 meta mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -270,7 +270,7 @@ metaMesh.AddMetaMesh(metaMesh);
 ### SetCullMode
 `public void SetCullMode(MBMeshCullingMode cullMode)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 cull mode 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 cull mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -281,7 +281,7 @@ metaMesh.SetCullMode(cullMode);
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string materialShaderFlag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 material shader flag 添加到当前容器或状态中。
+**用途 / Purpose:** 将 material shader flag 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -292,7 +292,7 @@ metaMesh.AddMaterialShaderFlag("example");
 ### MergeMultiMeshes
 `public void MergeMultiMeshes(MetaMesh metaMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 MergeMultiMeshes 对应的操作。
+**用途 / Purpose:** 调用 MergeMultiMeshes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -303,7 +303,7 @@ metaMesh.MergeMultiMeshes(metaMesh);
 ### AssignClothBodyFrom
 `public void AssignClothBodyFrom(MetaMesh metaMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AssignClothBodyFrom 对应的操作。
+**用途 / Purpose:** 调用 AssignClothBodyFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -314,7 +314,7 @@ metaMesh.AssignClothBodyFrom(metaMesh);
 ### BatchMultiMeshes
 `public void BatchMultiMeshes(MetaMesh metaMesh)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BatchMultiMeshes 对应的操作。
+**用途 / Purpose:** 调用 BatchMultiMeshes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -325,7 +325,7 @@ metaMesh.BatchMultiMeshes(metaMesh);
 ### HasClothData
 `public bool HasClothData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 cloth data。
+**用途 / Purpose:** 判断当前对象是否已经持有 cloth data。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -336,7 +336,7 @@ var result = metaMesh.HasClothData();
 ### BatchMultiMeshesMultiple
 `public void BatchMultiMeshesMultiple(List<MetaMesh> metaMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 BatchMultiMeshesMultiple 对应的操作。
+**用途 / Purpose:** 调用 BatchMultiMeshesMultiple 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -347,7 +347,7 @@ metaMesh.BatchMultiMeshesMultiple(metaMeshes);
 ### ClearEditData
 `public void ClearEditData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的edit data。
+**用途 / Purpose:** 清空当前对象中的edit data。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -358,7 +358,7 @@ metaMesh.ClearEditData();
 ### GetMeshAtIndex
 `public Mesh GetMeshAtIndex(int meshIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mesh at index 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 mesh at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -369,7 +369,7 @@ var result = metaMesh.GetMeshAtIndex(0);
 ### GetFirstMeshWithTag
 `public Mesh GetFirstMeshWithTag(string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first mesh with tag 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 first mesh with tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -380,7 +380,7 @@ var result = metaMesh.GetFirstMeshWithTag("example");
 ### GetFactor1
 `public uint GetFactor1()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 factor1 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 factor1 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -391,7 +391,7 @@ var result = metaMesh.GetFactor1();
 ### SetGlossMultiplier
 `public void SetGlossMultiplier(float value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 gloss multiplier 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 gloss multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -402,7 +402,7 @@ metaMesh.SetGlossMultiplier(0);
 ### GetFactor2
 `public uint GetFactor2()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 factor2 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 factor2 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -413,7 +413,7 @@ var result = metaMesh.GetFactor2();
 ### SetFactor1Linear
 `public void SetFactor1Linear(uint linearFactorColor1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 factor1 linear 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 factor1 linear 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -424,7 +424,7 @@ metaMesh.SetFactor1Linear(0);
 ### SetFactor2Linear
 `public void SetFactor2Linear(uint linearFactorColor2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 factor2 linear 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 factor2 linear 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -435,7 +435,7 @@ metaMesh.SetFactor2Linear(0);
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 factor1 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 factor1 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -446,7 +446,7 @@ metaMesh.SetFactor1(0);
 ### SetFactor2
 `public void SetFactor2(uint factorColor2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 factor2 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 factor2 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -457,7 +457,7 @@ metaMesh.SetFactor2(0);
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -468,7 +468,7 @@ metaMesh.SetVectorArgument(0, 0, 0, 0);
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 vector argument2 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 vector argument2 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -479,7 +479,7 @@ metaMesh.SetVectorArgument2(0, 0, 0, 0);
 ### GetVectorArgument2
 `public Vec3 GetVectorArgument2()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vector argument2 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 vector argument2 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -490,7 +490,7 @@ var result = metaMesh.GetVectorArgument2();
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 material 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 material 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -501,7 +501,7 @@ metaMesh.SetMaterial(material);
 ### SetShaderToMaterial
 `public void SetShaderToMaterial(string shaderName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 shader to material 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 shader to material 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -512,7 +512,7 @@ metaMesh.SetShaderToMaterial("example");
 ### SetLodBias
 `public void SetLodBias(int lodBias)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 lod bias 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 lod bias 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -523,7 +523,7 @@ metaMesh.SetLodBias(0);
 ### SetBillboarding
 `public void SetBillboarding(BillboardType billboard)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 billboarding 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 billboarding 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -534,7 +534,7 @@ metaMesh.SetBillboarding(billboard);
 ### UseHeadBoneFaceGenScaling
 `public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 UseHeadBoneFaceGenScaling 对应的操作。
+**用途 / Purpose:** 调用 UseHeadBoneFaceGenScaling 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -545,7 +545,7 @@ metaMesh.UseHeadBoneFaceGenScaling(skeleton, 0, frame);
 ### DrawTextWithDefaultFont
 `public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DrawTextWithDefaultFont 对应的操作。
+**用途 / Purpose:** 调用 DrawTextWithDefaultFont 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -556,7 +556,7 @@ metaMesh.DrawTextWithDefaultFont("example", textPositionMin, textPositionMax, si
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadForRendering 对应的操作。
+**用途 / Purpose:** 调用 PreloadForRendering 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -567,7 +567,7 @@ metaMesh.PreloadForRendering();
 ### CheckResources
 `public int CheckResources()`
 
-**用途 / Purpose:** **用途 / Purpose:** 检查resources在当前对象中是否成立。
+**用途 / Purpose:** 检查resources在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -578,7 +578,7 @@ var result = metaMesh.CheckResources();
 ### PreloadShaders
 `public void PreloadShaders(bool useTableau, bool useTeamColor)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadShaders 对应的操作。
+**用途 / Purpose:** 调用 PreloadShaders 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -589,7 +589,7 @@ metaMesh.PreloadShaders(false, false);
 ### RecomputeBoundingBox
 `public void RecomputeBoundingBox(bool recomputeMeshes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 重新执行bounding box相关的计算并返回结果。
+**用途 / Purpose:** 重新执行bounding box相关的计算并返回结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -600,7 +600,7 @@ metaMesh.RecomputeBoundingBox(false);
 ### AddEditDataUser
 `public void AddEditDataUser()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 edit data user 添加到当前容器或状态中。
+**用途 / Purpose:** 将 edit data user 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -611,7 +611,7 @@ metaMesh.AddEditDataUser();
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseEditDataUser 对应的操作。
+**用途 / Purpose:** 调用 ReleaseEditDataUser 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -622,7 +622,7 @@ metaMesh.ReleaseEditDataUser();
 ### SetEditDataPolicy
 `public void SetEditDataPolicy(EditDataPolicy policy)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 edit data policy 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 edit data policy 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -633,7 +633,7 @@ metaMesh.SetEditDataPolicy(policy);
 ### Fit
 `public MatrixFrame Fit()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Fit 对应的操作。
+**用途 / Purpose:** 调用 Fit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -644,7 +644,7 @@ var result = metaMesh.Fit();
 ### GetBoundingBox
 `public BoundingBox GetBoundingBox()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 bounding box 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -655,7 +655,7 @@ var result = metaMesh.GetBoundingBox();
 ### GetVisibilityMask
 `public VisibilityMaskFlags GetVisibilityMask()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visibility mask 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 visibility mask 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -666,7 +666,7 @@ var result = metaMesh.GetVisibilityMask();
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 visibility mask 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 visibility mask 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -677,7 +677,7 @@ metaMesh.SetVisibilityMask(visibilityMask);
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -688,7 +688,7 @@ var result = metaMesh.GetName();
 ### GetAllMultiMeshes
 `public static void GetAllMultiMeshes(ref List<MetaMesh> multiMeshList)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all multi meshes 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 all multi meshes 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -698,7 +698,7 @@ MetaMesh.GetAllMultiMeshes(multiMeshList);
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(string name)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 multi mesh 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -708,7 +708,7 @@ MetaMesh.GetMultiMesh("example");
 ### SetContourState
 `public void SetContourState(bool alwaysVisible)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 contour state 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 contour state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -719,7 +719,7 @@ metaMesh.SetContourState(false);
 ### SetContourColor
 `public void SetContourColor(uint color)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 contour color 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 contour color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -730,7 +730,7 @@ metaMesh.SetContourColor(0);
 ### SetMaterialToSubMeshesWithTag
 `public void SetMaterialToSubMeshesWithTag(Material bodyMaterial, string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 material to sub meshes with tag 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 material to sub meshes with tag 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -741,7 +741,7 @@ metaMesh.SetMaterialToSubMeshesWithTag(bodyMaterial, "example");
 ### SetFactorColorToSubMeshesWithTag
 `public void SetFactorColorToSubMeshesWithTag(uint color, string tag)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 factor color to sub meshes with tag 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 factor color to sub meshes with tag 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例

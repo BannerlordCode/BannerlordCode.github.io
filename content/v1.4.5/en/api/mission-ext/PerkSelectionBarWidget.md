@@ -39,7 +39,7 @@ Treat `PerkSelectionBarWidget` as a Widget-style extension point: first identify
 ### PerkSelectionBarWidget
 `public class PerkSelectionBarWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the PerkSelectionBarWidget logic.
+**Purpose:** Executes the PerkSelectionBarWidget logic.
 
 ```csharp
 // Obtain an instance of PerkSelectionBarWidget from the subsystem API first

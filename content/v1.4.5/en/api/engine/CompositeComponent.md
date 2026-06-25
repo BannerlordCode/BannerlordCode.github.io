@@ -30,7 +30,7 @@ Treat `CompositeComponent` as a Component-style extension point: first identify 
 ### IsNull
 `public static bool IsNull(CompositeComponent component)`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the null state or condition.
+**Purpose:** Determines whether the this instance is in the null state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ CompositeComponent.IsNull(component);
 ### CreateCompositeComponent
 `public static CompositeComponent CreateCompositeComponent()`
 
-**Purpose:** **Purpose:** Constructs a new composite component entity and returns it to the caller.
+**Purpose:** Constructs a new composite component entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ CompositeComponent.CreateCompositeComponent();
 ### CreateCopy
 `public CompositeComponent CreateCopy()`
 
-**Purpose:** **Purpose:** Constructs a new copy entity and returns it to the caller.
+**Purpose:** Constructs a new copy entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -61,7 +61,7 @@ var result = compositeComponent.CreateCopy();
 ### AddComponent
 `public void AddComponent(GameEntityComponent component)`
 
-**Purpose:** **Purpose:** Adds component to the current collection or state.
+**Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -72,7 +72,7 @@ compositeComponent.AddComponent(component);
 ### AddPrefabEntity
 `public void AddPrefabEntity(string prefabName, Scene scene)`
 
-**Purpose:** **Purpose:** Adds prefab entity to the current collection or state.
+**Purpose:** Adds prefab entity to the current collection or state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -83,7 +83,7 @@ compositeComponent.AddPrefabEntity("example", scene);
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
+**Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -94,7 +94,7 @@ compositeComponent.Dispose();
 ### GetFactor1
 `public uint GetFactor1()`
 
-**Purpose:** **Purpose:** Reads and returns the factor1 value held by the this instance.
+**Purpose:** Reads and returns the factor1 value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -105,7 +105,7 @@ var result = compositeComponent.GetFactor1();
 ### GetFactor2
 `public uint GetFactor2()`
 
-**Purpose:** **Purpose:** Reads and returns the factor2 value held by the this instance.
+**Purpose:** Reads and returns the factor2 value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -116,7 +116,7 @@ var result = compositeComponent.GetFactor2();
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**Purpose:** **Purpose:** Assigns a new value to factor1 and updates the object's internal state.
+**Purpose:** Assigns a new value to factor1 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -127,7 +127,7 @@ compositeComponent.SetFactor1(0);
 ### SetFactor2
 `public void SetFactor2(uint factorColor2)`
 
-**Purpose:** **Purpose:** Assigns a new value to factor2 and updates the object's internal state.
+**Purpose:** Assigns a new value to factor2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -138,7 +138,7 @@ compositeComponent.SetFactor2(0);
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** **Purpose:** Assigns a new value to vector argument and updates the object's internal state.
+**Purpose:** Assigns a new value to vector argument and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -149,7 +149,7 @@ compositeComponent.SetVectorArgument(0, 0, 0, 0);
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** **Purpose:** Assigns a new value to material and updates the object's internal state.
+**Purpose:** Assigns a new value to material and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -160,7 +160,7 @@ compositeComponent.SetMaterial(material);
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**Purpose:** **Purpose:** Assigns a new value to visibility mask and updates the object's internal state.
+**Purpose:** Assigns a new value to visibility mask and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -171,7 +171,7 @@ compositeComponent.SetVisibilityMask(visibilityMask);
 ### GetFirstMetaMesh
 `public override MetaMesh GetFirstMetaMesh()`
 
-**Purpose:** **Purpose:** Reads and returns the first meta mesh value held by the this instance.
+**Purpose:** Reads and returns the first meta mesh value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -182,7 +182,7 @@ var result = compositeComponent.GetFirstMetaMesh();
 ### AddMultiMesh
 `public void AddMultiMesh(string MultiMeshName)`
 
-**Purpose:** **Purpose:** Adds multi mesh to the current collection or state.
+**Purpose:** Adds multi mesh to the current collection or state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -193,7 +193,7 @@ compositeComponent.AddMultiMesh("example");
 ### SetVisible
 `public void SetVisible(bool visible)`
 
-**Purpose:** **Purpose:** Assigns a new value to visible and updates the object's internal state.
+**Purpose:** Assigns a new value to visible and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first
@@ -204,7 +204,7 @@ compositeComponent.SetVisible(false);
 ### GetVisible
 `public bool GetVisible()`
 
-**Purpose:** **Purpose:** Reads and returns the visible value held by the this instance.
+**Purpose:** Reads and returns the visible value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompositeComponent from the subsystem API first

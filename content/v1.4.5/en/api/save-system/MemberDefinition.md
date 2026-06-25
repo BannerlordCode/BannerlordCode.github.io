@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetMemberType
 `public abstract Type GetMemberType()`
 
-**Purpose:** **Purpose:** Reads and returns the member type value held by the this instance.
+**Purpose:** Reads and returns the member type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MemberDefinition from the subsystem API first
@@ -41,7 +41,7 @@ var result = memberDefinition.GetMemberType();
 ### GetValue
 `public abstract object GetValue(object target)`
 
-**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
+**Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of MemberDefinition from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Start
 `public void Start()`
 
-**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
+**Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of ApplicationHealthChecker from the subsystem API first
@@ -34,7 +34,7 @@ applicationHealthChecker.Start();
 ### Stop
 `public void Stop()`
 
-**Purpose:** **Purpose:** Stops the this instance's flow or state machine.
+**Purpose:** Stops the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of ApplicationHealthChecker from the subsystem API first
@@ -45,7 +45,7 @@ applicationHealthChecker.Stop();
 ### Update
 `public void Update()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
+**Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of ApplicationHealthChecker from the subsystem API first

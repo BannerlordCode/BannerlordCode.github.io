@@ -23,7 +23,7 @@ description: "CustomBattleProvider 的自动生成类参考。"
 ### StartCustomBattle
 `public void StartCustomBattle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 启动custom battle流程或状态机。
+**用途 / Purpose:** 启动custom battle流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleProvider 实例
@@ -34,7 +34,7 @@ customBattleProvider.StartCustomBattle();
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleProvider 实例

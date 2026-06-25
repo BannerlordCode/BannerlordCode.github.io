@@ -23,7 +23,7 @@ Treat `DefaultDefectionModel` as a Model-style extension point: first identify w
 ### CanHeroDefectToFaction
 `public override bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero defect to faction.
+**Purpose:** Checks whether the this instance meets the preconditions for hero defect to faction.
 
 ```csharp
 // Obtain an instance of DefaultDefectionModel from the subsystem API first

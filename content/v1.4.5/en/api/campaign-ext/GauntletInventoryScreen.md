@@ -29,7 +29,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### ExecuteLootingScript
 `public void ExecuteLootingScript()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with looting script.
+**Purpose:** Runs the operation or workflow associated with looting script.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -40,7 +40,7 @@ gauntletInventoryScreen.ExecuteLootingScript();
 ### ExecuteSellAllLoot
 `public void ExecuteSellAllLoot()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sell all loot.
+**Purpose:** Runs the operation or workflow associated with sell all loot.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -51,7 +51,7 @@ gauntletInventoryScreen.ExecuteSellAllLoot();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
+**Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -62,7 +62,7 @@ gauntletInventoryScreen.ExecuteCancel();
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with confirm.
+**Purpose:** Runs the operation or workflow associated with confirm.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -73,7 +73,7 @@ gauntletInventoryScreen.ExecuteConfirm();
 ### ExecuteSwitchToPreviousTab
 `public void ExecuteSwitchToPreviousTab()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to previous tab.
+**Purpose:** Runs the operation or workflow associated with switch to previous tab.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -84,7 +84,7 @@ gauntletInventoryScreen.ExecuteSwitchToPreviousTab();
 ### ExecuteSwitchToNextTab
 `public void ExecuteSwitchToNextTab()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to next tab.
+**Purpose:** Runs the operation or workflow associated with switch to next tab.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -95,7 +95,7 @@ gauntletInventoryScreen.ExecuteSwitchToNextTab();
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with buy single.
+**Purpose:** Runs the operation or workflow associated with buy single.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -106,7 +106,7 @@ gauntletInventoryScreen.ExecuteBuySingle();
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with sell single.
+**Purpose:** Runs the operation or workflow associated with sell single.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -117,7 +117,7 @@ gauntletInventoryScreen.ExecuteSellSingle();
 ### ExecuteTakeAll
 `public void ExecuteTakeAll()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with take all.
+**Purpose:** Runs the operation or workflow associated with take all.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -128,7 +128,7 @@ gauntletInventoryScreen.ExecuteTakeAll();
 ### ExecuteGiveAll
 `public void ExecuteGiveAll()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with give all.
+**Purpose:** Runs the operation or workflow associated with give all.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first
@@ -139,7 +139,7 @@ gauntletInventoryScreen.ExecuteGiveAll();
 ### ExecuteBuyConsumableItem
 `public void ExecuteBuyConsumableItem()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with buy consumable item.
+**Purpose:** Runs the operation or workflow associated with buy consumable item.
 
 ```csharp
 // Obtain an instance of GauntletInventoryScreen from the subsystem API first

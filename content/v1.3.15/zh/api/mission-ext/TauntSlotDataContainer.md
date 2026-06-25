@@ -23,7 +23,7 @@ description: "TauntSlotDataContainer 的自动生成类参考。"
 ### GetTauntIndicesForPlayer
 `public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 taunt indices for player 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 taunt indices for player 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntSlotDataContainer 实例
@@ -34,7 +34,7 @@ var result = tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
 ### SetTauntIndicesForPlayer
 `public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 taunt indices for player 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 taunt indices for player 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntSlotDataContainer 实例

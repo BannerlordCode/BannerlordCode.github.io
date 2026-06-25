@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetGoldOnAssist
 `public override int GetGoldOnAssist()`
 
-**Purpose:** **Purpose:** Reads and returns the gold on assist value held by the this instance.
+**Purpose:** Reads and returns the gold on assist value held by the this instance.
 
 ```csharp
 // Obtain an instance of GoldGainOnAssistEffect from the subsystem API first

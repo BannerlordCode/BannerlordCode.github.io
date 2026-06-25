@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### ToMatrix4x4
 `public static Matrix4x4 ToMatrix4x4(this MatrixFrame matrixFrame)`
 
-**Purpose:** **Purpose:** Executes the ToMatrix4x4 logic.
+**Purpose:** Executes the ToMatrix4x4 logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MatrixExtensions.ToMatrix4x4(matrixFrame);
 ### ToMatrixFrame
 `public static MatrixFrame ToMatrixFrame(this Matrix4x4 matrix)`
 
-**Purpose:** **Purpose:** Executes the ToMatrixFrame logic.
+**Purpose:** Executes the ToMatrixFrame logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MatrixExtensions.ToMatrixFrame(matrix);
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this Matrix4x4 matrix)`
 
-**Purpose:** **Purpose:** Executes the AreAllComponentsValid logic.
+**Purpose:** Executes the AreAllComponentsValid logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MatrixExtensions.AreAllComponentsValid(matrix);
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this MatrixFrame matrix)`
 
-**Purpose:** **Purpose:** Executes the AreAllComponentsValid logic.
+**Purpose:** Executes the AreAllComponentsValid logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MatrixExtensions.AreAllComponentsValid(matrix);
 ### CreateOrthographicOffCenter
 `public static MatrixFrame CreateOrthographicOffCenter(float left, float right, float bottom, float top, float zNearPlane, float zFarPlane)`
 
-**Purpose:** **Purpose:** Constructs a new orthographic off center entity and returns it to the caller.
+**Purpose:** Constructs a new orthographic off center entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

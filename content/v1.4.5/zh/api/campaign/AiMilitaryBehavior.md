@@ -23,7 +23,7 @@ description: "AiMilitaryBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 AiMilitaryBehavior 实例
@@ -34,7 +34,7 @@ aiMilitaryBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
+**用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 AiMilitaryBehavior 实例
@@ -45,7 +45,7 @@ aiMilitaryBehavior.SyncData(dataStore);
 ### FindBestTargetAndItsValueForFaction
 `public void FindBestTargetAndItsValueForFaction(Army.ArmyTypes missionType, PartyThinkParams p, float ourStrength)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的best target and its value for faction。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的best target and its value for faction。
 
 ```csharp
 // 先通过子系统 API 拿到 AiMilitaryBehavior 实例

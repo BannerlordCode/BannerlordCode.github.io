@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** **Purpose:** Reads and returns the player avatar value held by the this instance.
+**Purpose:** Reads and returns the player avatar value held by the this instance.
 
 ```csharp
 // Obtain an instance of ForcedAvatarService from the subsystem API first
@@ -40,7 +40,7 @@ var result = forcedAvatarService.GetPlayerAvatar(playerId);
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ForcedAvatarService from the subsystem API first
@@ -51,7 +51,7 @@ forcedAvatarService.Initialize();
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the initialized state or condition.
+**Purpose:** Determines whether the this instance is in the initialized state or condition.
 
 ```csharp
 // Obtain an instance of ForcedAvatarService from the subsystem API first
@@ -62,7 +62,7 @@ var result = forcedAvatarService.IsInitialized();
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** **Purpose:** Removes all cache from the this instance.
+**Purpose:** Removes all cache from the this instance.
 
 ```csharp
 // Obtain an instance of ForcedAvatarService from the subsystem API first
@@ -73,7 +73,7 @@ forcedAvatarService.ClearCache();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ForcedAvatarService from the subsystem API first

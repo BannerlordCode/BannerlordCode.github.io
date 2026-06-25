@@ -23,7 +23,7 @@ description: "CharacterRelationManager 的自动生成类参考。"
 ### GetRelation
 `public int GetRelation(Hero hero1, Hero hero2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 relation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例
@@ -34,7 +34,7 @@ var result = characterRelationManager.GetRelation(hero1, hero2);
 ### SetRelation
 `public void SetRelation(Hero hero1, Hero hero2, int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 relation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 relation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例
@@ -45,7 +45,7 @@ characterRelationManager.SetRelation(hero1, hero2, 0);
 ### Remove
 `public void Remove(Hero hero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例
@@ -56,7 +56,7 @@ characterRelationManager.Remove(hero);
 ### ClearOldData
 `public void ClearOldData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的old data。
+**用途 / Purpose:** 清空当前对象中的old data。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例
@@ -67,7 +67,7 @@ characterRelationManager.ClearOldData();
 ### GetHeroRelation
 `public static int GetHeroRelation(Hero hero1, Hero hero2)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero relation 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 hero relation 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ CharacterRelationManager.GetHeroRelation(hero1, hero2);
 ### SetHeroRelation
 `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 hero relation 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 hero relation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ CharacterRelationManager.SetHeroRelation(hero1, hero2, 0);
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterLoad 对应的操作。
+**用途 / Purpose:** 调用 AfterLoad 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例
@@ -98,7 +98,7 @@ characterRelationManager.AfterLoad();
 ### RemoveHero
 `public void RemoveHero(Hero deadHero)`
 
-**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 hero。
+**用途 / Purpose:** 从当前容器或状态中移除 hero。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterRelationManager 实例

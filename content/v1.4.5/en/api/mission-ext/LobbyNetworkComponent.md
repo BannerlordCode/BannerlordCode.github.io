@@ -23,7 +23,7 @@ Treat `LobbyNetworkComponent` as a Component-style extension point: first identi
 ### HandleEarlyNewClientAfterLoadingFinished
 `public override void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with early new client after loading finished.
+**Purpose:** Executes the response logic associated with early new client after loading finished.
 
 ```csharp
 // Obtain an instance of LobbyNetworkComponent from the subsystem API first
@@ -34,7 +34,7 @@ lobbyNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterLoadingFinished
 `public override void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with new client after loading finished.
+**Purpose:** Executes the response logic associated with new client after loading finished.
 
 ```csharp
 // Obtain an instance of LobbyNetworkComponent from the subsystem API first
@@ -45,7 +45,7 @@ lobbyNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
 ### HandleLateNewClientAfterLoadingFinished
 `public override void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with late new client after loading finished.
+**Purpose:** Executes the response logic associated with late new client after loading finished.
 
 ```csharp
 // Obtain an instance of LobbyNetworkComponent from the subsystem API first
@@ -56,7 +56,7 @@ lobbyNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
+**Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of LobbyNetworkComponent from the subsystem API first
@@ -67,7 +67,7 @@ lobbyNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** **Purpose:** Invoked when the udp network handler tick event is raised.
+**Purpose:** Invoked when the udp network handler tick event is raised.
 
 ```csharp
 // Obtain an instance of LobbyNetworkComponent from the subsystem API first

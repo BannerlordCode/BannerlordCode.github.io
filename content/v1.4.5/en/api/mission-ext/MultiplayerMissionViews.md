@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` to
 ### OpenTeamDeathmatchMission
 `public static MissionView OpenTeamDeathmatchMission(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with team deathmatch mission.
+**Purpose:** Opens the resource or UI associated with team deathmatch mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerMissionViews.OpenTeamDeathmatchMission(mission);
 ### OpenDuelMission
 `public static MissionView OpenDuelMission(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with duel mission.
+**Purpose:** Opens the resource or UI associated with duel mission.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerMissionViews.OpenDuelMission(mission);
 ### OpenSiegeMission
 `public static MissionView OpenSiegeMission(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with siege mission.
+**Purpose:** Opens the resource or UI associated with siege mission.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MultiplayerMissionViews.OpenSiegeMission(mission);
 ### OpenBattle
 `public static MissionView OpenBattle(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with battle.
+**Purpose:** Opens the resource or UI associated with battle.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MultiplayerMissionViews.OpenBattle(mission);
 ### OpenCaptain
 `public static MissionView OpenCaptain(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with captain.
+**Purpose:** Opens the resource or UI associated with captain.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MultiplayerMissionViews.OpenCaptain(mission);
 ### OpenSkirmish
 `public static MissionView OpenSkirmish(Mission mission)`
 
-**Purpose:** **Purpose:** Opens the resource or UI associated with skirmish.
+**Purpose:** Opens the resource or UI associated with skirmish.
 
 ```csharp
 // Static call; no instance required

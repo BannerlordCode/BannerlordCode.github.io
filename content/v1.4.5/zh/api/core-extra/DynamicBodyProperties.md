@@ -23,7 +23,7 @@ description: "DynamicBodyProperties 的自动生成类参考。"
 ### DynamicBodyProperties
 `public struct DynamicBodyProperties(float age, float weight, float build)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DynamicBodyProperties 对应的操作。
+**用途 / Purpose:** 调用 DynamicBodyProperties 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例
@@ -34,7 +34,7 @@ var result = dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例
@@ -45,7 +45,7 @@ var result = dynamicBodyProperties.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例
@@ -56,7 +56,7 @@ var result = dynamicBodyProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例
@@ -67,7 +67,7 @@ var result = dynamicBodyProperties.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例

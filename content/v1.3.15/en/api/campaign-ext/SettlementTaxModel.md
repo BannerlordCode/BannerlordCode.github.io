@@ -32,7 +32,7 @@ Treat `SettlementTaxModel` as a Model-style extension point: first identify who 
 ### GetTownTaxRatio
 `public abstract float GetTownTaxRatio(Town town)`
 
-**Purpose:** **Purpose:** Reads and returns the town tax ratio value held by the this instance.
+**Purpose:** Reads and returns the town tax ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementTaxModel from the subsystem API first
@@ -43,7 +43,7 @@ var result = settlementTaxModel.GetTownTaxRatio(town);
 ### GetVillageTaxRatio
 `public abstract float GetVillageTaxRatio(Village village)`
 
-**Purpose:** **Purpose:** Reads and returns the village tax ratio value held by the this instance.
+**Purpose:** Reads and returns the village tax ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementTaxModel from the subsystem API first
@@ -54,7 +54,7 @@ var result = settlementTaxModel.GetVillageTaxRatio(village);
 ### GetTownCommissionChangeBasedOnSecurity
 `public abstract float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
 
-**Purpose:** **Purpose:** Reads and returns the town commission change based on security value held by the this instance.
+**Purpose:** Reads and returns the town commission change based on security value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementTaxModel from the subsystem API first
@@ -65,7 +65,7 @@ var result = settlementTaxModel.GetTownCommissionChangeBasedOnSecurity(town, 0);
 ### CalculateTownTax
 `public abstract ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of town tax.
+**Purpose:** Calculates the current value or result of town tax.
 
 ```csharp
 // Obtain an instance of SettlementTaxModel from the subsystem API first
@@ -76,7 +76,7 @@ var result = settlementTaxModel.CalculateTownTax(town, false);
 ### CalculateVillageTaxFromIncome
 `public abstract int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
 
-**Purpose:** **Purpose:** Calculates the current value or result of village tax from income.
+**Purpose:** Calculates the current value or result of village tax from income.
 
 ```csharp
 // Obtain an instance of SettlementTaxModel from the subsystem API first

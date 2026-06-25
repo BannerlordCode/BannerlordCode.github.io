@@ -31,7 +31,7 @@ Treat `CampaignSiegeStateHandler` as a Handler-style extension point: first iden
 ### OnRetreatMission
 `public override void OnRetreatMission()`
 
-**Purpose:** **Purpose:** Invoked when the retreat mission event is raised.
+**Purpose:** Invoked when the retreat mission event is raised.
 
 ```csharp
 // Obtain an instance of CampaignSiegeStateHandler from the subsystem API first
@@ -42,7 +42,7 @@ campaignSiegeStateHandler.OnRetreatMission();
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** **Purpose:** Invoked when the mission result ready event is raised.
+**Purpose:** Invoked when the mission result ready event is raised.
 
 ```csharp
 // Obtain an instance of CampaignSiegeStateHandler from the subsystem API first
@@ -53,7 +53,7 @@ campaignSiegeStateHandler.OnMissionResultReady(missionResult);
 ### OnSurrenderMission
 `public override void OnSurrenderMission()`
 
-**Purpose:** **Purpose:** Invoked when the surrender mission event is raised.
+**Purpose:** Invoked when the surrender mission event is raised.
 
 ```csharp
 // Obtain an instance of CampaignSiegeStateHandler from the subsystem API first

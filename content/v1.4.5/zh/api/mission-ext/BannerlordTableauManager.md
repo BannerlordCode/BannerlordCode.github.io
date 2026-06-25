@@ -23,7 +23,7 @@ description: "BannerlordTableauManager 的自动生成类参考。"
 ### RequestCharacterTableauSetupDelegate
 `public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestCharacterTableauSetupDelegate 对应的操作。
+**用途 / Purpose:** 调用 RequestCharacterTableauSetupDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerlordTableauManager 实例
@@ -34,7 +34,7 @@ bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEnti
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RequestCharacterTableauRender 对应的操作。
+**用途 / Purpose:** 调用 RequestCharacterTableauRender 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ BannerlordTableauManager.RequestCharacterTableauRender(0, "example", poseEntity,
 ### ClearManager
 `public static void ClearManager()`
 
-**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的manager。
+**用途 / Purpose:** 清空当前对象中的manager。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ BannerlordTableauManager.ClearManager();
 ### InitializeCharacterTableauRenderSystem
 `public static void InitializeCharacterTableauRenderSystem()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 character tableau render system 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** 为 character tableau render system 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ BannerlordTableauManager.InitializeCharacterTableauRenderSystem();
 ### GetNumberOfPendingTableauRequests
 `public static int GetNumberOfPendingTableauRequests()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of pending tableau requests 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 number of pending tableau requests 的结果。
 
 ```csharp
 // 静态调用，不需要实例

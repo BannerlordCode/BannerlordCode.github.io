@@ -23,7 +23,7 @@ description: "MissionGauntletDuelUI 的自动生成类参考。"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -34,7 +34,7 @@ missionGauntletDuelUI.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -45,7 +45,7 @@ missionGauntletDuelUI.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -56,7 +56,7 @@ missionGauntletDuelUI.OnMissionScreenTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -67,7 +67,7 @@ missionGauntletDuelUI.OnAgentRemoved(affectedAgent, affectorAgent, agentState, b
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
+**用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -78,7 +78,7 @@ missionGauntletDuelUI.OnAgentBuild(agent, banner);
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -89,7 +89,7 @@ missionGauntletDuelUI.OnFocusGained(agent, focusableObject, false);
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
+**用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
@@ -100,7 +100,7 @@ missionGauntletDuelUI.OnFocusLost(agent, focusableObject);
 ### OnPeerEquipmentIndexRefreshed
 `public void OnPeerEquipmentIndexRefreshed(MissionPeer peer, int equipmentSetIndex)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 peer equipment index refreshed 事件触发时调用此回调。
+**用途 / Purpose:** 在 peer equipment index refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletDuelUI 实例

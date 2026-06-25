@@ -29,7 +29,7 @@ Treat `VisualTrackerManager` as a Manager-style extension point: first identify 
 ### RegisterObject
 `public void RegisterObject(ITrackableCampaignObject trackableObject)`
 
-**Purpose:** **Purpose:** Registers object with the current system so it can later be observed or dispatched.
+**Purpose:** Registers object with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VisualTrackerManager from the subsystem API first
@@ -40,7 +40,7 @@ visualTrackerManager.RegisterObject(trackableObject);
 ### CheckTracked
 `public bool CheckTracked(ITrackableBase trackableObject)`
 
-**Purpose:** **Purpose:** Verifies whether tracked holds true for the this instance.
+**Purpose:** Verifies whether tracked holds true for the this instance.
 
 ```csharp
 // Obtain an instance of VisualTrackerManager from the subsystem API first
@@ -51,7 +51,7 @@ var result = visualTrackerManager.CheckTracked(trackableObject);
 ### RemoveTrackedObject
 `public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)`
 
-**Purpose:** **Purpose:** Removes tracked object from the current collection or state.
+**Purpose:** Removes tracked object from the current collection or state.
 
 ```csharp
 // Obtain an instance of VisualTrackerManager from the subsystem API first
@@ -62,7 +62,7 @@ visualTrackerManager.RemoveTrackedObject(trackableObject, false);
 ### SetDirty
 `public void SetDirty()`
 
-**Purpose:** **Purpose:** Assigns a new value to dirty and updates the object's internal state.
+**Purpose:** Assigns a new value to dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VisualTrackerManager from the subsystem API first

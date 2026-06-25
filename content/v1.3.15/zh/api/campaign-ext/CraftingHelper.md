@@ -23,7 +23,7 @@ description: "CraftingHelper 的自动生成类参考。"
 ### GetAvailableHeroesForCrafting
 `public static IEnumerable<Hero> GetAvailableHeroesForCrafting()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available heroes for crafting 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 available heroes for crafting 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CraftingHelper.GetAvailableHeroesForCrafting();
 ### ChangeCurrentCraftingTemplate
 `public static void ChangeCurrentCraftingTemplate(CraftingTemplate craftingTemplate)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeCurrentCraftingTemplate 对应的操作。
+**用途 / Purpose:** 调用 ChangeCurrentCraftingTemplate 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ CraftingHelper.ChangeCurrentCraftingTemplate(craftingTemplate);
 ### OpenCrafting
 `public static void OpenCrafting(CraftingTemplate craftingTemplate, CraftingState oldState = null)`
 
-**用途 / Purpose:** **用途 / Purpose:** 打开crafting对应的资源或界面。
+**用途 / Purpose:** 打开crafting对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

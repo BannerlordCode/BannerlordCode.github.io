@@ -36,7 +36,7 @@ description: "UpgradeRequirementsVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
@@ -47,7 +47,7 @@ upgradeRequirementsVM.RefreshValues();
 ### SetItemRequirement
 `public void SetItemRequirement(ItemCategory category)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 item requirement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 item requirement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
@@ -58,7 +58,7 @@ upgradeRequirementsVM.SetItemRequirement(category);
 ### SetPerkRequirement
 `public void SetPerkRequirement(PerkObject perk)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 perk requirement 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 perk requirement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
@@ -69,7 +69,7 @@ upgradeRequirementsVM.SetPerkRequirement(perk);
 ### SetRequirementsMet
 `public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 requirements met 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 requirements met 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UpgradeRequirementsVM 实例

@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** **Purpose:** Executes the ConversationPlayArgs logic.
+**Purpose:** Executes the ConversationPlayArgs logic.
 
 ```csharp
 // Obtain an instance of ConversationPlayArgs from the subsystem API first

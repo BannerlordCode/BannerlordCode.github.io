@@ -31,7 +31,7 @@ Treat `MetaData` as a Data-style extension point: first identify who creates it,
 ### Add
 `public void Add(string key, string value)`
 
-**Purpose:** **Purpose:** Adds an item to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MetaData from the subsystem API first
@@ -42,7 +42,7 @@ metaData.Add("example", "example");
 ### TryGetValue
 `public bool TryGetValue(string key, out string value)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MetaData from the subsystem API first
@@ -53,7 +53,7 @@ var result = metaData.TryGetValue("example", value);
 ### Serialize
 `public void Serialize(Stream stream)`
 
-**Purpose:** **Purpose:** Serializes the this instance into a storable or transmittable format.
+**Purpose:** Serializes the this instance into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of MetaData from the subsystem API first
@@ -64,7 +64,7 @@ metaData.Serialize(stream);
 ### Deserialize
 `public static MetaData Deserialize(Stream stream)`
 
-**Purpose:** **Purpose:** Restores the this instance from serialized data.
+**Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Static call; no instance required

@@ -31,7 +31,7 @@ description: "NavigationPath 的自动生成类参考。"
 ### GetObjectData
 `public virtual void GetObjectData(SerializationInfo info, StreamingContext context)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 object data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationPath 实例
@@ -42,7 +42,7 @@ navigationPath.GetObjectData(info, context);
 ### OverridePathPointAtIndex
 `public void OverridePathPointAtIndex(int index, in Vec2 newValue)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 OverridePathPointAtIndex 对应的操作。
+**用途 / Purpose:** 调用 OverridePathPointAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationPath 实例

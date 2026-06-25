@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of FullScreenNoticeVM from the subsystem API first
@@ -44,7 +44,7 @@ fullScreenNoticeVM.RefreshValues();
 ### ExecuteCloseNotice
 `public void ExecuteCloseNotice()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with close notice.
+**Purpose:** Runs the operation or workflow associated with close notice.
 
 ```csharp
 // Obtain an instance of FullScreenNoticeVM from the subsystem API first
@@ -55,7 +55,7 @@ fullScreenNoticeVM.ExecuteCloseNotice();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** **Purpose:** Invoked when the finalize event is raised.
+**Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of FullScreenNoticeVM from the subsystem API first
@@ -66,7 +66,7 @@ fullScreenNoticeVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
+**Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FullScreenNoticeVM from the subsystem API first

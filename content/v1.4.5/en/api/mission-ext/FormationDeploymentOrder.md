@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
+**Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of FormationDeploymentOrder from the subsystem API first
@@ -41,7 +41,7 @@ var result = formationDeploymentOrder.Compare(a, b);
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
-**Purpose:** **Purpose:** Reads and returns the deployment order value held by the this instance.
+**Purpose:** Reads and returns the deployment order value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 ### GetComparer
 `public static DeploymentOrderComparer GetComparer()`
 
-**Purpose:** **Purpose:** Reads and returns the comparer value held by the this instance.
+**Purpose:** Reads and returns the comparer value held by the this instance.
 
 ```csharp
 // Static call; no instance required

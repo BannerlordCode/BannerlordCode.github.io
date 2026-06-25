@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### GetActiveReferencingGameAssembliesSafe
 `public static Assembly GetActiveReferencingGameAssembliesSafe(this Assembly assembly)`
 
-**Purpose:** **Purpose:** Reads and returns the active referencing game assemblies safe value held by the this instance.
+**Purpose:** Reads and returns the active referencing game assemblies safe value held by the this instance.
 
 ```csharp
 // Static call; no instance required

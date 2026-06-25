@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
+**Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -40,7 +40,7 @@ tradeRumorsCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
+**Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -51,7 +51,7 @@ tradeRumorsCampaignBehavior.RegisterEvents();
 ### OnTradeRumorIsTaken
 `public void OnTradeRumorIsTaken(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
-**Purpose:** **Purpose:** Invoked when the trade rumor is taken event is raised.
+**Purpose:** Invoked when the trade rumor is taken event is raised.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -62,7 +62,7 @@ tradeRumorsCampaignBehavior.OnTradeRumorIsTaken(newRumors, null);
 ### AddTradeRumors
 `public void AddTradeRumors(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
-**Purpose:** **Purpose:** Adds trade rumors to the current collection or state.
+**Purpose:** Adds trade rumors to the current collection or state.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -73,7 +73,7 @@ tradeRumorsCampaignBehavior.AddTradeRumors(newRumors, null);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** **Purpose:** Executes the DailyTick logic.
+**Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -84,7 +84,7 @@ tradeRumorsCampaignBehavior.DailyTick();
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
+**Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -95,7 +95,7 @@ tradeRumorsCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DeleteExpiredRumors
 `public void DeleteExpiredRumors()`
 
-**Purpose:** **Purpose:** Executes the DeleteExpiredRumors logic.
+**Purpose:** Executes the DeleteExpiredRumors logic.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
@@ -106,7 +106,7 @@ tradeRumorsCampaignBehavior.DeleteExpiredRumors();
 ### AddDailyTradeRumors
 `public void AddDailyTradeRumors(int numberOfTradeRumors)`
 
-**Purpose:** **Purpose:** Adds daily trade rumors to the current collection or state.
+**Purpose:** Adds daily trade rumors to the current collection or state.
 
 ```csharp
 // Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first

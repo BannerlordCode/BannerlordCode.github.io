@@ -23,7 +23,7 @@ description: "DefaultDamageParticleModel 的自动生成类参考。"
 ### GetMeleeAttackBloodParticles
 `public override void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 melee attack blood particles 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 melee attack blood particles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDamageParticleModel 实例
@@ -34,7 +34,7 @@ defaultDamageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, 
 ### GetMeleeAttackSweatParticles
 `public override void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 melee attack sweat particles 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 melee attack sweat particles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDamageParticleModel 实例
@@ -45,7 +45,7 @@ defaultDamageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, 
 ### GetMissileAttackParticle
 `public override int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 missile attack particle 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 missile attack particle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDamageParticleModel 实例

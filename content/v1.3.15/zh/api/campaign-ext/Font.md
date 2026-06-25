@@ -38,7 +38,7 @@ description: "Font 的自动生成类参考。"
 ### TryLoadFontFromPath
 `public bool TryLoadFontFromPath(string path, SpriteData spriteData)`
 
-**用途 / Purpose:** **用途 / Purpose:** 尝试获取 load font from path 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** 尝试获取 load font from path 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 Font 实例
@@ -49,7 +49,7 @@ var result = font.TryLoadFontFromPath("example", spriteData);
 ### GetWordWidth
 `public float GetWordWidth(string word, float extraPadding)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 word width 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 word width 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Font 实例
@@ -60,7 +60,7 @@ var result = font.GetWordWidth("example", 0);
 ### GetCharacterWidth
 `public float GetCharacterWidth(char character, float extraPadding)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character width 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 character width 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Font 实例
@@ -71,7 +71,7 @@ var result = font.GetCharacterWidth(character, 0);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Font 实例

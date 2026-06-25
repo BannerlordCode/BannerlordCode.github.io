@@ -29,7 +29,7 @@ description: "KingdomPolicyDecision 的自动生成类参考。"
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision title 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 decision title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -40,7 +40,7 @@ var result = kingdomPolicyDecision.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision description 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 decision description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -51,7 +51,7 @@ var result = kingdomPolicyDecision.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision link 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 decision link 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -62,7 +62,7 @@ var result = kingdomPolicyDecision.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision image identifier 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 decision image identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -73,7 +73,7 @@ var result = kingdomPolicyDecision.GetDecisionImageIdentifier();
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 allowed 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -84,7 +84,7 @@ var result = kingdomPolicyDecision.IsAllowed();
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 proposal influence cost 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 proposal influence cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -95,7 +95,7 @@ var result = kingdomPolicyDecision.GetProposalInfluenceCost();
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 general title 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 general title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -106,7 +106,7 @@ var result = kingdomPolicyDecision.GetGeneralTitle();
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 support title 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 support title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -117,7 +117,7 @@ var result = kingdomPolicyDecision.GetSupportTitle();
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 choose title 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 choose title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -128,7 +128,7 @@ var result = kingdomPolicyDecision.GetChooseTitle();
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 support description 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 support description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -139,7 +139,7 @@ var result = kingdomPolicyDecision.GetSupportDescription();
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 choose description 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 choose description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -150,7 +150,7 @@ var result = kingdomPolicyDecision.GetChooseDescription();
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定initial candidates的结果。
+**用途 / Purpose:** 根据当前状态判定initial candidates的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -161,7 +161,7 @@ var result = kingdomPolicyDecision.DetermineInitialCandidates();
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定chooser的结果。
+**用途 / Purpose:** 根据当前状态判定chooser的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -172,7 +172,7 @@ var result = kingdomPolicyDecision.DetermineChooser();
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**用途 / Purpose:** **用途 / Purpose:** 计算support的当前值或结果。
+**用途 / Purpose:** 计算support的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -183,7 +183,7 @@ var result = kingdomPolicyDecision.CalculateSupport(clan);
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定support的结果。
+**用途 / Purpose:** 根据当前状态判定support的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -194,7 +194,7 @@ var result = kingdomPolicyDecision.DetermineSupport(clan, possibleOutcome);
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定sponsors的结果。
+**用途 / Purpose:** 根据当前状态判定sponsors的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -205,7 +205,7 @@ kingdomPolicyDecision.DetermineSponsors(possibleOutcomes);
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 chosen outcome 的效果应用到当前对象。
+**用途 / Purpose:** 将 chosen outcome 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -216,7 +216,7 @@ kingdomPolicyDecision.ApplyChosenOutcome(chosenOutcome);
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, SupportStatus supportStatus, bool isShortVersion = false)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 chosen outcome text 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 chosen outcome text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -227,7 +227,7 @@ var result = kingdomPolicyDecision.GetChosenOutcomeText(chosenOutcome, supportSt
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 queried decision outcome 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 queried decision outcome 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -238,7 +238,7 @@ var result = kingdomPolicyDecision.GetQueriedDecisionOutcome(possibleOutcomes);
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 secondary effects 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 secondary effects 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例
@@ -249,7 +249,7 @@ var result = kingdomPolicyDecision.GetSecondaryEffects();
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 secondary effects 的效果应用到当前对象。
+**用途 / Purpose:** 将 secondary effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPolicyDecision 实例

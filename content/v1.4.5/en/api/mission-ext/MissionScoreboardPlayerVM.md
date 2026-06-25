@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
+**Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
@@ -49,7 +49,7 @@ missionScoreboardPlayerVM.Tick(0);
 ### UpdateAttributes
 `public void UpdateAttributes(string attributes, int score)`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of attributes.
+**Purpose:** Recalculates and stores the latest representation of attributes.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
@@ -60,7 +60,7 @@ missionScoreboardPlayerVM.UpdateAttributes("example", 0);
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
+**Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
@@ -71,7 +71,7 @@ missionScoreboardPlayerVM.ExecuteSelection();
 ### UpdateIsMuted
 `public void UpdateIsMuted()`
 
-**Purpose:** **Purpose:** Recalculates and stores the latest representation of is muted.
+**Purpose:** Recalculates and stores the latest representation of is muted.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
@@ -82,7 +82,7 @@ missionScoreboardPlayerVM.UpdateIsMuted();
 ### SetMVPBadgeCount
 `public void SetMVPBadgeCount(int badgeCount)`
 
-**Purpose:** **Purpose:** Assigns a new value to m v p badge count and updates the object's internal state.
+**Purpose:** Assigns a new value to m v p badge count and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first

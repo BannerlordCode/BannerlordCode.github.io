@@ -23,7 +23,7 @@ description: "ReinforcementFormationData 的自动生成类参考。"
 ### Initialize
 `public void Initialize(Formation formation, uint initTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ReinforcementFormationData 实例
@@ -34,7 +34,7 @@ reinforcementFormationData.Initialize(formation, 0);
 ### AddProspectiveTroop
 `public void AddProspectiveTroop(FormationClass troopClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 prospective troop 添加到当前容器或状态中。
+**用途 / Purpose:** 将 prospective troop 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ReinforcementFormationData 实例
@@ -45,7 +45,7 @@ reinforcementFormationData.AddProspectiveTroop(troopClass);
 ### IsInitialized
 `public bool IsInitialized(uint initTime)`
 
-**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 initialized 状态或条件。
+**用途 / Purpose:** 判断当前对象是否处于 initialized 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ReinforcementFormationData 实例
@@ -56,7 +56,7 @@ var result = reinforcementFormationData.IsInitialized(0);
 ### GetPriority
 `public ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ReinforcementFormationData 实例

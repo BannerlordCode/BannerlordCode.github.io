@@ -32,7 +32,7 @@ description: "DeploymentPoint 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
+**用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -43,7 +43,7 @@ deploymentPoint.AfterMissionStart();
 ### GetDeploymentOrigin
 `public Vec3 GetDeploymentOrigin()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment origin 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment origin 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -54,7 +54,7 @@ var result = deploymentPoint.GetDeploymentOrigin();
 ### GetDeploymentPointState
 `public DeploymentPointState GetDeploymentPointState()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment point state 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment point state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -65,7 +65,7 @@ var result = deploymentPoint.GetDeploymentPointState();
 ### GetDeploymentPointType
 `public DeploymentPointType GetDeploymentPointType()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 deployment point type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 deployment point type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -76,7 +76,7 @@ var result = deploymentPoint.GetDeploymentPointType();
 ### GetAssociatedSiegeLadders
 `public List<SiegeLadder> GetAssociatedSiegeLadders()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 associated siege ladders 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 associated siege ladders 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -87,7 +87,7 @@ var result = deploymentPoint.GetAssociatedSiegeLadders();
 ### GetWeaponsUnder
 `public MBList<SynchedMissionObject> GetWeaponsUnder()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapons under 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapons under 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -98,7 +98,7 @@ var result = deploymentPoint.GetWeaponsUnder();
 ### GetSpawnersForEditor
 `public IEnumerable<SpawnerBase> GetSpawnersForEditor()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawners for editor 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 spawners for editor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -109,7 +109,7 @@ var result = deploymentPoint.GetSpawnersForEditor();
 ### Deploy
 `public void Deploy(Type t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Deploy 对应的操作。
+**用途 / Purpose:** 调用 Deploy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -120,7 +120,7 @@ deploymentPoint.Deploy(t);
 ### Deploy
 `public void Deploy(SiegeWeapon s)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Deploy 对应的操作。
+**用途 / Purpose:** 调用 Deploy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -131,7 +131,7 @@ deploymentPoint.Deploy(s);
 ### Disband
 `public ScriptComponentBehavior Disband()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 Disband 对应的操作。
+**用途 / Purpose:** 调用 Disband 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -142,7 +142,7 @@ var result = deploymentPoint.Disband();
 ### Hide
 `public void Hide()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏当前对象对应的界面或元素。
+**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -153,7 +153,7 @@ deploymentPoint.Hide();
 ### Show
 `public void Show()`
 
-**用途 / Purpose:** **用途 / Purpose:** 显示当前对象对应的界面或元素。
+**用途 / Purpose:** 显示当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -164,7 +164,7 @@ deploymentPoint.Show();
 ### ToggleWeaponVisibility
 `public void ToggleWeaponVisibility(bool visible, SynchedMissionObject weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleWeaponVisibility 对应的操作。
+**用途 / Purpose:** 调用 ToggleWeaponVisibility 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -175,7 +175,7 @@ deploymentPoint.ToggleWeaponVisibility(false, weapon);
 ### HideAllWeapons
 `public void HideAllWeapons()`
 
-**用途 / Purpose:** **用途 / Purpose:** 隐藏all weapons对应的界面或元素。
+**用途 / Purpose:** 隐藏all weapons对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例

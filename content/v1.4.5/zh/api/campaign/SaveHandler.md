@@ -29,7 +29,7 @@ description: "SaveHandler 的自动生成类参考。"
 ### QuickSaveCurrentGame
 `public void QuickSaveCurrentGame()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 QuickSaveCurrentGame 对应的操作。
+**用途 / Purpose:** 调用 QuickSaveCurrentGame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -40,7 +40,7 @@ saveHandler.QuickSaveCurrentGame();
 ### SaveAs
 `public void SaveAs(string saveName)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 as 写入持久化存储或流中。
+**用途 / Purpose:** 将 as 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -51,7 +51,7 @@ saveHandler.SaveAs("example");
 ### CampaignTick
 `public void CampaignTick()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 CampaignTick 对应的操作。
+**用途 / Purpose:** 调用 CampaignTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -62,7 +62,7 @@ saveHandler.CampaignTick();
 ### SignalAutoSave
 `public void SignalAutoSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 SignalAutoSave 对应的操作。
+**用途 / Purpose:** 调用 SignalAutoSave 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -73,7 +73,7 @@ saveHandler.SignalAutoSave();
 ### ForceAutoSave
 `public void ForceAutoSave()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ForceAutoSave 对应的操作。
+**用途 / Purpose:** 调用 ForceAutoSave 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -84,7 +84,7 @@ saveHandler.ForceAutoSave();
 ### GetSaveMetaData
 `public CampaignSaveMetaDataArgs GetSaveMetaData()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 save meta data 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 save meta data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例

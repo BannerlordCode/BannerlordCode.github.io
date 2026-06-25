@@ -23,7 +23,7 @@ Treat `MissionLocationLogic` as a Logic-style extension point: first identify wh
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first
@@ -34,7 +34,7 @@ missionLocationLogic.EarlyStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
+**Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first
@@ -45,7 +45,7 @@ missionLocationLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, ki
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
+**Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first
@@ -56,7 +56,7 @@ missionLocationLogic.OnRemoveBehavior();
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** **Purpose:** Invoked when the created event is raised.
+**Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first
@@ -67,7 +67,7 @@ missionLocationLogic.OnCreated();
 ### SpawnCharactersAccompanyingPlayer
 `public void SpawnCharactersAccompanyingPlayer(bool noHorse)`
 
-**Purpose:** **Purpose:** Executes the SpawnCharactersAccompanyingPlayer logic.
+**Purpose:** Executes the SpawnCharactersAccompanyingPlayer logic.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first
@@ -78,7 +78,7 @@ missionLocationLogic.SpawnCharactersAccompanyingPlayer(false);
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**Purpose:** **Purpose:** Reads and returns the spawn frame of passage value held by the this instance.
+**Purpose:** Reads and returns the spawn frame of passage value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionLocationLogic from the subsystem API first

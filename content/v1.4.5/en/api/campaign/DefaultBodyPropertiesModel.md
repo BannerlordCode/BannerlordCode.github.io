@@ -23,7 +23,7 @@ Treat `DefaultBodyPropertiesModel` as a Model-style extension point: first ident
 ### GetHairIndicesForCulture
 `public override int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the hair indices for culture value held by the this instance.
+**Purpose:** Reads and returns the hair indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultBodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, cultur
 ### GetBeardIndicesForCulture
 `public override int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the beard indices for culture value held by the this instance.
+**Purpose:** Reads and returns the beard indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultBodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, cultu
 ### GetTattooIndicesForCulture
 `public override int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** **Purpose:** Reads and returns the tattoo indices for culture value held by the this instance.
+**Purpose:** Reads and returns the tattoo indices for culture value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first

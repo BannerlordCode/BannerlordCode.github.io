@@ -23,7 +23,7 @@ Treat `CraftingCardHighlightBrushWidget` as a Widget-style extension point: firs
 ### CraftingCardHighlightBrushWidget
 `public class CraftingCardHighlightBrushWidget(UIContext context)`
 
-**Purpose:** **Purpose:** Executes the CraftingCardHighlightBrushWidget logic.
+**Purpose:** Executes the CraftingCardHighlightBrushWidget logic.
 
 ```csharp
 // Obtain an instance of CraftingCardHighlightBrushWidget from the subsystem API first

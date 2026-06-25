@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### GetBlockadeArc
 `public List<List<Vec3>> GetBlockadeArc(int totalNumberOfShips, out Vec3 center)`
 
-**Purpose:** **Purpose:** Reads and returns the blockade arc value held by the this instance.
+**Purpose:** Reads and returns the blockade arc value held by the this instance.
 
 ```csharp
 // Obtain an instance of BlockadePositionScript from the subsystem API first

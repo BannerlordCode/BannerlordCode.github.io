@@ -23,7 +23,7 @@ description: "Mat2 的自动生成类参考。"
 ### RotateCounterClockWise
 `public void RotateCounterClockWise(float a)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 RotateCounterClockWise 对应的操作。
+**用途 / Purpose:** 调用 RotateCounterClockWise 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat2 实例

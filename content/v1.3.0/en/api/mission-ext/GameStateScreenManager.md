@@ -23,7 +23,7 @@ Treat `GameStateScreenManager` as a Manager-style extension point: first identif
 ### CreateScreen
 `public ScreenBase CreateScreen(GameState state)`
 
-**Purpose:** **Purpose:** Constructs a new screen entity and returns it to the caller.
+**Purpose:** Constructs a new screen entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of GameStateScreenManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = gameStateScreenManager.CreateScreen(state);
 ### BuildScreens
 `public void BuildScreens()`
 
-**Purpose:** **Purpose:** Assembles and returns the built result for screens.
+**Purpose:** Assembles and returns the built result for screens.
 
 ```csharp
 // Obtain an instance of GameStateScreenManager from the subsystem API first

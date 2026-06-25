@@ -23,7 +23,7 @@ description: "Number 的自动生成类参考。"
 ### GetBetween
 `public IEnumerable<LordConversationsCampaignBehavior.Number> GetBetween(int start, int end)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 between 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 between 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Number 实例

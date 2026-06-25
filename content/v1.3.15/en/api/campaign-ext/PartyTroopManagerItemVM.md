@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
+**Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerItemVM from the subsystem API first
@@ -44,7 +44,7 @@ partyTroopManagerItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
+**Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerItemVM from the subsystem API first
@@ -55,7 +55,7 @@ partyTroopManagerItemVM.ExecuteSetUnfocused();
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with open troop encyclopedia.
+**Purpose:** Runs the operation or workflow associated with open troop encyclopedia.
 
 ```csharp
 // Obtain an instance of PartyTroopManagerItemVM from the subsystem API first

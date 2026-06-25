@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetHandle
 `public static GCHandle GetHandle()`
 
-**Purpose:** **Purpose:** Reads and returns the handle value held by the this instance.
+**Purpose:** Reads and returns the handle value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GCHandleFactory.GetHandle();
 ### ReturnHandle
 `public static void ReturnHandle(GCHandle handle)`
 
-**Purpose:** **Purpose:** Executes the ReturnHandle logic.
+**Purpose:** Executes the ReturnHandle logic.
 
 ```csharp
 // Static call; no instance required

@@ -44,7 +44,7 @@ description: "Theme 的自动生成类参考。"
 ### ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred
 `public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)`
 
-**用途 / Purpose:** **用途 / Purpose:** 把playcount vs random weighting to boolean playcount preferred转换为另一种表示或类型。
+**用途 / Purpose:** 把playcount vs random weighting to boolean playcount preferred转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ Theme.ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(0);
 ### GetClassString
 `public override string GetClassString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 class string 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 class string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -65,7 +65,7 @@ var result = theme.GetClassString();
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 children 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 children 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -76,7 +76,7 @@ var result = theme.GetChildren();
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parent 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 parent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -87,7 +87,7 @@ var result = theme.GetParent();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -98,7 +98,7 @@ var result = theme.ToString();
 ### AddGroup
 `public bool AddGroup(Group groupToAdd)`
 
-**用途 / Purpose:** **用途 / Purpose:** 将 group 添加到当前容器或状态中。
+**用途 / Purpose:** 将 group 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -109,7 +109,7 @@ var result = theme.AddGroup(groupToAdd);
 ### DeleteGroup
 `public void DeleteGroup(Group group)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteGroup 对应的操作。
+**用途 / Purpose:** 调用 DeleteGroup 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -120,7 +120,7 @@ theme.DeleteGroup(group);
 ### GetSegmentsOfAllGroups
 `public HashSet<Segment> GetSegmentsOfAllGroups()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 segments of all groups 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 segments of all groups 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -131,7 +131,7 @@ var result = theme.GetSegmentsOfAllGroups();
 ### GetAudioDataRelativeFilePathsUsedByThisTheme
 `public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 audio data relative file paths used by this theme 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 audio data relative file paths used by this theme 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -142,7 +142,7 @@ var result = theme.GetAudioDataRelativeFilePathsUsedByThisTheme();
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compatibility setting 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 compatibility setting 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -153,7 +153,7 @@ var result = theme.GetCompatibilitySetting(targetEntity);
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compatibility type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 compatibility type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -164,7 +164,7 @@ var result = theme.GetCompatibilityType(targetEntity, reason);
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index position within parent entity 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 index position within parent entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -175,7 +175,7 @@ var result = theme.GetIndexPositionWithinParentEntity(parentProject);
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyDifferencesAffectCompatibilities 对应的操作。
+**用途 / Purpose:** 调用 PropertyDifferencesAffectCompatibilities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -186,7 +186,7 @@ var result = theme.PropertyDifferencesAffectCompatibilities(otherEntity);
 ### SetAsParentThemeForAllGroupsAndSegments
 `public void SetAsParentThemeForAllGroupsAndSegments()`
 
-**用途 / Purpose:** **用途 / Purpose:** 为 as parent theme for all groups and segments 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** 为 as parent theme for all groups and segments 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -197,7 +197,7 @@ theme.SetAsParentThemeForAllGroupsAndSegments();
 ### CreatePsaiDotNetVersion
 `public Theme CreatePsaiDotNetVersion()`
 
-**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 psai dot net version 实体并返回给调用方。
+**用途 / Purpose:** 构建一个新的 psai dot net version 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -208,7 +208,7 @@ var result = theme.CreatePsaiDotNetVersion();
 ### getTestTheme1
 `public static Theme getTestTheme1()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 getTestTheme1 对应的操作。
+**用途 / Purpose:** 调用 getTestTheme1 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -218,7 +218,7 @@ Theme.getTestTheme1();
 ### getTestTheme2
 `public static Theme getTestTheme2()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 getTestTheme2 对应的操作。
+**用途 / Purpose:** 调用 getTestTheme2 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -228,7 +228,7 @@ Theme.getTestTheme2();
 ### Clone
 `public override object Clone()`
 
-**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -239,7 +239,7 @@ var result = theme.Clone();
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 ShallowCopy 对应的操作。
+**用途 / Purpose:** 调用 ShallowCopy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders` to place it in
 ### IsAvailable
 `public override bool IsAvailable()`
 
-**Purpose:** **Purpose:** Determines whether the this instance is in the available state or condition.
+**Purpose:** Determines whether the this instance is in the available state or condition.
 
 ```csharp
 // Obtain an instance of DefaultVisualOrderProvider from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultVisualOrderProvider.IsAvailable();
 ### GetOrders
 `public override MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** **Purpose:** Reads and returns the orders value held by the this instance.
+**Purpose:** Reads and returns the orders value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultVisualOrderProvider from the subsystem API first

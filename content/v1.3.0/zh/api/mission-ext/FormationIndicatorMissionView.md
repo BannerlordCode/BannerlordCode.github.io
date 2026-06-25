@@ -23,7 +23,7 @@ description: "FormationIndicatorMissionView 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
+**用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationIndicatorMissionView 实例
@@ -34,7 +34,7 @@ formationIndicatorMissionView.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
+**用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationIndicatorMissionView 实例
@@ -45,7 +45,7 @@ formationIndicatorMissionView.OnMissionScreenTick(0);
 ### DetermineIndicatorState
 `public void DetermineIndicatorState(float dt, Vec3 position)`
 
-**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定indicator state的结果。
+**用途 / Purpose:** 根据当前状态判定indicator state的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationIndicatorMissionView 实例

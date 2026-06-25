@@ -23,7 +23,7 @@ Treat `DefaultPartyTransitionModel` as a Model-style extension point: first iden
 ### GetFleetTravelTimeToSettlement
 `public override CampaignTime GetFleetTravelTimeToSettlement(MobileParty mobileParty, Settlement targetSettlement)`
 
-**Purpose:** **Purpose:** Reads and returns the fleet travel time to settlement value held by the this instance.
+**Purpose:** Reads and returns the fleet travel time to settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTransitionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyTransitionModel.GetFleetTravelTimeToSettlement(mobilePa
 ### GetTransitionTimeDisembarking
 `public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the transition time disembarking value held by the this instance.
+**Purpose:** Reads and returns the transition time disembarking value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTransitionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyTransitionModel.GetTransitionTimeDisembarking(mobilePar
 ### GetTransitionTimeForEmbarking
 `public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Reads and returns the transition time for embarking value held by the this instance.
+**Purpose:** Reads and returns the transition time for embarking value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyTransitionModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareUnits
 `public int CompareUnits(EncyclopediaListItem x, EncyclopediaListItem y, Func<CharacterObject, CharacterObject, int> comparison)`
 
-**Purpose:** **Purpose:** Compares two units objects and returns an ordering result.
+**Purpose:** Compares two units objects and returns an ordering result.
 
 ```csharp
 // Obtain an instance of EncyclopediaListUnitComparer from the subsystem API first

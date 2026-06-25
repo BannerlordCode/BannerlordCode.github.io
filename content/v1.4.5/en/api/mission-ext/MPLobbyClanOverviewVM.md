@@ -58,7 +58,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanOverviewVM from the subsystem API first
@@ -69,7 +69,7 @@ mPLobbyClanOverviewVM.RefreshValues();
 ### RefreshClanInformation
 `public async Task RefreshClanInformation(ClanHomeInfo info)`
 
-**Purpose:** **Purpose:** Keeps the display or cache of clan information in sync with the underlying state.
+**Purpose:** Keeps the display or cache of clan information in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanOverviewVM from the subsystem API first

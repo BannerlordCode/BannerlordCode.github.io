@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** **Purpose:** Executes the EarlyStart logic.
+**Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionBoundaryPlacer from the subsystem API first
@@ -34,7 +34,7 @@ missionBoundaryPlacer.EarlyStart();
 ### AddMissionBoundaries
 `public void AddMissionBoundaries()`
 
-**Purpose:** **Purpose:** Adds mission boundaries to the current collection or state.
+**Purpose:** Adds mission boundaries to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionBoundaryPlacer from the subsystem API first

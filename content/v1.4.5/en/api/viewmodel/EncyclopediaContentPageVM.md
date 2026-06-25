@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### EncyclopediaContentPageVM
 `public class EncyclopediaContentPageVM(EncyclopediaPageArgs args)`
 
-**Purpose:** **Purpose:** Executes the EncyclopediaContentPageVM logic.
+**Purpose:** Executes the EncyclopediaContentPageVM logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
@@ -45,7 +45,7 @@ var result = encyclopediaContentPageVM.EncyclopediaContentPageVM(args);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
@@ -56,7 +56,7 @@ encyclopediaContentPageVM.RefreshValues();
 ### InitializeQuickNavigation
 `public void InitializeQuickNavigation(EncyclopediaListVM list)`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by quick navigation.
+**Purpose:** Prepares the resources, state, or bindings required by quick navigation.
 
 ```csharp
 // Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
@@ -67,7 +67,7 @@ encyclopediaContentPageVM.InitializeQuickNavigation(list);
 ### ExecuteGoToNextItem
 `public void ExecuteGoToNextItem()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with go to next item.
+**Purpose:** Runs the operation or workflow associated with go to next item.
 
 ```csharp
 // Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
@@ -78,7 +78,7 @@ encyclopediaContentPageVM.ExecuteGoToNextItem();
 ### ExecuteGoToPreviousItem
 `public void ExecuteGoToPreviousItem()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with go to previous item.
+**Purpose:** Runs the operation or workflow associated with go to previous item.
 
 ```csharp
 // Obtain an instance of EncyclopediaContentPageVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionSiegeWeaponsController 的自动生成类参考。"
 ### GetMaxDeployableWeaponCount
 `public int GetMaxDeployableWeaponCount(Type t)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max deployable weapon count 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 max deployable weapon count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
@@ -34,7 +34,7 @@ var result = missionSiegeWeaponsController.GetMaxDeployableWeaponCount(t);
 ### GetSiegeWeapons
 `public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege weapons 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 siege weapons 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
@@ -45,7 +45,7 @@ var result = missionSiegeWeaponsController.GetSiegeWeapons();
 ### OnWeaponDeployed
 `public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon deployed 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon deployed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
@@ -56,7 +56,7 @@ missionSiegeWeaponsController.OnWeaponDeployed(missionWeapon);
 ### OnWeaponUndeployed
 `public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 在 weapon undeployed 事件触发时调用此回调。
+**用途 / Purpose:** 在 weapon undeployed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
@@ -67,7 +67,7 @@ missionSiegeWeaponsController.OnWeaponUndeployed(missionWeapon);
 ### GetWeaponType
 `public static Type GetWeaponType(ScriptComponentBehavior weapon)`
 
-**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon type 的结果。
+**用途 / Purpose:** 读取并返回当前对象中 weapon type 的结果。
 
 ```csharp
 // 静态调用，不需要实例

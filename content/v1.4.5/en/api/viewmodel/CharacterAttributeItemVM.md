@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first
@@ -51,7 +51,7 @@ characterAttributeItemVM.RefreshValues();
 ### ExecuteInspectAttribute
 `public void ExecuteInspectAttribute()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with inspect attribute.
+**Purpose:** Runs the operation or workflow associated with inspect attribute.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first
@@ -62,7 +62,7 @@ characterAttributeItemVM.ExecuteInspectAttribute();
 ### ExecuteAddAttributePoint
 `public void ExecuteAddAttributePoint()`
 
-**Purpose:** **Purpose:** Runs the operation or workflow associated with add attribute point.
+**Purpose:** Runs the operation or workflow associated with add attribute point.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first
@@ -73,7 +73,7 @@ characterAttributeItemVM.ExecuteAddAttributePoint();
 ### Reset
 `public void Reset()`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first
@@ -84,7 +84,7 @@ characterAttributeItemVM.Reset();
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**Purpose:** **Purpose:** Keeps the display or cache of with current values in sync with the underlying state.
+**Purpose:** Keeps the display or cache of with current values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first
@@ -95,7 +95,7 @@ characterAttributeItemVM.RefreshWithCurrentValues();
 ### Commit
 `public void Commit()`
 
-**Purpose:** **Purpose:** Executes the Commit logic.
+**Purpose:** Executes the Commit logic.
 
 ```csharp
 // Obtain an instance of CharacterAttributeItemVM from the subsystem API first

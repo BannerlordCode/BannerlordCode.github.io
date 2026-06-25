@@ -23,7 +23,7 @@ Treat `DefaultMobilePartyAIModel` as a Model-style extension point: first identi
 ### ShouldConsiderAttacking
 `public override bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** **Purpose:** Executes the ShouldConsiderAttacking logic.
+**Purpose:** Executes the ShouldConsiderAttacking logic.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultMobilePartyAIModel.ShouldConsiderAttacking(party, targetPart
 ### ShouldConsiderAvoiding
 `public override bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** **Purpose:** Executes the ShouldConsiderAvoiding logic.
+**Purpose:** Executes the ShouldConsiderAvoiding logic.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultMobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty
 ### GetPatrolRadius
 `public override float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**Purpose:** **Purpose:** Reads and returns the patrol radius value held by the this instance.
+**Purpose:** Reads and returns the patrol radius value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultMobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint)
 ### GetSettlementNearbyThreatAndAllyCheckRadius
 `public override float GetSettlementNearbyThreatAndAllyCheckRadius(Settlement settlement, bool isPort)`
 
-**Purpose:** **Purpose:** Reads and returns the settlement nearby threat and ally check radius value held by the this instance.
+**Purpose:** Reads and returns the settlement nearby threat and ally check radius value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultMobilePartyAIModel.GetSettlementNearbyThreatAndAllyCheckRadi
 ### ShouldPartyCheckInitiativeBehavior
 `public override bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Executes the ShouldPartyCheckInitiativeBehavior logic.
+**Purpose:** Executes the ShouldPartyCheckInitiativeBehavior logic.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultMobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobile
 ### GetBestInitiativeBehavior
 `public override void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**Purpose:** **Purpose:** Reads and returns the best initiative behavior value held by the this instance.
+**Purpose:** Reads and returns the best initiative behavior value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first

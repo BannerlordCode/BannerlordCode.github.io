@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Reset
 `public void Reset(MobileParty mobileParty)`
 
-**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
+**Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first
@@ -34,7 +34,7 @@ partyThinkParams.Reset(mobileParty);
 ### Initialization
 `public void Initialization()`
 
-**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by ialization.
+**Purpose:** Prepares the resources, state, or bindings required by ialization.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first
@@ -45,7 +45,7 @@ partyThinkParams.Initialization();
 ### SetArmyMembers
 `public void SetArmyMembers(MBList<MobileParty> armyMembers)`
 
-**Purpose:** **Purpose:** Assigns a new value to army members and updates the object's internal state.
+**Purpose:** Assigns a new value to army members and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first
@@ -56,7 +56,7 @@ partyThinkParams.SetArmyMembers(armyMembers);
 ### TryGetBehaviorScore
 `public bool TryGetBehaviorScore(in AIBehaviorData aiBehaviorData, out float score)`
 
-**Purpose:** **Purpose:** Attempts to retrieve get behavior score, usually returning success through an out parameter.
+**Purpose:** Attempts to retrieve get behavior score, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first
@@ -67,7 +67,7 @@ var result = partyThinkParams.TryGetBehaviorScore(aiBehaviorData, score);
 ### SetBehaviorScore
 `public void SetBehaviorScore(in AIBehaviorData aiBehaviorData, float score)`
 
-**Purpose:** **Purpose:** Assigns a new value to behavior score and updates the object's internal state.
+**Purpose:** Assigns a new value to behavior score and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first
@@ -78,7 +78,7 @@ partyThinkParams.SetBehaviorScore(aiBehaviorData, 0);
 ### AddBehaviorScore
 `public void AddBehaviorScore(in (AIBehaviorData, float) value)`
 
-**Purpose:** **Purpose:** Adds behavior score to the current collection or state.
+**Purpose:** Adds behavior score to the current collection or state.
 
 ```csharp
 // Obtain an instance of PartyThinkParams from the subsystem API first

@@ -1,10 +1,13 @@
 {% extends "base.html" %}
+{% import "macros/breadcrumb.html" as breadcrumb %}
 
 {% block title %}{{ section.title | default(value=config.title) }}{% endblock %}
 {% block description %}{{ section.description | default(value=config.description) }}{% endblock %}
 
 {% block content %}
 <article>
+  {{ breadcrumb::render_breadcrumb(current_url=section.path, lang=lang) }}
+  {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
   {{ section.content | safe }}
 </article>
 <hr>

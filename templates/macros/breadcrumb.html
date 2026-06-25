@@ -1,0 +1,44 @@
+{%- macro render_breadcrumb(current_url, lang) -%}
+  {%- set nav = load_data(path="data/navigation.json") -%}
+
+  {%- set_global mapped_url = "/" -%}
+  {%- set_global matched_len = 1 -%}
+  {%- for key, node in nav.routes -%}
+    {%- if current_url is starting_with(key) and key | length > matched_len -%}
+      {%- set_global mapped_url = key -%}
+      {%- set_global matched_len = key | length -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- set_global crumb_keys = [] -%}
+  {%- set_global crumb_key = mapped_url -%}
+  {%- for _ in range(end=10) -%}
+    {%- if not (nav.routes[crumb_key] is defined) -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- if crumb_keys is containing(crumb_key) -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- set_global crumb_keys = crumb_keys | concat(with=[crumb_key]) -%}
+    {%- set node = nav.routes[crumb_key] -%}
+    {%- if node.parent -%}
+      {%- set_global crumb_key = node.parent -%}
+    {%- else -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- set ordered = crumb_keys | reverse -%}
+  {%- if ordered | length > 0 -%}
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      {%- for key in ordered -%}
+        {%- if not loop.last -%}
+          <a href="{{ key | safe }}">{{ nav.routes[key].label[lang] | default(value=key) }}</a>
+          <span aria-hidden="true"> → </span>
+        {%- else -%}
+          <span class="current">{{ nav.routes[key].label[lang] | default(value=key) }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
+{%- endmacro render_breadcrumb -%}

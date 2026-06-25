@@ -1,0 +1,1453 @@
+{
+  "schema_version": "1.0.0",
+  "meta": {
+    "description": "Tree-structured navigation schema for the Bannerlord Modding Wiki.",
+    "versions": [
+      "v1.3.15",
+      "v1.3.0",
+      "v1.4.5"
+    ],
+    "languages": [
+      "zh",
+      "en"
+    ],
+    "generated": "2026-06-25T02:05:02.810Z"
+  },
+  "groups": {
+    "start": {
+      "order": 10,
+      "collapsed": false,
+      "label": {
+        "zh": "开始",
+        "en": "Start"
+      }
+    },
+    "guide": {
+      "order": 20,
+      "collapsed": false,
+      "label": {
+        "zh": "指南",
+        "en": "Guide"
+      }
+    },
+    "architecture": {
+      "order": 30,
+      "collapsed": false,
+      "label": {
+        "zh": "架构",
+        "en": "Architecture"
+      }
+    },
+    "api": {
+      "order": 40,
+      "collapsed": false,
+      "label": {
+        "zh": "API 参考",
+        "en": "API Reference"
+      }
+    },
+    "native": {
+      "order": 50,
+      "collapsed": true,
+      "label": {
+        "zh": "原生",
+        "en": "Native"
+      }
+    },
+    "xml": {
+      "order": 60,
+      "collapsed": true,
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference"
+      }
+    },
+    "cross-version": {
+      "order": 70,
+      "collapsed": false,
+      "label": {
+        "zh": "跨版本",
+        "en": "Cross-Version"
+      }
+    }
+  },
+  "roots": [
+    "/",
+    "/versions/"
+  ],
+  "routes": {
+    "/": {
+      "label": {
+        "zh": "首页",
+        "en": "Home"
+      },
+      "group": null,
+      "collapsed": false,
+      "order": 0,
+      "parent": null,
+      "children": [
+        "/v1.3.15/",
+        "/v1.3.0/",
+        "/v1.4.5/",
+        "/versions/"
+      ]
+    },
+    "/v1.3.15/": {
+      "label": {
+        "zh": "Bannerlord v1.3.15 文档",
+        "en": "Bannerlord v1.3.15 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/",
+      "children": [
+        "/v1.3.15/zh/",
+        "/v1.3.15/en/"
+      ]
+    },
+    "/v1.3.15/zh/": {
+      "label": {
+        "zh": "Bannerlord v1.3.15 文档",
+        "en": "Bannerlord v1.3.15 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/",
+      "children": [
+        "/v1.3.15/zh/guide/",
+        "/v1.3.15/zh/architecture/",
+        "/v1.3.15/zh/api/",
+        "/v1.3.15/zh/native/",
+        "/v1.3.15/zh/native-1.3.15-src/",
+        "/v1.3.15/zh/xml-reference/"
+      ]
+    },
+    "/v1.3.15/zh/guide/": {
+      "label": {
+        "zh": "入门指南",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/": {
+      "label": {
+        "zh": "架构总览",
+        "en": "Architecture"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/": {
+      "label": {
+        "zh": "API 参考",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.15/zh/",
+      "children": [
+        "/v1.3.15/zh/api/core/",
+        "/v1.3.15/zh/api/core-extra/",
+        "/v1.3.15/zh/api/mission/",
+        "/v1.3.15/zh/api/mission-ext/",
+        "/v1.3.15/zh/api/items/",
+        "/v1.3.15/zh/api/campaign/",
+        "/v1.3.15/zh/api/campaign-ext/",
+        "/v1.3.15/zh/api/gui/",
+        "/v1.3.15/zh/api/save-system/",
+        "/v1.3.15/zh/api/viewmodel/",
+        "/v1.3.15/zh/api/localization/",
+        "/v1.3.15/zh/api/engine/"
+      ]
+    },
+    "/v1.3.15/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 战斗系统",
+        "en": "Mission"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/items/": {
+      "label": {
+        "zh": "Items 物品系统",
+        "en": "Items"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign/": {
+      "label": {
+        "zh": "Campaign 战役系统",
+        "en": "Campaign"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.15/zh/api/",
+      "children": [
+        "/v1.3.15/zh/api/campaign-ext/actions-index/"
+      ]
+    },
+    "/v1.3.15/zh/api/campaign-ext/actions-index/": {
+      "label": {
+        "zh": "Actions 速查 (61)",
+        "en": "Actions Reference (61)"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 7,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面系统",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/save-system/": {
+      "label": {
+        "zh": "Save-System 存档系统",
+        "en": "Save-System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/native/": {
+      "label": {
+        "zh": "原生接口",
+        "en": "Native Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/zh/native-1.3.15-src/": {
+      "label": {
+        "zh": "Native 1.3.15 源码参考",
+        "en": "Native 1.3.15 Source Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.15/zh/",
+      "children": []
+    },
+    "/v1.3.15/en/": {
+      "label": {
+        "zh": "Bannerlord v1.3.15 Documentation",
+        "en": "Bannerlord v1.3.15 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/",
+      "children": [
+        "/v1.3.15/en/guide/",
+        "/v1.3.15/en/architecture/",
+        "/v1.3.15/en/api/",
+        "/v1.3.15/en/native/",
+        "/v1.3.15/en/native-1.3.15-src/",
+        "/v1.3.15/en/xml-reference/"
+      ]
+    },
+    "/v1.3.15/en/guide/": {
+      "label": {
+        "zh": "Getting Started Guide",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/": {
+      "label": {
+        "zh": "Architecture",
+        "en": "Architecture"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.15/en/api/": {
+      "label": {
+        "zh": "API Reference",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.15/en/",
+      "children": [
+        "/v1.3.15/en/api/core/",
+        "/v1.3.15/en/api/core-extra/",
+        "/v1.3.15/en/api/mission/",
+        "/v1.3.15/en/api/mission-ext/",
+        "/v1.3.15/en/api/items/",
+        "/v1.3.15/en/api/campaign/",
+        "/v1.3.15/en/api/campaign-ext/",
+        "/v1.3.15/en/api/gui/",
+        "/v1.3.15/en/api/save-system/",
+        "/v1.3.15/en/api/viewmodel/",
+        "/v1.3.15/en/api/localization/",
+        "/v1.3.15/en/api/engine/"
+      ]
+    },
+    "/v1.3.15/en/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/mission/": {
+      "label": {
+        "zh": "Mission 战斗系统",
+        "en": "Mission"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/items/": {
+      "label": {
+        "zh": "Items 物品系统",
+        "en": "Items"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign/": {
+      "label": {
+        "zh": "Campaign 战役系统",
+        "en": "Campaign"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.15/en/api/",
+      "children": [
+        "/v1.3.15/en/api/campaign-ext/actions-index/"
+      ]
+    },
+    "/v1.3.15/en/api/campaign-ext/actions-index/": {
+      "label": {
+        "zh": "Actions 速查 (61)",
+        "en": "Actions Reference (61)"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 7,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/gui/": {
+      "label": {
+        "zh": "GUI 界面系统",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/save-system/": {
+      "label": {
+        "zh": "Save-System 存档系统",
+        "en": "Save-System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/native/": {
+      "label": {
+        "zh": "Native Reference",
+        "en": "Native Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.15/en/native-1.3.15-src/": {
+      "label": {
+        "zh": "Native 1.3.15 Source Reference",
+        "en": "Native 1.3.15 Source Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.15/en/xml-reference/": {
+      "label": {
+        "zh": "XML Reference",
+        "en": "XML Reference"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.15/en/",
+      "children": []
+    },
+    "/v1.3.0/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 文档",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/",
+      "children": [
+        "/v1.3.0/zh/",
+        "/v1.3.0/en/"
+      ]
+    },
+    "/v1.3.0/zh/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 文档",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/",
+      "children": [
+        "/v1.3.0/zh/guide/",
+        "/v1.3.0/zh/architecture/",
+        "/v1.3.0/zh/api/",
+        "/v1.3.0/zh/native/",
+        "/v1.3.0/zh/xml-reference/"
+      ]
+    },
+    "/v1.3.0/zh/guide/": {
+      "label": {
+        "zh": "入门指南",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/architecture/": {
+      "label": {
+        "zh": "架构",
+        "en": "Architecture (v1.3.0)"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/": {
+      "label": {
+        "zh": "API 参考",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.0/zh/",
+      "children": [
+        "/v1.3.0/zh/api/core/",
+        "/v1.3.0/zh/api/core-extra/",
+        "/v1.3.0/zh/api/mission/",
+        "/v1.3.0/zh/api/mission-ext/",
+        "/v1.3.0/zh/api/campaign/",
+        "/v1.3.0/zh/api/campaign-ext/",
+        "/v1.3.0/zh/api/gui/",
+        "/v1.3.0/zh/api/viewmodel/",
+        "/v1.3.0/zh/api/localization/",
+        "/v1.3.0/zh/api/engine/",
+        "/v1.3.0/zh/api/gameplay/",
+        "/v1.3.0/zh/api/system/"
+      ]
+    },
+    "/v1.3.0/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心 (v1.3.0)",
+        "en": "Core 核心 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra 核心扩展"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 任务 (v1.3.0)",
+        "en": "Mission 任务 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign/": {
+      "label": {
+        "zh": "Campaign 战役 (v1.3.0)",
+        "en": "Campaign 战役 (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面",
+        "en": "GUI 界面"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 视图模型",
+        "en": "ViewModel 视图模型"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization 本地化"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay 玩法模块",
+        "en": "Gameplay 玩法模块"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System 系统层"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.0/zh/api/",
+      "children": []
+    },
+    "/v1.3.0/zh/native/": {
+      "label": {
+        "zh": "原生接口",
+        "en": "Native Interface (v1.3.0)"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference (v1.3.0)"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/zh/",
+      "children": []
+    },
+    "/v1.3.0/en/": {
+      "label": {
+        "zh": "Bannerlord v1.3.0 Documentation",
+        "en": "Bannerlord v1.3.0 Documentation"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/",
+      "children": [
+        "/v1.3.0/en/guide/",
+        "/v1.3.0/en/architecture/",
+        "/v1.3.0/en/api/",
+        "/v1.3.0/en/native/",
+        "/v1.3.0/en/xml-reference/"
+      ]
+    },
+    "/v1.3.0/en/guide/": {
+      "label": {
+        "zh": "Getting Started Guide",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/architecture/": {
+      "label": {
+        "zh": "Architecture (v1.3.0)",
+        "en": "Architecture (v1.3.0)"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/api/": {
+      "label": {
+        "zh": "API Reference",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.0/en/",
+      "children": [
+        "/v1.3.0/en/api/core/",
+        "/v1.3.0/en/api/core-extra/",
+        "/v1.3.0/en/api/mission/",
+        "/v1.3.0/en/api/mission-ext/",
+        "/v1.3.0/en/api/campaign/",
+        "/v1.3.0/en/api/campaign-ext/",
+        "/v1.3.0/en/api/gui/",
+        "/v1.3.0/en/api/viewmodel/",
+        "/v1.3.0/en/api/localization/",
+        "/v1.3.0/en/api/engine/",
+        "/v1.3.0/en/api/gameplay/",
+        "/v1.3.0/en/api/system/"
+      ]
+    },
+    "/v1.3.0/en/api/core/": {
+      "label": {
+        "zh": "Core (v1.3.0)",
+        "en": "Core (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission/": {
+      "label": {
+        "zh": "Mission (v1.3.0)",
+        "en": "Mission (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign/": {
+      "label": {
+        "zh": "Campaign (v1.3.0)",
+        "en": "Campaign (v1.3.0)"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gui/": {
+      "label": {
+        "zh": "GUI",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/localization/": {
+      "label": {
+        "zh": "Localization",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/engine/": {
+      "label": {
+        "zh": "Engine",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay",
+        "en": "Gameplay"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/api/system/": {
+      "label": {
+        "zh": "System",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.3.0/en/api/",
+      "children": []
+    },
+    "/v1.3.0/en/native/": {
+      "label": {
+        "zh": "Native Interface (v1.3.0)",
+        "en": "Native Interface (v1.3.0)"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.3.0/en/xml-reference/": {
+      "label": {
+        "zh": "XML Reference (v1.3.0)",
+        "en": "XML Reference (v1.3.0)"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.3.0/en/",
+      "children": []
+    },
+    "/v1.4.5/": {
+      "label": {
+        "zh": "Bannerlord v1.4.5",
+        "en": "Bannerlord v1.4.5"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/",
+      "children": [
+        "/v1.4.5/zh/",
+        "/v1.4.5/en/"
+      ]
+    },
+    "/v1.4.5/zh/": {
+      "label": {
+        "zh": "Bannerlord v1.4.5",
+        "en": "Bannerlord v1.4.5"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/",
+      "children": [
+        "/v1.4.5/zh/architecture/",
+        "/v1.4.5/zh/api/"
+      ]
+    },
+    "/v1.4.5/zh/architecture/": {
+      "label": {
+        "zh": "v1.4.5 架构总览",
+        "en": "Architecture"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/": {
+      "label": {
+        "zh": "API 参考",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.4.5/zh/",
+      "children": [
+        "/v1.4.5/zh/api/core/",
+        "/v1.4.5/zh/api/core-extra/",
+        "/v1.4.5/zh/api/mission/",
+        "/v1.4.5/zh/api/mission-ext/",
+        "/v1.4.5/zh/api/campaign/",
+        "/v1.4.5/zh/api/campaign-ext/",
+        "/v1.4.5/zh/api/gui/",
+        "/v1.4.5/zh/api/save-system/",
+        "/v1.4.5/zh/api/viewmodel/",
+        "/v1.4.5/zh/api/localization/",
+        "/v1.4.5/zh/api/engine/",
+        "/v1.4.5/zh/api/gameplay/",
+        "/v1.4.5/zh/api/system/"
+      ]
+    },
+    "/v1.4.5/zh/api/core/": {
+      "label": {
+        "zh": "Core 核心",
+        "en": "Core 核心"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra 核心扩展",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission/": {
+      "label": {
+        "zh": "Mission 任务系统",
+        "en": "Mission 任务系统"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext 战斗扩展",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign/": {
+      "label": {
+        "zh": "Campaign 战役系统",
+        "en": "Campaign 战役系统"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext 战役扩展",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gui/": {
+      "label": {
+        "zh": "GUI 界面",
+        "en": "GUI 界面"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/save-system/": {
+      "label": {
+        "zh": "Save System 存档系统",
+        "en": "Save System 存档系统"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel 数据视图模型",
+        "en": "ViewModel 数据视图模型"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/localization/": {
+      "label": {
+        "zh": "Localization 本地化",
+        "en": "Localization 本地化"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/engine/": {
+      "label": {
+        "zh": "Engine 引擎",
+        "en": "Engine 引擎"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay 玩法模块",
+        "en": "Gameplay 玩法模块"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/zh/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System 系统层"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
+      "parent": "/v1.4.5/zh/api/",
+      "children": []
+    },
+    "/v1.4.5/en/": {
+      "label": {
+        "zh": "Bannerlord v1.4.5",
+        "en": "Bannerlord v1.4.5"
+      },
+      "group": "start",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.4.5/",
+      "children": [
+        "/v1.4.5/en/architecture/",
+        "/v1.4.5/en/api/"
+      ]
+    },
+    "/v1.4.5/en/architecture/": {
+      "label": {
+        "zh": "v1.4.5 Architecture",
+        "en": "v1.4.5 Architecture"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/",
+      "children": []
+    },
+    "/v1.4.5/en/api/": {
+      "label": {
+        "zh": "API Reference",
+        "en": "API Reference"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.4.5/en/",
+      "children": [
+        "/v1.4.5/en/api/core/",
+        "/v1.4.5/en/api/core-extra/",
+        "/v1.4.5/en/api/mission/",
+        "/v1.4.5/en/api/mission-ext/",
+        "/v1.4.5/en/api/campaign/",
+        "/v1.4.5/en/api/campaign-ext/",
+        "/v1.4.5/en/api/gui/",
+        "/v1.4.5/en/api/save-system/",
+        "/v1.4.5/en/api/viewmodel/",
+        "/v1.4.5/en/api/localization/",
+        "/v1.4.5/en/api/engine/",
+        "/v1.4.5/en/api/gameplay/",
+        "/v1.4.5/en/api/system/"
+      ]
+    },
+    "/v1.4.5/en/api/core/": {
+      "label": {
+        "zh": "Core",
+        "en": "Core"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 0,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/core-extra/": {
+      "label": {
+        "zh": "Core-Extra",
+        "en": "Core-Extra"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 1,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/mission/": {
+      "label": {
+        "zh": "Mission",
+        "en": "Mission"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 2,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/mission-ext/": {
+      "label": {
+        "zh": "Mission-Ext",
+        "en": "Mission-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/campaign/": {
+      "label": {
+        "zh": "Campaign",
+        "en": "Campaign"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 4,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/campaign-ext/": {
+      "label": {
+        "zh": "Campaign-Ext",
+        "en": "Campaign-Ext"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/gui/": {
+      "label": {
+        "zh": "GUI",
+        "en": "GUI"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 6,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/save-system/": {
+      "label": {
+        "zh": "Save System",
+        "en": "Save System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 7,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/viewmodel/": {
+      "label": {
+        "zh": "ViewModel",
+        "en": "ViewModel"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 8,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/localization/": {
+      "label": {
+        "zh": "Localization",
+        "en": "Localization"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 9,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/engine/": {
+      "label": {
+        "zh": "Engine",
+        "en": "Engine"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 10,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/gameplay/": {
+      "label": {
+        "zh": "Gameplay",
+        "en": "Gameplay"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 11,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/v1.4.5/en/api/system/": {
+      "label": {
+        "zh": "System",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
+      "parent": "/v1.4.5/en/api/",
+      "children": []
+    },
+    "/versions/": {
+      "label": {
+        "zh": "跨版本类对比",
+        "en": "Cross-Version Class Comparison"
+      },
+      "group": "cross-version",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/",
+      "children": []
+    }
+  }
+}

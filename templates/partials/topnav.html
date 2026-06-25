@@ -1,61 +1,145 @@
-<div class="menu" role="menubar">
-  <a href="{{ get_url(path='@/_index.md') }}">首页 Home</a>
+{%- set nav = load_data(path="data/navigation.json") -%}
+{%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
+{%- set path_parts = current_url | split(pat="/") -%}
+{%- set current_version = path_parts | nth(n=1) | default(value="") -%}
+{%- if not (nav.meta.versions is containing(current_version)) -%}
+  {%- set current_version = "v1.3.15" -%}
+{%- endif -%}
 
-  <details class="dropdown">
-    <summary>指南 Guide</summary>
-    <div class="dropdown-menu">
-      <a href="{{ get_url(path='@/v1.3.15/zh/guide/_index.md') }}">v1.3.15 中文</a>
-      <a href="{{ get_url(path='@/v1.3.15/en/guide/_index.md') }}">v1.3.15 English</a>
-      <a href="{{ get_url(path='@/v1.3.0/zh/guide/_index.md') }}">v1.3.0 中文</a>
-      <a href="{{ get_url(path='@/v1.3.0/en/guide/_index.md') }}">v1.3.0 English</a>
-    </div>
-  </details>
+<nav class="top-nav">
+  <a class="brand" href="{{ get_url(path='@/_index.md') }}">
+    {%- if config.extra.logo %}
+    <img src="{{ config.extra.logo }}" alt="logo">
+    {%- endif %}
+    {{ config.title }}
+  </a>
+  <div class="menu" role="menubar">
+    <a href="{{ get_url(path='@/_index.md') }}" class="{%- if current_url == '/' %}active{% endif %}">
+      {{ nav.routes['/'].label[lang] | default(value="Home") }}
+    </a>
 
-  <details class="dropdown">
-    <summary>API</summary>
-    <div class="dropdown-menu">
-      <a href="{{ get_url(path='@/v1.4.5/zh/api/_index.md') }}">v1.4.5 中文</a>
-      <a href="{{ get_url(path='@/v1.4.5/en/api/_index.md') }}">v1.4.5 English</a>
-      <a href="{{ get_url(path='@/v1.3.15/zh/api/_index.md') }}">v1.3.15 中文</a>
-      <a href="{{ get_url(path='@/v1.3.15/en/api/_index.md') }}">v1.3.15 English</a>
-      <a href="{{ get_url(path='@/v1.3.0/zh/api/_index.md') }}">v1.3.0 中文</a>
-      <a href="{{ get_url(path='@/v1.3.0/en/api/_index.md') }}">v1.3.0 English</a>
-    </div>
-  </details>
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/guide/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/guide/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+              </a>
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
 
-  <details class="dropdown">
-    <summary>架构 Architecture</summary>
-    <div class="dropdown-menu">
-      <a href="{{ get_url(path='@/v1.4.5/zh/architecture/_index.md') }}">v1.4.5 架构总览</a>
-      <a href="{{ get_url(path='@/v1.4.5/en/architecture/_index.md') }}">v1.4.5 Architecture Overview</a>
-      <a href="{{ get_url(path='@/v1.3.15/zh/architecture/sdk-overview.md') }}">SDK 总览（中文）</a>
-      <a href="{{ get_url(path='@/v1.3.15/en/architecture/sdk-overview.md') }}">SDK Overview (EN)</a>
-      <a href="{{ get_url(path='@/v1.3.15/zh/architecture/version-delta.md') }}">版本差异 / Version Delta（中文）</a>
-      <a href="{{ get_url(path='@/versions/_index.md') }}">跨版本类对比 / Class Compare</a>
-    </div>
-  </details>
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/api/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/api/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+              </a>
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
 
-  <a href="{{ get_url(path='@/v1.3.15/zh/xml-reference/_index.md') }}">XML</a>
-  <a href="{{ get_url(path='@/v1.3.15/zh/native/_index.md') }}">原生 Native</a>
-  <a href="{{ get_url(path='@/v1.3.15/zh/native-1.3.15-src/_index.md') }}">Native 源码</a>
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/architecture/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/architecture/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+              </a>
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
 
-  <details class="dropdown">
-    <summary>版本 Version</summary>
-    <div class="dropdown-menu">
-      <a href="{{ get_url(path='@/v1.4.5/zh/_index.md') }}">v1.4.5（源码可用）中文</a>
-      <a href="{{ get_url(path='@/v1.4.5/en/_index.md') }}">v1.4.5 (source available) English</a>
-      <a href="{{ get_url(path='@/v1.3.15/zh/_index.md') }}">v1.3.15（最新）中文</a>
-      <a href="{{ get_url(path='@/v1.3.15/en/_index.md') }}">v1.3.15 (Latest) English</a>
-      <a href="{{ get_url(path='@/v1.3.0/zh/_index.md') }}">v1.3.0 中文</a>
-      <a href="{{ get_url(path='@/v1.3.0/en/_index.md') }}">v1.3.0 English</a>
-    </div>
-  </details>
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/native/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/native/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ version }} {% if lang_code == 'zh' %}原生{% else %}Native{% endif %}
+              </a>
+            {%- endif %}
+            {%- if version == 'v1.3.15' %}
+              {%- set src_key = "/" ~ version ~ "/" ~ lang_code ~ "/native-1.3.15-src/" -%}
+              {%- if nav.routes[src_key] is defined %}
+                <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/native-1.3.15-src/_index.md') }}"
+                   class="{%- if current_url is starting_with(src_key) %}active{% endif %}">
+                  {{ version }} {% if lang_code == 'zh' %}Native 源码{% else %}Native Source{% endif %}
+                </a>
+              {%- endif %}
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
 
-  <details class="dropdown">
-    <summary>语言 Language</summary>
-    <div class="dropdown-menu">
-      <a href="{{ get_url(path='@/v1.3.15/zh/_index.md') }}">中文</a>
-      <a href="{{ get_url(path='@/v1.3.15/en/_index.md') }}">English</a>
-    </div>
-  </details>
-</div>
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/xml-reference/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/xml-reference/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ version }} {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+              </a>
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu">
+        {%- for version in nav.meta.versions %}
+          {%- for lang_code in nav.meta.languages %}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
+            {%- if nav.routes[route_key] is defined %}
+              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') }}"
+                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+                {{ nav.routes[route_key].label[lang] | default(value=version ~ ' ' ~ lang_code) }}
+              </a>
+            {%- endif %}
+          {%- endfor %}
+        {%- endfor %}
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        {%- for lang_code in nav.meta.languages %}
+          {%- set route_key = "/" ~ current_version ~ "/" ~ lang_code ~ "/" -%}
+          <a href="{{ get_url(path='@/' ~ current_version ~ '/' ~ lang_code ~ '/_index.md') }}"
+             class="{%- if current_url is starting_with(route_key) or lang == lang_code %}active{% endif %}">
+            {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+          </a>
+        {%- endfor %}
+      </div>
+    </details>
+  </div>
+</nav>

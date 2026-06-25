@@ -1,230 +1,106 @@
-{% macro render_tree(section, current_url, depth) %}
-  <div class="tree-level" style="padding-left: {{ depth * 0.6 }}rem;">
-    <a href="{{ section.permalink }}" class="{% if current_url == section.path %}active{% endif %}">
-      {{ section.title | default(value=section.components | last) }}
-    </a>
-    {%- for page in section.pages %}
-    <a href="{{ page.permalink }}" class="{% if current_url == page.path %}active{% endif %}">
-      {{ page.title | default(value=page.components | last) }}
-    </a>
-    {%- endfor %}
-    {%- for subsection_path in section.subsections %}
-    {%- set subsection = get_section(path=subsection_path) -%}
-    {{ sidebar::render_tree(section=subsection, current_url=current_url, depth=depth + 1) }}
-    {%- endfor %}
-  </div>
-{% endmacro %}
+{%- macro render_nav(current_url, lang) -%}
+  {%- set nav = load_data(path="data/navigation.json") -%}
 
-{% macro v1315_zh_sidebar(current_url) %}
-  <details class="group" open>
-    <summary>开始 Start</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/" class="{% if current_url == '/v1.3.15/zh/' %}active{% endif %}">概述 Index</a>
-    </div>
-  </details>
+  {%- set_global mapped_url = "/" -%}
+  {%- set_global matched_len = 1 -%}
+  {%- for key, node in nav.routes -%}
+    {%- if current_url is starting_with(key) and key | length > matched_len -%}
+      {%- set_global mapped_url = key -%}
+      {%- set_global matched_len = key | length -%}
+    {%- endif -%}
+  {%- endfor -%}
 
-  <details class="group" open>
-    <summary>指南 Guide</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/guide/" class="{% if current_url == '/v1.3.15/zh/guide/' %}active{% endif %}">概述 Index</a>
-      <a href="/v1.3.15/zh/guide/game-systems-overview" class="{% if current_url == '/v1.3.15/zh/guide/game-systems-overview' %}active{% endif %}">游戏系统概述 Systems</a>
-      <a href="/v1.3.15/zh/guide/gauntlet-ui" class="{% if current_url == '/v1.3.15/zh/guide/gauntlet-ui' %}active{% endif %}">Gauntlet UI 系统</a>
-      <a href="/v1.3.15/zh/guide/mission-system" class="{% if current_url == '/v1.3.15/zh/guide/mission-system' %}active{% endif %}">任务系统 Mission</a>
-      <a href="/v1.3.15/zh/guide/campaign-system" class="{% if current_url == '/v1.3.15/zh/guide/campaign-system' %}active{% endif %}">战役系统 Campaign</a>
-      <a href="/v1.3.15/zh/guide/save-system-guide" class="{% if current_url == '/v1.3.15/zh/guide/save-system-guide' %}active{% endif %}">存档系统 Save</a>
-      <a href="/v1.3.15/zh/guide/asset-pipeline" class="{% if current_url == '/v1.3.15/zh/guide/asset-pipeline' %}active{% endif %}">资源管线 Asset</a>
-      <a href="/v1.3.15/zh/guide/localization" class="{% if current_url == '/v1.3.15/zh/guide/localization' %}active{% endif %}">本地化 Localization</a>
-      <a href="/v1.3.15/zh/guide/common-patterns" class="{% if current_url == '/v1.3.15/zh/guide/common-patterns' %}active{% endif %}">常见模式 Patterns</a>
-      <a href="/v1.3.15/zh/guide/troubleshooting" class="{% if current_url == '/v1.3.15/zh/guide/troubleshooting' %}active{% endif %}">故障排除 Troubleshooting</a>
-    </div>
-  </details>
+  {%- set path_parts = current_url | split(pat="/") -%}
+  {%- set current_version = path_parts | nth(n=1) | default(value="") -%}
+  {%- if nav.meta.versions is containing(current_version) -%}
+    {%- set current_lang = path_parts | nth(n=2) | default(value=lang) -%}
+    {%- if not (nav.meta.languages is containing(current_lang)) -%}
+      {%- set current_lang = lang -%}
+    {%- endif -%}
+    {%- set root_key = "/" ~ current_version ~ "/" ~ current_lang ~ "/" -%}
+  {%- else -%}
+    {%- set root_key = "" -%}
+  {%- endif -%}
 
-  <details class="group" open>
-    <summary>架构 Architecture</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/architecture/" class="{% if current_url == '/v1.3.15/zh/architecture/' %}active{% endif %}">架构总览</a>
-      <a href="/v1.3.15/zh/architecture/sdk-overview" class="{% if current_url == '/v1.3.15/zh/architecture/sdk-overview' %}active{% endif %}">SDK 总览（模块地图）</a>
-      <a href="/v1.3.15/zh/architecture/module-system" class="{% if current_url == '/v1.3.15/zh/architecture/module-system' %}active{% endif %}">模块系统 Module System</a>
-      <a href="/v1.3.15/zh/architecture/save-system" class="{% if current_url == '/v1.3.15/zh/architecture/save-system' %}active{% endif %}">存档系统 Save System</a>
-      <a href="/v1.3.15/zh/architecture/version-delta" class="{% if current_url == '/v1.3.15/zh/architecture/version-delta' %}active{% endif %}">版本差异 Version Delta</a>
-    </div>
-  </details>
+  {%- if root_key and nav.routes[root_key] is defined -%}
+    {%- for group_key, group in nav.groups -%}
+      {%- set_global group_routes = [] -%}
+      {%- if group_key == "start" and nav.routes[root_key] is defined -%}
+        {%- set_global group_routes = group_routes | concat(with=[root_key]) -%}
+      {%- endif -%}
+      {%- if group_key == "cross-version" -%}
+        {%- if nav.routes["/versions/"] is defined -%}
+          {%- set_global group_routes = group_routes | concat(with=["/versions/"]) -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- for key, node in nav.routes -%}
+        {%- if node.parent == root_key and node.group == group_key -%}
+          {%- set_global group_routes = group_routes | concat(with=[key]) -%}
+        {%- endif -%}
+      {%- endfor -%}
 
-  <details class="group" open>
-    <summary>API 参考</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/api/" class="{% if current_url == '/v1.3.15/zh/api/' %}active{% endif %}">概述 Index</a>
-      <a href="/v1.3.15/zh/api/catalog" class="{% if current_url == '/v1.3.15/zh/api/catalog' %}active{% endif %}">完整类目表 (4819 类型)</a>
-      <details class="group">
-        <summary>目录按领域 Catalog by Area</summary>
-        <div class="group-items">
-          <a href="/v1.3.15/zh/api/catalog-campaign" class="{% if current_url == '/v1.3.15/zh/api/catalog-campaign' %}active{% endif %}">战役系统 Campaign</a>
-          <a href="/v1.3.15/zh/api/catalog-mountandblade" class="{% if current_url == '/v1.3.15/zh/api/catalog-mountandblade' %}active{% endif %}">战斗 Mount&Blade</a>
-          <a href="/v1.3.15/zh/api/catalog-core" class="{% if current_url == '/v1.3.15/zh/api/catalog-core' %}active{% endif %}">核心 Core</a>
-          <a href="/v1.3.15/zh/api/catalog-engine" class="{% if current_url == '/v1.3.15/zh/api/catalog-engine' %}active{% endif %}">引擎 Engine</a>
-          <a href="/v1.3.15/zh/api/catalog-library" class="{% if current_url == '/v1.3.15/zh/api/catalog-library' %}active{% endif %}">基础库 Library</a>
-          <a href="/v1.3.15/zh/api/catalog-ui" class="{% if current_url == '/v1.3.15/zh/api/catalog-ui' %}active{% endif %}">Gauntlet UI</a>
-          <a href="/v1.3.15/zh/api/catalog-save" class="{% if current_url == '/v1.3.15/zh/api/catalog-save' %}active{% endif %}">存档 Save</a>
-          <a href="/v1.3.15/zh/api/catalog-system" class="{% if current_url == '/v1.3.15/zh/api/catalog-system' %}active{% endif %}">网络/平台 System</a>
-          <a href="/v1.3.15/zh/api/catalog-localization" class="{% if current_url == '/v1.3.15/zh/api/catalog-localization' %}active{% endif %}">本地化 Localization</a>
-          <a href="/v1.3.15/zh/api/catalog-input" class="{% if current_url == '/v1.3.15/zh/api/catalog-input' %}active{% endif %}">输入 Input</a>
-          <a href="/v1.3.15/zh/api/catalog-other" class="{% if current_url == '/v1.3.15/zh/api/catalog-other' %}active{% endif %}">其它 Other</a>
-        </div>
-      </details>
-      <a href="/v1.3.15/zh/api/core/" class="{% if current_url == '/v1.3.15/zh/api/core/' %}active{% endif %}">Core 核心</a>
-      <a href="/v1.3.15/zh/api/core-extra/" class="{% if current_url == '/v1.3.15/zh/api/core-extra/' %}active{% endif %}">Core-Extra 核心扩展</a>
-      <a href="/v1.3.15/zh/api/mission/" class="{% if current_url == '/v1.3.15/zh/api/mission/' %}active{% endif %}">Mission 任务</a>
-      <a href="/v1.3.15/zh/api/mission-ext/" class="{% if current_url == '/v1.3.15/zh/api/mission-ext/' %}active{% endif %}">Mission-Ext 任务扩展</a>
-      <a href="/v1.3.15/zh/api/items/" class="{% if current_url == '/v1.3.15/zh/api/items/' %}active{% endif %}">Items 物品</a>
-      <a href="/v1.3.15/zh/api/campaign/" class="{% if current_url == '/v1.3.15/zh/api/campaign/' %}active{% endif %}">Campaign 战役</a>
-      <a href="/v1.3.15/zh/api/campaign-ext/" class="{% if current_url == '/v1.3.15/zh/api/campaign-ext/' %}active{% endif %}">Campaign-Ext 战役扩展</a>
-      <a href="/v1.3.15/zh/api/campaign-ext/actions-index" class="{% if current_url == '/v1.3.15/zh/api/campaign-ext/actions-index' %}active{% endif %}">Actions 速查 (61)</a>
-      <a href="/v1.3.15/zh/api/gui/" class="{% if current_url == '/v1.3.15/zh/api/gui/' %}active{% endif %}">GUI 界面</a>
-      <a href="/v1.3.15/zh/api/save-system/" class="{% if current_url == '/v1.3.15/zh/api/save-system/' %}active{% endif %}">Save-System 存档</a>
-      <a href="/v1.3.15/zh/api/viewmodel/" class="{% if current_url == '/v1.3.15/zh/api/viewmodel/' %}active{% endif %}">ViewModel</a>
-      <a href="/v1.3.15/zh/api/localization/" class="{% if current_url == '/v1.3.15/zh/api/localization/' %}active{% endif %}">Localization 本地化</a>
-      <a href="/v1.3.15/zh/api/engine/" class="{% if current_url == '/v1.3.15/zh/api/engine/' %}active{% endif %}">Engine 引擎</a>
-    </div>
-  </details>
+      {%- if group_routes | length > 0 -%}
+        {%- set_global group_active = false -%}
+        {%- for r in group_routes -%}
+          {%- if mapped_url == r -%}
+            {%- set_global group_active = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- set is_open = group_active or not group.collapsed -%}
+        <details class="group" {% if is_open %}open{% endif %}>
+          <summary>{{ group.label[lang] }}</summary>
+          <div class="group-items">
+            {%- for route_key in group_routes -%}
+              {%- set node = nav.routes[route_key] -%}
+              {%- set_global sub_routes = [] -%}
+              {%- for child_key in node.children -%}
+                {%- set child = nav.routes[child_key] -%}
+                {%- if child.group == group_key -%}
+                  {%- set_global sub_routes = sub_routes | concat(with=[child_key]) -%}
+                {%- endif -%}
+              {%- endfor -%}
 
-  <details class="group">
-    <summary>原生 Native</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/native/" class="{% if current_url == '/v1.3.15/zh/native/' %}active{% endif %}">P/Invoke 接口</a>
-      <a href="/v1.3.15/zh/native-1.3.15-src/" class="{% if current_url == '/v1.3.15/zh/native-1.3.15-src/' %}active{% endif %}">Native 1.3.15 源码</a>
-    </div>
-  </details>
-
-  <details class="group">
-    <summary>XML 参考</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/zh/xml-reference/" class="{% if current_url == '/v1.3.15/zh/xml-reference/' %}active{% endif %}">概述 Index</a>
-      <a href="/v1.3.15/zh/xml-reference/bugs" class="{% if current_url == '/v1.3.15/zh/xml-reference/bugs' %}active{% endif %}">Bug 分析 Bugs</a>
-    </div>
-  </details>
-
-  <details class="group" open>
-    <summary>跨版本导航</summary>
-    <div class="group-items">
-      <a href="/versions/" class="{% if current_url == '/versions/' %}active{% endif %}">跨版本类对比总览</a>
-      <a href="/versions/Hero" class="{% if current_url == '/versions/Hero' %}active{% endif %}">Hero</a>
-      <a href="/versions/MobileParty" class="{% if current_url == '/versions/MobileParty' %}active{% endif %}">MobileParty</a>
-      <a href="/versions/Clan" class="{% if current_url == '/versions/Clan' %}active{% endif %}">Clan</a>
-      <a href="/versions/Kingdom" class="{% if current_url == '/versions/Kingdom' %}active{% endif %}">Kingdom</a>
-      <a href="/versions/Mission" class="{% if current_url == '/versions/Mission' %}active{% endif %}">Mission</a>
-      <a href="/versions/Agent" class="{% if current_url == '/versions/Agent' %}active{% endif %}">Agent</a>
-      <a href="/versions/Formation" class="{% if current_url == '/versions/Formation' %}active{% endif %}">Formation</a>
-      <a href="/versions/Settlement" class="{% if current_url == '/versions/Settlement' %}active{% endif %}">Settlement</a>
-      <a href="/versions/ItemObject" class="{% if current_url == '/versions/ItemObject' %}active{% endif %}">ItemObject</a>
-      <a href="/v1.3.0/zh/" class="{% if current_url == '/v1.3.0/zh/' %}active{% endif %}">v1.3.0 文档</a>
-      <a href="/v1.4.5/zh/" class="{% if current_url == '/v1.4.5/zh/' %}active{% endif %}">v1.4.5 文档</a>
-    </div>
-  </details>
-{% endmacro %}
-
-{% macro v1315_en_sidebar(current_url) %}
-  <details class="group" open>
-    <summary>Start</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/" class="{% if current_url == '/v1.3.15/en/' %}active{% endif %}">Index</a>
-    </div>
-  </details>
-
-  <details class="group" open>
-    <summary>Guide</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/guide/" class="{% if current_url == '/v1.3.15/en/guide/' %}active{% endif %}">Index</a>
-      <a href="/v1.3.15/en/guide/game-systems-overview" class="{% if current_url == '/v1.3.15/en/guide/game-systems-overview' %}active{% endif %}">Game Systems Overview</a>
-      <a href="/v1.3.15/en/guide/gauntlet-ui" class="{% if current_url == '/v1.3.15/en/guide/gauntlet-ui' %}active{% endif %}">Gauntlet UI System</a>
-      <a href="/v1.3.15/en/guide/mission-system" class="{% if current_url == '/v1.3.15/en/guide/mission-system' %}active{% endif %}">Mission System</a>
-      <a href="/v1.3.15/en/guide/campaign-system" class="{% if current_url == '/v1.3.15/en/guide/campaign-system' %}active{% endif %}">Campaign System</a>
-      <a href="/v1.3.15/en/guide/save-system-guide" class="{% if current_url == '/v1.3.15/en/guide/save-system-guide' %}active{% endif %}">Save System</a>
-      <a href="/v1.3.15/en/guide/asset-pipeline" class="{% if current_url == '/v1.3.15/en/guide/asset-pipeline' %}active{% endif %}">Asset Pipeline</a>
-      <a href="/v1.3.15/en/guide/localization" class="{% if current_url == '/v1.3.15/en/guide/localization' %}active{% endif %}">Localization</a>
-      <a href="/v1.3.15/en/guide/common-patterns" class="{% if current_url == '/v1.3.15/en/guide/common-patterns' %}active{% endif %}">Common Patterns</a>
-      <a href="/v1.3.15/en/guide/troubleshooting" class="{% if current_url == '/v1.3.15/en/guide/troubleshooting' %}active{% endif %}">Troubleshooting</a>
-    </div>
-  </details>
-
-  <details class="group" open>
-    <summary>Architecture</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/architecture/" class="{% if current_url == '/v1.3.15/en/architecture/' %}active{% endif %}">Architecture Hub</a>
-      <a href="/v1.3.15/en/architecture/sdk-overview" class="{% if current_url == '/v1.3.15/en/architecture/sdk-overview' %}active{% endif %}">SDK Overview (module map)</a>
-      <a href="/v1.3.15/en/architecture/module-system" class="{% if current_url == '/v1.3.15/en/architecture/module-system' %}active{% endif %}">Module System</a>
-      <a href="/v1.3.15/en/architecture/save-system" class="{% if current_url == '/v1.3.15/en/architecture/save-system' %}active{% endif %}">Save System</a>
-      <a href="/v1.3.15/en/architecture/version-delta" class="{% if current_url == '/v1.3.15/en/architecture/version-delta' %}active{% endif %}">Version Delta</a>
-    </div>
-  </details>
-
-  <details class="group" open>
-    <summary>API Reference</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/api/" class="{% if current_url == '/v1.3.15/en/api/' %}active{% endif %}">Index</a>
-      <a href="/v1.3.15/en/api/catalog" class="{% if current_url == '/v1.3.15/en/api/catalog' %}active{% endif %}">Complete Class Catalog (4819 types)</a>
-      <details class="group">
-        <summary>Catalog by Area</summary>
-        <div class="group-items">
-          <a href="/v1.3.15/en/api/catalog-campaign" class="{% if current_url == '/v1.3.15/en/api/catalog-campaign' %}active{% endif %}">Campaign System</a>
-          <a href="/v1.3.15/en/api/catalog-mountandblade" class="{% if current_url == '/v1.3.15/en/api/catalog-mountandblade' %}active{% endif %}">Mount & Blade</a>
-          <a href="/v1.3.15/en/api/catalog-core" class="{% if current_url == '/v1.3.15/en/api/catalog-core' %}active{% endif %}">Core</a>
-          <a href="/v1.3.15/en/api/catalog-engine" class="{% if current_url == '/v1.3.15/en/api/catalog-engine' %}active{% endif %}">Engine</a>
-          <a href="/v1.3.15/en/api/catalog-library" class="{% if current_url == '/v1.3.15/en/api/catalog-library' %}active{% endif %}">Library</a>
-          <a href="/v1.3.15/en/api/catalog-ui" class="{% if current_url == '/v1.3.15/en/api/catalog-ui' %}active{% endif %}">Gauntlet UI</a>
-          <a href="/v1.3.15/en/api/catalog-save" class="{% if current_url == '/v1.3.15/en/api/catalog-save' %}active{% endif %}">Save System</a>
-          <a href="/v1.3.15/en/api/catalog-system" class="{% if current_url == '/v1.3.15/en/api/catalog-system' %}active{% endif %}">Network & Platform</a>
-          <a href="/v1.3.15/en/api/catalog-localization" class="{% if current_url == '/v1.3.15/en/api/catalog-localization' %}active{% endif %}">Localization</a>
-          <a href="/v1.3.15/en/api/catalog-input" class="{% if current_url == '/v1.3.15/en/api/catalog-input' %}active{% endif %}">Input</a>
-          <a href="/v1.3.15/en/api/catalog-other" class="{% if current_url == '/v1.3.15/en/api/catalog-other' %}active{% endif %}">Other</a>
-        </div>
-      </details>
-      <a href="/v1.3.15/en/api/core/" class="{% if current_url == '/v1.3.15/en/api/core/' %}active{% endif %}">Core</a>
-      <a href="/v1.3.15/en/api/core-extra/" class="{% if current_url == '/v1.3.15/en/api/core-extra/' %}active{% endif %}">Core-Extra</a>
-      <a href="/v1.3.15/en/api/mission/" class="{% if current_url == '/v1.3.15/en/api/mission/' %}active{% endif %}">Mission</a>
-      <a href="/v1.3.15/en/api/mission-ext/" class="{% if current_url == '/v1.3.15/en/api/mission-ext/' %}active{% endif %}">Mission-Ext</a>
-      <a href="/v1.3.15/en/api/items/" class="{% if current_url == '/v1.3.15/en/api/items/' %}active{% endif %}">Items</a>
-      <a href="/v1.3.15/en/api/campaign/" class="{% if current_url == '/v1.3.15/en/api/campaign/' %}active{% endif %}">Campaign</a>
-      <a href="/v1.3.15/en/api/campaign-ext/" class="{% if current_url == '/v1.3.15/en/api/campaign-ext/' %}active{% endif %}">Campaign-Ext</a>
-      <a href="/v1.3.15/en/api/campaign-ext/actions-index" class="{% if current_url == '/v1.3.15/en/api/campaign-ext/actions-index' %}active{% endif %}">Actions Reference (61)</a>
-      <a href="/v1.3.15/en/api/gui/" class="{% if current_url == '/v1.3.15/en/api/gui/' %}active{% endif %}">GUI</a>
-      <a href="/v1.3.15/en/api/save-system/" class="{% if current_url == '/v1.3.15/en/api/save-system/' %}active{% endif %}">Save-System</a>
-      <a href="/v1.3.15/en/api/viewmodel/" class="{% if current_url == '/v1.3.15/en/api/viewmodel/' %}active{% endif %}">ViewModel</a>
-      <a href="/v1.3.15/en/api/localization/" class="{% if current_url == '/v1.3.15/en/api/localization/' %}active{% endif %}">Localization</a>
-      <a href="/v1.3.15/en/api/engine/" class="{% if current_url == '/v1.3.15/en/api/engine/' %}active{% endif %}">Engine</a>
-    </div>
-  </details>
-
-  <details class="group">
-    <summary>Native</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/native/" class="{% if current_url == '/v1.3.15/en/native/' %}active{% endif %}">P/Invoke Interface</a>
-      <a href="/v1.3.15/en/native-1.3.15-src/" class="{% if current_url == '/v1.3.15/en/native-1.3.15-src/' %}active{% endif %}">Native 1.3.15 Source</a>
-    </div>
-  </details>
-
-  <details class="group">
-    <summary>XML Reference</summary>
-    <div class="group-items">
-      <a href="/v1.3.15/en/xml-reference/" class="{% if current_url == '/v1.3.15/en/xml-reference/' %}active{% endif %}">Index</a>
-      <a href="/v1.3.15/en/xml-reference/bugs" class="{% if current_url == '/v1.3.15/en/xml-reference/bugs' %}active{% endif %}">Bug Analysis</a>
-    </div>
-  </details>
-
-  <details class="group" open>
-    <summary>Cross-Version</summary>
-    <div class="group-items">
-      <a href="/versions/" class="{% if current_url == '/versions/' %}active{% endif %}">Cross-Version Class Compare</a>
-      <a href="/versions/Hero" class="{% if current_url == '/versions/Hero' %}active{% endif %}">Hero</a>
-      <a href="/versions/MobileParty" class="{% if current_url == '/versions/MobileParty' %}active{% endif %}">MobileParty</a>
-      <a href="/versions/Clan" class="{% if current_url == '/versions/Clan' %}active{% endif %}">Clan</a>
-      <a href="/versions/Kingdom" class="{% if current_url == '/versions/Kingdom' %}active{% endif %}">Kingdom</a>
-      <a href="/versions/Mission" class="{% if current_url == '/versions/Mission' %}active{% endif %}">Mission</a>
-      <a href="/versions/Agent" class="{% if current_url == '/versions/Agent' %}active{% endif %}">Agent</a>
-      <a href="/versions/Formation" class="{% if current_url == '/versions/Formation' %}active{% endif %}">Formation</a>
-      <a href="/versions/Settlement" class="{% if current_url == '/versions/Settlement' %}active{% endif %}">Settlement</a>
-      <a href="/versions/ItemObject" class="{% if current_url == '/versions/ItemObject' %}active{% endif %}">ItemObject</a>
-      <a href="/v1.3.0/en/" class="{% if current_url == '/v1.3.0/en/' %}active{% endif %}">v1.3.0 Docs</a>
-      <a href="/v1.4.5/en/" class="{% if current_url == '/v1.4.5/en/' %}active{% endif %}">v1.4.5 Docs</a>
-    </div>
-  </details>
-{% endmacro %}
+              {%- if sub_routes | length > 0 -%}
+                {%- set sub_open = not node.collapsed or (mapped_url is starting_with(route_key)) -%}
+                <details class="group" {% if sub_open %}open{% endif %}>
+                  <summary>{{ node.label[lang] }}</summary>
+                  <div class="group-items">
+                    <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">
+                      {%- if lang == 'zh' %}概述{% else %}Index{% endif -%}
+                    </a>
+                    {%- for child_key in sub_routes -%}
+                      {%- set child = nav.routes[child_key] -%}
+                      <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child.label[lang] }}</a>
+                    {%- endfor -%}
+                  </div>
+                </details>
+              {%- else -%}
+                <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ node.label[lang] }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    <details class="group" open>
+      <summary>{%- if lang == 'zh' %}站点导航{% else %}Site Navigation{% endif -%}</summary>
+      <div class="group-items">
+        {%- if nav.routes["/"] is defined -%}
+          <a href="{{ '/' | safe }}" class="{% if mapped_url == '/' %}active{% endif %}">{{ nav.routes["/"].label[lang] }}</a>
+        {%- endif -%}
+        {%- for version in nav.meta.versions -%}
+          {%- for lang_code in nav.meta.languages -%}
+            {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
+            {%- if nav.routes[route_key] is defined -%}
+              <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{{ nav.routes[route_key].label[lang] }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+        {%- if nav.routes["/versions/"] is defined -%}
+          <a href="{{ '/versions/' | safe }}" class="{% if mapped_url == '/versions/' %}active{% endif %}">{{ nav.routes["/versions/"].label[lang] }}</a>
+        {%- endif -%}
+      </div>
+    </details>
+  {%- endif -%}
+{%- endmacro render_nav -%}

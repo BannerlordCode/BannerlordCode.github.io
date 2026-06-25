@@ -1,10 +1,13 @@
 // tools/gen-version-pages.mjs
-// Regenerate docs/versions/*.md cross-version class-comparison pages from source.
-// Run from repo root: node BannerlordCode.github.io/tools/gen-version-pages.mjs
+// Regenerate content/versions/*.md cross-version class-comparison pages from source.
+// Run from repo root: node tools/gen-version-pages.mjs [--out content]
 import { writeFileSync, mkdirSync } from 'fs';
+import { join } from 'path';
 import { md, diffClass, nameSet } from './class-version-diff.mjs';
+import { REPO_ROOT, getArg } from './lib/paths.mjs';
 
-const OUT_DIR = 'BannerlordCode.github.io/docs/versions';
+const OUT = getArg('--out', 'content');
+const OUT_DIR = join(REPO_ROOT, OUT, 'versions');
 
 // Hand-curated, source-verified modder-impact notes (bilingual).
 // Keyed by class name. Updated when the tool reveals a new delta.

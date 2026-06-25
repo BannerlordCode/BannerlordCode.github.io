@@ -6,12 +6,14 @@
 //
 // Idempotent: uses a sentinel. Re-running updates stale blocks.
 //
-// Usage:  node tools/inject-crossversion-backlinks.mjs
+// Usage:  node tools/inject-crossversion-backlinks.mjs [--out content]
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'fs';
 import { join, dirname, sep } from 'path';
+import { REPO_ROOT, getArg } from './lib/paths.mjs';
 
-const docsRoot = join(import.meta.dirname, '..', 'docs');
+const OUT = getArg('--out', 'content');
+const docsRoot = join(REPO_ROOT, OUT);
 const versionsDir = join(docsRoot, 'versions');
 const versions = ['v1.3.0', 'v1.3.15', 'v1.4.5'];
 

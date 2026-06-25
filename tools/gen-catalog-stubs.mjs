@@ -1,14 +1,16 @@
 /* gen-catalog-stubs.mjs - Generate stub pages for undocumented types from catalog metadata.
    No source file lookup needed - uses catalog-*.md for type name, kind, namespace.
    Outputs zh + en stubs with breadcrumb navigation.
-   Usage: node BannerlordCode.github.io/tools/gen-catalog-stubs.mjs
+   Usage: node tools/gen-catalog-stubs.mjs [--ver 1.3.15] [--out content]
    Run from repo root.
 */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
+import { REPO_ROOT, getArg } from './lib/paths.mjs';
 
-const VER = process.argv[2] || '1.3.15';
-const DOCS = 'BannerlordCode.github.io/docs/v' + VER;
+const VER = getArg('--ver', '1.3.15');
+const OUT = getArg('--out', 'content');
+const DOCS = join(REPO_ROOT, OUT, 'v' + VER);
 const API_ZH = join(DOCS, 'zh', 'api');
 
 function parseCatalog(fileName) {

@@ -5,13 +5,15 @@
 // Idempotent: skips files already containing the breadcrumb sentinel.
 // Bilingual: zh and en variants with appropriate labels.
 //
-// Usage:  node tools/inject-breadcrumbs.mjs          # all versions/languages
-//          node tools/inject-breadcrumbs.mjs v1.3.15  # one version, both langs
+// Usage:  node tools/inject-breadcrumbs.mjs [--out content]          # all versions/languages
+//          node tools/inject-breadcrumbs.mjs [--out content] v1.3.15  # one version, both langs
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, dirname, basename, sep, relative } from 'path';
+import { REPO_ROOT, getArg, positionalArgs } from './lib/paths.mjs';
 
-const docsRoot = join(import.meta.dirname, '..', 'docs');
+const OUT = getArg('--out', 'content');
+const docsRoot = join(REPO_ROOT, OUT);
 const versionsRoot = join(docsRoot, 'versions');
 
 // ── Discover which classes have cross-version pages ──
@@ -24,7 +26,7 @@ if (existsSync(versionsRoot)) {
   }
 }
 
-const onlyVersion = process.argv[2]; // optional: 'v1.3.15'
+const onlyVersion = positionalArgs()[0]; // optional: 'v1.3.15'
 
 // ── Per-language labels ──
 const LABELS = {

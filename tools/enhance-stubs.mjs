@@ -1,16 +1,18 @@
 /* enhance-stubs.mjs - Add method/property signatures from source to stub files.
    Searches source files by TYPE NAME (not file name) to find declarations.
    Updates existing stub files with extracted signatures.
-   Usage: node BannerlordCode.github.io/tools/enhance-stubs.mjs
+   Usage: node tools/enhance-stubs.mjs [--ver 1.3.15] [--out content]
    Run from repo root.
 */
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'fs';
 import { basename, dirname, join } from 'path';
 import * as docFragments from './doc-fragments.mjs';
+import { REPO_ROOT, getArg } from './lib/paths.mjs';
 
-const VER = process.argv[2] || '1.3.15';
-const ROOT = 'bannerlord-' + VER;
-const DOCS = 'BannerlordCode.github.io/docs/v' + VER;
+const VER = getArg('--ver', '1.3.15');
+const OUT = getArg('--out', 'content');
+const ROOT = join(REPO_ROOT, '..', 'bannerlord-' + VER).replace(/\\/g, '/');
+const DOCS = join(REPO_ROOT, OUT, 'v' + VER);
 
 /* Walk all .cs files and build type name -> file path index */
 function buildTypeIndex() {

@@ -1,5 +1,5 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
-import { join, dirname, normalize, sep } from 'path';
+import { join, dirname, normalize, sep, posix } from 'path';
 
 const root = join(process.cwd(), 'content');
 const SLASH = '/';
@@ -13,45 +13,67 @@ function walk(dir, acc=[]) {
   return acc;
 }
 const reSep = new RegExp(sep === '\\' ? '\\\\' : sep, 'g');
+function toPosix(p) { return p.replace(reSep, SLASH); }
+function fileToRoute(f) {
+  const rel = toPosix(f).replace(toPosix(root) + SLASH, '');
+  const dir = posix.dirname(rel);
+  const base = posix.basename(rel);
+  if (base === '_index.md') return dir + SLASH;
+  return rel.replace(/\.md$/, SLASH);
+}
 const allFiles = walk(root);
-const files = allFiles.map(f => f.replace(root+sep,'').replace(reSep, SLASH));
+const files = allFiles.map(f => {
+  const rel = toPosix(f).replace(toPosix(root) + SLASH, '');
+  return { rel, route: fileToRoute(f) };
+});
 
 const linkRe = /\[([^\]]*)\]\(([^)\s]+)\)/g;
 const allLinks = [];
 for (const f of files) {
-  const txt = readFileSync(join(root,f),'utf8');
+  const txt = readFileSync(join(root, f.rel),'utf8');
   let m;
   while ((m = linkRe.exec(txt))) {
     let href = m[2].split(/\s/)[0];
     if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('#')) continue;
-    allLinks.push({from:f, href, text:m[1]});
+    allLinks.push({from:f.rel, route:f.route, href, text:m[1]});
   }
 }
 
-function resolveTarget(from, href) {
+function resolveTarget(fromFileDir, href) {
   let h = href.split('#')[0];
   if (!h) return null;
-  const base = dirname(from);
-  let target;
-  if (h.startsWith('/')) target = normalize(join(root, h.replace(/^\//,'')));
-  else target = normalize(join(root, base, h));
-  return target.replace(reSep, SLASH);
+  let rel;
+  if (h.startsWith(SLASH)) {
+    rel = h.replace(/^\//, '');
+  } else {
+    rel = posix.normalize(posix.join(fromFileDir, h)).replace(/^\//, '');
+  }
+  // Strip trailing slash so candidates like <target>.md resolve to the leaf file.
+  return normalize(join(root, rel)).replace(/[\\/]+$/, '');
+}
+
+function isSelfLink(hrefPath) {
+  return hrefPath === '' || hrefPath === '.' || hrefPath === './';
 }
 
 const broken = [];
 for (const l of allLinks) {
-  const t = resolveTarget(l.from, l.href);
+  const hrefPath = l.href.split('#')[0];
+  if (isSelfLink(hrefPath)) continue;
+  const fromFileDir = posix.dirname(l.from);
+  const t = resolveTarget(fromFileDir, l.href);
   if (t===null) continue;
   let found = false;
-  if (l.href.split('#')[0].endsWith('/')) {
-    // trailing-slash link: Zola sections use <dir>/_index.md
-    found = existsSync(t + SLASH + '_index.md') || existsSync(t.replace(/\/+$/,'') + SLASH + '_index.md');
-  } else {
-    const cands = [t, t+'.md', t+SLASH+'_index.md'];
-    const seen = new Set();
-    for (const c of cands) { if (seen.has(c)) continue; seen.add(c); if (existsSync(c)) { found=true; break; } }
+  // A Zola clean URL can point to either <path>.md (leaf) or <path>/_index.md (section).
+  const cands = [t + '.md', normalize(join(t, '_index.md'))];
+  const seen = new Set();
+  for (const c of cands) {
+    const norm = normalize(c);
+    if (seen.has(norm)) continue;
+    seen.add(norm);
+    if (existsSync(norm)) { found = true; break; }
   }
-  if (!found) broken.push(l);
+  if (!found) broken.push({...l, target:t});
 }
 
 console.log('FILES='+files.length);
